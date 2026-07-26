@@ -9,8 +9,19 @@ description = "Backend service for storing and querying ReIndex packages."
 requires-python = ">=3.12"
 readme = "README.md"
 dependencies = [
+    "duckdb>=1.2,<2",
     "fastapi>=0.136,<1",
+    "pgvector>=0.4,<1",
+    "psycopg[binary]>=3.2,<4",
+    "python-multipart>=0.0.20,<1",
+    "pyyaml>=6,<7",
+    "socksio>=1,<2",
     "uvicorn>=0.47,<1",
+]
+
+[project.optional-dependencies]
+embeddings = [
+    "sentence-transformers>=3.0,<6",
 ]
 
 [project.scripts]
@@ -21,3 +32,6 @@ package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+reindex_server = ["schema.sql"]
