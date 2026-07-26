@@ -1,0 +1,4 @@
+interface:
+  display_name: "ReIndex Task Workflow"
+  short_description: "Manage ReIndex tasks, docs, reviews, and archives"
+  default_prompt: "Use $reindex-task-workflow to manage this ReIndex task, audit documentation, record human review, and archive approved work."

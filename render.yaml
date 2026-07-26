@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: reindex-api
+    runtime: python
+    plan: starter
+    region: oregon
+    buildCommand: pip install uv && uv sync --frozen --package reindex-server --no-dev
+    startCommand: uv run --frozen --package reindex-server reindex-server run --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
+
