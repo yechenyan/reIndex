@@ -30,7 +30,9 @@ def read_csv(path: Path) -> tuple[list[str], list[list[str]]]:
 def test_source_pdf_is_unchanged() -> None:
     assert hashlib.sha256(SOURCE.read_bytes()).hexdigest() == EXPECTED_SHA256
     assert pymupdf.open(SOURCE).page_count == 5
-    assert not (FIXTURE / "raw" / "nap_2024_angepasste_fassung_vom_07_08_2024.pdf").exists()
+    assert not (
+        FIXTURE / "raw" / "nap_2024_angepasste_fassung_vom_07_08_2024.pdf"
+    ).exists()
 
 
 def test_node_tree_and_resources_are_valid() -> None:
@@ -63,7 +65,11 @@ def test_aggregate_table_is_complete() -> None:
     assert len(rows) == 24
     assert rows[:3] == [
         ["Mittelspannung", "Neubau", "3242160"],
-        ["Mittelspannung", "Ersatz(neubau) mit Erhöhung der Übertragungskapazität", "19452960"],
+        [
+            "Mittelspannung",
+            "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+            "19452960",
+        ],
         ["Mittelspannung", "Netzoptimierung und -verstärkung", "8105400"],
     ]
     record = metadata(DOCUMENT / "0005.node.md")

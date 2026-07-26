@@ -8,4 +8,3 @@ def test_doctor(capsys) -> None:
     result = json.loads(capsys.readouterr().out)
     assert result["status"] == "ok"
     assert result["version"] == "0.1.0"
-

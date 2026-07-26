@@ -1,13 +1,50 @@
 services:
+  - type: pserv
+    name: reindex-paradedb
+    runtime: image
+    image:
+      url: docker.io/paradedb/paradedb:0.24.3-pg18
+    plan: standard
+    region: oregon
+    disk:
+      name: reindex-paradedb-data
+      mountPath: /var/lib/postgresql
+      sizeGB: 10
+    envVars:
+      - key: POSTGRES_USER
+        value: parade_admin
+      - key: POSTGRES_PASSWORD
+        generateValue: true
+      - key: POSTGRES_DB
+        value: paradedb
+
   - type: web
     name: reindex-api
     runtime: python
-    plan: starter
+    plan: pro
     region: oregon
-    buildCommand: pip install uv && uv sync --frozen --package reindex-server --no-dev
+    buildCommand: pip install uv && uv sync --frozen --package reindex-server --extra embeddings --no-dev
+    preDeployCommand: uv run --frozen --package reindex-server reindex-server init-db
     startCommand: uv run --frozen --package reindex-server reindex-server run --port $PORT
     healthCheckPath: /health
     envVars:
       - key: PYTHON_VERSION
         value: 3.12.8
-
+      - key: REINDEX_EMBEDDINGS
+        value: qwen
+      - key: PARADEDB_HOST
+        fromService:
+          type: pserv
+          name: reindex-paradedb
+          property: host
+      - key: PARADEDB_PORT
+        value: 5432
+      - key: PARADEDB_USER
+        value: parade_admin
+      - key: PARADEDB_PASSWORD
+        fromService:
+          type: pserv
+          name: reindex-paradedb
+          envVarKey: POSTGRES_PASSWORD
+      - key: PARADEDB_DATABASE
+        value: paradedb

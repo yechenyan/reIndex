@@ -21,15 +21,17 @@ ReIndex package 是协议真相：原始字节和派生资源在对象存储，P
 - **ready revision**：已验证、已建好最小可查询索引的 revision。搜索始终读取 package
   的 current ready revision；失败导入绝不影响旧版本。
 
-本期采用 S3-compatible 对象存储、PostgreSQL 16+、`vector`、`pg_trgm`、`unaccent`
-扩展。每个 collection 可有多次不可变的导入 revision，且只能查询自己的 current ready
-revision。身份认证和租户策略尚未定义；首次实现必须在所有 collection 路由前确定它，不能
-让 URL 参数替代访问控制。
+本期采用 S3-compatible 对象存储与 ParadeDB 0.24.3+。`pg_search` 提供 BM25，
+`pgvector` 提供向量索引；不再维护 PostgreSQL `tsvector`、`pg_trgm` 或应用内搜索
+实现。每个 collection 可有多次不可变的导入 revision，且只能查询自己的 current ready
+revision。
 
-当前可运行的开发适配器把对象字节保存在 `.reindex-data/`，并在进程内保存 catalog；它用于
-本地测试和接口联调。`reindex-server init-db` 会在 PostgreSQL 中安装下述 serving schema。
-生产接入必须把 catalog/index 写入该 PostgreSQL schema，并将 `FileStore` 换成 S3 adapter；
-这两项基础设施配置不由 HTTP 客户端决定。
+对象字节的本地开发适配器仍保存在 `.reindex-data/`，但搜索没有进程内兜底。运行时必须
+配置 ParadeDB，保存 collection、revision、Node、chunk、BM25 index 和 embedding；查询只读
+active ready revision 并按 embedding profile 隔离。`reindex-server init-db` 安装 schema。
+
+`FileStore` 仍是本地开发对象字节适配器；生产多实例部署前必须替换为 S3-compatible adapter。
+这项对象存储配置与 PostgreSQL connection string 都不由 HTTP 客户端决定。
 
 ## 数据架构
 
@@ -64,15 +66,17 @@ breadcrumb、Node 标题和章节层级供检索；返回的 Evidence 只能引�
 
 | 通道 | PostgreSQL 实现 | 初始策略 |
 | --- | --- | --- |
-| `lexical` | `search_units.tsv` 的 GIN；`websearch_to_tsquery` + `ts_rank_cd` | title=A；description、breadcrumb、table grain/列=B；正文/表格行=C。按 package language 选 text config，默认 `simple`。 |
-| literal | `pg_trgm` GIN（title、path、规范化原文） | 编号、金额、型号、短语和中文子串的补充召回；正则另走受限 `/grep`。 |
+| `lexical` | ParadeDB `pg_search` BM25 covering index | `title`、`description`、`original_text` 使用 ICU 多语言 tokenizer，字段 boost 固定为 4:2:1；revision、Node、kind、path 和 row 字段进入同一索引供过滤。 |
 | `semantic` | `unit_embeddings.embedding vector(1024)` 的 HNSW cosine index | 初始 profile 为本地部署 `Qwen/Qwen3-Embedding-0.6B`，输出 1024 维；以 `content_hash + profile` 缓存。换维度时新建列/索引并双写或重建，不能混入同一 ANN index。 |
-| `hybrid` | 两通道各取候选，再按 weighted RRF 融合 | 先取 100 个 unit，`1/(60 + rank)` 融合，按 Node 去重且每 Node 最多保留 2–3 个证据。 |
+| `hybrid` | ParadeDB BM25 与 pgvector 各取候选，在同一个 SQL 中做 weighted RRF | 默认两路各取 100 个 unit，`weight/(60 + rank)` 融合，`id` 稳定打破同分；响应返回 BM25、cosine、channel rank 与最终分数。RRF 是无模型的名次融合，不等同于 cross-encoder reranker。 |
 
 表格必须建立 metadata、行级全文 unit 和行级 embedding；query rewrite、reranker、页面/图像
-embedding 均由评测后以 profile 开关启用，不是 v0.1 的硬依赖。embedding 在服务端的本地
-worker 中运行 `Qwen/Qwen3-Embedding-0.6B`，客户端不持有模型或 API key，待索引文本
-也不离开部署环境。Qwen3-Embedding 支持查询指令和 Matryoshka（MRL）输出维度；profile
+embedding 均由评测后以 profile 开关启用，不是 v0.1 的硬依赖。当前不启用
+`Qwen3-Reranker-0.6B`：它需要对每个 query-document pair 做 cross-encoder 推理，而现有
+84-unit 基准集尚未证明质量收益足以覆盖额外延迟。embedding 在服务端的本地 worker 中运行
+`Qwen/Qwen3-Embedding-0.6B`，客户端不持有模型或 API key，待索引文本
+也不离开部署环境。应用启动时预热 embedding 模型，把一次性权重加载留在 readiness 之前。
+Qwen3-Embedding 支持查询指令和 Matryoshka（MRL）输出维度；profile
 必须固定模型 revision、1024 output dimensions、document/query 的 task instruction 和归一化
 方式。所有 document 与 query 都必须使用同一 profile。
 
@@ -90,6 +94,8 @@ Node ID、文件路径或筛选条件**。除上传外，参数都放在 JSON bo
 fields；下载也用 `POST`，其 response 为文件流。列表和检索使用 body 内的 cursor、`limit`
 （最大 50）和响应字节上限。导入、embedding 和重建在 collection 内异步执行；同一
 collection 同时只允许一次导入，状态直接显示在 collection 上，避免额外的 job/status API。
+所有 JSON request model 禁止未知字段，collection/Node ID 在 HTTP 边界按 UUID 验证。
+`/docs` 和 `/openapi.json` 分别提供交互式文档和机器可读契约。
 
 | 类别 | 端点 | 行为 |
 | --- | --- | --- |
@@ -98,17 +104,37 @@ collection 同时只允许一次导入，状态直接显示在 collection 上，
 | 下载 raw | `POST /raw/download` | JSON 的 `collection_id`、`raw_path` 和 `disposition`（`inline` 或 `attachment`）；response 为文件流。 |
 | rawIndex 导入 | `POST /reindex/import` | multipart 的 `collection_id` 和 `archive`；其根 Node 必须匹配 collection root，所有 `raw://` 引用必须匹配 collection 内 raw path。返回 202。 |
 | 查询状态 | `POST /collections/status` | JSON 的 `collection_id`；返回 root Node、当前可搜索 revision，以及最新导入的状态/阶段/进度/失败原因；不需要 import ID。 |
-| 搜索 | `POST /search` | JSON 的 `collection_id`、`query`、`mode`=`lexical|semantic|hybrid|auto`、kind/source/path filters、limit 和 `include_neighbors`。响应必须回显实际 mode/profile。 |
-| Agent 工具 | `POST /grep`；`POST /nodes/browse`；`POST /nodes/get`；`POST /nodes/download`；`POST /tables/query` | JSON body 均含 `collection_id`；分别是受限字面/正则、browse、get、下载 Node 的 source/resource 和表格查询；不是第五种 `/search` mode。 |
+| 搜索 | `POST /search` | JSON 的 `collection_id`、`query`、`mode`=`lexical|semantic|hybrid`、`candidate_limit`、`filters`、`ranking` 和 `limit`。默认 `hybrid`，不做隐式 mode 切换或降级。 |
+| Agent 工具 | `POST /grep`；`POST /nodes/browse`；`POST /nodes/get`；`POST /nodes/download`；`POST /tables/query` | `/grep` 接受 `pattern`、`regex`、`case_sensitive` 和 `limit`，独立执行受限字面/正则搜索；其余接口用于 browse、get、下载和表格查询。 |
 
 `POST /collections/status` 的状态字段为 `draft`、`queued`、`validating`、`indexing`、
 `ready` 或 `failed`。例如 `indexing` 返回当前阶段及 `nodes/chunks/csv_rows/embeddings` 的
 已完成和总数；`failed` 返回安全的错误 code、文件 path 和 message。`ready` 才表示最新版
 可搜索；导入失败时仍保持原 ready revision 可用。
 
-`/search` 统一返回 `Evidence`：`node_id`、path、kind、title、逐字 excerpt、Node 行范围、
-source SHA-256、locator（含页码）、命中 channel 和 rank。`auto` 对短编号/金额/引号短语
-优先 lexical；其他自然语言用 hybrid；无可用 embedding 时明确降级为 lexical。
+`/search` 和 `/grep` 统一返回 `Evidence`：`node_id`、path、kind、title、逐字 excerpt、chunk
+ordinal、行范围、表格 row、source SHA-256、locator（含页码）、命中 channel 和 channel rank。
+`/search` 还返回最终 rank、BM25 score、cosine score、RRF score、实际 revision/profile、
+`candidate_count`、`next_cursor` 与应用后的参数。cursor 绑定 query、filter、ranking 和
+active revision；翻页保持全局 rank，任一绑定项改变时明确返回无效 cursor。`ranking`
+默认 `lexical_weight=0.5`、`semantic_weight=1`、`rrf_k=60`、
+`max_per_node=3`，并允许设置 cosine `semantic_threshold`。`candidate_limit` 默认 100，
+范围 10–500，且不得小于最终 `limit`。
+
+Evidence 的 Node 标识统一命名为 `node_id`。`score` 表示当前 mode 的最终排序分：lexical
+为 BM25，semantic 为 cosine similarity，hybrid 为 weighted RRF；原始分量始终保留在
+`scores.bm25` 与 `scores.semantic`，不能跨类型直接比较绝对值。
+
+所有 response 都包含 `X-Request-ID`，客户端可传入最多 128 字符的安全 request ID，否则
+服务端生成。JSON error 统一为
+`{"error":{"code","message","request_id","details?"}}`：业务参数或 cursor 错误为
+`invalid_request`/400，schema validation 为 `invalid_request`/422，资源不存在为
+`not_found`/404，collection 或模型状态冲突为 `conflict`/409，非预期异常为
+`internal_error`/500。生产日志必须以相同 request ID 关联数据库与模型耗时。
+
+当前 `POST /reindex/import` 只返回 collection ID 与 `queued`，进度由
+`POST /collections/status` 查询；后台线程不是 durable job。引入持久化 worker 前，不承诺
+进程崩溃后的自动恢复，也不提前暴露无法兑现语义的 job ID/cancel API。
 
 `POST /tables/query` 在 body 中接收 `collection_id`、`node_id`、`sql` 和 `params`，并在
 隔离 DuckDB 会话中将目标 CSV 注册为只读 `data`。仅允许一条参数化 `SELECT`/CTE，禁用
@@ -118,12 +144,14 @@ source SHA-256、locator（含页码）、命中 channel 和 rank。`auto` 对�
 
 1. **MVP**：collection 根 Node、按 raw path 上传与下载、archive validator、revision
    原子切换、Node tree、browse/get、lexical 与 `/grep`。
-2. **语义检索**：本地 `Qwen/Qwen3-Embedding-0.6B` worker、chunk、semantic/hybrid/auto
+2. **语义检索**：本地 `Qwen/Qwen3-Embedding-0.6B` worker、chunk、semantic/hybrid
    与 RRF；在标注集上确认 1024 维是否足够。
 3. **表格**：行级 FTS 和向量、受限 DuckDB。
 4. **增强**：reranker、查询改写和 PDF page/region 多模态索引，仅作为可观测 profile。
 
 集成测试使用带 pgvector 的真实 PostgreSQL（SQLite 不能验证 FTS/ANN）。至少覆盖 hash
 去重、失败导入不污染 current revision、协议校验、字段权重、RRF、权限先于召回、Evidence
-可回链，以及 CSV query 的资源限制。上线前建立标注集并跟踪 Recall@5/10/20、MRR/NDCG、
-精确字段召回、citation accuracy/coverage、P95 延迟和每查询成本。
+可回链，以及 CSV query 的资源限制。仓库的 `reindex-server eval-search` 读取 JSONL
+标注集并对 lexical、semantic、hybrid 输出 Recall、MRR、NDCG、平均延迟、P50 与 P95。
+上线前持续跟踪 Recall@5/10/20、MRR/NDCG、精确字段召回、citation accuracy/coverage、
+P95 延迟和每查询成本。

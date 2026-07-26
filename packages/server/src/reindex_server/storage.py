@@ -15,8 +15,16 @@ class FileStore:
     def __init__(self, root: Path) -> None:
         self.root = root
 
-    async def save_raw(self, collection_id: str, raw_path: str, upload: UploadFile) -> tuple[str, Path]:
-        target = self.root / "collections" / collection_id / "raw" / safe_relative_path(raw_path)
+    async def save_raw(
+        self, collection_id: str, raw_path: str, upload: UploadFile
+    ) -> tuple[str, Path]:
+        target = (
+            self.root
+            / "collections"
+            / collection_id
+            / "raw"
+            / safe_relative_path(raw_path)
+        )
         target.parent.mkdir(parents=True, exist_ok=True)
         digest = hashlib.sha256()
         with target.open("wb") as stream:
@@ -26,10 +34,24 @@ class FileStore:
         return digest.hexdigest(), target
 
     def raw_file(self, collection_id: str, raw_path: str) -> Path:
-        return self.root / "collections" / collection_id / "raw" / safe_relative_path(raw_path)
+        return (
+            self.root
+            / "collections"
+            / collection_id
+            / "raw"
+            / safe_relative_path(raw_path)
+        )
 
-    def copy_resource(self, collection_id: str, revision_id: str, source: Path, relative_path: str) -> str:
-        key = Path("collections") / collection_id / "revisions" / revision_id / safe_relative_path(relative_path)
+    def copy_resource(
+        self, collection_id: str, revision_id: str, source: Path, relative_path: str
+    ) -> str:
+        key = (
+            Path("collections")
+            / collection_id
+            / "revisions"
+            / revision_id
+            / safe_relative_path(relative_path)
+        )
         target = self.root / key
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(source, target)
