@@ -17,8 +17,8 @@ raw files → source/content/assets → Node cards → PostgreSQL/local resource
 - **assets**：content 之外的附属文件；文件名只编号，用途由卡片内 `role` 表达。
 - **resource**：文件上传后的服务器存储对象，不是 package 字段。
 
-同一份字节可以同时承担不同角色。原始文件本来就是 CSV 时，`source` 和 `content`
-指向同一个 `raw://` URI 和同一个 SHA-256，服务器只保存一个 resource。
+同一份字节可以同时承担不同角色。table Node 的 `source` 可以指向原始 CSV，但 `content` 必须是 package 内的
+规范 CSV；两者 SHA-256 相同时仍是两个逻辑 resource，底层对象字节只保存一次。
 
 ## 2. Collection 与目录
 
@@ -164,7 +164,8 @@ content:
 ```
 
 `source.uri` 必须是 Collection 内的 `raw://` 相对路径。`content.uri` 可以是同目录 `./`
-相对路径，也可以在 source 与 content 完全相同时使用同一个 `raw://` URI。
+相对路径；非 table Node 在 source 与 content 完全相同时也可以使用同一个 `raw://` URI。table content
+必须使用 package 内的 `./` CSV，确保导入时可以完成结构校验和只读查询。
 
 每个 source/content 必须包含 `uri` 和 `sha256`；content 还必须包含 `media_type`。
 `source.locator` 可保存页码或其他原始定位信息，定位范围必须覆盖 card 和 content 引用的证据。
@@ -216,7 +217,8 @@ assets 规则：
 - Preview 最多 5 行，单元格必须逐字来自 CSV；可以选择代表性列，但必须使用原列名。
 - PDF 表格截图使用 `.assetsNNN`，在 assets 中声明 role 和 description，不在 card 重复 URI/hash。
 
-原始 CSV 本身就是主数据时不复制文件：source 和 content 都指向相同 `raw://` URI 和 hash。
+原始 CSV 本身就是主数据时，source 指向 `raw://` 原文件，content 是 package 内的规范 CSV。两者 hash
+相同时由内容寻址对象存储去重，不代表两个逻辑 URI 或 resource 合并。
 
 ## 8. 校验与版本
 
@@ -247,7 +249,7 @@ node_hash = SHA-256(normalized frontmatter + markdown card + content sha256 + or
 - 本地内容寻址存储保存 source、content、assets 和原始 `.node.md` 字节。
 - PostgreSQL/ParadeDB 保存 Collection 当前态、Node 树、解析后的 card、resource 关系、
   BM25 单元和 embeddings；表格定义保存在解析后的 Node attributes。
-- 本地对象按 SHA-256 去重；同一个 URI 同时承担 source/content 时复用一个 resource 记录。
+- 本地对象字节按 SHA-256 去重；不同 namespace/path 的逻辑 resource 可以指向同一个 object key。
 - DuckDB 只作为 CSV/Parquet 的受限只读查询引擎，不是协议存储。
 - 搜索高权重索引 title，中高权重索引 description/card，正常权重索引 content。
 - 搜索 Evidence 必须标明命中来自 card、content 还是 table row；正文行号指向 content 文件。
@@ -265,3 +267,28 @@ node_hash = SHA-256(normalized frontmatter + markdown card + content sha256 + or
 - 用 title、path 或内容 hash 代替稳定 Node ID。
 - 在多个 Node 中复制同一段聚合全文。
 - 把服务器 object key、resource ID、package hash、chunk 或 embedding 写入 package。
+
+## 11. Raw authoring input
+
+ReIndex 1.0 的 raw authoring 语法以 [`reindex-input-v1.0.md`](reindex-input-v1.0.md) 为规范性来源。
+`reIndex.md` 整个文件可省略：此时 `rei` 以输入目录名作为 Collection title，递归发现普通文件和目录，并使用
+默认 `parse: auto`。只有需要覆盖默认行为时，才创建该文件。
+
+声明文件存在时只有 `spec: reindex/input@1.0` 必填；`collection` 和 `items` 均可省略。`items` 是稀疏覆盖，
+不是 allowlist，未列出的普通路径仍按默认规则处理。item key 是当前相对路径 locator，不是稳定身份或 `path`
+字段；机器关系全部位于 YAML frontmatter，Markdown body 不参与编译。
+
+`part_of` 同时表达 provenance 和 parent：derived item 的 `source` 指向目标 raw 文件，并成为该文档 group 的
+child。`derived_from` 只表达 provenance，item 保持为 Collection 根级 Node。最终 package 中每个逻辑 item
+只能有一个规范位置，不得同时在文档目录和 Collection 根部复制。`parse` 可以按 `text/images/tables` 选择
+`auto/supplied/off`；supplied 或 quality 失败必须终止，不能静默回退通用结果。
+
+最小合法文件只有版本标记：
+
+```md
+---
+spec: "reindex/input@1.0"
+---
+```
+
+`reIndex.md` 是构建输入，不是 `reindex/node@1.0` package 成员，服务器 loader 仍然只接受最终 package。

@@ -23,7 +23,10 @@ data/
     └── reIndex.md
 ```
 
-`reIndex.md` 可以为生成过程提供目录说明和解析上下文，但不是 Node 协议文件。
+`reIndex.md` 整个文件可选；没有它时，`rei` 递归发现普通文件并按 `auto` 解析。需要特殊处理时，可使用
+[`reindex/input@1.0`](reference/reindex-input-v1.0.md) frontmatter 确定地覆盖 item、声明
+`part_of`/`derived_from` 关系或解析开关；Markdown body 只提供非机器说明且不参与编译。它是构建输入，
+不是 Node 或最终 package 文件。
 
 ## 2. 生成 ReIndex package
 
@@ -58,7 +61,7 @@ CSV/Parquet ─────────────> DuckDB read-only query
 ```
 
 - source、content、assets 和原始 `.node.md` 字节进入 `REINDEX_DATA_DIR`。
-- 相同 SHA-256 只保存一个 resource；原始 CSV 的 source/content 复用同一 resource。
+- 相同 SHA-256 的字节只保存一个 object；不同 URI 的 source/content 仍保留各自的逻辑 resource。
 - PostgreSQL 保存 Collection 当前态、Node 树、卡片、resource 关系和检索投影。
 - 导入完成全部验证和索引后在一个事务中替换当前态；失败事务保留原有 Node 数据。
 

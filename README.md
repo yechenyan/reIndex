@@ -5,6 +5,7 @@ ReIndex turns local source files into portable, agent-readable knowledge package
 ## Start here
 
 - Protocol: [`wiki/reference/reindex-v1.0-standard.md`](wiki/reference/reindex-v1.0-standard.md)
+- Input manifest: [`wiki/reference/reindex-input-v1.0.md`](wiki/reference/reindex-input-v1.0.md)
 - Product overview: [`wiki/overview.md`](wiki/overview.md)
 - Quick start: [`wiki/user/quickstart.md`](wiki/user/quickstart.md)
 - Architecture: [`wiki/dev/architecture.md`](wiki/dev/architecture.md)
@@ -20,3 +21,4 @@ ReIndex turns local source files into portable, agent-readable knowledge package
 - `tasks`: active and human-approved historical task notes
 
 The first ReIndex 1.0 fixture is under [`testbase/test1/reIndex/test1`](testbase/test1/reIndex/test1/).
+The `reIndex.md` authoring example is under [`testbase/test2`](testbase/test2/).

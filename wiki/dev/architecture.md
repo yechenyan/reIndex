@@ -13,7 +13,7 @@ tasks            活跃工作说明和历史记录
 ## 数据边界
 
 ```text
-source files
+source files + optional reIndex.md (`reindex/input@1.0`)
     │
     ▼
 ReIndex 1.0 package
@@ -29,6 +29,7 @@ ReIndex 1.0 package
 ```
 
 - Package 使用 [`reindex/node@1.0`](../reference/reindex-v1.0-standard.md)，不接受旧格式。
+- 可选 authoring manifest 使用 [`reindex/input@1.0`](../reference/reindex-input-v1.0.md)，只存在于 raw 构建边界。
 - Collection 是根 Node；它的 `id` 是 collection ID。
 - source/content/assets 是 package 角色，resource 是服务器存储实体。
 - PostgreSQL path、parent、breadcrumb、chunk 和 embedding 都可从 package 重建。

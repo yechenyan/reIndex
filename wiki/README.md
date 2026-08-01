@@ -3,6 +3,7 @@
 ## Reference
 
 - [`reference/reindex-v1.0-standard.md`](reference/reindex-v1.0-standard.md): current package protocol
+- [`reference/reindex-input-v1.0.md`](reference/reindex-input-v1.0.md): optional raw `reIndex.md` authoring protocol
 - [`reference/http-api.md`](reference/http-api.md): current HTTP API contract
 
 ## User guides

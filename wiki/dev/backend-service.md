@@ -38,8 +38,8 @@ resource 是 Collection 内的逻辑文件，`namespace` 为 `raw/package`，逻
 字节。数据库负责归属、URI 映射、权限和垃圾回收，文件目录本身不承担业务元数据。
 
 `node_resources.role` 固定为 `card/source/content/asset`。card/source/content ordinal 为 0，asset
-ordinal 从 1 连续；locator 属于 source 关系，asset role/description 属于 asset 关系。相同 CSV
-作为 source 和 content 时，两条关系指向同一个 resource。
+ordinal 从 1 连续；locator 属于 source 关系，asset role/description 属于 asset 关系。原始 CSV 作为 source、
+package CSV 作为 table content 时是两个逻辑 resource；相同 SHA-256 使它们共享底层 object bytes。
 
 ## 2. 派生检索表
 
