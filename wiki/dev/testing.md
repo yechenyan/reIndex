@@ -17,6 +17,25 @@ uvx ruff check packages tests
 
 默认测试不要求 Docker。真实 ParadeDB 集成测试和 HTTP E2E 测试会在没有对应环境变量时跳过。
 
+## CLI 与 raw → ReIndex fixture
+
+CLI 的临时目录测试覆盖 Collection 创建和定位、只读 inspect/check、部分目录增量扫描、重命名后的
+Node 身份复用、机器字段保护，以及 Agent 修改过的 card body 在后续 scan 中保留。
+
+`testbase/test2` 是 Docling-only 的真实 PDF/CSV fixture。提交前依次运行：
+
+```bash
+uv run rei inspect testbase/test2
+uv run rei scan testbase/test2
+uv run rei check testbase/test2
+uv run pytest -q tests/test_cli.py tests/test_cli_workspace.py
+```
+
+workspace 测试还会把 CLI 生成的 package 交给 server importer 读取，避免 CLI 与服务端协议各自通过、
+组合后失败。PDF 有可用文本层时禁用 OCR；只有提取不到有效文本的扫描件才用 Docling OCR 重试。
+Docling 首次使用某个本地模型时可能初始化或下载模型文件，后续扫描复用本机缓存，源文件不会因此
+上传到外部服务。
+
 ## 启动本地 HTTP E2E 环境
 
 以下命令创建一个专用、可删除的本地数据库。不要把 `init-db` 指向已有业务数据库：该命令会删除

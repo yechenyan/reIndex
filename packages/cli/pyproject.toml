@@ -4,9 +4,14 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "reindex-cli"
-version = "0.1.0"
-description = "Command-line interface for ReIndex workflows."
+version = "0.2.0"
+description = "Compile local files into ReIndex packages."
 requires-python = ">=3.12"
+readme = "README.md"
+dependencies = [
+    "docling>=2,<3",
+    "pyyaml>=6,<7",
+]
 
 [project.scripts]
 rei = "reindex_cli.cli:main"

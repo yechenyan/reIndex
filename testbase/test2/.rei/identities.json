@@ -1,0 +1,29 @@
+{
+  "items": {
+    "00005--aggregierte-10-jahresplanung-untere-netzebenen.csv": {
+      "id": "465d3a58-c8dd-462d-8543-39249969dbf7",
+      "source_sha256": "3dc36a9917ac29b387c8fcc6e1a856f26e4fc0660d4e847a5070ee7dca0af497"
+    },
+    "00006--massnahmenplan-aller-spannungsebenen.csv": {
+      "id": "c94ee20f-ef4c-4344-8241-ae2c22324357",
+      "source_sha256": "3dc36a9917ac29b387c8fcc6e1a856f26e4fc0660d4e847a5070ee7dca0af497"
+    },
+    "2022_07_28_netzausbauplan_bielefelder_netz_gmbh_2022_inkl_anhang_pdf.pdf": {
+      "id": "55e492e4-ed13-42a3-88e8-96f556b77d71",
+      "source_sha256": "3dc36a9917ac29b387c8fcc6e1a856f26e4fc0660d4e847a5070ee7dca0af497"
+    },
+    "2022_07_28_netzausbauplan_bielefelder_netz_gmbh_2022_inkl_anhang_pdf.pdf#image:2:3": {
+      "id": "415865df-0799-4661-9799-00c85ee75fe3",
+      "source_sha256": "3dc36a9917ac29b387c8fcc6e1a856f26e4fc0660d4e847a5070ee7dca0af497"
+    },
+    "2022_07_28_netzausbauplan_bielefelder_netz_gmbh_2022_inkl_anhang_pdf.pdf#text:part:1": {
+      "id": "8defb748-4615-42e6-a174-73148b596a4c",
+      "source_sha256": "3dc36a9917ac29b387c8fcc6e1a856f26e4fc0660d4e847a5070ee7dca0af497"
+    },
+    "costs_2020.csv": {
+      "id": "91156259-ea05-4ee5-9a87-6ddf8ea9ae3e",
+      "source_sha256": "44275688aa97dbc5f9f675ed07dfa3708f84651b74cc036c2eb28fe5aaf19532"
+    }
+  },
+  "spec": "reindex/identities@1.0"
+}

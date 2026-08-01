@@ -3,8 +3,9 @@ import hashlib
 from collections import Counter
 from pathlib import Path
 
-import pymupdf
 import yaml
+from PIL import Image
+from pypdfium2 import PdfDocument
 
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURE = ROOT / "testbase" / "test1"
@@ -28,7 +29,7 @@ def read_csv(path: Path) -> tuple[list[str], list[list[str]]]:
 
 def test_source_pdf_is_unchanged() -> None:
     assert hashlib.sha256(SOURCE.read_bytes()).hexdigest() == EXPECTED_SHA256
-    assert pymupdf.open(SOURCE).page_count == 5
+    assert len(PdfDocument(SOURCE)) == 5
 
 
 def test_node_tree_and_resources_are_valid() -> None:
@@ -80,5 +81,8 @@ def test_visual_resources_are_high_resolution() -> None:
         "00006--massnahmenplan-aller-spannungsebenen.assets001.png": (4400, 850),
     }
     for name, minimum in expected.items():
-        pixmap = pymupdf.Pixmap(str(DOCUMENT / name))
-        assert (pixmap.width, pixmap.height) >= minimum
+        with Image.open(DOCUMENT / name) as image:
+            assert all(
+                actual >= expected
+                for actual, expected in zip(image.size, minimum, strict=True)
+            )

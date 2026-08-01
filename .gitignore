@@ -10,3 +10,5 @@ build/
 dist/
 tmp/
 .reindex-data/
+**/.rei/cache/
+**/.rei/staging/

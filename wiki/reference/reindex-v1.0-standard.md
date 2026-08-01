@@ -46,7 +46,7 @@ reIndex/
     │   ├── 00003--project-budget.csv
     │   ├── 00003--project-budget.assets001.png
     │   └── 00003--project-budget.node.md
-    └── 00002--customers.node.md
+    └── customers.node.md
 ```
 
 目录规则：
@@ -61,7 +61,14 @@ reIndex/
 
 ## 3. 文件命名
 
-普通有序 child 使用以下格式：
+Collection 根级的独立普通 Node 使用不带顺序号的短名称：
+
+```text
+<短名称>.<扩展名>
+<短名称>.node.md
+```
+
+document group 或其他非根 group 内的有序普通 child 使用以下格式：
 
 ```text
 <五位顺序号>--<短名称>.<扩展名>
@@ -86,7 +93,8 @@ reIndex/
 
 命名规则：
 
-- 普通 Node 文件的五位顺序号必须与 Node 的 `order` 一致。
+- Collection 根级普通 Node 文件不得使用五位 `order` 前缀；其展示顺序只读 Node metadata。
+- 非根 group 内普通 Node 文件的五位顺序号必须与 Node 的 `order` 一致。
 - group 目录使用可读短名称，不加顺序号；顺序只由其 `index.node.md` 的 `order` 表达。
 - 同一普通 Node 的 card、content 和 assets 使用相同主 stem。
 - 短名称由 title 生成，使用小写字母、数字和连字符；建议不超过 60 个字符。
@@ -227,7 +235,7 @@ Validator 至少检查：
 1. frontmatter 语法和 JSON Schema。
 2. Collection 根 Node 和每个 group 的 `index.node.md`。
 3. Node ID 在 package 内唯一。
-4. parent/order 连续；普通 Node 的五位前缀及 assets 三位编号与 metadata 一致。
+4. parent/order 连续；根级普通 Node 不带顺序前缀，非根 group 内普通 Node 的五位前缀及 assets 三位编号与 metadata 一致。
 5. source/content/assets URI 安全、存在且 SHA-256 匹配。
 6. source locator 在原始文件范围内并覆盖证据来源。
 7. content media type 与文件内容一致。
@@ -281,7 +289,8 @@ ReIndex 1.0 的 raw authoring 语法以 [`reindex-input-v1.0.md`](reindex-input-
 `part_of` 同时表达 provenance 和 parent：derived item 的 `source` 指向目标 raw 文件，并成为该文档 group 的
 child。`derived_from` 只表达 provenance，item 保持为 Collection 根级 Node。最终 package 中每个逻辑 item
 只能有一个规范位置，不得同时在文档目录和 Collection 根部复制。`parse` 可以按 `text/images/tables` 选择
-`auto/supplied/off`；supplied 或 quality 失败必须终止，不能静默回退通用结果。
+`auto/off`。外部解析结果使用关系、页码和 quality 表达，不要求通用解析器先检测到对应内容；quality 失败必须
+终止，不能静默回退通用结果。
 
 最小合法文件只有版本标记：
 

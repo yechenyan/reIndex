@@ -41,10 +41,16 @@ def validate_tree(cards: dict[str, dict], collection_id: str) -> None:
         if not isinstance(order, int) or isinstance(order, bool) or order < 1:
             raise PackageError(f"invalid Node order: {path}")
         orders.setdefault(parent, []).append(order)
-        if PurePosixPath(path).name != "index.node.md" and not PurePosixPath(
-            path
-        ).name.startswith(f"{order:05d}--"):
-            raise PackageError(f"Node filename does not match order: {path}")
+        value = PurePosixPath(path)
+        if value.name != "index.node.md":
+            if value.parent == PurePosixPath("."):
+                if re.match(r"^\d{5}--", value.name):
+                    raise PackageError(
+                        "Collection root Node filename cannot use an order prefix: "
+                        f"{path}"
+                    )
+            elif not value.name.startswith(f"{order:05d}--"):
+                raise PackageError(f"Node filename does not match order: {path}")
     for parent, values in orders.items():
         if sorted(values) != list(range(1, len(values) + 1)):
             raise PackageError(f"child orders must be consecutive: {parent}")

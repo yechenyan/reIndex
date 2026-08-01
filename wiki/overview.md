@@ -18,6 +18,7 @@ ReIndex 把本地文件转换成可移植、可追溯、可搜索和可查询的
 ```text
 data/
 └── test1/
+    ├── .rei/
     ├── report.pdf
     ├── customers.csv
     └── reIndex.md
@@ -28,11 +29,20 @@ data/
 `part_of`/`derived_from` 关系或解析开关；Markdown body 只提供非机器说明且不参与编译。它是构建输入，
 不是 Node 或最终 package 文件。
 
+```bash
+rei create data/test1
+rei inspect data/test1
+rei scan data/test1
+```
+
+`create` 建立稳定身份边界，`inspect` 让 Agent 在写入前核对真实文件与 manifest，`scan` 使用确定性流水线生成并
+校验 package。PDF 由 Docling 本地解析；存在文本层时不启用 OCR，缺少文本时才以 Docling OCR 重试。
+
 ## 2. 生成 ReIndex package
 
 ```text
 reIndex/
-└── test1/
+└── <collection-id>--test1/
     ├── index.node.md
     └── report/
         ├── index.node.md

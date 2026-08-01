@@ -14,11 +14,12 @@ ReIndex turns local source files into portable, agent-readable knowledge package
 
 ## Workspace
 
-- `packages/cli`: `rei`/`reindex` command-line package（当前提供 `doctor`）
+- `packages/cli`: `rei`/`reindex` raw-to-ReIndex compiler
 - `packages/server`: backend service package
 - `testbase`: raw fixtures and generated ReIndex packages
 - `wiki`: reference, user, and developer documentation
 - `tasks`: active and human-approved historical task notes
 
 The first ReIndex 1.0 fixture is under [`testbase/test1/reIndex/test1`](testbase/test1/reIndex/test1/).
-The `reIndex.md` authoring example is under [`testbase/test2`](testbase/test2/).
+The Docling/CSV compiler example and generated package are under
+[`testbase/test2`](testbase/test2/).

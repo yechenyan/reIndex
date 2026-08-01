@@ -120,7 +120,7 @@ items:
 parse:
   text: auto
   images: auto
-  tables: supplied
+  tables: "off"
 ```
 
 每项只允许：
@@ -128,20 +128,17 @@ parse:
 | 值 | 含义 |
 | --- | --- |
 | `auto` | 使用 `rei` 通用能力发现并生成该类内容 |
-| `supplied` | 该类内容由显式 `part_of`/`derived_from` items 提供，禁止通用解析重复生成 |
 | `off` | 不生成该类内容 |
 
-只允许类别 `text/images/tables` 和值 `auto/supplied/off`。`supplied` 表示该 source 的对应类别完全由显式
-`part_of`/`derived_from` items 提供；至少应有一个对应 kind 的 item。缺少 supplied item、item 解析失败或质量
-检查失败时必须终止构建，不得回退 `auto`。
+只允许类别 `text/images/tables` 和值 `auto/off`。外部解析结果不需要第三种 parse 值：使用
+`part_of`/`derived_from` 表达来源和放置，使用 `pages` 表达 provenance，并使用 `quality` 校验产物自身。
+例如 Docling 漏表时，可以设置 `tables: "off"` 并把权威 CSV 声明为 `part_of`；这不要求通用解析器先检测到
+对应表格，也不虚假保证几何区域可以严格匹配。
 
-多个显式 supplied items 可以共享页范围，例如同一页有两张表；它们以 canonical item path 区分，不互相视为
-重复。通用解析器仍可检测 supplied table 的版面区域以避免正文重复，但不得再生成 table Node；table 区域文字
-不能同时进入 text content，表格截图只能作为该 table 的 `visual_reference` asset。未使用 `supplied` 时，显式
-item 仍优先于通用候选；无法唯一对应时必须报告冲突，不得静默保留两个 Node 或任意选择一个。
-
-构建状态必须记录 supplied item 对应的 source hash。后续 source 改变而 supplied item 未刷新时，构建必须进入
-review 或失败，不能把旧的外部结果自动绑定到新 source。
+通用解析器应尽量从正文中排除已识别的表格区域；无法识别时，Agent 必须审阅是否仍有线性化单元格文本。
+解析器不得机械地把每个识别标题都变成独立 Node；相邻短章节应按合理正文规模合并，并在 content 内保留标题。
+如果保留 `tables: auto` 并同时声明外部 CSV，系统会保留两类候选，不能在没有 bbox 或其他明确标识时声称已经
+自动去重。构建状态必须记录关系 target 的 source hash；target 改变后，相关外部产物进入 review。
 
 ## 7. 质量要求
 
@@ -187,7 +184,7 @@ items:
     parse:
       text: auto
       images: auto
-      tables: supplied
+      tables: "off"
 
   "aggregate-plan.csv":
     part_of: "network-plan.pdf"
@@ -206,7 +203,7 @@ items:
 
 ## Notes
 
-The supplied CSV files were reviewed against the PDF tables.
+The external CSV files were reviewed against the PDF tables.
 ```
 
 仓库中的完整输入示例见 [`testbase/test2/reIndex.md`](../../testbase/test2/reIndex.md)。

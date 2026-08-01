@@ -11,7 +11,9 @@
 ```bash
 uv sync
 uv run pytest
-uv run reindex doctor
+uv run rei --help
+uv run rei inspect testbase/test2
+uv run rei check testbase/test2
 ```
 
 真实 ParadeDB 与 HTTP E2E 的启动、执行和清理步骤见

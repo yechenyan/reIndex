@@ -1,4 +1,3 @@
-import csv
 from pathlib import Path, PurePosixPath
 
 import yaml
@@ -16,12 +15,6 @@ def manifest() -> dict:
     return yaml.safe_load(frontmatter)
 
 
-def csv_shape(path: Path) -> tuple[list[str], int]:
-    with path.open(encoding="utf-8", newline="") as stream:
-        reader = csv.reader(stream)
-        return next(reader), sum(1 for _ in reader)
-
-
 def test_input_manifest_references_safe_existing_items() -> None:
     value = manifest()
     assert value["spec"] == "reindex/input@1.0"
@@ -33,7 +26,6 @@ def test_input_manifest_references_safe_existing_items() -> None:
         AGGREGATE,
         MEASURES,
         "costs_2020.csv",
-        "README.md",
     }
     for relative in items:
         path = PurePosixPath(relative)
@@ -43,34 +35,20 @@ def test_input_manifest_references_safe_existing_items() -> None:
         target = item.get("part_of") or item.get("derived_from")
         if target:
             assert target in items
-    assert items["README.md"] == {"ignore": True}
 
 
-def test_supplied_tables_match_declared_quality() -> None:
+def test_external_tables_declare_pdf_relationship() -> None:
     items = manifest()["items"]
-    assert items[PDF_NAME]["parse"]["tables"] == "supplied"
+    assert items[PDF_NAME]["parse"]["tables"] == "off"
     for name in (AGGREGATE, MEASURES):
         item = items[name]
         assert item["part_of"] == PDF_NAME
         assert item["pages"] == [5, 5]
-        headers, row_count = csv_shape(FIXTURE / name)
-        quality = item["quality"]
-        assert row_count == quality["expected_rows"]
-        if expected := quality.get("expected_columns"):
-            assert headers == expected
-        if primary := quality.get("primary_key"):
-            indices = [headers.index(column) for column in primary]
-            with (FIXTURE / name).open(encoding="utf-8", newline="") as stream:
-                rows = list(csv.reader(stream))[1:]
-            keys = [tuple(row[index] for index in indices) for row in rows]
-            assert all(all(value for value in key) for key in keys)
-            assert len(keys) == len(set(keys))
+        assert "quality" not in item
 
 
 def test_independent_csv_stays_at_collection_root() -> None:
     item = manifest()["items"]["costs_2020.csv"]
     assert "part_of" not in item
     assert "derived_from" not in item
-    headers, row_count = csv_shape(FIXTURE / "costs_2020.csv")
-    assert row_count == item["quality"]["expected_rows"]
-    assert headers == item["quality"]["expected_columns"]
+    assert "quality" not in item

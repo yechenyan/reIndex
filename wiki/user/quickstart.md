@@ -57,7 +57,28 @@ uv run pytest
 
 [`testbase/test2/reIndex.md`](../../testbase/test2/reIndex.md) 展示了可选的 `reindex/input@1.0`：两张 CSV
 使用 `part_of` 声明为 PDF document group 的 children，另一张 CSV 没有关系声明，因此保持在 Collection
-根部。PDF 同时使用 `tables: supplied` 关闭通用表格提取，避免 supplied CSV 与自动结果重复。
+根部。PDF 同时使用 `tables: "off"` 关闭 Docling 表格输出；两张外部 CSV 通过 `part_of` 和页码保留来源。
 
 此输入协议的完整字段和放置规则见
 [`../reference/reindex-input-v1.0.md`](../reference/reindex-input-v1.0.md)。
+
+## 创建和扫描 Collection
+
+```bash
+rei create testbase/test2
+rei inspect testbase/test2
+rei scan testbase/test2
+rei check testbase/test2
+```
+
+`create` 只建立或复用 `.rei/collection.json` 和稳定身份空间，并用 `created: true|false` 区分两者。`inspect`
+是只读预检，输出有效文件、CSV/PDF profile、关系、ignore 和相对上次构建的变化；它不会生成第二份 manifest，
+也不会加载 Docling layout/OCR 模型。`scan` 使用 Docling 处理 PDF、使用通用解析器处理 Markdown/CSV，在
+staging package 完整通过校验后才发布，并返回 changes、review 分类和完整 warnings。`check` 不重新解析，
+只验证当前 package、CLI-owned frontmatter 和输入是否仍然 current，包括上次 scan 后新增的文件。
+
+PDF 有文本层时 Docling OCR 默认关闭；检测不到有效文本时才使用 Docling OCR 重试。第一次 PDF 扫描可能初始化
+本地模型，后续相同 source、manifest 和 parser 版本会命中 `.rei/cache/`。
+
+Agent 可以直接补充生成后 `.node.md` 的 Markdown body，但不修改 YAML frontmatter。后续 scan 会比较上一次
+生成 body 的 hash：人工修改过的 body 按稳定 Node ID 保留；若 source 同时变化，会报告需要重新审阅。
