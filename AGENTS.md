@@ -5,7 +5,7 @@ Read this file before changing the repository.
 ## Sources of truth
 
 - Treat code as the implementation source of truth.
-- Treat `wiki/reference/reindex-v0.1-standard.md` as the current package protocol.
+- Treat `wiki/reference/reindex-v1.0-standard.md` as the current package protocol.
 - Keep `README.md` and `wiki/README.md` as navigation pages.
 - Update user or developer guides when their workflows change.
 

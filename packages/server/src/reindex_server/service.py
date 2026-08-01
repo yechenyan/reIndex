@@ -1,29 +1,29 @@
 from __future__ import annotations
 
+import hashlib
 import tempfile
-from dataclasses import replace
 from pathlib import Path
 from typing import Protocol
-from uuid import uuid4
+from uuid import UUID, uuid5
 
-from reindex_server.catalog import Catalog
 from reindex_server.domain import (
     Collection,
     Node,
+    NodeResource,
+    Resource,
     SearchHit,
     SearchOptions,
     SearchResponse,
+    safe_relative_path,
 )
 from reindex_server.embeddings import EmbeddingProvider
-from reindex_server.package_import import (
-    PackageError,
-    load_package,
-    parse_node,
-    unpack_archive,
-)
-from reindex_server.reranking import Reranker
+from reindex_server.errors import ConflictError
+from reindex_server.node_parser import PackageError, parse_node_card
+from reindex_server.package_import import load_package, unpack_archive
 from reindex_server.pagination import paginate_hits
-from reindex_server.storage import FileStore
+from reindex_server.reranking import Reranker
+from reindex_server.search_fusion import fuse_reranking
+from reindex_server.storage import ObjectStore
 
 
 class SearchBackend(Protocol):
@@ -33,7 +33,6 @@ class SearchBackend(Protocol):
         options: SearchOptions,
         query_embedding: list[float] | None,
     ) -> list[SearchHit]: ...
-
     def grep(
         self,
         collection: Collection,
@@ -47,8 +46,8 @@ class SearchBackend(Protocol):
 class ReindexService:
     def __init__(
         self,
-        catalog: Catalog,
-        store: FileStore,
+        catalog,
+        store: ObjectStore,
         embeddings: EmbeddingProvider,
         search_backend: SearchBackend | None = None,
         reranker: Reranker | None = None,
@@ -63,147 +62,188 @@ class ReindexService:
         self.embeddings.warmup()
         self.reranker.warmup()
 
-    def create_collection(self, content: str) -> Collection:
-        root = parse_node(content, "index.node.md")
-        if root.kind != "group":
-            raise PackageError("collection root must be a group Node")
-        return self.catalog.create(Collection.create(root))
+    def create_collection(self, content: bytes) -> Collection:
+        card = parse_node_card(content, "index.node.md")
+        metadata = card.metadata
+        if metadata["kind"] != "group" or "order" in metadata:
+            raise PackageError("Collection root must be an unordered group Node")
+        if any(key in metadata for key in ("source", "content", "assets")):
+            raise PackageError("Collection root cannot reference files during creation")
+        collection_id = str(metadata["id"])
+        stored = self.store.put_bytes(card.content)
+        resource = Resource(
+            str(uuid5(UUID(collection_id), "package:index.node.md")),
+            collection_id,
+            "package",
+            "index.node.md",
+            "index.node.md",
+            stored.sha256,
+            stored.byte_size,
+            "text/markdown",
+            stored.object_key,
+        )
+        node_hash = hashlib.sha256(card.content).hexdigest()
+        root = Node(
+            collection_id,
+            collection_id,
+            "index.node.md",
+            None,
+            None,
+            (collection_id,),
+            (),
+            "group",
+            metadata["title"],
+            metadata["description"],
+            card.markdown,
+            {},
+            node_hash,
+            [NodeResource("card", 0, resource)],
+        )
+        collection = Collection(collection_id, metadata["title"])
+        collection.nodes[root.id] = root
+        collection.resources[("package", "index.node.md")] = resource
+        return self.catalog.create(collection)
 
     async def upload_raw(self, collection_id: str, raw_path: str, upload) -> dict:
         collection = self.catalog.get(collection_id)
-        sha256, path = await self.store.save_raw(collection_id, raw_path, upload)
-        existing = collection.raw.get(raw_path)
-        if existing and existing != sha256:
-            raise ValueError("raw path already exists with different content")
-        collection.raw[raw_path] = sha256
-        if hasattr(self.catalog, "remember_raw"):
-            self.catalog.remember_raw(collection_id, raw_path, sha256, path)
-        return {"collection_id": collection_id, "raw_path": raw_path, "sha256": sha256}
+        logical_path = safe_relative_path(raw_path).as_posix()
+        with tempfile.NamedTemporaryFile(prefix="reindex-upload-") as stream:
+            while chunk := await upload.read(1024 * 1024):
+                stream.write(chunk)
+            stream.flush()
+            stored = self.store.put_file(Path(stream.name))
+        existing = collection.resources.get(("raw", logical_path))
+        if existing and existing.sha256 != stored.sha256:
+            raise ConflictError("raw path already exists with different content")
+        resource = existing or Resource(
+            str(uuid5(UUID(collection_id), f"raw:{logical_path}")),
+            collection_id,
+            "raw",
+            logical_path,
+            upload.filename or Path(logical_path).name,
+            stored.sha256,
+            stored.byte_size,
+            upload.content_type or "application/octet-stream",
+            stored.object_key,
+        )
+        self.catalog.remember_resource(resource)
+        return {
+            "collection_id": collection_id,
+            "resource_id": resource.id,
+            "raw_path": logical_path,
+            "sha256": resource.sha256,
+        }
 
     def queue_import(self, collection_id: str) -> None:
         collection = self.catalog.get(collection_id)
-        collection.begin_import()
-        self._sync(collection)
+        if collection.status in {"queued", "validating", "indexing"}:
+            raise ConflictError("Collection import already in progress")
+        collection.status = "queued"
+        collection.error = None
+        collection.progress = {"stage": "queued"}
+        self.catalog.sync(collection)
 
     def import_bytes(self, collection_id: str, archive_bytes: bytes) -> None:
         collection = self.catalog.get(collection_id)
-        previous_profile = collection.embedding_profile
-        revision_id = str(uuid4())
         collection.status = "validating"
-        self._sync(collection)
+        collection.progress = {"stage": "validating"}
+        self.catalog.sync(collection)
         try:
             with tempfile.TemporaryDirectory(prefix="reindex-import-") as directory:
                 archive = Path(directory) / "package.zip"
                 archive.write_bytes(archive_bytes)
-                unpacked = Path(directory) / "package"
+                unpacked = Path(directory) / "unpacked"
                 unpacked.mkdir()
                 unpack_archive(archive, unpacked)
-                nodes, units = load_package(
-                    unpacked, collection_id, self.store, revision_id, collection.raw
+                snapshot = load_package(
+                    unpacked, collection_id, self.store, collection.resources
                 )
             collection.status = "indexing"
             collection.progress = {
-                "stage": "full_text",
-                "completed": len(units),
-                "total": len(units),
+                "stage": "indexing",
+                "search_units": len(snapshot.units),
             }
-            self._sync(collection)
+            self.catalog.sync(collection)
+            profile = None
             if self.embeddings.name != "disabled":
                 vectors = self.embeddings.embed_documents(
-                    unit.contextual_text for unit in units
+                    unit.contextual_text for unit in snapshot.units
                 )
-                for unit, vector in zip(units, vectors, strict=True):
+                for unit, vector in zip(snapshot.units, vectors, strict=True):
                     unit.embedding = vector
-            collection.status = "ready"
-            collection.embedding_profile = (
-                self.embeddings.name if self.embeddings.name != "disabled" else None
+                profile = self.embeddings.name
+            self.catalog.replace_current(
+                collection,
+                name=snapshot.name,
+                nodes=snapshot.nodes,
+                resources=snapshot.resources,
+                units=snapshot.units,
+                embedding_profile=profile,
+                package_hash=snapshot.package_hash,
             )
-            collection.progress = {
-                "stage": "ready",
-                "completed": len(units),
-                "total": len(units),
-                "embedding_profile": collection.embedding_profile,
-            }
-            if hasattr(self.catalog, "replace_revision"):
-                self.catalog.replace_revision(
-                    collection,
-                    revision_id,
-                    nodes,
-                    units,
-                    collection.embedding_profile,
-                )
-                collection.active_revision = revision_id
-            else:
-                collection.active_revision = revision_id
-                self._sync(collection)
-            collection.nodes, collection.units = nodes, units
-        except Exception as error:
-            collection.embedding_profile = previous_profile
+        except Exception as error:  # noqa: BLE001 - persist every background failure
             collection.status = "failed"
             collection.error = {"code": type(error).__name__, "message": str(error)}
-            self._sync(collection)
+            collection.progress = {"stage": "failed"}
+            self.catalog.sync(collection)
 
     def get_node(self, collection_id: str, node_id: str) -> Node:
+        return self.catalog.get_node(collection_id, node_id)
+
+    def browse(
+        self, collection_id: str, parent_node_id: str | None, recursive: bool = False
+    ) -> list[Node]:
+        return self.catalog.browse(collection_id, parent_node_id, recursive)
+
+    def get_raw(self, collection_id: str, raw_path: str) -> Resource:
         collection = self.catalog.get(collection_id)
         try:
-            return collection.nodes[node_id]
+            return collection.resources[
+                ("raw", safe_relative_path(raw_path).as_posix())
+            ]
         except KeyError as error:
-            raise KeyError("node not found") from error
+            raise KeyError("raw resource not found") from error
 
-    def browse(self, collection_id: str, parent_node_id: str | None) -> list[Node]:
-        collection = self.catalog.get(collection_id)
-        return [
-            node
-            for node in collection.nodes.values()
-            if node.parent_id == parent_node_id
-        ]
+    def get_node_resource(
+        self, collection_id: str, node_id: str, role: str, ordinal: int = 0
+    ) -> NodeResource:
+        link = self.get_node(collection_id, node_id).link(role, ordinal)
+        if not link:
+            raise KeyError(f"Node has no {role} resource")
+        return link
 
     def search(self, collection_id: str, options: SearchOptions) -> SearchResponse:
-        collection = self.catalog.get(collection_id)
-        if not collection.active_revision:
-            raise ValueError("collection is not ready")
+        collection = self._ready(collection_id)
         if self.search_backend is None:
             raise RuntimeError("search requires a ParadeDB DATABASE_URL")
         query_embedding = None
         if options.mode in {"semantic", "hybrid"}:
-            if self.embeddings.name == "disabled":
+            if (
+                self.embeddings.name == "disabled"
+                or collection.embedding_profile != self.embeddings.name
+            ):
                 raise RuntimeError(
-                    "semantic and hybrid search require REINDEX_EMBEDDINGS=qwen"
-                )
-            if collection.embedding_profile != self.embeddings.name:
-                raise RuntimeError(
-                    "active revision embedding profile does not match the query embedding profile"
+                    "semantic search requires the Collection embedding profile"
                 )
             query_embedding = self.embeddings.embed_query(options.query)
         hits = self.search_backend.search(collection, options, query_embedding)
-        reranked_hits, rerank_latency_ms = self.reranker.rerank(options.query, hits)
-        hits = _fuse_reranking(hits, reranked_hits, options, self.reranker)
-        page, offset, candidate_count, next_cursor = paginate_hits(
-            hits, options, collection.active_revision
+        reranked, latency = self.reranker.rerank(options.query, hits)
+        hits = fuse_reranking(hits, reranked, options, self.reranker)
+        page, offset, count, cursor = paginate_hits(
+            hits, options, collection.package_hash or ""
         )
         return SearchResponse(
-            executed_mode=options.mode,
-            embedding_profile=collection.embedding_profile,
-            revision_id=collection.active_revision,
-            results=page,
-            result_offset=offset,
-            candidate_count=candidate_count,
-            next_cursor=next_cursor,
-            reranker_profile=(
-                self.reranker.name if self.reranker.name != "disabled" else None
-            ),
-            reranked_count=min(len(hits), self.reranker.candidate_limit),
-            rerank_latency_ms=(
-                round(rerank_latency_ms, 3)
-                if self.reranker.name != "disabled"
-                else None
-            ),
-            rerank_fusion_weight=(
-                self.reranker.fusion_weight
-                if self.reranker.name != "disabled"
-                else None
-            ),
-            rerank_rrf_k=(options.rrf_k if self.reranker.name != "disabled" else None),
+            options.mode,
+            collection.embedding_profile,
+            page,
+            offset,
+            count,
+            cursor,
+            self.reranker.name if self.reranker.name != "disabled" else None,
+            min(len(hits), self.reranker.candidate_limit),
+            round(latency, 3) if self.reranker.name != "disabled" else None,
+            self.reranker.fusion_weight if self.reranker.name != "disabled" else None,
+            options.rrf_k if self.reranker.name != "disabled" else None,
         )
 
     def grep(
@@ -214,93 +254,16 @@ class ReindexService:
         regex: bool,
         case_sensitive: bool,
     ) -> SearchResponse:
-        collection = self.catalog.get(collection_id)
-        if not collection.active_revision:
-            raise ValueError("collection is not ready")
+        collection = self._ready(collection_id)
         if self.search_backend is None:
             raise RuntimeError("grep requires a ParadeDB DATABASE_URL")
         results = self.search_backend.grep(
             collection, pattern, limit, regex, case_sensitive
         )
-        return SearchResponse(
-            executed_mode="grep",
-            embedding_profile=None,
-            revision_id=collection.active_revision,
-            results=results,
-            candidate_count=len(results),
-        )
+        return SearchResponse("grep", None, results, candidate_count=len(results))
 
-    def _sync(self, collection: Collection) -> None:
-        if hasattr(self.catalog, "sync"):
-            self.catalog.sync(collection)
-
-
-def _fuse_reranking(
-    hits: list[SearchHit],
-    reranked_hits: list[SearchHit],
-    options: SearchOptions,
-    reranker: Reranker,
-) -> list[SearchHit]:
-    """Fuse retrieval and cross-encoder ranks without comparing raw model scores."""
-    if reranker.name == "disabled" or not hits:
-        return hits
-
-    original_position = {hit.unit.id: index for index, hit in enumerate(hits, 1)}
-    rerank_position = {
-        hit.unit.id: index
-        for index, hit in enumerate(reranked_hits, 1)
-        if hit.rerank_score is not None
-    }
-    rerank_score = {
-        hit.unit.id: hit.rerank_score
-        for hit in reranked_hits
-        if hit.rerank_score is not None
-    }
-    rerank_bonus = _confidence_bonus(reranked_hits)
-    fused: list[SearchHit] = []
-    for hit in hits:
-        ranks = dict(hit.ranks)
-        score = 0.0
-        lexical_rank = ranks.get("lexical")
-        semantic_rank = ranks.get("semantic")
-        if lexical_rank is not None:
-            score += options.lexical_weight / (options.rrf_k + lexical_rank)
-        if semantic_rank is not None:
-            score += options.semantic_weight / (options.rrf_k + semantic_rank)
-        if not ranks:
-            score = 1 / (options.rrf_k + original_position[hit.unit.id])
-        if rank := rerank_position.get(hit.unit.id):
-            ranks["rerank"] = rank
-            score += reranker.fusion_weight / (options.rrf_k + rank)
-        bonus = rerank_bonus.get(hit.unit.id, 0.0)
-        score += bonus
-        fused.append(
-            replace(
-                hit,
-                score=score,
-                ranks=ranks,
-                rerank_score=rerank_score.get(hit.unit.id),
-                rerank_bonus=bonus or None,
-            )
-        )
-    return sorted(
-        fused,
-        key=lambda hit: (-hit.score, original_position[hit.unit.id], hit.unit.id),
-    )
-
-
-def _confidence_bonus(reranked_hits: list[SearchHit]) -> dict[str, float]:
-    """Permit a clearly dominant cross-encoder result to break an RRF deadlock.
-
-    Cross-encoder scores are not comparable between queries, so only the first
-    result's positive within-query margin is used.  The cap keeps retrieval
-    ranks dominant when the model is uncertain or wrong.
-    """
-    scored = [hit for hit in reranked_hits if hit.rerank_score is not None]
-    if len(scored) < 2:
-        return {}
-    first, second = scored[:2]
-    margin = first.rerank_score - second.rerank_score
-    if first.rerank_score <= 0 or margin <= 0.5:
-        return {}
-    return {first.unit.id: min(0.006, (margin - 0.5) * 0.003)}
+    def _ready(self, collection_id: str) -> Collection:
+        collection = self.catalog.get(collection_id)
+        if not collection.package_hash:
+            raise ValueError("Collection is not ready")
+        return collection

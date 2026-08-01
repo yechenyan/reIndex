@@ -1,81 +1,74 @@
 # ReIndex 产品概览
-ReIndex local files into agent-ready knowledge.
 
-这是我想做的一个工具， 也可以说是一个套标准。
+ReIndex 把本地文件转换成可移植、可追溯、可搜索和可查询的 Agent 知识包。
 
-## 他是怎么运行的?
+## 核心对象
 
-### STEP1 
-假设你的有一个叫 data 的文件夹，里面文件如下
+- Collection 是数据隔离和搜索的最小范围，同时也是一个根 Node。
+- Node 是稳定的逻辑对象，使用 UUID 身份、显式顺序和数据卡片。
+- source 是原始文件。
+- content 是 Node 的主要可读或可查询内容。
+- assets 是附属文件，使用通用编号，具体用途写在 Node card 的 role 中。
+- resource 是文件上传后的服务器对象，不写入本地 package。
 
-data
-- someLargeA.pdf 
-- reIndex.md      介绍这个文件夹里内容的 md
-- someB.csv
-  - folderC
-    - somSmallA.pdf
-    - reIndex.md  介绍这个文件夹里内容的 md
-    - someC.png
+## 1. 准备 Collection
 
-### STEP2
-用一些工具把上面的文件进行处理，
-处理的过程不用管，后面写代码处理。
+每个 Collection 有自己的源数据目录：
 
+```text
+data/
+└── test1/
+    ├── report.pdf
+    ├── customers.csv
+    └── reIndex.md
+```
+
+`reIndex.md` 可以为生成过程提供目录说明和解析上下文，但不是 Node 协议文件。
+
+## 2. 生成 ReIndex package
+
+```text
 reIndex/
-├── index.node.md
-├── someLargeA/
-│   ├── index.node.md
-│   ├── 0001.node.md
-│   ├── 0002.node.md
-│   ├── 0003.node.md
-│   ├── 0003.csv
-│   ├── 0004.node.md
-│   └── 0004.png
-├── someB.node.md
-└── folderC/
+└── test1/
     ├── index.node.md
-    ├── someSmallA.node.md
-    └── someC.node.md
+    └── report/
+        ├── index.node.md
+        ├── 00001--introduction.md
+        ├── 00001--introduction.node.md
+        ├── 00002--network-map.png
+        ├── 00002--network-map.node.md
+        ├── 00003--investment-plan.csv
+        ├── 00003--investment-plan.assets001.png
+        └── 00003--investment-plan.node.md
+```
 
-把文件夹，文件称作 node
-文件夹或者大pdf 拆成的虚拟文件夹的 node 有 child
-最顶级的 node 可以称为 collect，方便流程
+Collection、目录和大文档使用 `index.node.md`。普通 Node 的 `.node.md` 只保存身份、
+结构、溯源和数据卡片；完整 Markdown、CSV 或图片由 `content` 引用。
 
-.node.md 里分为一些内容，相当于 dataCard，有如下功能
-- hashId 等唯一索引，版本控制，
-- 文件从哪来的，溯源信息
-- 由代码运行生成的结构化数据
-- 由 AI 生成的数据，包括介绍和这个由什么用， 表格字段由哪些，行数
-- 对于 表格由表格预览，对于 PDF 有 PDF 生成的文本，对于图片有文字描述
+文件使用五位编号加短名称，便于人工浏览。机器关系始终由 frontmatter 的显式 URI、ID、
+parent 目录和 order 决定，不能从文件名猜测。
 
-每个 card 都根据文件类型设置不同的标准类型
+## 3. 上传和索引
 
-最后形成
+```text
+package files ──SHA-256──> local content-addressed resources
+Node cards ──────────────> PostgreSQL/ParadeDB
+content/card/table rows ─> BM25 + embeddings
+CSV/Parquet ─────────────> DuckDB read-only query
+```
 
-raw -> node 的一个标准化的体系
+- source、content、assets 和原始 `.node.md` 字节进入 `REINDEX_DATA_DIR`。
+- 相同 SHA-256 只保存一个 resource；原始 CSV 的 source/content 复用同一 resource。
+- PostgreSQL 保存 Collection 当前态、Node 树、卡片、resource 关系和检索投影。
+- 导入完成全部验证和索引后在一个事务中替换当前态；失败事务保留原有 Node 数据。
 
+## 4. Agent 工具
 
-### STEP3 
-上传到数据库，数据库用 PostgreSQL
-raw 也就是说原始数据上传到文件存储
+- `search`：融合 BM25、向量召回和重排，返回可追溯 Evidence。
+- `grep`：在 content 和表格行中进行受限字面或正则搜索。
+- `browse`：浏览 Collection 的 Node 树和顺序。
+- `get`：读取 Node card 和 content 元信息。
+- `download`：按 `source/content/asset/card` 下载真实文件。
+- `query`：使用 DuckDB 对 table content 执行受限只读 SQL。
 
-node + card 这里的对应关系，上传到关系数据库
-
-row + card 建立全文索引
-row + card 建立向量索引
-
-
-### STEP4
-查询，给AI 提供如下查询供具
-
-- search:
-最常用的搜索， 根据全文搜索和向量搜索的结果排序繁华
-
-- broswer:
-可以搜索node 树结构，
-
-- get:
-直接下载原始文件，如果选择的有child，把子内容一口气全部下载
-
-- query：
-利用 duckDB 在数据库里精确查找数据
+完整 package 规则见 [`reference/reindex-v1.0-standard.md`](reference/reindex-v1.0-standard.md)。

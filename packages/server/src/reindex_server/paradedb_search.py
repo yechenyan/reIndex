@@ -49,13 +49,13 @@ class ParadeDBSearch:
                    NULL::float8 AS semantic_score, NULL::bigint AS lexical_rank,
                    NULL::bigint AS semantic_rank
             FROM search_units u
-            WHERE u.revision_id = %s AND {predicate}
+            WHERE u.collection_id = %s AND {predicate}
             ORDER BY u.node_id, u.ordinal, u.id
             LIMIT %s
         """
         return [
             _hit(row, "grep")
-            for row in self._execute(sql, (collection.active_revision, pattern, limit))
+            for row in self._execute(sql, (collection.id, pattern, limit))
         ]
 
     def _lexical(self, collection: Collection, options: SearchOptions) -> list[dict]:
@@ -104,7 +104,7 @@ class ParadeDBSearch:
             WITH scored AS MATERIALIZED (
               SELECT u.*, (1 - (e.embedding <=> %s::vector))::float8 AS semantic_score
               FROM search_units u
-              JOIN unit_embeddings e ON e.unit_id = u.id
+              JOIN search_embeddings e ON e.search_unit_id = u.id
               WHERE {filters} AND e.profile_id = %s {threshold}
               ORDER BY e.embedding <=> %s::vector, u.id
               LIMIT %s
@@ -157,7 +157,7 @@ class ParadeDBSearch:
             semantic_scored AS MATERIALIZED (
               SELECT u.id, (1 - (e.embedding <=> %s::vector))::float8 AS semantic_score
               FROM search_units u
-              JOIN unit_embeddings e ON e.unit_id = u.id
+              JOIN search_embeddings e ON e.search_unit_id = u.id
               WHERE {filters} AND e.profile_id = %s {semantic_filter}
               ORDER BY e.embedding <=> %s::vector, u.id
               LIMIT %s
@@ -212,8 +212,8 @@ class ParadeDBSearch:
 def _filters(
     alias: str, collection: Collection, options: SearchOptions
 ) -> tuple[str, tuple]:
-    clauses = [f"{alias}.revision_id = %s"]
-    params: list = [collection.active_revision]
+    clauses = [f"{alias}.collection_id = %s"]
+    params: list = [collection.id]
     if options.node_ids:
         clauses.append(f"{alias}.node_id = ANY(%s::uuid[])")
         params.append(list(options.node_ids))
@@ -223,6 +223,9 @@ def _filters(
     if options.path_prefix:
         clauses.append(f"starts_with({alias}.path, %s)")
         params.append(options.path_prefix)
+    if options.subtree_node_id:
+        clauses.append(f"{alias}.tree_path @> ARRAY[%s]::uuid[]")
+        params.append(options.subtree_node_id)
     return " AND ".join(clauses), tuple(params)
 
 
@@ -255,8 +258,9 @@ def _hit(row: dict, forced_channel: str | None = None) -> SearchHit:
 
 def _unit(row: dict) -> SearchUnit:
     return SearchUnit(
-        id=row["unit_id"],
+        id=row["id"],
         node_id=str(row["node_id"]),
+        unit_type=row["unit_type"],
         contextual_text=row["contextual_text"],
         original_text=row["original_text"],
         start_line=row["start_line"],
@@ -264,4 +268,5 @@ def _unit(row: dict) -> SearchUnit:
         ordinal=row["ordinal"],
         row=row["row_number"],
         locator=row["locator"],
+        resource_id=str(row["resource_id"]) if row.get("resource_id") else None,
     )

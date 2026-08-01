@@ -13,7 +13,9 @@ class Reranker:
     candidate_limit = 0
     fusion_weight = 0.0
 
-    def rerank(self, query: str, hits: list[SearchHit]) -> tuple[list[SearchHit], float]:
+    def rerank(
+        self, query: str, hits: list[SearchHit]
+    ) -> tuple[list[SearchHit], float]:
         return hits, 0.0
 
     def warmup(self) -> None:
@@ -63,7 +65,9 @@ class MiniLMReranker(Reranker):
                 )
         return self._model
 
-    def rerank(self, query: str, hits: list[SearchHit]) -> tuple[list[SearchHit], float]:
+    def rerank(
+        self, query: str, hits: list[SearchHit]
+    ) -> tuple[list[SearchHit], float]:
         candidates = hits[: self.candidate_limit]
         if not candidates:
             return hits, 0.0
@@ -82,7 +86,9 @@ class MiniLMReranker(Reranker):
                 reverse=True,
             )
         ]
-        return reranked + hits[self.candidate_limit :], (perf_counter() - started) * 1000
+        return reranked + hits[self.candidate_limit :], (
+            perf_counter() - started
+        ) * 1000
 
     def warmup(self) -> None:
         self.rerank("Initialize document retrieval.", [])

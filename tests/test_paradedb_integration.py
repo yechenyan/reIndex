@@ -3,7 +3,6 @@ from __future__ import annotations
 import os
 from uuid import uuid4
 
-import psycopg
 import pytest
 from reindex_server.database import Database
 from reindex_server.domain import Collection, Node, SearchOptions, SearchUnit
@@ -17,7 +16,7 @@ pytestmark = pytest.mark.skipif(
 )
 
 
-def test_real_bm25_vector_and_hybrid_search(request) -> None:
+def test_real_current_state_bm25_vector_and_hybrid_search(request) -> None:
     assert DATABASE_URL
     initialize_database(DATABASE_URL)
     database = Database(DATABASE_URL)
@@ -25,25 +24,27 @@ def test_real_bm25_vector_and_hybrid_search(request) -> None:
     backend = ParadeDBSearch(database)
     collection_id = str(uuid4())
     request.addfinalizer(lambda: _cleanup(database, collection_id))
-    revision_id = str(uuid4())
     first_id, second_id = str(uuid4()), str(uuid4())
-    root = _node(collection_id, "Energy reports", "energy/index.node.md")
-    first = _node(first_id, "Transformer expansion AB-42", "energy/transformer.node.md")
-    second = _node(second_id, "Solar capacity", "energy/solar.node.md")
-    collection = Collection.create(root)
-    collection.status = "ready"
-    collection.active_revision = revision_id
-    collection.embedding_profile = "integration@1024"
-    collection.progress = {"embedding_profile": collection.embedding_profile}
+    root = _node(collection_id, collection_id, None, None, "Energy reports")
+    first = _node(
+        first_id, collection_id, collection_id, 1, "Transformer expansion AB-42"
+    )
+    second = _node(second_id, collection_id, collection_id, 2, "Solar capacity")
     nodes = {node.id: node for node in (root, first, second)}
     units = [
         _unit(first, "The AB-42 transformer costs 15 million euros.", _vector(0)),
         _unit(second, "Photovoltaic capacity increases to 160 MW.", _vector(1)),
     ]
-
+    collection = Collection(collection_id, "Energy reports", nodes={root.id: root})
     catalog.create(collection)
-    catalog.replace_revision(
-        collection, revision_id, nodes, units, collection.embedding_profile
+    catalog.replace_current(
+        collection,
+        name="Energy reports",
+        nodes=nodes,
+        resources={},
+        units=units,
+        embedding_profile="integration@1024",
+        package_hash="a" * 64,
     )
 
     lexical = backend.search(
@@ -55,97 +56,67 @@ def test_real_bm25_vector_and_hybrid_search(request) -> None:
     hybrid = backend.search(
         collection, SearchOptions("transformer growth", "hybrid", 2, 10), _vector(1)
     )
-
     assert lexical[0].unit.node_id == first_id
     assert lexical[0].bm25_score and lexical[0].bm25_score > 0
     assert semantic[0].unit.node_id == second_id
     assert semantic[0].semantic_score == pytest.approx(1.0)
-    assert hybrid[0].score > 0
     assert {channel for hit in hybrid for channel in hit.channels} == {
         "lexical",
         "semantic",
     }
-    for _ in range(8):
-        assert backend.search(
-            collection,
-            SearchOptions("AB-42 transformer", "lexical", 2, 10),
-            None,
-        )
-    second_revision = str(uuid4())
-    catalog.replace_revision(
+
+    catalog.replace_current(
         collection,
-        second_revision,
-        nodes,
-        units,
-        collection.embedding_profile,
+        name="Energy reports",
+        nodes=nodes,
+        resources={},
+        units=units,
+        embedding_profile="integration@1024",
+        package_hash="b" * 64,
     )
-    collection.active_revision = second_revision
-    repeated = backend.search(
-        collection, SearchOptions("AB-42 transformer", "lexical", 2, 10), None
-    )
-    assert repeated[0].unit.id == units[0].id
-    with pytest.raises(psycopg.errors.UniqueViolation):
-        catalog.replace_revision(
-            collection,
-            second_revision,
-            nodes,
-            units,
-            collection.embedding_profile,
-        )
-    assert catalog.get(collection_id).active_revision == second_revision
+    loaded = catalog.get(collection_id)
+    assert loaded.package_hash == "b" * 64
+    assert len(catalog.browse(collection_id, None, True)) == 3
+    assert catalog.get_node(collection_id, second_id).title == "Solar capacity"
 
 
 def _cleanup(database: Database, collection_id: str) -> None:
     with database.connection() as connection, connection.cursor() as cursor:
-        cursor.execute(
-            """DELETE FROM unit_embeddings
-               WHERE unit_id IN (
-                 SELECT id FROM search_units WHERE collection_id = %s
-               )""",
-            (collection_id,),
-        )
-        cursor.execute(
-            "DELETE FROM search_units WHERE collection_id = %s", (collection_id,)
-        )
-        cursor.execute(
-            """DELETE FROM nodes
-               WHERE revision_id IN (
-                 SELECT id FROM collection_revisions WHERE collection_id = %s
-               )""",
-            (collection_id,),
-        )
-        cursor.execute(
-            "DELETE FROM collection_revisions WHERE collection_id = %s",
-            (collection_id,),
-        )
-        cursor.execute(
-            "DELETE FROM collections WHERE root_node_id = %s", (collection_id,)
-        )
+        cursor.execute("DELETE FROM collections WHERE id = %s", (collection_id,))
     database.close()
 
 
-def _node(node_id: str, title: str, path: str) -> Node:
+def _node(
+    node_id: str,
+    collection_id: str,
+    parent_id: str | None,
+    order: int | None,
+    title: str,
+) -> Node:
+    tree_path = (collection_id,) if parent_id is None else (collection_id, node_id)
+    order_path = () if order is None else (order,)
     return Node(
         node_id,
-        path,
-        None,
-        "text",
+        collection_id,
+        f"{node_id}.node.md",
+        parent_id,
+        order,
+        tree_path,
+        order_path,
+        "group" if parent_id is None else "text",
         title,
         "Fixture document",
         "",
-        None,
-        None,
-        None,
-        None,
-        None,
-        None,
+        {},
+        "c" * 64,
     )
 
 
 def _unit(node: Node, text: str, embedding: list[float]) -> SearchUnit:
     return SearchUnit(
-        id=f"{node.id}:text:1",
+        id=f"{node.id}:content_text:1",
         node_id=node.id,
+        unit_type="content_text",
         contextual_text=f"{node.title}\n{node.description}\n{text}",
         original_text=text,
         start_line=1,

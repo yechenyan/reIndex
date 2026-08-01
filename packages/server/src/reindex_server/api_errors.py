@@ -9,6 +9,8 @@ from fastapi.encoders import jsonable_encoder
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 
+from reindex_server.errors import ConflictError
+
 _REQUEST_ID = ContextVar[str]("reindex_request_id", default="")
 _VALID_REQUEST_ID = re.compile(r"^[A-Za-z0-9._:-]{1,128}$")
 
@@ -53,6 +55,8 @@ def install_api_error_handling(app: FastAPI) -> None:
 
 def http_error(error: Exception) -> HTTPException:
     message = _message(error)
+    if isinstance(error, ConflictError):
+        return HTTPException(409, {"code": "conflict", "message": message})
     if isinstance(error, KeyError):
         return HTTPException(404, {"code": "not_found", "message": message})
     if isinstance(error, RuntimeError):

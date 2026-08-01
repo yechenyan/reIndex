@@ -13,16 +13,16 @@ from reindex_server.domain import SearchHit, SearchOptions
 def paginate_hits(
     hits: list[SearchHit],
     options: SearchOptions,
-    revision_id: str,
+    package_hash: str,
 ) -> tuple[list[SearchHit], int, int, str | None]:
     diversified = _limit_per_node(hits, options.max_per_node)
     fingerprint = _fingerprint(options)
-    offset = _decode_cursor(options.cursor, revision_id, fingerprint)
+    offset = _decode_cursor(options.cursor, package_hash, fingerprint)
     if offset > len(diversified):
         raise ValueError("search cursor is beyond the candidate set")
     end = min(offset + options.limit, len(diversified))
     next_cursor = (
-        _encode_cursor(revision_id, fingerprint, end)
+        _encode_cursor(package_hash, fingerprint, end)
         if end < len(diversified)
         else None
     )
@@ -48,9 +48,9 @@ def _fingerprint(options: SearchOptions) -> str:
     return hashlib.sha256(payload.encode()).hexdigest()[:24]
 
 
-def _encode_cursor(revision_id: str, fingerprint: str, offset: int) -> str:
+def _encode_cursor(package_hash: str, fingerprint: str, offset: int) -> str:
     payload = json.dumps(
-        {"v": 1, "revision": revision_id, "query": fingerprint, "offset": offset},
+        {"v": 1, "package": package_hash, "query": fingerprint, "offset": offset},
         separators=(",", ":"),
     ).encode()
     return base64.urlsafe_b64encode(payload).decode().rstrip("=")
@@ -58,7 +58,7 @@ def _encode_cursor(revision_id: str, fingerprint: str, offset: int) -> str:
 
 def _decode_cursor(
     cursor: str | None,
-    revision_id: str,
+    package_hash: str,
     fingerprint: str,
 ) -> int:
     if cursor is None:
@@ -68,7 +68,7 @@ def _decode_cursor(
         payload = json.loads(base64.urlsafe_b64decode(cursor + padding))
         if (
             payload["v"] != 1
-            or payload["revision"] != revision_id
+            or payload["package"] != package_hash
             or payload["query"] != fingerprint
             or not isinstance(payload["offset"], int)
             or payload["offset"] < 0
@@ -84,5 +84,5 @@ def _decode_cursor(
         json.JSONDecodeError,
     ) as error:
         raise ValueError(
-            "invalid search cursor for this query or active revision"
+            "invalid search cursor for this query or current package"
         ) from error

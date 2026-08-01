@@ -1,15 +1,3 @@
----
-spec: "reindex/node@0.1"
-id: "a0f37f35-0c18-427a-b61a-6d7d4fb5a47b"
-kind: "text"
-title: "D bis F: Ausbau, Dienstleistungen und Sonstiges"
-description: "Einordnung der Ausbauplanung sowie Aussagen zu Flexibilität und sonstigen Themen."
-source:
-  uri: "raw://2022_07_28_netzausbauplan_bielefelder_netz_gmbh_2022_inkl_anhang_pdf.pdf"
-  sha256: "3dc36a9917ac29b387c8fcc6e1a856f26e4fc0660d4e847a5070ee7dca0af497"
-  locator:
-    pages: [3, 4]
----
 # D bis F: Ausbau, Dienstleistungen und Sonstiges
 
 <!-- reindex:page=3 -->

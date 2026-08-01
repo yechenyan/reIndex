@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "reindex-cli"
+version = "0.1.0"
+description = "Command-line interface for ReIndex workflows."
+requires-python = ">=3.12"
+
+[project.scripts]
+rei = "reindex_cli.cli:main"
+reindex = "reindex_cli.cli:main"
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.setuptools.packages.find]
+where = ["src"]

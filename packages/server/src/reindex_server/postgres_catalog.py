@@ -1,224 +1,215 @@
 from __future__ import annotations
 
-from dataclasses import asdict
-from pathlib import Path
-
+from psycopg.errors import UniqueViolation
 from psycopg.types.json import Jsonb
 
 from reindex_server.database import Database
-from reindex_server.domain import Collection, Node, SearchUnit
+from reindex_server.domain import Collection, Node, Resource, SearchUnit
+from reindex_server.errors import ConflictError
+from reindex_server.postgres_records import (
+    insert_links,
+    insert_nodes,
+    insert_resources,
+    insert_units,
+    load_links,
+    load_resources,
+    node_from_row,
+)
 
 
 class PostgresCatalog:
-    """PostgreSQL source of truth for revisions and retrieval projections."""
+    """PostgreSQL current-state catalog; package replacement is one transaction."""
 
     def __init__(self, database: Database) -> None:
         self.database = database
 
     def create(self, collection: Collection) -> Collection:
-        with self.database.connection() as connection, connection.cursor() as cursor:
-            cursor.execute(
-                "INSERT INTO collections (root_node_id, root_node, status, progress) VALUES (%s, %s, %s, %s)",
-                (
-                    collection.id,
-                    Jsonb(_node_record(collection.root_node)),
-                    collection.status,
-                    Jsonb(collection.progress),
-                ),
-            )
+        try:
+            with (
+                self.database.connection() as connection,
+                connection.cursor() as cursor,
+            ):
+                cursor.execute(
+                    "INSERT INTO collections (id, name, status, progress) VALUES (%s, %s, %s, %s)",
+                    (
+                        collection.id,
+                        collection.name,
+                        collection.status,
+                        Jsonb(collection.progress),
+                    ),
+                )
+                insert_resources(cursor, collection.resources.values())
+                insert_nodes(cursor, collection.nodes.values())
+                insert_links(cursor, collection.nodes.values())
+        except UniqueViolation as error:
+            raise ConflictError("collection already exists") from error
         return collection
 
     def get(self, collection_id: str) -> Collection:
         with self.database.connection() as connection, connection.cursor() as cursor:
-            cursor.execute(
-                "SELECT * FROM collections WHERE root_node_id = %s", (collection_id,)
-            )
-            record = cursor.fetchone()
-            if record is None:
+            cursor.execute("SELECT * FROM collections WHERE id = %s", (collection_id,))
+            row = cursor.fetchone()
+            if row is None:
                 raise KeyError("collection not found")
-            root = _node_from_record(record["root_node"])
-            collection = Collection(
-                id=str(record["root_node_id"]),
-                root_node=root,
-                status=record["status"],
-                active_revision=str(record["active_revision_id"])
-                if record["active_revision_id"]
-                else None,
-                embedding_profile=self._embedding_profile(
-                    cursor, record["active_revision_id"]
-                ),
-                progress=record["progress"] or {},
-                error=record["error"],
-                raw=self._raw(cursor, collection_id),
-                nodes=self._nodes(cursor, record["active_revision_id"]),
+            resources = load_resources(cursor, collection_id)
+            return Collection(
+                id=str(row["id"]),
+                name=row["name"],
+                status=row["status"],
+                package_hash=row["package_hash"],
+                embedding_profile=row["embedding_profile"],
+                progress=row["progress"] or {},
+                error=row["error"],
+                resources=resources,
             )
-            return collection
+
+    def get_node(self, collection_id: str, node_id: str) -> Node:
+        with self.database.connection() as connection, connection.cursor() as cursor:
+            cursor.execute(
+                "SELECT * FROM nodes WHERE collection_id = %s AND id = %s",
+                (collection_id, node_id),
+            )
+            row = cursor.fetchone()
+            if row is None:
+                raise KeyError("node not found")
+            node = node_from_row(row)
+            resources = load_resources(cursor, collection_id)
+            load_links(cursor, collection_id, {node.id: node}, resources, node.id)
+            return node
+
+    def browse(
+        self, collection_id: str, parent_node_id: str | None, recursive: bool
+    ) -> list[Node]:
+        with self.database.connection() as connection, connection.cursor() as cursor:
+            if recursive:
+                anchor = parent_node_id or collection_id
+                cursor.execute(
+                    """SELECT * FROM nodes
+                       WHERE collection_id = %s AND tree_path @> ARRAY[%s]::uuid[]
+                         AND (%s::uuid IS NULL OR id <> %s::uuid)
+                       ORDER BY order_path""",
+                    (collection_id, anchor, parent_node_id, parent_node_id),
+                )
+            else:
+                cursor.execute(
+                    """SELECT * FROM nodes
+                       WHERE collection_id = %s AND parent_node_id IS NOT DISTINCT FROM %s
+                       ORDER BY ordinal NULLS FIRST""",
+                    (collection_id, parent_node_id),
+                )
+            rows = cursor.fetchall()
+            if recursive and parent_node_id and not rows:
+                cursor.execute(
+                    "SELECT 1 FROM nodes WHERE collection_id = %s AND id = %s",
+                    (collection_id, parent_node_id),
+                )
+                if cursor.fetchone() is None:
+                    raise KeyError("parent node not found")
+            return [node_from_row(row) for row in rows]
 
     def sync(self, collection: Collection) -> None:
         with self.database.connection() as connection, connection.cursor() as cursor:
             cursor.execute(
-                "UPDATE collections SET status = %s, active_revision_id = %s, progress = %s, error = %s WHERE root_node_id = %s",
+                """UPDATE collections
+                   SET status = %s, package_hash = %s, embedding_profile = %s,
+                       progress = %s, error = %s, updated_at = now()
+                   WHERE id = %s""",
                 (
                     collection.status,
-                    collection.active_revision,
+                    collection.package_hash,
+                    collection.embedding_profile,
                     Jsonb(collection.progress),
                     Jsonb(collection.error) if collection.error else None,
                     collection.id,
                 ),
             )
 
-    def remember_raw(
-        self, collection_id: str, raw_path: str, sha256: str, path: Path
-    ) -> None:
+    def remember_resource(self, resource: Resource) -> None:
         with self.database.connection() as connection, connection.cursor() as cursor:
-            cursor.execute(
-                "INSERT INTO blobs (sha256, byte_size, media_type, object_key) VALUES (%s, %s, %s, %s) ON CONFLICT (sha256) DO NOTHING",
-                (sha256, path.stat().st_size, "application/octet-stream", str(path)),
-            )
-            cursor.execute(
-                "INSERT INTO raw_files (collection_id, raw_path, sha256) VALUES (%s, %s, %s) ON CONFLICT (collection_id, raw_path) DO UPDATE SET sha256 = EXCLUDED.sha256",
-                (collection_id, raw_path, sha256),
-            )
+            insert_resources(cursor, [resource])
 
-    def replace_revision(
+    def replace_current(
         self,
         collection: Collection,
-        revision_id: str,
+        *,
+        name: str,
         nodes: dict[str, Node],
+        resources: dict[tuple[str, str], Resource],
         units: list[SearchUnit],
-        profile: str | None,
+        embedding_profile: str | None,
+        package_hash: str,
     ) -> None:
         with self.database.connection() as connection, connection.cursor() as cursor:
             cursor.execute(
-                "INSERT INTO collection_revisions (id, collection_id, status, embedding_profile) VALUES (%s, %s, 'ready', %s)",
-                (revision_id, collection.id, profile),
+                "SELECT pg_advisory_xact_lock(hashtextextended(%s, 0))",
+                (collection.id,),
             )
-            cursor.executemany(
-                """INSERT INTO nodes (revision_id, node_id, parent_node_id, path, kind, title, description, body, source_uri, source_sha256, locator, resource_uri, resource_key, table_meta)
-                   VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)""",
-                [
-                    (
-                        revision_id,
-                        node.id,
-                        node.parent_id,
-                        node.path,
-                        node.kind,
-                        node.title,
-                        node.description,
-                        node.body,
-                        node.source_uri,
-                        node.source_sha256,
-                        Jsonb(node.locator) if node.locator else None,
-                        node.resource_uri,
-                        node.resource_key,
-                        Jsonb(node.table) if node.table else None,
-                    )
-                    for node in nodes.values()
-                ],
+            cursor.execute(
+                "DELETE FROM nodes WHERE collection_id = %s", (collection.id,)
             )
-            if profile:
+            cursor.execute(
+                "DELETE FROM resources WHERE collection_id = %s AND namespace = 'package'",
+                (collection.id,),
+            )
+            insert_resources(cursor, resources.values())
+            insert_nodes(cursor, nodes.values())
+            insert_links(cursor, nodes.values())
+            insert_units(cursor, collection.id, nodes, units)
+            if embedding_profile:
+                vectors = [unit.embedding for unit in units if unit.embedding]
+                dimensions = len(vectors[0]) if vectors else 1024
                 cursor.execute(
-                    "INSERT INTO embedding_profiles (id, model, dimensions, config) VALUES (%s, %s, 1024, %s) ON CONFLICT (id) DO NOTHING",
-                    (profile, profile.split("@", 1)[0], Jsonb({"normalized": True})),
-                )
-            cursor.executemany(
-                """INSERT INTO search_units
-                   (id, unit_id, collection_id, revision_id, node_id, path, kind, title, description,
-                    ordinal, row_number, start_line, end_line, locator, original_text, contextual_text)
-                   VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)""",
-                [
+                    """INSERT INTO embedding_profiles (id, model, dimensions, config)
+                       VALUES (%s, %s, %s, %s) ON CONFLICT (id) DO NOTHING""",
                     (
-                        _search_key(revision_id, unit.id),
-                        unit.id,
-                        collection.id,
-                        revision_id,
-                        unit.node_id,
-                        nodes[unit.node_id].path,
-                        nodes[unit.node_id].kind,
-                        nodes[unit.node_id].title,
-                        nodes[unit.node_id].description,
-                        unit.ordinal,
-                        unit.row,
-                        unit.start_line,
-                        unit.end_line,
-                        Jsonb(unit.locator) if unit.locator else None,
-                        unit.original_text,
-                        unit.contextual_text,
-                    )
-                    for unit in units
-                ],
-            )
-            if profile:
+                        embedding_profile,
+                        embedding_profile.split("@", 1)[0],
+                        dimensions,
+                        Jsonb({"normalized": True}),
+                    ),
+                )
                 cursor.executemany(
-                    "INSERT INTO unit_embeddings (unit_id, profile_id, embedding) VALUES (%s, %s, %s)",
+                    "INSERT INTO search_embeddings (search_unit_id, profile_id, embedding) VALUES (%s, %s, %s)",
                     [
-                        (_search_key(revision_id, unit.id), profile, unit.embedding)
+                        (unit.id, embedding_profile, unit.embedding)
                         for unit in units
                         if unit.embedding
                     ],
                 )
             cursor.execute(
-                "UPDATE collections SET status = %s, active_revision_id = %s, progress = %s, error = NULL WHERE root_node_id = %s",
+                """UPDATE collections SET name = %s, status = 'ready', package_hash = %s,
+                   embedding_profile = %s, progress = %s, error = NULL, updated_at = now()
+                   WHERE id = %s""",
                 (
-                    collection.status,
-                    revision_id,
-                    Jsonb(collection.progress),
+                    name,
+                    package_hash,
+                    embedding_profile,
+                    Jsonb(
+                        {
+                            "stage": "ready",
+                            "nodes": len(nodes),
+                            "resources": len(resources),
+                            "search_units": len(units),
+                            "embedding_profile": embedding_profile,
+                        }
+                    ),
                     collection.id,
                 ),
             )
-
-    @staticmethod
-    def _raw(cursor, collection_id: str) -> dict[str, str]:
-        cursor.execute(
-            "SELECT raw_path, sha256 FROM raw_files WHERE collection_id = %s",
-            (collection_id,),
-        )
-        return {row["raw_path"]: row["sha256"] for row in cursor.fetchall()}
-
-    @staticmethod
-    def _nodes(cursor, revision_id) -> dict[str, Node]:
-        if not revision_id:
-            return {}
-        cursor.execute("SELECT * FROM nodes WHERE revision_id = %s", (revision_id,))
-        return {
-            str(row["node_id"]): _node_from_record(row) for row in cursor.fetchall()
+        collection.name = name
+        collection.status = "ready"
+        collection.package_hash = package_hash
+        collection.embedding_profile = embedding_profile
+        collection.progress = {
+            "stage": "ready",
+            "nodes": len(nodes),
+            "resources": len(resources),
+            "search_units": len(units),
+            "embedding_profile": embedding_profile,
         }
-
-    @staticmethod
-    def _embedding_profile(cursor, revision_id) -> str | None:
-        if not revision_id:
-            return None
-        cursor.execute(
-            "SELECT embedding_profile FROM collection_revisions WHERE id = %s",
-            (revision_id,),
+        collection.error = None
+        collection.resources, collection.nodes, collection.units = (
+            resources,
+            nodes,
+            units,
         )
-        record = cursor.fetchone()
-        return record["embedding_profile"] if record else None
-
-
-def _node_record(node: Node) -> dict:
-    return asdict(node)
-
-
-def _search_key(revision_id: str, unit_id: str) -> str:
-    return f"{revision_id}:{unit_id}"
-
-
-def _node_from_record(record: dict) -> Node:
-    return Node(
-        id=str(record["id"] if "id" in record else record["node_id"]),
-        path=record["path"],
-        parent_id=str(record["parent_id"])
-        if record.get("parent_id")
-        else (str(record["parent_node_id"]) if record.get("parent_node_id") else None),
-        kind=record["kind"],
-        title=record["title"],
-        description=record["description"],
-        body=record["body"],
-        source_uri=record.get("source_uri"),
-        source_sha256=record.get("source_sha256"),
-        locator=record.get("locator"),
-        resource_uri=record.get("resource_uri"),
-        resource_key=record.get("resource_key"),
-        table=record.get("table") if "table" in record else record.get("table_meta"),
-    )

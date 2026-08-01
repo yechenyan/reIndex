@@ -32,7 +32,7 @@ class CollectionStatusResponse(BaseModel):
     collection_id: str
     root_node_id: str
     status: Literal["draft", "queued", "validating", "indexing", "ready", "failed"]
-    active_revision_id: str | None
+    package_hash: str | None
     embedding_profile: str | None
     progress: dict[str, Any]
     error: dict[str, Any] | None
@@ -40,6 +40,7 @@ class CollectionStatusResponse(BaseModel):
 
 class RawUploadResponse(BaseModel):
     collection_id: str
+    resource_id: str
     raw_path: str
     sha256: str
 
@@ -48,17 +49,33 @@ class NodeSummary(BaseModel):
     id: str
     path: str
     parent_id: str | None
-    kind: Literal["group", "text", "table", "image"]
+    order: int | None
+    depth: int
+    kind: Literal["group", "text", "table", "image", "file"]
     title: str
     description: str
-    locator: dict[str, Any] | None
+
+
+class ResourceInfo(BaseModel):
+    role: Literal["card", "source", "content", "asset"]
+    ordinal: int
+    resource_id: str
+    namespace: Literal["raw", "package"]
+    logical_path: str
+    display_name: str
+    media_type: str
+    sha256: str
+    byte_size: int
+    locator: dict[str, Any] | None = None
+    asset_role: str | None = None
+    description: str | None = None
 
 
 class NodeDetail(NodeSummary):
-    body: str
-    source_uri: str | None
-    resource_uri: str | None
-    table: dict[str, Any] | None
+    card_markdown: str
+    attributes: dict[str, Any]
+    node_hash: str
+    resources: list[ResourceInfo]
 
 
 class BrowseResponse(BaseModel):
@@ -82,12 +99,13 @@ class Evidence(BaseModel):
     node_id: str
     path: str
     parent_id: str | None
-    kind: Literal["group", "text", "table", "image"]
+    kind: Literal["group", "text", "table", "image", "file"]
     title: str
     description: str
+    unit_type: Literal["card", "content_text", "table_row"]
+    resource_id: str | None = None
     locator: dict[str, Any] | None = None
     excerpt: str
-    source_sha256: str | None = None
     row: int | None = None
     line_start: int | None = None
     line_end: int | None = None
@@ -122,7 +140,6 @@ class AppliedReranking(BaseModel):
 class SearchApiResponse(BaseModel):
     executed_mode: Literal["lexical", "semantic", "hybrid", "grep"]
     embedding_profile: str | None
-    revision_id: str
     candidate_count: int = Field(ge=0)
     next_cursor: str | None
     results: list[SearchResult]

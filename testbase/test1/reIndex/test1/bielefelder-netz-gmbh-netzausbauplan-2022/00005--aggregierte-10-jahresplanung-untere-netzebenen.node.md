@@ -1,7 +1,8 @@
 ---
-spec: "reindex/node@0.1"
+spec: "reindex/node@1.0"
 id: "333563cf-1334-45a5-9d19-55f53f79757f"
 kind: "table"
+order: 5
 title: "Aggregierte 10-Jahresplanung der unteren Netzebenen"
 description: "Investitionen nach Netzebene und Investitionsart in Euro."
 source:
@@ -9,10 +10,16 @@ source:
   sha256: "3dc36a9917ac29b387c8fcc6e1a856f26e4fc0660d4e847a5070ee7dca0af497"
   locator:
     pages: [5, 5]
-resource:
-  uri: "./0005.csv"
+content:
+  uri: "./00005--aggregierte-10-jahresplanung-untere-netzebenen.csv"
   media_type: "text/csv"
   sha256: "277478aeacb22bedd13facd01f40194de136a1dfba3639c24e61e81a286d59be"
+assets:
+  - uri: "./00005--aggregierte-10-jahresplanung-untere-netzebenen.assets001.png"
+    media_type: "image/png"
+    sha256: "3671980aa67aa6b38a3e5eab0b2069de68a83718dd203c0847ef57176cd700f0"
+    role: "visual_reference"
+    description: "Originalansicht der aus dem PDF extrahierten Tabelle."
 table:
   row_count: 24
   grain: "Eine Zeile entspricht einer Netzebene und einer Investitionsart."
@@ -29,11 +36,10 @@ table:
       unit: "EUR"
 warnings:
   - "CSV ist deterministisch in ein langes, maschinenlesbares Format normalisiert."
-  - "0005.png ist die visuelle Referenz derselben Tabelle und kein eigener Bild-Node."
 ---
-## Dataset
+## Überblick
 
-Investitionen nach Netzebene und Investitionsart in Euro. Die vollständigen 24 Zeilen liegen in `0005.csv`.
+Investitionen nach Netzebene und Investitionsart in Euro. Die vollständigen 24 Zeilen liegen in der unter `content.uri` referenzierten CSV-Datei.
 
 ## Preview
 
@@ -44,9 +50,3 @@ Investitionen nach Netzebene und Investitionsart in Euro. Die vollständigen 24 
 | Mittelspannung | Netzoptimierung und -verstärkung | 8105400 |
 | Mittelspannung | Summe Netzausbau | 30800520 |
 | Mittelspannung | davon überwiegend erzeugungsgetrieben | 6160104 |
-
-## Visual reference
-
-[Open 0005.png](./0005.png)
-
-SHA-256: `3671980aa67aa6b38a3e5eab0b2069de68a83718dd203c0847ef57176cd700f0`

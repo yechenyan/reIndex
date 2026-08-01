@@ -1,31 +1,70 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from pathlib import Path
-from uuid import uuid4
+from pathlib import PurePosixPath
+
+
+@dataclass(frozen=True)
+class Resource:
+    id: str
+    collection_id: str
+    namespace: str
+    logical_path: str
+    display_name: str
+    sha256: str
+    byte_size: int
+    media_type: str
+    object_key: str
+
+
+@dataclass(frozen=True)
+class NodeResource:
+    role: str
+    ordinal: int
+    resource: Resource
+    locator: dict | None = None
+    asset_role: str | None = None
+    description: str | None = None
 
 
 @dataclass
 class Node:
     id: str
+    collection_id: str
     path: str
     parent_id: str | None
+    order: int | None
+    tree_path: tuple[str, ...]
+    order_path: tuple[int, ...]
     kind: str
     title: str
     description: str
-    body: str
-    source_uri: str | None
-    source_sha256: str | None
-    locator: dict | None
-    resource_uri: str | None
-    resource_key: str | None
-    table: dict | None
+    card_markdown: str
+    attributes: dict
+    node_hash: str
+    resources: list[NodeResource] = field(default_factory=list)
+
+    def link(self, role: str, ordinal: int = 0) -> NodeResource | None:
+        return next(
+            (
+                item
+                for item in self.resources
+                if item.role == role and item.ordinal == ordinal
+            ),
+            None,
+        )
+
+    @property
+    def locator(self) -> dict | None:
+        source = self.link("source")
+        return source.locator if source else None
 
 
 @dataclass
 class SearchUnit:
     id: str
     node_id: str
+    unit_type: str
     contextual_text: str
     original_text: str
     start_line: int | None
@@ -33,6 +72,7 @@ class SearchUnit:
     ordinal: int
     row: int | None = None
     locator: dict | None = None
+    resource_id: str | None = None
     embedding: list[float] | None = None
 
 
@@ -52,7 +92,6 @@ class SearchHit:
 class SearchResponse:
     executed_mode: str
     embedding_profile: str | None
-    revision_id: str | None
     results: list[SearchHit]
     result_offset: int = 0
     candidate_count: int = 0
@@ -73,6 +112,7 @@ class SearchOptions:
     node_ids: tuple[str, ...] = ()
     kinds: tuple[str, ...] = ()
     path_prefix: str | None = None
+    subtree_node_id: str | None = None
     lexical_weight: float = 0.5
     semantic_weight: float = 1.0
     rrf_k: int = 60
@@ -84,69 +124,40 @@ class SearchOptions:
 @dataclass
 class Collection:
     id: str
-    root_node: Node
+    name: str
     status: str = "draft"
-    active_revision: str | None = None
+    package_hash: str | None = None
     embedding_profile: str | None = None
     progress: dict = field(default_factory=dict)
     error: dict | None = None
-    raw: dict[str, str] = field(default_factory=dict)
+    resources: dict[tuple[str, str], Resource] = field(default_factory=dict)
     nodes: dict[str, Node] = field(default_factory=dict)
     units: list[SearchUnit] = field(default_factory=list)
 
-    @classmethod
-    def create(cls, root_node: Node) -> "Collection":
-        return cls(
-            id=root_node.id, root_node=root_node, nodes={root_node.id: root_node}
-        )
-
-    def begin_import(self) -> str:
-        if self.status in {"queued", "validating", "indexing"}:
-            raise ValueError("collection already has an import in progress")
-        self.status, self.error = "queued", None
-        self.progress = {"stage": "queued", "completed": 0, "total": 0}
-        return str(uuid4())
+    @property
+    def root_node(self) -> Node:
+        return self.nodes[self.id]
 
     def status_response(self) -> dict:
         return {
             "collection_id": self.id,
-            "root_node_id": self.root_node.id,
+            "root_node_id": self.id,
             "status": self.status,
-            "active_revision_id": self.active_revision,
+            "package_hash": self.package_hash,
             "embedding_profile": self.embedding_profile,
             "progress": self.progress,
             "error": self.error,
         }
 
 
-def node_from_frontmatter(
-    path: str, metadata: dict, body: str, parent_id: str | None
-) -> Node:
-    source = metadata.get("source") or {}
-    resource = metadata.get("resource") or {}
-    return Node(
-        id=metadata["id"],
-        path=path,
-        parent_id=parent_id,
-        kind=metadata["kind"],
-        title=metadata["title"],
-        description=metadata["description"],
-        body=body,
-        source_uri=source.get("uri"),
-        source_sha256=source.get("sha256"),
-        locator=source.get("locator"),
-        resource_uri=resource.get("uri"),
-        resource_key=None,
-        table=metadata.get("table"),
-    )
-
-
-def safe_relative_path(value: str) -> Path:
-    path = Path(value)
+def safe_relative_path(value: str) -> PurePosixPath:
+    path = PurePosixPath(value)
     if (
         not value
-        or path.is_absolute()
+        or value.startswith("/")
         or any(part in {"", ".", ".."} for part in path.parts)
     ):
-        raise ValueError("path must be a non-empty relative path without traversal")
+        raise ValueError(
+            "path must be a non-empty relative POSIX path without traversal"
+        )
     return path

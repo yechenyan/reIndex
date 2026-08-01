@@ -32,7 +32,7 @@ class DownloadRawRequest(CollectionRequest):
 
 
 class NodeRequest(CollectionRequest):
-    node_id: UUID = Field(description="Node UUID in the active revision.")
+    node_id: UUID = Field(description="Node UUID in the current Collection state.")
 
     @property
     def node_key(self) -> str:
@@ -40,13 +40,26 @@ class NodeRequest(CollectionRequest):
 
 
 class DownloadNodeRequest(NodeRequest):
-    target: Literal["source", "resource"]
+    target: Literal["card", "source", "content", "asset"]
+    asset_ordinal: int | None = Field(default=None, ge=1, le=999)
     disposition: Literal["inline", "attachment"] = "attachment"
+
+    @model_validator(mode="after")
+    def validate_asset_ordinal(self) -> DownloadNodeRequest:
+        if self.target == "asset" and self.asset_ordinal is None:
+            raise ValueError("asset_ordinal is required for asset downloads")
+        if self.target != "asset" and self.asset_ordinal is not None:
+            raise ValueError("asset_ordinal is only valid for asset downloads")
+        return self
 
 
 class BrowseRequest(CollectionRequest):
     parent_node_id: UUID | None = Field(
         default=None, description="Parent Node UUID; null selects collection roots."
+    )
+    recursive: bool = Field(
+        default=False,
+        description="Return all descendants instead of only direct children.",
     )
 
 
@@ -56,9 +69,9 @@ class SearchFilters(ApiRequest):
         max_length=100,
         description="Restrict retrieval to these Node UUIDs.",
     )
-    kinds: list[Literal["group", "text", "table", "image"]] = Field(
+    kinds: list[Literal["group", "text", "table", "image", "file"]] = Field(
         default_factory=list,
-        max_length=4,
+        max_length=5,
         description="Restrict retrieval to these Node kinds.",
     )
     path_prefix: str | None = Field(
@@ -66,6 +79,9 @@ class SearchFilters(ApiRequest):
         min_length=1,
         max_length=500,
         description="Restrict retrieval to Node paths with this prefix.",
+    )
+    subtree_node_id: UUID | None = Field(
+        default=None, description="Restrict retrieval to this Node subtree."
     )
 
 
@@ -173,6 +189,11 @@ class SearchRequest(CollectionRequest):
             node_ids=tuple(str(value) for value in self.filters.node_ids),
             kinds=tuple(self.filters.kinds),
             path_prefix=self.filters.path_prefix,
+            subtree_node_id=(
+                str(self.filters.subtree_node_id)
+                if self.filters.subtree_node_id
+                else None
+            ),
             lexical_weight=self.ranking.lexical_weight,
             semantic_weight=self.ranking.semantic_weight,
             rrf_k=self.ranking.rrf_k,

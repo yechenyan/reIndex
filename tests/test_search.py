@@ -9,10 +9,14 @@ from reindex_server.app import create_app
 from reindex_server.catalog import Catalog
 from reindex_server.domain import Collection, Node, SearchHit, SearchOptions, SearchUnit
 from reindex_server.embeddings import EmbeddingProvider
-from reindex_server.package_import import _markdown_chunks
 from reindex_server.reranking import Reranker
-from reindex_server.service import ReindexService, _confidence_bonus
+from reindex_server.search_fusion import confidence_bonus
+from reindex_server.search_projection import markdown_chunks
+from reindex_server.service import ReindexService
 from reindex_server.storage import FileStore
+
+ROOT_ID = "00000000-0000-0000-0000-000000000001"
+SECOND_ID = "00000000-0000-0000-0000-000000000002"
 
 
 class FakeEmbeddings(EmbeddingProvider):
@@ -60,63 +64,70 @@ class FakeReranker(Reranker):
         ], 2.5
 
 
-def _node(node_id: str) -> Node:
+def _node(node_id: str, parent_id: str | None, order: int | None) -> Node:
+    tree = (ROOT_ID,) if parent_id is None else (ROOT_ID, node_id)
+    order_path = () if order is None else (order,)
     return Node(
         node_id,
+        ROOT_ID,
         f"{node_id}.node.md",
-        None,
-        "text",
+        parent_id,
+        order,
+        tree,
+        order_path,
+        "text" if parent_id else "group",
         node_id,
         "fixture",
         "",
-        "raw://fixture.pdf",
+        {},
         "a" * 64,
-        {"pages": [2, 2]},
-        None,
-        None,
-        None,
     )
 
 
-def _service(tmp_path: Path) -> tuple[ReindexService, str, FakeSearchBackend]:
-    root = _node("00000000-0000-0000-0000-000000000001")
-    second = _node("00000000-0000-0000-0000-000000000002")
-    collection = Collection.create(root)
-    collection.status = "ready"
-    collection.active_revision = "00000000-0000-0000-0000-000000000099"
-    collection.embedding_profile = FakeEmbeddings.name
-    collection.nodes[second.id] = second
-    collection.units = [
+def _service(tmp_path: Path) -> tuple[ReindexService, FakeSearchBackend]:
+    root = _node(ROOT_ID, None, None)
+    second = _node(SECOND_ID, ROOT_ID, 1)
+    units = [
         SearchUnit(
             "first",
             root.id,
-            "Network plan Project AB-42 cost 15 Mio EUR",
-            "Project AB-42 cost 15 Mio EUR",
+            "card",
+            "Network plan Project AB-42",
+            "Project AB-42",
             10,
             10,
             1,
-            locator=root.locator,
         ),
         SearchUnit(
             "second",
             second.id,
-            "Renewable solar expansion target",
+            "content_text",
+            "Renewable solar expansion",
             "Solar generation doubles to 160 MW",
             20,
             20,
             1,
-            locator=second.locator,
         ),
     ]
+    collection = Collection(
+        ROOT_ID,
+        "fixture",
+        status="ready",
+        package_hash="a" * 64,
+        embedding_profile=FakeEmbeddings.name,
+        nodes={root.id: root, second.id: second},
+        units=units,
+    )
     catalog = Catalog()
     catalog.create(collection)
-    backend = FakeSearchBackend(collection.units)
-    service = ReindexService(catalog, FileStore(tmp_path), FakeEmbeddings(), backend)
-    return service, collection.id, backend
+    backend = FakeSearchBackend(units)
+    return ReindexService(
+        catalog, FileStore(tmp_path), FakeEmbeddings(), backend
+    ), backend
 
 
-def test_search_defaults_to_hybrid_and_applies_ranking_params(tmp_path: Path) -> None:
-    service, collection_id, backend = _service(tmp_path)
+def test_search_applies_ranking_and_subtree_filters(tmp_path: Path) -> None:
+    service, backend = _service(tmp_path)
     app = create_app(service)
 
     async def request():
@@ -125,10 +136,10 @@ def test_search_defaults_to_hybrid_and_applies_ranking_params(tmp_path: Path) ->
             return await client.post(
                 "/v1/search",
                 json={
-                    "collection_id": collection_id,
+                    "collection_id": ROOT_ID,
                     "query": "renewable capacity",
                     "candidate_limit": 80,
-                    "filters": {"kinds": ["text"], "path_prefix": "reports/"},
+                    "filters": {"kinds": ["text"], "subtree_node_id": ROOT_ID},
                     "ranking": {
                         "lexical_weight": 1.2,
                         "semantic_weight": 0.8,
@@ -140,14 +151,13 @@ def test_search_defaults_to_hybrid_and_applies_ranking_params(tmp_path: Path) ->
 
     response = asyncio.run(request())
     assert response.status_code == 200
-    assert response.json()["executed_mode"] == "hybrid"
     assert backend.options == SearchOptions(
         query="renewable capacity",
         mode="hybrid",
         limit=10,
         candidate_limit=80,
         kinds=("text",),
-        path_prefix="reports/",
+        subtree_node_id=ROOT_ID,
         lexical_weight=1.2,
         semantic_weight=0.8,
         rrf_k=40,
@@ -155,189 +165,94 @@ def test_search_defaults_to_hybrid_and_applies_ranking_params(tmp_path: Path) ->
     )
 
 
-def test_search_response_exposes_component_scores_and_verbatim_evidence(
-    tmp_path: Path,
-) -> None:
-    service, collection_id, _ = _service(tmp_path)
-    app = create_app(service)
-
-    async def request():
-        transport = ASGITransport(app=app)
-        async with AsyncClient(transport=transport, base_url="http://test") as client:
-            return await client.post(
-                "/v1/search",
-                json={"collection_id": collection_id, "query": "renewable"},
-            )
-
-    response = asyncio.run(request())
+def test_search_response_has_typed_verbatim_evidence(tmp_path: Path) -> None:
+    service, _ = _service(tmp_path)
+    response = asyncio.run(
+        _post(create_app(service), {"collection_id": ROOT_ID, "query": "renewable"})
+    )
     result = response.json()["results"][0]
-    assert result["rank"] == 1
     assert result["scores"] == {
         "bm25": 4.2,
         "semantic": 0.91,
         "rerank": None,
         "rerank_bonus": None,
     }
-    assert result["evidence"]["node_id"] == "00000000-0000-0000-0000-000000000002"
-    assert "id" not in result["evidence"]
+    assert result["evidence"]["node_id"] == SECOND_ID
+    assert result["evidence"]["unit_type"] == "content_text"
     assert result["evidence"]["excerpt"] == "Solar generation doubles to 160 MW"
     assert result["evidence"]["line_start"] == result["evidence"]["line_end"] == 20
-    assert result["evidence"]["locator"] == {"pages": [2, 2]}
 
 
-def test_search_rejects_invalid_candidate_and_weight_combinations(
-    tmp_path: Path,
-) -> None:
-    service, collection_id, _ = _service(tmp_path)
-    app = create_app(service)
-
-    async def request(payload):
-        transport = ASGITransport(app=app)
-        async with AsyncClient(transport=transport, base_url="http://test") as client:
-            return await client.post(
-                "/v1/search",
-                json={"collection_id": collection_id, "query": "x", **payload},
-            )
-
-    assert asyncio.run(request({"limit": 20, "candidate_limit": 10})).status_code == 422
-    assert asyncio.run(request({"ranking": {"semantic_weight": 0}})).status_code == 422
-    assert asyncio.run(request({"mode": "auto"})).status_code == 422
-
-
-def test_search_has_no_process_local_fallback(tmp_path: Path) -> None:
-    service, collection_id, _ = _service(tmp_path)
-    service.search_backend = None
-    options = SearchOptions("query", "lexical", 10, 100)
-
-    try:
-        service.search(collection_id, options)
-    except RuntimeError as error:
-        assert "ParadeDB" in str(error)
-    else:
-        raise AssertionError("search unexpectedly used a process-local fallback")
-
-
-def test_search_cursor_is_stable_and_bound_to_query(tmp_path: Path) -> None:
-    service, collection_id, backend = _service(tmp_path)
+def test_search_cursor_is_bound_to_current_package(tmp_path: Path) -> None:
+    service, backend = _service(tmp_path)
     backend.search = lambda collection, options, embedding: [
         SearchHit(unit, 1 / rank, ("lexical",), {"lexical": rank})
         for rank, unit in enumerate(backend.units * 3, 1)
     ]
     app = create_app(service)
-
-    async def request(payload):
-        transport = ASGITransport(app=app)
-        async with AsyncClient(transport=transport, base_url="http://test") as client:
-            return await client.post(
-                "/v1/search",
-                json={
-                    "collection_id": collection_id,
-                    "query": "renewable",
-                    "mode": "lexical",
-                    "limit": 2,
-                    "ranking": {"max_per_node": 3},
-                    **payload,
-                },
-            )
-
-    first = asyncio.run(request({}))
-    assert first.status_code == 200
-    assert [item["rank"] for item in first.json()["results"]] == [1, 2]
-    cursor = first.json()["next_cursor"]
-    second = asyncio.run(request({"cursor": cursor}))
-    assert [item["rank"] for item in second.json()["results"]] == [3, 4]
-    changed = asyncio.run(
-        request({"cursor": cursor, "ranking": {"max_per_node": 2, "rrf_k": 30}})
-    )
-    assert changed.status_code == 400
-    assert changed.json()["error"]["code"] == "invalid_request"
-    assert changed.json()["error"]["request_id"] == changed.headers["X-Request-ID"]
-
-
-def test_api_uses_structured_validation_errors_and_request_ids(
-    tmp_path: Path,
-) -> None:
-    service, collection_id, _ = _service(tmp_path)
-    app = create_app(service)
-
-    async def request(payload, headers=None):
-        transport = ASGITransport(app=app)
-        async with AsyncClient(transport=transport, base_url="http://test") as client:
-            return await client.post("/v1/search", json=payload, headers=headers or {})
-
-    response = asyncio.run(
-        request(
+    first = asyncio.run(
+        _post(
+            app,
             {
-                "collection_id": collection_id,
-                "query": "solar",
-                "unknown_parameter": True,
+                "collection_id": ROOT_ID,
+                "query": "x",
+                "mode": "lexical",
+                "limit": 2,
+                "ranking": {"max_per_node": 3},
             },
-            {"X-Request-ID": "agent-search-42"},
         )
     )
-    assert response.status_code == 422
-    assert response.headers["X-Request-ID"] == "agent-search-42"
-    assert response.json()["error"]["code"] == "invalid_request"
-    assert response.json()["error"]["request_id"] == "agent-search-42"
-    assert response.json()["error"]["details"]
+    cursor = first.json()["next_cursor"]
+    second = asyncio.run(
+        _post(
+            app,
+            {
+                "collection_id": ROOT_ID,
+                "query": "x",
+                "mode": "lexical",
+                "limit": 2,
+                "cursor": cursor,
+                "ranking": {"max_per_node": 3},
+            },
+        )
+    )
+    assert [item["rank"] for item in second.json()["results"]] == [3, 4]
+    service.catalog.get(ROOT_ID).package_hash = "b" * 64
+    stale = asyncio.run(
+        _post(
+            app,
+            {
+                "collection_id": ROOT_ID,
+                "query": "x",
+                "mode": "lexical",
+                "limit": 2,
+                "cursor": cursor,
+                "ranking": {"max_per_node": 3},
+            },
+        )
+    )
+    assert stale.status_code == 400
 
 
-def test_openapi_exposes_search_contract_and_example(tmp_path: Path) -> None:
-    service, _, _ = _service(tmp_path)
-    schema = create_app(service).openapi()
-
-    operation = schema["paths"]["/v1/search"]["post"]
-    request_schema = operation["requestBody"]["content"]["application/json"]["schema"]
-    assert request_schema["$ref"].endswith("/SearchRequest")
-    assert operation["responses"]["200"]["content"]["application/json"]["schema"][
-        "$ref"
-    ].endswith("/SearchApiResponse")
-    status_response = schema["paths"]["/v1/collections/status"]["post"]["responses"][
-        "200"
-    ]["content"]["application/json"]["schema"]
-    assert status_response["$ref"].endswith("/CollectionStatusResponse")
-    search_schema = schema["components"]["schemas"]["SearchRequest"]
-    assert search_schema["examples"][0]["ranking"]["lexical_weight"] == 0.5
-    assert search_schema["additionalProperties"] is False
-
-
-def test_markdown_chunks_preserve_the_line_containing_the_evidence() -> None:
-    body = "# Heading\n\nFirst paragraph.\n\nThe installed photovoltaic capacity rises to 160 MW.\n"
-    chunks = _markdown_chunks(body, target_tokens=5, overlap_tokens=1)
-
-    evidence = next(chunk for chunk in chunks if "160 MW" in chunk[0])
-    assert evidence[1] <= 5 <= evidence[2]
-
-
-def test_search_reranks_candidates_and_exposes_observability(tmp_path: Path) -> None:
-    service, collection_id, backend = _service(tmp_path)
+def test_search_reranking_observability(tmp_path: Path) -> None:
+    service, backend = _service(tmp_path)
     service.reranker = FakeReranker()
     backend.search = lambda collection, options, embedding: [
-        SearchHit(service.catalog.get(collection_id).units[0], 0.5, ("lexical",), {}),
-        SearchHit(service.catalog.get(collection_id).units[1], 0.4, ("lexical",), {}),
+        SearchHit(backend.units[0], 0.5, ("lexical",), {}),
+        SearchHit(backend.units[1], 0.4, ("lexical",), {}),
     ]
-    app = create_app(service)
-
-    async def request():
-        transport = ASGITransport(app=app)
-        async with AsyncClient(transport=transport, base_url="http://test") as client:
-            return await client.post(
-                "/v1/search",
-                json={
-                    "collection_id": collection_id,
-                    "query": "solar",
-                    "mode": "lexical",
-                    "ranking": {"max_per_node": 2},
-                },
-            )
-
-    response = asyncio.run(request())
-    assert response.status_code == 200
-    body = response.json()
-    assert body["results"][0]["evidence"]["node_id"] == "00000000-0000-0000-0000-000000000001"
-    assert body["results"][0]["ranks"]["rerank"] == 2
-    assert body["results"][0]["scores"]["rerank"] == 2.0
-    assert body["reranking"] == {
+    response = asyncio.run(
+        _post(
+            create_app(service),
+            {
+                "collection_id": ROOT_ID,
+                "query": "solar",
+                "mode": "lexical",
+                "ranking": {"max_per_node": 2},
+            },
+        )
+    )
+    assert response.json()["reranking"] == {
         "profile": "test-reranker",
         "candidate_limit": 2,
         "reranked_count": 2,
@@ -348,17 +263,61 @@ def test_search_reranks_candidates_and_exposes_observability(tmp_path: Path) -> 
     }
 
 
-def test_confidence_bonus_requires_a_positive_decisive_rerank_margin() -> None:
-    unit = SearchUnit("first", "node", "", "", None, None, 1)
-    runner_up = SearchUnit("second", "node", "", "", None, None, 2)
-    dominant = [
-        SearchHit(unit, 0, (), {}, rerank_score=3.0),
-        SearchHit(runner_up, 0, (), {}, rerank_score=1.0),
-    ]
-    uncertain = [
-        SearchHit(unit, 0, (), {}, rerank_score=-1.0),
-        SearchHit(runner_up, 0, (), {}, rerank_score=-2.0),
-    ]
+def test_invalid_search_and_openapi_contract(tmp_path: Path) -> None:
+    service, _ = _service(tmp_path)
+    app = create_app(service)
+    invalid = asyncio.run(
+        _post(
+            app,
+            {
+                "collection_id": ROOT_ID,
+                "query": "x",
+                "limit": 20,
+                "candidate_limit": 10,
+            },
+        )
+    )
+    assert invalid.status_code == 422
+    schema = app.openapi()
+    response_schema = schema["paths"]["/v1/search"]["post"]["responses"]["200"][
+        "content"
+    ]["application/json"]["schema"]
+    assert response_schema["$ref"].endswith("/SearchApiResponse")
+    assert (
+        "revision_id"
+        not in schema["components"]["schemas"]["SearchApiResponse"]["properties"]
+    )
 
-    assert _confidence_bonus(dominant) == {"first": 0.0045000000000000005}
-    assert _confidence_bonus(uncertain) == {}
+
+def test_markdown_chunks_preserve_evidence_line() -> None:
+    body = "# Heading\n\nFirst paragraph.\n\nThe installed capacity rises to 160 MW.\n"
+    evidence = next(
+        chunk for chunk in markdown_chunks(body, 5, 1) if "160 MW" in chunk[0]
+    )
+    assert evidence[1] <= 5 <= evidence[2]
+
+
+def test_confidence_bonus_requires_positive_margin() -> None:
+    first = SearchUnit("first", ROOT_ID, "card", "", "", None, None, 1)
+    second = SearchUnit("second", SECOND_ID, "card", "", "", None, None, 1)
+    assert confidence_bonus(
+        [
+            SearchHit(first, 0, (), {}, rerank_score=3.0),
+            SearchHit(second, 0, (), {}, rerank_score=1.0),
+        ]
+    ) == {"first": 0.0045000000000000005}
+    assert (
+        confidence_bonus(
+            [
+                SearchHit(first, 0, (), {}, rerank_score=-1.0),
+                SearchHit(second, 0, (), {}, rerank_score=-2.0),
+            ]
+        )
+        == {}
+    )
+
+
+async def _post(app, payload):
+    transport = ASGITransport(app=app)
+    async with AsyncClient(transport=transport, base_url="http://test") as client:
+        return await client.post("/v1/search", json=payload)

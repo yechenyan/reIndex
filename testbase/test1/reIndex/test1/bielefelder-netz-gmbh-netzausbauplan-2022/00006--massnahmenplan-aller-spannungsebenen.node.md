@@ -1,7 +1,8 @@
 ---
-spec: "reindex/node@0.1"
+spec: "reindex/node@1.0"
 id: "0d08c3e5-fc02-4614-9666-ca73f35b9211"
 kind: "table"
+order: 6
 title: "Maßnahmenplan aller Spannungsebenen für zehn Jahre"
 description: "52 geplante Netzmaßnahmen mit Projekt-, Termin-, Kosten- und Statusangaben."
 source:
@@ -9,10 +10,16 @@ source:
   sha256: "3dc36a9917ac29b387c8fcc6e1a856f26e4fc0660d4e847a5070ee7dca0af497"
   locator:
     pages: [5, 5]
-resource:
-  uri: "./0006.csv"
+content:
+  uri: "./00006--massnahmenplan-aller-spannungsebenen.csv"
   media_type: "text/csv"
   sha256: "f7549ec86d3a4cf2fef64173bb85c85adcbfa348d349163d323e145e35cf2db5"
+assets:
+  - uri: "./00006--massnahmenplan-aller-spannungsebenen.assets001.png"
+    media_type: "image/png"
+    sha256: "ba5ca0692acffa22f00fbc6d2a5f1d627bc6cedd20041de38e29711effc075f3"
+    role: "visual_reference"
+    description: "Originalansicht der aus dem PDF extrahierten Tabelle."
 table:
   row_count: 52
   grain: "Eine Zeile entspricht einer Maßnahme mit eindeutiger laufender Nummer."
@@ -80,11 +87,10 @@ table:
   primary_key: ["lfd. Nr."]
 warnings:
   - "Zeilenumbrüche innerhalb der PDF-Zellen wurden zu einfachen Leerzeichen normalisiert."
-  - "0006.png ist die visuelle Referenz derselben Tabelle und kein eigener Bild-Node."
 ---
-## Dataset
+## Überblick
 
-52 geplante Netzmaßnahmen mit Projekt-, Termin-, Kosten- und Statusangaben. Die vollständigen 52 Zeilen liegen in `0006.csv`.
+52 geplante Netzmaßnahmen mit Projekt-, Termin-, Kosten- und Statusangaben. Die vollständigen 52 Zeilen liegen in der unter `content.uri` referenzierten CSV-Datei.
 
 ## Preview
 
@@ -95,9 +101,3 @@ warnings:
 | 6aa | UW Zwinger | Ersatz(neubau) ohne Erhöhung der Übertragungskapazität | xx/2019 | xx/2020 | 820.000 € | abgeschlossen | UW HS auf MS |
 | 7a | UW Sennestadt | Ersatz(neubau) ohne Erhöhung der Übertragungskapazität | XX/2017 | 06/2019 | 775.000 € | abgeschlossen | UW HS auf MS |
 | 8aa | UW Stieghorst | Ersatz(neubau) ohne Erhöhung der Übertragungskapazität | 12/2020 | 06/2021 | 850.000 € | abgeschlossen | UW HS auf MS |
-
-## Visual reference
-
-[Open 0006.png](./0006.png)
-
-SHA-256: `ba5ca0692acffa22f00fbc6d2a5f1d627bc6cedd20041de38e29711effc075f3`

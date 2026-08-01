@@ -1,15 +1,3 @@
----
-spec: "reindex/node@0.1"
-id: "f1592bf6-c0bc-4bba-9296-ae9aead4c660"
-kind: "text"
-title: "C. Planungsgrundlagen"
-description: "Lastentwicklung, Elektromobilität, Wärmeversorgung und dezentrale Erzeugung."
-source:
-  uri: "raw://2022_07_28_netzausbauplan_bielefelder_netz_gmbh_2022_inkl_anhang_pdf.pdf"
-  sha256: "3dc36a9917ac29b387c8fcc6e1a856f26e4fc0660d4e847a5070ee7dca0af497"
-  locator:
-    pages: [2, 3]
----
 # C. Planungsgrundlagen
 
 <!-- reindex:page=2 -->

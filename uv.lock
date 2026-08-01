@@ -11,6 +11,7 @@ members = [
 [manifest.dependency-groups]
 dev = [
     { name = "httpx", specifier = ">=0.27,<1" },
+    { name = "pymupdf", specifier = ">=1.26,<2" },
     { name = "pytest", specifier = ">=8,<9" },
     { name = "pyyaml", specifier = ">=6,<7" },
     { name = "reindex-cli", editable = "packages/cli" },
@@ -1029,12 +1030,6 @@ wheels = [
 name = "reindex-cli"
 version = "0.1.0"
 source = { editable = "packages/cli" }
-dependencies = [
-    { name = "pymupdf" },
-]
-
-[package.metadata]
-requires-dist = [{ name = "pymupdf", specifier = ">=1.26,<2" }]
 
 [[package]]
 name = "reindex-server"

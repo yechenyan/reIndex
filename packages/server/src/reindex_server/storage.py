@@ -1,61 +1,65 @@
 from __future__ import annotations
 
 import hashlib
-import shutil
+from collections.abc import Iterator
+from contextlib import AbstractContextManager, contextmanager
+from dataclasses import dataclass
 from pathlib import Path
+from typing import BinaryIO, Protocol
 
-from fastapi import UploadFile
 
-from reindex_server.domain import safe_relative_path
+@dataclass(frozen=True)
+class StoredObject:
+    sha256: str
+    byte_size: int
+    object_key: str
+
+
+class ObjectStore(Protocol):
+    def put_bytes(self, content: bytes) -> StoredObject: ...
+    def put_file(self, source: Path) -> StoredObject: ...
+    def open(self, object_key: str) -> BinaryIO: ...
+    def materialize(self, object_key: str) -> AbstractContextManager[Path]: ...
+
+
+def object_key(sha256: str, prefix: str = "objects") -> str:
+    return f"{prefix.strip('/')}/sha256/{sha256[:2]}/{sha256[2:4]}/{sha256}"
 
 
 class FileStore:
-    """Development object storage adapter; production can replace this with S3."""
+    """Content-addressed local resource storage."""
 
     def __init__(self, root: Path) -> None:
         self.root = root
 
-    async def save_raw(
-        self, collection_id: str, raw_path: str, upload: UploadFile
-    ) -> tuple[str, Path]:
-        target = (
-            self.root
-            / "collections"
-            / collection_id
-            / "raw"
-            / safe_relative_path(raw_path)
-        )
-        target.parent.mkdir(parents=True, exist_ok=True)
-        digest = hashlib.sha256()
-        with target.open("wb") as stream:
-            while chunk := await upload.read(1024 * 1024):
-                digest.update(chunk)
-                stream.write(chunk)
-        return digest.hexdigest(), target
-
-    def raw_file(self, collection_id: str, raw_path: str) -> Path:
-        return (
-            self.root
-            / "collections"
-            / collection_id
-            / "raw"
-            / safe_relative_path(raw_path)
-        )
-
-    def copy_resource(
-        self, collection_id: str, revision_id: str, source: Path, relative_path: str
-    ) -> str:
-        key = (
-            Path("collections")
-            / collection_id
-            / "revisions"
-            / revision_id
-            / safe_relative_path(relative_path)
-        )
+    def put_bytes(self, content: bytes) -> StoredObject:
+        digest = hashlib.sha256(content).hexdigest()
+        key = object_key(digest)
         target = self.root / key
-        target.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(source, target)
-        return str(key)
+        if not target.exists():
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(content)
+        return StoredObject(digest, len(content), key)
 
-    def resource_file(self, key: str) -> Path:
-        return self.root / safe_relative_path(key)
+    def put_file(self, source: Path) -> StoredObject:
+        digest = hashlib.sha256()
+        size = 0
+        with source.open("rb") as stream:
+            while chunk := stream.read(1024 * 1024):
+                digest.update(chunk)
+                size += len(chunk)
+        key = object_key(digest.hexdigest())
+        target = self.root / key
+        if not target.exists():
+            target.parent.mkdir(parents=True, exist_ok=True)
+            with source.open("rb") as incoming, target.open("wb") as output:
+                while chunk := incoming.read(1024 * 1024):
+                    output.write(chunk)
+        return StoredObject(digest.hexdigest(), size, key)
+
+    def open(self, object_key: str) -> BinaryIO:
+        return (self.root / object_key).open("rb")
+
+    @contextmanager
+    def materialize(self, object_key: str) -> Iterator[Path]:
+        yield self.root / object_key

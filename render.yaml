@@ -27,11 +27,17 @@ services:
     preDeployCommand: uv run --frozen --package reindex-server reindex-server init-db
     startCommand: uv run --frozen --package reindex-server reindex-server run --port $PORT
     healthCheckPath: /health
+    disk:
+      name: reindex-resource-data
+      mountPath: /opt/render/project/src/.reindex-data
+      sizeGB: 10
     envVars:
       - key: PYTHON_VERSION
         value: 3.12.8
       - key: REINDEX_EMBEDDINGS
         value: qwen
+      - key: REINDEX_DATA_DIR
+        value: /opt/render/project/src/.reindex-data
       - key: PARADEDB_HOST
         fromService:
           type: pserv

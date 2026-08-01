@@ -2,9 +2,9 @@ from __future__ import annotations
 
 import asyncio
 from contextlib import asynccontextmanager
+from typing import Annotated
 from uuid import UUID
 
-import duckdb
 from fastapi import BackgroundTasks, FastAPI, File, Form, UploadFile
 
 from reindex_server import __version__
@@ -20,7 +20,11 @@ from reindex_server.api_models import (
     SearchApiResponse,
     TableQueryResponse,
 )
-from reindex_server.api_serialization import download, node_json, search_response
+from reindex_server.api_serialization import (
+    node_json,
+    resource_download,
+    search_response,
+)
 from reindex_server.contracts import (
     BrowseRequest,
     CollectionRequest,
@@ -33,6 +37,7 @@ from reindex_server.contracts import (
 )
 from reindex_server.runtime import service_from_environment
 from reindex_server.service import ReindexService
+from reindex_server.table_query import query_csv
 
 
 def create_app(service: ReindexService | None = None) -> FastAPI:
@@ -61,20 +66,18 @@ def create_app(service: ReindexService | None = None) -> FastAPI:
         return {"status": "ok", "version": __version__}
 
     @app.post("/v1/collections/create", response_model=CollectionStatusResponse)
-    async def create_collection(root_node: UploadFile = File(...)) -> dict:
+    async def create_collection(root_node: Annotated[UploadFile, File()]) -> dict:
         try:
-            collection = app.state.service.create_collection(
-                (await root_node.read()).decode("utf-8")
-            )
+            collection = app.state.service.create_collection(await root_node.read())
             return collection.status_response()
         except Exception as error:
             raise http_error(error) from error
 
     @app.post("/v1/raw/upload", response_model=RawUploadResponse)
     async def upload_raw(
-        collection_id: UUID = Form(...),
-        raw_path: str = Form(...),
-        file: UploadFile = File(...),
+        collection_id: Annotated[UUID, Form()],
+        raw_path: Annotated[str, Form()],
+        file: Annotated[UploadFile, File()],
     ) -> dict:
         try:
             return await app.state.service.upload_raw(
@@ -86,12 +89,12 @@ def create_app(service: ReindexService | None = None) -> FastAPI:
     @app.post("/v1/raw/download")
     def download_raw(request: DownloadRawRequest):
         try:
-            path = app.state.service.store.raw_file(
+            resource = app.state.service.get_raw(
                 request.collection_key, request.raw_path
             )
-            if not path.is_file():
-                raise KeyError("raw file not found")
-            return download(path, request.disposition)
+            return resource_download(
+                app.state.service.store, resource, request.disposition
+            )
         except Exception as error:
             raise http_error(error) from error
 
@@ -102,8 +105,8 @@ def create_app(service: ReindexService | None = None) -> FastAPI:
     )
     async def import_reindex(
         background: BackgroundTasks,
-        collection_id: UUID = Form(...),
-        archive: UploadFile = File(...),
+        collection_id: Annotated[UUID, Form()],
+        archive: Annotated[UploadFile, File()],
     ) -> dict:
         try:
             collection_key = str(collection_id)
@@ -133,6 +136,7 @@ def create_app(service: ReindexService | None = None) -> FastAPI:
                     for node in app.state.service.browse(
                         request.collection_key,
                         str(request.parent_node_id) if request.parent_node_id else None,
+                        request.recursive,
                     )
                 ]
             }
@@ -144,7 +148,7 @@ def create_app(service: ReindexService | None = None) -> FastAPI:
         try:
             return node_json(
                 app.state.service.get_node(request.collection_key, request.node_key),
-                include_body=True,
+                include_detail=True,
             )
         except Exception as error:
             raise http_error(error) from error
@@ -152,18 +156,13 @@ def create_app(service: ReindexService | None = None) -> FastAPI:
     @app.post("/v1/nodes/download")
     def download_node(request: DownloadNodeRequest):
         try:
-            node = app.state.service.get_node(request.collection_key, request.node_key)
-            if request.target == "source":
-                if not node.source_uri or not node.source_uri.startswith("raw://"):
-                    raise KeyError("Node has no raw source")
-                path = app.state.service.store.raw_file(
-                    request.collection_key, node.source_uri.removeprefix("raw://")
-                )
-            else:
-                path = app.state.service.store.resource_file(node.resource_key or "")
-            if not path.is_file():
-                raise KeyError("Node download target not found")
-            return download(path, request.disposition)
+            ordinal = request.asset_ordinal or 0
+            link = app.state.service.get_node_resource(
+                request.collection_key, request.node_key, request.target, ordinal
+            )
+            return resource_download(
+                app.state.service.store, link.resource, request.disposition
+            )
         except Exception as error:
             raise http_error(error) from error
 
@@ -196,25 +195,14 @@ def create_app(service: ReindexService | None = None) -> FastAPI:
     @app.post("/v1/tables/query", response_model=TableQueryResponse)
     def query_table(request: TableQueryRequest) -> dict:
         try:
-            if not request.sql.lstrip().casefold().startswith(
-                ("select", "with")
-            ) or ";" in request.sql.rstrip(";"):
-                raise ValueError(
-                    "only one read-only SELECT or CTE statement is allowed"
-                )
             node = app.state.service.get_node(request.collection_key, request.node_key)
-            if node.kind != "table" or not node.resource_key:
+            content = node.link("content")
+            if node.kind != "table" or not content:
                 raise ValueError("node is not a queryable table")
-            connection = duckdb.connect(":memory:")
-            connection.from_csv_auto(
-                str(app.state.service.store.resource_file(node.resource_key))
-            ).create_view("data")
-            cursor = connection.execute(request.sql, request.params)
-            columns = [column[0] for column in cursor.description]
-            rows = [
-                dict(zip(columns, row, strict=True)) for row in cursor.fetchmany(1000)
-            ]
-            return {"columns": columns, "rows": rows, "truncated": len(rows) == 1000}
+            with app.state.service.store.materialize(
+                content.resource.object_key
+            ) as path:
+                return query_csv(path, request.sql, request.params)
         except Exception as error:
             raise http_error(error) from error
 
