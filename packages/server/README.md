@@ -43,12 +43,23 @@ REINDEX_EMBEDDINGS=qwen uv run reindex-server run
 
 `POST /v1/search` defaults to hybrid retrieval. ParadeDB performs boosted,
 multi-field BM25; pgvector performs cosine ANN; PostgreSQL combines both
-candidate lists using configurable weighted RRF. The API exposes component
-scores and ranks and applies a stable ID tiebreaker. Qwen3-Reranker is
-intentionally not in the default path: RRF adds negligible compute, while a
-cross-encoder adds per-candidate model inference. `lexical` remains usable
-without the embedding model, but `semantic` and `hybrid` never silently fall
-back.
+candidate lists using configurable weighted RRF. The service then uses the
+multilingual `cross-encoder/mmarco-mMiniLMv2-L12-H384-v1` reranker to assess
+the leading 20 candidates, regardless of query language or result kind. The
+final order fuses lexical, semantic and reranker ranks with weighted RRF: the
+reranker is an added signal, not a replacement for retrieval. A capped bonus
+applies only to a clearly dominant, positive cross-encoder top result. The API
+exposes the original channel scores, rerank score, applied bonus and latency.
+`lexical` remains usable without the embedding model, but `semantic` and
+`hybrid` never silently fall back.
+
+Reranking defaults to `minilm`. It uses the `embeddings` optional dependency
+and is warmed before the service becomes ready. Set `REINDEX_RERANKER=disabled`
+to bypass the second stage. Tune the bounded second-stage work with
+`REINDEX_RERANK_LIMIT` (default `20`, range `1..100`),
+`REINDEX_RERANK_BATCH_SIZE` (default `8`), `REINDEX_RERANK_MAX_LENGTH`
+(default `512`, range `64..512`) and `REINDEX_RERANK_WEIGHT` (default `0.75`,
+range `0..10`).
 
 Interactive OpenAPI documentation is available at `/docs`, and the machine
 readable schema is available at `/openapi.json`. Request models reject unknown
@@ -77,9 +88,9 @@ not silently change retrieval behavior.
 }
 ```
 
-The response is a typed contract. `score` is the executed mode's final sorting
-score: BM25 for lexical, cosine similarity for semantic, and weighted RRF for
-hybrid. Raw component values remain under `scores`.
+The response is a typed contract. With reranking enabled, `score` is the final
+rank-fusion score, not a cross-encoder probability. BM25, cosine,
+cross-encoder and any capped confidence bonus remain under `scores`.
 
 ```json
 {
@@ -93,8 +104,8 @@ hybrid. Raw component values remain under `scores`.
       "rank": 1,
       "score": 0.0245,
       "channels": ["lexical", "semantic"],
-      "ranks": {"lexical": 2, "semantic": 1},
-      "scores": {"bm25": 14.2, "semantic": 0.4787},
+      "ranks": {"lexical": 2, "semantic": 1, "rerank": 1},
+      "scores": {"bm25": 14.2, "semantic": 0.4787, "rerank": 7.48, "rerank_bonus": 0.0046},
       "evidence": {
         "node_id": "f1592bf6-c0bc-4bba-9296-ae9aead4c660",
         "path": "reports/plan.node.md",
@@ -122,6 +133,15 @@ hybrid. Raw component values remain under `scores`.
       "max_per_node": 3,
       "semantic_threshold": null
     }
+  },
+  "reranking": {
+    "profile": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+    "candidate_limit": 20,
+    "reranked_count": 20,
+    "latency_ms": 242.1,
+    "fusion": "weighted_rrf",
+    "weight": 0.75,
+    "rrf_k": 60
   }
 }
 ```
@@ -173,5 +193,5 @@ DATABASE_URL=postgresql://... REINDEX_EMBEDDINGS=qwen \
 
 Each JSONL row contains `query` and one or both of `relevant_node_ids` and
 `relevant_unit_ids`. The report includes Recall, MRR, NDCG, mean latency, P50
-and P95. Use these measurements before enabling a future reranker or query
-rewrite profile.
+and P95. Use these measurements to tune rerank candidate count, chunking and
+query rewrite profiles.

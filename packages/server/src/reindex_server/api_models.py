@@ -74,6 +74,8 @@ class TableQueryResponse(BaseModel):
 class ComponentScores(BaseModel):
     bm25: float | None = None
     semantic: float | None = None
+    rerank: float | None = None
+    rerank_bonus: float | None = None
 
 
 class Evidence(BaseModel):
@@ -107,6 +109,16 @@ class AppliedSearch(BaseModel):
     ranking: SearchRanking
 
 
+class AppliedReranking(BaseModel):
+    profile: str
+    candidate_limit: int = Field(ge=1)
+    reranked_count: int = Field(ge=0)
+    latency_ms: float = Field(ge=0)
+    fusion: Literal["weighted_rrf"]
+    weight: float = Field(ge=0)
+    rrf_k: int = Field(ge=1)
+
+
 class SearchApiResponse(BaseModel):
     executed_mode: Literal["lexical", "semantic", "hybrid", "grep"]
     embedding_profile: str | None
@@ -115,6 +127,7 @@ class SearchApiResponse(BaseModel):
     next_cursor: str | None
     results: list[SearchResult]
     applied: AppliedSearch | None = None
+    reranking: AppliedReranking | None = None
 
 
 ERROR_RESPONSES = {

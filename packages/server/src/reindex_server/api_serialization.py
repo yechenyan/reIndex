@@ -49,6 +49,16 @@ def search_response(
             "filters": request.filters.model_dump(mode="json"),
             "ranking": request.ranking.model_dump(),
         }
+    if response.reranker_profile:
+        value["reranking"] = {
+            "profile": response.reranker_profile,
+            "candidate_limit": service.reranker.candidate_limit,
+            "reranked_count": response.reranked_count,
+            "latency_ms": response.rerank_latency_ms,
+            "fusion": "weighted_rrf",
+            "weight": response.rerank_fusion_weight,
+            "rrf_k": response.rerank_rrf_k,
+        }
     return value
 
 
@@ -66,7 +76,12 @@ def _result(service, collection_id: str, hit, rank: int) -> dict:
         "score": hit.score,
         "channels": list(hit.channels),
         "ranks": hit.ranks,
-        "scores": {"bm25": hit.bm25_score, "semantic": hit.semantic_score},
+        "scores": {
+            "bm25": hit.bm25_score,
+            "semantic": hit.semantic_score,
+            "rerank": hit.rerank_score,
+            "rerank_bonus": hit.rerank_bonus,
+        },
         "evidence": {
             **evidence,
             "excerpt": unit.original_text,

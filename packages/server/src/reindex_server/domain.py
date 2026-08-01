@@ -44,6 +44,8 @@ class SearchHit:
     ranks: dict[str, int]
     bm25_score: float | None = None
     semantic_score: float | None = None
+    rerank_score: float | None = None
+    rerank_bonus: float | None = None
 
 
 @dataclass
@@ -55,6 +57,11 @@ class SearchResponse:
     result_offset: int = 0
     candidate_count: int = 0
     next_cursor: str | None = None
+    reranker_profile: str | None = None
+    reranked_count: int = 0
+    rerank_latency_ms: float | None = None
+    rerank_fusion_weight: float | None = None
+    rerank_rrf_k: int | None = None
 
 
 @dataclass(frozen=True)

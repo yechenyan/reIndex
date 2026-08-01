@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import tempfile
+from dataclasses import replace
 from pathlib import Path
 from typing import Protocol
 from uuid import uuid4
@@ -20,6 +21,7 @@ from reindex_server.package_import import (
     parse_node,
     unpack_archive,
 )
+from reindex_server.reranking import Reranker
 from reindex_server.pagination import paginate_hits
 from reindex_server.storage import FileStore
 
@@ -49,11 +51,17 @@ class ReindexService:
         store: FileStore,
         embeddings: EmbeddingProvider,
         search_backend: SearchBackend | None = None,
+        reranker: Reranker | None = None,
     ) -> None:
         self.catalog = catalog
         self.store = store
         self.embeddings = embeddings
         self.search_backend = search_backend
+        self.reranker = reranker or Reranker()
+
+    def warmup(self) -> None:
+        self.embeddings.warmup()
+        self.reranker.warmup()
 
     def create_collection(self, content: str) -> Collection:
         root = parse_node(content, "index.node.md")
@@ -168,6 +176,8 @@ class ReindexService:
                 )
             query_embedding = self.embeddings.embed_query(options.query)
         hits = self.search_backend.search(collection, options, query_embedding)
+        reranked_hits, rerank_latency_ms = self.reranker.rerank(options.query, hits)
+        hits = _fuse_reranking(hits, reranked_hits, options, self.reranker)
         page, offset, candidate_count, next_cursor = paginate_hits(
             hits, options, collection.active_revision
         )
@@ -179,6 +189,21 @@ class ReindexService:
             result_offset=offset,
             candidate_count=candidate_count,
             next_cursor=next_cursor,
+            reranker_profile=(
+                self.reranker.name if self.reranker.name != "disabled" else None
+            ),
+            reranked_count=min(len(hits), self.reranker.candidate_limit),
+            rerank_latency_ms=(
+                round(rerank_latency_ms, 3)
+                if self.reranker.name != "disabled"
+                else None
+            ),
+            rerank_fusion_weight=(
+                self.reranker.fusion_weight
+                if self.reranker.name != "disabled"
+                else None
+            ),
+            rerank_rrf_k=(options.rrf_k if self.reranker.name != "disabled" else None),
         )
 
     def grep(
@@ -208,3 +233,74 @@ class ReindexService:
     def _sync(self, collection: Collection) -> None:
         if hasattr(self.catalog, "sync"):
             self.catalog.sync(collection)
+
+
+def _fuse_reranking(
+    hits: list[SearchHit],
+    reranked_hits: list[SearchHit],
+    options: SearchOptions,
+    reranker: Reranker,
+) -> list[SearchHit]:
+    """Fuse retrieval and cross-encoder ranks without comparing raw model scores."""
+    if reranker.name == "disabled" or not hits:
+        return hits
+
+    original_position = {hit.unit.id: index for index, hit in enumerate(hits, 1)}
+    rerank_position = {
+        hit.unit.id: index
+        for index, hit in enumerate(reranked_hits, 1)
+        if hit.rerank_score is not None
+    }
+    rerank_score = {
+        hit.unit.id: hit.rerank_score
+        for hit in reranked_hits
+        if hit.rerank_score is not None
+    }
+    rerank_bonus = _confidence_bonus(reranked_hits)
+    fused: list[SearchHit] = []
+    for hit in hits:
+        ranks = dict(hit.ranks)
+        score = 0.0
+        lexical_rank = ranks.get("lexical")
+        semantic_rank = ranks.get("semantic")
+        if lexical_rank is not None:
+            score += options.lexical_weight / (options.rrf_k + lexical_rank)
+        if semantic_rank is not None:
+            score += options.semantic_weight / (options.rrf_k + semantic_rank)
+        if not ranks:
+            score = 1 / (options.rrf_k + original_position[hit.unit.id])
+        if rank := rerank_position.get(hit.unit.id):
+            ranks["rerank"] = rank
+            score += reranker.fusion_weight / (options.rrf_k + rank)
+        bonus = rerank_bonus.get(hit.unit.id, 0.0)
+        score += bonus
+        fused.append(
+            replace(
+                hit,
+                score=score,
+                ranks=ranks,
+                rerank_score=rerank_score.get(hit.unit.id),
+                rerank_bonus=bonus or None,
+            )
+        )
+    return sorted(
+        fused,
+        key=lambda hit: (-hit.score, original_position[hit.unit.id], hit.unit.id),
+    )
+
+
+def _confidence_bonus(reranked_hits: list[SearchHit]) -> dict[str, float]:
+    """Permit a clearly dominant cross-encoder result to break an RRF deadlock.
+
+    Cross-encoder scores are not comparable between queries, so only the first
+    result's positive within-query margin is used.  The cap keeps retrieval
+    ranks dominant when the model is uncertain or wrong.
+    """
+    scored = [hit for hit in reranked_hits if hit.rerank_score is not None]
+    if len(scored) < 2:
+        return {}
+    first, second = scored[:2]
+    margin = first.rerank_score - second.rerank_score
+    if first.rerank_score <= 0 or margin <= 0.5:
+        return {}
+    return {first.unit.id: min(0.006, (margin - 0.5) * 0.003)}

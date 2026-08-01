@@ -68,12 +68,15 @@ breadcrumb、Node 标题和章节层级供检索；返回的 Evidence 只能引�
 | --- | --- | --- |
 | `lexical` | ParadeDB `pg_search` BM25 covering index | `title`、`description`、`original_text` 使用 ICU 多语言 tokenizer，字段 boost 固定为 4:2:1；revision、Node、kind、path 和 row 字段进入同一索引供过滤。 |
 | `semantic` | `unit_embeddings.embedding vector(1024)` 的 HNSW cosine index | 初始 profile 为本地部署 `Qwen/Qwen3-Embedding-0.6B`，输出 1024 维；以 `content_hash + profile` 缓存。换维度时新建列/索引并双写或重建，不能混入同一 ANN index。 |
-| `hybrid` | ParadeDB BM25 与 pgvector 各取候选，在同一个 SQL 中做 weighted RRF | 默认两路各取 100 个 unit，`weight/(60 + rank)` 融合，`id` 稳定打破同分；响应返回 BM25、cosine、channel rank 与最终分数。RRF 是无模型的名次融合，不等同于 cross-encoder reranker。 |
+| `hybrid` | ParadeDB BM25 与 pgvector 各取候选，在同一个 SQL 中做 weighted RRF，再把 multilingual MiniLM cross-encoder rank 加入同一融合 | 默认两路各取 100 个 unit，`weight/(60 + rank)` 融合，`id` 稳定打破同分；MiniLM 评估三种 mode 的前 20 个候选，但不覆盖召回分。仅当它的正分第一名明显领先第二名时，给予有上限的 bonus。响应返回 BM25、cosine、rerank、bonus、channel rank 与最终分数。 |
 
-表格必须建立 metadata、行级全文 unit 和行级 embedding；query rewrite、reranker、页面/图像
-embedding 均由评测后以 profile 开关启用，不是 v0.1 的硬依赖。当前不启用
-`Qwen3-Reranker-0.6B`：它需要对每个 query-document pair 做 cross-encoder 推理，而现有
-84-unit 基准集尚未证明质量收益足以覆盖额外延迟。embedding 在服务端的本地 worker 中运行
+表格必须建立 metadata、行级全文 unit 和行级 embedding；页面/图像 embedding 和 query rewrite
+均由评测后以 profile 开关启用。默认使用约 100M 参数的 multilingual MiniLM reranker；它对
+RRF 前 20 个候选做 query-document pair 推理，并以 rank 融合，而非把原始模型分数当最终分。
+它在服务 readiness 前预热。可用
+`REINDEX_RERANKER=disabled` 关闭，或通过 `REINDEX_RERANK_LIMIT`、
+`REINDEX_RERANK_BATCH_SIZE`、`REINDEX_RERANK_MAX_LENGTH` 与
+`REINDEX_RERANK_WEIGHT` 调整其有界成本或影响力。embedding 在服务端的本地 worker 中运行
 `Qwen/Qwen3-Embedding-0.6B`，客户端不持有模型或 API key，待索引文本
 也不离开部署环境。应用启动时预热 embedding 模型，把一次性权重加载留在 readiness 之前。
 Qwen3-Embedding 支持查询指令和 Matryoshka（MRL）输出维度；profile
@@ -121,9 +124,10 @@ active revision；翻页保持全局 rank，任一绑定项改变时明确返回
 `max_per_node=3`，并允许设置 cosine `semantic_threshold`。`candidate_limit` 默认 100，
 范围 10–500，且不得小于最终 `limit`。
 
-Evidence 的 Node 标识统一命名为 `node_id`。`score` 表示当前 mode 的最终排序分：lexical
-为 BM25，semantic 为 cosine similarity，hybrid 为 weighted RRF；原始分量始终保留在
-`scores.bm25` 与 `scores.semantic`，不能跨类型直接比较绝对值。
+Evidence 的 Node 标识统一命名为 `node_id`。启用 reranker 时，`score` 是 lexical、semantic
+与 rerank rank 的最终 weighted-RRF 融合分；否则 lexical 为 BM25，semantic 为 cosine
+similarity，hybrid 为 weighted RRF。原始分量保留在 `scores.bm25`、
+`scores.semantic`、`scores.rerank` 与可选 `scores.rerank_bonus`，不能跨查询比较绝对值。
 
 所有 response 都包含 `X-Request-ID`，客户端可传入最多 128 字符的安全 request ID，否则
 服务端生成。JSON error 统一为
@@ -147,7 +151,9 @@ Evidence 的 Node 标识统一命名为 `node_id`。`score` 表示当前 mode �
 2. **语义检索**：本地 `Qwen/Qwen3-Embedding-0.6B` worker、chunk、semantic/hybrid
    与 RRF；在标注集上确认 1024 维是否足够。
 3. **表格**：行级 FTS 和向量、受限 DuckDB。
-4. **增强**：reranker、查询改写和 PDF page/region 多模态索引，仅作为可观测 profile。
+4. **增强**：查询改写和 PDF page/region 多模态索引，仅作为可观测 profile；MiniLM reranker
+   已作为统一的第二阶段 rank-fusion 信号启用。精确表格条件应走受限 `/tables/query`，无答案
+   则由答案层做证据校验/拒答，二者不应归因于重排。
 
 集成测试使用带 pgvector 的真实 PostgreSQL（SQLite 不能验证 FTS/ANN）。至少覆盖 hash
 去重、失败导入不污染 current revision、协议校验、字段权重、RRF、权限先于召回、Evidence

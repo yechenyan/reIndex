@@ -10,6 +10,7 @@ from reindex_server.config import (
 )
 from reindex_server.database import Database
 from reindex_server.embeddings import provider_from_environment
+from reindex_server.reranking import provider_from_environment as reranker_from_environment
 from reindex_server.service import ReindexService
 from reindex_server.storage import FileStore
 
@@ -30,5 +31,6 @@ def service_from_environment() -> tuple[ReindexService, Database | None]:
         FileStore(Path(os.getenv("REINDEX_DATA_DIR", ".reindex-data"))),
         provider_from_environment(),
         search_backend,
+        reranker_from_environment(),
     )
     return service, database

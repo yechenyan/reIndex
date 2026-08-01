@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import asyncio
+from dataclasses import replace
 from pathlib import Path
 
 from httpx import ASGITransport, AsyncClient
@@ -9,7 +10,8 @@ from reindex_server.catalog import Catalog
 from reindex_server.domain import Collection, Node, SearchHit, SearchOptions, SearchUnit
 from reindex_server.embeddings import EmbeddingProvider
 from reindex_server.package_import import _markdown_chunks
-from reindex_server.service import ReindexService
+from reindex_server.reranking import Reranker
+from reindex_server.service import ReindexService, _confidence_bonus
 from reindex_server.storage import FileStore
 
 
@@ -44,6 +46,18 @@ class FakeSearchBackend:
 
     def grep(self, collection, pattern, limit, regex, case_sensitive):
         return [SearchHit(self.units[0], 1.0, ("grep",), {})]
+
+
+class FakeReranker(Reranker):
+    name = "test-reranker"
+    candidate_limit = 2
+    fusion_weight = 0.75
+
+    def rerank(self, query, hits):
+        return [
+            replace(hit, score=float(index), rerank_score=float(index))
+            for index, hit in enumerate(reversed(hits), 1)
+        ], 2.5
 
 
 def _node(node_id: str) -> Node:
@@ -158,7 +172,12 @@ def test_search_response_exposes_component_scores_and_verbatim_evidence(
     response = asyncio.run(request())
     result = response.json()["results"][0]
     assert result["rank"] == 1
-    assert result["scores"] == {"bm25": 4.2, "semantic": 0.91}
+    assert result["scores"] == {
+        "bm25": 4.2,
+        "semantic": 0.91,
+        "rerank": None,
+        "rerank_bonus": None,
+    }
     assert result["evidence"]["node_id"] == "00000000-0000-0000-0000-000000000002"
     assert "id" not in result["evidence"]
     assert result["evidence"]["excerpt"] == "Solar generation doubles to 160 MW"
@@ -288,3 +307,58 @@ def test_markdown_chunks_preserve_the_line_containing_the_evidence() -> None:
 
     evidence = next(chunk for chunk in chunks if "160 MW" in chunk[0])
     assert evidence[1] <= 5 <= evidence[2]
+
+
+def test_search_reranks_candidates_and_exposes_observability(tmp_path: Path) -> None:
+    service, collection_id, backend = _service(tmp_path)
+    service.reranker = FakeReranker()
+    backend.search = lambda collection, options, embedding: [
+        SearchHit(service.catalog.get(collection_id).units[0], 0.5, ("lexical",), {}),
+        SearchHit(service.catalog.get(collection_id).units[1], 0.4, ("lexical",), {}),
+    ]
+    app = create_app(service)
+
+    async def request():
+        transport = ASGITransport(app=app)
+        async with AsyncClient(transport=transport, base_url="http://test") as client:
+            return await client.post(
+                "/v1/search",
+                json={
+                    "collection_id": collection_id,
+                    "query": "solar",
+                    "mode": "lexical",
+                    "ranking": {"max_per_node": 2},
+                },
+            )
+
+    response = asyncio.run(request())
+    assert response.status_code == 200
+    body = response.json()
+    assert body["results"][0]["evidence"]["node_id"] == "00000000-0000-0000-0000-000000000001"
+    assert body["results"][0]["ranks"]["rerank"] == 2
+    assert body["results"][0]["scores"]["rerank"] == 2.0
+    assert body["reranking"] == {
+        "profile": "test-reranker",
+        "candidate_limit": 2,
+        "reranked_count": 2,
+        "latency_ms": 2.5,
+        "fusion": "weighted_rrf",
+        "weight": 0.75,
+        "rrf_k": 60,
+    }
+
+
+def test_confidence_bonus_requires_a_positive_decisive_rerank_margin() -> None:
+    unit = SearchUnit("first", "node", "", "", None, None, 1)
+    runner_up = SearchUnit("second", "node", "", "", None, None, 2)
+    dominant = [
+        SearchHit(unit, 0, (), {}, rerank_score=3.0),
+        SearchHit(runner_up, 0, (), {}, rerank_score=1.0),
+    ]
+    uncertain = [
+        SearchHit(unit, 0, (), {}, rerank_score=-1.0),
+        SearchHit(runner_up, 0, (), {}, rerank_score=-2.0),
+    ]
+
+    assert _confidence_bonus(dominant) == {"first": 0.0045000000000000005}
+    assert _confidence_bonus(uncertain) == {}
