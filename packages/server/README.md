@@ -12,7 +12,7 @@ ReIndex 1.0 的当前态 resource 存储、导入、搜索和查询 HTTP 服务�
 collections → nodes → node_resources → resources
 ```
 
-- Collection ID 等于根 Node ID。
+- Collection name 是用户使用的唯一远端名称；内部 Collection ID 等于根 Node ID。
 - Node 使用 `parent_node_id` 表示直接父节点，使用 `tree_path/order_path` 加速子树查询和稳定排序。
 - source、content、card 和 assets 统一通过 `node_resources.role` 关联。
 - `resources` 保存 Collection 内逻辑路径和本地对象元数据；对象 key 按 SHA-256 寻址并跨路径复用字节。
@@ -53,20 +53,15 @@ uv run reindex-server run
 ## API
 
 ```text
-POST /v1/collections/create
-POST /v1/raw/upload             POST /v1/raw/download
-POST /v1/reindex/import         POST /v1/collections/status
-POST /v1/nodes/browse           POST /v1/nodes/get
-POST /v1/nodes/download         POST /v1/search
+POST /v1/push                   POST /v1/pull
+POST /v1/search                 POST /v1/get
 POST /v1/grep                   POST /v1/tables/query
 ```
 
-- `/reindex/import` 只接受包含唯一 Collection 目录的 `reindex/node@1.0` archive。
-- 导入先完成验证、对象上传、切块和 embedding，最后在一个数据库事务中替换 Collection 当前态；
-  失败时旧 Node 数据保持不变，未引用对象由后续 mark-and-sweep 清理。
-- `/nodes/browse` 默认返回直接 children；`recursive=true` 返回完整后代。
-- `/nodes/download` 的 target 为 `card/source/content/asset`；asset 必须提供 `asset_ordinal`。
-- `/search` Evidence 使用 `card/content_text/table_row` 明确 excerpt 类型。
+- `/push` 同步接收 package ZIP 与 sources ZIP；只有验证、对象写入、切块和 embedding 全部完成才返回 ready。
+- `/pull` 返回保持 Node path 的原始 `.node.md` 字节，不含 source、content 或 assets。
+- `/get` 接受 Collection name、Node path/ID 或 `raw://` URI，精确返回一个 resource 和 SHA-256 响应头。
+- `/search` Evidence 使用 `card/content_text/table_row` 明确 excerpt 类型，并返回建议 get target。
 
 验证 fixture 位于 `testbase/test1/reIndex/test1/`，原始 PDF 位于 `testbase/test1/test1/`。
 本地 ParadeDB、真实 HTTP E2E 测试步骤见

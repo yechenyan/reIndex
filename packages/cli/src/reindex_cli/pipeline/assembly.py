@@ -3,6 +3,7 @@ from __future__ import annotations
 from pathlib import PurePosixPath
 from uuid import uuid4
 
+from reindex_cli.collection.state import identity_path
 from reindex_cli.parsers.common import initial_body
 from reindex_cli.pipeline.models import BuildState, DraftAsset, DraftNode
 from reindex_cli.util import load_json
@@ -87,9 +88,8 @@ def _fill_sources(state: BuildState) -> None:
 
 
 def _assign_identities(state: BuildState) -> None:
-    identity_path = state.context.root / ".rei" / "identities.json"
-    raw = load_json(identity_path, {"spec": "reindex/identities@1.0", "items": {}})
-    previous = raw.get("items", {}) if isinstance(raw, dict) else {}
+    raw = load_json(identity_path(state.context.root), {"nodes": {}})
+    previous = raw.get("nodes", raw.get("items", {})) if isinstance(raw, dict) else {}
     state.previous_identity_records = {
         key: value for key, value in previous.items() if isinstance(value, dict)
     }
@@ -138,8 +138,8 @@ def identity_state(state: BuildState) -> dict:
         }
     )
     return {
-        "spec": "reindex/identities@1.0",
-        "items": records,
+        "spec": "reindex/node-identities@1.0",
+        "nodes": records,
     }
 
 

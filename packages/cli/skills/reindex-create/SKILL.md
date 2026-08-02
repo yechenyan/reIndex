@@ -1,12 +1,12 @@
 ---
 name: reindex-create
-description: Create a ReIndex Collection identity when the user asks to initialize a Collection or run rei create.
+description: Initialize a ReIndex project when the user asks to set up ReIndex or run rei init/create.
 ---
 
 # ReIndex create
 
-1. Resolve the directory the user named; do not guess an ambiguous Collection boundary.
-2. Run `rei create <collection-dir>`. The command is idempotent and returns `created: true|false`.
-3. Report the Collection root, ID, and whether the identity was created or reused.
-4. Do not delete an existing `.rei/collection.json`, scan, create `reIndex.md`, or edit raw files as part
-   of create. A new identity requires an explicit user request.
+1. Resolve the exact directory named by the user.
+2. Prefer `rei init <directory> --agent <current-agent>` for normal setup. It is idempotent and manages skills.
+3. Use `rei create <directory>` only when identity-only initialization was explicitly requested.
+4. Report the Collection name and whether it was created or reused. UUID is internal and normally omitted.
+5. Do not scan, push, delete source files, or replace `.rei/collection.json` during initialization.

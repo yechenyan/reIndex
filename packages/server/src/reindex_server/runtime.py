@@ -11,6 +11,9 @@ from reindex_server.config import (
 from reindex_server.database import Database
 from reindex_server.embeddings import provider_from_environment
 from reindex_server.reranking import (
+    Reranker,
+)
+from reindex_server.reranking import (
     provider_from_environment as reranker_from_environment,
 )
 from reindex_server.service import ReindexService
@@ -28,11 +31,16 @@ def service_from_environment() -> tuple[ReindexService, Database | None]:
         database = Database(database_url, **database_pool_settings_from_environment())
         catalog = PostgresCatalog(database)
         search_backend = ParadeDBSearch(database)
+    else:
+        from reindex_server.memory_search import MemorySearchBackend
+
+        search_backend = MemorySearchBackend()
+    reranker = reranker_from_environment() if database is not None else Reranker()
     service = ReindexService(
         catalog,
         FileStore(Path(os.getenv("REINDEX_DATA_DIR", ".reindex-data"))),
         provider_from_environment(),
         search_backend,
-        reranker_from_environment(),
+        reranker,
     )
     return service, database

@@ -1,111 +1,64 @@
 # ReIndex HTTP API（当前态）
 
-基础地址由服务监听地址决定，例如 `http://127.0.0.1:8000`。所有业务接口均为 `POST /v1/...`，除
-`GET /health` 外。交互式完整 schema 位于 `/docs`，OpenAPI JSON 位于 `/openapi.json`；本页说明稳定的
-使用顺序和主要请求/响应字段。
+基础地址例如 `http://127.0.0.1:8000`。普通 CLI 工作流只需要四个业务接口：同步 push、Node-only pull、search 和精确 get。Collection 使用唯一 `name` 对用户寻址；根 Node UUID 仍是内部稳定 ID。
 
-## 请求流程
-
-1. 以 multipart 上传根 `index.node.md` 创建 Collection。
-2. 以 multipart 上传 package 中 `raw://` source 所引用的原始文件。
-3. 以 multipart 上传只包含一个 Collection 目录的 `reindex/node@1.0` ZIP。
-4. 轮询状态至 `ready`，再浏览、下载、搜索或查询表格。
-
-`collection_id` 等于 package 根 Node UUID。导入是异步的；响应 `202` 只表示已入队，不能代表数据已可查。
-
-## 端点
+## 接口
 
 | 方法与路径 | Content-Type | 用途 |
 | --- | --- | --- |
-| `GET /health` | — | 存活检查，返回 `{status, version}`。 |
-| `POST /v1/collections/create` | `multipart/form-data` | 上传 `root_node`（根 `index.node.md`），创建 draft Collection。 |
-| `POST /v1/raw/upload` | `multipart/form-data` | 字段：`collection_id`、`raw_path`、`file`。同路径但不同字节返回 `409`。 |
-| `POST /v1/raw/download` | JSON | 下载 `raw_path` 指向的原始 resource。 |
-| `POST /v1/reindex/import` | `multipart/form-data` | 字段：`collection_id`、`archive`；异步验证并原子替换当前态。 |
-| `POST /v1/collections/status` | JSON | 返回导入状态、当前 `package_hash`、进度和错误。 |
-| `POST /v1/nodes/browse` | JSON | 默认查直接 children；`recursive: true` 查完整后代。 |
-| `POST /v1/nodes/get` | JSON | 返回一个 Node 的 card、attributes 和 resource 元数据。 |
-| `POST /v1/nodes/download` | JSON | 下载 Node 的 card/source/content/asset。 |
-| `POST /v1/search` | JSON | ParadeDB lexical、semantic 或 hybrid 检索。 |
-| `POST /v1/grep` | JSON | 在当前 Collection 的检索单元中进行 literal/regex 匹配。 |
-| `POST /v1/tables/query` | JSON | 对 table Node 的 CSV 执行受限 DuckDB `SELECT`/CTE。 |
+| `GET /health` | — | 返回服务状态和版本。 |
+| `POST /v1/push` | multipart | 同步上传 package ZIP 和 sources ZIP，验证、索引并返回 ready。 |
+| `POST /v1/pull` | JSON | 按 Collection name 下载只包含 `.node.md` 的 ZIP。 |
+| `POST /v1/search` | JSON | lexical、semantic 或 hybrid 检索。 |
+| `POST /v1/get` | JSON | 按 Node path/ID 或 `raw://` URI 下载一个精确 resource。 |
+| `POST /v1/grep` | JSON | 当前 Collection 内的 literal/regex 匹配。 |
+| `POST /v1/tables/query` | JSON | 对 table Node 的 CSV 执行受限 DuckDB SELECT/CTE。 |
 
-## 常用请求
+OpenAPI JSON 位于 `/openapi.json`，交互文档位于 `/docs`。
 
-创建与导入使用 multipart；这里的 UUID 仅为示例：
+## Push
 
 ```bash
-curl -X POST http://127.0.0.1:8000/v1/collections/create \
-  -F 'root_node=@testbase/test1/reIndex/test1/index.node.md'
-
-curl -X POST http://127.0.0.1:8000/v1/raw/upload \
-  -F 'collection_id=056e95b3-aad8-4740-af7e-973356ec4e44' \
-  -F 'raw_path=2022_07_28_netzausbauplan_bielefelder_netz_gmbh_2022_inkl_anhang_pdf.pdf' \
-  -F 'file=@testbase/test1/test1/2022_07_28_netzausbauplan_bielefelder_netz_gmbh_2022_inkl_anhang_pdf.pdf'
-
-curl -X POST http://127.0.0.1:8000/v1/reindex/import \
-  -F 'collection_id=056e95b3-aad8-4740-af7e-973356ec4e44' \
-  -F 'archive=@test1.zip'
+curl -X POST http://127.0.0.1:8000/v1/push \
+  -F 'name=test2' \
+  -F 'package=@package.zip;type=application/zip' \
+  -F 'sources=@sources.zip;type=application/zip'
 ```
 
-查询状态、Node 与下载：
-
-```json
-POST /v1/collections/status
-{"collection_id":"056e95b3-aad8-4740-af7e-973356ec4e44"}
-```
-
-```json
-POST /v1/nodes/browse
-{
-  "collection_id":"056e95b3-aad8-4740-af7e-973356ec4e44",
-  "parent_node_id":"be043b2f-0d57-40f7-aaa4-c7d6a99b55e6",
-  "recursive":true
-}
-```
-
-```json
-POST /v1/nodes/download
-{
-  "collection_id":"056e95b3-aad8-4740-af7e-973356ec4e44",
-  "node_id":"333563cf-1334-45a5-9d19-55f53f79757f",
-  "target":"asset",
-  "asset_ordinal":1,
-  "disposition":"attachment"
-}
-```
-
-`raw/download` 仅需要 `collection_id`、`raw_path` 和可选 `disposition`（`inline` 或 `attachment`）。
-`nodes/download.target` 为 `card`、`source`、`content` 时不能带 `asset_ordinal`；为 `asset` 时必须带从 1
-开始的 `asset_ordinal`。下载响应为文件字节，并带 `Content-Disposition`。
-
-## Collection 与 Node 响应
-
-创建或状态查询返回：
+`package.zip` 必须包含唯一 Collection 目录。`sources.zip` 直接以 Collection-relative raw path 保存文件；其文件集合必须与 package 中全部 `raw://` 引用完全一致。服务端重新计算每个 SHA-256，并同步完成验证、检索投影和当前态写入。
 
 ```json
 {
-  "collection_id":"...",
-  "root_node_id":"...",
-  "status":"draft|queued|validating|indexing|ready|failed",
-  "package_hash":"sha256 或 null",
-  "embedding_profile":"string 或 null",
-  "progress":{"nodes":8,"resources":17},
-  "error":null
+  "status":"ready",
+  "name":"test2",
+  "collection_id":"76abf08f-83b0-4406-be38-cf3a9bb4bb80",
+  "package_hash":"...",
+  "nodes":7,
+  "sources":2,
+  "resources":16,
+  "search_units":1176,
+  "embedding_profile":null
 }
 ```
 
-`nodes/browse` 返回 `nodes` 数组，每项为 `id/path/parent_id/order/depth/kind/title/description`。`nodes/get`
-额外返回 `card_markdown`、`attributes`、`node_hash` 和 `resources`；每个 resource 给出 `role`、`ordinal`、
-`resource_id`、`namespace`、`logical_path`、`media_type`、`sha256`、`byte_size` 与可选 locator/asset 描述。
+相同根 UUID 与新 name 表示改名；相同 name 已属于另一 UUID 时返回 `409`。同 raw path 的内容可在下一次完整 push 中更新。
 
-## 搜索与 grep
+## Pull
+
+```json
+POST /v1/pull
+{"collection":"test2"}
+```
+
+响应为 ZIP，保持服务端 Node path，只包含根和后代的原始 `.node.md` card bytes，不含 source、content、assets 或 `.rei`。响应头 `X-ReIndex-Package-Hash` 给出当前快照 hash。
+
+## Search
 
 ```json
 POST /v1/search
 {
-  "collection_id":"...",
-  "query":"Bielefelder",
+  "collection":"test2",
+  "query":"technology costs",
   "mode":"lexical",
   "limit":10,
   "candidate_limit":100,
@@ -114,49 +67,71 @@ POST /v1/search
 }
 ```
 
-`mode` 可为 `lexical`、`semantic` 或 `hybrid`。semantic/hybrid 需要服务配置 embedding provider；lexical
-依赖 ParadeDB BM25。filters 可按 Node IDs、Node kind、path 前缀或一个 subtree 过滤。响应含
-`executed_mode`、`candidate_count`、`next_cursor` 和 `results`；每个结果有 `rank/score/channels/ranks/scores`
-以及 Evidence。Evidence 的 `unit_type` 明确为 `card`、`content_text` 或 `table_row`，并给出 Node、resource、
-excerpt、行号或文本行范围。
-
-`POST /v1/grep` 与搜索一样必须指定 `collection_id`：
+每条结果含 `Evidence` 和可直接传给 get 的目标：
 
 ```json
 {
-  "collection_id":"...",
-  "pattern":"Bielefelder",
-  "regex":false,
-  "case_sensitive":false,
-  "limit":10
+  "evidence":{
+    "node_id":"...",
+    "path":"technology-costs-2020.node.md",
+    "unit_type":"table_row",
+    "excerpt":"..."
+  },
+  "get":{
+    "node_id":"...",
+    "node_path":"technology-costs-2020.node.md",
+    "target":"content"
+  }
 }
 ```
 
-响应结构与搜索相同，`executed_mode` 为 `grep`。
+`unit_type` 为 `card`、`content_text` 或 `table_row`。semantic/hybrid 需要 Collection 当前 embedding profile 与服务配置一致。
 
-## 表查询
+## Get
+
+按 Node path 下载 content：
+
+```json
+POST /v1/get
+{
+  "collection":"test2",
+  "node_path":"technology-costs-2020.node.md",
+  "target":"content"
+}
+```
+
+下载 asset 时增加从 1 开始的 `asset_ordinal`。也可以传内部 `node_id` 代替 path。直接下载 raw：
+
+```json
+POST /v1/get
+{"collection":"test2","raw_uri":"raw://costs_2020.csv"}
+```
+
+响应头包含 `Content-Type`、`Content-Length`、`Content-Disposition`、`ETag` 和 `X-ReIndex-SHA256`。CLI 必须验证 SHA-256 后才写入缓存。
+
+## Grep 与表查询
+
+```json
+POST /v1/grep
+{"collection":"test2","pattern":"Bielefelder","regex":false,"case_sensitive":false,"limit":10}
+```
 
 ```json
 POST /v1/tables/query
 {
-  "collection_id":"...",
+  "collection":"test2",
   "node_id":"333563cf-1334-45a5-9d19-55f53f79757f",
   "sql":"SELECT count(*) AS total FROM data",
   "params":[]
 }
 ```
 
-只有 kind 为 `table` 的 Node 可查询。CSV 在内存中注册为单张 `data` 表，响应为
-`{"columns":[...],"rows":[...],"truncated":false}`。服务拒绝非单条 SELECT/CTE、外部文件访问和扩展安装。
+表查询拒绝非单条 SELECT/CTE、外部文件访问和扩展安装。
 
 ## 错误
-
-业务错误统一为：
 
 ```json
 {"error":{"code":"not_found","message":"...","request_id":"...","details":null}}
 ```
 
-常见 HTTP 状态：`400` 请求、SQL 或 cursor 无效；`404` Collection/Node/resource 不存在；`409` Collection
-状态冲突或同一 raw path 字节不一致；`422` JSON/form 字段不符合 schema；`500` 未预期错误。导入校验失败
-会在异步任务内写入 Collection 的 `failed` 状态和 `error`，HTTP `202` 本身仍表示成功入队。
+常见状态为：`400` package、path、SQL 或 cursor 无效；`404` Collection/Node/resource 不存在；`409` Collection name 冲突；`422` 请求字段错误；`500` 未预期错误。同步 push 只有完整成功才返回 `200 ready`。

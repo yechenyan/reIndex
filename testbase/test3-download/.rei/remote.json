@@ -1,0 +1,8 @@
+{
+  "api_url": "http://127.0.0.1:8000",
+  "kind": "node-checkout",
+  "name": "test2",
+  "node_dir": "reIndex/test2",
+  "package_hash": "0e6cfb90a425f7fa5d249cfac8da42e692cdd8596c2322adc453b1b9ddfb29ee",
+  "spec": "reindex/remote@1.0"
+}

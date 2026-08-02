@@ -1,37 +1,29 @@
 from __future__ import annotations
 
 import asyncio
+import io
+import tempfile
 from contextlib import asynccontextmanager
+from pathlib import Path
 from typing import Annotated
-from uuid import UUID
 
-from fastapi import BackgroundTasks, FastAPI, File, Form, UploadFile
+from fastapi import FastAPI, File, Form, UploadFile
+from fastapi.responses import StreamingResponse
 
 from reindex_server import __version__
 from reindex_server.api_errors import http_error, install_api_error_handling
 from reindex_server.api_models import (
     ERROR_RESPONSES,
-    BrowseResponse,
-    CollectionStatusResponse,
     HealthResponse,
-    ImportAcceptedResponse,
-    NodeDetail,
-    RawUploadResponse,
+    PushResponse,
     SearchApiResponse,
     TableQueryResponse,
 )
-from reindex_server.api_serialization import (
-    node_json,
-    resource_download,
-    search_response,
-)
+from reindex_server.api_serialization import resource_download, search_response
 from reindex_server.contracts import (
-    BrowseRequest,
     CollectionRequest,
-    DownloadNodeRequest,
-    DownloadRawRequest,
+    GetRequest,
     GrepRequest,
-    NodeRequest,
     SearchRequest,
     TableQueryRequest,
 )
@@ -61,108 +53,67 @@ def create_app(service: ReindexService | None = None) -> FastAPI:
     app.state.service = service
     install_api_error_handling(app)
 
+    def collection_id(name: str) -> str:
+        return app.state.service.resolve_collection(name).id
+
     @app.get("/health", response_model=HealthResponse)
     def health() -> dict[str, str]:
         return {"status": "ok", "version": __version__}
 
-    @app.post("/v1/collections/create", response_model=CollectionStatusResponse)
-    async def create_collection(root_node: Annotated[UploadFile, File()]) -> dict:
-        try:
-            collection = app.state.service.create_collection(await root_node.read())
-            return collection.status_response()
-        except Exception as error:
-            raise http_error(error) from error
-
-    @app.post("/v1/raw/upload", response_model=RawUploadResponse)
-    async def upload_raw(
-        collection_id: Annotated[UUID, Form()],
-        raw_path: Annotated[str, Form()],
-        file: Annotated[UploadFile, File()],
+    @app.post("/v1/push", response_model=PushResponse)
+    async def push(
+        name: Annotated[str, Form()],
+        package: Annotated[UploadFile, File()],
+        sources: Annotated[UploadFile, File()],
     ) -> dict:
         try:
-            return await app.state.service.upload_raw(
-                str(collection_id), raw_path, file
-            )
+            with tempfile.TemporaryDirectory(prefix="reindex-api-push-") as directory:
+                package_path = Path(directory) / "package.zip"
+                sources_path = Path(directory) / "sources.zip"
+                await _save_upload(package, package_path)
+                await _save_upload(sources, sources_path)
+                return app.state.service.push(name, package_path, sources_path)
         except Exception as error:
             raise http_error(error) from error
 
-    @app.post("/v1/raw/download")
-    def download_raw(request: DownloadRawRequest):
+    @app.post("/v1/pull")
+    def pull(request: CollectionRequest):
         try:
-            resource = app.state.service.get_raw(
-                request.collection_key, request.raw_path
-            )
-            return resource_download(
-                app.state.service.store, resource, request.disposition
-            )
-        except Exception as error:
-            raise http_error(error) from error
-
-    @app.post(
-        "/v1/reindex/import",
-        status_code=202,
-        response_model=ImportAcceptedResponse,
-    )
-    async def import_reindex(
-        background: BackgroundTasks,
-        collection_id: Annotated[UUID, Form()],
-        archive: Annotated[UploadFile, File()],
-    ) -> dict:
-        try:
-            collection_key = str(collection_id)
-            app.state.service.queue_import(collection_key)
-            background.add_task(
-                app.state.service.import_bytes, collection_key, await archive.read()
-            )
-            return {"collection_id": collection_key, "status": "queued"}
-        except Exception as error:
-            raise http_error(error) from error
-
-    @app.post("/v1/collections/status", response_model=CollectionStatusResponse)
-    def collection_status(request: CollectionRequest) -> dict:
-        try:
-            return app.state.service.catalog.get(
-                request.collection_key
-            ).status_response()
-        except Exception as error:
-            raise http_error(error) from error
-
-    @app.post("/v1/nodes/browse", response_model=BrowseResponse)
-    def browse(request: BrowseRequest) -> dict:
-        try:
-            return {
-                "nodes": [
-                    node_json(node)
-                    for node in app.state.service.browse(
-                        request.collection_key,
-                        str(request.parent_node_id) if request.parent_node_id else None,
-                        request.recursive,
-                    )
-                ]
+            content, collection = app.state.service.pull(request.collection_key)
+            headers = {
+                "Content-Disposition": (
+                    f'attachment; filename="{collection.name}-nodes.zip"'
+                ),
+                "Content-Length": str(len(content)),
+                "X-ReIndex-Package-Hash": collection.package_hash or "",
             }
-        except Exception as error:
-            raise http_error(error) from error
-
-    @app.post("/v1/nodes/get", response_model=NodeDetail)
-    def get_node(request: NodeRequest) -> dict:
-        try:
-            return node_json(
-                app.state.service.get_node(request.collection_key, request.node_key),
-                include_detail=True,
+            return StreamingResponse(
+                io.BytesIO(content), media_type="application/zip", headers=headers
             )
         except Exception as error:
             raise http_error(error) from error
 
-    @app.post("/v1/nodes/download")
-    def download_node(request: DownloadNodeRequest):
+    @app.post("/v1/get")
+    def get_resource(request: GetRequest):
         try:
-            ordinal = request.asset_ordinal or 0
-            link = app.state.service.get_node_resource(
-                request.collection_key, request.node_key, request.target, ordinal
-            )
-            return resource_download(
-                app.state.service.store, link.resource, request.disposition
-            )
+            resolved_id = collection_id(request.collection_key)
+            if request.raw_uri is not None:
+                resource = app.state.service.get_raw(
+                    resolved_id, request.raw_uri.removeprefix("raw://")
+                )
+            else:
+                node = (
+                    app.state.service.get_node(resolved_id, str(request.node_id))
+                    if request.node_id is not None
+                    else app.state.service.get_node_by_path(
+                        resolved_id, str(request.node_path)
+                    )
+                )
+                link = node.link(request.target, request.asset_ordinal or 0)
+                if link is None:
+                    raise KeyError(f"Node has no {request.target} resource")
+                resource = link.resource
+            return resource_download(app.state.service.store, resource, "attachment")
         except Exception as error:
             raise http_error(error) from error
 
@@ -170,10 +121,13 @@ def create_app(service: ReindexService | None = None) -> FastAPI:
     def search(request: SearchRequest) -> dict:
         try:
             response = app.state.service.search(
-                request.collection_key, request.options()
+                collection_id(request.collection_key), request.options()
             )
             return search_response(
-                app.state.service, request.collection_key, response, request
+                app.state.service,
+                collection_id(request.collection_key),
+                response,
+                request,
             )
         except Exception as error:
             raise http_error(error) from error
@@ -182,20 +136,24 @@ def create_app(service: ReindexService | None = None) -> FastAPI:
     def grep(request: GrepRequest) -> dict:
         try:
             response = app.state.service.grep(
-                request.collection_key,
+                collection_id(request.collection_key),
                 request.pattern,
                 request.limit,
                 request.regex,
                 request.case_sensitive,
             )
-            return search_response(app.state.service, request.collection_key, response)
+            return search_response(
+                app.state.service, collection_id(request.collection_key), response
+            )
         except Exception as error:
             raise http_error(error) from error
 
     @app.post("/v1/tables/query", response_model=TableQueryResponse)
     def query_table(request: TableQueryRequest) -> dict:
         try:
-            node = app.state.service.get_node(request.collection_key, request.node_key)
+            node = app.state.service.get_node(
+                collection_id(request.collection_key), request.node_key
+            )
             content = node.link("content")
             if node.kind != "table" or not content:
                 raise ValueError("node is not a queryable table")
@@ -207,6 +165,12 @@ def create_app(service: ReindexService | None = None) -> FastAPI:
             raise http_error(error) from error
 
     return app
+
+
+async def _save_upload(upload: UploadFile, target: Path) -> None:
+    with target.open("wb") as stream:
+        while chunk := await upload.read(1024 * 1024):
+            stream.write(chunk)
 
 
 app = create_app()

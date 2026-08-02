@@ -27,6 +27,13 @@ class Catalog:
             except KeyError as error:
                 raise KeyError("collection not found") from error
 
+    def get_by_name(self, name: str) -> Collection:
+        with self._lock:
+            for collection in self._items.values():
+                if collection.name == name:
+                    return collection
+        raise KeyError("collection not found")
+
     def sync(self, collection: Collection) -> None:
         self.get(collection.id)
 
@@ -36,6 +43,13 @@ class Catalog:
             return collection.nodes[node_id]
         except KeyError as error:
             raise KeyError("node not found") from error
+
+    def get_node_by_path(self, collection_id: str, path: str) -> Node:
+        collection = self.get(collection_id)
+        for node in collection.nodes.values():
+            if node.path == path:
+                return node
+        raise KeyError("node not found")
 
     def browse(
         self, collection_id: str, parent_node_id: str | None, recursive: bool
@@ -62,10 +76,6 @@ class Catalog:
             ),
             key=lambda node: node.order_path,
         )
-
-    def remember_resource(self, resource: Resource) -> None:
-        collection = self.get(resource.collection_id)
-        collection.resources[(resource.namespace, resource.logical_path)] = resource
 
     def replace_current(
         self,
@@ -94,3 +104,33 @@ class Catalog:
                 "search_units": len(units),
                 "embedding_profile": embedding_profile,
             }
+
+    def push_current(
+        self,
+        *,
+        collection_id: str,
+        name: str,
+        nodes: dict[str, Node],
+        resources: dict[tuple[str, str], Resource],
+        units: list[SearchUnit],
+        embedding_profile: str | None,
+        package_hash: str,
+    ) -> Collection:
+        with self._lock:
+            for item in self._items.values():
+                if item.name == name and item.id != collection_id:
+                    raise ConflictError("collection name already exists")
+            collection = self._items.get(collection_id) or Collection(
+                collection_id, name
+            )
+            self._items[collection_id] = collection
+            self.replace_current(
+                collection,
+                name=name,
+                nodes=nodes,
+                resources=resources,
+                units=units,
+                embedding_profile=embedding_profile,
+                package_hash=package_hash,
+            )
+            return collection

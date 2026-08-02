@@ -1,0 +1,9 @@
+{
+  "api_url": "http://127.0.0.1:8000",
+  "collection_id": "76abf08f-83b0-4406-be38-cf3a9bb4bb80",
+  "kind": "authoring",
+  "name": "test2",
+  "node_dir": "reIndex/76abf08f-83b0-4406-be38-cf3a9bb4bb80--test2",
+  "package_hash": "0e6cfb90a425f7fa5d249cfac8da42e692cdd8596c2322adc453b1b9ddfb29ee",
+  "spec": "reindex/remote@1.0"
+}

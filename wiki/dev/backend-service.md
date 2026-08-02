@@ -26,7 +26,7 @@ node_resources(
 )
 ```
 
-Collection ID 等于根 Node ID。`nodes.collection_id` 是上传、授权、删除和查询的隔离字段；根 Node
+Collection `name` 是用户使用且服务端唯一的远端名称；内部 ID 等于根 Node ID。`nodes.collection_id` 是上传、授权、删除和查询的隔离字段；根 Node
 没有 parent/ordinal，其他 Node 的同父 ordinal 唯一且从 1 连续。
 
 Node 不保存 `children_node_ids`。直接 children 使用
@@ -59,31 +59,27 @@ embedding_profiles(id, model, dimensions, config)
 在派生表中有意冗余，使一个 ParadeDB BM25 索引完成检索和过滤。图片和 assets 默认只通过 card
 文字进入索引。表格 schema/grain 保存在 `nodes.attributes.table`，CSV 仍是权威数据，不建立业务行表。
 
-## 3. 导入
+## 3. 同步 push
 
-1. 接收只包含一个 Collection 目录的 ZIP，拒绝 traversal、symlink 和重复 entry。
-2. 验证 1.0 frontmatter、UUID、根 Node、parent/order、文件名、URI、SHA-256、CSV header/row count。
-3. 解析 `raw://`，确认对应 raw resource 已上传且 hash 一致。
-4. 将 card/content/assets 写入本地内容寻址目录；生成 Node、resource link 和 search unit。
-5. 按需在数据库外生成 embedding。
-6. 对 Collection 加事务级 advisory lock，在一个事务内删除旧当前态并插入新当前态。
-7. PostgreSQL、BM25 和 embedding 写入全部成功后将 Collection 标为 ready。
+1. `POST /v1/push` 同时接收 Collection name、package ZIP 和 sources ZIP。
+2. 两个 ZIP 都拒绝 traversal、symlink 和重复 entry；package 必须只有一个 Collection 根目录。
+3. 验证 1.0 frontmatter、UUID、根 Node、parent/order、文件名、URI、SHA-256、CSV header/row count。
+4. sources 文件集合必须与全部 `raw://` 引用完全一致；服务端重新计算 hash。
+5. 将 raw/card/content/assets 写入内容寻址目录；生成 Node、resource link 和 search unit。
+6. 按需同步生成 embedding。
+7. 在数据库事务内创建或替换 Collection 当前态并返回 ready。
 
-失败事务回滚并保留之前仍可查询的 Node 当前态；Collection 状态记录失败原因。事务前写入但未被引用的
-对象是安全孤儿，后续按数据库引用做 mark-and-sweep。服务端不提供历史回滚。
+失败请求不返回 ready。事务前写入但未被引用的对象是安全孤儿，后续按数据库引用做 mark-and-sweep。
+服务端当前不提供异步 job、版本、协作或历史回滚。
 
 ## 4. API 行为
 
 | 端点 | 行为 |
 | --- | --- |
-| `/collections/create` | 上传不引用文件的 Collection 根 `index.node.md` |
-| `/raw/upload` | 建立 `raw/<path>` resource；同路径异内容返回 conflict |
-| `/reindex/import` | 异步验证并替换当前态 |
-| `/collections/status` | 返回状态、package hash、进度和错误 |
-| `/nodes/browse` | 默认直接 children；`recursive=true` 返回有序后代 |
-| `/nodes/get` | 返回解析后的 card、attributes 和全部 resource 元信息 |
-| `/nodes/download` | target=`card/source/content/asset`，asset 带 ordinal |
-| `/search`、`/grep` | 返回带 `unit_type/resource_id/locator` 的 Evidence |
+| `/push` | 同步上传完整 package 与全部被引用 sources |
+| `/pull` | 按 name 返回只包含 Node cards 的 ZIP |
+| `/get` | 按 Node path/ID、target 或 raw URI 精确下载一个 resource |
+| `/search`、`/grep` | 按 name 返回带 `unit_type/resource_id/locator` 的 Evidence |
 | `/tables/query` | 目标 CSV 注册为 `data`，只允许一条 SELECT/CTE |
 
 DuckDB 连接关闭 external access、限制内存和线程；不暴露对象路径，也不允许 SQL 自行读取文件或安装扩展。
@@ -99,8 +95,8 @@ DuckDB 连接关闭 external access、限制内存和线程；不暴露对象路
 
 ## 6. 验收
 
-- `testbase/test1` 的 raw PDF 和 1.0 package 能完整上传、导入、浏览、下载、搜索和查询。
-- 导入得到 8 个 Node；Browse order 为 1–6；两个 table 分别为 24 和 52 行。
-- source/content/card/asset 下载字节与 fixture 完全一致。
+- `testbase/test2` 同步 push 得到 7 Nodes、2 Sources、16 Resources 和 1176 SearchUnits；Node-only pull 返回 7 张 card。
+- `testbase/test1` 的真实 HTTP E2E 导入 8 个 Node，并验证 24 行 table、raw/content 精确 get 和原始 Node card pull。
+- Node path/order、source/content/card/asset 关系和 SHA-256 在 package 导入时完整校验。
 - `card/content_text/table_row` Evidence 不混淆。
 - 真实 ParadeDB BM25、pgvector 和 hybrid SQL 集成测试通过。

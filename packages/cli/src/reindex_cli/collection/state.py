@@ -8,29 +8,38 @@ from reindex_cli.errors import ReIndexError
 from reindex_cli.util import atomic_json, load_json, slugify
 
 COLLECTION_SPEC = "reindex/collection@1.0"
+IDENTITY_FILE = "node-identities.json"
 
 
-def create_collection(directory: Path) -> dict:
+def create_collection(directory: Path, name: str | None = None) -> dict:
     root = directory.expanduser().resolve()
     if not root.is_dir():
         raise ReIndexError(f"Collection directory does not exist: {root}")
     state_path = root / ".rei" / "collection.json"
     if state_path.exists():
-        return {**load_collection(root), "created": False}
+        stored = load_json(state_path, {})
+        state = load_collection(root)
+        if name is not None:
+            state["name"] = collection_name(name)
+        if not isinstance(stored, dict) or stored.get("name") != state["name"]:
+            atomic_json(state_path, state)
+        return {**state, "created": False}
     parent = _find_parent_collection(root.parent)
     if parent is not None:
         raise ReIndexError(f"Collection is nested inside existing Collection: {parent}")
     collection_id = str(uuid4())
+    normalized_name = collection_name(name or root.name)
     state = {
         "spec": COLLECTION_SPEC,
         "id": collection_id,
+        "name": normalized_name,
         "created_at": datetime.now(UTC).isoformat(),
         "output_dir": f"{collection_id}--{slugify(root.name, 'collection')}",
     }
     atomic_json(state_path, state)
     atomic_json(
-        root / ".rei" / "identities.json",
-        {"spec": "reindex/identities@1.0", "items": {}},
+        root / ".rei" / IDENTITY_FILE,
+        {"spec": "reindex/node-identities@1.0", "nodes": {}},
     )
     agent_path = root / ".rei" / "agent" / "collection.md"
     agent_path.parent.mkdir(parents=True, exist_ok=True)
@@ -55,7 +64,21 @@ def load_collection(root: Path) -> dict:
         isinstance(state.get(key), str) and state[key] for key in ("id", "output_dir")
     ):
         raise ReIndexError(f"Incomplete Collection state: {path}")
+    state.setdefault("name", collection_name(root.name))
     return state
+
+
+def collection_name(value: str) -> str:
+    normalized = slugify(value, "collection")[:80].rstrip("-")
+    if not normalized:
+        raise ReIndexError("Collection name must not be empty")
+    return normalized
+
+
+def identity_path(root: Path) -> Path:
+    current = root / ".rei" / IDENTITY_FILE
+    legacy = root / ".rei" / "identities.json"
+    return current if current.exists() or not legacy.exists() else legacy
 
 
 def _find_parent_collection(start: Path) -> Path | None:

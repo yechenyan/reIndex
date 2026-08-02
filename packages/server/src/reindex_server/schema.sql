@@ -15,7 +15,7 @@ CREATE EXTENSION IF NOT EXISTS pg_search;
 
 CREATE TABLE collections (
   id uuid PRIMARY KEY,
-  name text NOT NULL,
+  name text NOT NULL UNIQUE,
   status text NOT NULL CHECK (status IN ('draft', 'queued', 'validating', 'indexing', 'ready', 'failed')),
   package_hash char(64),
   embedding_profile text,

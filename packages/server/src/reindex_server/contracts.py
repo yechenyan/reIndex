@@ -13,22 +13,38 @@ class ApiRequest(BaseModel):
 
 
 class CollectionRequest(ApiRequest):
-    collection_id: UUID = Field(description="Collection root Node UUID.")
+    collection: str = Field(
+        min_length=1, max_length=80, description="User-facing Collection name."
+    )
 
     @property
     def collection_key(self) -> str:
-        return str(self.collection_id)
+        return self.collection
 
 
-class DownloadRawRequest(CollectionRequest):
-    raw_path: str = Field(
-        min_length=1,
-        max_length=1000,
-        description="Collection-relative raw path without traversal.",
-    )
-    disposition: Literal["inline", "attachment"] = Field(
-        default="attachment", description="Content-Disposition response mode."
-    )
+class GetRequest(CollectionRequest):
+    node_id: UUID | None = None
+    node_path: str | None = Field(default=None, min_length=1, max_length=1000)
+    raw_uri: str | None = Field(default=None, min_length=7, max_length=1006)
+    target: Literal["card", "source", "content", "asset"] = "content"
+    asset_ordinal: int | None = Field(default=None, ge=1, le=999)
+
+    @model_validator(mode="after")
+    def validate_reference(self) -> GetRequest:
+        references = sum(
+            value is not None for value in (self.node_id, self.node_path, self.raw_uri)
+        )
+        if references != 1:
+            raise ValueError("provide exactly one of node_id, node_path, or raw_uri")
+        if self.raw_uri is not None and not self.raw_uri.startswith("raw://"):
+            raise ValueError("raw_uri must start with raw://")
+        if self.raw_uri is not None and self.asset_ordinal is not None:
+            raise ValueError("asset_ordinal cannot be used with raw_uri")
+        if self.target == "asset" and self.asset_ordinal is None:
+            raise ValueError("asset_ordinal is required for asset")
+        if self.target != "asset" and self.asset_ordinal is not None:
+            raise ValueError("asset_ordinal is only valid for asset")
+        return self
 
 
 class NodeRequest(CollectionRequest):
@@ -37,30 +53,6 @@ class NodeRequest(CollectionRequest):
     @property
     def node_key(self) -> str:
         return str(self.node_id)
-
-
-class DownloadNodeRequest(NodeRequest):
-    target: Literal["card", "source", "content", "asset"]
-    asset_ordinal: int | None = Field(default=None, ge=1, le=999)
-    disposition: Literal["inline", "attachment"] = "attachment"
-
-    @model_validator(mode="after")
-    def validate_asset_ordinal(self) -> DownloadNodeRequest:
-        if self.target == "asset" and self.asset_ordinal is None:
-            raise ValueError("asset_ordinal is required for asset downloads")
-        if self.target != "asset" and self.asset_ordinal is not None:
-            raise ValueError("asset_ordinal is only valid for asset downloads")
-        return self
-
-
-class BrowseRequest(CollectionRequest):
-    parent_node_id: UUID | None = Field(
-        default=None, description="Parent Node UUID; null selects collection roots."
-    )
-    recursive: bool = Field(
-        default=False,
-        description="Return all descendants instead of only direct children.",
-    )
 
 
 class SearchFilters(ApiRequest):
@@ -118,7 +110,7 @@ class SearchRequest(CollectionRequest):
         json_schema_extra={
             "examples": [
                 {
-                    "collection_id": "056e95b3-aad8-4740-af7e-973356ec4e44",
+                    "collection": "energy-reports",
                     "query": "未来十年光伏装机容量会增长到多少？",
                     "mode": "hybrid",
                     "limit": 10,

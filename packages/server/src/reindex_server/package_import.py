@@ -88,8 +88,32 @@ def load_package(
     }
     if extras := all_paths - used_paths:
         raise PackageError(f"unreferenced package files: {', '.join(sorted(extras))}")
+    manifest = [
+        {
+            "id": node.id,
+            "path": node.path,
+            "parent_id": node.parent_id,
+            "order": node.order,
+            "node_hash": node.node_hash,
+            "resources": [
+                {
+                    "role": link.role,
+                    "ordinal": link.ordinal,
+                    "namespace": link.resource.namespace,
+                    "logical_path": link.resource.logical_path,
+                    "sha256": link.resource.sha256,
+                }
+                for link in sorted(
+                    node.resources, key=lambda value: (value.role, value.ordinal)
+                )
+            ],
+        }
+        for node in sorted(nodes.values(), key=lambda value: value.path)
+    ]
     package_hash = hashlib.sha256(
-        "\n".join(sorted(node.node_hash for node in nodes.values())).encode()
+        json.dumps(
+            manifest, ensure_ascii=False, sort_keys=True, separators=(",", ":")
+        ).encode()
     ).hexdigest()
     return PackageSnapshot(
         root.name,

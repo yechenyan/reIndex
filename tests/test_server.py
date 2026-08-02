@@ -12,8 +12,11 @@ from reindex_server.service import ReindexService
 from reindex_server.storage import FileStore
 
 ROOT_ID = "056e95b3-aad8-4740-af7e-973356ec4e44"
-DOCUMENT_ID = "be043b2f-0d57-40f7-aaa4-c7d6a99b55e6"
 TABLE_ID = "333563cf-1334-45a5-9d19-55f53f79757f"
+TABLE_PATH = (
+    "bielefelder-netz-gmbh-netzausbauplan-2022/"
+    "00005--aggregierte-10-jahresplanung-untere-netzebenen.node.md"
+)
 
 
 class FixtureSearchBackend:
@@ -37,11 +40,24 @@ def test_health() -> None:
 
     response = asyncio.run(request_health())
     assert response.status_code == 200
-    assert response.json() == {"status": "ok", "version": "0.1.0"}
+    assert response.json() == {"status": "ok", "version": "0.2.0"}
 
 
-def test_testbase_collection_import_and_actions(tmp_path: Path) -> None:
-    _, package, source, archive = _fixture()
+def test_public_api_uses_the_canonical_synchronous_workflow() -> None:
+    paths = {route.path for route in app.routes}
+    assert {"/v1/push", "/v1/pull", "/v1/search", "/v1/get"} <= paths
+    assert {
+        "/v1/collections",
+        "/v1/raw/upload",
+        "/v1/import",
+        "/v1/status",
+        "/v1/nodes/resolve",
+        "/v1/resources/download",
+    }.isdisjoint(paths)
+
+
+def test_synchronous_push_pull_search_and_get(tmp_path: Path) -> None:
+    package, source, package_zip, sources_zip = _fixture()
     service = ReindexService(
         Catalog(),
         FileStore(tmp_path / "objects"),
@@ -53,150 +69,91 @@ def test_testbase_collection_import_and_actions(tmp_path: Path) -> None:
     async def request_actions() -> None:
         transport = ASGITransport(app=test_app)
         async with AsyncClient(transport=transport, base_url="http://test") as client:
-            response = await client.post(
-                "/v1/collections/create",
+            pushed = await client.post(
+                "/v1/push",
+                data={"name": "test1"},
                 files={
-                    "root_node": (
-                        "index.node.md",
-                        (package / "index.node.md").read_bytes(),
-                    )
+                    "package": ("package.zip", package_zip, "application/zip"),
+                    "sources": ("sources.zip", sources_zip, "application/zip"),
                 },
             )
-            assert response.status_code == 200
-            assert response.json()["collection_id"] == ROOT_ID
-            response = await client.post(
-                "/v1/raw/upload",
-                data={"collection_id": ROOT_ID, "raw_path": source.name},
-                files={"file": (source.name, source.read_bytes(), "application/pdf")},
-            )
-            assert response.status_code == 200
-            conflict = await client.post(
-                "/v1/raw/upload",
-                data={"collection_id": ROOT_ID, "raw_path": source.name},
-                files={"file": (source.name, b"different", "application/pdf")},
-            )
-            assert conflict.status_code == 409
-            assert conflict.json()["error"]["code"] == "conflict"
-            response = await client.post(
-                "/v1/reindex/import",
-                data={"collection_id": ROOT_ID},
-                files={"archive": ("fixture.zip", archive, "application/zip")},
-            )
-            assert response.status_code == 202
-            status = await client.post(
-                "/v1/collections/status", json={"collection_id": ROOT_ID}
-            )
-            assert status.json()["status"] == "ready"
-            assert status.json()["package_hash"]
-            assert status.json()["progress"]["nodes"] == 8
+            assert pushed.status_code == 200, pushed.text
+            result = pushed.json()
+            assert result["status"] == "ready"
+            assert result["name"] == "test1"
+            assert result["collection_id"] == ROOT_ID
+            assert result["nodes"] == 8
+            assert result["sources"] == 1
 
-            direct = await client.post(
-                "/v1/nodes/browse",
-                json={"collection_id": ROOT_ID, "parent_node_id": ROOT_ID},
-            )
-            assert [node["id"] for node in direct.json()["nodes"]] == [DOCUMENT_ID]
-            subtree = await client.post(
-                "/v1/nodes/browse",
-                json={
-                    "collection_id": ROOT_ID,
-                    "parent_node_id": DOCUMENT_ID,
-                    "recursive": True,
-                },
-            )
-            assert [node["order"] for node in subtree.json()["nodes"]] == list(
-                range(1, 7)
-            )
-
-            detail = await client.post(
-                "/v1/nodes/get", json={"collection_id": ROOT_ID, "node_id": TABLE_ID}
-            )
-            assert [item["role"] for item in detail.json()["resources"]] == [
-                "card",
-                "source",
-                "content",
-                "asset",
-            ]
-            search = await client.post(
+            searched = await client.post(
                 "/v1/search",
+                json={"collection": "test1", "query": "Bielefelder", "mode": "lexical"},
+            )
+            assert searched.status_code == 200, searched.text
+            hit = searched.json()["results"][0]
+            assert hit["evidence"]["unit_type"] == "card"
+            assert hit["get"]["target"] == "card"
+
+            content = await client.post(
+                "/v1/get",
                 json={
-                    "collection_id": ROOT_ID,
-                    "query": "Bielefelder",
-                    "mode": "lexical",
+                    "collection": "test1",
+                    "node_path": TABLE_PATH,
+                    "target": "content",
                 },
             )
-            assert search.status_code == 200
-            assert search.json()["results"][0]["evidence"]["unit_type"] == "card"
+            expected = package / TABLE_PATH.replace(".node.md", ".csv")
+            assert content.content == expected.read_bytes()
+            assert content.headers["x-reindex-sha256"]
+            assert int(content.headers["content-length"]) == len(content.content)
+
+            raw = await client.post(
+                "/v1/get",
+                json={"collection": "test1", "raw_uri": f"raw://{source.name}"},
+            )
+            assert raw.content == source.read_bytes()
+
             table = await client.post(
                 "/v1/tables/query",
                 json={
-                    "collection_id": ROOT_ID,
+                    "collection": "test1",
                     "node_id": TABLE_ID,
                     "sql": "SELECT count(*) AS total FROM data",
                 },
             )
             assert table.json()["rows"] == [{"total": 24}]
-            raw = await client.post(
-                "/v1/raw/download",
-                json={"collection_id": ROOT_ID, "raw_path": source.name},
-            )
-            assert raw.content == source.read_bytes()
-            await _assert_downloads(client, package, source)
 
-            failed = await client.post(
-                "/v1/reindex/import",
-                data={"collection_id": ROOT_ID},
+            pulled = await client.post("/v1/pull", json={"collection": "test1"})
+            assert pulled.status_code == 200
+            with zipfile.ZipFile(io.BytesIO(pulled.content)) as bundle:
+                assert len(bundle.namelist()) == 8
+                assert all(name.endswith(".node.md") for name in bundle.namelist())
+                assert (
+                    bundle.read("index.node.md")
+                    == (package / "index.node.md").read_bytes()
+                )
+
+            renamed = await client.post(
+                "/v1/push",
+                data={"name": "renamed-test1"},
                 files={
-                    "archive": (
-                        "invalid.zip",
-                        _corrupt_content(archive),
-                        "application/zip",
-                    )
+                    "package": ("package.zip", package_zip, "application/zip"),
+                    "sources": ("sources.zip", sources_zip, "application/zip"),
                 },
             )
-            assert failed.status_code == 202
-            status = await client.post(
-                "/v1/collections/status", json={"collection_id": ROOT_ID}
-            )
-            assert status.json()["status"] == "failed"
-            preserved = await client.post(
-                "/v1/nodes/get",
-                json={"collection_id": ROOT_ID, "node_id": TABLE_ID},
-            )
-            assert preserved.status_code == 200
-            preserved_search = await client.post(
-                "/v1/search",
-                json={
-                    "collection_id": ROOT_ID,
-                    "query": "Bielefelder",
-                    "mode": "lexical",
-                },
-            )
-            assert preserved_search.status_code == 200
+            assert renamed.status_code == 200, renamed.text
+            assert renamed.json()["collection_id"] == ROOT_ID
+            assert (
+                await client.post("/v1/pull", json={"collection": "test1"})
+            ).status_code == 404
+            assert (
+                await client.post("/v1/pull", json={"collection": "renamed-test1"})
+            ).status_code == 200
 
     asyncio.run(request_actions())
 
 
-async def _assert_downloads(client, package: Path, source: Path) -> None:
-    document = package / "bielefelder-netz-gmbh-netzausbauplan-2022"
-    targets = {
-        "card": document
-        / "00005--aggregierte-10-jahresplanung-untere-netzebenen.node.md",
-        "source": source,
-        "content": document
-        / "00005--aggregierte-10-jahresplanung-untere-netzebenen.csv",
-        "asset": document
-        / "00005--aggregierte-10-jahresplanung-untere-netzebenen.assets001.png",
-    }
-    for target, expected in targets.items():
-        payload = {"collection_id": ROOT_ID, "node_id": TABLE_ID, "target": target}
-        if target == "asset":
-            payload["asset_ordinal"] = 1
-        response = await client.post("/v1/nodes/download", json=payload)
-        assert response.status_code == 200
-        assert response.content == expected.read_bytes()
-
-
-def _fixture() -> tuple[Path, Path, Path, bytes]:
+def _fixture() -> tuple[Path, Path, bytes, bytes]:
     fixture = Path(__file__).resolve().parents[1] / "testbase" / "test1"
     package = fixture / "reIndex" / "test1"
     source = (
@@ -204,25 +161,14 @@ def _fixture() -> tuple[Path, Path, Path, bytes]:
         / "test1"
         / "2022_07_28_netzausbauplan_bielefelder_netz_gmbh_2022_inkl_anhang_pdf.pdf"
     )
-    archive = io.BytesIO()
-    with zipfile.ZipFile(archive, "w") as bundle:
+    package_zip = io.BytesIO()
+    with zipfile.ZipFile(package_zip, "w") as bundle:
         for file in package.rglob("*"):
             if file.is_file():
                 bundle.write(
                     file, (Path(package.name) / file.relative_to(package)).as_posix()
                 )
-    return fixture, package, source, archive.getvalue()
-
-
-def _corrupt_content(archive: bytes) -> bytes:
-    incoming = zipfile.ZipFile(io.BytesIO(archive))
-    output = io.BytesIO()
-    target = "00005--aggregierte-10-jahresplanung-untere-netzebenen.csv"
-    with incoming, zipfile.ZipFile(output, "w") as result:
-        for item in incoming.infolist():
-            content = incoming.read(item)
-            result.writestr(
-                item,
-                content + b"\ncorrupt" if item.filename.endswith(target) else content,
-            )
-    return output.getvalue()
+    sources_zip = io.BytesIO()
+    with zipfile.ZipFile(sources_zip, "w") as bundle:
+        bundle.write(source, source.name)
+    return package, source, package_zip.getvalue(), sources_zip.getvalue()

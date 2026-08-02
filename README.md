@@ -2,6 +2,8 @@
 
 ReIndex turns local source files into portable, agent-readable knowledge packages.
 
+For Agent-assisted setup, say: “Run `uv tool install --upgrade reindex-cli`, then run `rei init <data-directory> --agent <current-agent>` to install or update ReIndex and its skills.”
+
 ## Start here
 
 - Protocol: [`wiki/reference/reindex-v1.0-standard.md`](wiki/reference/reindex-v1.0-standard.md)
@@ -14,7 +16,7 @@ ReIndex turns local source files into portable, agent-readable knowledge package
 
 ## Workspace
 
-- `packages/cli`: `rei`/`reindex` raw-to-ReIndex compiler
+- `packages/cli`: `rei`/`reindex` local compiler plus push/pull/search/get client
 - `packages/server`: backend service package
 - `testbase`: raw fixtures and generated ReIndex packages
 - `wiki`: reference, user, and developer documentation

@@ -30,13 +30,15 @@ data/
 不是 Node 或最终 package 文件。
 
 ```bash
-rei create data/test1
+rei init data/test1 --name test1 --agent codex
 rei inspect data/test1
 rei scan data/test1
+rei push data/test1
 ```
 
-`create` 建立稳定身份边界，`inspect` 让 Agent 在写入前核对真实文件与 manifest，`scan` 使用确定性流水线生成并
-校验 package。PDF 由 Docling 本地解析；存在文本层时不启用 OCR，缺少文本时才以 Docling OCR 重试。
+`init` 建立稳定身份边界并安装或更新 Agent skills，`inspect` 让 Agent 在写入前核对真实文件与 manifest，
+`scan` 使用确定性流水线生成并校验 package，`push` 同步发布 package 与被实际引用的 sources。PDF 由
+Docling 本地解析；存在文本层时不启用 OCR，缺少文本时才以 Docling OCR 重试。
 
 ## 2. 生成 ReIndex package
 
@@ -77,11 +79,20 @@ CSV/Parquet ─────────────> DuckDB read-only query
 
 ## 4. Agent 工具
 
-- `search`：融合 BM25、向量召回和重排，返回可追溯 Evidence。
+- `pull`：下载只有 `.node.md` 的完整 Node tree，供 Agent 浏览 Collection 结构和顺序。
+- `search`：融合 BM25、向量召回和重排，返回可追溯 Evidence 与建议的 get 参数。
 - `grep`：在 content 和表格行中进行受限字面或正则搜索。
-- `browse`：浏览 Collection 的 Node 树和顺序。
-- `get`：读取 Node card 和 content 元信息。
-- `download`：按 `source/content/asset/card` 下载真实文件。
-- `query`：使用 DuckDB 对 table content 执行受限只读 SQL。
+- `get`：按 `source/content/asset/card` 精确取得真实文件，并优先复用本地文件和 SHA-256 cache。
+- `table query`：使用 DuckDB 对 table content 执行受限只读 SQL。
+
+用户使用 Collection name，而不是 UUID：
+
+```bash
+rei pull test1 --output ./test1-nodes
+rei search "investment plan" --remote test1
+rei get report/00003--investment.node.md --target content
+```
+
+`pull` 只拉取完整 Node tree；source/content/assets 由 `get` 按需从本地、SHA-256 缓存或远端精确取得。
 
 完整 package 规则见 [`reference/reindex-v1.0-standard.md`](reference/reindex-v1.0-standard.md)。

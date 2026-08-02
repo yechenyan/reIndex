@@ -1,6 +1,6 @@
 # 本地测试指南
 
-本项目有两层测试：默认测试验证 importer、协议校验和服务逻辑；HTTP E2E 测试连接已经启动的真实
+本项目有两层测试：默认测试验证同步 push、协议校验、CLI 真实 HTTP 流程和服务逻辑；HTTP E2E 测试连接已经启动的真实
 ParadeDB 与 Uvicorn 服务，验证实际网络 API。E2E fixture 固定使用
 `testbase/test1/reIndex/test1`，并上传 `testbase/test1/test1` 内的 PDF。
 
@@ -28,6 +28,7 @@ Node 身份复用、机器字段保护，以及 Agent 修改过的 card body 在
 uv run rei inspect testbase/test2
 uv run rei scan testbase/test2
 uv run rei check testbase/test2
+uv run rei push testbase/test2 --api-url http://127.0.0.1:8000
 uv run pytest -q tests/test_cli.py tests/test_cli_workspace.py
 ```
 
@@ -79,12 +80,12 @@ REINDEX_E2E_BASE_URL=http://127.0.0.1:8000 \
   uv run pytest -q tests/test_api_e2e.py
 ```
 
-E2E 等待导入的默认超时为 180 秒。首次在 CPU 上生成 embedding 较慢时，可用
-`REINDEX_E2E_IMPORT_TIMEOUT=600` 延长。
+E2E HTTP client 的同步 push 超时为 1800 秒，可覆盖首次在 CPU 上生成 embedding 的较慢情况。
 
-该测试会创建（或复用）fixture 的 Collection，上传 raw PDF，导入 ZIP，然后断言：8 个 Node、直接
-children 与递归子树顺序、card/source/content/asset 原始字节下载、ParadeDB lexical search，以及 DuckDB
-`SELECT count(*)` 得到 24 行。每次都重新导入 fixture，因此可重复执行；它不会故意提交损坏 archive。
+该测试同步 push fixture 的 package 与 sources，然后断言 Node-only pull、content/raw 精确 get、
+ParadeDB lexical search，以及 DuckDB `SELECT count(*)`。默认测试中的 `test_cli_http_flow.py` 还会在
+真实本地 HTTP 端口模拟 test2 push、`test3-download` pull，以及复制 test2 数据后执行 test4 init/scan/push/search/get，
+并验证同 raw path 的新内容可由下一次完整 push 更新。
 
 可直接在浏览器查看交互接口：<http://127.0.0.1:8000/docs>；机器可读 OpenAPI：
 <http://127.0.0.1:8000/openapi.json>。

@@ -136,7 +136,7 @@ def test_search_applies_ranking_and_subtree_filters(tmp_path: Path) -> None:
             return await client.post(
                 "/v1/search",
                 json={
-                    "collection_id": ROOT_ID,
+                    "collection": "fixture",
                     "query": "renewable capacity",
                     "candidate_limit": 80,
                     "filters": {"kinds": ["text"], "subtree_node_id": ROOT_ID},
@@ -168,7 +168,7 @@ def test_search_applies_ranking_and_subtree_filters(tmp_path: Path) -> None:
 def test_search_response_has_typed_verbatim_evidence(tmp_path: Path) -> None:
     service, _ = _service(tmp_path)
     response = asyncio.run(
-        _post(create_app(service), {"collection_id": ROOT_ID, "query": "renewable"})
+        _post(create_app(service), {"collection": "fixture", "query": "renewable"})
     )
     result = response.json()["results"][0]
     assert result["scores"] == {
@@ -194,7 +194,7 @@ def test_search_cursor_is_bound_to_current_package(tmp_path: Path) -> None:
         _post(
             app,
             {
-                "collection_id": ROOT_ID,
+                "collection": "fixture",
                 "query": "x",
                 "mode": "lexical",
                 "limit": 2,
@@ -207,7 +207,7 @@ def test_search_cursor_is_bound_to_current_package(tmp_path: Path) -> None:
         _post(
             app,
             {
-                "collection_id": ROOT_ID,
+                "collection": "fixture",
                 "query": "x",
                 "mode": "lexical",
                 "limit": 2,
@@ -222,7 +222,7 @@ def test_search_cursor_is_bound_to_current_package(tmp_path: Path) -> None:
         _post(
             app,
             {
-                "collection_id": ROOT_ID,
+                "collection": "fixture",
                 "query": "x",
                 "mode": "lexical",
                 "limit": 2,
@@ -245,7 +245,7 @@ def test_search_reranking_observability(tmp_path: Path) -> None:
         _post(
             create_app(service),
             {
-                "collection_id": ROOT_ID,
+                "collection": "fixture",
                 "query": "solar",
                 "mode": "lexical",
                 "ranking": {"max_per_node": 2},
@@ -270,7 +270,7 @@ def test_invalid_search_and_openapi_contract(tmp_path: Path) -> None:
         _post(
             app,
             {
-                "collection_id": ROOT_ID,
+                "collection": "fixture",
                 "query": "x",
                 "limit": 20,
                 "candidate_limit": 10,

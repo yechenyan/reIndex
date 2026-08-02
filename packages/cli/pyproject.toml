@@ -4,12 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "reindex-cli"
-version = "0.2.0"
+version = "0.3.0"
 description = "Compile local files into ReIndex packages."
 requires-python = ">=3.12"
 readme = "README.md"
 dependencies = [
     "docling>=2,<3",
+    "httpx>=0.27,<1",
     "pyyaml>=6,<7",
 ]
 
@@ -22,3 +23,6 @@ reindex = "reindex_cli.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+reindex_cli = ["bundled_skills/*/SKILL.md"]

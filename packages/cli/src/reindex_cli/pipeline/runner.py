@@ -4,6 +4,7 @@ import shutil
 from pathlib import Path
 
 from reindex_cli.collection.resolver import CollectionContext
+from reindex_cli.collection.state import IDENTITY_FILE
 from reindex_cli.manifest.parser import load_manifest
 from reindex_cli.package import render_package, validate_package
 from reindex_cli.pipeline.assembly import assemble_nodes, identity_state
@@ -38,6 +39,7 @@ def inspect_collection(context: CollectionContext) -> dict:
     )
     return {
         "status": "ready",
+        "name": context.state["name"],
         "collection_root": str(context.root),
         "collection_id": context.collection_id,
         "scope": context.scope_relative,
@@ -87,10 +89,11 @@ def run_scan(context: CollectionContext) -> dict:
             shutil.rmtree(staging)
         raise
     report = _build_report(state, validation, previous)
-    atomic_json(context.root / ".rei" / "identities.json", identity_state(state))
+    atomic_json(context.root / ".rei" / IDENTITY_FILE, identity_state(state))
     atomic_json(context.root / ".rei" / "build.json", report)
     return {
         "status": "valid",
+        "name": context.state["name"],
         "collection_id": context.collection_id,
         "package": str(context.output_dir),
         "nodes": validation["nodes"],
@@ -119,6 +122,7 @@ def check_collection(context: CollectionContext) -> dict:
     stale = input_changes(manifest, discovered, selected, report)
     return {
         "status": "stale" if has_input_changes(stale) else "valid",
+        "name": context.state["name"],
         "package": str(context.output_dir),
         "nodes": validation["nodes"],
         "agent_modified_cards": _agent_edits(context, report),

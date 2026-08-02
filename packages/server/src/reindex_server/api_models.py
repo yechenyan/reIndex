@@ -23,63 +23,16 @@ class HealthResponse(BaseModel):
     version: str
 
 
-class ImportAcceptedResponse(BaseModel):
+class PushResponse(BaseModel):
+    status: Literal["ready"]
+    name: str
     collection_id: str
-    status: Literal["queued"]
-
-
-class CollectionStatusResponse(BaseModel):
-    collection_id: str
-    root_node_id: str
-    status: Literal["draft", "queued", "validating", "indexing", "ready", "failed"]
-    package_hash: str | None
+    package_hash: str
+    nodes: int
+    sources: int
+    resources: int
+    search_units: int
     embedding_profile: str | None
-    progress: dict[str, Any]
-    error: dict[str, Any] | None
-
-
-class RawUploadResponse(BaseModel):
-    collection_id: str
-    resource_id: str
-    raw_path: str
-    sha256: str
-
-
-class NodeSummary(BaseModel):
-    id: str
-    path: str
-    parent_id: str | None
-    order: int | None
-    depth: int
-    kind: Literal["group", "text", "table", "image", "file"]
-    title: str
-    description: str
-
-
-class ResourceInfo(BaseModel):
-    role: Literal["card", "source", "content", "asset"]
-    ordinal: int
-    resource_id: str
-    namespace: Literal["raw", "package"]
-    logical_path: str
-    display_name: str
-    media_type: str
-    sha256: str
-    byte_size: int
-    locator: dict[str, Any] | None = None
-    asset_role: str | None = None
-    description: str | None = None
-
-
-class NodeDetail(NodeSummary):
-    card_markdown: str
-    attributes: dict[str, Any]
-    node_hash: str
-    resources: list[ResourceInfo]
-
-
-class BrowseResponse(BaseModel):
-    nodes: list[NodeSummary]
 
 
 class TableQueryResponse(BaseModel):
@@ -119,6 +72,7 @@ class SearchResult(BaseModel):
     ranks: dict[str, int]
     scores: ComponentScores
     evidence: Evidence
+    get: dict[str, Any]
 
 
 class AppliedSearch(BaseModel):

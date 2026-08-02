@@ -12,6 +12,7 @@
 uv sync
 uv run pytest
 uv run rei --help
+uv run rei init testbase/test2 --name test2 --agent codex
 uv run rei inspect testbase/test2
 uv run rei check testbase/test2
 ```

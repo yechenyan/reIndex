@@ -1,28 +1,51 @@
 # ReIndex CLI
 
-`rei` compiles local files into validated ReIndex 1.0 packages. `reindex` is an alias.
+`rei` builds local files into ReIndex 1.0 packages and connects them to a ReIndex API. `reindex` is an alias.
 
-## Commands
+## Install and initialize
+
+Give an AI Agent this sentence:
+
+> Run `uv tool install --upgrade reindex-cli`, then run `rei init <data-directory> --agent <current-agent>` to create or update the ReIndex skills.
+
+`<current-agent>` is `codex`, `claude`, `cursor`, or `copilot`. `init` is idempotent, creates or reuses local identity, and installs or safely updates the three bundled skills. It does not scan, push, or download tutorial data.
 
 ```bash
-rei create <collection-dir>
+rei init <collection-dir> [--name <name>] [--agent codex]
+rei rename <collection-dir> <new-name>
+```
+
+## Local commands
+
+```bash
 rei inspect <path>
 rei scan <path> [--collection-root <collection-dir>]
 rei check <path>
 ```
 
-- `create` writes or reuses the stable Collection identity under `.rei/` and reports `created: true|false`.
-- `inspect` resolves the nearest Collection and reports effective inputs, CSV/PDF profiles, relationships,
-  ignored items and changes without writing or loading Docling layout/OCR models.
-- `scan` parses files, validates a staging package, and publishes it atomically.
-- `scan` returns complete changes, review categories and warning details.
-- `check` validates the current package, detects edits to CLI-owned metadata, and marks newly added raw
-  inputs as stale.
+`inspect` is read-only. `scan` stages, validates, and atomically publishes a package. `check` verifies package resources, protected Node metadata, and current inputs.
 
-The first PDF scan initializes Docling's local layout models. PDFs with a usable text
-layer run with OCR disabled; image-only PDFs retry with Docling OCR. Parse artifacts are
-cached under `.rei/cache/` and may be deleted without losing Node identity.
+## Remote commands
 
-`reIndex.md` is optional and remains the only authoring manifest. Agent edits should be
-minimal and evidence-backed. CLI owns Node frontmatter; the Markdown card body is
-curator-owned and survives later scans by stable Node ID.
+```bash
+rei set-api <base-url>
+rei push [path]
+rei pull <name> [--output <directory>]
+rei search "<query>" [--remote <name>] [--mode lexical|semantic|hybrid]
+rei get <node-path> [--target card|source|content|asset]
+rei get raw://<path>
+```
+
+`push` synchronously sends the complete validated package and exactly referenced raw sources. `pull` downloads only the complete `.node.md` tree. `get` checks a complete local package, local authoring source, and the SHA-256 cache before downloading one exact resource.
+
+Collection names are the user-facing remote identifier. UUIDs remain internal stable identity. Resource logical paths stay Collection-relative and are scoped by the internal Collection UUID.
+
+## Skills
+
+```bash
+rei skills install --agent codex
+rei skills update --agent codex
+rei skills update --agent codex --force
+```
+
+Normal updates overwrite only unmodified ReIndex-managed copies. A modified skill reports a conflict unless `--force` is explicit.

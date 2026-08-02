@@ -41,7 +41,12 @@ def resource_download(store, resource, disposition: str) -> StreamingResponse:
             stream.close()
 
     filename = quote(resource.display_name)
-    headers = {"Content-Disposition": f"{disposition}; filename*=UTF-8''{filename}"}
+    headers = {
+        "Content-Disposition": f"{disposition}; filename*=UTF-8''{filename}",
+        "Content-Length": str(resource.byte_size),
+        "ETag": f'"sha256-{resource.sha256}"',
+        "X-ReIndex-SHA256": resource.sha256,
+    }
     return StreamingResponse(chunks(), media_type=resource.media_type, headers=headers)
 
 
@@ -98,6 +103,7 @@ def _resource_json(link) -> dict:
 def _result(service, collection_id: str, hit, rank: int) -> dict:
     unit = hit.unit
     node = service.get_node(collection_id, unit.node_id)
+    target = "card" if unit.unit_type == "card" else "content"
     return {
         "rank": rank,
         "score": hit.score,
@@ -125,4 +131,5 @@ def _result(service, collection_id: str, hit, rank: int) -> dict:
             "chunk_ordinal": unit.ordinal,
             "locator": unit.locator or node.locator,
         },
+        "get": {"node_id": node.id, "node_path": node.path, "target": target},
     }

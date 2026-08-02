@@ -63,6 +63,14 @@ class PostgresCatalog:
                 resources=resources,
             )
 
+    def get_by_name(self, name: str) -> Collection:
+        with self.database.connection() as connection, connection.cursor() as cursor:
+            cursor.execute("SELECT id FROM collections WHERE name = %s", (name,))
+            row = cursor.fetchone()
+            if row is None:
+                raise KeyError("collection not found")
+            return self.get(str(row["id"]))
+
     def get_node(self, collection_id: str, node_id: str) -> Node:
         with self.database.connection() as connection, connection.cursor() as cursor:
             cursor.execute(
@@ -76,6 +84,17 @@ class PostgresCatalog:
             resources = load_resources(cursor, collection_id)
             load_links(cursor, collection_id, {node.id: node}, resources, node.id)
             return node
+
+    def get_node_by_path(self, collection_id: str, path: str) -> Node:
+        with self.database.connection() as connection, connection.cursor() as cursor:
+            cursor.execute(
+                "SELECT id FROM nodes WHERE collection_id = %s AND path = %s",
+                (collection_id, path),
+            )
+            row = cursor.fetchone()
+            if row is None:
+                raise KeyError("node not found")
+            return self.get_node(collection_id, str(row["id"]))
 
     def browse(
         self, collection_id: str, parent_node_id: str | None, recursive: bool
@@ -124,10 +143,6 @@ class PostgresCatalog:
                 ),
             )
 
-    def remember_resource(self, resource: Resource) -> None:
-        with self.database.connection() as connection, connection.cursor() as cursor:
-            insert_resources(cursor, [resource])
-
     def replace_current(
         self,
         collection: Collection,
@@ -148,8 +163,7 @@ class PostgresCatalog:
                 "DELETE FROM nodes WHERE collection_id = %s", (collection.id,)
             )
             cursor.execute(
-                "DELETE FROM resources WHERE collection_id = %s AND namespace = 'package'",
-                (collection.id,),
+                "DELETE FROM resources WHERE collection_id = %s", (collection.id,)
             )
             insert_resources(cursor, resources.values())
             insert_nodes(cursor, nodes.values())
@@ -213,3 +227,45 @@ class PostgresCatalog:
             nodes,
             units,
         )
+
+    def push_current(
+        self,
+        *,
+        collection_id: str,
+        name: str,
+        nodes: dict[str, Node],
+        resources: dict[tuple[str, str], Resource],
+        units: list[SearchUnit],
+        embedding_profile: str | None,
+        package_hash: str,
+    ) -> Collection:
+        try:
+            with (
+                self.database.connection() as connection,
+                connection.cursor() as cursor,
+            ):
+                cursor.execute(
+                    "SELECT id FROM collections WHERE name = %s AND id <> %s",
+                    (name, collection_id),
+                )
+                if cursor.fetchone() is not None:
+                    raise ConflictError("collection name already exists")
+                cursor.execute(
+                    """INSERT INTO collections (id, name, status, progress)
+                       VALUES (%s, %s, 'draft', '{}'::jsonb)
+                       ON CONFLICT (id) DO NOTHING""",
+                    (collection_id, name),
+                )
+        except UniqueViolation as error:
+            raise ConflictError("collection name already exists") from error
+        collection = self.get(collection_id)
+        self.replace_current(
+            collection,
+            name=name,
+            nodes=nodes,
+            resources=resources,
+            units=units,
+            embedding_profile=embedding_profile,
+            package_hash=package_hash,
+        )
+        return collection
