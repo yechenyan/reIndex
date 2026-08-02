@@ -1,5 +1,7 @@
 import asyncio
+import hashlib
 import io
+import mimetypes
 import zipfile
 from pathlib import Path
 
@@ -57,7 +59,7 @@ def test_public_api_uses_the_canonical_synchronous_workflow() -> None:
 
 
 def test_synchronous_push_pull_search_and_get(tmp_path: Path) -> None:
-    package, source, package_zip, sources_zip = _fixture()
+    package, source = _fixture()
     service = ReindexService(
         Catalog(),
         FileStore(tmp_path / "objects"),
@@ -69,16 +71,7 @@ def test_synchronous_push_pull_search_and_get(tmp_path: Path) -> None:
     async def request_actions() -> None:
         transport = ASGITransport(app=test_app)
         async with AsyncClient(transport=transport, base_url="http://test") as client:
-            pushed = await client.post(
-                "/v1/push",
-                data={"name": "test1"},
-                files={
-                    "package": ("package.zip", package_zip, "application/zip"),
-                    "sources": ("sources.zip", sources_zip, "application/zip"),
-                },
-            )
-            assert pushed.status_code == 200, pushed.text
-            result = pushed.json()
+            result = await _push(client, "test1", package, source, None, race=True)
             assert result["status"] == "ready"
             assert result["name"] == "test1"
             assert result["collection_id"] == ROOT_ID
@@ -133,16 +126,10 @@ def test_synchronous_push_pull_search_and_get(tmp_path: Path) -> None:
                     == (package / "index.node.md").read_bytes()
                 )
 
-            renamed = await client.post(
-                "/v1/push",
-                data={"name": "renamed-test1"},
-                files={
-                    "package": ("package.zip", package_zip, "application/zip"),
-                    "sources": ("sources.zip", sources_zip, "application/zip"),
-                },
+            renamed = await _push(
+                client, "renamed-test1", package, source, result["version_id"]
             )
-            assert renamed.status_code == 200, renamed.text
-            assert renamed.json()["collection_id"] == ROOT_ID
+            assert renamed["collection_id"] == ROOT_ID
             assert (
                 await client.post("/v1/pull", json={"collection": "test1"})
             ).status_code == 404
@@ -153,7 +140,7 @@ def test_synchronous_push_pull_search_and_get(tmp_path: Path) -> None:
     asyncio.run(request_actions())
 
 
-def _fixture() -> tuple[Path, Path, bytes, bytes]:
+def _fixture() -> tuple[Path, Path]:
     fixture = Path(__file__).resolve().parents[1] / "testbase" / "test1"
     package = fixture / "reIndex" / "test1"
     source = (
@@ -161,14 +148,65 @@ def _fixture() -> tuple[Path, Path, bytes, bytes]:
         / "test1"
         / "2022_07_28_netzausbauplan_bielefelder_netz_gmbh_2022_inkl_anhang_pdf.pdf"
     )
-    package_zip = io.BytesIO()
-    with zipfile.ZipFile(package_zip, "w") as bundle:
-        for file in package.rglob("*"):
-            if file.is_file():
-                bundle.write(
-                    file, (Path(package.name) / file.relative_to(package)).as_posix()
-                )
-    sources_zip = io.BytesIO()
-    with zipfile.ZipFile(sources_zip, "w") as bundle:
-        bundle.write(source, source.name)
-    return package, source, package_zip.getvalue(), sources_zip.getvalue()
+    return package, source
+
+
+async def _push(client, name, package, source, base_version_id, *, race=False):
+    blobs = {}
+    files = []
+    for path in sorted(item for item in package.rglob("*") if item.is_file()):
+        _manifest_file(
+            files, blobs, "package", path.relative_to(package).as_posix(), path
+        )
+    _manifest_file(files, blobs, "raw", source.name, source)
+    payload = {
+        "name": name,
+        "collection_id": ROOT_ID,
+        "base_version_id": base_version_id,
+        "message": f"Publish {name}",
+        "manifest": {
+            "spec": "reindex/transport@1.0",
+            "package_root": package.name,
+            "files": files,
+        },
+    }
+    started = await client.post("/v1/push", json=payload)
+    assert started.status_code == 200, started.text
+    plan = started.json()
+    raced = await client.post("/v1/push", json=payload) if race else None
+    if raced is not None:
+        assert raced.status_code == 200, raced.text
+    for item in plan["missing_blobs"]:
+        path = blobs[item["sha256"]]
+        uploaded = await client.post(
+            "/v1/push/blob",
+            data={"upload_id": plan["upload_id"], "sha256": item["sha256"]},
+            files={"blob": (path.name, path.read_bytes())},
+        )
+        assert uploaded.status_code == 200, uploaded.text
+    committed = await client.post(
+        "/v1/push/commit", json={"upload_id": plan["upload_id"]}
+    )
+    assert committed.status_code == 200, committed.text
+    if raced is not None:
+        stale = await client.post(
+            "/v1/push/commit", json={"upload_id": raced.json()["upload_id"]}
+        )
+        assert stale.status_code == 409
+        assert stale.json()["error"]["code"] == "stale_base"
+    return committed.json()
+
+
+def _manifest_file(files, blobs, namespace, logical_path, path):
+    digest = hashlib.sha256(path.read_bytes()).hexdigest()
+    blobs[digest] = path
+    files.append(
+        {
+            "namespace": namespace,
+            "logical_path": logical_path,
+            "sha256": digest,
+            "byte_size": path.stat().st_size,
+            "media_type": mimetypes.guess_type(path.name)[0]
+            or "application/octet-stream",
+        }
+    )

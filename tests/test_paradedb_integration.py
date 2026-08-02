@@ -46,6 +46,11 @@ def test_real_current_state_bm25_vector_and_hybrid_search(request) -> None:
         embedding_profile="integration@1024",
         package_hash="a" * 64,
     )
+    cached_vector = _vector(2)
+    catalog.put_cached_embeddings("integration-cache@1024", {"d" * 64: cached_vector})
+    assert catalog.get_cached_embeddings(
+        "integration-cache@1024", {"d" * 64, "e" * 64}
+    ) == {"d" * 64: cached_vector}
 
     lexical = backend.search(
         collection, SearchOptions("AB-42 transformer", "lexical", 2, 10), None

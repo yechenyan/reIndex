@@ -10,6 +10,7 @@
 
 - [`overview.md`](overview.md): product intent and workflow
 - [`user/quickstart.md`](user/quickstart.md): current local commands and fixture
+- [`user/start-local-service.md`](user/start-local-service.md): start ParadeDB and the local API with embeddings enabled
 
 ## Developer guides
 

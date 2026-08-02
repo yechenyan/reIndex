@@ -12,15 +12,15 @@ from reindex_server.domain import (
     SearchHit,
     SearchOptions,
     SearchResponse,
-    SearchUnit,
     safe_relative_path,
 )
 from reindex_server.embeddings import EmbeddingProvider
 from reindex_server.pagination import paginate_hits
-from reindex_server.push_import import prepare_push
+from reindex_server.publication import PublicationManager
+from reindex_server.push_protocol import load_snapshot_from_manifest
 from reindex_server.reranking import Reranker
 from reindex_server.search_fusion import fuse_reranking
-from reindex_server.storage import ObjectStore
+from reindex_server.storage import ObjectStore, object_key
 
 
 class SearchBackend(Protocol):
@@ -54,6 +54,7 @@ class ReindexService:
         self.embeddings = embeddings
         self.search_backend = search_backend
         self.reranker = reranker or Reranker()
+        self.publications = PublicationManager(catalog, store, embeddings)
 
     def warmup(self) -> None:
         self.embeddings.warmup()
@@ -62,33 +63,44 @@ class ReindexService:
     def resolve_collection(self, name: str) -> Collection:
         return self.catalog.get_by_name(name)
 
-    def push(self, name: str, package_archive: Path, sources_archive: Path) -> dict:
-        prepared = prepare_push(name, package_archive, sources_archive, self.store)
-        snapshot = prepared.snapshot
-        profile = self._embed(snapshot.units)
-        collection = self.catalog.push_current(
-            collection_id=prepared.collection_id,
-            name=prepared.name,
-            nodes=snapshot.nodes,
-            resources=snapshot.resources,
-            units=snapshot.units,
-            embedding_profile=profile,
-            package_hash=snapshot.package_hash,
-        )
-        return {
-            "status": collection.status,
-            "name": collection.name,
-            "collection_id": collection.id,
-            "package_hash": collection.package_hash,
-            "nodes": len(snapshot.nodes),
-            "sources": prepared.source_count,
-            "resources": len(snapshot.resources),
-            "search_units": len(snapshot.units),
-            "embedding_profile": profile,
-        }
+    def start_push(self, request) -> dict:
+        return self.publications.start(request)
 
-    def pull(self, name: str) -> tuple[bytes, Collection]:
+    def upload_blob(self, upload_id: str, sha256: str, path: Path) -> dict:
+        return self.publications.upload_blob(upload_id, sha256, path)
+
+    def commit_push(self, upload_id: str) -> dict:
+        return self.publications.commit(upload_id)
+
+    def fetch_version(self, name: str, version_id: str | None = None) -> dict:
+        return self.publications.fetch(name, version_id)
+
+    def history(self, name: str, limit: int, cursor: str | None) -> dict:
+        return self.publications.history(name, limit, cursor)
+
+    def pull(
+        self, name: str, version_id: str | None = None
+    ) -> tuple[bytes, Collection, str, str]:
         collection = self.resolve_collection(name)
+        if version_id:
+            fetched = self.fetch_version(name, version_id)
+            output = io.BytesIO()
+            with zipfile.ZipFile(
+                output, "w", compression=zipfile.ZIP_DEFLATED
+            ) as bundle:
+                for item in fetched["manifest"]["files"]:
+                    if item["namespace"] != "package" or not item[
+                        "logical_path"
+                    ].endswith(".node.md"):
+                        continue
+                    with self.store.open(object_key(item["sha256"])) as stream:
+                        bundle.writestr(item["logical_path"], stream.read())
+            return (
+                output.getvalue(),
+                collection,
+                fetched["version"]["version_id"],
+                fetched["version"]["package_hash"],
+            )
         nodes = self.browse(collection.id, None, recursive=True)
         output = io.BytesIO()
         with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as bundle:
@@ -99,20 +111,21 @@ class ReindexService:
                     raise KeyError(f"Node has no card resource: {node.path}")
                 with self.store.open(card.resource.object_key) as stream:
                     bundle.writestr(node.path, stream.read())
-        return output.getvalue(), collection
+        return (
+            output.getvalue(),
+            collection,
+            collection.active_version_id or "",
+            collection.package_hash or "",
+        )
+
+    def version_snapshot(self, name: str, version_id: str):
+        fetched = self.fetch_version(name, version_id)
+        return load_snapshot_from_manifest(
+            fetched["manifest"], fetched["collection_id"], self.store
+        )
 
     def get_node_by_path(self, collection_id: str, path: str) -> Node:
         return self.catalog.get_node_by_path(collection_id, path)
-
-    def _embed(self, units: list[SearchUnit]) -> str | None:
-        if self.embeddings.name == "disabled":
-            return None
-        vectors = self.embeddings.embed_documents(
-            unit.contextual_text for unit in units
-        )
-        for unit, vector in zip(units, vectors, strict=True):
-            unit.embedding = vector
-        return self.embeddings.name
 
     def get_node(self, collection_id: str, node_id: str) -> Node:
         return self.catalog.get_node(collection_id, node_id)

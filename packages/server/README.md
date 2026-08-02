@@ -1,15 +1,16 @@
 # reindex-server
 
-ReIndex 1.0 的当前态 resource 存储、导入、搜索和查询 HTTP 服务。package 协议见
+ReIndex 1.0 的版本化 resource 存储、导入、搜索和查询 HTTP 服务。package 协议见
 [`wiki/reference/reindex-v1.0-standard.md`](../../wiki/reference/reindex-v1.0-standard.md)，服务端模型见
 [`wiki/dev/backend-service.md`](../../wiki/dev/backend-service.md)。
 
 ## 数据模型
 
-服务端不保留 revision 或旧格式兼容层。四张核心业务表是：
+服务端不保留旧上传接口兼容层。当前投影与轻量版本元数据为：
 
 ```text
-collections → nodes → node_resources → resources
+collections → collection_versions → version_files
+            ↘ nodes → node_resources → resources
 ```
 
 - Collection name 是用户使用的唯一远端名称；内部 Collection ID 等于根 Node ID。
@@ -17,6 +18,8 @@ collections → nodes → node_resources → resources
 - source、content、card 和 assets 统一通过 `node_resources.role` 关联。
 - `resources` 保存 Collection 内逻辑路径和本地对象元数据；对象 key 按 SHA-256 寻址并跨路径复用字节。
 - `search_units/search_embeddings` 和 ParadeDB BM25 是可删除重建的派生投影。
+- 每次提交保存不可变 manifest/version；只有 active version 投影到 Node、resource 和搜索表。
+- embedding cache 按 profile 与 contextual text SHA-256 复用；SearchUnit/BM25 首版仍完整重建。
 
 ## 运行组件
 
@@ -53,12 +56,15 @@ uv run reindex-server run
 ## API
 
 ```text
-POST /v1/push                   POST /v1/pull
+POST /v1/push                   POST /v1/push/blob
+POST /v1/push/commit            POST /v1/fetch
+POST /v1/history                POST /v1/pull
 POST /v1/search                 POST /v1/get
 POST /v1/grep                   POST /v1/tables/query
 ```
 
-- `/push` 同步接收 package ZIP 与 sources ZIP；只有验证、对象写入、切块和 embedding 全部完成才返回 ready。
+- `/push` 接收完整 transport manifest 并返回缺失 blob；`/push/blob` 上传缺失对象，`/push/commit` 二次检查 base 后原子发布。
+- `/fetch` 返回 head/历史 manifest；`/history` 返回 retained version 摘要。服务端不提供 merge 或历史 search。
 - `/pull` 返回保持 Node path 的原始 `.node.md` 字节，不含 source、content 或 assets。
 - `/get` 接受 Collection name、Node path/ID 或 `raw://` URI，精确返回一个 resource 和 SHA-256 响应头。
 - `/search` Evidence 使用 `card/content_text/table_row` 明确 excerpt 类型，并返回建议 get target。

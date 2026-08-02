@@ -37,7 +37,7 @@ rei push data/test1
 ```
 
 `init` 建立稳定身份边界并安装或更新 Agent skills，`inspect` 让 Agent 在写入前核对真实文件与 manifest，
-`scan` 使用确定性流水线生成并校验 package，`push` 同步发布 package 与被实际引用的 sources。PDF 由
+`scan` 使用确定性流水线生成并校验 package，`push` 提交完整 manifest、只上传缺失 blob，并原子发布新版本。PDF 由
 Docling 本地解析；存在文本层时不启用 OCR，缺少文本时才以 Docling OCR 重试。
 
 ## 2. 生成 ReIndex package
@@ -76,10 +76,13 @@ CSV/Parquet ─────────────> DuckDB read-only query
 - 相同 SHA-256 的字节只保存一个 object；不同 URI 的 source/content 仍保留各自的逻辑 resource。
 - PostgreSQL 保存 Collection 当前态、Node 树、卡片、resource 关系和检索投影。
 - 导入完成全部验证和索引后在一个事务中替换当前态；失败事务保留原有 Node 数据。
+- 每个成功提交保存轻量 manifest/version；搜索只读 active，历史版本可 diff、pull、get 或整体 rollback。
 
 ## 4. Agent 工具
 
 - `pull`：下载只有 `.node.md` 的完整 Node tree，供 Agent 浏览 Collection 结构和顺序。
+- `fetch/history/diff`：只取得并比较远端版本元数据，不在线搜索历史版本。
+- `rollback`：把 retained manifest 作为新的完整 head 发布，不改写旧版本。
 - `search`：融合 BM25、向量召回和重排，返回可追溯 Evidence 与建议的 get 参数。
 - `grep`：在 content 和表格行中进行受限字面或正则搜索。
 - `get`：按 `source/content/asset/card` 精确取得真实文件，并优先复用本地文件和 SHA-256 cache。

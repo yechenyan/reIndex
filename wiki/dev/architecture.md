@@ -4,7 +4,7 @@ ReIndex 是 Python uv workspace，文件 package 是协议真相，服务器数�
 
 ```text
 packages/cli     `rei`/`reindex`；Collection 身份、输入检查、Docling 解析、增量编译和 package 校验
-packages/server  本地 resource 存储、当前态导入、索引和 HTTP API
+packages/server  CAS/版本历史、active 投影、索引和 HTTP API
 testbase         Collection 源数据和生成后的 ReIndex packages
 wiki             1.0 协议、用户和开发文档
 tasks            活跃工作说明和历史记录
@@ -25,7 +25,7 @@ ResolveContext → PrepareInputs → BuildPlan → ParseItems
 - package 先写 staging，通过完整校验后才原子替换正式输出。
 - Node frontmatter 由 CLI 拥有；Markdown body 是 Agent/curator 内容，后续 scan 按稳定 Node ID 保留。
 
-CLI 是独立 package，不依赖 server。双方通过协议 fixture 和“CLI 生成 → 同步 push”测试保持一致；只有出现
+CLI 是独立 package，不依赖 server。双方通过协议 fixture 和“CLI 生成 → 三阶段 push”测试保持一致；只有出现
 第三个协议消费者或重复实现明显扩大时才考虑抽取共享 core。
 
 ## 数据边界
@@ -38,9 +38,9 @@ ReIndex 1.0 package
   collection/index.node.md
   node cards + content + assets
     │
-    ├──► synchronous push: package ZIP + referenced sources ZIP
+    ├──► complete manifest + missing SHA-256 blobs
     ├──► local content-addressed resources
-    └──► PostgreSQL/ParadeDB projections
+    └──► retained version metadata + active PostgreSQL/ParadeDB projection
              ├── Node tree and cards
              ├── BM25 search units
              ├── embeddings
@@ -53,6 +53,7 @@ ReIndex 1.0 package
 - Collection name 是用户可读的唯一远端名称；改名不改变内部 ID 或 resource logical path。
 - source/content/assets 是 package 角色，resource 是服务器存储实体。
 - PostgreSQL path、parent、breadcrumb、chunk 和 embedding 都可从 package 重建。
+- 版本历史保存 manifest 和提交元数据；SearchUnit/BM25 只保留 active 投影，embedding 按文本 hash 缓存。
 - DuckDB 是受限查询引擎，不是持久化数据库。
 
 ## 迁移原则

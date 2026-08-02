@@ -29,14 +29,26 @@ rei check <path>
 
 ```bash
 rei set-api <base-url>
-rei push [path]
-rei pull <name> [--output <directory>]
+rei push [path] [--message <text>] [--dry-run]
+rei fetch [path]
+rei pull <name> [--output <directory>] [--version <version-id>]
+rei pull --path <checkout>
+rei history [path-or-name] [--version <version-id>]
+rei diff [path] [--remote]
+rei diff <name> --from <version-id> --to <version-id>
+rei rollback <name> <version-id> [--message <text>] [--dry-run]
 rei search "<query>" [--remote <name>] [--mode lexical|semantic|hybrid]
-rei get <node-path> [--target card|source|content|asset]
+rei get <node-path> [--target card|source|content|asset] [--version <version-id>]
 rei get raw://<path>
 ```
 
-`push` synchronously sends the complete validated package and exactly referenced raw sources. `pull` downloads only the complete `.node.md` tree. `get` checks a complete local package, local authoring source, and the SHA-256 cache before downloading one exact resource.
+`push` sends a complete target manifest, uploads only missing SHA-256 blobs, and
+atomically publishes a new version. A stale base is rejected; the server never
+merges. `fetch` updates only remote metadata. `pull` creates or fast-forwards a
+Node-only checkout; local/remote changes create `.rei/conflicts.json`, block
+push, and require local resolution followed by `pull --continue`. `rollback`
+publishes a retained manifest as a new head. Search always uses the active
+version, while historical `pull` and `get` use `--version`.
 
 Collection names are the user-facing remote identifier. UUIDs remain internal stable identity. Resource logical paths stay Collection-relative and are scoped by the internal Collection UUID.
 

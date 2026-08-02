@@ -35,6 +35,48 @@ class PushResponse(BaseModel):
     embedding_profile: str | None
 
 
+class PushStartResponse(BaseModel):
+    status: Literal["upload", "ready", "planned"]
+    upload_id: str | None = None
+    expires_at: str | None = None
+    head_version_id: str | None = None
+    package_hash: str | None = None
+    missing_blobs: list[dict[str, Any]]
+    no_op: bool
+
+
+class BlobUploadResponse(BaseModel):
+    status: Literal["stored", "reused"]
+    sha256: str
+    byte_size: int
+
+
+class VersionedPushResponse(PushResponse):
+    version_id: str
+    parent_version_id: str | None = None
+    operation: Literal["publish", "rollback"]
+    source_version_id: str | None = None
+    uploaded_blobs: int
+    reused_blobs: int
+    embedded_units: int
+    reused_embeddings: int
+    no_op: bool = False
+
+
+class FetchResponse(BaseModel):
+    name: str
+    collection_id: str
+    version: dict[str, Any]
+    manifest: dict[str, Any]
+
+
+class HistoryResponse(BaseModel):
+    name: str
+    collection_id: str
+    versions: list[dict[str, Any]]
+    next_cursor: str | None = None
+
+
 class TableQueryResponse(BaseModel):
     columns: list[str]
     rows: list[dict[str, Any]]

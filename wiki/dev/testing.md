@@ -1,6 +1,6 @@
 # 本地测试指南
 
-本项目有两层测试：默认测试验证同步 push、协议校验、CLI 真实 HTTP 流程和服务逻辑；HTTP E2E 测试连接已经启动的真实
+本项目有两层测试：默认测试验证三阶段增量 push、版本冲突、协议校验、CLI 真实 HTTP 流程和服务逻辑；HTTP E2E 测试连接已经启动的真实
 ParadeDB 与 Uvicorn 服务，验证实际网络 API。E2E fixture 固定使用
 `testbase/test1/reIndex/test1`，并上传 `testbase/test1/test1` 内的 PDF。
 
@@ -80,12 +80,25 @@ REINDEX_E2E_BASE_URL=http://127.0.0.1:8000 \
   uv run pytest -q tests/test_api_e2e.py
 ```
 
-E2E HTTP client 的同步 push 超时为 1800 秒，可覆盖首次在 CPU 上生成 embedding 的较慢情况。
+完整版本流程还可指向同一真实服务：
 
-该测试同步 push fixture 的 package 与 sources，然后断言 Node-only pull、content/raw 精确 get、
+```bash
+REINDEX_E2E_BASE_URL=http://127.0.0.1:8000 \
+REINDEX_VERSION_E2E_BASE_URL=http://127.0.0.1:8000 \
+TEST_PARADEDB_URL="$DATABASE_URL" \
+  uv run pytest -q
+```
+
+`TEST_PARADEDB_URL` 测试会执行破坏性的 schema 初始化，只能指向专用测试数据库，不能指向业务库。
+
+E2E HTTP client 超时为 1800 秒，可覆盖首次在 CPU 上生成 embedding 的较慢情况。
+
+该测试增量 push fixture 的 package 与 sources，然后断言 Node-only pull、content/raw 精确 get、
 ParadeDB lexical search，以及 DuckDB `SELECT count(*)`。默认测试中的 `test_cli_http_flow.py` 还会在
 真实本地 HTTP 端口模拟 test2 push、`test3-download` pull，以及复制 test2 数据后执行 test4 init/scan/push/search/get，
-并验证同 raw path 的新内容可由下一次完整 push 更新。
+并验证同 raw path 的新内容可由下一版本更新。`test_versioned_http_flow.py` 复制 `test4-all` 的 5 个输入到
+临时目录，覆盖 no-op、V2 缺失 blob、stale base、本地冲突、历史 get/pull、rollback、active search 和
+embedding cache；`test_server.py` 另验证两个同 base session 的 commit race。
 
 可直接在浏览器查看交互接口：<http://127.0.0.1:8000/docs>；机器可读 OpenAPI：
 <http://127.0.0.1:8000/openapi.json>。

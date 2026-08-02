@@ -1,137 +1,103 @@
-# ReIndex HTTP API（当前态）
+# ReIndex HTTP API
 
-基础地址例如 `http://127.0.0.1:8000`。普通 CLI 工作流只需要四个业务接口：同步 push、Node-only pull、search 和精确 get。Collection 使用唯一 `name` 对用户寻址；根 Node UUID 仍是内部稳定 ID。
+基础地址例如 `http://127.0.0.1:8000`。Collection name 是用户标识，Collection UUID 是稳定内部身份；
+`version_id` 标识一次提交，`package_hash` 标识内容。OpenAPI 位于 `/openapi.json`，交互文档位于 `/docs`。
 
 ## 接口
 
-| 方法与路径 | Content-Type | 用途 |
+| 方法与路径 | 类型 | 用途 |
 | --- | --- | --- |
-| `GET /health` | — | 返回服务状态和版本。 |
-| `POST /v1/push` | multipart | 同步上传 package ZIP 和 sources ZIP，验证、索引并返回 ready。 |
-| `POST /v1/pull` | JSON | 按 Collection name 下载只包含 `.node.md` 的 ZIP。 |
-| `POST /v1/search` | JSON | lexical、semantic 或 hybrid 检索。 |
-| `POST /v1/get` | JSON | 按 Node path/ID 或 `raw://` URI 下载一个精确 resource。 |
-| `POST /v1/grep` | JSON | 当前 Collection 内的 literal/regex 匹配。 |
-| `POST /v1/tables/query` | JSON | 对 table Node 的 CSV 执行受限 DuckDB SELECT/CTE。 |
+| `GET /health` | — | 服务状态。 |
+| `POST /v1/push` | JSON | 检查 base 与完整目标 manifest，创建上传 session。 |
+| `POST /v1/push/blob` | multipart | 上传 session 声明的一个缺失 blob。 |
+| `POST /v1/push/commit` | JSON | 二次检查 base，完整验证并原子发布。 |
+| `POST /v1/fetch` | JSON | 返回 active 或指定历史版本及 manifest。 |
+| `POST /v1/history` | JSON | 分页列出 retained versions。 |
+| `POST /v1/pull` | JSON | 下载 active/历史版本的 Node-only ZIP。 |
+| `POST /v1/get` | JSON | 下载 active/历史版本的精确 resource。 |
+| `POST /v1/search`、`/v1/grep` | JSON | 只查询 active version。 |
+| `POST /v1/tables/query` | JSON | 对 active table CSV 执行受限 SELECT/CTE。 |
 
-OpenAPI JSON 位于 `/openapi.json`，交互文档位于 `/docs`。
+## 三阶段 push
 
-## Push
-
-```bash
-curl -X POST http://127.0.0.1:8000/v1/push \
-  -F 'name=test2' \
-  -F 'package=@package.zip;type=application/zip' \
-  -F 'sources=@sources.zip;type=application/zip'
-```
-
-`package.zip` 必须包含唯一 Collection 目录。`sources.zip` 直接以 Collection-relative raw path 保存文件；其文件集合必须与 package 中全部 `raw://` 引用完全一致。服务端重新计算每个 SHA-256，并同步完成验证、检索投影和当前态写入。
+开始请求提交完整状态，不提交差异：
 
 ```json
+POST /v1/push
 {
-  "status":"ready",
   "name":"test2",
   "collection_id":"76abf08f-83b0-4406-be38-cf3a9bb4bb80",
-  "package_hash":"...",
-  "nodes":7,
-  "sources":2,
-  "resources":16,
-  "search_units":1176,
-  "embedding_profile":null
-}
-```
-
-相同根 UUID 与新 name 表示改名；相同 name 已属于另一 UUID 时返回 `409`。同 raw path 的内容可在下一次完整 push 中更新。
-
-## Pull
-
-```json
-POST /v1/pull
-{"collection":"test2"}
-```
-
-响应为 ZIP，保持服务端 Node path，只包含根和后代的原始 `.node.md` card bytes，不含 source、content、assets 或 `.rei`。响应头 `X-ReIndex-Package-Hash` 给出当前快照 hash。
-
-## Search
-
-```json
-POST /v1/search
-{
-  "collection":"test2",
-  "query":"technology costs",
-  "mode":"lexical",
-  "limit":10,
-  "candidate_limit":100,
-  "filters":{"node_ids":[],"kinds":[],"path_prefix":null,"subtree_node_id":null},
-  "ranking":{"lexical_weight":0.5,"semantic_weight":1.0,"rrf_k":60,"max_per_node":3}
-}
-```
-
-每条结果含 `Evidence` 和可直接传给 get 的目标：
-
-```json
-{
-  "evidence":{
-    "node_id":"...",
-    "path":"technology-costs-2020.node.md",
-    "unit_type":"table_row",
-    "excerpt":"..."
-  },
-  "get":{
-    "node_id":"...",
-    "node_path":"technology-costs-2020.node.md",
-    "target":"content"
+  "base_version_id":null,
+  "message":"Initial import",
+  "operation":"publish",
+  "dry_run":false,
+  "manifest":{
+    "spec":"reindex/transport@1.0",
+    "package_root":"76abf08f-83b0-4406-be38-cf3a9bb4bb80--test2",
+    "files":[{
+      "namespace":"package",
+      "logical_path":"index.node.md",
+      "sha256":"<64 lowercase hex>",
+      "byte_size":123,
+      "media_type":"text/markdown"
+    }]
   }
 }
 ```
 
-`unit_type` 为 `card`、`content_text` 或 `table_row`。semantic/hybrid 需要 Collection 当前 embedding profile 与服务配置一致。
+响应含 `upload_id`、`head_version_id`、`missing_blobs`、`expires_at` 和 `no_op`。上传缺失对象：
 
-## Get
-
-按 Node path 下载 content：
-
-```json
-POST /v1/get
-{
-  "collection":"test2",
-  "node_path":"technology-costs-2020.node.md",
-  "target":"content"
-}
+```text
+POST /v1/push/blob
+multipart: upload_id=<uuid>, sha256=<digest>, blob=@<file>
 ```
 
-下载 asset 时增加从 1 开始的 `asset_ordinal`。也可以传内部 `node_id` 代替 path。直接下载 raw：
+对象 hash/size 必须等于 manifest。最后提交：
 
 ```json
-POST /v1/get
-{"collection":"test2","raw_uri":"raw://costs_2020.csv"}
+POST /v1/push/commit
+{"upload_id":"..."}
 ```
 
-响应头包含 `Content-Type`、`Content-Length`、`Content-Disposition`、`ETag` 和 `X-ReIndex-SHA256`。CLI 必须验证 SHA-256 后才写入缓存。
+commit 在 Collection 事务锁内再次比较 session base 与 active head，验证完整 package/raw 集合，重算
+`package_hash`，完整重建 active SearchUnit/BM25 投影，复用 embedding cache，写 version 并切换 active。
+同内容重复 publish 是 no-op；并发 session 的后提交者返回 `409 stale_base`。服务端不 merge/rebase。
 
-## Grep 与表查询
+## Fetch、history 与回滚
 
 ```json
-POST /v1/grep
-{"collection":"test2","pattern":"Bielefelder","regex":false,"case_sensitive":false,"limit":10}
+POST /v1/fetch
+{"collection":"test2","version_id":"<optional uuid>"}
 ```
 
-```json
-POST /v1/tables/query
-{
-  "collection":"test2",
-  "node_id":"333563cf-1334-45a5-9d19-55f53f79757f",
-  "sql":"SELECT count(*) AS total FROM data",
-  "params":[]
-}
-```
+响应含 version metadata 与完整 transport manifest。`history` 请求为
+`{"collection":"test2","limit":20,"cursor":null}`，版本摘要含 parent、message、operation、stats 和
+`is_active`。默认保留 active、最近 10 版以及最近 30 天版本；对象在无 retained manifest/session 引用并超过
+24 小时宽限后才可回收。
 
-表查询拒绝非单条 SELECT/CTE、外部文件访问和扩展安装。
+没有服务端 rollback 端点。CLI fetch 目标历史 manifest，以当前 head 为 base 走普通三阶段 push，并设置
+`operation=rollback/source_version_id=<old>`；它创建新的 head，不改写旧历史。
+
+## Pull 与 get
+
+`POST /v1/pull` 请求 `{"collection":"test2","version_id":"<optional>"}`。响应 ZIP 只包含原始
+`.node.md`，响应头含 `X-ReIndex-Version-ID` 与 `X-ReIndex-Package-Hash`。
+
+`POST /v1/get` 通过 `node_path`/`node_id` 加 `target=card|source|content|asset`，或通过 `raw_uri` 选择资源；
+可增加 `version_id` 精确读取 retained version。asset ordinal 从 1 开始。响应含 `ETag`、
+`X-ReIndex-SHA256`、长度和媒体类型。
+
+## Search 与表查询
+
+search 支持 lexical、semantic、hybrid、filters 和 ranking；Evidence 的 `unit_type` 为
+`card/content_text/table_row`。grep、search 与 table query 始终读取 active version，不接受历史版本参数。
+表查询把目标 CSV 注册为 `data`，拒绝非单条 SELECT/CTE、外部文件访问和扩展安装。
 
 ## 错误
 
 ```json
-{"error":{"code":"not_found","message":"...","request_id":"...","details":null}}
+{"error":{"code":"stale_base","message":"...","request_id":"...","details":[{"base_version_id":"...","head_version_id":"..."}]}}
 ```
 
-常见状态为：`400` package、path、SQL 或 cursor 无效；`404` Collection/Node/resource 不存在；`409` Collection name 冲突；`422` 请求字段错误；`500` 未预期错误。同步 push 只有完整成功才返回 `200 ready`。
+常见状态：`400` 内容/path/cursor 无效；`404` Collection/version/resource 不存在；`409 stale_base` 或
+name/state 冲突；`422` schema 错误；`500` 未预期错误。只有 commit 全部成功才返回 `200 ready`。

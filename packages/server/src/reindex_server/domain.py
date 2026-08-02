@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from datetime import datetime
 from pathlib import PurePosixPath
 
 
@@ -104,6 +105,21 @@ class SearchResponse:
 
 
 @dataclass(frozen=True)
+class CollectionVersion:
+    id: str
+    collection_id: str
+    parent_version_id: str | None
+    package_hash: str
+    manifest_sha256: str
+    manifest_object_key: str
+    message: str
+    operation: str
+    source_version_id: str | None
+    created_at: datetime
+    stats: dict = field(default_factory=dict)
+
+
+@dataclass(frozen=True)
 class SearchOptions:
     query: str
     mode: str
@@ -127,6 +143,7 @@ class Collection:
     name: str
     status: str = "draft"
     package_hash: str | None = None
+    active_version_id: str | None = None
     embedding_profile: str | None = None
     progress: dict = field(default_factory=dict)
     error: dict | None = None

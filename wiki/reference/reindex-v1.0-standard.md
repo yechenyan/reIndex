@@ -244,7 +244,8 @@ Validator 至少检查：
 10. 主键、外键引用的 Node 和列存在。
 11. package 中没有未声明的 content/assets 或重复聚合正文。
 
-服务器只保存 Collection 当前态，不在 package 中管理历史版本。Node hash 为：
+package 本身不包含 revision 字段。服务器可把完整 package/raw manifest 保存为轻量历史版本，并只将 active
+version 投影到搜索表；`version_id`、base 和提交消息属于传输/服务端协议，不写入 `.node.md`。Node hash 为：
 
 ```text
 node_hash = SHA-256(normalized frontmatter + markdown card + content sha256 + ordered asset sha256s)

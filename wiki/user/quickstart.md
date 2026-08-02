@@ -37,6 +37,9 @@ uv run pytest -q
 
 ## 2. 启动本地服务
 
+需要持久化 ParadeDB、默认启用 Qwen embeddings 且禁用 reranker 时，使用
+[`本地服务启动指南`](start-local-service.md)。下面的无数据库模式只用于快速验证编译和 HTTP 流程。
+
 在第一个终端运行：
 
 ```bash
@@ -79,12 +82,13 @@ uv run rei get technology-costs-2020.node.md \
 
 预期结果：
 
-- `push` 同步返回 `ready`；当前 test2 应报告 7 Nodes、2 Sources、16 Resources 和 1176 SearchUnits。
+- `push` 返回 `ready` 与 `version_id`，只上传服务端缺失 blob；当前 test2 应报告 7 Nodes、2 Sources、16 Resources 和 1176 SearchUnits。
 - `pull` 在 `tmp/quickstart-test2/reIndex/test2/` 生成完整 Node tree，其中只有 `.node.md`。
 - `search` 返回 Evidence 和可直接交给 `get` 的 `node_path/target`。
 - 第一次 `get` 的 `source` 是 `download`；相同资源再次执行时是 `cache`。
 
-`pull` 不覆盖非空目录。需要重跑时请选择新的输出目录；只有确认原目录可以丢弃时才使用 `--force`。
+首次 `pull --output` 不覆盖非空目录。已有 Node-only checkout 用 `pull --path <dir>` fast-forward；双方变化时
+写 `.rei/conflicts.json` 并停止，解决后运行 `pull --path <dir> --continue`。服务端不会自动 merge。
 
 ## 输入、输出和身份说明
 
@@ -109,7 +113,7 @@ uv run rei get technology-costs-2020.node.md \
 先运行 uv tool install --upgrade reindex-cli，然后执行 rei init <DATA_DIR> --name <COLLECTION_NAME> --agent <CURRENT_AGENT>，安装或安全更新 ReIndex skills。不要创建或下载教程数据。
 接着检查真实文件和 reIndex.md，依次运行 rei inspect、rei scan、rei check。只有 check 返回 valid 后才运行 rei set-api <API_URL> 和 rei push <DATA_DIR>。
 push 成功后选择一个与数据相关的代表性问题，运行 rei search "<代表性问题>" --path <DATA_DIR> --mode lexical；再依据搜索结果运行 rei get <node-path> --target content --path <DATA_DIR>，精确取得一个 content 或 source，并验证本地文件或 SHA-256 cache 可复用。
-不要让我选择或输入 UUID、package 路径或服务端资源 ID。不要实现版本、协作或异步流程。最后汇报 Collection name、Node/Source/Resource 数量、搜索结果和 get 的来源。
+不要让我选择或输入 UUID、package 路径或服务端资源 ID。若 push 报 stale base，先 fetch/pull，所有冲突只在本地解决，不要求服务端 merge。最后汇报 Collection name、version ID、Node/Source/Resource 数量、搜索结果和 get 的来源。
 ```
 
 `<CURRENT_AGENT>` 可取 `codex`、`claude`、`cursor` 或 `copilot`。`rei init` 是幂等操作，会创建或复用
@@ -124,7 +128,12 @@ rei scan <data-dir>
 rei check <data-dir>
 rei set-api <api-url>
 rei push <data-dir>
+rei fetch <data-dir>
+rei history <data-dir>
+rei diff <data-dir> --remote
 rei pull <name> --output <directory>
+rei pull --path <directory>
+rei rollback <name> <version-id> --message "Restore known-good state"
 rei search "<query>" --remote <name> --mode lexical
 rei get <node-path> --target content
 rei get raw://<source-path>

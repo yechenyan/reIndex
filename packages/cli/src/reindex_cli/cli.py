@@ -8,12 +8,20 @@ from pathlib import Path
 import httpx
 
 from reindex_cli import __version__
+from reindex_cli.checkout import pull_collection
 from reindex_cli.collection import create_collection, resolve_collection
 from reindex_cli.config import set_api_url
 from reindex_cli.errors import ReIndexError
 from reindex_cli.get_ops import get_resource
 from reindex_cli.pipeline.runner import check_collection, inspect_collection, run_scan
-from reindex_cli.remote_ops import pull_collection, push_collection, search_remote
+from reindex_cli.remote_ops import (
+    diff_collection,
+    fetch_collection,
+    history_collection,
+    push_collection,
+    rollback_collection,
+    search_remote,
+)
 from reindex_cli.skills import AGENTS, manage_skills
 
 
@@ -52,15 +60,47 @@ def build_parser() -> argparse.ArgumentParser:
     api = commands.add_parser("set-api", help="Persist the default API URL.")
     api.add_argument("url")
     push = commands.add_parser(
-        "push", help="Synchronously publish package and sources."
+        "push", help="Incrementally publish a validated Collection."
     )
     push.add_argument("path", type=Path, nargs="?", default=Path.cwd())
     push.add_argument("--api-url")
-    pull = commands.add_parser("pull", help="Download a Node-only ReIndex tree.")
-    pull.add_argument("name")
-    pull.add_argument("--output", type=Path)
+    push.add_argument("--message")
+    push.add_argument("--dry-run", action="store_true")
+    fetch = commands.add_parser(
+        "fetch", help="Fetch remote version metadata without changing local files."
+    )
+    fetch.add_argument("path", type=Path, nargs="?", default=Path.cwd())
+    fetch.add_argument("--api-url")
+    pull = commands.add_parser(
+        "pull", help="Create or update a Node-only ReIndex checkout."
+    )
+    pull.add_argument("name", nargs="?")
+    destination = pull.add_mutually_exclusive_group()
+    destination.add_argument("--output", type=Path)
+    destination.add_argument("--path", type=Path)
     pull.add_argument("--api-url")
-    pull.add_argument("--force", action="store_true")
+    pull.add_argument("--version", dest="version_id")
+    pull.add_argument("--continue", dest="continue_pull", action="store_true")
+    history = commands.add_parser("history", help="List or inspect remote versions.")
+    history.add_argument("target", nargs="?", default=".")
+    history.add_argument("--api-url")
+    history.add_argument("--version", dest="version_id")
+    history.add_argument("--limit", type=int, default=20)
+    history.add_argument("--cursor")
+    diff = commands.add_parser("diff", help="Compare local or remote manifests.")
+    diff.add_argument("target", nargs="?", default=".")
+    diff.add_argument("--api-url")
+    diff.add_argument("--remote", action="store_true")
+    diff.add_argument("--from", dest="from_version")
+    diff.add_argument("--to", dest="to_version")
+    rollback = commands.add_parser(
+        "rollback", help="Publish a retained version as a new active version."
+    )
+    rollback.add_argument("name")
+    rollback.add_argument("version_id")
+    rollback.add_argument("--api-url")
+    rollback.add_argument("--message")
+    rollback.add_argument("--dry-run", action="store_true")
     search = commands.add_parser("search", help="Search a remote Collection.")
     search.add_argument("query")
     search.add_argument("--path", type=Path, default=Path.cwd())
@@ -78,6 +118,7 @@ def build_parser() -> argparse.ArgumentParser:
     get.add_argument("--target", choices=("card", "source", "content", "asset"))
     get.add_argument("--asset-ordinal", type=int)
     get.add_argument("--output", type=Path)
+    get.add_argument("--version", dest="version_id")
     return parser
 
 
@@ -132,13 +173,66 @@ def _execute(args) -> dict:
     if args.command == "set-api":
         return {"status": "ready", "api_url": set_api_url(args.url)}
     if args.command == "push":
-        return push_collection(args.path, args.api_url)
+        return push_collection(
+            args.path,
+            args.api_url,
+            message=args.message,
+            dry_run=args.dry_run,
+        )
+    if args.command == "fetch":
+        return fetch_collection(args.path, args.api_url)
     if args.command == "pull":
+        if args.continue_pull and args.path is None:
+            raise ReIndexError("pull --continue requires --path")
+        if args.continue_pull and (
+            args.name is not None or args.version_id is not None
+        ):
+            raise ReIndexError("pull --continue does not accept name or --version")
+        if args.path is not None and args.name is not None:
+            raise ReIndexError("pull --path does not accept a Collection name")
+        if args.path is not None and args.output is not None:
+            raise ReIndexError("pull accepts only one of --path and --output")
+        if args.path is not None and args.version_id is not None:
+            raise ReIndexError("pull --version is only valid for a new checkout")
+        if args.path is None and args.name is None:
+            raise ReIndexError("pull requires a Collection name or --path")
         return pull_collection(
             args.name,
-            args.output or Path.cwd() / args.name,
+            args.output,
             args.api_url,
-            force=args.force,
+            path=args.path,
+            version_id=args.version_id,
+            continue_pull=args.continue_pull,
+        )
+    if args.command == "history":
+        if args.limit < 1 or args.limit > 100:
+            raise ReIndexError("history --limit must be between 1 and 100")
+        return history_collection(
+            args.target,
+            args.api_url,
+            version_id=args.version_id,
+            limit=args.limit,
+            cursor=args.cursor,
+        )
+    if args.command == "diff":
+        if bool(args.from_version) != bool(args.to_version):
+            raise ReIndexError("diff requires both --from and --to")
+        if args.remote and args.from_version:
+            raise ReIndexError("diff --remote cannot be combined with --from/--to")
+        return diff_collection(
+            args.target,
+            args.api_url,
+            remote=args.remote,
+            from_version=args.from_version,
+            to_version=args.to_version,
+        )
+    if args.command == "rollback":
+        return rollback_collection(
+            args.name,
+            args.version_id,
+            args.api_url,
+            message=args.message,
+            dry_run=args.dry_run,
         )
     if args.command == "search":
         return search_remote(
@@ -153,6 +247,7 @@ def _execute(args) -> dict:
             output=args.output,
             remote=args.remote,
             api_url=args.api_url,
+            version_id=args.version_id,
         )
     context = resolve_collection(
         args.path, args.collection_root if args.command == "scan" else None

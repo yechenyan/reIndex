@@ -9,7 +9,7 @@ from fastapi.encoders import jsonable_encoder
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 
-from reindex_server.errors import ConflictError
+from reindex_server.errors import ConflictError, StaleBaseError
 
 _REQUEST_ID = ContextVar[str]("reindex_request_id", default="")
 _VALID_REQUEST_ID = re.compile(r"^[A-Za-z0-9._:-]{1,128}$")
@@ -35,6 +35,7 @@ def install_api_error_handling(app: FastAPI) -> None:
             error.status_code,
             detail.get("code", "http_error"),
             detail.get("message", str(error.detail)),
+            detail.get("details"),
         )
 
     @app.exception_handler(RequestValidationError)
@@ -45,7 +46,7 @@ def install_api_error_handling(app: FastAPI) -> None:
             422,
             "invalid_request",
             "request validation failed",
-            jsonable_encoder(error.errors()),
+            _validation_details(error),
         )
 
     @app.exception_handler(Exception)
@@ -55,6 +56,20 @@ def install_api_error_handling(app: FastAPI) -> None:
 
 def http_error(error: Exception) -> HTTPException:
     message = _message(error)
+    if isinstance(error, StaleBaseError):
+        return HTTPException(
+            409,
+            {
+                "code": "stale_base",
+                "message": message,
+                "details": [
+                    {
+                        "base_version_id": error.base_version_id,
+                        "head_version_id": error.head_version_id,
+                    }
+                ],
+            },
+        )
     if isinstance(error, ConflictError):
         return HTTPException(409, {"code": "conflict", "message": message})
     if isinstance(error, KeyError):
@@ -88,3 +103,13 @@ def _message(error: Exception) -> str:
     if isinstance(error, KeyError) and error.args:
         return str(error.args[0])
     return str(error)
+
+
+def _validation_details(error: RequestValidationError) -> list[dict]:
+    details = []
+    for value in error.errors():
+        item = {key: current for key, current in value.items() if key != "input"}
+        if "ctx" in item:
+            item["ctx"] = {key: str(current) for key, current in item["ctx"].items()}
+        details.append(jsonable_encoder(item))
+    return details

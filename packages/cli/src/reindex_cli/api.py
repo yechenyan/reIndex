@@ -17,21 +17,18 @@ class ApiClient:
         with httpx.Client(base_url=self.base_url, timeout=30.0) as client:
             return self._json(client.get("/health"))
 
-    def push(self, name: str, package: Path, sources: Path) -> dict:
+    def upload_blob(self, upload_id: str, sha256: str, path: Path) -> dict:
         with (
-            package.open("rb") as package_stream,
-            sources.open("rb") as source_stream,
+            path.open("rb") as stream,
             httpx.Client(base_url=self.base_url, timeout=self.timeout) as client,
         ):
-            response = client.post(
-                "/v1/push",
-                data={"name": name},
-                files={
-                    "package": ("package.zip", package_stream, "application/zip"),
-                    "sources": ("sources.zip", source_stream, "application/zip"),
-                },
+            return self._json(
+                client.post(
+                    "/v1/push/blob",
+                    data={"upload_id": upload_id, "sha256": sha256},
+                    files={"blob": (path.name, stream, "application/octet-stream")},
+                )
             )
-            return self._json(response)
 
     def json(self, path: str, payload: dict) -> dict:
         with httpx.Client(base_url=self.base_url, timeout=self.timeout) as client:
@@ -61,9 +58,12 @@ class ApiClient:
             body = response.json()
             detail = body.get("error", body)
             message = detail.get("message") if isinstance(detail, dict) else None
+            code = detail.get("code") if isinstance(detail, dict) else None
         except (json.JSONDecodeError, AttributeError):
             message = None
+            code = None
         raise ReIndexError(
             f"Server request failed ({response.status_code}): "
+            f"{f'{code}: ' if code else ''}"
             f"{message or response.text or response.reason_phrase}"
         )

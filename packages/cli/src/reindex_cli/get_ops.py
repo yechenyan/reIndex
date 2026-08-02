@@ -29,17 +29,23 @@ def get_resource(
     output: Path | None,
     remote: str | None,
     api_url: str | None,
+    version_id: str | None = None,
 ) -> dict:
     root, state = resolve_remote(start, remote, api_url)
     resource = _local_resource(root, state, reference, target, asset_ordinal)
-    selected = _healthy(resource.path, resource.sha256)
+    selected = None if version_id else _healthy(resource.path, resource.sha256)
     source = "local"
-    if selected is None and resource.sha256:
+    if selected is None and resource.sha256 and not version_id:
         selected = _healthy(_cache_path(resource.sha256), resource.sha256)
         source = "cache"
     if selected is None:
         content, headers = ApiClient(state["api_url"]).bytes(
-            "/v1/get", {"collection": state["name"], **resource.payload}
+            "/v1/get",
+            {
+                "collection": state["name"],
+                **resource.payload,
+                **({"version_id": version_id} if version_id else {}),
+            },
         )
         server_hash = _header(headers, "x-reindex-sha256")
         if not server_hash:
@@ -51,7 +57,7 @@ def get_resource(
         if sha256_file(temporary) != server_hash:
             temporary.unlink(missing_ok=True)
             raise ReIndexError("Downloaded resource SHA-256 mismatch")
-        if resource.sha256 and resource.sha256 != server_hash:
+        if not version_id and resource.sha256 and resource.sha256 != server_hash:
             temporary.unlink(missing_ok=True)
             raise ReIndexError("Remote resource differs from Node metadata")
         temporary.replace(cache)

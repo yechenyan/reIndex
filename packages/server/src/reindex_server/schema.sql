@@ -1,4 +1,5 @@
 DROP TABLE IF EXISTS search_embeddings CASCADE;
+DROP TABLE IF EXISTS embedding_cache CASCADE;
 DROP TABLE IF EXISTS unit_embeddings CASCADE;
 DROP TABLE IF EXISTS search_units CASCADE;
 DROP TABLE IF EXISTS embedding_profiles CASCADE;
@@ -7,6 +8,8 @@ DROP TABLE IF EXISTS nodes CASCADE;
 DROP TABLE IF EXISTS resources CASCADE;
 DROP TABLE IF EXISTS raw_files CASCADE;
 DROP TABLE IF EXISTS blobs CASCADE;
+DROP TABLE IF EXISTS version_files CASCADE;
+DROP TABLE IF EXISTS collection_versions CASCADE;
 DROP TABLE IF EXISTS collection_revisions CASCADE;
 DROP TABLE IF EXISTS collections CASCADE;
 
@@ -18,12 +21,46 @@ CREATE TABLE collections (
   name text NOT NULL UNIQUE,
   status text NOT NULL CHECK (status IN ('draft', 'queued', 'validating', 'indexing', 'ready', 'failed')),
   package_hash char(64),
+  active_version_id uuid,
   embedding_profile text,
   progress jsonb NOT NULL DEFAULT '{}'::jsonb,
   error jsonb,
   created_at timestamptz NOT NULL DEFAULT now(),
   updated_at timestamptz NOT NULL DEFAULT now()
 );
+
+CREATE TABLE collection_versions (
+  id uuid PRIMARY KEY,
+  collection_id uuid NOT NULL REFERENCES collections(id) ON DELETE CASCADE,
+  parent_version_id uuid REFERENCES collection_versions(id) ON DELETE SET NULL,
+  package_hash char(64) NOT NULL,
+  manifest_sha256 char(64) NOT NULL,
+  manifest_object_key text NOT NULL,
+  message text NOT NULL DEFAULT '',
+  operation text NOT NULL CHECK (operation IN ('publish', 'rollback')),
+  source_version_id uuid REFERENCES collection_versions(id) ON DELETE SET NULL,
+  stats jsonb NOT NULL DEFAULT '{}'::jsonb,
+  created_at timestamptz NOT NULL DEFAULT now()
+);
+CREATE INDEX collection_versions_history_idx
+  ON collection_versions (collection_id, created_at DESC, id DESC);
+CREATE INDEX collection_versions_manifest_idx
+  ON collection_versions (manifest_sha256);
+
+ALTER TABLE collections ADD CONSTRAINT collections_active_version_fk
+  FOREIGN KEY (active_version_id) REFERENCES collection_versions(id);
+
+CREATE TABLE version_files (
+  version_id uuid NOT NULL REFERENCES collection_versions(id) ON DELETE CASCADE,
+  namespace text NOT NULL CHECK (namespace IN ('raw', 'package')),
+  logical_path text NOT NULL,
+  sha256 char(64) NOT NULL,
+  byte_size bigint NOT NULL CHECK (byte_size >= 0),
+  media_type text NOT NULL,
+  object_key text NOT NULL,
+  PRIMARY KEY (version_id, namespace, logical_path)
+);
+CREATE INDEX version_files_sha_idx ON version_files (sha256);
 
 CREATE TABLE resources (
   id uuid PRIMARY KEY,
@@ -93,6 +130,15 @@ CREATE TABLE embedding_profiles (
   model text NOT NULL,
   dimensions integer NOT NULL,
   config jsonb NOT NULL
+);
+
+CREATE TABLE embedding_cache (
+  profile_id text NOT NULL REFERENCES embedding_profiles(id) ON DELETE CASCADE,
+  text_sha256 char(64) NOT NULL,
+  embedding vector NOT NULL,
+  created_at timestamptz NOT NULL DEFAULT now(),
+  last_used_at timestamptz NOT NULL DEFAULT now(),
+  PRIMARY KEY (profile_id, text_sha256)
 );
 
 CREATE TABLE search_units (

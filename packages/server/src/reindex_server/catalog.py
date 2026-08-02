@@ -2,15 +2,25 @@ from __future__ import annotations
 
 from threading import RLock
 
-from reindex_server.domain import Collection, Node, Resource, SearchUnit
+from reindex_server.domain import (
+    Collection,
+    CollectionVersion,
+    Node,
+    Resource,
+    SearchUnit,
+)
 from reindex_server.errors import ConflictError
+from reindex_server.memory_version_catalog import MemoryVersionCatalogMixin
 
 
-class Catalog:
+class Catalog(MemoryVersionCatalogMixin):
     """Thread-safe current-state catalog used by tests and local development."""
 
     def __init__(self) -> None:
         self._items: dict[str, Collection] = {}
+        self._versions: dict[str, CollectionVersion] = {}
+        self._version_files: dict[str, list[dict]] = {}
+        self._embedding_cache: dict[tuple[str, str], list[float]] = {}
         self._lock = RLock()
 
     def create(self, collection: Collection) -> Collection:
