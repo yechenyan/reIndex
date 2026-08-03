@@ -1,43 +1,67 @@
 # pdf-table-codegen
 
-`pdf-table-codegen` is an Agent-oriented code generator workflow, not a universal
-PDF table parser. It prepares neutral page evidence, then lets an Agent create a
-small PDF-specific `extractor.py`. Later pipeline runs are deterministic and do
-not require AI.
+`pdf-table-codegen` coordinates independent Agents and deterministic tools to
+create reusable, PDF-specific table extractors. AI is required only for the
+one-time discovery, QA transcription, and extractor authoring workflow. Later
+pipeline runs execute project-local Python without AI.
 
-The package standardizes evidence, the runtime contract, provenance, and
-verification—not the extraction algorithm. The Agent chooses a strategy per
-table or layout family and may combine word geometry, anchors, clustering,
-vector rules, native table hints, direct special cases, or local OCR. Fixed row
-bands and column edges are optional, never required.
+The package owns workflow state, neutral evidence, inventory comparison,
+freezing, verification, provenance, and final gates. It does not prescribe a
+universal PDF table parser.
+
+## Roles
+
+- **Main Agent:** clarifies requirements, reviews inventory conflicts, and owns
+  the final machine-complete gate.
+- **Execution Agent:** independently discovers tables and writes `extractor.py`.
+- **QA Agent:** independently discovers tables and freezes source-derived QA
+  samples without seeing extractor code or output.
+- **Code:** prepares evidence, diffs drafts, freezes artifacts, renders crops,
+  verifies results, and checks deterministic double runs.
+
+## Workflow
 
 ```bash
-pdf-table-codegen prepare path/to/job.yaml
-# Agent reviews evidence and writes temporary drafts
-pdf-table-codegen freeze-inventory path/to/job.yaml /tmp/inventory.json
-pdf-table-codegen inspect path/to/job.yaml
-pdf-table-codegen freeze-reference path/to/job.yaml /tmp/reference.json
-pdf-table-codegen scaffold path/to/job.yaml
-# Agent chooses per-table strategies and writes extractor.py
-pdf-table-codegen run path/to/job.yaml
-pdf-table-codegen verify path/to/job.yaml
+pdf-table-codegen prepare project/job.yaml
+
+# Execution and QA Agents independently write drafts outside the project.
+pdf-table-codegen compare-inventories \
+  project/job.yaml /tmp/inventory-execution.json /tmp/inventory-qa.json
+
+# Main Agent reviews only conflicts and writes the reconciliation.
+pdf-table-codegen freeze-inventory project/job.yaml /tmp/reconciliation.json
+pdf-table-codegen inspect project/job.yaml
+
+# Execution Agent writes extractor.py while QA Agent writes its isolated draft.
+pdf-table-codegen freeze-reference project/job.yaml /tmp/reference-qa.json
+
+# verify runs the extractor twice and performs all inventory/reference/QA checks.
+pdf-table-codegen verify project/job.yaml
+
+# Main Agent checks the report and unresolved warnings.
+pdf-table-codegen finalize project/job.yaml /tmp/final-review.json
 ```
 
-`prepare` uses a source/DPI/version cache only after verifying every evidence
-hash. `inspect` runs only after inventory freeze and creates table crops plus
-neutral word/drawing reports; it does not select a parser. Freeze commands add
-and validate source hashes, inventory hashes, table IDs, sample coverage, and
-continuation-boundary samples. Every command reports `elapsed_seconds`.
+`run` is available after the QA reference is frozen. `status` exposes workflow
+phase and history. `reopen-inventory` and `reopen-reference` explicitly
+invalidate downstream artifacts; frozen files must never be edited silently.
+Running output again after verification also invalidates the old verification
+and final review, so the project must pass `verify` and `finalize` again.
 
-The generated extractor exposes the package-neutral API:
+Source-document table merging, splitting, and false-positive removal belong in
+the main-agent reconciliation before inventory freeze. Business output merging
+or filtering belongs in `job.yaml` requirements and project-local extractor
+code; real source tables remain in the inventory.
+
+## Runtime API
 
 ```python
+from pathlib import Path
 from pdf_table_codegen import ExtractionRequest
 from extractor import extract_tables
 
-result = extract_tables(ExtractionRequest(source=pdf_path))
+result = extract_tables(ExtractionRequest(source=Path("input.pdf")))
 ```
 
-Each PDF project owns its input PDF, `job.yaml`, `extractor.py`, frozen evidence,
-and output directory. The package is independently installable; ReIndex or any
-other pipeline only needs a thin caller around the same function.
+Every extracted row must include provenance. Unknown source hashes are rejected
+by default. CSV is one serializer; `ExtractionResult` is the pipeline boundary.

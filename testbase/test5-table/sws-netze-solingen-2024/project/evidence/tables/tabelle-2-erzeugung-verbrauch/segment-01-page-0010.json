@@ -1,0 +1,4182 @@
+{
+  "bbox": [
+    70.5,
+    397.5,
+    536.0,
+    532.0
+  ],
+  "word_count": 47,
+  "words": [
+    [
+      348.0,
+      400.89,
+      372.49,
+      413.21,
+      "2023",
+      17,
+      2,
+      0
+    ],
+    [
+      400.44,
+      400.89,
+      424.93,
+      413.21,
+      "2028",
+      17,
+      3,
+      0
+    ],
+    [
+      452.76,
+      400.89,
+      477.25,
+      413.21,
+      "2033",
+      17,
+      4,
+      0
+    ],
+    [
+      505.08,
+      400.89,
+      529.57,
+      413.21,
+      "2045",
+      17,
+      5,
+      0
+    ],
+    [
+      161.4,
+      418.29,
+      221.4,
+      430.61,
+      "Photovoltaik",
+      19,
+      0,
+      0
+    ],
+    [
+      351.13,
+      418.29,
+      372.54,
+      430.61,
+      "22,5",
+      19,
+      1,
+      0
+    ],
+    [
+      397.44,
+      418.29,
+      425.0,
+      430.61,
+      "103,8",
+      19,
+      2,
+      0
+    ],
+    [
+      449.76,
+      418.29,
+      477.32,
+      430.61,
+      "185,2",
+      19,
+      3,
+      0
+    ],
+    [
+      502.08,
+      418.29,
+      529.64,
+      430.61,
+      "310,8",
+      19,
+      4,
+      0
+    ],
+    [
+      161.4,
+      435.33,
+      209.74,
+      447.65,
+      "Biomasse",
+      20,
+      0,
+      0
+    ],
+    [
+      357.24,
+      435.33,
+      372.65,
+      447.65,
+      "0,9",
+      20,
+      1,
+      0
+    ],
+    [
+      409.68,
+      435.33,
+      425.09,
+      447.65,
+      "0,9",
+      20,
+      2,
+      0
+    ],
+    [
+      462.0,
+      435.33,
+      477.41,
+      447.65,
+      "0,9",
+      20,
+      3,
+      0
+    ],
+    [
+      514.32,
+      435.33,
+      529.73,
+      447.65,
+      "0,9",
+      20,
+      4,
+      0
+    ],
+    [
+      76.32,
+      442.41,
+      133.2,
+      454.73,
+      "Erzeugung",
+      18,
+      0,
+      0
+    ],
+    [
+      161.4,
+      450.57,
+      220.1,
+      462.89,
+      "Wasserkraft",
+      20,
+      5,
+      0
+    ],
+    [
+      223.18,
+      450.57,
+      241.53,
+      462.89,
+      "und",
+      20,
+      5,
+      1
+    ],
+    [
+      244.73,
+      450.57,
+      285.54,
+      462.89,
+      "sonstige",
+      20,
+      5,
+      2
+    ],
+    [
+      288.54,
+      450.57,
+      311.77,
+      462.89,
+      "EEG",
+      20,
+      5,
+      3
+    ],
+    [
+      357.26,
+      450.57,
+      372.54,
+      462.89,
+      "0,5",
+      20,
+      6,
+      0
+    ],
+    [
+      409.68,
+      450.57,
+      425.09,
+      462.89,
+      "0,5",
+      20,
+      7,
+      0
+    ],
+    [
+      462.0,
+      450.57,
+      477.41,
+      462.89,
+      "0,5",
+      20,
+      8,
+      0
+    ],
+    [
+      514.32,
+      450.57,
+      529.73,
+      462.89,
+      "0,5",
+      20,
+      9,
+      0
+    ],
+    [
+      161.4,
+      466.65,
+      233.62,
+      478.97,
+      "Konventionelle",
+      20,
+      10,
+      0
+    ],
+    [
+      236.62,
+      466.65,
+      317.48,
+      478.97,
+      "Kraftwerke/KWK",
+      20,
+      10,
+      1
+    ],
+    [
+      351.08,
+      466.65,
+      372.57,
+      478.97,
+      "14,7",
+      20,
+      11,
+      0
+    ],
+    [
+      403.56,
+      466.65,
+      425.11,
+      478.97,
+      "14,7",
+      20,
+      12,
+      0
+    ],
+    [
+      455.88,
+      466.65,
+      477.43,
+      478.97,
+      "14,7",
+      20,
+      13,
+      0
+    ],
+    [
+      508.2,
+      466.65,
+      529.75,
+      478.97,
+      "14,7",
+      20,
+      14,
+      0
+    ],
+    [
+      161.4,
+      483.33,
+      213.97,
+      495.65,
+      "Haushalte,",
+      22,
+      0,
+      0
+    ],
+    [
+      217.09,
+      483.33,
+      244.69,
+      495.65,
+      "GHD,",
+      22,
+      0,
+      1
+    ],
+    [
+      247.68,
+      483.33,
+      289.85,
+      495.65,
+      "Industrie",
+      22,
+      0,
+      2
+    ],
+    [
+      344.99,
+      483.33,
+      372.55,
+      495.65,
+      "158,3",
+      22,
+      1,
+      0
+    ],
+    [
+      397.44,
+      483.33,
+      425.0,
+      495.65,
+      "167,2",
+      22,
+      2,
+      0
+    ],
+    [
+      449.76,
+      483.33,
+      477.32,
+      495.65,
+      "173,0",
+      22,
+      3,
+      0
+    ],
+    [
+      502.08,
+      483.33,
+      529.64,
+      495.65,
+      "187,8",
+      22,
+      4,
+      0
+    ],
+    [
+      76.32,
+      499.53,
+      130.77,
+      511.85,
+      "Verbrauch",
+      21,
+      0,
+      0
+    ],
+    [
+      161.4,
+      499.53,
+      236.74,
+      511.85,
+      "Wärmepumpen",
+      22,
+      5,
+      0
+    ],
+    [
+      357.24,
+      499.53,
+      372.65,
+      511.85,
+      "5,5",
+      22,
+      6,
+      0
+    ],
+    [
+      403.56,
+      499.53,
+      425.11,
+      511.85,
+      "42,1",
+      22,
+      7,
+      0
+    ],
+    [
+      455.88,
+      499.53,
+      477.43,
+      511.85,
+      "78,7",
+      22,
+      8,
+      0
+    ],
+    [
+      502.08,
+      499.53,
+      529.64,
+      511.85,
+      "186,3",
+      22,
+      9,
+      0
+    ],
+    [
+      161.4,
+      515.61,
+      199.99,
+      527.93,
+      "Verkehr",
+      22,
+      10,
+      0
+    ],
+    [
+      351.13,
+      515.61,
+      372.55,
+      527.93,
+      "15,6",
+      22,
+      11,
+      0
+    ],
+    [
+      403.56,
+      515.61,
+      425.11,
+      527.93,
+      "53,9",
+      22,
+      12,
+      0
+    ],
+    [
+      455.88,
+      515.61,
+      477.43,
+      527.93,
+      "92,2",
+      22,
+      13,
+      0
+    ],
+    [
+      502.08,
+      515.61,
+      529.64,
+      527.93,
+      "173,1",
+      22,
+      14,
+      0
+    ]
+  ],
+  "coordinate_clusters": {
+    "word_x0": [
+      {
+        "position": 161.4,
+        "count": 7
+      },
+      {
+        "position": 502.1,
+        "count": 4
+      },
+      {
+        "position": 351.1,
+        "count": 3
+      },
+      {
+        "position": 403.6,
+        "count": 3
+      },
+      {
+        "position": 455.9,
+        "count": 3
+      },
+      {
+        "position": 397.4,
+        "count": 2
+      },
+      {
+        "position": 449.8,
+        "count": 2
+      },
+      {
+        "position": 357.2,
+        "count": 2
+      },
+      {
+        "position": 409.7,
+        "count": 2
+      },
+      {
+        "position": 462.0,
+        "count": 2
+      },
+      {
+        "position": 514.3,
+        "count": 2
+      },
+      {
+        "position": 76.3,
+        "count": 2
+      },
+      {
+        "position": 348.0,
+        "count": 1
+      },
+      {
+        "position": 400.4,
+        "count": 1
+      },
+      {
+        "position": 452.8,
+        "count": 1
+      },
+      {
+        "position": 505.1,
+        "count": 1
+      },
+      {
+        "position": 223.2,
+        "count": 1
+      },
+      {
+        "position": 244.7,
+        "count": 1
+      },
+      {
+        "position": 288.5,
+        "count": 1
+      },
+      {
+        "position": 357.3,
+        "count": 1
+      },
+      {
+        "position": 236.6,
+        "count": 1
+      },
+      {
+        "position": 508.2,
+        "count": 1
+      },
+      {
+        "position": 217.1,
+        "count": 1
+      },
+      {
+        "position": 247.7,
+        "count": 1
+      },
+      {
+        "position": 345.0,
+        "count": 1
+      }
+    ],
+    "word_x1": [
+      {
+        "position": 529.6,
+        "count": 5
+      },
+      {
+        "position": 425.1,
+        "count": 5
+      },
+      {
+        "position": 477.4,
+        "count": 5
+      },
+      {
+        "position": 372.5,
+        "count": 4
+      },
+      {
+        "position": 477.3,
+        "count": 3
+      },
+      {
+        "position": 425.0,
+        "count": 2
+      },
+      {
+        "position": 372.7,
+        "count": 2
+      },
+      {
+        "position": 529.7,
+        "count": 2
+      },
+      {
+        "position": 372.6,
+        "count": 2
+      },
+      {
+        "position": 424.9,
+        "count": 1
+      },
+      {
+        "position": 221.4,
+        "count": 1
+      },
+      {
+        "position": 209.7,
+        "count": 1
+      },
+      {
+        "position": 133.2,
+        "count": 1
+      },
+      {
+        "position": 220.1,
+        "count": 1
+      },
+      {
+        "position": 241.5,
+        "count": 1
+      },
+      {
+        "position": 285.5,
+        "count": 1
+      },
+      {
+        "position": 311.8,
+        "count": 1
+      },
+      {
+        "position": 233.6,
+        "count": 1
+      },
+      {
+        "position": 317.5,
+        "count": 1
+      },
+      {
+        "position": 529.8,
+        "count": 1
+      },
+      {
+        "position": 214.0,
+        "count": 1
+      },
+      {
+        "position": 244.7,
+        "count": 1
+      },
+      {
+        "position": 289.9,
+        "count": 1
+      },
+      {
+        "position": 130.8,
+        "count": 1
+      },
+      {
+        "position": 236.7,
+        "count": 1
+      },
+      {
+        "position": 200.0,
+        "count": 1
+      }
+    ],
+    "word_y0": [
+      {
+        "position": 450.6,
+        "count": 8
+      },
+      {
+        "position": 483.3,
+        "count": 7
+      },
+      {
+        "position": 466.6,
+        "count": 6
+      },
+      {
+        "position": 499.5,
+        "count": 6
+      },
+      {
+        "position": 418.3,
+        "count": 5
+      },
+      {
+        "position": 435.3,
+        "count": 5
+      },
+      {
+        "position": 515.6,
+        "count": 5
+      },
+      {
+        "position": 400.9,
+        "count": 4
+      },
+      {
+        "position": 442.4,
+        "count": 1
+      }
+    ],
+    "word_y1": [
+      {
+        "position": 462.9,
+        "count": 8
+      },
+      {
+        "position": 495.6,
+        "count": 7
+      },
+      {
+        "position": 479.0,
+        "count": 6
+      },
+      {
+        "position": 511.8,
+        "count": 6
+      },
+      {
+        "position": 430.6,
+        "count": 5
+      },
+      {
+        "position": 447.6,
+        "count": 5
+      },
+      {
+        "position": 527.9,
+        "count": 5
+      },
+      {
+        "position": 413.2,
+        "count": 4
+      },
+      {
+        "position": 454.7,
+        "count": 1
+      }
+    ]
+  },
+  "drawing_lines": [
+    {
+      "orientation": "horizontal",
+      "points": [
+        325.2,
+        398.4,
+        534.6,
+        398.4
+      ],
+      "length": 209.4
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        534.6,
+        398.4,
+        534.6,
+        399.36
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        399.36,
+        325.2,
+        399.36
+      ],
+      "length": 209.4
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        325.2,
+        399.36,
+        325.2,
+        398.4
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        398.4,
+        535.56,
+        398.4
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        535.56,
+        398.4,
+        535.56,
+        399.36
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        535.56,
+        399.36,
+        534.6,
+        399.36
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        534.6,
+        399.36,
+        534.6,
+        398.4
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        325.2,
+        399.36,
+        326.16,
+        399.36
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        326.16,
+        399.36,
+        326.16,
+        416.4
+      ],
+      "length": 17.04
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        326.16,
+        416.4,
+        325.2,
+        416.4
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        325.2,
+        416.4,
+        325.2,
+        399.36
+      ],
+      "length": 17.04
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        377.76,
+        399.36,
+        378.24,
+        399.36
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        378.24,
+        399.36,
+        378.24,
+        416.4
+      ],
+      "length": 17.04
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        378.24,
+        416.4,
+        377.76,
+        416.4
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        377.76,
+        416.4,
+        377.76,
+        399.36
+      ],
+      "length": 17.04
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        430.08,
+        399.36,
+        430.56,
+        399.36
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        430.56,
+        399.36,
+        430.56,
+        416.4
+      ],
+      "length": 17.04
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        430.56,
+        416.4,
+        430.08,
+        416.4
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        430.08,
+        416.4,
+        430.08,
+        399.36
+      ],
+      "length": 17.04
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        482.4,
+        399.36,
+        482.88,
+        399.36
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        482.88,
+        399.36,
+        482.88,
+        416.4
+      ],
+      "length": 17.04
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        482.88,
+        416.4,
+        482.4,
+        416.4
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        482.4,
+        416.4,
+        482.4,
+        399.36
+      ],
+      "length": 17.04
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        399.36,
+        535.56,
+        399.36
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        535.56,
+        399.36,
+        535.56,
+        416.4
+      ],
+      "length": 17.04
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        535.56,
+        416.4,
+        534.6,
+        416.4
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        534.6,
+        416.4,
+        534.6,
+        399.36
+      ],
+      "length": 17.04
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        70.44,
+        416.4,
+        534.6,
+        416.4
+      ],
+      "length": 464.16
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        534.6,
+        416.4,
+        534.6,
+        417.36
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        417.36,
+        70.44,
+        417.36
+      ],
+      "length": 464.16
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        70.44,
+        417.36,
+        70.44,
+        416.4
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        416.4,
+        535.56,
+        416.4
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        535.56,
+        416.4,
+        535.56,
+        417.36
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        535.56,
+        417.36,
+        534.6,
+        417.36
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        534.6,
+        417.36,
+        534.6,
+        416.4
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        70.44,
+        417.36,
+        71.4,
+        417.36
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        71.4,
+        417.36,
+        71.4,
+        432.96
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        71.4,
+        432.96,
+        70.44,
+        432.96
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        70.44,
+        432.96,
+        70.44,
+        417.36
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        155.52,
+        417.36,
+        156.48,
+        417.36
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        156.48,
+        417.36,
+        156.48,
+        432.96
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        156.48,
+        432.96,
+        155.52,
+        432.96
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        155.52,
+        432.96,
+        155.52,
+        417.36
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        325.2,
+        417.36,
+        326.16,
+        417.36
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        326.16,
+        417.36,
+        326.16,
+        432.96
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        326.16,
+        432.96,
+        325.2,
+        432.96
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        325.2,
+        432.96,
+        325.2,
+        417.36
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        377.76,
+        417.36,
+        378.24,
+        417.36
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        378.24,
+        417.36,
+        378.24,
+        432.96
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        378.24,
+        432.96,
+        377.76,
+        432.96
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        377.76,
+        432.96,
+        377.76,
+        417.36
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        430.08,
+        417.36,
+        430.56,
+        417.36
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        430.56,
+        417.36,
+        430.56,
+        432.96
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        430.56,
+        432.96,
+        430.08,
+        432.96
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        430.08,
+        432.96,
+        430.08,
+        417.36
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        482.4,
+        417.36,
+        482.88,
+        417.36
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        482.88,
+        417.36,
+        482.88,
+        432.96
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        482.88,
+        432.96,
+        482.4,
+        432.96
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        482.4,
+        432.96,
+        482.4,
+        417.36
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        417.36,
+        535.56,
+        417.36
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        535.56,
+        417.36,
+        535.56,
+        432.96
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        535.56,
+        432.96,
+        534.6,
+        432.96
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        534.6,
+        432.96,
+        534.6,
+        417.36
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        70.44,
+        432.96,
+        71.4,
+        432.96
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        71.4,
+        432.96,
+        71.4,
+        433.44
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        71.4,
+        433.44,
+        70.44,
+        433.44
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        70.44,
+        433.44,
+        70.44,
+        432.96
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        155.52,
+        432.96,
+        534.6,
+        432.96
+      ],
+      "length": 379.08
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        432.96,
+        534.6,
+        433.44
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        433.44,
+        155.52,
+        433.44
+      ],
+      "length": 379.08
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        155.52,
+        433.44,
+        155.52,
+        432.96
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        432.96,
+        535.56,
+        432.96
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        535.56,
+        432.96,
+        535.56,
+        433.44
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        535.56,
+        433.44,
+        534.6,
+        433.44
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        433.44,
+        534.6,
+        432.96
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        70.44,
+        433.44,
+        71.4,
+        433.44
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        71.4,
+        433.44,
+        71.4,
+        449.16
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        71.4,
+        449.16,
+        70.44,
+        449.16
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        70.44,
+        449.16,
+        70.44,
+        433.44
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        155.52,
+        433.44,
+        156.48,
+        433.44
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        156.48,
+        433.44,
+        156.48,
+        449.16
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        156.48,
+        449.16,
+        155.52,
+        449.16
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        155.52,
+        449.16,
+        155.52,
+        433.44
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        325.2,
+        433.44,
+        326.16,
+        433.44
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        326.16,
+        433.44,
+        326.16,
+        449.16
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        326.16,
+        449.16,
+        325.2,
+        449.16
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        325.2,
+        449.16,
+        325.2,
+        433.44
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        377.76,
+        433.44,
+        378.24,
+        433.44
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        378.24,
+        433.44,
+        378.24,
+        449.16
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        378.24,
+        449.16,
+        377.76,
+        449.16
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        377.76,
+        449.16,
+        377.76,
+        433.44
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        430.08,
+        433.44,
+        430.56,
+        433.44
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        430.56,
+        433.44,
+        430.56,
+        449.16
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        430.56,
+        449.16,
+        430.08,
+        449.16
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        430.08,
+        449.16,
+        430.08,
+        433.44
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        482.4,
+        433.44,
+        482.88,
+        433.44
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        482.88,
+        433.44,
+        482.88,
+        449.16
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        482.88,
+        449.16,
+        482.4,
+        449.16
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        482.4,
+        449.16,
+        482.4,
+        433.44
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        433.44,
+        535.56,
+        433.44
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        535.56,
+        433.44,
+        535.56,
+        449.16
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        535.56,
+        449.16,
+        534.6,
+        449.16
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        534.6,
+        449.16,
+        534.6,
+        433.44
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        70.44,
+        449.16,
+        71.4,
+        449.16
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        71.4,
+        449.16,
+        71.4,
+        449.64
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        71.4,
+        449.64,
+        70.44,
+        449.64
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        70.44,
+        449.64,
+        70.44,
+        449.16
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        155.52,
+        449.16,
+        534.6,
+        449.16
+      ],
+      "length": 379.08
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        449.16,
+        534.6,
+        449.64
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        449.64,
+        155.52,
+        449.64
+      ],
+      "length": 379.08
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        155.52,
+        449.64,
+        155.52,
+        449.16
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        449.16,
+        535.56,
+        449.16
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        535.56,
+        449.16,
+        535.56,
+        449.64
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        535.56,
+        449.64,
+        534.6,
+        449.64
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        449.64,
+        534.6,
+        449.16
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        70.44,
+        449.64,
+        71.4,
+        449.64
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        71.4,
+        449.64,
+        71.4,
+        465.36
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        71.4,
+        465.36,
+        70.44,
+        465.36
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        70.44,
+        465.36,
+        70.44,
+        449.64
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        155.52,
+        449.64,
+        156.48,
+        449.64
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        156.48,
+        449.64,
+        156.48,
+        465.36
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        156.48,
+        465.36,
+        155.52,
+        465.36
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        155.52,
+        465.36,
+        155.52,
+        449.64
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        325.2,
+        449.64,
+        326.16,
+        449.64
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        326.16,
+        449.64,
+        326.16,
+        465.36
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        326.16,
+        465.36,
+        325.2,
+        465.36
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        325.2,
+        465.36,
+        325.2,
+        449.64
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        377.76,
+        449.64,
+        378.24,
+        449.64
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        378.24,
+        449.64,
+        378.24,
+        465.36
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        378.24,
+        465.36,
+        377.76,
+        465.36
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        377.76,
+        465.36,
+        377.76,
+        449.64
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        430.08,
+        449.64,
+        430.56,
+        449.64
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        430.56,
+        449.64,
+        430.56,
+        465.36
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        430.56,
+        465.36,
+        430.08,
+        465.36
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        430.08,
+        465.36,
+        430.08,
+        449.64
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        482.4,
+        449.64,
+        482.88,
+        449.64
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        482.88,
+        449.64,
+        482.88,
+        465.36
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        482.88,
+        465.36,
+        482.4,
+        465.36
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        482.4,
+        465.36,
+        482.4,
+        449.64
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        449.64,
+        535.56,
+        449.64
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        535.56,
+        449.64,
+        535.56,
+        465.36
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        535.56,
+        465.36,
+        534.6,
+        465.36
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        534.6,
+        465.36,
+        534.6,
+        449.64
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        70.44,
+        465.36,
+        71.4,
+        465.36
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        71.4,
+        465.36,
+        71.4,
+        465.84
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        71.4,
+        465.84,
+        70.44,
+        465.84
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        70.44,
+        465.84,
+        70.44,
+        465.36
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        155.52,
+        465.36,
+        534.6,
+        465.36
+      ],
+      "length": 379.08
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        465.36,
+        534.6,
+        465.84
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        465.84,
+        155.52,
+        465.84
+      ],
+      "length": 379.08
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        155.52,
+        465.84,
+        155.52,
+        465.36
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        465.36,
+        535.56,
+        465.36
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        535.56,
+        465.36,
+        535.56,
+        465.84
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        535.56,
+        465.84,
+        534.6,
+        465.84
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        465.84,
+        534.6,
+        465.36
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        70.44,
+        465.84,
+        71.4,
+        465.84
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        71.4,
+        465.84,
+        71.4,
+        481.44
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        71.4,
+        481.44,
+        70.44,
+        481.44
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        70.44,
+        481.44,
+        70.44,
+        465.84
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        155.52,
+        465.84,
+        156.48,
+        465.84
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        156.48,
+        465.84,
+        156.48,
+        481.44
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        156.48,
+        481.44,
+        155.52,
+        481.44
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        155.52,
+        481.44,
+        155.52,
+        465.84
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        325.2,
+        465.84,
+        326.16,
+        465.84
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        326.16,
+        465.84,
+        326.16,
+        481.44
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        326.16,
+        481.44,
+        325.2,
+        481.44
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        325.2,
+        481.44,
+        325.2,
+        465.84
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        377.76,
+        465.84,
+        378.24,
+        465.84
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        378.24,
+        465.84,
+        378.24,
+        481.44
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        378.24,
+        481.44,
+        377.76,
+        481.44
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        377.76,
+        481.44,
+        377.76,
+        465.84
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        430.08,
+        465.84,
+        430.56,
+        465.84
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        430.56,
+        465.84,
+        430.56,
+        481.44
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        430.56,
+        481.44,
+        430.08,
+        481.44
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        430.08,
+        481.44,
+        430.08,
+        465.84
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        482.4,
+        465.84,
+        482.88,
+        465.84
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        482.88,
+        465.84,
+        482.88,
+        481.44
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        482.88,
+        481.44,
+        482.4,
+        481.44
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        482.4,
+        481.44,
+        482.4,
+        465.84
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        465.84,
+        535.56,
+        465.84
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        535.56,
+        465.84,
+        535.56,
+        481.44
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        535.56,
+        481.44,
+        534.6,
+        481.44
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        534.6,
+        481.44,
+        534.6,
+        465.84
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        70.44,
+        481.44,
+        534.6,
+        481.44
+      ],
+      "length": 464.16
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        534.6,
+        481.44,
+        534.6,
+        482.4
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        482.4,
+        70.44,
+        482.4
+      ],
+      "length": 464.16
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        70.44,
+        482.4,
+        70.44,
+        481.44
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        481.44,
+        535.56,
+        481.44
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        535.56,
+        481.44,
+        535.56,
+        482.4
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        535.56,
+        482.4,
+        534.6,
+        482.4
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        534.6,
+        482.4,
+        534.6,
+        481.44
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        70.44,
+        482.4,
+        71.4,
+        482.4
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        71.4,
+        482.4,
+        71.4,
+        498.12
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        71.4,
+        498.12,
+        70.44,
+        498.12
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        70.44,
+        498.12,
+        70.44,
+        482.4
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        155.52,
+        482.4,
+        156.48,
+        482.4
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        156.48,
+        482.4,
+        156.48,
+        498.12
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        156.48,
+        498.12,
+        155.52,
+        498.12
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        155.52,
+        498.12,
+        155.52,
+        482.4
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        325.2,
+        482.4,
+        326.16,
+        482.4
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        326.16,
+        482.4,
+        326.16,
+        498.12
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        326.16,
+        498.12,
+        325.2,
+        498.12
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        325.2,
+        498.12,
+        325.2,
+        482.4
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        377.76,
+        482.4,
+        378.24,
+        482.4
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        378.24,
+        482.4,
+        378.24,
+        498.12
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        378.24,
+        498.12,
+        377.76,
+        498.12
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        377.76,
+        498.12,
+        377.76,
+        482.4
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        430.08,
+        482.4,
+        430.56,
+        482.4
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        430.56,
+        482.4,
+        430.56,
+        498.12
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        430.56,
+        498.12,
+        430.08,
+        498.12
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        430.08,
+        498.12,
+        430.08,
+        482.4
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        482.4,
+        482.4,
+        482.88,
+        482.4
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        482.88,
+        482.4,
+        482.88,
+        498.12
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        482.88,
+        498.12,
+        482.4,
+        498.12
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        482.4,
+        498.12,
+        482.4,
+        482.4
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        482.4,
+        535.56,
+        482.4
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        535.56,
+        482.4,
+        535.56,
+        498.12
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        535.56,
+        498.12,
+        534.6,
+        498.12
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        534.6,
+        498.12,
+        534.6,
+        482.4
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        70.44,
+        498.12,
+        71.4,
+        498.12
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        71.4,
+        498.12,
+        71.4,
+        498.6
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        71.4,
+        498.6,
+        70.44,
+        498.6
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        70.44,
+        498.6,
+        70.44,
+        498.12
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        155.52,
+        498.12,
+        534.6,
+        498.12
+      ],
+      "length": 379.08
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        498.12,
+        534.6,
+        498.6
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        498.6,
+        155.52,
+        498.6
+      ],
+      "length": 379.08
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        155.52,
+        498.6,
+        155.52,
+        498.12
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        498.12,
+        535.56,
+        498.12
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        535.56,
+        498.12,
+        535.56,
+        498.6
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        535.56,
+        498.6,
+        534.6,
+        498.6
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        498.6,
+        534.6,
+        498.12
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        70.44,
+        498.6,
+        71.4,
+        498.6
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        71.4,
+        498.6,
+        71.4,
+        514.2
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        71.4,
+        514.2,
+        70.44,
+        514.2
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        70.44,
+        514.2,
+        70.44,
+        498.6
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        155.52,
+        498.6,
+        156.48,
+        498.6
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        156.48,
+        498.6,
+        156.48,
+        514.2
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        156.48,
+        514.2,
+        155.52,
+        514.2
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        155.52,
+        514.2,
+        155.52,
+        498.6
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        325.2,
+        498.6,
+        326.16,
+        498.6
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        326.16,
+        498.6,
+        326.16,
+        514.2
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        326.16,
+        514.2,
+        325.2,
+        514.2
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        325.2,
+        514.2,
+        325.2,
+        498.6
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        377.76,
+        498.6,
+        378.24,
+        498.6
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        378.24,
+        498.6,
+        378.24,
+        514.2
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        378.24,
+        514.2,
+        377.76,
+        514.2
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        377.76,
+        514.2,
+        377.76,
+        498.6
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        430.08,
+        498.6,
+        430.56,
+        498.6
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        430.56,
+        498.6,
+        430.56,
+        514.2
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        430.56,
+        514.2,
+        430.08,
+        514.2
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        430.08,
+        514.2,
+        430.08,
+        498.6
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        482.4,
+        498.6,
+        482.88,
+        498.6
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        482.88,
+        498.6,
+        482.88,
+        514.2
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        482.88,
+        514.2,
+        482.4,
+        514.2
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        482.4,
+        514.2,
+        482.4,
+        498.6
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        498.6,
+        535.56,
+        498.6
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        535.56,
+        498.6,
+        535.56,
+        514.2
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        535.56,
+        514.2,
+        534.6,
+        514.2
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        534.6,
+        514.2,
+        534.6,
+        498.6
+      ],
+      "length": 15.6
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        70.44,
+        514.2,
+        71.4,
+        514.2
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        71.4,
+        514.2,
+        71.4,
+        514.68
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        71.4,
+        514.68,
+        70.44,
+        514.68
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        70.44,
+        514.68,
+        70.44,
+        514.2
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        155.52,
+        514.2,
+        534.6,
+        514.2
+      ],
+      "length": 379.08
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        514.2,
+        534.6,
+        514.68
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        514.68,
+        155.52,
+        514.68
+      ],
+      "length": 379.08
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        155.52,
+        514.68,
+        155.52,
+        514.2
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        514.2,
+        535.56,
+        514.2
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        535.56,
+        514.2,
+        535.56,
+        514.68
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        535.56,
+        514.68,
+        534.6,
+        514.68
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        514.68,
+        534.6,
+        514.2
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        70.44,
+        514.68,
+        71.4,
+        514.68
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        71.4,
+        514.68,
+        71.4,
+        531.36
+      ],
+      "length": 16.68
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        71.4,
+        531.36,
+        70.44,
+        531.36
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        70.44,
+        531.36,
+        70.44,
+        514.68
+      ],
+      "length": 16.68
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        70.44,
+        530.4,
+        155.52,
+        530.4
+      ],
+      "length": 85.08
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        155.52,
+        530.4,
+        155.52,
+        531.36
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        155.52,
+        531.36,
+        70.44,
+        531.36
+      ],
+      "length": 85.08
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        70.44,
+        531.36,
+        70.44,
+        530.4
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        155.52,
+        514.68,
+        156.48,
+        514.68
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        156.48,
+        514.68,
+        156.48,
+        531.36
+      ],
+      "length": 16.68
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        156.48,
+        531.36,
+        155.52,
+        531.36
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        155.52,
+        531.36,
+        155.52,
+        514.68
+      ],
+      "length": 16.68
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        156.48,
+        530.4,
+        325.2,
+        530.4
+      ],
+      "length": 168.72
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        325.2,
+        530.4,
+        325.2,
+        531.36
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        325.2,
+        531.36,
+        156.48,
+        531.36
+      ],
+      "length": 168.72
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        156.48,
+        531.36,
+        156.48,
+        530.4
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        325.2,
+        514.68,
+        326.16,
+        514.68
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        326.16,
+        514.68,
+        326.16,
+        531.36
+      ],
+      "length": 16.68
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        326.16,
+        531.36,
+        325.2,
+        531.36
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        325.2,
+        531.36,
+        325.2,
+        514.68
+      ],
+      "length": 16.68
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        326.16,
+        530.4,
+        377.76,
+        530.4
+      ],
+      "length": 51.6
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        377.76,
+        530.4,
+        377.76,
+        531.36
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        377.76,
+        531.36,
+        326.16,
+        531.36
+      ],
+      "length": 51.6
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        326.16,
+        531.36,
+        326.16,
+        530.4
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        377.76,
+        514.68,
+        378.24,
+        514.68
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        378.24,
+        514.68,
+        378.24,
+        530.4
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        378.24,
+        530.4,
+        377.76,
+        530.4
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        377.76,
+        530.4,
+        377.76,
+        514.68
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        377.76,
+        530.4,
+        430.08,
+        530.4
+      ],
+      "length": 52.32
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        430.08,
+        530.4,
+        430.08,
+        531.36
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        430.08,
+        531.36,
+        377.76,
+        531.36
+      ],
+      "length": 52.32
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        377.76,
+        531.36,
+        377.76,
+        530.4
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        430.08,
+        514.68,
+        430.56,
+        514.68
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        430.56,
+        514.68,
+        430.56,
+        530.4
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        430.56,
+        530.4,
+        430.08,
+        530.4
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        430.08,
+        530.4,
+        430.08,
+        514.68
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        430.08,
+        530.4,
+        482.4,
+        530.4
+      ],
+      "length": 52.32
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        482.4,
+        530.4,
+        482.4,
+        531.36
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        482.4,
+        531.36,
+        430.08,
+        531.36
+      ],
+      "length": 52.32
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        430.08,
+        531.36,
+        430.08,
+        530.4
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        482.4,
+        514.68,
+        482.88,
+        514.68
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        482.88,
+        514.68,
+        482.88,
+        530.4
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        482.88,
+        530.4,
+        482.4,
+        530.4
+      ],
+      "length": 0.48
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        482.4,
+        530.4,
+        482.4,
+        514.68
+      ],
+      "length": 15.72
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        482.4,
+        530.4,
+        534.6,
+        530.4
+      ],
+      "length": 52.2
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        534.6,
+        530.4,
+        534.6,
+        531.36
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        531.36,
+        482.4,
+        531.36
+      ],
+      "length": 52.2
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        482.4,
+        531.36,
+        482.4,
+        530.4
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        514.68,
+        535.56,
+        514.68
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        535.56,
+        514.68,
+        535.56,
+        531.36
+      ],
+      "length": 16.68
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        535.56,
+        531.36,
+        534.6,
+        531.36
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        534.6,
+        531.36,
+        534.6,
+        514.68
+      ],
+      "length": 16.68
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        534.6,
+        530.4,
+        535.56,
+        530.4
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        535.56,
+        530.4,
+        535.56,
+        531.36
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "horizontal",
+      "points": [
+        535.56,
+        531.36,
+        534.6,
+        531.36
+      ],
+      "length": 0.96
+    },
+    {
+      "orientation": "vertical",
+      "points": [
+        534.6,
+        531.36,
+        534.6,
+        530.4
+      ],
+      "length": 0.96
+    }
+  ],
+  "horizontal_line_positions": [
+    {
+      "position": 433.0,
+      "count": 13
+    },
+    {
+      "position": 433.4,
+      "count": 13
+    },
+    {
+      "position": 449.2,
+      "count": 13
+    },
+    {
+      "position": 449.6,
+      "count": 13
+    },
+    {
+      "position": 465.4,
+      "count": 13
+    },
+    {
+      "position": 465.8,
+      "count": 13
+    },
+    {
+      "position": 498.1,
+      "count": 13
+    },
+    {
+      "position": 498.6,
+      "count": 13
+    },
+    {
+      "position": 514.2,
+      "count": 13
+    },
+    {
+      "position": 514.7,
+      "count": 13
+    },
+    {
+      "position": 531.4,
+      "count": 11
+    },
+    {
+      "position": 530.4,
+      "count": 10
+    },
+    {
+      "position": 417.4,
+      "count": 9
+    },
+    {
+      "position": 481.4,
+      "count": 9
+    },
+    {
+      "position": 482.4,
+      "count": 9
+    },
+    {
+      "position": 399.4,
+      "count": 7
+    },
+    {
+      "position": 416.4,
+      "count": 7
+    },
+    {
+      "position": 398.4,
+      "count": 2
+    }
+  ],
+  "vertical_line_positions": [
+    {
+      "position": 534.6,
+      "count": 16
+    },
+    {
+      "position": 535.6,
+      "count": 12
+    },
+    {
+      "position": 325.2,
+      "count": 10
+    },
+    {
+      "position": 377.8,
+      "count": 10
+    },
+    {
+      "position": 430.1,
+      "count": 10
+    },
+    {
+      "position": 482.4,
+      "count": 10
+    },
+    {
+      "position": 70.4,
+      "count": 10
+    },
+    {
+      "position": 326.2,
+      "count": 9
+    },
+    {
+      "position": 378.2,
+      "count": 8
+    },
+    {
+      "position": 430.6,
+      "count": 8
+    },
+    {
+      "position": 482.9,
+      "count": 8
+    },
+    {
+      "position": 156.5,
+      "count": 8
+    },
+    {
+      "position": 155.5,
+      "count": 8
+    },
+    {
+      "position": 71.4,
+      "count": 7
+    }
+  ],
+  "notice": "Neutral source geometry only; choose the extraction strategy independently."
+}

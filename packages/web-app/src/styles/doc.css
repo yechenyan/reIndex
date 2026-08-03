@@ -13,7 +13,9 @@
 .doc-subnav strong { color: var(--ink); }
 .doc-switch { margin-left: auto; color: var(--blue-soft); font-weight: 800; }
 .api-doc-page > .doc-subnav { height: 48px; padding: 0 28px; border-bottom: 1px solid var(--line); background: var(--paper); }
-.api-doc-page .scalar-app { min-height: calc(100vh - 126px); }
+.api-doc-redoc { min-height: calc(100vh - 126px); }
+.api-doc-redoc .redoc-wrap { min-height: calc(100vh - 126px); }
+.api-doc-redoc .menu-content { top: 78px !important; height: calc(100vh - 78px) !important; }
 .cli-doc-page { display: grid; grid-template-columns: 320px minmax(0, 1fr); min-height: calc(100vh - 78px); }
 .cli-sidebar { position: sticky; top: 78px; height: calc(100vh - 78px); overflow: auto; padding: 24px 18px; border-right: 1px solid var(--line); background: var(--paper); }
 .cli-sidebar input { width: 100%; margin: 22px 0 14px; padding: 11px 13px; border: 1px solid var(--line); background: var(--canvas); outline: none; }

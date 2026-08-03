@@ -1,3 +1,15 @@
+export function normalizeHash(hash: string) {
+  if (!hash || hash === "#") return "#/explore";
+  if (hash.startsWith("#/")) return hash;
+  return `#/${hash.slice(1).replace(/^\/+/, "")}`;
+}
+
+export function readAppPath() {
+  const pathname = window.location.pathname.replace(/\/+$/, "") || "/";
+  if (pathname === "/docs/api") return pathname;
+  return normalizeHash(window.location.hash).slice(1).split("?")[0];
+}
+
 export function readHashParams() {
   const query = window.location.hash.split("?")[1] || "";
   return new URLSearchParams(query);

@@ -1,0 +1,894 @@
+{
+  "checks": [
+    {
+      "name": "source_sha256",
+      "ok": true,
+      "expected": "a9642d5a0051ab5bf992e3c28b447e9710c28ff5265f452ae8e6f966b958baa7",
+      "actual": "a9642d5a0051ab5bf992e3c28b447e9710c28ff5265f452ae8e6f966b958baa7"
+    },
+    {
+      "name": "deterministic_double_run",
+      "ok": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "full_table_inventory",
+      "ok": true,
+      "expected": [
+        "abkuerzungsverzeichnis",
+        "tabelle-1-betriebsmittel-stromnetz",
+        "tabelle-2-erzeugung-verbrauch",
+        "tabelle-3-engpassbedingte-massnahmen",
+        "tabelle-4-assetbedingte-massnahmen",
+        "tabelle-5-massnahmenplan"
+      ],
+      "actual": {
+        "reference": [
+          "abkuerzungsverzeichnis",
+          "tabelle-1-betriebsmittel-stromnetz",
+          "tabelle-2-erzeugung-verbrauch",
+          "tabelle-3-engpassbedingte-massnahmen",
+          "tabelle-4-assetbedingte-massnahmen",
+          "tabelle-5-massnahmenplan"
+        ],
+        "result": [
+          "abkuerzungsverzeichnis",
+          "tabelle-1-betriebsmittel-stromnetz",
+          "tabelle-2-erzeugung-verbrauch",
+          "tabelle-3-engpassbedingte-massnahmen",
+          "tabelle-4-assetbedingte-massnahmen",
+          "tabelle-5-massnahmenplan"
+        ]
+      }
+    },
+    {
+      "name": "inventory_sha256",
+      "ok": true,
+      "expected": "ece04abd569d19192a7bae3bf6c895380a70fef71f059f8163bae31245c036e2",
+      "actual": "ece04abd569d19192a7bae3bf6c895380a70fef71f059f8163bae31245c036e2"
+    },
+    {
+      "name": "table_count",
+      "ok": true,
+      "expected": 6,
+      "actual": 6
+    },
+    {
+      "name": "abkuerzungsverzeichnis.present",
+      "ok": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "abkuerzungsverzeichnis.columns",
+      "ok": true,
+      "expected": 2,
+      "actual": 2
+    },
+    {
+      "name": "abkuerzungsverzeichnis.rows",
+      "ok": true,
+      "expected": 25,
+      "actual": 25
+    },
+    {
+      "name": "abkuerzungsverzeichnis.header",
+      "ok": true,
+      "expected": [
+        "",
+        ""
+      ],
+      "actual": [
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "abkuerzungsverzeichnis.row[0]",
+      "ok": true,
+      "expected": [
+        "BDEW",
+        "BDEW Bundesverband der Energie- und Wasserwirtschaft e.V."
+      ],
+      "actual": [
+        "BDEW",
+        "BDEW Bundesverband der Energie- und Wasserwirtschaft e.V."
+      ]
+    },
+    {
+      "name": "abkuerzungsverzeichnis.row[1]",
+      "ok": true,
+      "expected": [
+        "BNetzA",
+        "Bundesnetzagentur"
+      ],
+      "actual": [
+        "BNetzA",
+        "Bundesnetzagentur"
+      ]
+    },
+    {
+      "name": "abkuerzungsverzeichnis.row[23]",
+      "ok": true,
+      "expected": [
+        "VNB",
+        "Verteilnetzbetreiber"
+      ],
+      "actual": [
+        "VNB",
+        "Verteilnetzbetreiber"
+      ]
+    },
+    {
+      "name": "abkuerzungsverzeichnis.row[24]",
+      "ok": true,
+      "expected": [
+        "VVNB",
+        "Vorgelagerter Verteilnetzbetreiber"
+      ],
+      "actual": [
+        "VVNB",
+        "Vorgelagerter Verteilnetzbetreiber"
+      ]
+    },
+    {
+      "name": "tabelle-1-betriebsmittel-stromnetz.present",
+      "ok": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "tabelle-1-betriebsmittel-stromnetz.columns",
+      "ok": true,
+      "expected": 3,
+      "actual": 3
+    },
+    {
+      "name": "tabelle-1-betriebsmittel-stromnetz.rows",
+      "ok": true,
+      "expected": 5,
+      "actual": 5
+    },
+    {
+      "name": "tabelle-1-betriebsmittel-stromnetz.header",
+      "ok": true,
+      "expected": [
+        "",
+        "",
+        ""
+      ],
+      "actual": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "tabelle-1-betriebsmittel-stromnetz.row[0]",
+      "ok": true,
+      "expected": [
+        "Netzebene 4",
+        "Umspannwerke HS/MS",
+        "7 Stück (Betrieb: Westnetz GmbH)"
+      ],
+      "actual": [
+        "Netzebene 4",
+        "Umspannwerke HS/MS",
+        "7 Stück (Betrieb: Westnetz GmbH)"
+      ]
+    },
+    {
+      "name": "tabelle-1-betriebsmittel-stromnetz.row[1]",
+      "ok": true,
+      "expected": [
+        "Netzebene 5",
+        "Mittelspannungskabel",
+        "490,35 km"
+      ],
+      "actual": [
+        "Netzebene 5",
+        "Mittelspannungskabel",
+        "490,35 km"
+      ]
+    },
+    {
+      "name": "tabelle-1-betriebsmittel-stromnetz.row[3]",
+      "ok": true,
+      "expected": [
+        "Netzebene 6",
+        "Kundenstationen MS/NS",
+        "246 Stück"
+      ],
+      "actual": [
+        "Netzebene 6",
+        "Kundenstationen MS/NS",
+        "246 Stück"
+      ]
+    },
+    {
+      "name": "tabelle-1-betriebsmittel-stromnetz.row[4]",
+      "ok": true,
+      "expected": [
+        "Netzebene 7",
+        "Niederspannungskabel",
+        "1.414,33 km"
+      ],
+      "actual": [
+        "Netzebene 7",
+        "Niederspannungskabel",
+        "1.414,33 km"
+      ]
+    },
+    {
+      "name": "tabelle-2-erzeugung-verbrauch.present",
+      "ok": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "tabelle-2-erzeugung-verbrauch.columns",
+      "ok": true,
+      "expected": 6,
+      "actual": 6
+    },
+    {
+      "name": "tabelle-2-erzeugung-verbrauch.rows",
+      "ok": true,
+      "expected": 7,
+      "actual": 7
+    },
+    {
+      "name": "tabelle-2-erzeugung-verbrauch.header",
+      "ok": true,
+      "expected": [
+        "",
+        "",
+        "2023",
+        "2028",
+        "2033",
+        "2045"
+      ],
+      "actual": [
+        "",
+        "",
+        "2023",
+        "2028",
+        "2033",
+        "2045"
+      ]
+    },
+    {
+      "name": "tabelle-2-erzeugung-verbrauch.row[0]",
+      "ok": true,
+      "expected": [
+        "Erzeugung",
+        "Photovoltaik",
+        "22,5",
+        "103,8",
+        "185,2",
+        "310,8"
+      ],
+      "actual": [
+        "Erzeugung",
+        "Photovoltaik",
+        "22,5",
+        "103,8",
+        "185,2",
+        "310,8"
+      ]
+    },
+    {
+      "name": "tabelle-2-erzeugung-verbrauch.row[1]",
+      "ok": true,
+      "expected": [
+        "",
+        "Biomasse",
+        "0,9",
+        "0,9",
+        "0,9",
+        "0,9"
+      ],
+      "actual": [
+        "",
+        "Biomasse",
+        "0,9",
+        "0,9",
+        "0,9",
+        "0,9"
+      ]
+    },
+    {
+      "name": "tabelle-2-erzeugung-verbrauch.row[5]",
+      "ok": true,
+      "expected": [
+        "",
+        "Wärmepumpen",
+        "5,5",
+        "42,1",
+        "78,7",
+        "186,3"
+      ],
+      "actual": [
+        "",
+        "Wärmepumpen",
+        "5,5",
+        "42,1",
+        "78,7",
+        "186,3"
+      ]
+    },
+    {
+      "name": "tabelle-2-erzeugung-verbrauch.row[6]",
+      "ok": true,
+      "expected": [
+        "",
+        "Verkehr",
+        "15,6",
+        "53,9",
+        "92,2",
+        "173,1"
+      ],
+      "actual": [
+        "",
+        "Verkehr",
+        "15,6",
+        "53,9",
+        "92,2",
+        "173,1"
+      ]
+    },
+    {
+      "name": "tabelle-3-engpassbedingte-massnahmen.present",
+      "ok": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "tabelle-3-engpassbedingte-massnahmen.columns",
+      "ok": true,
+      "expected": 4,
+      "actual": 4
+    },
+    {
+      "name": "tabelle-3-engpassbedingte-massnahmen.rows",
+      "ok": true,
+      "expected": 6,
+      "actual": 6
+    },
+    {
+      "name": "tabelle-3-engpassbedingte-massnahmen.header",
+      "ok": true,
+      "expected": [
+        "Zeitraum",
+        "Maßnahme",
+        "Geschätzte Menge",
+        "Geschätzte Kosten"
+      ],
+      "actual": [
+        "Zeitraum",
+        "Maßnahme",
+        "Geschätzte Menge",
+        "Geschätzte Kosten"
+      ]
+    },
+    {
+      "name": "tabelle-3-engpassbedingte-massnahmen.row[0]",
+      "ok": true,
+      "expected": [
+        "2023 bis 2028 (T+5)",
+        "Leitungen",
+        "41,4 km",
+        "9.108.000 €"
+      ],
+      "actual": [
+        "2023 bis 2028 (T+5)",
+        "Leitungen",
+        "41,4 km",
+        "9.108.000 €"
+      ]
+    },
+    {
+      "name": "tabelle-3-engpassbedingte-massnahmen.row[1]",
+      "ok": true,
+      "expected": [
+        "",
+        "Anlagenstandorte",
+        "274 Stk",
+        "13.700.000 €"
+      ],
+      "actual": [
+        "",
+        "Anlagenstandorte",
+        "274 Stk",
+        "13.700.000 €"
+      ]
+    },
+    {
+      "name": "tabelle-3-engpassbedingte-massnahmen.row[4]",
+      "ok": true,
+      "expected": [
+        "2034 bis 2045 (T+11 bis Zielnetzjahr)",
+        "Leitungen",
+        "90 km",
+        "19.800.000 €"
+      ],
+      "actual": [
+        "2034 bis 2045 (T+11 bis Zielnetzjahr)",
+        "Leitungen",
+        "90 km",
+        "19.800.000 €"
+      ]
+    },
+    {
+      "name": "tabelle-3-engpassbedingte-massnahmen.row[5]",
+      "ok": true,
+      "expected": [
+        "",
+        "Anlagenstandorte",
+        "145 Stk",
+        "7.250.000 €"
+      ],
+      "actual": [
+        "",
+        "Anlagenstandorte",
+        "145 Stk",
+        "7.250.000 €"
+      ]
+    },
+    {
+      "name": "tabelle-4-assetbedingte-massnahmen.present",
+      "ok": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "tabelle-4-assetbedingte-massnahmen.columns",
+      "ok": true,
+      "expected": 4,
+      "actual": 4
+    },
+    {
+      "name": "tabelle-4-assetbedingte-massnahmen.rows",
+      "ok": true,
+      "expected": 6,
+      "actual": 6
+    },
+    {
+      "name": "tabelle-4-assetbedingte-massnahmen.header",
+      "ok": true,
+      "expected": [
+        "Zeitraum",
+        "Maßnahme",
+        "Geschätzte Menge",
+        "Geschätzte Kosten"
+      ],
+      "actual": [
+        "Zeitraum",
+        "Maßnahme",
+        "Geschätzte Menge",
+        "Geschätzte Kosten"
+      ]
+    },
+    {
+      "name": "tabelle-4-assetbedingte-massnahmen.row[0]",
+      "ok": true,
+      "expected": [
+        "2023 bis 2028 (T+5)",
+        "Leitungen",
+        "20,3 km",
+        "4.427.000 €"
+      ],
+      "actual": [
+        "2023 bis 2028 (T+5)",
+        "Leitungen",
+        "20,3 km",
+        "4.427.000 €"
+      ]
+    },
+    {
+      "name": "tabelle-4-assetbedingte-massnahmen.row[1]",
+      "ok": true,
+      "expected": [
+        "",
+        "Anlagenstandorte",
+        "13 Stk",
+        "675.000 €"
+      ],
+      "actual": [
+        "",
+        "Anlagenstandorte",
+        "13 Stk",
+        "675.000 €"
+      ]
+    },
+    {
+      "name": "tabelle-4-assetbedingte-massnahmen.row[4]",
+      "ok": true,
+      "expected": [
+        "2034 bis 2045 (T+11 bis Zielnetzjahr)",
+        "Leitungen",
+        "60 km",
+        "13.200.000 €"
+      ],
+      "actual": [
+        "2034 bis 2045 (T+11 bis Zielnetzjahr)",
+        "Leitungen",
+        "60 km",
+        "13.200.000 €"
+      ]
+    },
+    {
+      "name": "tabelle-4-assetbedingte-massnahmen.row[5]",
+      "ok": true,
+      "expected": [
+        "",
+        "Anlagenstandorte",
+        "19 Stk",
+        "950.000 €"
+      ],
+      "actual": [
+        "",
+        "Anlagenstandorte",
+        "19 Stk",
+        "950.000 €"
+      ]
+    },
+    {
+      "name": "tabelle-5-massnahmenplan.present",
+      "ok": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "tabelle-5-massnahmenplan.columns",
+      "ok": true,
+      "expected": 16,
+      "actual": 16
+    },
+    {
+      "name": "tabelle-5-massnahmenplan.rows",
+      "ok": true,
+      "expected": 13,
+      "actual": 13
+    },
+    {
+      "name": "tabelle-5-massnahmenplan.header",
+      "ok": true,
+      "expected": [
+        "Nr.",
+        "Maßnahme",
+        "Betroffener Netzknoten HS/MS",
+        "Projektbeschreibung",
+        "Projektkategorie",
+        "Betriebsmittel",
+        "Länge des Leitungsabschnitts [km]",
+        "Änderung der Übertragungskapazität [+/- MVA]",
+        "netztechnische Begründung",
+        "Bestehender Engpass?",
+        "Prognostizierter Engpass?",
+        "voraussichtlicher Baubeginn [MM/JJJJ]",
+        "Voraussichtliche Inbetriebnahme [MM/JJJJ]",
+        "Kosten (geschätzt) in Euro",
+        "Projektstatus",
+        "Genehmigungsverfahren"
+      ],
+      "actual": [
+        "Nr.",
+        "Maßnahme",
+        "Betroffener Netzknoten HS/MS",
+        "Projektbeschreibung",
+        "Projektkategorie",
+        "Betriebsmittel",
+        "Länge des Leitungsabschnitts [km]",
+        "Änderung der Übertragungskapazität [+/- MVA]",
+        "netztechnische Begründung",
+        "Bestehender Engpass?",
+        "Prognostizierter Engpass?",
+        "voraussichtlicher Baubeginn [MM/JJJJ]",
+        "Voraussichtliche Inbetriebnahme [MM/JJJJ]",
+        "Kosten (geschätzt) in Euro",
+        "Projektstatus",
+        "Genehmigungsverfahren"
+      ]
+    },
+    {
+      "name": "tabelle-5-massnahmenplan.row[0]",
+      "ok": true,
+      "expected": [
+        "1",
+        "Wuppertaler Straße 169-195",
+        "UA07 - Flachsberg",
+        "Erneuerung/Verstärkung eines MS-Kabels",
+        "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+        "MS-Kabel",
+        "0,78",
+        "",
+        "Kein Zubau (reiner Ersatz, N-1 Sicherheit, Sonstiges)",
+        "Nein",
+        "Nein",
+        "03/2024",
+        "08/2024",
+        "-",
+        "im Bau",
+        "abgeschlossen"
+      ],
+      "actual": [
+        "1",
+        "Wuppertaler Straße 169-195",
+        "UA07 - Flachsberg",
+        "Erneuerung/Verstärkung eines MS-Kabels",
+        "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+        "MS-Kabel",
+        "0,78",
+        "",
+        "Kein Zubau (reiner Ersatz, N-1 Sicherheit, Sonstiges)",
+        "Nein",
+        "Nein",
+        "03/2024",
+        "08/2024",
+        "-",
+        "im Bau",
+        "abgeschlossen"
+      ]
+    },
+    {
+      "name": "tabelle-5-massnahmenplan.row[1]",
+      "ok": true,
+      "expected": [
+        "2",
+        "Langhansstraße I + II",
+        "UA05 - Löhdorf",
+        "Verstärkung eines MS-Kabels im Zuge einer Ladeparkanfrage",
+        "Netzoptimierung und -verstärkung",
+        "MS-Kabel",
+        "2",
+        "",
+        "Zubau Verbraucher",
+        "Nein",
+        "Nein",
+        "03/2025",
+        "09/2025",
+        "-",
+        "konkrete Planung",
+        "bereits eingeleitet"
+      ],
+      "actual": [
+        "2",
+        "Langhansstraße I + II",
+        "UA05 - Löhdorf",
+        "Verstärkung eines MS-Kabels im Zuge einer Ladeparkanfrage",
+        "Netzoptimierung und -verstärkung",
+        "MS-Kabel",
+        "2",
+        "",
+        "Zubau Verbraucher",
+        "Nein",
+        "Nein",
+        "03/2025",
+        "09/2025",
+        "-",
+        "konkrete Planung",
+        "bereits eingeleitet"
+      ]
+    },
+    {
+      "name": "tabelle-5-massnahmenplan.row[4]",
+      "ok": true,
+      "expected": [
+        "5",
+        "Kotter Straße",
+        "UA02 - Solingen",
+        "Erneuerung/Verstärkung eines MS-Kabels",
+        "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+        "MS-Kabel",
+        "0,75",
+        "",
+        "Kein Zubau (reiner Ersatz, N-1 Sicherheit, Sonstiges)",
+        "Nein",
+        "Nein",
+        "09/2025",
+        "01/2026",
+        "-",
+        "vorgesehene Maßnahme",
+        "noch nicht eingeleitet"
+      ],
+      "actual": [
+        "5",
+        "Kotter Straße",
+        "UA02 - Solingen",
+        "Erneuerung/Verstärkung eines MS-Kabels",
+        "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+        "MS-Kabel",
+        "0,75",
+        "",
+        "Kein Zubau (reiner Ersatz, N-1 Sicherheit, Sonstiges)",
+        "Nein",
+        "Nein",
+        "09/2025",
+        "01/2026",
+        "-",
+        "vorgesehene Maßnahme",
+        "noch nicht eingeleitet"
+      ]
+    },
+    {
+      "name": "tabelle-5-massnahmenplan.row[7]",
+      "ok": true,
+      "expected": [
+        "8",
+        "Hästen",
+        "UA03 - Halfeshof",
+        "Erneuerung/Verstärkung eines MS-Kabels",
+        "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+        "MS-Kabel",
+        "0,4",
+        "",
+        "Kein Zubau (reiner Ersatz, N-1 Sicherheit, Sonstiges)",
+        "Nein",
+        "Nein",
+        "09/2024",
+        "11/2024",
+        "-",
+        "vorgesehene Maßnahme",
+        "noch nicht eingeleitet"
+      ],
+      "actual": [
+        "8",
+        "Hästen",
+        "UA03 - Halfeshof",
+        "Erneuerung/Verstärkung eines MS-Kabels",
+        "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+        "MS-Kabel",
+        "0,4",
+        "",
+        "Kein Zubau (reiner Ersatz, N-1 Sicherheit, Sonstiges)",
+        "Nein",
+        "Nein",
+        "09/2024",
+        "11/2024",
+        "-",
+        "vorgesehene Maßnahme",
+        "noch nicht eingeleitet"
+      ]
+    },
+    {
+      "name": "tabelle-5-massnahmenplan.row[8]",
+      "ok": true,
+      "expected": [
+        "9",
+        "Sammler engpassbedingte MS-Maßnahmen",
+        "Alle UA",
+        "Erneuerung/Verstärkung von MS-Kabeln",
+        "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+        "MS-Kabel",
+        "39,4",
+        "",
+        "Zubau Verbraucher",
+        "Nein",
+        "Ja, um einem verbrauchsbedingten Engpass vorzubeugen",
+        "01/2025",
+        "12/2028",
+        "8.668.000 €",
+        "vorgesehene Maßnahme",
+        "noch nicht eingeleitet"
+      ],
+      "actual": [
+        "9",
+        "Sammler engpassbedingte MS-Maßnahmen",
+        "Alle UA",
+        "Erneuerung/Verstärkung von MS-Kabeln",
+        "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+        "MS-Kabel",
+        "39,4",
+        "",
+        "Zubau Verbraucher",
+        "Nein",
+        "Ja, um einem verbrauchsbedingten Engpass vorzubeugen",
+        "01/2025",
+        "12/2028",
+        "8.668.000 €",
+        "vorgesehene Maßnahme",
+        "noch nicht eingeleitet"
+      ]
+    },
+    {
+      "name": "tabelle-5-massnahmenplan.row[11]",
+      "ok": true,
+      "expected": [
+        "12",
+        "Sammler assetbedingte ONS-Maßnahmen",
+        "Alle UA",
+        "Erneuerung/Verstärkung von ONS MS/NS",
+        "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+        "ONS MS/NS",
+        "",
+        "0",
+        "Kein Zubau (reiner Ersatz, N-1 Sicherheit, Sonstiges)",
+        "Nein",
+        "Nein",
+        "01/2024",
+        "12/2028",
+        "550.000 €",
+        "vorgesehene Maßnahme",
+        "noch nicht eingeleitet"
+      ],
+      "actual": [
+        "12",
+        "Sammler assetbedingte ONS-Maßnahmen",
+        "Alle UA",
+        "Erneuerung/Verstärkung von ONS MS/NS",
+        "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+        "ONS MS/NS",
+        "",
+        "0",
+        "Kein Zubau (reiner Ersatz, N-1 Sicherheit, Sonstiges)",
+        "Nein",
+        "Nein",
+        "01/2024",
+        "12/2028",
+        "550.000 €",
+        "vorgesehene Maßnahme",
+        "noch nicht eingeleitet"
+      ]
+    },
+    {
+      "name": "tabelle-5-massnahmenplan.row[12]",
+      "ok": true,
+      "expected": [
+        "13",
+        "Sammler NS-Maßnahmen",
+        "Alle UA",
+        "Erneuerung/Verstärkung von NS-Kabeln",
+        "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+        "NS-Kabel",
+        "97,1",
+        "",
+        "Kein Zubau (reiner Ersatz, N-1 Sicherheit, Sonstiges)",
+        "Nein",
+        "Nein",
+        "01/2024",
+        "12/2028",
+        "21.362.000 €",
+        "vorgesehene Maßnahme",
+        "noch nicht eingeleitet"
+      ],
+      "actual": [
+        "13",
+        "Sammler NS-Maßnahmen",
+        "Alle UA",
+        "Erneuerung/Verstärkung von NS-Kabeln",
+        "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+        "NS-Kabel",
+        "97,1",
+        "",
+        "Kein Zubau (reiner Ersatz, N-1 Sicherheit, Sonstiges)",
+        "Nein",
+        "Nein",
+        "01/2024",
+        "12/2028",
+        "21.362.000 €",
+        "vorgesehene Maßnahme",
+        "noch nicht eingeleitet"
+      ]
+    }
+  ],
+  "ok": true,
+  "spec": "pdf-table-codegen/verification@2.0",
+  "extractor_qa": {
+    "ok": true,
+    "findings": []
+  },
+  "inventory_sha256": "ece04abd569d19192a7bae3bf6c895380a70fef71f059f8163bae31245c036e2",
+  "reference_sha256": "a30c00b78670b0e6a15bc0884957cc15a4717f3bc0314d0a7cd76b3247fb2c06",
+  "extractor_sha256": "2b80e1296c81ff0d47595104ab4c2d291b635584d518212c04615f3152cda5a2",
+  "output_hashes": {
+    "abkuerzungsverzeichnis.csv": "7646ce083943c2b2bced446c9684f87e5dfe3bcbe9dd77e3f876b8bdb61cd9ff",
+    "tabelle-1-betriebsmittel-stromnetz.csv": "f1511fbc67ae9731af72a3e37f58c80a1e0fc2a75f1b213f5e82ae18bf58cd20",
+    "tabelle-2-erzeugung-verbrauch.csv": "1b93fc9074c3a3a4bb7b33cc38d7b9edf0f9d8234b204e98647c4a0834113b51",
+    "tabelle-3-engpassbedingte-massnahmen.csv": "0ec7516bf37b45a62f9353552ce1ed73f610ea21a2498385566b67805baa7ee7",
+    "tabelle-4-assetbedingte-massnahmen.csv": "6c54d5f2822cf0c04e88f1e4a73cc2e2788e26f036de0f93c173353268653630",
+    "tabelle-5-massnahmenplan.csv": "eb91ec2f61f08a04b94ea0daeae45bd5adb12cfa3b3170f910f442c01c85a342",
+    "result.json": "b3577df69519cf8074cee6e2d3434cb62faf4422ac65f2d4e0fb1d40e4fc754b"
+  }
+}

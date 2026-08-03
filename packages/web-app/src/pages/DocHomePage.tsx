@@ -6,10 +6,10 @@ const entries = [
     description: "从 reindex/cli@1.0 契约自动生成的命令、参数、约束与示例。",
   },
   {
-    href: "#/doc/api",
+    href: "/docs/api",
     label: "HTTP API Reference",
     title: "服务接口协议",
-    description: "从 reindex-http-v1 OpenAPI 契约渲染的交互式 API 文档。",
+    description: "从 reindex-http-v1 OpenAPI 契约自动生成的可检索 API 参考文档。",
   },
 ];
 

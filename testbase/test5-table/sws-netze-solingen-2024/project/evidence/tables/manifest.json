@@ -1,0 +1,50 @@
+{
+  "spec": "pdf-table-codegen/table-evidence@2.0",
+  "source_sha256": "a9642d5a0051ab5bf992e3c28b447e9710c28ff5265f452ae8e6f966b958baa7",
+  "inventory_sha256": "ece04abd569d19192a7bae3bf6c895380a70fef71f059f8163bae31245c036e2",
+  "dpi": 180,
+  "segments": [
+    {
+      "table_id": "abkuerzungsverzeichnis",
+      "page": 4,
+      "image": "segment-01-page-0004.png",
+      "geometry": "segment-01-page-0004.json"
+    },
+    {
+      "table_id": "tabelle-1-betriebsmittel-stromnetz",
+      "page": 6,
+      "image": "segment-01-page-0006.png",
+      "geometry": "segment-01-page-0006.json"
+    },
+    {
+      "table_id": "tabelle-2-erzeugung-verbrauch",
+      "page": 10,
+      "image": "segment-01-page-0010.png",
+      "geometry": "segment-01-page-0010.json"
+    },
+    {
+      "table_id": "tabelle-3-engpassbedingte-massnahmen",
+      "page": 13,
+      "image": "segment-01-page-0013.png",
+      "geometry": "segment-01-page-0013.json"
+    },
+    {
+      "table_id": "tabelle-4-assetbedingte-massnahmen",
+      "page": 14,
+      "image": "segment-01-page-0014.png",
+      "geometry": "segment-01-page-0014.json"
+    },
+    {
+      "table_id": "tabelle-5-massnahmenplan",
+      "page": 16,
+      "image": "segment-01-page-0016.png",
+      "geometry": "segment-01-page-0016.json"
+    },
+    {
+      "table_id": "tabelle-5-massnahmenplan",
+      "page": 17,
+      "image": "segment-02-page-0017.png",
+      "geometry": "segment-02-page-0017.json"
+    }
+  ]
+}

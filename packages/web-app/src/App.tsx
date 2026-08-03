@@ -4,27 +4,39 @@ import { ExplorePage } from "./pages/ExplorePage";
 import { CliDocPage } from "./pages/CliDocPage";
 import { DocHomePage } from "./pages/DocHomePage";
 import { SearchPage } from "./pages/SearchPage";
+import { normalizeHash, readAppPath } from "./route";
 
 const ApiDocPage = lazy(() =>
   import("./pages/ApiDocPage").then((module) => ({ default: module.ApiDocPage })),
 );
 
-function useHashRoute() {
-  const [hash, setHash] = useState(window.location.hash || "#/explore");
+function useRoute() {
+  const [path, setPath] = useState(readAppPath);
 
   useEffect(() => {
-    if (!window.location.hash) window.location.hash = "/explore";
-    const update = () => setHash(window.location.hash || "#/explore");
+    const update = () => {
+      const normalized = normalizeHash(window.location.hash);
+      if (normalized.startsWith("#/doc/api")) {
+        window.history.replaceState(null, "", "/docs/api");
+      } else if (window.location.pathname === "/" && normalized !== window.location.hash) {
+        window.history.replaceState(null, "", normalized);
+      }
+      setPath(readAppPath());
+    };
+    update();
     window.addEventListener("hashchange", update);
-    return () => window.removeEventListener("hashchange", update);
+    window.addEventListener("popstate", update);
+    return () => {
+      window.removeEventListener("hashchange", update);
+      window.removeEventListener("popstate", update);
+    };
   }, []);
 
-  return hash;
+  return path;
 }
 
 export function App() {
-  const hash = useHashRoute();
-  const path = hash.slice(1).split("?")[0];
+  const path = useRoute();
   const active = path.startsWith("/doc")
     ? "doc"
     : path === "/search"
@@ -34,7 +46,7 @@ export function App() {
   const page = () => {
     if (path === "/search") return <SearchPage />;
     if (path === "/doc/cli") return <CliDocPage />;
-    if (path === "/doc/api") return <ApiDocPage />;
+    if (path === "/docs/api") return <ApiDocPage />;
     if (path.startsWith("/doc")) return <DocHomePage />;
     return <ExplorePage />;
   };

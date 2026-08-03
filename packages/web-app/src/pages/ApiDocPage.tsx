@@ -1,21 +1,32 @@
-import { ApiReferenceReact } from "@scalar/api-reference-react";
-import "@scalar/api-reference-react/style.css";
+import { RedocStandalone } from "redoc";
+import openApiUrl from "../../../server/src/reindex_server/openapi/reindex-http-v1.yaml?url";
+
+const options = {
+  expandResponses: "200,201",
+  hideDownloadButton: false,
+  nativeScrollbars: true,
+  pathInMiddlePanel: true,
+  scrollYOffset: 78,
+  theme: {
+    colors: { primary: { main: "#002e4f" } },
+    sidebar: { backgroundColor: "#f7f9fa", textColor: "#52616c" },
+    typography: {
+      fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif",
+      headings: { fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif" },
+    },
+  },
+};
 
 export function ApiDocPage() {
   return (
     <section className="api-doc-page">
       <div className="doc-subnav">
-        <a href="#/doc">Docs</a><span>/</span><strong>HTTP API</strong>
-        <a className="doc-switch" href="#/doc/cli">查看 CLI 文档</a>
+        <a href="/#/doc">Docs</a><span>/</span><strong>HTTP API</strong>
+        <a className="doc-switch" href="/#/doc/cli">查看 CLI 文档</a>
       </div>
-      <ApiReferenceReact
-        configuration={{
-          url: "/openapi.json",
-          hideClientButton: true,
-          showSidebar: true,
-          theme: "default",
-        }}
-      />
+      <div className="api-doc-redoc">
+        <RedocStandalone options={options} specUrl={openApiUrl} />
+      </div>
     </section>
   );
 }

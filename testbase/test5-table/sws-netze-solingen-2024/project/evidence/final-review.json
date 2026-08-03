@@ -1,0 +1,17 @@
+{
+  "spec": "pdf-table-codegen/final-review@2.0",
+  "role": "main_agent",
+  "verification_sha256": "b827795b9b75292583f7a7370e8d459ad3c510c21a7bd34d219767ab3db544fc",
+  "verdict": "machine_complete",
+  "checklist": {
+    "inventory_conflicts_resolved": true,
+    "all_expected_tables_present": true,
+    "qa_reference_passed": true,
+    "runtime_qa_passed": true,
+    "deterministic_outputs": true,
+    "output_files_complete": true
+  },
+  "unresolved_warnings": [],
+  "summary": "Six logical tables and seven physical segments were independently discovered, reconciled, source-audited, extracted with complete row provenance, verified by deterministic double run, and reviewed against all frozen QA requirements.",
+  "status": "machine_complete_not_human_approved"
+}

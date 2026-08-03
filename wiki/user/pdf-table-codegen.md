@@ -1,94 +1,95 @@
 # 让 Agent 生成 PDF 表格提取器
 
-`pdf-table-codegen` 的产物是项目内可复用的 `extractor.py`，不是一次性的 CSV。
-第一次由 Agent 看 PDF、冻结表格清单并写代码；后续流水线直接运行代码，不再调用 AI。
-该 package 可独立安装，也可在 ReIndex 或其他数据流水线中调用。
+`pdf-table-codegen` 生成项目内可重复运行的 `extractor.py`。AI 只参与一次性的
+表格发现、QA 样本转录和代码编写；后续流水线只运行 Python 代码。
 
-## 安装和提示词
+## 三种 Agent 与代码的职责
+
+- 主 Agent：创建任务、只复核清单冲突、执行最终检查。
+- 执行 Agent：独立寻找表格，冻结后编写提取代码。
+- QA Agent：独立寻找表格，只从原始证据写首尾行等参考值，不看提取代码或输出。
+- 确定性代码：准备缩略图、比较清单、冻结产物、裁剪、双运行验证和失效管理。
+
+这样既保留不同 PDF 的适配性，也避免提取器用自己的结果证明自己正确。
+
+## 七阶段流程
+
+```mermaid
+flowchart TD
+  A["1 主 Agent 创建 job.yaml"] --> B["2 代码准备所有页面与缩略图"]
+  B --> C1["3 执行 Agent 独立找表"]
+  B --> C2["3 QA Agent 独立找表"]
+  C1 --> D["4 代码自动 diff"]
+  C2 --> D
+  D --> E["主 Agent 只复核冲突并冻结 inventory"]
+  E --> F["代码生成表格裁剪和中性几何"]
+  F --> G1["5 执行 Agent 写 extractor.py"]
+  F --> G2["5 QA Agent 写首2行、尾2行、总行数等"]
+  G1 --> H["6 代码运行两次并验证"]
+  G2 --> H
+  H --> I["7 主 Agent 最终检查并标记 machine complete"]
+```
+
+原文档里的表格合并、拆分和误检删除放在第 4 阶段、inventory 冻结之前。
+面向业务的输出合并或过滤写进 `job.yaml`，由 `extractor.py` 实现，不能删掉真实源表。
+
+## 安装与命令
 
 ```bash
 uv tool install ./packages/pdf-table-codegen
-pdf-table-codegen install-skill <project-directory>
+pdf-table-codegen install-skill <workspace>
+
+pdf-table-codegen prepare project/job.yaml
+pdf-table-codegen compare-inventories \
+  project/job.yaml /tmp/inventory-execution.json /tmp/inventory-qa.json
+pdf-table-codegen freeze-inventory project/job.yaml /tmp/reconciliation.json
+pdf-table-codegen inspect project/job.yaml
+pdf-table-codegen freeze-reference project/job.yaml /tmp/reference-qa.json
+pdf-table-codegen verify project/job.yaml
+pdf-table-codegen finalize project/job.yaml /tmp/final-review.json
 ```
 
-给 Agent 的提示词只需描述目标和输入：
+`run` 只能在 QA reference 冻结后执行。`verify` 会运行提取器两次并检查结果完全一致。
+如需修改已冻结的清单或 QA，必须执行 `reopen-inventory` 或 `reopen-reference`；系统会明确
+删除所有失效的下游产物。验证后再次执行 `run` 也会令旧验证和最终检查失效，必须重新执行
+`verify` 与 `finalize`。每条 CLI 输出都包含 `elapsed_seconds`。
 
-```text
-使用 $pdf-table-codegen，为 <PDF路径> 生成可重复运行的表格提取器。
-输出放在 <项目目录>；先准备并检查所有页面证据，冻结表格清单和独立首尾行参考，
-再按每张表的实际版式选择提取策略并写 extractor.py，运行 verify，并报告表数、行列数
-和失败项。不要强制套用固定网格，也不要在运行时调用 AI。
-```
-
-Agent 会先写 `job.yaml`，再执行：
-
-```bash
-pdf-table-codegen prepare <project>/job.yaml
-pdf-table-codegen freeze-inventory <project>/job.yaml /tmp/inventory-draft.json
-pdf-table-codegen inspect <project>/job.yaml
-pdf-table-codegen freeze-reference <project>/job.yaml /tmp/reference-draft.json
-pdf-table-codegen scaffold <project>/job.yaml
-pdf-table-codegen run <project>/job.yaml
-pdf-table-codegen verify <project>/job.yaml
-```
-
-`prepare` 只有在 source SHA、DPI、工具版本和全部证据文件 hash 都一致时才复用缓存。
-`freeze-*` 自动写入并校验 hash、表ID和必需样本；临时 draft 放在项目目录外。
-`inspect` 只处理已经冻结的 bbox，生成逐表裁剪图和中性文字/矢量坐标报告，不决定提取算法。
-`scaffold` 只生成 QA 断言提示，不能用参考值拼装结果。所有命令直接报告执行秒数。
-
-裁剪图用于替代后续重复打开同一整页；只有需要上下文时才重开整页。独立清单审核 Agent
-完成后，可以继续与主 Agent 分表并行制作 reference 草稿，但主 Agent 必须逐个确认合并后的
-表头和样本，不能把并行草稿直接冻结。
-
-## 项目输入和输出
+## 项目结构
 
 ```text
 project/
-├── source.pdf                 # 输入
-├── job.yaml                   # 路径和通用策略
-├── extractor.py               # 该 PDF 的全部版式、schema、规范化和 QA 代码
+├── job.yaml
+├── extractor.py
 ├── evidence/
-│   ├── manifest.json          # 页尺寸、旋转、文本层统计
-│   ├── inventory.frozen.json  # 冻结表格清单
-│   ├── visual-reference.json  # 独立表头、总行列数、首尾行参考
-│   ├── contacts/              # 全页联系图
-│   ├── pages/                 # 页面图
-│   ├── geometry/              # 原生文字与矢量坐标
-│   ├── tables/                # 冻结区域裁剪图和中性几何报告
-│   └── assertion-hints.json   # 仅用于 QA
+│   ├── workflow.json
+│   ├── manifest.json
+│   ├── inventory-diff.json
+│   ├── inventory-reconciliation.json
+│   ├── inventory.frozen.json
+│   ├── visual-reference.json
+│   ├── final-review.json
+│   ├── contacts/ pages/ geometry/
+│   └── tables/
 └── output/
     ├── <table-id>.csv
-    ├── result.json            # 结构化结果和逐行溯源
-    └── verification.json      # 冻结参考验证报告
+    ├── result.json
+    └── verification.json
 ```
 
-没有单独的 `schema.yaml`、`normalize.py` 或 `compatibility.py`。这些文档专用决策集中在
-`extractor.py`，冻结参考保持独立，且不能被提取器读取。
+临时 inventory/reference 草稿必须放在项目外。冻结产物带有来源和上游哈希，QA reference
+不能被提取器读取，也不能用来拼装提取结果。
 
-## 提取策略不是固定模板
+## 灵活提取，而非固定模板
 
-package 固定的是证据、函数接口、溯源和验证，不固定表格算法。Agent 必须逐表判断：规整表
-可以按行带和列边界读取；无边框或可变行高表可以使用锚点与聚类；矢量边框表可以先重建
-单元格；层级表和复杂合并表可以使用专用状态机。一个 `extractor.py` 可以混合多种方法，
-必要时也可以只对文字层失效的冻结区域使用 OCR。
-
-固定网格只是一种可选实现。无论采用什么方法，都必须增加与该方法对应的锚点、关键列、
-跨页边界或坐标漂移断言，并通过独立视觉参考；不能只依赖总行列数判断正确性。
-
-## 流水线调用
+package 只固定工作流、接口、溯源和校验，不固定表格算法。执行 Agent 可以逐表混用行带与
+列边界、锚点聚类、矢量单元格、层级状态机，或仅对文字层失效区域使用 OCR。每种方法都要
+提供对应的锚点、关键列、跨页边界或坐标漂移断言；只匹配行列数不算验证通过。
 
 ```python
 from pdf_table_codegen import ExtractionRequest
 from my_pdf_project.extractor import extract_tables
 
 result = extract_tables(ExtractionRequest(source=input_pdf))
-for table in result.tables:
-    consume(table.headers, table.rows, table.provenance)
 ```
 
-调用边界是 `ExtractionRequest -> ExtractionResult`，因此 NAP、ReIndex、Airflow 或普通 Python
-函数都可以直接接入；CSV 只是默认序列化结果。
-
-仓库中的完整样例位于
-[`testbase/test5-table/bielefelder-netz-2022`](../../testbase/test5-table/bielefelder-netz-2022)。
+运行边界是 `ExtractionRequest -> ExtractionResult`，CSV 只是默认序列化格式。
