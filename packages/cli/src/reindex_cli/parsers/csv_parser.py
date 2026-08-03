@@ -5,8 +5,9 @@ import io
 import re
 
 from reindex_cli.errors import ReIndexError
-from reindex_cli.parsers.common import description_for, initial_body
-from reindex_cli.parsers.profiles import infer_type, read_csv_rows
+from reindex_cli.parsers.common import initial_body
+from reindex_cli.parsers.profiles import read_csv_rows
+from reindex_cli.parsers.table_profile import build_table_profile, table_columns
 from reindex_cli.pipeline.models import DraftNode, SourceItem
 
 
@@ -17,18 +18,13 @@ def parse_csv(item: SourceItem) -> list[DraftNode]:
     writer = csv.writer(output, lineterminator="\n")
     writer.writerows([headers, *data])
     title = item.config.title or _title(item.path.stem)
-    columns = [
-        {
-            "name": name,
-            "type": infer_type([row[index] for row in data]),
-            "description": f"Values for {name}.",
-        }
-        for index, name in enumerate(headers)
-    ]
+    profile = build_table_profile(headers, data)
+    columns = table_columns(profile)
     table = {
         "row_count": len(data),
         "grain": "One row from the source table.",
         "columns": columns,
+        "profile": profile,
         "preview": [dict(zip(headers, row, strict=True)) for row in data[:5]],
     }
     if primary := (item.config.quality or {}).get("primary_key"):
@@ -39,7 +35,10 @@ def parse_csv(item: SourceItem) -> list[DraftNode]:
         item_path=item.relative,
         kind="table",
         title=title,
-        description=item.config.description or description_for(title, "table"),
+        description=item.config.description
+        or f"Table with {len(data)} rows and {len(headers)} columns: "
+        + ", ".join(headers[:6])
+        + ("." if len(headers) <= 6 else ", and additional fields."),
         source_path=source,
         pages=item.config.pages,
         content=output.getvalue().encode(),

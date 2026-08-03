@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from reindex_cli.parsers import parse_item, parser_cache_key
 from reindex_cli.parsers.common import description_for, initial_body
+from reindex_cli.parsers.registry import parse_item, parser_cache_key
 from reindex_cli.pipeline.models import (
     BuildState,
     DraftNode,

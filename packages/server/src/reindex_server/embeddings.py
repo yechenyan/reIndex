@@ -57,8 +57,9 @@ class QwenEmbeddingProvider(EmbeddingProvider):
 
 
 def provider_from_environment() -> EmbeddingProvider:
-    return (
-        QwenEmbeddingProvider()
-        if os.getenv("REINDEX_EMBEDDINGS") == "qwen"
-        else EmbeddingProvider()
-    )
+    value = os.getenv("REINDEX_EMBEDDINGS", "qwen")
+    if value == "qwen":
+        return QwenEmbeddingProvider()
+    if value == "disabled":
+        return EmbeddingProvider()
+    raise ValueError("REINDEX_EMBEDDINGS must be qwen or disabled")

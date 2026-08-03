@@ -44,6 +44,7 @@ class DraftNode:
     table: dict[str, Any] | None = None
     warnings: list[str] = field(default_factory=list)
     assets: list[DraftAsset] = field(default_factory=list)
+    context: dict[str, Any] = field(default_factory=dict)
     parent_key: str | None = None
     order_hint: tuple[Any, ...] = field(default_factory=tuple)
 

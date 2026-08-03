@@ -1,0 +1,1805 @@
+openapi: 3.1.0
+info:
+  title: ReIndex API
+  description: 'ReIndex 1.0 package storage, versioning, retrieval, and search API.
+
+
+    The HTTP v1 contract is backward compatible within the v1 path namespace. The
+
+    three-stage publish flow is start upload, upload missing blobs, then commit.
+
+    '
+  version: 0.2.0
+paths:
+  /health:
+    get:
+      tags:
+      - System
+      summary: Health
+      operationId: health_health_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+        '400':
+          description: Invalid request or cursor.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Collection or resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Collection or model state conflict.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Request schema validation failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /v1/collections:
+    get:
+      tags:
+      - Collections
+      summary: List Collections
+      operationId: list_collections_v1_collections_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectionListResponse'
+        '400':
+          description: Invalid request or cursor.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Collection or resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Collection or model state conflict.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Request schema validation failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /v1/nodes/browse:
+    post:
+      tags:
+      - Collections
+      summary: Browse Nodes
+      operationId: browse_nodes_v1_nodes_browse_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BrowseRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BrowseResponse'
+        '400':
+          description: Invalid request or cursor.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Collection or resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Collection or model state conflict.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Request schema validation failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /v1/push:
+    post:
+      tags:
+      - Versions
+      summary: Push
+      operationId: push_v1_push_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PushRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PushStartResponse'
+        '400':
+          description: Invalid request or cursor.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Collection or resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Collection or model state conflict.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Request schema validation failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /v1/push/blob:
+    post:
+      tags:
+      - Versions
+      summary: Push Blob
+      operationId: push_blob_v1_push_blob_post
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_push_blob_v1_push_blob_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BlobUploadResponse'
+        '400':
+          description: Invalid request or cursor.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Collection or resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Collection or model state conflict.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Request schema validation failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /v1/push/commit:
+    post:
+      tags:
+      - Versions
+      summary: Commit Push
+      operationId: commit_push_v1_push_commit_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommitRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionedPushResponse'
+        '400':
+          description: Invalid request or cursor.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Collection or resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Collection or model state conflict.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Request schema validation failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /v1/fetch:
+    post:
+      tags:
+      - Versions
+      summary: Fetch
+      operationId: fetch_v1_fetch_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FetchRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FetchResponse'
+        '400':
+          description: Invalid request or cursor.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Collection or resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Collection or model state conflict.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Request schema validation failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /v1/history:
+    post:
+      tags:
+      - Versions
+      summary: History
+      operationId: history_v1_history_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HistoryRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HistoryResponse'
+        '400':
+          description: Invalid request or cursor.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Collection or resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Collection or model state conflict.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Request schema validation failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /v1/pull:
+    post:
+      tags:
+      - Versions
+      summary: Pull
+      operationId: pull_v1_pull_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VersionedCollectionRequest'
+        required: true
+      responses:
+        '200':
+          description: Node-only ZIP for the selected Collection version.
+          headers:
+            Content-Disposition:
+              schema:
+                type: string
+            Content-Length:
+              schema:
+                type: string
+            X-ReIndex-Package-Hash:
+              schema:
+                type: string
+            X-ReIndex-Version-ID:
+              schema:
+                type: string
+                format: uuid
+          content:
+            application/zip:
+              schema:
+                type: string
+                format: binary
+        '400':
+          description: Invalid request or cursor.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Collection or resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Collection or model state conflict.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Request schema validation failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /v1/get:
+    post:
+      tags:
+      - Resources
+      summary: Get Resource
+      operationId: get_resource_v1_get_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetRequest'
+        required: true
+      responses:
+        '200':
+          description: Exact resource bytes. Content-Type is the stored resource media type.
+          headers:
+            Content-Disposition:
+              schema:
+                type: string
+            Content-Length:
+              schema:
+                type: string
+            ETag:
+              schema:
+                type: string
+            X-ReIndex-SHA256:
+              schema:
+                type: string
+                pattern: ^[0-9a-f]{64}$
+          content:
+            '*/*':
+              schema:
+                type: string
+                format: binary
+        '400':
+          description: Invalid request or cursor.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Collection or resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Collection or model state conflict.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Request schema validation failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /v1/search:
+    post:
+      tags:
+      - Search
+      summary: Search
+      operationId: search_v1_search_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchApiResponse'
+        '400':
+          description: Invalid request or cursor.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Collection or resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Collection or model state conflict.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Request schema validation failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /v1/grep:
+    post:
+      tags:
+      - Search
+      summary: Grep
+      operationId: grep_v1_grep_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GrepRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchApiResponse'
+        '400':
+          description: Invalid request or cursor.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Collection or resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Collection or model state conflict.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Request schema validation failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /v1/tables/query:
+    post:
+      tags:
+      - Search
+      summary: Query Table
+      operationId: query_table_v1_tables_query_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TableQueryRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TableQueryResponse'
+        '400':
+          description: Invalid request or cursor.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Collection or resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Collection or model state conflict.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Request schema validation failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    AppliedReranking:
+      properties:
+        profile:
+          type: string
+          title: Profile
+        candidate_limit:
+          type: integer
+          minimum: 1.0
+          title: Candidate Limit
+        reranked_count:
+          type: integer
+          minimum: 0.0
+          title: Reranked Count
+        latency_ms:
+          type: number
+          minimum: 0.0
+          title: Latency Ms
+        fusion:
+          type: string
+          const: weighted_rrf
+          title: Fusion
+        weight:
+          type: number
+          minimum: 0.0
+          title: Weight
+        rrf_k:
+          type: integer
+          minimum: 1.0
+          title: Rrf K
+      type: object
+      required:
+      - profile
+      - candidate_limit
+      - reranked_count
+      - latency_ms
+      - fusion
+      - weight
+      - rrf_k
+      title: AppliedReranking
+    AppliedSearch:
+      properties:
+        candidate_limit:
+          type: integer
+          title: Candidate Limit
+        filters:
+          $ref: '#/components/schemas/SearchFilters'
+        ranking:
+          $ref: '#/components/schemas/SearchRanking'
+      type: object
+      required:
+      - candidate_limit
+      - filters
+      - ranking
+      title: AppliedSearch
+    BlobUploadResponse:
+      properties:
+        status:
+          type: string
+          enum:
+          - stored
+          - reused
+          title: Status
+        sha256:
+          type: string
+          title: Sha256
+        byte_size:
+          type: integer
+          title: Byte Size
+      type: object
+      required:
+      - status
+      - sha256
+      - byte_size
+      title: BlobUploadResponse
+    Body_push_blob_v1_push_blob_post:
+      properties:
+        upload_id:
+          type: string
+          title: Upload Id
+        sha256:
+          type: string
+          title: Sha256
+        blob:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Blob
+      type: object
+      required:
+      - upload_id
+      - sha256
+      - blob
+      title: Body_push_blob_v1_push_blob_post
+    BrowseRequest:
+      properties:
+        collection:
+          type: string
+          maxLength: 80
+          minLength: 1
+          title: Collection
+          description: User-facing Collection name.
+        parent_node_id:
+          anyOf:
+          - type: string
+            format: uuid
+          - type: 'null'
+          title: Parent Node Id
+          description: Parent Node UUID; null selects the full Collection.
+        recursive:
+          type: boolean
+          title: Recursive
+          description: Return all descendants instead of only direct children.
+          default: false
+      additionalProperties: false
+      type: object
+      required:
+      - collection
+      title: BrowseRequest
+    BrowseResponse:
+      properties:
+        nodes:
+          items:
+            $ref: '#/components/schemas/NodeSummary'
+          type: array
+          title: Nodes
+      type: object
+      required:
+      - nodes
+      title: BrowseResponse
+    CollectionListResponse:
+      properties:
+        collections:
+          items:
+            $ref: '#/components/schemas/CollectionSummary'
+          type: array
+          title: Collections
+      type: object
+      required:
+      - collections
+      title: CollectionListResponse
+    CollectionSummary:
+      properties:
+        name:
+          type: string
+          title: Name
+        collection_id:
+          type: string
+          title: Collection Id
+        status:
+          type: string
+          enum:
+          - draft
+          - queued
+          - validating
+          - indexing
+          - ready
+          - failed
+          title: Status
+        package_hash:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Package Hash
+        active_version_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Active Version Id
+        progress:
+          additionalProperties: true
+          type: object
+          title: Progress
+      type: object
+      required:
+      - name
+      - collection_id
+      - status
+      - package_hash
+      - active_version_id
+      - progress
+      title: CollectionSummary
+    CommitRequest:
+      properties:
+        upload_id:
+          type: string
+          format: uuid
+          title: Upload Id
+      additionalProperties: false
+      type: object
+      required:
+      - upload_id
+      title: CommitRequest
+    ComponentScores:
+      properties:
+        bm25:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Bm25
+        semantic:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Semantic
+        rerank:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Rerank
+        rerank_bonus:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Rerank Bonus
+      type: object
+      title: ComponentScores
+    ErrorDetail:
+      properties:
+        code:
+          type: string
+          title: Code
+        message:
+          type: string
+          title: Message
+        request_id:
+          type: string
+          title: Request Id
+        details:
+          anyOf:
+          - items:
+              additionalProperties: true
+              type: object
+            type: array
+          - type: 'null'
+          title: Details
+      type: object
+      required:
+      - code
+      - message
+      - request_id
+      title: ErrorDetail
+    ErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorDetail'
+      type: object
+      required:
+      - error
+      title: ErrorResponse
+    Evidence:
+      properties:
+        node_id:
+          type: string
+          title: Node Id
+        path:
+          type: string
+          title: Path
+        parent_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Parent Id
+        kind:
+          type: string
+          enum:
+          - group
+          - text
+          - table
+          - image
+          - file
+          title: Kind
+        title:
+          type: string
+          title: Title
+        description:
+          type: string
+          title: Description
+        unit_type:
+          type: string
+          enum:
+          - card
+          - content_text
+          - table_row
+          title: Unit Type
+        resource_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Resource Id
+        locator:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Locator
+        excerpt:
+          type: string
+          title: Excerpt
+        row:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Row
+        line_start:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Line Start
+        line_end:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Line End
+        chunk_ordinal:
+          type: integer
+          title: Chunk Ordinal
+      type: object
+      required:
+      - node_id
+      - path
+      - parent_id
+      - kind
+      - title
+      - description
+      - unit_type
+      - excerpt
+      - chunk_ordinal
+      title: Evidence
+    FetchRequest:
+      properties:
+        collection:
+          type: string
+          maxLength: 80
+          minLength: 1
+          title: Collection
+          description: User-facing Collection name.
+        version_id:
+          anyOf:
+          - type: string
+            format: uuid
+          - type: 'null'
+          title: Version Id
+      additionalProperties: false
+      type: object
+      required:
+      - collection
+      title: FetchRequest
+    FetchResponse:
+      properties:
+        name:
+          type: string
+          title: Name
+        collection_id:
+          type: string
+          title: Collection Id
+        version:
+          additionalProperties: true
+          type: object
+          title: Version
+        manifest:
+          additionalProperties: true
+          type: object
+          title: Manifest
+      type: object
+      required:
+      - name
+      - collection_id
+      - version
+      - manifest
+      title: FetchResponse
+    GetRequest:
+      properties:
+        collection:
+          type: string
+          maxLength: 80
+          minLength: 1
+          title: Collection
+          description: User-facing Collection name.
+        version_id:
+          anyOf:
+          - type: string
+            format: uuid
+          - type: 'null'
+          title: Version Id
+        node_id:
+          anyOf:
+          - type: string
+            format: uuid
+          - type: 'null'
+          title: Node Id
+        node_path:
+          anyOf:
+          - type: string
+            maxLength: 1000
+            minLength: 1
+          - type: 'null'
+          title: Node Path
+        raw_uri:
+          anyOf:
+          - type: string
+            maxLength: 1006
+            minLength: 7
+          - type: 'null'
+          title: Raw Uri
+        target:
+          type: string
+          enum:
+          - card
+          - source
+          - content
+          - asset
+          title: Target
+          default: content
+        asset_ordinal:
+          anyOf:
+          - type: integer
+            maximum: 999.0
+            minimum: 1.0
+          - type: 'null'
+          title: Asset Ordinal
+      additionalProperties: false
+      type: object
+      required:
+      - collection
+      title: GetRequest
+    GrepRequest:
+      properties:
+        collection:
+          type: string
+          maxLength: 80
+          minLength: 1
+          title: Collection
+          description: User-facing Collection name.
+        pattern:
+          type: string
+          maxLength: 256
+          minLength: 1
+          title: Pattern
+          description: Literal text or PostgreSQL regex.
+        regex:
+          type: boolean
+          title: Regex
+          description: Interpret pattern as a regex.
+          default: false
+        case_sensitive:
+          type: boolean
+          title: Case Sensitive
+          description: Use case-sensitive matching.
+          default: false
+        limit:
+          type: integer
+          maximum: 50.0
+          minimum: 1.0
+          title: Limit
+          description: Maximum grep hits.
+          default: 10
+      additionalProperties: false
+      type: object
+      required:
+      - collection
+      - pattern
+      title: GrepRequest
+    HealthResponse:
+      properties:
+        status:
+          type: string
+          const: ok
+          title: Status
+        version:
+          type: string
+          title: Version
+      type: object
+      required:
+      - status
+      - version
+      title: HealthResponse
+    HistoryRequest:
+      properties:
+        collection:
+          type: string
+          maxLength: 80
+          minLength: 1
+          title: Collection
+          description: User-facing Collection name.
+        limit:
+          type: integer
+          maximum: 100.0
+          minimum: 1.0
+          title: Limit
+          default: 20
+        cursor:
+          anyOf:
+          - type: string
+            maxLength: 100
+          - type: 'null'
+          title: Cursor
+      additionalProperties: false
+      type: object
+      required:
+      - collection
+      title: HistoryRequest
+    HistoryResponse:
+      properties:
+        name:
+          type: string
+          title: Name
+        collection_id:
+          type: string
+          title: Collection Id
+        versions:
+          items:
+            additionalProperties: true
+            type: object
+          type: array
+          title: Versions
+        next_cursor:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Cursor
+      type: object
+      required:
+      - name
+      - collection_id
+      - versions
+      title: HistoryResponse
+    NodeSummary:
+      properties:
+        id:
+          type: string
+          title: Id
+        path:
+          type: string
+          title: Path
+        parent_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Parent Id
+        order:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Order
+        depth:
+          type: integer
+          title: Depth
+        kind:
+          type: string
+          enum:
+          - group
+          - text
+          - table
+          - image
+          - file
+          title: Kind
+        title:
+          type: string
+          title: Title
+        description:
+          type: string
+          title: Description
+      type: object
+      required:
+      - id
+      - path
+      - parent_id
+      - order
+      - depth
+      - kind
+      - title
+      - description
+      title: NodeSummary
+    PushRequest:
+      properties:
+        name:
+          type: string
+          maxLength: 80
+          minLength: 1
+          title: Name
+        collection_id:
+          type: string
+          format: uuid
+          title: Collection Id
+        base_version_id:
+          anyOf:
+          - type: string
+            format: uuid
+          - type: 'null'
+          title: Base Version Id
+        message:
+          type: string
+          maxLength: 1000
+          minLength: 1
+          title: Message
+          default: Publish Collection
+        operation:
+          type: string
+          enum:
+          - publish
+          - rollback
+          title: Operation
+          default: publish
+        source_version_id:
+          anyOf:
+          - type: string
+            format: uuid
+          - type: 'null'
+          title: Source Version Id
+        dry_run:
+          type: boolean
+          title: Dry Run
+          default: false
+        manifest:
+          $ref: '#/components/schemas/TransportManifest'
+      additionalProperties: false
+      type: object
+      required:
+      - name
+      - collection_id
+      - manifest
+      title: PushRequest
+    PushStartResponse:
+      properties:
+        status:
+          type: string
+          enum:
+          - upload
+          - ready
+          - planned
+          title: Status
+        upload_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Upload Id
+        expires_at:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Expires At
+        head_version_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Head Version Id
+        package_hash:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Package Hash
+        missing_blobs:
+          items:
+            additionalProperties: true
+            type: object
+          type: array
+          title: Missing Blobs
+        no_op:
+          type: boolean
+          title: No Op
+      type: object
+      required:
+      - status
+      - missing_blobs
+      - no_op
+      title: PushStartResponse
+    SearchApiResponse:
+      properties:
+        executed_mode:
+          type: string
+          enum:
+          - lexical
+          - semantic
+          - hybrid
+          - grep
+          title: Executed Mode
+        embedding_profile:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Embedding Profile
+        candidate_count:
+          type: integer
+          minimum: 0.0
+          title: Candidate Count
+        next_cursor:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Cursor
+        results:
+          items:
+            $ref: '#/components/schemas/SearchResult'
+          type: array
+          title: Results
+        applied:
+          anyOf:
+          - $ref: '#/components/schemas/AppliedSearch'
+          - type: 'null'
+        reranking:
+          anyOf:
+          - $ref: '#/components/schemas/AppliedReranking'
+          - type: 'null'
+      type: object
+      required:
+      - executed_mode
+      - embedding_profile
+      - candidate_count
+      - next_cursor
+      - results
+      title: SearchApiResponse
+    SearchFilters:
+      properties:
+        node_ids:
+          items:
+            type: string
+            format: uuid
+          type: array
+          maxItems: 100
+          title: Node Ids
+          description: Restrict retrieval to these Node UUIDs.
+        kinds:
+          items:
+            type: string
+            enum:
+            - group
+            - text
+            - table
+            - image
+            - file
+          type: array
+          maxItems: 5
+          title: Kinds
+          description: Restrict retrieval to these Node kinds.
+        path_prefix:
+          anyOf:
+          - type: string
+            maxLength: 500
+            minLength: 1
+          - type: 'null'
+          title: Path Prefix
+          description: Restrict retrieval to Node paths with this prefix.
+        subtree_node_id:
+          anyOf:
+          - type: string
+            format: uuid
+          - type: 'null'
+          title: Subtree Node Id
+          description: Restrict retrieval to this Node subtree.
+      additionalProperties: false
+      type: object
+      title: SearchFilters
+    SearchRanking:
+      properties:
+        lexical_weight:
+          type: number
+          maximum: 10.0
+          minimum: 0.0
+          title: Lexical Weight
+          description: BM25 rank weight in hybrid RRF.
+          default: 0.5
+        semantic_weight:
+          type: number
+          maximum: 10.0
+          minimum: 0.0
+          title: Semantic Weight
+          description: Vector rank weight in hybrid RRF.
+          default: 1.0
+        rrf_k:
+          type: integer
+          maximum: 200.0
+          minimum: 1.0
+          title: Rrf K
+          description: RRF rank constant; lower values emphasize top ranks.
+          default: 60
+        max_per_node:
+          type: integer
+          maximum: 10.0
+          minimum: 1.0
+          title: Max Per Node
+          description: Maximum diversified chunks returned from one Node.
+          default: 3
+        semantic_threshold:
+          anyOf:
+          - type: number
+            maximum: 1.0
+            minimum: -1.0
+          - type: 'null'
+          title: Semantic Threshold
+          description: Optional minimum cosine similarity for semantic candidates.
+      additionalProperties: false
+      type: object
+      title: SearchRanking
+    SearchRequest:
+      properties:
+        collection:
+          type: string
+          maxLength: 80
+          minLength: 1
+          title: Collection
+          description: User-facing Collection name.
+        query:
+          type: string
+          maxLength: 1000
+          minLength: 1
+          title: Query
+          description: Natural-language search query.
+        mode:
+          type: string
+          enum:
+          - lexical
+          - semantic
+          - hybrid
+          title: Mode
+          description: Retrieval channels to execute.
+          default: hybrid
+        limit:
+          type: integer
+          maximum: 50.0
+          minimum: 1.0
+          title: Limit
+          description: Maximum results in this page.
+          default: 10
+        candidate_limit:
+          type: integer
+          maximum: 500.0
+          minimum: 10.0
+          title: Candidate Limit
+          description: Candidates retrieved per active channel before fusion.
+          default: 100
+        cursor:
+          anyOf:
+          - type: string
+            maxLength: 2048
+            minLength: 1
+          - type: 'null'
+          title: Cursor
+          description: Opaque next_cursor returned by the previous identical search.
+        filters:
+          $ref: '#/components/schemas/SearchFilters'
+        ranking:
+          $ref: '#/components/schemas/SearchRanking'
+      additionalProperties: false
+      type: object
+      required:
+      - collection
+      - query
+      title: SearchRequest
+      examples:
+      - candidate_limit: 100
+        collection: energy-reports
+        filters:
+          kinds:
+          - text
+          - table
+        limit: 10
+        mode: hybrid
+        query: 未来十年光伏装机容量会增长到多少？
+        ranking:
+          lexical_weight: 0.5
+          max_per_node: 3
+          rrf_k: 60
+          semantic_weight: 1.0
+    SearchResult:
+      properties:
+        rank:
+          type: integer
+          minimum: 1.0
+          title: Rank
+        score:
+          type: number
+          title: Score
+        channels:
+          items:
+            type: string
+            enum:
+            - lexical
+            - semantic
+            - grep
+          type: array
+          title: Channels
+        ranks:
+          additionalProperties:
+            type: integer
+          type: object
+          title: Ranks
+        scores:
+          $ref: '#/components/schemas/ComponentScores'
+        evidence:
+          $ref: '#/components/schemas/Evidence'
+        get:
+          additionalProperties: true
+          type: object
+          title: Get
+      type: object
+      required:
+      - rank
+      - score
+      - channels
+      - ranks
+      - scores
+      - evidence
+      - get
+      title: SearchResult
+    TableQueryRequest:
+      properties:
+        collection:
+          type: string
+          maxLength: 80
+          minLength: 1
+          title: Collection
+          description: User-facing Collection name.
+        node_id:
+          type: string
+          format: uuid
+          title: Node Id
+          description: Node UUID in the current Collection state.
+        sql:
+          type: string
+          maxLength: 10000
+          minLength: 1
+          title: Sql
+        params:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+            - type: number
+            - type: boolean
+            - type: 'null'
+          type: array
+          title: Params
+      additionalProperties: false
+      type: object
+      required:
+      - collection
+      - node_id
+      - sql
+      title: TableQueryRequest
+    TableQueryResponse:
+      properties:
+        columns:
+          items:
+            type: string
+          type: array
+          title: Columns
+        rows:
+          items:
+            additionalProperties: true
+            type: object
+          type: array
+          title: Rows
+        truncated:
+          type: boolean
+          title: Truncated
+      type: object
+      required:
+      - columns
+      - rows
+      - truncated
+      title: TableQueryResponse
+    TransportFile:
+      properties:
+        namespace:
+          type: string
+          enum:
+          - raw
+          - package
+          title: Namespace
+        logical_path:
+          type: string
+          maxLength: 2000
+          minLength: 1
+          title: Logical Path
+        sha256:
+          type: string
+          pattern: ^[0-9a-f]{64}$
+          title: Sha256
+        byte_size:
+          type: integer
+          minimum: 0.0
+          title: Byte Size
+        media_type:
+          type: string
+          maxLength: 255
+          minLength: 1
+          title: Media Type
+      additionalProperties: false
+      type: object
+      required:
+      - namespace
+      - logical_path
+      - sha256
+      - byte_size
+      - media_type
+      title: TransportFile
+    TransportManifest:
+      properties:
+        spec:
+          type: string
+          const: reindex/transport@1.0
+          title: Spec
+        package_root:
+          type: string
+          maxLength: 255
+          minLength: 1
+          title: Package Root
+        files:
+          items:
+            $ref: '#/components/schemas/TransportFile'
+          type: array
+          maxItems: 100000
+          minItems: 1
+          title: Files
+      additionalProperties: false
+      type: object
+      required:
+      - spec
+      - package_root
+      - files
+      title: TransportManifest
+    VersionedCollectionRequest:
+      properties:
+        collection:
+          type: string
+          maxLength: 80
+          minLength: 1
+          title: Collection
+          description: User-facing Collection name.
+        version_id:
+          anyOf:
+          - type: string
+            format: uuid
+          - type: 'null'
+          title: Version Id
+      additionalProperties: false
+      type: object
+      required:
+      - collection
+      title: VersionedCollectionRequest
+    VersionedPushResponse:
+      properties:
+        status:
+          type: string
+          const: ready
+          title: Status
+        name:
+          type: string
+          title: Name
+        collection_id:
+          type: string
+          title: Collection Id
+        package_hash:
+          type: string
+          title: Package Hash
+        nodes:
+          type: integer
+          title: Nodes
+        sources:
+          type: integer
+          title: Sources
+        resources:
+          type: integer
+          title: Resources
+        search_units:
+          type: integer
+          title: Search Units
+        embedding_profile:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Embedding Profile
+        version_id:
+          type: string
+          title: Version Id
+        parent_version_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Parent Version Id
+        operation:
+          type: string
+          enum:
+          - publish
+          - rollback
+          title: Operation
+        source_version_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Source Version Id
+        uploaded_blobs:
+          type: integer
+          title: Uploaded Blobs
+        reused_blobs:
+          type: integer
+          title: Reused Blobs
+        embedded_units:
+          type: integer
+          title: Embedded Units
+        reused_embeddings:
+          type: integer
+          title: Reused Embeddings
+        no_op:
+          type: boolean
+          title: No Op
+          default: false
+      type: object
+      required:
+      - status
+      - name
+      - collection_id
+      - package_hash
+      - nodes
+      - sources
+      - resources
+      - search_units
+      - embedding_profile
+      - version_id
+      - operation
+      - uploaded_blobs
+      - reused_blobs
+      - embedded_units
+      - reused_embeddings
+      title: VersionedPushResponse
+tags:
+- name: System
+  description: Service health and runtime metadata.
+- name: Collections
+  description: Collection discovery and Node browsing.
+- name: Versions
+  description: Version upload, commit, history, and download.
+- name: Resources
+  description: Exact resource retrieval.
+- name: Search
+  description: Search, grep, and table queries.

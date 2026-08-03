@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-import io
-import zipfile
 from pathlib import Path
 from typing import Protocol
 
@@ -17,10 +15,10 @@ from reindex_server.domain import (
 from reindex_server.embeddings import EmbeddingProvider
 from reindex_server.pagination import paginate_hits
 from reindex_server.publication import PublicationManager
-from reindex_server.push_protocol import load_snapshot_from_manifest
 from reindex_server.reranking import Reranker
 from reindex_server.search_fusion import fuse_reranking
-from reindex_server.storage import ObjectStore, object_key
+from reindex_server.service_downloads import ServiceDownloadMixin
+from reindex_server.storage import ObjectStore
 
 
 class SearchBackend(Protocol):
@@ -40,7 +38,7 @@ class SearchBackend(Protocol):
     ) -> list[SearchHit]: ...
 
 
-class ReindexService:
+class ReindexService(ServiceDownloadMixin):
     def __init__(
         self,
         catalog,
@@ -63,6 +61,9 @@ class ReindexService:
     def resolve_collection(self, name: str) -> Collection:
         return self.catalog.get_by_name(name)
 
+    def list_collections(self) -> list[Collection]:
+        return self.catalog.list_collections()
+
     def start_push(self, request) -> dict:
         return self.publications.start(request)
 
@@ -77,52 +78,6 @@ class ReindexService:
 
     def history(self, name: str, limit: int, cursor: str | None) -> dict:
         return self.publications.history(name, limit, cursor)
-
-    def pull(
-        self, name: str, version_id: str | None = None
-    ) -> tuple[bytes, Collection, str, str]:
-        collection = self.resolve_collection(name)
-        if version_id:
-            fetched = self.fetch_version(name, version_id)
-            output = io.BytesIO()
-            with zipfile.ZipFile(
-                output, "w", compression=zipfile.ZIP_DEFLATED
-            ) as bundle:
-                for item in fetched["manifest"]["files"]:
-                    if item["namespace"] != "package" or not item[
-                        "logical_path"
-                    ].endswith(".node.md"):
-                        continue
-                    with self.store.open(object_key(item["sha256"])) as stream:
-                        bundle.writestr(item["logical_path"], stream.read())
-            return (
-                output.getvalue(),
-                collection,
-                fetched["version"]["version_id"],
-                fetched["version"]["package_hash"],
-            )
-        nodes = self.browse(collection.id, None, recursive=True)
-        output = io.BytesIO()
-        with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as bundle:
-            for summary in sorted(nodes, key=lambda value: value.path):
-                node = self.get_node(collection.id, summary.id)
-                card = node.link("card")
-                if card is None:
-                    raise KeyError(f"Node has no card resource: {node.path}")
-                with self.store.open(card.resource.object_key) as stream:
-                    bundle.writestr(node.path, stream.read())
-        return (
-            output.getvalue(),
-            collection,
-            collection.active_version_id or "",
-            collection.package_hash or "",
-        )
-
-    def version_snapshot(self, name: str, version_id: str):
-        fetched = self.fetch_version(name, version_id)
-        return load_snapshot_from_manifest(
-            fetched["manifest"], fetched["collection_id"], self.store
-        )
 
     def get_node_by_path(self, collection_id: str, path: str) -> Node:
         return self.catalog.get_node_by_path(collection_id, path)

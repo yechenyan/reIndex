@@ -1,0 +1,143 @@
+{
+  "cache_hits": 4,
+  "changes": {
+    "added": [],
+    "changed": [],
+    "removed": []
+  },
+  "collection_id": "76abf08f-83b0-4406-be38-cf3a9bb4bb80",
+  "item_hashes": {
+    "00005--aggregierte-10-jahresplanung-untere-netzebenen.csv": "277478aeacb22bedd13facd01f40194de136a1dfba3639c24e61e81a286d59be",
+    "00006--massnahmenplan-aller-spannungsebenen.csv": "f7549ec86d3a4cf2fef64173bb85c85adcbfa348d349163d323e145e35cf2db5",
+    "2022_07_28_netzausbauplan_bielefelder_netz_gmbh_2022_inkl_anhang_pdf.pdf": "3dc36a9917ac29b387c8fcc6e1a856f26e4fc0660d4e847a5070ee7dca0af497",
+    "costs_2020.csv": "44275688aa97dbc5f9f675ed07dfa3708f84651b74cc036c2eb28fe5aaf19532"
+  },
+  "item_paths": [
+    "00005--aggregierte-10-jahresplanung-untere-netzebenen.csv",
+    "00006--massnahmenplan-aller-spannungsebenen.csv",
+    "2022_07_28_netzausbauplan_bielefelder_netz_gmbh_2022_inkl_anhang_pdf.pdf",
+    "costs_2020.csv"
+  ],
+  "manifest_sha256": "fa1f8678fcd9b8491d36e0112d4b88cbb1c16cad62a6b71cd74ab71e60a43a72",
+  "node_count": 12,
+  "nodes": {
+    "415865df-0799-4661-9799-00c85ee75fe3": {
+      "card_path": "netzausbauplan-nach-14d-enwg/00003--image-on-page-2.node.md",
+      "curated": false,
+      "generated_body_sha256": "f79ead222a5985818ccc94c1cef04e3c5e61f3986ca569b6ba26064dd7bdfd1a",
+      "logical_key": "2022_07_28_netzausbauplan_bielefelder_netz_gmbh_2022_inkl_anhang_pdf.pdf#image:2:3",
+      "machine_sha256": "227c206c0d2094e9c93c4ce8a3c6c6671afa24eeddf4678bff3a0951ac675050",
+      "published_body_sha256": "f79ead222a5985818ccc94c1cef04e3c5e61f3986ca569b6ba26064dd7bdfd1a",
+      "source_sha256": "3dc36a9917ac29b387c8fcc6e1a856f26e4fc0660d4e847a5070ee7dca0af497"
+    },
+    "465d3a58-c8dd-462d-8543-39249969dbf7": {
+      "card_path": "netzausbauplan-nach-14d-enwg/00008--aggregierte-10-jahresplanung-der-unteren-netzebenen.node.md",
+      "curated": false,
+      "generated_body_sha256": "5f23fbee30bf6d54a4f349b666472345610fd9c03ca59e0b3ad56801c3ffc0cb",
+      "logical_key": "00005--aggregierte-10-jahresplanung-untere-netzebenen.csv",
+      "machine_sha256": "b69a57abb3e447b7141b443e0ac179e568fd58e47b0ca91d57fb0ba696300757",
+      "published_body_sha256": "5f23fbee30bf6d54a4f349b666472345610fd9c03ca59e0b3ad56801c3ffc0cb",
+      "source_sha256": "3dc36a9917ac29b387c8fcc6e1a856f26e4fc0660d4e847a5070ee7dca0af497"
+    },
+    "4dbe73ab-d893-4afd-a64e-0783c4014345": {
+      "card_path": "netzausbauplan-nach-14d-enwg/00007--anhang.node.md",
+      "curated": false,
+      "generated_body_sha256": "a9d56d75fdb9cc06b61f7fdf8739bde21d2a7db35a6d9c1b0fa9f47d9c00fab1",
+      "logical_key": "2022_07_28_netzausbauplan_bielefelder_netz_gmbh_2022_inkl_anhang_pdf.pdf#text:anhang",
+      "machine_sha256": "5b76593b089cef56346e2006f634b026f591e1a2c12ceffce160652a16389a44",
+      "published_body_sha256": "a9d56d75fdb9cc06b61f7fdf8739bde21d2a7db35a6d9c1b0fa9f47d9c00fab1",
+      "source_sha256": "3dc36a9917ac29b387c8fcc6e1a856f26e4fc0660d4e847a5070ee7dca0af497"
+    },
+    "55e492e4-ed13-42a3-88e8-96f556b77d71": {
+      "card_path": "netzausbauplan-nach-14d-enwg/index.node.md",
+      "curated": false,
+      "generated_body_sha256": "8ea7bd6a8d6d0910fccbc09a7bc63fda463b73ca8467bcd71d75c5df75dc16dd",
+      "logical_key": "2022_07_28_netzausbauplan_bielefelder_netz_gmbh_2022_inkl_anhang_pdf.pdf",
+      "machine_sha256": "7c190bd793aa708a81ef404d5204df5a49d1d46a87783093dc8f02398d44d2fc",
+      "published_body_sha256": "8ea7bd6a8d6d0910fccbc09a7bc63fda463b73ca8467bcd71d75c5df75dc16dd",
+      "source_sha256": "3dc36a9917ac29b387c8fcc6e1a856f26e4fc0660d4e847a5070ee7dca0af497"
+    },
+    "737a3b43-e566-4343-a8af-203c868f4e86": {
+      "card_path": "netzausbauplan-nach-14d-enwg/00004--c-planungsgrundlagen.node.md",
+      "curated": false,
+      "generated_body_sha256": "17346246e4c3bd51c4dab9b28dd74399a59df819eafca181061ee82580fd3d11",
+      "logical_key": "2022_07_28_netzausbauplan_bielefelder_netz_gmbh_2022_inkl_anhang_pdf.pdf#text:c-planungsgrundlagen",
+      "machine_sha256": "0f71feaab2df0b54a64d68d4ccc77cd9fcb4e8f057d12f4e2c21574cb9c19f4f",
+      "published_body_sha256": "17346246e4c3bd51c4dab9b28dd74399a59df819eafca181061ee82580fd3d11",
+      "source_sha256": "3dc36a9917ac29b387c8fcc6e1a856f26e4fc0660d4e847a5070ee7dca0af497"
+    },
+    "76abf08f-83b0-4406-be38-cf3a9bb4bb80": {
+      "card_path": "index.node.md",
+      "curated": false,
+      "generated_body_sha256": "f0f62d87402927d3e7acb4d39e31e64c0665d125cb254dcee182370cda26bfb3",
+      "logical_key": "__collection__",
+      "machine_sha256": "f20f4a666b2f307ea65df7fa2dfda324a45d1b2988d49cf99ff1a7c67b524dcd",
+      "published_body_sha256": "f0f62d87402927d3e7acb4d39e31e64c0665d125cb254dcee182370cda26bfb3",
+      "source_sha256": null
+    },
+    "91156259-ea05-4ee5-9a87-6ddf8ea9ae3e": {
+      "card_path": "technology-costs-2020.node.md",
+      "curated": false,
+      "generated_body_sha256": "aa2a44f432232313b8989fdde485f1a133b1bf469da1ea2f580f2d0f16151e7b",
+      "logical_key": "costs_2020.csv",
+      "machine_sha256": "efeec9131c659c3fc4db9e3de057b35c71df57597cc71f42f5c12b148181f97a",
+      "published_body_sha256": "aa2a44f432232313b8989fdde485f1a133b1bf469da1ea2f580f2d0f16151e7b",
+      "source_sha256": "44275688aa97dbc5f9f675ed07dfa3708f84651b74cc036c2eb28fe5aaf19532"
+    },
+    "9d4703e4-6e4b-4eb6-9507-55bd1f9fe0e5": {
+      "card_path": "netzausbauplan-nach-14d-enwg/00001--a-einleitung.node.md",
+      "curated": false,
+      "generated_body_sha256": "e5605b53334aac7b148924c4d29ddf571e56b17ce16312fd63ab031735193f1e",
+      "logical_key": "2022_07_28_netzausbauplan_bielefelder_netz_gmbh_2022_inkl_anhang_pdf.pdf#text:a-einleitung",
+      "machine_sha256": "209efd66347189018a27008aacbb5d7851f3d013aa71ececda905bde5b44e610",
+      "published_body_sha256": "e5605b53334aac7b148924c4d29ddf571e56b17ce16312fd63ab031735193f1e",
+      "source_sha256": "3dc36a9917ac29b387c8fcc6e1a856f26e4fc0660d4e847a5070ee7dca0af497"
+    },
+    "c94ee20f-ef4c-4344-8241-ae2c22324357": {
+      "card_path": "netzausbauplan-nach-14d-enwg/00009--massnahmenplan-aller-spannungsebenen-fur-zehn-jahre.node.md",
+      "curated": false,
+      "generated_body_sha256": "e8e7b33011d9f5fb38109c339afc5be4eb3d2a58f3217c962f545fa290954796",
+      "logical_key": "00006--massnahmenplan-aller-spannungsebenen.csv",
+      "machine_sha256": "d6d6692f80a228cd20d5480276a2297fdb804d4fb940b624da8bae2348fa3ae3",
+      "published_body_sha256": "e8e7b33011d9f5fb38109c339afc5be4eb3d2a58f3217c962f545fa290954796",
+      "source_sha256": "3dc36a9917ac29b387c8fcc6e1a856f26e4fc0660d4e847a5070ee7dca0af497"
+    },
+    "d5cc6f8d-15be-457e-a32f-e2fbd90695e6": {
+      "card_path": "netzausbauplan-nach-14d-enwg/00002--b-netzkarte-110kv-netz-bielefelder-netz-gmbh.node.md",
+      "curated": false,
+      "generated_body_sha256": "a2b9dce1d391332d9166cb7a22b9ca7894d27a59c39d52c93e45d5b3d50559c5",
+      "logical_key": "2022_07_28_netzausbauplan_bielefelder_netz_gmbh_2022_inkl_anhang_pdf.pdf#text:b-netzkarte-110kv-netz-bielefelder-netz-gmbh",
+      "machine_sha256": "918c05567fbeb6fbaf0d0846db88018a02dac24be5a11f9c2039a1adeaa655da",
+      "published_body_sha256": "a2b9dce1d391332d9166cb7a22b9ca7894d27a59c39d52c93e45d5b3d50559c5",
+      "source_sha256": "3dc36a9917ac29b387c8fcc6e1a856f26e4fc0660d4e847a5070ee7dca0af497"
+    },
+    "e26067d1-8962-410f-a310-4246e12469dd": {
+      "card_path": "netzausbauplan-nach-14d-enwg/00006--e-systemdienstleistungen-und-flexibilitatsdienstleistungen.node.md",
+      "curated": false,
+      "generated_body_sha256": "a4e88ccc7e5fef7bcf5067d1a07b67f3ac5d622fab7b3c2090235ca3ecb65703",
+      "logical_key": "2022_07_28_netzausbauplan_bielefelder_netz_gmbh_2022_inkl_anhang_pdf.pdf#text:e-systemdienstleistungen-und-flexibilitatsdienstleistungen",
+      "machine_sha256": "841a6450287cef96be0b9aa0fbf00fcf2179ae56beffa0cdbf26b55444557da6",
+      "published_body_sha256": "a4e88ccc7e5fef7bcf5067d1a07b67f3ac5d622fab7b3c2090235ca3ecb65703",
+      "source_sha256": "3dc36a9917ac29b387c8fcc6e1a856f26e4fc0660d4e847a5070ee7dca0af497"
+    },
+    "e937c69e-9be5-4c80-bfc0-f32f7b95ef1f": {
+      "card_path": "netzausbauplan-nach-14d-enwg/00005--d-optimierungs-verstarkungs-und-ausbaumassnahmen.node.md",
+      "curated": false,
+      "generated_body_sha256": "c5d14db1dd88a7b6f0e03d8077e371a027b598ef01481d445a66454521ae17d0",
+      "logical_key": "2022_07_28_netzausbauplan_bielefelder_netz_gmbh_2022_inkl_anhang_pdf.pdf#text:d-optimierungs-verstarkungs-und-ausbaumassnahmen",
+      "machine_sha256": "08bd4342518c03be54350413f40a429d76408251f0bcd22e138932a1b6591e1c",
+      "published_body_sha256": "c5d14db1dd88a7b6f0e03d8077e371a027b598ef01481d445a66454521ae17d0",
+      "source_sha256": "3dc36a9917ac29b387c8fcc6e1a856f26e4fc0660d4e847a5070ee7dca0af497"
+    }
+  },
+  "package": "reIndex/76abf08f-83b0-4406-be38-cf3a9bb4bb80--test2",
+  "parsed_items": 0,
+  "review": {
+    "curated_nodes_affected": [],
+    "new_nodes": [],
+    "quality_findings": []
+  },
+  "spec": "reindex/build@1.0",
+  "status": "valid",
+  "warnings": []
+}

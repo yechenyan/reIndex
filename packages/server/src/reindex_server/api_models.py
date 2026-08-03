@@ -23,6 +23,34 @@ class HealthResponse(BaseModel):
     version: str
 
 
+class CollectionSummary(BaseModel):
+    name: str
+    collection_id: str
+    status: Literal["draft", "queued", "validating", "indexing", "ready", "failed"]
+    package_hash: str | None
+    active_version_id: str | None
+    progress: dict[str, Any]
+
+
+class CollectionListResponse(BaseModel):
+    collections: list[CollectionSummary]
+
+
+class NodeSummary(BaseModel):
+    id: str
+    path: str
+    parent_id: str | None
+    order: int | None
+    depth: int
+    kind: Literal["group", "text", "table", "image", "file"]
+    title: str
+    description: str
+
+
+class BrowseResponse(BaseModel):
+    nodes: list[NodeSummary]
+
+
 class PushResponse(BaseModel):
     status: Literal["ready"]
     name: str

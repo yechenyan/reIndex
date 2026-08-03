@@ -1,18 +1,20 @@
 [tool.uv.workspace]
-members = ["packages/cli", "packages/server"]
+members = ["packages/cli", "packages/server", "packages/pdf-table-codegen"]
 
 [tool.uv.sources]
-reindex-cli = { workspace = true }
+reindex = { workspace = true }
 reindex-server = { workspace = true }
+pdf-table-codegen = { workspace = true }
 
 [dependency-groups]
 dev = [
     "httpx>=0.27,<1",
     "pillow>=12,<13",
     "pypdfium2>=5,<6",
+    "pdf-table-codegen",
     "pyyaml>=6,<7",
     "pytest>=8,<9",
-    "reindex-cli",
+    "reindex",
     "reindex-server",
 ]
 

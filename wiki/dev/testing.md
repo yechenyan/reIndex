@@ -10,10 +10,15 @@ ParadeDB 与 Uvicorn 服务，验证实际网络 API。E2E fixture 固定使用
 
 ```bash
 uv sync
+uv run python scripts/check_http_contract.py
 uv run pytest -q
 uvx ruff format --check packages tests
 uvx ruff check packages tests
 ```
+
+HTTP 契约检查从 FastAPI 路由重新生成 OpenAPI，并与 package 内的权威
+`reindex-http-v1.yaml` 比较。新增或修改接口时先更新契约，再更新实现；未同步的路径、请求、响应、状态码或
+媒体类型会使检查失败。
 
 默认测试不要求 Docker。真实 ParadeDB 集成测试和 HTTP E2E 测试会在没有对应环境变量时跳过。
 
@@ -22,13 +27,13 @@ uvx ruff check packages tests
 CLI 的临时目录测试覆盖 Collection 创建和定位、只读 inspect/check、部分目录增量扫描、重命名后的
 Node 身份复用、机器字段保护，以及 Agent 修改过的 card body 在后续 scan 中保留。
 
-`testbase/test2` 是 Docling-only 的真实 PDF/CSV fixture。提交前依次运行：
+`testbase/test2-generage` 是 Docling-only 的真实 PDF/CSV fixture。提交前依次运行：
 
 ```bash
-uv run rei inspect testbase/test2
-uv run rei scan testbase/test2
-uv run rei check testbase/test2
-uv run rei push testbase/test2 --api-url http://127.0.0.1:8000
+uv run rei inspect testbase/test2-generage
+uv run rei scan testbase/test2-generage
+uv run rei check testbase/test2-generage
+uv run rei push testbase/test2-generage --api-url http://127.0.0.1:8000
 uv run pytest -q tests/test_cli.py tests/test_cli_workspace.py
 ```
 
@@ -100,7 +105,7 @@ ParadeDB lexical search，以及 DuckDB `SELECT count(*)`。默认测试中的 `
 临时目录，覆盖 no-op、V2 缺失 blob、stale base、本地冲突、历史 get/pull、rollback、active search 和
 embedding cache；`test_server.py` 另验证两个同 base session 的 commit race。
 
-可直接在浏览器查看交互接口：<http://127.0.0.1:8000/docs>；机器可读 OpenAPI：
+可直接在浏览器查看 Scalar 交互接口：<http://127.0.0.1:8000/docs>；机器可读 OpenAPI：
 <http://127.0.0.1:8000/openapi.json>。
 
 ## 停止与清理

@@ -109,7 +109,7 @@ def test_legacy_identity_filename_remains_readable(tmp_path: Path, capsys) -> No
 
 
 def test_push_archives_contain_only_referenced_test2_sources() -> None:
-    context = resolve_collection(ROOT / "testbase" / "test2")
+    context = resolve_collection(ROOT / "testbase" / "test2-generage")
     package, sources, temporary = build_push_archives(context)
     try:
         with zipfile.ZipFile(package) as bundle:

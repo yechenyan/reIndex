@@ -4,13 +4,9 @@ from psycopg.errors import UniqueViolation
 from psycopg.types.json import Jsonb
 
 from reindex_server.database import Database
-from reindex_server.domain import Collection, Node, Resource, SearchUnit
+from reindex_server.domain import Collection, Node
 from reindex_server.errors import ConflictError
-from reindex_server.postgres_projection import (
-    progress,
-    replace_projection,
-    update_collection,
-)
+from reindex_server.postgres_current_catalog import PostgresCurrentCatalogMixin
 from reindex_server.postgres_records import (
     insert_links,
     insert_nodes,
@@ -23,7 +19,7 @@ from reindex_server.postgres_version_catalog import PostgresVersionCatalogMixin
 from reindex_server.postgres_versions import version_from_row
 
 
-class PostgresCatalog(PostgresVersionCatalogMixin):
+class PostgresCatalog(PostgresCurrentCatalogMixin, PostgresVersionCatalogMixin):
     """PostgreSQL catalog with atomic active-version replacement."""
 
     def __init__(self, database: Database) -> None:
@@ -80,6 +76,27 @@ class PostgresCatalog(PostgresVersionCatalogMixin):
             if row is None:
                 raise KeyError("collection not found")
             return self.get(str(row["id"]))
+
+    def list_collections(self) -> list[Collection]:
+        with self.database.connection() as connection, connection.cursor() as cursor:
+            cursor.execute("SELECT * FROM collections ORDER BY name")
+            return [
+                Collection(
+                    id=str(row["id"]),
+                    name=row["name"],
+                    status=row["status"],
+                    package_hash=row["package_hash"],
+                    active_version_id=(
+                        str(row["active_version_id"])
+                        if row["active_version_id"]
+                        else None
+                    ),
+                    embedding_profile=row["embedding_profile"],
+                    progress=row["progress"] or {},
+                    error=row["error"],
+                )
+                for row in cursor.fetchall()
+            ]
 
     def current_version(self, collection_id: str):
         with self.database.connection() as connection, connection.cursor() as cursor:
@@ -150,102 +167,3 @@ class PostgresCatalog(PostgresVersionCatalogMixin):
                 if cursor.fetchone() is None:
                     raise KeyError("parent node not found")
             return [node_from_row(row) for row in rows]
-
-    def sync(self, collection: Collection) -> None:
-        with self.database.connection() as connection, connection.cursor() as cursor:
-            cursor.execute(
-                """UPDATE collections SET status = %s, package_hash = %s,
-                   embedding_profile = %s, progress = %s, error = %s,
-                   updated_at = now() WHERE id = %s""",
-                (
-                    collection.status,
-                    collection.package_hash,
-                    collection.embedding_profile,
-                    Jsonb(collection.progress),
-                    Jsonb(collection.error) if collection.error else None,
-                    collection.id,
-                ),
-            )
-
-    def replace_current(
-        self,
-        collection: Collection,
-        *,
-        name: str,
-        nodes: dict[str, Node],
-        resources: dict[tuple[str, str], Resource],
-        units: list[SearchUnit],
-        embedding_profile: str | None,
-        package_hash: str,
-    ) -> None:
-        with self.database.connection() as connection, connection.cursor() as cursor:
-            cursor.execute(
-                "SELECT pg_advisory_xact_lock(hashtextextended(%s, 0))",
-                (collection.id,),
-            )
-            replace_projection(
-                cursor, collection.id, nodes, resources, units, embedding_profile
-            )
-            cursor.execute(
-                """UPDATE collections SET name = %s, status = 'ready',
-                   package_hash = %s, embedding_profile = %s, progress = %s,
-                   error = NULL, updated_at = now() WHERE id = %s""",
-                (
-                    name,
-                    package_hash,
-                    embedding_profile,
-                    Jsonb(progress(nodes, resources, units, embedding_profile)),
-                    collection.id,
-                ),
-            )
-        update_collection(
-            collection,
-            name,
-            nodes,
-            resources,
-            units,
-            embedding_profile,
-            package_hash,
-        )
-
-    def push_current(
-        self,
-        *,
-        collection_id: str,
-        name: str,
-        nodes: dict[str, Node],
-        resources: dict[tuple[str, str], Resource],
-        units: list[SearchUnit],
-        embedding_profile: str | None,
-        package_hash: str,
-    ) -> Collection:
-        try:
-            with (
-                self.database.connection() as connection,
-                connection.cursor() as cursor,
-            ):
-                cursor.execute(
-                    "SELECT id FROM collections WHERE name = %s AND id <> %s",
-                    (name, collection_id),
-                )
-                if cursor.fetchone() is not None:
-                    raise ConflictError("collection name already exists")
-                cursor.execute(
-                    """INSERT INTO collections (id, name, status, progress)
-                       VALUES (%s, %s, 'draft', '{}'::jsonb)
-                       ON CONFLICT (id) DO NOTHING""",
-                    (collection_id, name),
-                )
-        except UniqueViolation as error:
-            raise ConflictError("collection name already exists") from error
-        collection = self.get(collection_id)
-        self.replace_current(
-            collection,
-            name=name,
-            nodes=nodes,
-            resources=resources,
-            units=units,
-            embedding_profile=embedding_profile,
-            package_hash=package_hash,
-        )
-        return collection

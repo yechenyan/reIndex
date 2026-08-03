@@ -1,5 +1,15 @@
 # 启动本地 ReIndex 服务
 
+本地开发可从仓库根目录一键启动 ParadeDB、ReIndex API 和 React Web：
+
+```bash
+./scripts/dev.py
+```
+
+首次运行会按需打开 Docker Desktop、创建数据库容器、初始化 schema，并下载 Qwen 模型。脚本先检查依赖，只有
+Python 或 Web 依赖确实缺失时才安装；后续运行直接复用依赖、Docker volume 和本机模型缓存。退出时停止前后端
+进程，但保留数据库容器和数据。下面保留分步启动方式，便于排错。
+
 本地服务需要两个常驻组件：ParadeDB 容器和 ReIndex API。CLI 按需运行，不需要常驻。
 
 本指南采用以下默认配置：
@@ -14,7 +24,7 @@
 在 ReIndex 仓库根目录安装服务端和 embedding 依赖：
 
 ```bash
-uv sync --package reindex-server --extra embeddings
+uv sync --all-extras
 ```
 
 创建并启动 ParadeDB：
@@ -25,7 +35,7 @@ docker run -d \
   -e POSTGRES_PASSWORD=reindex_local \
   -e POSTGRES_DB=reindex_local \
   -p 55434:5432 \
-  -v reindex-paradedb-data:/var/lib/postgresql/data \
+  -v reindex-paradedb-pg18-data:/var/lib/postgresql \
   paradedb/paradedb:0.24.3-pg18
 ```
 
@@ -51,7 +61,6 @@ docker start reindex-paradedb
 ```bash
 DATABASE_URL='postgresql://postgres:reindex_local@127.0.0.1:55434/reindex_local' \
 REINDEX_DATA_DIR="$PWD/.reindex-data" \
-REINDEX_EMBEDDINGS=qwen \
 REINDEX_RERANKER=disabled \
   uv run reindex-server run --host 127.0.0.1 --port 8000
 ```
@@ -99,4 +108,4 @@ docker stop reindex-paradedb
 - `docker start` 提示容器不存在：先执行“首次安装”中的 `docker run`。
 - 端口 `55434` 或 `8000` 被占用：更换映射或 API 端口，并同步修改 `DATABASE_URL` 或 `rei set-api`。
 - semantic/hybrid 报 embedding profile 不匹配：使用相同的 `REINDEX_EMBEDDINGS=qwen` 重新发布 Collection。
-- 只需要 lexical 临时调试：可设置 `REINDEX_EMBEDDINGS=disabled`，但这不是本指南的默认启动方式。
+- Qwen embeddings 默认启用；只需要 lexical 临时调试时，可显式设置 `REINDEX_EMBEDDINGS=disabled`。

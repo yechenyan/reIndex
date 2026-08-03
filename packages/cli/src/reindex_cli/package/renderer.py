@@ -141,7 +141,9 @@ def _metadata(
         value["assets"] = assets
     if node.table:
         value["table"] = {
-            key: item for key, item in node.table.items() if key != "preview"
+            key: item
+            for key, item in node.table.items()
+            if key not in {"preview", "profile"}
         }
     if node.warnings:
         value["warnings"] = node.warnings

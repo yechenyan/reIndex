@@ -19,7 +19,7 @@ from reindex_server.service import ReindexService
 from reindex_server.storage import FileStore
 
 ROOT = Path(__file__).resolve().parents[1]
-TEST2 = ROOT / "testbase" / "test2"
+TEST2 = ROOT / "testbase" / "test2-generage"
 
 
 @pytest.fixture
@@ -52,7 +52,7 @@ def test_real_http_push_pull_and_full_flow(
     tmp_path: Path, api_url: str, capsys, monkeypatch
 ) -> None:
     monkeypatch.setenv("REINDEX_CACHE_HOME", str(tmp_path / "cache"))
-    push_root = tmp_path / "test2"
+    push_root = tmp_path / "test2-generage"
     shutil.copytree(
         TEST2,
         push_root,
@@ -64,10 +64,22 @@ def test_real_http_push_pull_and_full_flow(
     assert pushed["sources"] == 2
 
     download = tmp_path / "test3-download"
-    assert main(["pull", "test2", "--output", str(download), "--api-url", api_url]) == 0
+    assert (
+        main(
+            [
+                "pull",
+                "test2-generage",
+                "--output",
+                str(download),
+                "--api-url",
+                api_url,
+            ]
+        )
+        == 0
+    )
     pulled = _output(capsys)
     node_dir = Path(pulled["node_dir"])
-    assert pulled["nodes"] == 7
+    assert pulled["nodes"] == 12
     assert all(
         path.name.endswith(".node.md") for path in node_dir.rglob("*") if path.is_file()
     )
@@ -127,7 +139,7 @@ def test_real_http_push_pull_and_full_flow(
     )
     _output(capsys)
     assert main(["scan", str(full)]) == 0
-    assert _output(capsys)["nodes"] == 7
+    assert _output(capsys)["nodes"] == 12
     assert main(["push", str(full), "--api-url", api_url]) == 0
     assert _output(capsys)["status"] == "ready"
     assert main(["search", "Technology costs", "--path", str(full)]) == 0

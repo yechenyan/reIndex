@@ -1,0 +1,375 @@
+spec: reindex/cli@1.0
+program:
+  name: rei
+  version_source: reindex_cli.__version__
+  summary: Build and use ReIndex knowledge Collections.
+  output:
+    success: JSON object on stdout
+    business_error: JSON object on stderr with exit code 1
+    usage_error: Human-readable usage on stderr with exit code 2
+groups:
+  - id: skills
+    path: [skills]
+    summary: Manage bundled Agent skills.
+commands:
+  - id: init
+    path: [init]
+    summary: Initialize ReIndex and Agent skills.
+    parameters:
+      - {name: path, kind: argument, type: path, required: false, default: cwd, description: Collection path.}
+      - {name: name, kind: option, flags: [--name], type: string, description: Collection name.}
+      - {name: agent, kind: option, flags: [--agent], type: string, choices: [codex, claude, cursor, copilot], default: codex, description: Agent integration.}
+      - {name: codex_home, kind: option, flags: [--codex-home], type: path, description: Codex home override.}
+    side_effects: [Creates local Collection identity, installs Agent skills.]
+    examples: [rei init ., rei init ./notes --name team-notes]
+    output_schema: {$ref: '#/$defs/init_output'}
+  - id: create
+    path: [create]
+    summary: Create only local identity state.
+    parameters:
+      - {name: path, kind: argument, type: path, required: true, description: Collection path.}
+      - {name: name, kind: option, flags: [--name], type: string, description: Collection name.}
+    side_effects: [Creates .rei Collection identity files.]
+    examples: [rei create ./notes]
+    output_schema: {$ref: '#/$defs/collection_output'}
+  - id: rename
+    path: [rename]
+    summary: Change the Collection name.
+    parameters:
+      - {name: path, kind: argument, type: path, required: true, description: Collection path.}
+      - {name: name, kind: argument, type: string, required: true, description: New Collection name.}
+    side_effects: [Updates the local Collection name.]
+    examples: [rei rename ./notes team-notes]
+    output_schema: {$ref: '#/$defs/collection_output'}
+  - id: inspect
+    path: [inspect]
+    summary: Inspect inputs without writing.
+    parameters:
+      - {name: path, kind: argument, type: path, required: true, description: File or Collection path.}
+    side_effects: []
+    examples: [rei inspect ./notes]
+    output_schema: {$ref: '#/$defs/inspect_output'}
+  - id: scan
+    path: [scan]
+    summary: Compile a validated local package.
+    parameters:
+      - {name: path, kind: argument, type: path, required: true, description: File or Collection path.}
+      - {name: collection_root, kind: option, flags: [--collection-root], type: path, description: Explicit Collection root.}
+    side_effects: [Writes generated package and build state.]
+    examples: [rei scan ./notes]
+    output_schema: {$ref: '#/$defs/scan_output'}
+  - id: check
+    path: [check]
+    summary: Validate the current package.
+    parameters:
+      - {name: path, kind: argument, type: path, required: true, description: Collection path.}
+    side_effects: []
+    examples: [rei check ./notes]
+    output_schema: {$ref: '#/$defs/check_output'}
+  - id: skills_install
+    path: [skills, install]
+    summary: Install bundled Agent skills.
+    parameters: &skill_parameters
+      - {name: agent, kind: option, flags: [--agent], type: string, choices: [codex, claude, cursor, copilot], default: codex, description: Agent integration.}
+      - {name: workspace_root, kind: option, flags: [--workspace-root], type: path, default: cwd, description: Workspace root.}
+      - {name: codex_home, kind: option, flags: [--codex-home], type: path, description: Codex home override.}
+      - {name: force, kind: option, flags: [--force], type: boolean, default: false, description: Replace unmanaged conflicts.}
+    side_effects: [Installs missing managed skill files.]
+    examples: [rei skills install]
+    output_schema: {$ref: '#/$defs/skills_output'}
+  - id: skills_update
+    path: [skills, update]
+    summary: Update bundled Agent skills.
+    parameters: *skill_parameters
+    side_effects: [Updates managed skill files.]
+    examples: [rei skills update]
+    output_schema: {$ref: '#/$defs/skills_output'}
+  - id: set_api
+    path: [set-api]
+    summary: Persist the default API URL.
+    parameters:
+      - {name: url, kind: argument, type: string, required: true, description: ReIndex API base URL.}
+    side_effects: [Updates local ReIndex configuration.]
+    examples: [rei set-api http://127.0.0.1:8000]
+    output_schema: {$ref: '#/$defs/set_api_output'}
+  - id: push
+    path: [push]
+    summary: Incrementally publish a validated Collection.
+    parameters:
+      - {name: path, kind: argument, type: path, required: false, default: cwd, description: Collection path.}
+      - {name: api_url, kind: option, flags: [--api-url], type: string, description: API base URL override.}
+      - {name: message, kind: option, flags: [--message], type: string, description: Version message.}
+      - {name: dry_run, kind: option, flags: [--dry-run], type: boolean, default: false, description: Plan without publishing.}
+    side_effects: [Publishes resources and a version unless dry-run.]
+    examples: [rei push ., rei push . --dry-run]
+    output_schema: {$ref: '#/$defs/publish_output'}
+  - id: fetch
+    path: [fetch]
+    summary: Fetch remote version metadata without changing local files.
+    parameters:
+      - {name: path, kind: argument, type: path, required: false, default: cwd, description: Collection path.}
+      - {name: api_url, kind: option, flags: [--api-url], type: string, description: API base URL override.}
+    side_effects: [Updates remote tracking metadata.]
+    examples: [rei fetch .]
+    output_schema: {$ref: '#/$defs/fetch_output'}
+  - id: pull
+    path: [pull]
+    summary: Create or update a Node-only ReIndex checkout.
+    parameters:
+      - {name: name, kind: argument, type: string, required: false, description: Remote Collection name.}
+      - {name: output, kind: option, flags: [--output], type: path, description: New checkout destination.}
+      - {name: path, kind: option, flags: [--path], type: path, description: Existing checkout path.}
+      - {name: api_url, kind: option, flags: [--api-url], type: string, description: API base URL override.}
+      - {name: version_id, kind: option, flags: [--version], type: string, description: Version for a new checkout.}
+      - {name: continue_pull, kind: option, flags: [--continue], type: boolean, default: false, description: Continue an interrupted existing checkout.}
+    constraints:
+      - {kind: requires, parameter: continue_pull, parameters: [path], error: business, message: pull --continue requires --path}
+      - {kind: conflicts, parameter: continue_pull, parameters: [name, version_id], error: business, message: pull --continue does not accept name or --version}
+      - {kind: conflicts, parameter: path, parameters: [name], error: business, message: pull --path does not accept a Collection name}
+      - {kind: mutually_exclusive, parameters: [path, output], error: usage, message: pull accepts only one of --path and --output}
+      - {kind: conflicts, parameter: path, parameters: [version_id], error: business, message: pull --version is only valid for a new checkout}
+      - {kind: any_present, parameters: [name, path], error: business, message: pull requires a Collection name or --path}
+    side_effects: [Creates or updates a Node-only checkout.]
+    examples: [rei pull team-notes --output ./checkout, rei pull --path ./checkout]
+    output_schema: {$ref: '#/$defs/pull_output'}
+  - id: history
+    path: [history]
+    summary: List or inspect remote versions.
+    parameters:
+      - {name: target, kind: argument, type: string, required: false, default: '.', description: Collection name or local path.}
+      - {name: api_url, kind: option, flags: [--api-url], type: string, description: API base URL override.}
+      - {name: version_id, kind: option, flags: [--version], type: string, description: Exact version identifier.}
+      - {name: limit, kind: option, flags: [--limit], type: integer, default: 20, minimum: 1, maximum: 100, description: Maximum versions.}
+      - {name: cursor, kind: option, flags: [--cursor], type: string, description: Pagination cursor.}
+    constraints:
+      - {kind: range, parameter: limit, minimum: 1, maximum: 100, error: business, message: history --limit must be between 1 and 100}
+    side_effects: []
+    examples: [rei history ., rei history team-notes --limit 10]
+    output_schema: {$ref: '#/$defs/history_output'}
+  - id: diff
+    path: [diff]
+    summary: Compare local or remote manifests.
+    parameters:
+      - {name: target, kind: argument, type: string, required: false, default: '.', description: Collection name or local path.}
+      - {name: api_url, kind: option, flags: [--api-url], type: string, description: API base URL override.}
+      - {name: remote, kind: option, flags: [--remote], type: boolean, default: false, description: Compare local state with remote.}
+      - {name: from_version, kind: option, flags: [--from], type: string, description: Base version.}
+      - {name: to_version, kind: option, flags: [--to], type: string, description: Target version.}
+    constraints:
+      - {kind: all_or_none, parameters: [from_version, to_version], error: business, message: diff requires both --from and --to}
+      - {kind: conflicts, parameter: remote, parameters: [from_version, to_version], error: business, message: diff --remote cannot be combined with --from/--to}
+    side_effects: []
+    examples: [rei diff ., rei diff team-notes --from v1 --to v2]
+    output_schema: {$ref: '#/$defs/diff_output'}
+  - id: rollback
+    path: [rollback]
+    summary: Publish a retained version as a new active version.
+    parameters:
+      - {name: name, kind: argument, type: string, required: true, description: Collection name.}
+      - {name: version_id, kind: argument, type: string, required: true, description: Retained version identifier.}
+      - {name: api_url, kind: option, flags: [--api-url], type: string, description: API base URL override.}
+      - {name: message, kind: option, flags: [--message], type: string, description: New version message.}
+      - {name: dry_run, kind: option, flags: [--dry-run], type: boolean, default: false, description: Plan without publishing.}
+    side_effects: [Publishes a new active version unless dry-run.]
+    examples: [rei rollback team-notes VERSION]
+    output_schema: {$ref: '#/$defs/publish_output'}
+  - id: search
+    path: [search]
+    summary: Search a remote Collection.
+    parameters:
+      - {name: query, kind: argument, type: string, required: true, description: Search query.}
+      - {name: path, kind: option, flags: [--path], type: path, default: cwd, description: Local Collection or checkout path.}
+      - {name: remote, kind: option, flags: [--remote], type: string, description: Remote Collection name.}
+      - {name: api_url, kind: option, flags: [--api-url], type: string, description: API base URL override.}
+      - {name: mode, kind: option, flags: [--mode], type: string, choices: [lexical, semantic, hybrid], default: lexical, description: Search mode.}
+      - {name: limit, kind: option, flags: [--limit], type: integer, default: 10, description: Maximum results.}
+    side_effects: []
+    examples: [rei search 'technology costs' --path ./notes]
+    output_schema: {$ref: '#/$defs/search_output'}
+  - id: get
+    path: [get]
+    summary: Reuse or fetch one exact resource.
+    parameters:
+      - {name: reference, kind: argument, type: string, required: true, description: Node or raw resource reference.}
+      - {name: path, kind: option, flags: [--path], type: path, default: cwd, description: Local Collection or checkout path.}
+      - {name: remote, kind: option, flags: [--remote], type: string, description: Remote Collection name.}
+      - {name: api_url, kind: option, flags: [--api-url], type: string, description: API base URL override.}
+      - {name: target, kind: option, flags: [--target], type: string, choices: [card, source, content, asset], description: Resource representation.}
+      - {name: asset_ordinal, kind: option, flags: [--asset-ordinal], type: integer, description: Asset ordinal.}
+      - {name: output, kind: option, flags: [--output], type: path, description: Output path.}
+      - {name: version_id, kind: option, flags: [--version], type: string, description: Remote version identifier.}
+    side_effects: [May write the selected content or asset when --output is used.]
+    examples: [rei get node://NODE --path ./notes, rei get raw://source.csv --path ./notes]
+    output_schema: {$ref: '#/$defs/get_output'}
+$defs:
+  init_output:
+    type: object
+    required: [status, name, collection_id, skills]
+    properties:
+      status: {const: ready}
+      name: {type: string}
+      collection_id: {type: string}
+      skills: {type: array}
+    additionalProperties: true
+  collection_output:
+    type: object
+    required: [status, name, collection_id, created, renamed]
+    properties:
+      status: {const: ready}
+      name: {type: string}
+      collection_id: {type: string}
+      created: {type: boolean}
+      renamed: {type: boolean}
+    additionalProperties: true
+  inspect_output:
+    type: object
+    required: [status, name, collection_id, inputs, summary, items, findings]
+    properties:
+      status: {const: ready}
+      name: {type: string}
+      collection_id: {type: string}
+      inputs: {type: object}
+      summary: {type: object}
+      items: {type: array}
+      findings: {type: array}
+    additionalProperties: true
+  scan_output:
+    type: object
+    required: [status, name, collection_id, package, nodes, changes, review, warnings, warning_count, parsed, cached]
+    properties:
+      status: {const: valid}
+      name: {type: string}
+      collection_id: {type: string}
+      package: {type: string}
+      nodes: {type: integer}
+      changes: {type: object}
+      review: {type: object}
+      warnings: {type: array}
+      warning_count: {type: integer}
+      parsed: {type: integer}
+      cached: {type: integer}
+    additionalProperties: true
+  check_output:
+    type: object
+    required: [status, name, package, nodes, agent_modified_cards, stale_inputs, stale]
+    properties:
+      status: {enum: [valid, stale]}
+      name: {type: string}
+      package: {type: string}
+      nodes: {type: integer}
+      agent_modified_cards: {type: integer}
+      stale_inputs: {type: boolean}
+      stale: {type: object}
+    additionalProperties: true
+  skills_output:
+    type: object
+    required: [status, skills]
+    properties:
+      status: {const: ready}
+      skills: {type: array}
+    additionalProperties: true
+  set_api_output:
+    type: object
+    required: [status, api_url]
+    properties:
+      status: {const: ready}
+      api_url: {type: string}
+    additionalProperties: true
+  publish_output:
+    type: object
+    required: [status]
+    properties:
+      status: {enum: [upload, ready, planned]}
+      name: {type: string}
+      collection_id: {type: string}
+      package_hash: {type: [string, 'null']}
+      nodes: {type: integer}
+      sources: {type: integer}
+      resources: {type: integer}
+      search_units: {type: integer}
+      version_id: {type: [string, 'null']}
+      missing_blobs: {type: array}
+      no_op: {type: boolean}
+    anyOf:
+      - {required: [name, collection_id, nodes, sources, resources, search_units, version_id]}
+      - {required: [missing_blobs, no_op]}
+    additionalProperties: true
+  fetch_output:
+    type: object
+    required: [status, name, collection_id, base_version_id, head_version_id, version]
+    properties:
+      status: {const: ready}
+      name: {type: string}
+      collection_id: {type: string}
+      base_version_id: {type: [string, 'null']}
+      head_version_id: {type: string}
+      version: {type: object}
+    additionalProperties: true
+  pull_output:
+    type: object
+    required: [status, name]
+    properties:
+      status: {const: ready}
+      name: {type: string}
+      output: {type: string}
+      node_dir: {type: string}
+      nodes: {type: integer}
+      version_id: {type: string}
+      package_hash: {type: [string, 'null']}
+      base_version_id: {type: string}
+    anyOf:
+      - {required: [output, node_dir, nodes, version_id, package_hash]}
+      - {required: [base_version_id]}
+    additionalProperties: true
+  history_output:
+    type: object
+    anyOf:
+      - {required: [name, collection_id, versions, next_cursor]}
+      - {required: [version_id, package_hash, created_at, stats]}
+    properties:
+      name: {type: string}
+      collection_id: {type: string}
+      versions: {type: array}
+      next_cursor: {type: [string, 'null']}
+      version_id: {type: string}
+      package_hash: {type: string}
+      created_at: {type: string}
+      stats: {type: object}
+    additionalProperties: true
+  diff_output:
+    type: object
+    required: [status, added, changed, removed]
+    properties:
+      status: {const: ready}
+      added: {type: array}
+      changed: {type: array}
+      removed: {type: array}
+    additionalProperties: true
+  search_output:
+    type: object
+    required: [executed_mode, candidate_count, results, applied]
+    properties:
+      executed_mode: {enum: [lexical, semantic, hybrid]}
+      candidate_count: {type: integer}
+      results: {type: array}
+      applied: {type: object}
+    additionalProperties: true
+  get_output:
+    type: object
+    required: [status, name, reference, target, source, path, sha256]
+    properties:
+      status: {const: ready}
+      name: {type: string}
+      reference: {type: string}
+      target: {enum: [card, source, content, asset, raw]}
+      source: {enum: [local, cache, download]}
+      path: {type: string}
+      sha256: {type: string, pattern: '^[0-9a-f]{64}$'}
+    additionalProperties: true
+error_schema:
+  type: object
+  required: [status, error]
+  properties:
+    status: {const: error}
+    error: {type: string}
+  additionalProperties: false

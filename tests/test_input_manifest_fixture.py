@@ -3,7 +3,7 @@ from pathlib import Path, PurePosixPath
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
-FIXTURE = ROOT / "testbase" / "test2"
+FIXTURE = ROOT / "testbase" / "test2-generage"
 MANIFEST = FIXTURE / "reIndex.md"
 PDF_NAME = "2022_07_28_netzausbauplan_bielefelder_netz_gmbh_2022_inkl_anhang_pdf.pdf"
 AGGREGATE = "00005--aggregierte-10-jahresplanung-untere-netzebenen.csv"
@@ -19,7 +19,7 @@ def test_input_manifest_references_safe_existing_items() -> None:
     value = manifest()
     assert value["spec"] == "reindex/input@1.0"
     assert "collection" not in value
-    assert FIXTURE.name == "test2"
+    assert FIXTURE.name == "test2-generage"
     items = value["items"]
     assert set(items) == {
         PDF_NAME,

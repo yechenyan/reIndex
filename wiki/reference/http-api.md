@@ -1,13 +1,22 @@
 # ReIndex HTTP API
 
 基础地址例如 `http://127.0.0.1:8000`。Collection name 是用户标识，Collection UUID 是稳定内部身份；
-`version_id` 标识一次提交，`package_hash` 标识内容。OpenAPI 位于 `/openapi.json`，交互文档位于 `/docs`。
+`version_id` 标识一次提交，`package_hash` 标识内容。OpenAPI 位于 `/openapi.json`，Scalar 交互文档位于
+`/docs`。
+
+HTTP v1 采用契约优先流程。机器可读的权威契约是
+[`packages/server/src/reindex_server/openapi/reindex-http-v1.yaml`](../../packages/server/src/reindex_server/openapi/reindex-http-v1.yaml)；
+本页解释跨接口语义，不重复充当第二份 Schema。接口变更必须先修改权威契约，再修改 FastAPI 实现，并运行
+`uv run python scripts/check_http_contract.py`。`/v1` 内不得删除字段、改变已有字段类型或收紧已有请求；破坏性
+变更使用新的 API major version。
 
 ## 接口
 
 | 方法与路径 | 类型 | 用途 |
 | --- | --- | --- |
 | `GET /health` | — | 服务状态。 |
+| `GET /v1/collections` | — | 列出当前服务中的 Collection 及 active 状态。 |
+| `POST /v1/nodes/browse` | JSON | 按 Collection 浏览直接 children 或完整 Node tree。 |
 | `POST /v1/push` | JSON | 检查 base 与完整目标 manifest，创建上传 session。 |
 | `POST /v1/push/blob` | multipart | 上传 session 声明的一个缺失 blob。 |
 | `POST /v1/push/commit` | JSON | 二次检查 base，完整验证并原子发布。 |
@@ -17,6 +26,11 @@
 | `POST /v1/get` | JSON | 下载 active/历史版本的精确 resource。 |
 | `POST /v1/search`、`/v1/grep` | JSON | 只查询 active version。 |
 | `POST /v1/tables/query` | JSON | 对 active table CSV 执行受限 SELECT/CTE。 |
+
+Explore 页面先使用 `GET /v1/collections` 发现 Collection，再请求
+`POST /v1/nodes/browse`。browse 请求使用 Collection name；`parent_node_id=null` 从根开始，
+`recursive=true` 返回完整树，`false` 只返回直接 children。Node card 和真实内容继续通过现有
+`POST /v1/get` 的 `target=card|content|source|asset` 取得。
 
 ## 三阶段 push
 

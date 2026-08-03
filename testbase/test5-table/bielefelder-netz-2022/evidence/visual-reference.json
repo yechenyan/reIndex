@@ -1,0 +1,66 @@
+{
+  "spec": "pdf-table-codegen/reference@1.0",
+  "status": "frozen-before-current-extractor-output",
+  "source_sha256": "3dc36a9917ac29b387c8fcc6e1a856f26e4fc0660d4e847a5070ee7dca0af497",
+  "inventory_sha256": "0cb026b0259c76d545f04dd6a99732acbe081dd4f66f150ff0cc881e5670b288",
+  "method": "prior independent visual audit reconciled against the new source render",
+  "tables": [
+    {
+      "id": "aggregierte-10-jahresplanung",
+      "column_count": 3,
+      "row_count": 24,
+      "header": ["Netzebene", "Investitionsart", "Betrag_EUR"],
+      "samples": [
+        {"row_index": 0, "values": ["Mittelspannung", "Neubau", "3242160"]},
+        {"row_index": 1, "values": ["Mittelspannung", "Ersatz(neubau) mit Erhöhung der Übertragungskapazität", "19452960"]},
+        {"row_index": 22, "values": ["Niederspannung", "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität", "13685760"]},
+        {"row_index": 23, "values": ["Niederspannung", "Rückbau / Altlastentsorgung", "0"]}
+      ]
+    },
+    {
+      "id": "massnahmenplan",
+      "column_count": 20,
+      "row_count": 52,
+      "header": [
+        "lfd. Nr.",
+        "Maßnahme",
+        "Betroffener Netzknoten im überlagerten HöS-Netz",
+        "Kurze Projektbeschreibung",
+        "Projektkategorie",
+        "Betriebsmittel",
+        "Länge Leitungsabschnitt [km]",
+        "Änderung Übertragungskapazität [+/- MVA]",
+        "Netztechnische Begründung",
+        "Überwiegender Ausbaugrund",
+        "Bestehenden Engpass beheben",
+        "Prognostiziertem Engpass vorbeugen",
+        "Voraussichtlicher Baubeginn [MM/JJJJ]",
+        "Voraussichtliche Inbetriebnahme [MM/JJJJ]",
+        "Verzögerungsgrund",
+        "Kosten (geschätzt) in Euro",
+        "Projektstatus",
+        "Stand Genehmigungsverfahren",
+        "Geprüfte Alternativen",
+        "Vorrangige Netz- oder Umspannebene"
+      ],
+      "samples": [
+        {
+          "row_index": 0,
+          "values": ["4aa", "UW Universität - UW Zwinger", "keine Betroffenheit", "Kabelneubau / Netzverstärkung zur Optimierung des 110kV-Kabelnetzes", "Neubau", "110-kV-Kabel", "3,3", "+152", "Änderung der Versorgungsaufgabe durch Umbau der 380kV-Kuppelstellen und Änderung der n-1-Versorgung des UW Universität von 10kV- auf 110kV", "Kein Zubau (reiner Ersatz)", "Nein", "Ja, um einem verbrauchsbedingten Engpass vorzubeugen", "04/2021", "06/2023", "b) Genehmigungsprozess", "3.593.000 €", "im Bau", "abgeschlossen", "alternativlos", "HS"]
+        },
+        {
+          "row_index": 1,
+          "values": ["5a", "UW Kraftwerk", "keine Betroffenheit", "Austausch konventioneller Technik", "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität", "Leittechnik u. Netzschutz", "k.A.", "", "Altersbedingte Erneuerung", "Kein Zubau (reiner Ersatz)", "Nein", "Nein", "XX/2017", "XX/2018", "", "1.800.000 €", "abgeschlossen", "Bitte auswählen!", "alternativlos", "UW HS auf MS"]
+        },
+        {
+          "row_index": 50,
+          "values": ["90", "UW Hillegossen 110kV-Schaltanlage", "keine Betroffenheit", "Erneuerung 110kV-Schaltanlage", "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität", "110kV-Schaltanlage", "k.A.", "k.A.", "Altersbedingte Erneuerung", "Kein Zubau (reiner Ersatz)", "Nein", "Nein", "01/2030", "12/2031", "", "3.000.000 €", "vorgesehene Maßnahme", "keine Genehmigung erforderlich", "alternativlos", "UW HS auf MS"]
+        },
+        {
+          "row_index": 51,
+          "values": ["91", "UW Kraftwerk 10kV-Schaltanlage", "keine Betroffenheit", "Erneuerung 10kV-Schaltanlage", "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität", "10kV-Schaltanlage", "k.A.", "k.A.", "Altersbedingte Erneuerung", "Kein Zubau (reiner Ersatz)", "Nein", "Nein", "06/2030", "12/2032", "", "3.500.000 €", "vorgesehene Maßnahme", "keine Genehmigung erforderlich", "alternativlos", "UW HS auf MS"]
+        }
+      ]
+    }
+  ]
+}

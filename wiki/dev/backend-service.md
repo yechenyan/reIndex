@@ -78,6 +78,10 @@ mark-and-sweep 回收。服务端提供轻量历史与整体 rollback 所需原�
 
 ## 4. API 行为
 
+HTTP v1 的权威接口契约是 package 内的 `openapi/reindex-http-v1.yaml`。开发顺序为先改契约，再改
+FastAPI adapter；`scripts/check_http_contract.py` 会重新生成实现 Schema 并检查两者完全一致。Scalar 和
+`/openapi.json` 直接读取权威契约，避免实现、文档和后续 SDK 各自生成不同接口。
+
 | 端点 | 行为 |
 | --- | --- |
 | `/push`、`/push/blob`、`/push/commit` | 计划缺失对象、上传 blob、原子发布版本 |

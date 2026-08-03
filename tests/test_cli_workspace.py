@@ -12,7 +12,7 @@ from reindex_server.package_import import load_package
 from reindex_server.storage import FileStore
 
 ROOT = Path(__file__).resolve().parents[1]
-FIXTURE = ROOT / "testbase" / "test2"
+FIXTURE = ROOT / "testbase" / "test2-generage"
 
 
 def test_test2_generated_package_is_current() -> None:
@@ -48,7 +48,7 @@ def test_test2_generated_package_is_current() -> None:
     }
     result = check_collection(context)
     assert result["status"] == "valid"
-    assert result["nodes"] == 7
+    assert result["nodes"] == 12
     build = json.loads((FIXTURE / ".rei" / "build.json").read_text(encoding="utf-8"))
     assert build["item_paths"] == [
         "00005--aggregierte-10-jahresplanung-untere-netzebenen.csv",
@@ -86,8 +86,8 @@ def test_test2_generated_package_is_current() -> None:
         for card in cards
         if card["kind"] == "text" and card["source"]["uri"].endswith("anhang_pdf.pdf")
     ]
-    assert len(pdf_texts) == 1
-    assert pdf_texts[0]["title"] == "Document text"
+    assert len(pdf_texts) == 6
+    assert "A. Einleitung" in {card["title"] for card in pdf_texts}
     assert all(card["source"]["locator"]["pages"][1] <= 4 for card in pdf_texts)
 
 
@@ -115,7 +115,7 @@ def test_test2_package_loads_with_server_importer(tmp_path: Path) -> None:
     unpacked.mkdir()
     shutil.copytree(context.output_dir, unpacked / context.output_dir.name)
     snapshot = load_package(unpacked, context.collection_id, store, existing)
-    assert len(snapshot.nodes) == 7
+    assert len(snapshot.nodes) == 12
     assert len([node for node in snapshot.nodes.values() if node.kind == "table"]) == 3
 
 

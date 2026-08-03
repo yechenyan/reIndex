@@ -15,7 +15,7 @@ Collection。命令行入口统一是 `rei`；用户只需要使用 Collection n
 1. 先阅读 AGENTS.md，并遵守仓库任务与文档规则。
 2. 使用 uv sync 安装 workspace 依赖，然后运行 uv run pytest -q。
 3. 在 127.0.0.1:8000 启动并保持本地 reindex-server 在后台运行，数据目录使用仓库内的 tmp/quickstart-server；本次不配置 DATABASE_URL，只验证本地 lexical search，不下载 embedding 模型；全部验证结束后停止服务。
-4. 使用 testbase/test2 做完整客户端验证：inspect、scan、check、push、pull、search、get。
+4. 使用 testbase/test2-generage 做完整客户端验证：inspect、scan、check、push、pull、search、get。
 5. pull 写到 tmp/quickstart-test2；确认其中除 .rei/remote.json 外，reIndex tree 只包含 .node.md。
 6. 使用一个新的空 cache 目录，对 technology-costs-2020.node.md 的 content 连续执行两次 get，确认第一次下载、第二次复用 SHA-256 cache。
 7. 如果端口已占用，可以选择其他空闲端口，但所有命令必须使用同一个 API URL。
@@ -59,17 +59,17 @@ curl http://127.0.0.1:8000/health
 
 ## 3. 运行完整 CLI 流程
 
-`testbase/test2` 同时包含真实输入与已生成 package；先重新 scan，以验证编译器并保证 package 与当前输入一致：
+`testbase/test2-generage` 同时包含真实输入与已生成 package；先重新 scan，以验证编译器并保证 package 与当前输入一致：
 
 ```bash
 cd <REINDEX_REPO>
 export REINDEX_CONFIG_HOME="$PWD/tmp/quickstart-config"
 export REINDEX_CACHE_HOME="$PWD/tmp/quickstart-cache"
 uv run rei set-api http://127.0.0.1:8000
-uv run rei inspect testbase/test2
-uv run rei scan testbase/test2
-uv run rei check testbase/test2
-uv run rei push testbase/test2
+uv run rei inspect testbase/test2-generage
+uv run rei scan testbase/test2-generage
+uv run rei check testbase/test2-generage
+uv run rei push testbase/test2-generage
 uv run rei pull test2 --output tmp/quickstart-test2
 uv run rei search "Technology costs" --path tmp/quickstart-test2
 uv run rei get technology-costs-2020.node.md \
@@ -100,7 +100,7 @@ uv run rei get technology-costs-2020.node.md \
 - `rei pull` 只取得 Node cards；source、content 和 assets 由 `rei get` 精确取得。
 
 需要控制文件选择、解析方式或 `part_of/derived_from` 关系时，参考
-[`testbase/test2/reIndex.md`](../../testbase/test2/reIndex.md)和
+[`testbase/test2-generage/reIndex.md`](../../testbase/test2-generage/reIndex.md)和
 [`reindex/input@1.0`](../reference/reindex-input-v1.0.md)。
 
 ## 让 AI Agent 处理自己的数据
@@ -110,7 +110,7 @@ uv run rei get technology-costs-2020.node.md \
 ```text
 请把 <DATA_DIR> 制作并发布为 ReIndex Collection，名称为 <COLLECTION_NAME>，API 是 <API_URL>。
 
-先运行 uv tool install --upgrade reindex-cli，然后执行 rei init <DATA_DIR> --name <COLLECTION_NAME> --agent <CURRENT_AGENT>，安装或安全更新 ReIndex skills。不要创建或下载教程数据。
+先运行 uv tool install --upgrade reindex，然后执行 rei init <DATA_DIR> --name <COLLECTION_NAME> --agent <CURRENT_AGENT>，安装或安全更新 ReIndex skills。不要创建或下载教程数据。
 接着检查真实文件和 reIndex.md，依次运行 rei inspect、rei scan、rei check。只有 check 返回 valid 后才运行 rei set-api <API_URL> 和 rei push <DATA_DIR>。
 push 成功后选择一个与数据相关的代表性问题，运行 rei search "<代表性问题>" --path <DATA_DIR> --mode lexical；再依据搜索结果运行 rei get <node-path> --target content --path <DATA_DIR>，精确取得一个 content 或 source，并验证本地文件或 SHA-256 cache 可复用。
 不要让我选择或输入 UUID、package 路径或服务端资源 ID。若 push 报 stale base，先 fetch/pull，所有冲突只在本地解决，不要求服务端 merge。最后汇报 Collection name、version ID、Node/Source/Resource 数量、搜索结果和 get 的来源。

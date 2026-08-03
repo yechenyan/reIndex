@@ -44,6 +44,10 @@ class Catalog(MemoryVersionCatalogMixin):
                     return collection
         raise KeyError("collection not found")
 
+    def list_collections(self) -> list[Collection]:
+        with self._lock:
+            return sorted(self._items.values(), key=lambda item: item.name)
+
     def sync(self, collection: Collection) -> None:
         self.get(collection.id)
 

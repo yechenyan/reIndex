@@ -1,0 +1,37 @@
+{
+  "spec": "pdf-table-codegen/inventory@1.0",
+  "status": "frozen",
+  "source_sha256": "3dc36a9917ac29b387c8fcc6e1a856f26e4fc0660d4e847a5070ee7dca0af497",
+  "evidence_manifest_sha256": "ef348e66fc9c75bab78f85042218b5c8105187d4ebf6133ae83dd3bbdedb964d",
+  "discovery": {
+    "method": "raw-page visual review",
+    "table_candidates_seen_before_freeze": 0,
+    "pages_reviewed": [1, 2, 3, 4, 5],
+    "independent_audit": "reconciled with the prior isolated vision-first audit"
+  },
+  "tables": [
+    {
+      "id": "aggregierte-10-jahresplanung",
+      "title": "Teil 1: Aggregierte 10-Jahresplanung der unteren Netzebenen",
+      "pages": [5],
+      "segments": [
+        {"page": 5, "bbox_norm": [0.027, 0.195, 0.735, 0.435]}
+      ],
+      "notes": "One logical table containing two subordinate grids; export as normalized long form."
+    },
+    {
+      "id": "massnahmenplan",
+      "title": "Teil 2: Maßnahmenplan aller Spannungsebenen",
+      "pages": [5],
+      "segments": [
+        {"page": 5, "bbox_norm": [0.027, 0.435, 0.908, 0.748]}
+      ],
+      "notes": "One 20-column detail grid with 52 data rows."
+    }
+  ],
+  "excluded_regions": [
+    {"pages": [1, 3, 4], "reason": "narrative pages without data tables"},
+    {"pages": [2], "reason": "network map, not a table"},
+    {"pages": [5], "region": "questionnaire fields", "reason": "context, not rectangular export rows"}
+  ]
+}

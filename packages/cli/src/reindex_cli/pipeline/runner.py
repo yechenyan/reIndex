@@ -6,8 +6,7 @@ from pathlib import Path
 from reindex_cli.collection.resolver import CollectionContext
 from reindex_cli.collection.state import IDENTITY_FILE
 from reindex_cli.manifest.parser import load_manifest
-from reindex_cli.package import render_package, validate_package
-from reindex_cli.pipeline.assembly import assemble_nodes, identity_state
+from reindex_cli.package.validation import validate_package
 from reindex_cli.pipeline.discovery import discover
 from reindex_cli.pipeline.inspection import (
     has_input_changes,
@@ -15,7 +14,6 @@ from reindex_cli.pipeline.inspection import (
     inspect_items,
 )
 from reindex_cli.pipeline.models import BuildState
-from reindex_cli.pipeline.parsing import parse_active_items
 from reindex_cli.pipeline.planning import active_paths
 from reindex_cli.pipeline.publish import publish
 from reindex_cli.util import atomic_json, load_json
@@ -65,6 +63,10 @@ def inspect_collection(context: CollectionContext) -> dict:
 
 
 def run_scan(context: CollectionContext) -> dict:
+    from reindex_cli.package.renderer import render_package
+    from reindex_cli.pipeline.assembly import assemble_nodes, identity_state
+    from reindex_cli.pipeline.parsing import parse_active_items
+
     state = BuildState(context)
     state.manifest = load_manifest(context.root)
     state.discovered = discover(context.root, state.manifest)

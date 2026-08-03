@@ -39,6 +39,7 @@ rei push data/test1
 `init` 建立稳定身份边界并安装或更新 Agent skills，`inspect` 让 Agent 在写入前核对真实文件与 manifest，
 `scan` 使用确定性流水线生成并校验 package，`push` 提交完整 manifest、只上传缺失 blob，并原子发布新版本。PDF 由
 Docling 本地解析；存在文本层时不启用 OCR，缺少文本时才以 Docling OCR 重试。
+`push` 会再次执行完整 package check；单独运行 `check` 主要用于 Agent 修改 card 后的复检或 CI 门禁。
 
 ## 2. 生成 ReIndex package
 

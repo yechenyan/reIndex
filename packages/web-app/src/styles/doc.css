@@ -1,0 +1,53 @@
+.doc-home { max-width: 1180px; margin: 0 auto; padding: 80px 28px; }
+.doc-hero { max-width: 760px; }
+.doc-hero h1 { margin-bottom: 20px; font-size: clamp(44px, 7vw, 82px); letter-spacing: -.065em; }
+.doc-hero > p:last-child { color: var(--muted); font-size: 18px; line-height: 1.65; }
+.doc-entry-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 64px; }
+.doc-entry { min-height: 270px; padding: 34px; border: 1px solid var(--line); background: var(--paper); transition: transform .2s, box-shadow .2s; }
+.doc-entry:hover { box-shadow: 10px 10px 0 var(--green); transform: translate(-4px, -4px); }
+.doc-entry > span { color: var(--blue-soft); font-size: 11px; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
+.doc-entry h2 { margin: 48px 0 14px; font-size: 28px; letter-spacing: -.04em; }
+.doc-entry p { min-height: 54px; color: var(--muted); line-height: 1.6; }
+.doc-entry strong { display: inline-block; margin-top: 18px; font-size: 13px; }
+.doc-subnav { display: flex; align-items: center; gap: 9px; color: var(--muted); font-size: 12px; }
+.doc-subnav strong { color: var(--ink); }
+.doc-switch { margin-left: auto; color: var(--blue-soft); font-weight: 800; }
+.api-doc-page > .doc-subnav { height: 48px; padding: 0 28px; border-bottom: 1px solid var(--line); background: var(--paper); }
+.api-doc-page .scalar-app { min-height: calc(100vh - 126px); }
+.cli-doc-page { display: grid; grid-template-columns: 320px minmax(0, 1fr); min-height: calc(100vh - 78px); }
+.cli-sidebar { position: sticky; top: 78px; height: calc(100vh - 78px); overflow: auto; padding: 24px 18px; border-right: 1px solid var(--line); background: var(--paper); }
+.cli-sidebar input { width: 100%; margin: 22px 0 14px; padding: 11px 13px; border: 1px solid var(--line); background: var(--canvas); outline: none; }
+.cli-sidebar input:focus { border-color: var(--blue-soft); }
+.cli-sidebar nav { display: grid; gap: 4px; }
+.cli-sidebar button { display: grid; gap: 5px; width: 100%; padding: 11px 12px; border: 0; background: transparent; text-align: left; }
+.cli-sidebar button:hover, .cli-sidebar button.active { background: var(--soft); }
+.cli-sidebar button.active { box-shadow: inset 3px 0 var(--green); }
+.cli-sidebar button code { color: var(--blue); font-size: 12px; font-weight: 800; }
+.cli-sidebar button span { overflow: hidden; color: var(--muted); font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+.cli-content { width: 100%; max-width: 940px; padding: 50px clamp(28px, 6vw, 80px) 90px; }
+.cli-contract-badge { width: fit-content; margin-bottom: 46px; padding: 6px 9px; border: 1px solid var(--line); color: var(--muted); font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.output-protocol { margin: -20px 0 54px; padding: 18px 20px; border: 1px solid var(--line); background: var(--soft); }
+.output-protocol h2 { margin-bottom: 12px; font-size: 13px; }
+.output-protocol dl { display: grid; gap: 7px; margin: 0; }
+.output-protocol dl div { display: grid; grid-template-columns: 130px 1fr; gap: 14px; }
+.output-protocol dt { font-size: 11px; font-weight: 850; text-transform: uppercase; }
+.output-protocol dd { margin: 0; color: var(--muted); font-size: 12px; }
+.cli-command h1 { margin-bottom: 14px; font-size: clamp(32px, 5vw, 52px); letter-spacing: -.05em; }
+.cli-command h1 code { font-family: "SFMono-Regular", Consolas, monospace; }
+.cli-summary { margin-bottom: 52px; color: var(--muted); font-size: 18px; }
+.cli-command h2 { margin: 42px 0 18px; font-size: 18px; }
+.parameter-list { border-top: 1px solid var(--line); }
+.parameter { display: grid; grid-template-columns: minmax(150px, .8fr) 1.4fr; gap: 7px 24px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.parameter code { color: var(--blue-soft); font-weight: 800; }
+.parameter span { color: var(--muted); font-size: 12px; }
+.parameter p { grid-column: 2; margin: 0; font-size: 13px; }
+.cli-command pre { overflow: auto; padding: 16px 18px; background: var(--blue); color: white; }
+.cli-command li, .cli-command > p { line-height: 1.65; }
+.doc-state { padding: 70px 28px; color: var(--muted); text-align: center; }
+@media (max-width: 760px) {
+  .doc-entry-grid { grid-template-columns: 1fr; }
+  .cli-doc-page { grid-template-columns: 1fr; }
+  .cli-sidebar { position: static; height: auto; max-height: 360px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .parameter { grid-template-columns: 1fr; }
+  .parameter p { grid-column: 1; }
+}

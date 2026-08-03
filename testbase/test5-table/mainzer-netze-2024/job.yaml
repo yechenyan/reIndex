@@ -1,0 +1,14 @@
+spec: pdf-table-codegen/job@1.0
+name: mainzer-netze-2024
+source: ./2024_04_30_netzausbauplanung_mainzer_netze_gmbh_pdf.pdf
+extractor: ./extractor.py
+evidence_dir: ./evidence
+inventory: ./evidence/inventory.frozen.json
+reference: ./evidence/visual-reference.json
+output_dir: ./output
+evidence:
+  page_dpi: 144
+  contact_pages: 12
+policy:
+  compatibility: exact
+  allow_empty_tables: false

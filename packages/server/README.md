@@ -26,7 +26,7 @@ collections → collection_versions → version_files
 - PostgreSQL/ParadeDB：Collection 当前态、Node 树、resource 关系、BM25 和 pgvector。
 - 本地内容寻址存储：source、content、assets 和原始 `.node.md`。
 - DuckDB：只把目标 table CSV 注册为 `data`，关闭外部文件访问后执行单条 SELECT/CTE。
-- Qwen embedding 和 multilingual reranker：semantic/hybrid search。
+- Qwen embedding：semantic/hybrid search；multilingual reranker 可按需启用。
 
 所有资源写入 `REINDEX_DATA_DIR` 下的内容寻址目录：
 
@@ -44,18 +44,29 @@ DATABASE_URL=postgresql://... uv run reindex-server init-db
 
 DATABASE_URL=postgresql://... \
 REINDEX_DATA_DIR=/srv/reindex-data \
-REINDEX_EMBEDDINGS=qwen \
 uv run reindex-server run
 ```
 
-不安装可选模型依赖、只运行 lexical/grep 时，应设置 `REINDEX_RERANKER=disabled`。semantic/hybrid 和
-`REINDEX_RERANKER=minilm` 需要安装 `reindex-server[embeddings]`。
+Qwen embeddings 默认启用，需要安装 `reindex-server[embeddings]`。只运行 lexical/grep 时应显式设置
+`REINDEX_EMBEDDINGS=disabled`。Reranker 默认关闭；设置
+`REINDEX_RERANKER=minilm` 可按需启用，并同样需要模型依赖。
 
-健康检查为 `/health`，OpenAPI 为 `/openapi.json`，交互文档为 `/docs`。
+健康检查为 `/health`，OpenAPI 为 `/openapi.json`，Scalar 交互文档为 `/docs`。HTTP v1 的机器可读
+权威契约是
+[`src/reindex_server/openapi/reindex-http-v1.yaml`](src/reindex_server/openapi/reindex-http-v1.yaml)；
+运行时 Schema 和文档都读取该文件。修改 HTTP 接口时必须先更新契约，再运行：
+
+```bash
+uv run python scripts/check_http_contract.py
+```
+
+该检查会从 FastAPI 路由重新生成 OpenAPI，并与权威契约逐项比较，防止实现和文档漂移。
 
 ## API
 
 ```text
+GET  /v1/collections
+POST /v1/nodes/browse
 POST /v1/push                   POST /v1/push/blob
 POST /v1/push/commit            POST /v1/fetch
 POST /v1/history                POST /v1/pull
@@ -63,6 +74,7 @@ POST /v1/search                 POST /v1/get
 POST /v1/grep                   POST /v1/tables/query
 ```
 
+- `/collections` 列出当前 Collection 状态；`/nodes/browse` 为 Explore 客户端返回有序 Node 摘要。
 - `/push` 接收完整 transport manifest 并返回缺失 blob；`/push/blob` 上传缺失对象，`/push/commit` 二次检查 base 后原子发布。
 - `/fetch` 返回 head/历史 manifest；`/history` 返回 retained version 摘要。服务端不提供 merge 或历史 search。
 - `/pull` 返回保持 Node path 的原始 `.node.md` 字节，不含 source、content 或 assets。

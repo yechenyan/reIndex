@@ -26,8 +26,9 @@ INPUTS = (
 TECHNOLOGY_CARD = "technology-costs-2020.node.md"
 TABLE_CARD = (
     "netzausbauplan-nach-14d-enwg/"
-    "00003--aggregierte-10-jahresplanung-der-unteren-netzebenen.node.md"
+    "00008--aggregierte-10-jahresplanung-der-unteren-netzebenen.node.md"
 )
+EXPECTED_NODES = 12
 V2_MARKER = "V2UNIQUESEARCHTOKEN"
 B_MARKER = "Version B Conflict"
 RESOLVED_MARKER = "Resolved local card note"
@@ -63,7 +64,7 @@ def build_fixture(tmp_path: Path, capsys) -> Path:
         str(tmp_path / "codex"),
     )
     scanned = run_cli(capsys, "scan", str(root))
-    assert scanned["nodes"] == 7
+    assert scanned["nodes"] == EXPECTED_NODES
     return root
 
 
@@ -128,7 +129,7 @@ def card(root: Path, name: str) -> Path:
 
 def assert_node_only(root: Path) -> None:
     files = [path for path in (root / "reIndex").rglob("*") if path.is_file()]
-    assert len(files) == 7
+    assert len(files) == EXPECTED_NODES
     assert all(path.name.endswith(".node.md") for path in files)
 
 

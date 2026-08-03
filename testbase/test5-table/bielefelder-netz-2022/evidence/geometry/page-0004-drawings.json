@@ -1,0 +1,150 @@
+[
+  {
+    "items": [
+      [
+        "re",
+        [
+          70.80000305175781,
+          215.4010009765625,
+          116.63999938964844,
+          216.0
+        ],
+        1
+      ]
+    ],
+    "type": "f",
+    "even_odd": false,
+    "fill_opacity": 1.0,
+    "fill": [
+      0.0,
+      0.125,
+      0.37599998712539673
+    ],
+    "rect": [
+      70.80000305175781,
+      215.4010009765625,
+      116.63999938964844,
+      216.0
+    ],
+    "seqno": 5,
+    "layer": "",
+    "closePath": null,
+    "color": null,
+    "width": null,
+    "lineCap": null,
+    "lineJoin": null,
+    "dashes": null,
+    "stroke_opacity": null
+  },
+  {
+    "items": [
+      [
+        "re",
+        [
+          70.80000305175781,
+          455.52099609375,
+          416.52001953125,
+          456.1199951171875
+        ],
+        1
+      ]
+    ],
+    "type": "f",
+    "even_odd": false,
+    "fill_opacity": 1.0,
+    "fill": [
+      0.0,
+      0.125,
+      0.37599998712539673
+    ],
+    "rect": [
+      70.80000305175781,
+      455.52099609375,
+      416.52001953125,
+      456.1199951171875
+    ],
+    "seqno": 11,
+    "layer": "",
+    "closePath": null,
+    "color": null,
+    "width": null,
+    "lineCap": null,
+    "lineJoin": null,
+    "dashes": null,
+    "stroke_opacity": null
+  },
+  {
+    "items": [
+      [
+        "re",
+        [
+          70.80000305175781,
+          552.8399658203125,
+          142.6790008544922,
+          553.43994140625
+        ],
+        1
+      ]
+    ],
+    "type": "f",
+    "even_odd": false,
+    "fill_opacity": 1.0,
+    "fill": [
+      0.0,
+      0.125,
+      0.37599998712539673
+    ],
+    "rect": [
+      70.80000305175781,
+      552.8399658203125,
+      142.6790008544922,
+      553.43994140625
+    ],
+    "seqno": 15,
+    "layer": "",
+    "closePath": null,
+    "color": null,
+    "width": null,
+    "lineCap": null,
+    "lineJoin": null,
+    "dashes": null,
+    "stroke_opacity": null
+  },
+  {
+    "items": [
+      [
+        "re",
+        [
+          70.80000305175781,
+          618.9609985351562,
+          124.80000305175781,
+          619.5599975585938
+        ],
+        1
+      ]
+    ],
+    "type": "f",
+    "even_odd": false,
+    "fill_opacity": 1.0,
+    "fill": [
+      0.0,
+      0.125,
+      0.37599998712539673
+    ],
+    "rect": [
+      70.80000305175781,
+      618.9609985351562,
+      124.80000305175781,
+      619.5599975585938
+    ],
+    "seqno": 19,
+    "layer": "",
+    "closePath": null,
+    "color": null,
+    "width": null,
+    "lineCap": null,
+    "lineJoin": null,
+    "dashes": null,
+    "stroke_opacity": null
+  }
+]

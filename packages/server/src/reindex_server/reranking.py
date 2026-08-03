@@ -100,7 +100,7 @@ class MiniLMReranker(Reranker):
 
 
 def provider_from_environment() -> Reranker:
-    value = os.getenv("REINDEX_RERANKER", "minilm")
+    value = os.getenv("REINDEX_RERANKER", "disabled")
     if value == "disabled":
         return Reranker()
     if value != "minilm":

@@ -206,4 +206,29 @@ items:
 The external CSV files were reviewed against the PDF tables.
 ```
 
-仓库中的完整输入示例见 [`testbase/test2/reIndex.md`](../../testbase/test2/reIndex.md)。
+仓库中的完整输入示例见 [`testbase/test2-generage/reIndex.md`](../../testbase/test2-generage/reIndex.md)。
+
+## 与 package 的边界
+
+`reIndex.md` 整个文件可省略：此时 `rei` 以输入目录名作为 Collection title，递归发现普通文件和目录，并使用
+默认 `parse: auto`。只有需要覆盖默认行为时，才创建该文件。
+
+声明文件存在时只有 `spec: reindex/input@1.0` 必填；`collection` 和 `items` 均可省略。`items` 是稀疏覆盖，
+不是 allowlist，未列出的普通路径仍按默认规则处理。item key 是当前相对路径 locator，不是稳定身份或 `path`
+字段；机器关系全部位于 YAML frontmatter，Markdown body 不参与编译。
+
+`part_of` 同时表达 provenance 和 parent：derived item 的 `source` 指向目标 raw 文件，并成为该文档 group 的
+child。`derived_from` 只表达 provenance，item 保持为 Collection 根级 Node。最终 package 中每个逻辑 item
+只能有一个规范位置，不得同时在文档目录和 Collection 根部复制。`parse` 可以按 `text/images/tables` 选择
+`auto/off`。外部解析结果使用关系、页码和 quality 表达，不要求通用解析器先检测到对应内容；quality 失败必须
+终止，不能静默回退通用结果。
+
+最小合法文件只有版本标记：
+
+```md
+---
+spec: "reindex/input@1.0"
+---
+```
+
+`reIndex.md` 是构建输入，不是 `reindex/node@1.0` package 成员，服务器 loader 仍然只接受最终 package。

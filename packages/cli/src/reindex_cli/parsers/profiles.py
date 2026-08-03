@@ -43,17 +43,16 @@ def csv_profile(path: Path, label: str) -> dict:
 
 def pdf_profile(path: Path, label: str) -> dict:
     try:
-        from docling.backend.pypdfium2_backend import PyPdfiumDocumentBackend
-        from docling.datamodel.base_models import InputFormat
-        from docling.datamodel.document import InputDocument
+        from pypdfium2 import PdfDocument
 
-        document = InputDocument(path, InputFormat.PDF, PyPdfiumDocumentBackend)
+        document = PdfDocument(path)
         try:
-            if not document.valid:
+            page_count = len(document)
+            if page_count < 1:
                 raise ReIndexError(f"Invalid PDF: {label}")
-            return {"page_count": document.page_count}
+            return {"page_count": page_count}
         finally:
-            document._backend.unload()
+            document.close()
     except ReIndexError:
         raise
     except Exception as error:

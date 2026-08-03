@@ -143,6 +143,18 @@ Markdown card 应提供新增价值：
 
 card 不应重复 URI、SHA-256、完整 content 或可由 frontmatter 直接读取的字段。
 
+CLI 生成初稿时使用以下规则：
+
+- 文本边界由程序按原始标题层级、段落和长度确定；Agent 不改变 Node 边界。
+- text card 记录章节路径和页码；Agent 按 source document 批量补充客观摘要，不评价内容。
+- table card 可以把程序计算的字段类型、非空/缺失、缺失率、唯一值和数值范围写入 Markdown，
+  并保留最多 5 行真实 Preview。Agent 只能补充有来源依据的表格内容、文中位置和表间关系，不能分析趋势。
+- image card 的自动初稿只记录 caption、章节、页码、尺寸、已有 OCR 和邻近原文；普通 scan 不进行额外视觉推断。
+- Agent review 按 source document 批量完成，避免为每个 Node 重复读取整篇文档。未变化的解析结果和人工正文继续复用。
+
+这些 card 是检索和导航层，不是分析报告；只保留能帮助 Agent 找到正确 Node、理解其来源上下文或决定是否读取
+content/raw 的信息。
+
 ## 5. source、content 与 assets
 
 文本 Node 示例：
@@ -280,25 +292,5 @@ node_hash = SHA-256(normalized frontmatter + markdown card + content sha256 + or
 ## 11. Raw authoring input
 
 ReIndex 1.0 的 raw authoring 语法以 [`reindex-input-v1.0.md`](reindex-input-v1.0.md) 为规范性来源。
-`reIndex.md` 整个文件可省略：此时 `rei` 以输入目录名作为 Collection title，递归发现普通文件和目录，并使用
-默认 `parse: auto`。只有需要覆盖默认行为时，才创建该文件。
-
-声明文件存在时只有 `spec: reindex/input@1.0` 必填；`collection` 和 `items` 均可省略。`items` 是稀疏覆盖，
-不是 allowlist，未列出的普通路径仍按默认规则处理。item key 是当前相对路径 locator，不是稳定身份或 `path`
-字段；机器关系全部位于 YAML frontmatter，Markdown body 不参与编译。
-
-`part_of` 同时表达 provenance 和 parent：derived item 的 `source` 指向目标 raw 文件，并成为该文档 group 的
-child。`derived_from` 只表达 provenance，item 保持为 Collection 根级 Node。最终 package 中每个逻辑 item
-只能有一个规范位置，不得同时在文档目录和 Collection 根部复制。`parse` 可以按 `text/images/tables` 选择
-`auto/off`。外部解析结果使用关系、页码和 quality 表达，不要求通用解析器先检测到对应内容；quality 失败必须
-终止，不能静默回退通用结果。
-
-最小合法文件只有版本标记：
-
-```md
----
-spec: "reindex/input@1.0"
----
-```
-
-`reIndex.md` 是构建输入，不是 `reindex/node@1.0` package 成员，服务器 loader 仍然只接受最终 package。
+该独立规范定义默认发现、稀疏覆盖、解析开关和派生关系。`reIndex.md` 是可省略的构建输入，
+不是 `reindex/node@1.0` package 成员；服务器 loader 仍然只接受最终 package。

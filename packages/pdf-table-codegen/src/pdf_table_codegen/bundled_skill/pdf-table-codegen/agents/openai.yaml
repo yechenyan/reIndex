@@ -1,0 +1,4 @@
+interface:
+  display_name: "PDF Table Codegen"
+  short_description: "Generate flexible, verified PDF table extractors"
+  default_prompt: "Use $pdf-table-codegen to inspect this PDF, freeze independent evidence, choose a strategy per table, and generate a tested project-local extractor."
