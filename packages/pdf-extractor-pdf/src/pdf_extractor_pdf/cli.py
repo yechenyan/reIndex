@@ -14,9 +14,10 @@ from pdf_extractor_pdf.inspection import inspect_inventory
 from pdf_extractor_pdf.inventory import freeze_inventory, reopen_inventory
 from pdf_extractor_pdf.inventory_audit import audit_inventory
 from pdf_extractor_pdf.job import load_job
-from pdf_extractor_pdf.metrics import finish_stage, measure, metrics_report, record_agent, start_stage
+from pdf_extractor_pdf.metrics import cancel_stage, finish_stage, measure, metrics_report, record_agent, start_stage
 from pdf_extractor_pdf.reference import freeze_reference, reopen_reference
 from pdf_extractor_pdf.reference_scaffold import plan_reference, scaffold_reference
+from pdf_extractor_pdf.repairs import begin_qa_repair
 from pdf_extractor_pdf.repair_scope import create_repair_scope
 from pdf_extractor_pdf.runner import execute
 from pdf_extractor_pdf.scaffold import initialize_project
@@ -59,6 +60,9 @@ def parser() -> argparse.ArgumentParser:
     repair.add_argument("job", type=Path)
     repair.add_argument("--route", required=True, choices=["finder_agent", "extraction_agent", "qa_agent", "main_agent"])
     repair.add_argument("--tables", nargs="*")
+    qa_repair = commands.add_parser("begin-qa-repair")
+    qa_repair.add_argument("job", type=Path)
+    qa_repair.add_argument("--tables", nargs="*")
     for name in ["reopen-inventory", "reopen-reference"]:
         child = commands.add_parser(name)
         child.add_argument("job", type=Path)
@@ -73,6 +77,7 @@ def parser() -> argparse.ArgumentParser:
     stage_start.add_argument("--model", required=True)
     stage_start.add_argument("--run-id")
     stage_start.add_argument("--agent-id", required=True)
+    stage_start.add_argument("--dispatch-kind", choices=["spawn", "followup", "orchestrator"], default="spawn")
     stage_finish = commands.add_parser("stage-finish")
     stage_finish.add_argument("job", type=Path)
     stage_finish.add_argument("run_id")
@@ -81,6 +86,10 @@ def parser() -> argparse.ArgumentParser:
     stage_finish.add_argument("--token-input", type=int)
     stage_finish.add_argument("--token-output", type=int)
     stage_finish.add_argument("--notes")
+    stage_cancel = commands.add_parser("stage-cancel")
+    stage_cancel.add_argument("job", type=Path)
+    stage_cancel.add_argument("run_id")
+    stage_cancel.add_argument("--reason", required=True)
     metrics = commands.add_parser("metrics-report")
     metrics.add_argument("job", type=Path)
     briefs = commands.add_parser("agent-briefs")
@@ -90,7 +99,6 @@ def parser() -> argparse.ArgumentParser:
     install.add_argument("workspace", type=Path)
     install.add_argument("--force", action="store_true")
     return root
-
 
 def main(argv: list[str] | None = None) -> int:
     args = parser().parse_args(argv)
@@ -113,7 +121,6 @@ def main(argv: list[str] | None = None) -> int:
     if args.command in {"validate", "check", "verify-cache"} and payload.get("passed", payload.get("ok")) is False:
         return 2
     return 0
-
 
 def _dispatch(args: argparse.Namespace, job):
     if args.command == "prepare":
@@ -145,6 +152,8 @@ def _dispatch(args: argparse.Namespace, job):
         return resolve_merges(job, args.draft)
     if args.command == "repair-scope":
         return create_repair_scope(job, args.route, args.tables)
+    if args.command == "begin-qa-repair":
+        return begin_qa_repair(job, args.tables)
     if args.command == "finalize":
         return finalize(job)
     if args.command == "reopen-inventory":
@@ -160,6 +169,7 @@ def _dispatch(args: argparse.Namespace, job):
             job.evidence_dir, args.stage, args.role, args.model, args.run_id,
             agent_id=args.agent_id, workflow_phase=load_state(job.evidence_dir)["phase"],
             table_ids=scope.get("affected_table_ids") if args.role != "main_agent" else None,
+            dispatch_kind=args.dispatch_kind,
         )
     if args.command == "stage-finish":
         token_usage = None
@@ -170,6 +180,8 @@ def _dispatch(args: argparse.Namespace, job):
             job.evidence_dir, args.run_id, args.status,
             waiting_seconds=args.waiting_seconds, token_usage=token_usage, notes=args.notes,
         )
+    if args.command == "stage-cancel":
+        return cancel_stage(job.evidence_dir, args.run_id, args.reason)
     if args.command == "metrics-report":
         return metrics_report(job.evidence_dir)
     if args.command == "agent-briefs":
@@ -177,7 +189,6 @@ def _dispatch(args: argparse.Namespace, job):
     if args.command == "status":
         return load_state(job.evidence_dir)
     raise AssertionError(args.command)
-
 
 def _print(value: dict) -> int:
     print(json.dumps(value, ensure_ascii=False, indent=2))

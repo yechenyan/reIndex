@@ -2,11 +2,11 @@
 
 ## Request
 
-Extract all tables from the source PDF into CSV files with conservative source-faithful values and row-level provenance.
+Extract all tables into project-local output. Header-neutral matrix: inventory freezes positional column_count; result returns column_count plus rows; row 0 ordinary source row; CSV has no separate header. Do not invent column names. Explicitly account continuation duplicate leading rows.
 
 ## Objective
 
-Own requirements, ambiguity decisions, merge decisions, and final review.
+Own requirements, positional-column ambiguity, merge decisions, and final review. Tables are header-neutral matrices: row 0 is an ordinary source row. Treat format_only differences as non-blocking; route real row/column/content errors only.
 
 ## Allowed inputs
 
@@ -14,7 +14,7 @@ All project evidence and reports.
 
 ## Prohibited inputs
 
-Do not author QA source values.
+Do not author QA source values or invent column names.
 
 ## Repair scope
 

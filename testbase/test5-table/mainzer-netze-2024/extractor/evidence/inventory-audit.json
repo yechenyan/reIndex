@@ -1,0 +1,332 @@
+{
+  "spec": "pdf-extractor-pdf/inventory-audit@2.0",
+  "source_sha256": "828d7e506917fc3d5331a1cc7ad0f4be78b425af0b7f6b1d74716f22c82e332a",
+  "draft_sha256": "fcf200f304b5c04d26c9bbc22db87431782c6e90c6bc33d64d31b4375c0e5883",
+  "passed": true,
+  "review_path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/inventory-review.json",
+  "review_sha256": "9c3c44999e84fd9baec3452d5d721fb4fc1c4965e4b689c1155f84b025d3c0d0",
+  "instructions": "Fix blocking bboxes, then set visible=true and all four edges in inventory-review.json; overlay hashes are code-bound.",
+  "segments": [
+    {
+      "table_id": "table-abbreviations",
+      "segment_id": "segment-01",
+      "page": 5,
+      "bbox": [
+        68,
+        95,
+        527,
+        377
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/inventory-overlays/table-abbreviations/segment-01-5f1869ff3983-page-0005.png",
+      "overlay_sha256": "e75f6e1ca3d8c02959729ea2d8c2bd54c34516b47940a0ff800beb104a684734",
+      "blocking_signals": [],
+      "advisory_signals": [
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Abkürzungsverzeichnis",
+          "bbox": [
+            70.86000061035156,
+            68.94286346435547,
+            250.5115203857422,
+            91.88350677490234
+          ]
+        }
+      ],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-1",
+      "segment_id": "segment-01",
+      "page": 10,
+      "bbox": [
+        78,
+        498,
+        517,
+        780
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/inventory-overlays/table-1/segment-01-04b5ddf58914-page-0010.png",
+      "overlay_sha256": "c8fb5c79d8e80928b6e175d240fad932612ae2971c8d7eb8634221d4fa4eb4c2",
+      "blocking_signals": [],
+      "advisory_signals": [
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "In",
+          "bbox": [
+            70.90383911132812,
+            473.2319030761719,
+            80.0721435546875,
+            488.2196044921875
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Tabelle",
+          "bbox": [
+            82.83909606933594,
+            473.2319030761719,
+            118.93144989013672,
+            488.2196044921875
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "1",
+          "bbox": [
+            121.66437530517578,
+            473.2319030761719,
+            127.76925659179688,
+            488.2196044921875
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "und",
+          "bbox": [
+            130.48130798339844,
+            473.2319030761719,
+            148.81790161132812,
+            488.2196044921875
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Tabelle",
+          "bbox": [
+            151.59584045410156,
+            473.2319030761719,
+            187.68821716308594,
+            488.2196044921875
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "2",
+          "bbox": [
+            190.42111206054688,
+            473.2319030761719,
+            196.52598571777344,
+            488.2196044921875
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "sind",
+          "bbox": [
+            199.29295349121094,
+            473.2319030761719,
+            219.49395751953125,
+            488.2196044921875
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "die",
+          "bbox": [
+            222.2653045654297,
+            473.2319030761719,
+            236.8895721435547,
+            488.2196044921875
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Last-",
+          "bbox": [
+            239.65982055664062,
+            473.2319030761719,
+            264.074951171875,
+            488.2196044921875
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "und",
+          "bbox": [
+            266.8529052734375,
+            473.2319030761719,
+            285.1894836425781,
+            488.2196044921875
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Einspeiseprognosen",
+          "bbox": [
+            287.9608154296875,
+            473.2319030761719,
+            387.5724792480469,
+            488.2196044921875
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "für",
+          "bbox": [
+            390.34381103515625,
+            473.2319030761719,
+            403.1794128417969,
+            488.2196044921875
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "die",
+          "bbox": [
+            405.9430847167969,
+            473.2319030761719,
+            420.5640869140625,
+            488.2196044921875
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Teilnetze",
+          "bbox": [
+            423.2750549316406,
+            473.2319030761719,
+            467.9504699707031,
+            488.2196044921875
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "dargestellt.",
+          "bbox": [
+            470.720703125,
+            473.2319030761719,
+            524.4677734375,
+            488.2196044921875
+          ]
+        }
+      ],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-2",
+      "segment_id": "segment-01",
+      "page": 11,
+      "bbox": [
+        78,
+        70,
+        517,
+        350
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/inventory-overlays/table-2/segment-01-cdfb4be6d0c7-page-0011.png",
+      "overlay_sha256": "8c27043e6e94b18f7df68ffc284d041d1f2cf04f40cf1c5d3bd9f2da5a9a0f80",
+      "blocking_signals": [],
+      "advisory_signals": [],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-3",
+      "segment_id": "segment-01",
+      "page": 13,
+      "bbox": [
+        83,
+        134,
+        512,
+        260
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/inventory-overlays/table-3/segment-01-89580ac851db-page-0013.png",
+      "overlay_sha256": "71171d9e76896a8e1f9ae427460bbcaa381812aa9d6471dcd4c72a10f5030721",
+      "blocking_signals": [],
+      "advisory_signals": [
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Anlagenbaumaßnahmen.",
+          "bbox": [
+            70.86000061035156,
+            107.68572235107422,
+            194.33888244628906,
+            122.67341613769531
+          ]
+        }
+      ],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-4",
+      "segment_id": "segment-01",
+      "page": 13,
+      "bbox": [
+        83,
+        276,
+        512,
+        397
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/inventory-overlays/table-4/segment-01-247308390a5a-page-0013.png",
+      "overlay_sha256": "8f5778c88f5ff6e10983a67e0528dafaa9f8a93624ad0ac6b4fd315ccb0dd0eb",
+      "blocking_signals": [],
+      "advisory_signals": [],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-appendix-measures",
+      "segment_id": "segment-01",
+      "page": 16,
+      "bbox": [
+        18,
+        103,
+        578,
+        725
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/inventory-overlays/table-appendix-measures/segment-01-1db0a4cee169-page-0016.png",
+      "overlay_sha256": "8dced5433d84874fbcf91aeab9b5a9a45413a3850f287f294fae76f9e66155d8",
+      "blocking_signals": [],
+      "advisory_signals": [
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "8",
+          "bbox": [
+            70.86000061035156,
+            68.94286346435547,
+            79.76712036132812,
+            91.88350677490234
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Anhang",
+          "bbox": [
+            92.4549560546875,
+            68.94286346435547,
+            152.04296875,
+            91.88350677490234
+          ]
+        }
+      ],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    }
+  ]
+}

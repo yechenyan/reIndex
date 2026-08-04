@@ -1,0 +1,76 @@
+{
+  "spec": "pdf-extractor-pdf/inventory-draft@1.0",
+  "role": "finder_agent",
+  "reviewed_all_pages": true,
+  "source_sha256": "a9642d5a0051ab5bf992e3c28b447e9710c28ff5265f452ae8e6f966b958baa7",
+  "page_findings": [
+    {"page": 1, "label": "no_table", "notes": "Cover."},
+    {"page": 2, "label": "no_table", "notes": "Imprint."},
+    {"page": 3, "label": "no_table", "notes": "Contents with dot leaders; no visual table grid."},
+    {"page": 4, "label": "table", "notes": "Two-column abbreviation directory."},
+    {"page": 5, "label": "no_table", "notes": "Figure/table lists; no visual table grid."},
+    {"page": 6, "label": "table", "notes": "Table 1."},
+    {"page": 7, "label": "no_table", "notes": "Narrative and figure."},
+    {"page": 8, "label": "no_table", "notes": "Figure and narrative."},
+    {"page": 9, "label": "no_table", "notes": "Figures only."},
+    {"page": 10, "label": "table", "notes": "Table 2 with a two-level heading and six positional columns."},
+    {"page": 11, "label": "no_table", "notes": "Narrative."},
+    {"page": 12, "label": "no_table", "notes": "Narrative."},
+    {"page": 13, "label": "table", "notes": "Table 3."},
+    {"page": 14, "label": "table", "notes": "Table 4."},
+    {"page": 15, "label": "no_table", "notes": "Narrative."},
+    {"page": 16, "label": "table", "notes": "First segment of Table 5."},
+    {"page": 17, "label": "continuation", "notes": "Second segment of Table 5; its leading header row repeats page 16's header."}
+  ],
+  "tables": [
+    {
+      "id": "table-abbreviations",
+      "title": "Abkürzungsverzeichnis",
+      "column_count": 2,
+      "segments": [
+        {"id": "segment-01", "page": 4, "bbox": [70, 129, 537, 658]}
+      ]
+    },
+    {
+      "id": "table-1",
+      "title": "Tabelle 1: Betriebsmittel im Stromnetz",
+      "column_count": 3,
+      "segments": [
+        {"id": "segment-01", "page": 6, "bbox": [70, 516, 537, 605]}
+      ]
+    },
+    {
+      "id": "table-2",
+      "title": "Tabelle 2: Übersicht Erzeugung und Verbrauch (Einheit MW)",
+      "column_count": 6,
+      "segments": [
+        {"id": "segment-01", "page": 10, "bbox": [70, 397, 537, 536]}
+      ]
+    },
+    {
+      "id": "table-3",
+      "title": "Tabelle 3: Engpassbedingte Maßnahmen der Mittelspannung und Umspannung MS/NS",
+      "column_count": 4,
+      "segments": [
+        {"id": "segment-01", "page": 13, "bbox": [70, 622, 537, 767]}
+      ]
+    },
+    {
+      "id": "table-4",
+      "title": "Tabelle 4: Assetbedingte Maßnahmen der Mittelspannung und Umspannung MS/NS",
+      "column_count": 4,
+      "segments": [
+        {"id": "segment-01", "page": 14, "bbox": [68.0, 129.848, 539.0, 475.0]}
+      ]
+    },
+    {
+      "id": "table-5",
+      "title": "Tabelle 5: Maßnahmenplan bis 31.12.2028",
+      "column_count": 16,
+      "segments": [
+        {"id": "segment-01", "page": 16, "bbox": [56, 106, 799, 515]},
+        {"id": "segment-02", "page": 17, "bbox": [56, 135, 799, 495]}
+      ]
+    }
+  ]
+}

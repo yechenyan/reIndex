@@ -33,11 +33,14 @@ def _check_result(result: dict) -> None:
     ids = []
     for table in result["tables"]:
         ids.append(table.get("id"))
-        columns, rows = table.get("columns"), table.get("rows")
+        column_count, rows = table.get("column_count"), table.get("rows")
         provenance = table.get("provenance")
-        if not isinstance(columns, list) or not columns or len(set(columns)) != len(columns):
-            raise ValueError(f"invalid columns for table {table.get('id')}")
-        if not isinstance(rows, list) or any(len(row) != len(columns) for row in rows):
+        if not isinstance(column_count, int) or isinstance(column_count, bool) or column_count < 1:
+            raise ValueError(f"invalid column_count for table {table.get('id')}")
+        if not isinstance(rows, list) or any(
+            not isinstance(row, list) or len(row) != column_count
+            or any(not isinstance(cell, str) for cell in row) for row in rows
+        ):
             raise ValueError(f"inconsistent rows for table {table.get('id')}")
         if not isinstance(provenance, list) or len(provenance) != len(rows):
             raise ValueError(f"provenance must align with rows for table {table.get('id')}")

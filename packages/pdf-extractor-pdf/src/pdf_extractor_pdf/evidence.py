@@ -8,6 +8,7 @@ import fitz
 from PIL import Image, ImageDraw, ImageOps
 
 from pdf_extractor_pdf.artifacts import artifact_hash, write_json
+from pdf_extractor_pdf.finder_packet import build_finder_packet, valid_finder_packet
 from pdf_extractor_pdf.job import Job
 from pdf_extractor_pdf.models import source_sha256
 from pdf_extractor_pdf.workflow import require_phase, update_phase
@@ -22,6 +23,7 @@ def prepare(job: Job) -> dict:
         "contact_pages": int(job.evidence.get("contact_pages", 8)),
         "contact_columns": int(job.evidence.get("contact_columns", 4)),
         "contact_overlap_pages": int(job.evidence.get("contact_overlap_pages", 1)),
+        "finder_candidate_dpi": int(job.evidence.get("finder_candidate_dpi", 150)),
     }
     manifest_path = job.evidence_dir / "prepare-manifest.json"
     pages_dir = job.evidence_dir / "pages-low"
@@ -37,6 +39,7 @@ def prepare(job: Job) -> dict:
     cache_hit = bool(cache_hit and contact_paths and all(
         path.is_file() and contact_hashes.get(path.name) == artifact_hash(path) for path in contact_paths
     ))
+    cache_hit = bool(cache_hit and valid_finder_packet(existing.get("finder_packet", {})))
     if cache_hit:
         document.close()
         manifest = {**existing, "cache_hit": True}
@@ -59,11 +62,13 @@ def prepare(job: Job) -> dict:
             "text_chars": len(text),
             "word_count": len(page.get_text("words")),
         })
-    document.close()
     contacts, windows = _contacts(expected, job.evidence_dir / "contact-sheets", job)
+    finder_packet = build_finder_packet(job, document, windows)
+    document.close()
     manifest = {
         **signature, "cache_hit": False, "pages": page_info, "contacts": contacts,
         "contact_windows": windows,
+        "finder_packet": finder_packet,
         "page_hashes": {path.name: artifact_hash(path) for path in expected},
         "contact_hashes": {Path(path).name: artifact_hash(Path(path)) for path in contacts},
     }

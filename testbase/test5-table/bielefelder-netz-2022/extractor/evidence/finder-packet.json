@@ -1,0 +1,90 @@
+{
+  "spec": "pdf-extractor-pdf/finder-packet@1.0",
+  "instructions": "Review every contact-window page; freeze positional column_count without assuming a header, use candidate images first, and escalate only uncertain pages.",
+  "contact_windows": [
+    {
+      "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/contact-sheets/contact-001.jpg",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  ],
+  "candidate_pages": [
+    5
+  ],
+  "candidate_images": [
+    {
+      "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/pages-candidate/page-0005-150dpi.png",
+      "sha256": "be99807301adfbda7276430f5fcea7c8d4c57d92203a29ee63f414ffd1ba96b0"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "candidate": false,
+      "reasons": [],
+      "table_term_hits": 0,
+      "grid_line_count": 16,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "word_count": 184,
+      "candidate_image": null
+    },
+    {
+      "page": 2,
+      "candidate": false,
+      "reasons": [],
+      "table_term_hits": 0,
+      "grid_line_count": 4,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "word_count": 103,
+      "candidate_image": null
+    },
+    {
+      "page": 3,
+      "candidate": false,
+      "reasons": [],
+      "table_term_hits": 0,
+      "grid_line_count": 4,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "word_count": 352,
+      "candidate_image": null
+    },
+    {
+      "page": 4,
+      "candidate": false,
+      "reasons": [],
+      "table_term_hits": 0,
+      "grid_line_count": 16,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "word_count": 238,
+      "candidate_image": null
+    },
+    {
+      "page": 5,
+      "candidate": true,
+      "reasons": [
+        "table_term",
+        "grid_geometry"
+      ],
+      "table_term_hits": 1,
+      "grid_line_count": 901,
+      "width": 1191.0,
+      "height": 842.0,
+      "rotation": 90,
+      "word_count": 3365,
+      "candidate_image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/pages-candidate/page-0005-150dpi.png"
+    }
+  ]
+}

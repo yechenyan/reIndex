@@ -1,0 +1,22 @@
+spec: pdf-extractor-pdf/job@1.0
+source: ../e_dis_netz_gmbh_netzausbauplan_2024_aktualisiert.pdf
+main: ./main.py
+evidence_dir: ./evidence
+inventory: ./evidence/inventory.json
+reference: ./evidence/reference.json
+output_dir: ../output
+request: "对 e_dis_netz_gmbh_netzausbauplan_2024_aktualisiert.pdf 进行全新、无历史产物的 PDF 表格提取泛化基准；提取全部可见表格，保留德文专有名词、数值、表头、跨页边界和逐行 provenance；独立 Finder/Extractor/QA，QA 使用 40 候选式（以实际候选数为准）的 keep/remove 断行决策。"
+evidence:
+  thumbnail_dpi: 72
+  contact_columns: 4
+  contact_pages: 8
+  contact_overlap_pages: 1
+  finder_candidate_dpi: 150
+  table_dpi: 220
+policy:
+  scope: full_document
+  extractor_timeout_seconds: 120
+  require_row_bbox: true
+  merge_candidate_threshold: 0.85
+  require_independent_agents: true
+  require_parallel_extraction_qa: true

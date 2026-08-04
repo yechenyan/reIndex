@@ -1,0 +1,39 @@
+{
+  "spec": "pdf-extractor-pdf/agent-briefs@1.0",
+  "phase": "inspected",
+  "briefs": [
+    {
+      "role": "main-agent",
+      "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/agent-tasks/main-agent.md",
+      "sha256": "7ab01ce09c9f39e2ea632431a6642afa29e567ffb12a3a0812634a8ac3c7a359"
+    },
+    {
+      "role": "finder-agent",
+      "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/agent-tasks/finder-agent.md",
+      "sha256": "03a0741b6ba38e70e9977a4411e8f928a824f92ffbfa23db9bde0e7c7774caaa"
+    },
+    {
+      "role": "extraction-agent",
+      "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/agent-tasks/extraction-agent.md",
+      "sha256": "e90a9c825ff2acb2616901bd2d85e6825347a31f43d8ae7f25df36ec626bbd2e"
+    },
+    {
+      "role": "qa-agent",
+      "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/agent-tasks/qa-agent.md",
+      "sha256": "dfb692fc75dd9dd6b80ecd05918f247e3668936f4abbf622c75f379cacadc2fe"
+    }
+  ],
+  "repair_scope": {
+    "spec": "pdf-extractor-pdf/repair-scope@1.0",
+    "review_sha256": "06fe4f9d3e05853b1b791717bda0668dc3c9e8fcbbec5b5279b424db8936e8e5",
+    "route": "qa_agent",
+    "affected_table_ids": [
+      "table-6"
+    ],
+    "evidence_refs": [
+      "table-6::segment-01"
+    ],
+    "origin": "failed_review",
+    "instructions": "Agents may inspect and change only affected_table_ids; fixed validation protects every other table."
+  }
+}

@@ -1,0 +1,22 @@
+spec: pdf-extractor-pdf/job@1.0
+source: ../2024_04_30_netzausbauplanung_mainzer_netze_gmbh_pdf.pdf
+main: ./main.py
+evidence_dir: ./evidence
+inventory: ./evidence/inventory.json
+reference: ./evidence/reference.json
+output_dir: ../output
+request: "Read-only extraction of every visible table from the 16-page Mainzer Netze 2024 PDF into positional CSV/JSON outputs. Preserve all visible rows, columns, blank cells, and segment provenance; no PDF modification. Use frozen inventory and independent source-only QA."
+evidence:
+  thumbnail_dpi: 72
+  contact_columns: 4
+  contact_pages: 8
+  contact_overlap_pages: 1
+  finder_candidate_dpi: 150
+  table_dpi: 220
+policy:
+  scope: full_document
+  extractor_timeout_seconds: 120
+  require_row_bbox: true
+  merge_candidate_threshold: 0.85
+  require_independent_agents: true
+  require_parallel_extraction_qa: true

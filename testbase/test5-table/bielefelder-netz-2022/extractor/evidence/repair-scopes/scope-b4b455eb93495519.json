@@ -1,0 +1,2147 @@
+{
+  "spec": "pdf-extractor-pdf/repair-scope@1.0",
+  "review_sha256": "2655fdda73fd0b44301ebf02c2b984f485dd4ced287f70c0fff38e5087cc515d",
+  "route": "extraction_agent",
+  "affected_table_ids": [
+    "table-6"
+  ],
+  "evidence_refs": [
+    "table-6::segment-01"
+  ],
+  "origin": "failed_review",
+  "instructions": "Agents may inspect and change only affected_table_ids; fixed validation protects every other table.",
+  "baseline": {
+    "inventory_tables": {
+      "table-1": {
+        "id": "table-1",
+        "title": "Optionale Erläuterungen zu Ihren Angaben an die BNetzA",
+        "column_count": 1,
+        "segments": [
+          {
+            "id": "segment-01",
+            "page": 5,
+            "bbox": [
+              36.0,
+              193.0,
+              465.0,
+              223.0
+            ]
+          }
+        ]
+      },
+      "table-2": {
+        "id": "table-2",
+        "title": "Teil 1 – Hinweise und Neuerungen zum Vorjahr",
+        "column_count": 2,
+        "segments": [
+          {
+            "id": "segment-01",
+            "page": 5,
+            "bbox": [
+              36.0,
+              230.0,
+              946.0,
+              261.0
+            ]
+          }
+        ]
+      },
+      "table-3": {
+        "id": "table-3",
+        "title": "Teil 1 – Aggregierte 10-Jahres-Investitionen mit Übertragungskapazität",
+        "column_count": 7,
+        "segments": [
+          {
+            "id": "segment-01",
+            "page": 5,
+            "bbox": [
+              49.0,
+              266.0,
+              465.0,
+              302.0
+            ]
+          }
+        ]
+      },
+      "table-4": {
+        "id": "table-4",
+        "title": "Teil 1 – Aggregierte 10-Jahres-Investitionen ohne Übertragungskapazität",
+        "column_count": 3,
+        "segments": [
+          {
+            "id": "segment-01",
+            "page": 5,
+            "bbox": [
+              49.0,
+              304.0,
+              283.0,
+              333.0
+            ]
+          }
+        ]
+      },
+      "table-5": {
+        "id": "table-5",
+        "title": "Teil 2 – Hinweise und Neuerungen zum Vorjahr",
+        "column_count": 2,
+        "segments": [
+          {
+            "id": "segment-01",
+            "page": 5,
+            "bbox": [
+              36.0,
+              344.0,
+              946.0,
+              391.0
+            ]
+          }
+        ]
+      },
+      "table-6": {
+        "id": "table-6",
+        "title": "Teil 2 – Maßnahmenplan mit Ausfüllbeispielen und Zellenhinweisen",
+        "column_count": 20,
+        "segments": [
+          {
+            "id": "segment-01",
+            "page": 5,
+            "bbox": [
+              36.0,
+              398.0,
+              1155.0,
+              676.0
+            ]
+          }
+        ]
+      }
+    },
+    "reference_tables": {
+      "table-1": {
+        "id": "table-1",
+        "column_count": 1,
+        "comparison_modes": [
+          "text"
+        ],
+        "row_count": 2,
+        "segment_row_counts": [
+          2
+        ],
+        "segment_source_row_counts": [
+          2
+        ],
+        "segment_repeated_leading_rows": [
+          0
+        ],
+        "line_wrap_decisions": [],
+        "samples": [
+          {
+            "row_index": 0,
+            "reasons": [
+              "first_rows",
+              "last_rows"
+            ],
+            "values": [
+              "optionale Erläuterungen zu Ihren Angaben an die BNetzA:"
+            ],
+            "source_blank_indices": []
+          },
+          {
+            "row_index": 1,
+            "reasons": [
+              "first_rows",
+              "last_rows",
+              "middle_row"
+            ],
+            "values": [
+              ""
+            ],
+            "source_blank_indices": [
+              0
+            ]
+          }
+        ],
+        "rows": []
+      },
+      "table-2": {
+        "id": "table-2",
+        "column_count": 2,
+        "comparison_modes": [
+          "text",
+          "text"
+        ],
+        "row_count": 5,
+        "segment_row_counts": [
+          5
+        ],
+        "segment_source_row_counts": [
+          5
+        ],
+        "segment_repeated_leading_rows": [
+          0
+        ],
+        "line_wrap_decisions": [],
+        "samples": [
+          {
+            "row_index": 0,
+            "reasons": [
+              "first_rows"
+            ],
+            "values": [
+              "Hinweise:",
+              "Neuerungen zum Vorjahr"
+            ],
+            "source_blank_indices": []
+          },
+          {
+            "row_index": 1,
+            "reasons": [
+              "first_rows"
+            ],
+            "values": [
+              "1. Bitte geben Sie für die Nieder- und Mittelspannung die für Neubau, Ersatz(neubau) mit/ ohne Übertragungskapazitätserhöhung, Netzoptimierung/-verstärkung sowie Rückbau/ Altlastentsorgung jeweils die geplanten Investitionen als aggregierten Wert an.",
+              "! Aufteilung der Tabelle in 2 Tabellen: Investitionen mit Erhöhung der Übertragungskapazität und ohne Erhöhung der Übertragungskapazität"
+            ],
+            "source_blank_indices": []
+          },
+          {
+            "row_index": 2,
+            "reasons": [
+              "first_rows",
+              "middle_row"
+            ],
+            "values": [
+              "2. Falls Sie für die Investitionen in die unteren Netzebenen eine jährliche Pauschale annehmen, teilen Sie diese bitte auf die entsprechenden Bereiche (Neubau usw.) auf und rechen Sie diese auf 10 Jahre hoch.",
+              "! Wegfall Angabe zum Anteil \"Ladeinfrastruktur-Aufbau\""
+            ],
+            "source_blank_indices": []
+          },
+          {
+            "row_index": 3,
+            "reasons": [
+              "last_rows"
+            ],
+            "values": [
+              "3. Konkrete Einzelmaßnahmen der unteren Netzebenen (z.B. Anbindung Neubaugebiet) tragen Sie bitte weiterhin in den Maßnahmenplan ein und nicht in die aggregierte 10-Jahres Planung. Achten Sie darauf, dass diese NICHT zusätzlich in der aggregierten 10-Jahresplanung enthalten sind",
+              "! Neue Felder: Aufteilung, ob die Kosten überwiegend erzeugungs- oder einspeisebedingt sind"
+            ],
+            "source_blank_indices": []
+          },
+          {
+            "row_index": 4,
+            "reasons": [
+              "last_rows"
+            ],
+            "values": [
+              "4. In Spalte G und H teilen Sie bitte die Summe der Netzebeneninvestitionen (Spalte F) auf",
+              ""
+            ],
+            "source_blank_indices": [
+              1
+            ]
+          }
+        ],
+        "rows": []
+      },
+      "table-3": {
+        "id": "table-3",
+        "column_count": 7,
+        "comparison_modes": [
+          "text",
+          "exact",
+          "exact",
+          "exact",
+          "exact",
+          "exact",
+          "exact"
+        ],
+        "row_count": 4,
+        "segment_row_counts": [
+          4
+        ],
+        "segment_source_row_counts": [
+          4
+        ],
+        "segment_repeated_leading_rows": [
+          0
+        ],
+        "line_wrap_decisions": [],
+        "samples": [
+          {
+            "row_index": 0,
+            "reasons": [
+              "first_rows"
+            ],
+            "values": [
+              "",
+              "10-Jahres-Investition für Neubau",
+              "10-Jahres-Investition für Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+              "10-Jahres-Investition für Netzoptimierung und -verstärkung",
+              "Summe 10-Jahres Netzausbau [automatische Berechnung]",
+              "davon: Kosten des überwiegend erzeugungsgetrieben Netzausbaus",
+              "davon: Kosten des überwiegend verbrauchsbedingten Netzausbaus"
+            ],
+            "source_blank_indices": [
+              0
+            ]
+          },
+          {
+            "row_index": 1,
+            "reasons": [
+              "first_rows"
+            ],
+            "values": [
+              "Mittelspannung",
+              "3.242.160 €",
+              "19.452.960 €",
+              "8.105.400 €",
+              "30.800.520 €",
+              "6.160.104 €",
+              "24.640.416 €"
+            ],
+            "source_blank_indices": []
+          },
+          {
+            "row_index": 2,
+            "reasons": [
+              "first_rows",
+              "last_rows",
+              "middle_row"
+            ],
+            "values": [
+              "Umspannung MS/NS",
+              "1.500.000 €",
+              "8.250.000 €",
+              "750.000 €",
+              "10.500.000 €",
+              "0 €",
+              "10.500.000 €"
+            ],
+            "source_blank_indices": []
+          },
+          {
+            "row_index": 3,
+            "reasons": [
+              "last_rows"
+            ],
+            "values": [
+              "Niederspannung",
+              "9.828.000 €",
+              "27.371.520 €",
+              "4.561.920 €",
+              "41.761.440 €",
+              "4.176.144 €",
+              "37.585.296 €"
+            ],
+            "source_blank_indices": []
+          }
+        ],
+        "rows": []
+      },
+      "table-4": {
+        "id": "table-4",
+        "column_count": 3,
+        "comparison_modes": [
+          "text",
+          "exact",
+          "exact"
+        ],
+        "row_count": 4,
+        "segment_row_counts": [
+          4
+        ],
+        "segment_source_row_counts": [
+          4
+        ],
+        "segment_repeated_leading_rows": [
+          0
+        ],
+        "line_wrap_decisions": [],
+        "samples": [
+          {
+            "row_index": 0,
+            "reasons": [
+              "first_rows"
+            ],
+            "values": [
+              "",
+              "10-Jahres-Investition für Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+              "10-Jahres-Investition für Rückbau / Altlastentsorgung"
+            ],
+            "source_blank_indices": [
+              0
+            ]
+          },
+          {
+            "row_index": 1,
+            "reasons": [
+              "first_rows"
+            ],
+            "values": [
+              "Mittelspannung",
+              "1.621.080 €",
+              "0 €"
+            ],
+            "source_blank_indices": []
+          },
+          {
+            "row_index": 2,
+            "reasons": [
+              "first_rows",
+              "last_rows",
+              "middle_row"
+            ],
+            "values": [
+              "Umspannung MS/NS",
+              "4.500.000 €",
+              "0 €"
+            ],
+            "source_blank_indices": []
+          },
+          {
+            "row_index": 3,
+            "reasons": [
+              "last_rows"
+            ],
+            "values": [
+              "Niederspannung",
+              "13.685.760 €",
+              "0 €"
+            ],
+            "source_blank_indices": []
+          }
+        ],
+        "rows": []
+      },
+      "table-5": {
+        "id": "table-5",
+        "column_count": 2,
+        "comparison_modes": [
+          "text",
+          "text"
+        ],
+        "row_count": 10,
+        "segment_row_counts": [
+          10
+        ],
+        "segment_source_row_counts": [
+          10
+        ],
+        "segment_repeated_leading_rows": [
+          0
+        ],
+        "line_wrap_decisions": [],
+        "samples": [
+          {
+            "row_index": 0,
+            "reasons": [
+              "first_rows"
+            ],
+            "values": [
+              "Hinweise:",
+              "Neuerungen zum Vorjahr"
+            ],
+            "source_blank_indices": []
+          },
+          {
+            "row_index": 1,
+            "reasons": [
+              "first_rows"
+            ],
+            "values": [
+              "1. Bitte tragen Sie für alle Spannungsebenen Ihre Einzelmaßnahmen in die Liste ein.",
+              "! Spalte G \"Trassenlänge\" und H \"Änderungen MVA\" wurden in den Hinweisen klarer Definiert da es zu unterschiedlichen Auslegungen kam"
+            ],
+            "source_blank_indices": []
+          },
+          {
+            "row_index": 2,
+            "reasons": [
+              "first_rows"
+            ],
+            "values": [
+              "2. Die Laufende Nummer entspricht dem Pimärschlüssel zur eindeutigen Identifizierung Ihrer Maßnahmen im Zeitverlauf.",
+              "! Die Antwortmöglichkeiten der Spalte J \"2. netztechnische Begründung\" hat sich geändert."
+            ],
+            "source_blank_indices": []
+          },
+          {
+            "row_index": 5,
+            "reasons": [
+              "middle_row"
+            ],
+            "values": [
+              "5. Maßnahmen die Sie im Vorjahr bereits über den Maßnahmenplan als abgeschlossen oder endgültig eingestellt (weggefallen/aufgegeben) gemeldet haben müssen nicht mehr eingetragen werden. ACHTUNG: die laufende Nummer darf NICHT neu vergeben werden.",
+              "! Die Antwortmöglichkeiten in Spalte Q \"Status\" wurden angepasst. \"Aufgegebene Maßnahme\" wurde in \"weggefallene Maßnahme geändert. Maßnahmen die in der letzten Abfrage als aufgegeben gekennzeichnet wurden müssen nicht mehr gemeldet werden."
+            ],
+            "source_blank_indices": []
+          },
+          {
+            "row_index": 8,
+            "reasons": [
+              "last_rows"
+            ],
+            "values": [
+              "8. Sie können die Maßnahmen aus dem Vorjahr in diesen Plan kopieren und die aktualisieren (Spalte M-Q). Beachten Sie dass Sie die neu eingefügten/geänderten Spalten (J,L,und R) dabei nicht überschrieben werden und beantwortet werden müssen.",
+              ""
+            ],
+            "source_blank_indices": [
+              1
+            ]
+          },
+          {
+            "row_index": 9,
+            "reasons": [
+              "last_rows"
+            ],
+            "values": [
+              "9. Füllen Sie alle Spalten aus!",
+              ""
+            ],
+            "source_blank_indices": [
+              1
+            ]
+          }
+        ],
+        "rows": []
+      },
+      "table-6": {
+        "id": "table-6",
+        "column_count": 20,
+        "comparison_modes": [
+          "exact",
+          "text",
+          "text",
+          "text",
+          "text",
+          "text",
+          "exact",
+          "exact",
+          "text",
+          "text",
+          "text",
+          "text",
+          "exact",
+          "exact",
+          "exact",
+          "exact",
+          "text",
+          "text",
+          "text",
+          "text"
+        ],
+        "row_count": 55,
+        "segment_row_counts": [
+          55
+        ],
+        "segment_source_row_counts": [
+          55
+        ],
+        "segment_repeated_leading_rows": [
+          0
+        ],
+        "line_wrap_decisions": [],
+        "samples": [
+          {
+            "row_index": 0,
+            "reasons": [
+              "first_rows"
+            ],
+            "values": [
+              "Ausfüllbeispiele und Zellenhinweise",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            "source_blank_indices": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19
+            ]
+          },
+          {
+            "row_index": 1,
+            "reasons": [
+              "first_rows"
+            ],
+            "values": [
+              "1",
+              "Nordleitung",
+              "Bspw. \"Audorf\", \"Hamburg-Nord\"",
+              "Errichtung einer Leitung von-bis (Netzknotenpunkt mit Ortsangabe, bspw. 01111 Musterdorf- 01112 Musterstadt)",
+              "(Dropdown-Liste) • Neubau • Ersatz(neubau) mit Erhöhung der Übertragungskapazität • Ersatz(neubau) ohne Erhöhung der Übertragungskapazität • Netzoptimierung und -verstärkung • Rückbau / Altlastentsorgung",
+              "bspw. Freileitung",
+              "Bitte geben Sie hier die Länge in Kilometern der Trasse an, in der Leitungen oder Kabel neu gebaut, optimiert oder bestehende ersetzt wurden. ACHTUNG Definitionsvorgabe! Bitte geben Sie bei Freileitungen nicht die Länge der einzelnen Leitungen an, sondern die Länge der Trasse/des Leitungsabschnitts. Bei Kabeln ist die Länge der einzelnen Leitungen anzugeben.",
+              "Bitte geben Sie bei Neubaumaßnahmen die neu geschaffene Übertragungskapazität an. ACHTUNG Definitionsvorgabe! Bei Optimierungs- oder Ersatzmaßnahmen geben Sie bitte an, wie sich die Übertragungskapazität im Vergleich zum Zustand vor Beginn der Maßnahme verändert.",
+              "zunehmende PV-Einspeisung in \"Musterortsteil\" in 01112 Musterstadt erfordert die Anbindung an die ... Leitung in ... etc.",
+              "(Dropdown-Liste) ACHTUNG geänderte Antwortmöglichkeiten! • Zubau EE-Anlagen • Zubau Power to X • Zubau anderer Erzeugungsanlagen • Zubau Verbraucher • Zubau Erzeugung und Verbrauch • Kein Zubau (reiner Ersatz) Antworten bereits gemeldete Einzelmaßnahmen bis Abfrage aus 2021: • ja • ja, teilweise • nein",
+              "(Dropdown-Liste) • Ja, um einen verbrauchsbedingten Engpass zu beheben • Ja, um einen erzeugungsbedingten Engpass zu beheben • Ja, beides (verbrauchsbedingt und erzeugungsbeding) • Nein",
+              "(Dropdown-Liste) • Ja, um einen verbrauchsbedingten Engpass vorzubeugen • Ja, um einen erzeugungsbedingten Engpass vorzubeugen • Ja, beides (verbrauchsbedingt und erzeugungsbeding) • Nein",
+              "03/2020",
+              "11/2024",
+              "Bitte bei der Begründung die Kategorie mit angeben: a) Akzeptanz Bevölkerung b) Genehmigungs-prozess c) ÜNB d) Intern e) Baubeginn (Lieferengpässe, Insolvenzen etc.) f) Sonstige Gründe g) Verzögerung durch Dritte Beispiel: d) Änderung Priorität, e) wegen Lieferengpass verzögert. g) Verzögerung der städtischen Erschließung",
+              "60000",
+              "(Dropdown-Liste) • weggefallene Maßnahme, • vorgesehene Maßnahme, • konkrete Planung, • im Bau, • abgeschlossen • in 10-JP überführt (Die Überführung war in der Abfrage 2021!) Hinweis: Maßnahmen gelten insbesondere als konkret geplant, wenn die für die Maßnahme notwendigen öffentlich-rechtlichen Planungs- oder Genehmigungsverfahren eingeleitet wurden oder vom Betreiber bereits Investitionsentscheidungen bezüglich der Ausbaumaßnahmen getroffen wurden oder der Betreiber von einer tatsächlichen Realisierung innerhalb der kommenden fünf Jahre ausgeht.",
+              "(Dropdown-Liste) • noch nicht eingeleitet • bereits eingeleitet • abgeschlossen • keine Genehmigung erforderlich",
+              "bspw. 80°-Trassierung von Leitungen, Spitzenkappung, Hochtemperaturleiterseile, Leiterseilmonitoring, Einbau von regelbaren Ortnetztransformatoren, Erhöhung des Querschnitts von Leitungen, Erhöhung der Trafoleistung, Verkabelung von Freileitungen, Trennstellenoptimierung, Änderung der Netztopologie, Einbau von Messtechnik, Bau von Paralellsystemen, Einbau von Spannungsreglern, Regulierung der Seildurchhänge, Sonstiges [bitte benennen].",
+              "(Dropdown-Liste) • NS, • UW MS auf NS, • MS, • UW HS auf MS oder • HS • Gesamtnetz [nur bei Projekten die nicht überwiegend einer Netzebene zugeordnet werden können. Bsp.: Errichtung Funknetz mit 450 MHz, flächendeckender Aufbau neuer Stationsleittechnik]"
+            ],
+            "source_blank_indices": []
+          },
+          {
+            "row_index": 2,
+            "reasons": [
+              "first_rows"
+            ],
+            "values": [
+              "lfd. Nr.",
+              "Maßnahme",
+              "Von der Netzausbaumaßnahme betroffene(r) Netzknoten im überlagerten HöS-Netz",
+              "kurze Projektbeschreibung",
+              "Projektkategorie",
+              "Betriebsmittel",
+              "Länge des zugebauten, optimierten oder ersetzen Leitungsabschnitts [km]",
+              "Änderung der Übertragungskapazität [+/- MVA]",
+              "netztechnische Begründung für den Netzausbau 1. kurze Beschreibung",
+              "netztechnische Begründung für den Netzausbau 2. Aus welchem Grund erfolgt die Netzausbaumaßnahme überwiegend?",
+              "Erfolgt diese Netzausbaumaßnahme, um einen bereits bestehenden Engpass zu beheben?",
+              "Erfolgt diese Netzausbaumaßnahme, um einen prognostizierten Engpass vorzubeugen?",
+              "voraussichtlicher Zeitpunkt des Baubeginns [MM/JJJJ]",
+              "voraussichtlicher Zeitpunkt der Inbetriebnahme [MM/JJJJ]",
+              "Im Falle einer Verzögerung der Maßnahme ist der Verzögerungsgrund (a-g) anzugeben (Angabe Buchstabe a-f & kurze Beschreibung)",
+              "Kosten (geschätzt) in Euro",
+              "Projektstatus",
+              "Stand Genehmigungsverfahren",
+              "Geprüfte Alternativen zum Netzausbau",
+              "Vorrangig betroffene Netz- oder Umspannebene"
+            ],
+            "source_blank_indices": []
+          },
+          {
+            "row_index": 27,
+            "reasons": [
+              "middle_row"
+            ],
+            "values": [
+              "31",
+              "UW Gaswerkstr. Leittechnik / Schutz",
+              "keine Betroffenheit",
+              "Erneuergung Schutz- und Leittechnik",
+              "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+              "",
+              "Leittechnik u. Netzschutz",
+              "",
+              "Altersbedingte Erneuerung",
+              "Kein Zubau (reiner Ersatz)",
+              "Nein",
+              "Nein",
+              "12/2026",
+              "06/2027",
+              "",
+              "800.000 €",
+              "vorgesehene Maßnahme",
+              "keine Genehmigung erforderlich",
+              "alternativlos",
+              "UW HS auf MS"
+            ],
+            "source_blank_indices": [
+              5,
+              7,
+              14
+            ]
+          },
+          {
+            "row_index": 53,
+            "reasons": [
+              "last_rows"
+            ],
+            "values": [
+              "90",
+              "UW Hillegossen 110kV-Schaltanlage",
+              "keine Betroffenheit",
+              "Erneuerung 110kV-Schaltanlage",
+              "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+              "",
+              "110kV-Schaltanlage",
+              "k.A.",
+              "Altersbedingte Erneuerung",
+              "Kein Zubau (reiner Ersatz)",
+              "Nein",
+              "Nein",
+              "01/2030",
+              "12/2031",
+              "",
+              "3.000.000 €",
+              "vorgesehene Maßnahme",
+              "keine Genehmigung erforderlich",
+              "alternativlos",
+              "UW HS auf MS"
+            ],
+            "source_blank_indices": [
+              5,
+              14
+            ]
+          },
+          {
+            "row_index": 54,
+            "reasons": [
+              "last_rows"
+            ],
+            "values": [
+              "91",
+              "UW Kraftwerk 10kV-Schaltanlage",
+              "keine Betroffenheit",
+              "Erneuerung 10kV-Schaltanlage",
+              "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+              "",
+              "10kV-Schaltanlage",
+              "k.A.",
+              "Altersbedingte Erneuerung",
+              "Kein Zubau (reiner Ersatz)",
+              "Nein",
+              "Nein",
+              "06/2030",
+              "12/2032",
+              "",
+              "3.500.000 €",
+              "vorgesehene Maßnahme",
+              "keine Genehmigung erforderlich",
+              "alternativlos",
+              "UW HS auf MS"
+            ],
+            "source_blank_indices": [
+              5,
+              14
+            ]
+          }
+        ],
+        "rows": []
+      }
+    },
+    "result_tables": {
+      "table-1": {
+        "id": "table-1",
+        "title": "Optionale Erläuterungen zu Ihren Angaben an die BNetzA",
+        "column_count": 1,
+        "rows": [
+          [
+            "optionale Erläuterungen zu Ihren Angaben an die BNetzA:"
+          ],
+          [
+            ""
+          ]
+        ],
+        "provenance": [
+          {
+            "page": 5,
+            "bbox": [
+              36.33,
+              193.2,
+              465.0,
+              198.72
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.33,
+              198.72,
+              465.0,
+              222.72
+            ],
+            "segment_id": "segment-01"
+          }
+        ],
+        "line_wrap_decisions": []
+      },
+      "table-2": {
+        "id": "table-2",
+        "title": "Teil 1 – Hinweise und Neuerungen zum Vorjahr",
+        "column_count": 2,
+        "rows": [
+          [
+            "Hinweise:",
+            "Neuerungen zum Vorjahr"
+          ],
+          [
+            "1. Bitte geben Sie für die Nieder- und Mittelspannung die für Neubau, Ersatz(neubau) mit/ ohne Übertragungskapazitätserhöhung, Netzoptimierung/-verstärkung sowie Rückbau/ Altlastentsorgung jeweils die geplanten Investitionen als aggregierten Wert an.",
+            "! Aufteilung der Tabelle in 2 Tabellen: Investitionen mit Erhöhung der Übertragungskapazität und ohne Erhöhung der Übertragungskapazität"
+          ],
+          [
+            "2. Falls Sie für die Investitionen in die unteren Netzebenen eine jährliche Pauschale annehmen, teilen Sie diese bitte auf die entsprechenden Bereiche (Neubau usw.) auf und rechen Sie diese auf 10 Jahre hoch.",
+            "! Wegfall Angabe zum Anteil \"Ladeinfrastruktur-Aufbau\""
+          ],
+          [
+            "3. Konkrete Einzelmaßnahmen der unteren Netzebenen (z.B. Anbindung Neubaugebiet) tragen Sie bitte weiterhin in den Maßnahmenplan ein und nicht in die aggregierte 10-Jahres Planung. Achten Sie darauf, dass diese NICHT zusätzlich in der aggregierten 10-Jahresplanung enthalten sind",
+            "! Neue Felder: Aufteilung, ob die Kosten überwiegend erzeugungs- oder einspeisebedingt sind"
+          ],
+          [
+            "4. In Spalte G und H teilen Sie bitte die Summe der Netzebeneninvestitionen (Spalte F) auf",
+            ""
+          ]
+        ],
+        "provenance": [
+          {
+            "page": 5,
+            "bbox": [
+              36.0,
+              230.0,
+              946.0,
+              234.9
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.0,
+              234.9,
+              946.0,
+              238.8
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.0,
+              238.8,
+              946.0,
+              244.9
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.0,
+              244.9,
+              946.0,
+              252.1
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.0,
+              252.1,
+              946.0,
+              261.0
+            ],
+            "segment_id": "segment-01"
+          }
+        ],
+        "line_wrap_decisions": []
+      },
+      "table-3": {
+        "id": "table-3",
+        "title": "Teil 1 – Aggregierte 10-Jahres-Investitionen mit Übertragungskapazität",
+        "column_count": 7,
+        "rows": [
+          [
+            "",
+            "10-Jahres-Investition für Neubau",
+            "10-Jahres-Investition für Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+            "10-Jahres-Investition für Netzoptimierung und -verstärkung",
+            "Summe\n10-Jahres Netzausbau\n[automatische Berechnung]",
+            "davon: Kosten des überwiegend erzeugungsgetrieben\nNetzausbaus",
+            "davon: Kosten des überwiegend verbrauchsbedingten\nNetzausbaus"
+          ],
+          [
+            "Mittelspannung",
+            "3.242.160 €",
+            "19.452.960 €",
+            "8.105.400 €",
+            "30.800.520 €",
+            "6.160.104 €",
+            "24.640.416 €"
+          ],
+          [
+            "Umspannung MS/NS",
+            "1.500.000 €",
+            "8.250.000 €",
+            "750.000 €",
+            "10.500.000 €",
+            "0 €",
+            "10.500.000 €"
+          ],
+          [
+            "Niederspannung",
+            "9.828.000 €",
+            "27.371.520 €",
+            "4.561.920 €",
+            "41.761.440 €",
+            "4.176.144 €",
+            "37.585.296 €"
+          ]
+        ],
+        "provenance": [
+          {
+            "page": 5,
+            "bbox": [
+              49.0,
+              266.04,
+              465.0,
+              280.38
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              49.0,
+              280.38,
+              465.0,
+              287.58
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              49.0,
+              287.58,
+              465.0,
+              294.78
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              49.0,
+              294.78,
+              465.0,
+              301.92
+            ],
+            "segment_id": "segment-01"
+          }
+        ],
+        "line_wrap_decisions": []
+      },
+      "table-4": {
+        "id": "table-4",
+        "title": "Teil 1 – Aggregierte 10-Jahres-Investitionen ohne Übertragungskapazität",
+        "column_count": 3,
+        "rows": [
+          [
+            "",
+            "10-Jahres-Investition für Ersatz(neubau) ohne Erhöhung der\nÜbertragungskapazität",
+            "10-Jahres-Investition für Rückbau / Altlastentsorgung"
+          ],
+          [
+            "Mittelspannung",
+            "1.621.080 €",
+            "0 €"
+          ],
+          [
+            "Umspannung MS/NS",
+            "4.500.000 €",
+            "0 €"
+          ],
+          [
+            "Niederspannung",
+            "13.685.760 €",
+            "0 €"
+          ]
+        ],
+        "provenance": [
+          {
+            "page": 5,
+            "bbox": [
+              49.0,
+              304.38,
+              283.0,
+              311.58
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              49.0,
+              311.58,
+              283.0,
+              318.78
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              49.0,
+              318.78,
+              283.0,
+              325.98
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              49.0,
+              325.98,
+              283.0,
+              332.9
+            ],
+            "segment_id": "segment-01"
+          }
+        ],
+        "line_wrap_decisions": []
+      },
+      "table-5": {
+        "id": "table-5",
+        "title": "Teil 2 – Hinweise und Neuerungen zum Vorjahr",
+        "column_count": 2,
+        "rows": [
+          [
+            "Hinweise:",
+            "Neuerungen zum Vorjahr"
+          ],
+          [
+            "1. Bitte tragen Sie für alle Spannungsebenen Ihre Einzelmaßnahmen in die Liste ein.",
+            "! Spalte G \"Trassenlänge\" und H \"Änderungen MVA\" wurden in den Hinweisen klarer Definiert da es zu unterschiedlichen Auslegungen kam"
+          ],
+          [
+            "2. Die Laufende Nummer entspricht dem Pimärschlüssel zur eindeutigen Identifizierung Ihrer Maßnahmen im Zeitverlauf.",
+            "! Die Antwortmöglichkeiten der Spalte J \"2. netztechnische Begründung\" hat sich geändert."
+          ],
+          [
+            "3. Betrifft eine Maßnahme mehrere Netzebenen wählen Sie bitte die überwiegend betroffene Netzebene in Spalte T aus.",
+            "! Spalte L \"prognostizierter Engpass\" ist hinzu gekommen"
+          ],
+          [
+            "4. Maßnahmen die bis zum 31.12.2021 abgeschlossen (fertiggestellt) wurden oder weggefallen sind, melden Sie bitte mit entsprechendem Status.",
+            "! Spalte O \"Verzögerungsgrund g) Verzögerung durch Dritte hinzu genommen"
+          ],
+          [
+            "5. Maßnahmen die Sie im Vorjahr bereits über den Maßnahmenplan als abgeschlossen oder endgültig eingestellt (weggefallen/aufgegeben) gemeldet haben müssen nicht mehr eingetragen werden. ACHTUNG: die laufende Nummer darf NICHT neu vergeben werden.",
+            "! Die Antwortmöglichkeiten in Spalte Q \"Status\" wurden angepasst. \"Aufgegebene Maßnahme\" wurde in \"weggefallene Maßnahme geändert. Maßnahmen die in der letzten Abfrage als aufgegeben gekennzeichnet wurden müssen nicht mehr gemeldet werden."
+          ],
+          [
+            "6. Maßnahmen die im letzten Jahr in die 10-JP überführt wurden -und dies mit uns geklärt wurde- müssen nicht mehr gemeldet werden. ACHTUNG: die laufende Nummer darf NICHT neu vergeben werden.",
+            "! Aufgrund erweiterter gesetzlicher Anforderungen durch § 14d EnWG ist die Spalte R hinzu gekommen"
+          ],
+          [
+            "7. Spalte Verzögerungen: Bitte geben Sie hinter dem gewählten Buchstaben den Grund näher an. Siehe Ausfüllbeispiele in Zeile 37. Sollten die Kategorien a, e, und g nicht zutreffend sein, kann für einen sonstigen Grund die Kategorie f unter Nennung des Grundes gewählt werden. Den Verzögerungsgrund bitte in den Optionalen Erläuterungen Zeile 2 bis 7 beschreiben",
+            ""
+          ],
+          [
+            "8. Sie können die Maßnahmen aus dem Vorjahr in diesen Plan kopieren und die aktualisieren (Spalte M-Q). Beachten Sie dass Sie die neu eingefügten/geänderten Spalten (J,L,und R) dabei nicht überschrieben werden und beantwortet werden müssen .",
+            ""
+          ],
+          [
+            "9. Füllen Sie alle Spalten aus!",
+            ""
+          ]
+        ],
+        "provenance": [
+          {
+            "page": 5,
+            "bbox": [
+              36.0,
+              344.0,
+              946.0,
+              348.0
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.0,
+              348.0,
+              946.0,
+              350.9
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.0,
+              350.9,
+              946.0,
+              355.8
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.0,
+              355.8,
+              946.0,
+              360.6
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.0,
+              360.6,
+              946.0,
+              365.2
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.0,
+              365.2,
+              946.0,
+              369.9
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.0,
+              369.9,
+              946.0,
+              374.7
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.0,
+              374.7,
+              946.0,
+              380.1
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.0,
+              380.1,
+              946.0,
+              385.0
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.0,
+              385.0,
+              946.0,
+              391.0
+            ],
+            "segment_id": "segment-01"
+          }
+        ],
+        "line_wrap_decisions": []
+      },
+      "table-6": {
+        "id": "table-6",
+        "title": "Teil 2 – Maßnahmenplan mit Ausfüllbeispielen und Zellenhinweisen",
+        "column_count": 20,
+        "rows": [
+          [
+            "Ausfüllbeispiele und Zellenhinweise",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "1",
+            "Nordleitung",
+            "Bspw. \"Audorf\", \"Hamburg-Nord\"",
+            "Errichtung einer Leitung von-bis (Netzknotenpunkt mit Ortsangabe, bspw. 01111 Musterdorf- 01112 Musterstadt)",
+            "(Dropdown-Liste)\n• Neubau\n• Ersatz(neubau) mit Erhöhung der Übertragungskapazität\n• Ersatz(neubau) ohne Erhöhung der Übertragungskapazität\n• Netzoptimierung und -verstärkung\n• Rückbau / Altlastentsorgung",
+            "bspw. Freileitung",
+            "Bitte geben Sie hier die Länge in Kilometern der Trasse an, in der\nLeitungen oder Kabel neu gebaut, optimiert oder bestehende\nersetzt wurden.\nACHTUNG Definitionsvorgabe!\nBitte geben Sie bei Freileitungen nicht die Länge der einzelnen\nLeitungen an, sondern die Länge der Trasse/des\nLeitungsabschnitts.\nBei Kabeln ist die Länge der einzelnen Leitungen anzugeben.",
+            "Bitte geben Sie bei Neubaumaßnahmen die neu geschaffene\nÜbertragungskapazität an.\nACHTUNG Definitionsvorgabe!\nBei Optimierungs- oder Ersatzmaßnahmen geben Sie bitte an,\nwie sich die Übertragungskapazität im Vergleich zum Zustand\nvor Beginn der Maßnahme verändert.",
+            "zunehmende PV-Einspeisung in \"Musterortsteil\" in 01112 Musterstadt erfordert die Anbindung an die ... Leitung in ... etc.",
+            "(Dropdown-Liste)\nACHTUNG\ngeänderte Antwortmöglichkeiten!\n• Zubau EE-Anlagen\n• Zubau Power to X\n• Zubau anderer Erzeugungsanlagen\n• Zubau Verbraucher\n• Zubau Erzeugung und Verbrauch\n• Kein Zubau (reiner Ersatz)\nAntworten bereits gemeldete Einzelmaßnahmen bis Abfrage aus 2021:\n• ja\n• ja, teilweise\n• nein",
+            "(Dropdown-Liste)\n• Ja, um einen verbrauchsbedingten Engpass zu beheben\n• Ja, um einen erzeugungsbedingten Engpass zu beheben\n• Ja, beides (verbrauchsbedingt und erzeugungsbeding)\n• Nein",
+            "(Dropdown-Liste)\n• Ja, um einen verbrauchsbedingten Engpass vorzubeugen\n• Ja, um einen erzeugungsbedingten Engpass vorzubeugen\n• Ja, beides (verbrauchsbedingt und erzeugungsbeding)\n• Nein",
+            "03/2020",
+            "11/2024",
+            "Bitte bei der Begründung die Kategorie mit angeben:\na) Akzeptanz Bevölkerung\nb) Genehmigungs-prozess\nc) ÜNB\nd) Intern\ne) Baubeginn (Lieferengpässe, Insolvenzen etc.)\nf) Sonstige Gründe\ng) Verzögerung durch Dritte\nBeispiel: d) Änderung Priorität, e) wegen Lieferengpass verzögert.\ng) Verzögerung der städtischen Erschließung",
+            "60000\nHinweis: Bitte nennen Sie auch kleinere Maßnahmen. Setzen\nSie kein Mindestbudget!",
+            "(Dropdown-Liste)\n• weggefallene Maßnahme,\n• vorgesehene Maßnahme,\n• konkrete Planung,\n• im Bau,\n• abgeschlossen\n• in 10-JP überführt (Die Überführung war in der Abfrage 2021!)\nHinweis:\nMaßnahmen gelten insbesondere als konkret geplant, wenn die für\ndie Maßnahme notwendigen öffentlich-rechtlichen Planungs- oder\nGenehmigungsverfahren eingeleitet wurden oder vom Betreiber\nbereits Investitionsentscheidungen bezüglich der\nAusbaumaßnahmen getroffen wurden oder der Betreiber von einer\ntatsächlichen Realisierung innerhalb der kommenden fünf Jahre\nausgeht.",
+            "(Dropdown-Liste)\n• noch nicht eingeleitet\n• bereits eingeleitet\n• abgeschlossen\n• keine Genehmigung erforderlich",
+            "bspw. 80°-Trassierung von Leitungen, Spitzenkappung, Hochtemperaturleiterseile, Leiterseilmonitoring, Einbau von\nregelbaren Ortnetztransformatoren, Erhöhung des Querschnitts von Leitungen, Erhöhung der Trafoleistung,\nVerkabelung von Freileitungen, Trennstellenoptimierung, Änderung der Netztopologie, Einbau von Messtechnik, Bau\nvon Paralellsystemen, Einbau von Spannungsreglern, Regulierung der Seildurchhänge, Sonstiges [bitte benennen].",
+            "(Dropdown-Liste)\n• NS,\n• UW MS auf NS,\n• MS,\n• UW HS auf MS oder\n• HS\n• Gesamtnetz [nur bei Projekten die nicht überwiegend einer\nNetzebene zugeordnet werden können. Bsp.: Errichtung\nFunknetz mit 450 MHz, flächendeckender Aufbau neuer\nStationsleittechnik"
+          ],
+          [
+            "lfd. Nr.\n4aa\n5a\n6aa\n7a\n8aa\n9aa\n11aa\n14a\n15",
+            "Maßnahme\nUW Universität - UW Zwinger\nUW Kraftwerk\nUW Zwinger\nUW Sennestadt\nUW Stieghorst\nUW Steinhagen\nUW Eickum - UW Nord\nUW West\nUW Sieker",
+            "Von der Netzausbaumaßnahme betroffene(r) Netzknoten im überlagerten HöS-\nNetz\nkeine Betroffenheit\nkeine Betroffenheit\nkeine Betroffenheit\nkeine Betroffenheit\nkeine Betroffenheit\nkeine Betroffenheit\nkeine Betroffenheit\nkeine Betroffenheit\nkeine Betroffenheit",
+            "kurze Projektbeschreibung\nKabelneubau / Netzverstärkung zur Optimierung des 110kV-Kabelnetzes\nAustausch konventioneller Technik\nAustausch konventioneller Technik\nAustausch konventioneller Technik\nAustausch konventioneller Technik\nAustausch konventioneller Technik\nk.A.\nErneuerung der 110kV-Schaltanlage. Doppelsammelschienensystem und Volleinbindung und Leittechnik\nErneuerung der 10kV-Schaltanlage. Doppelsammelschienensystem",
+            "Projektkategorie\nNeubau\nErsatz(neubau) ohne Erhöhung der Übertragungskapazität\nErsatz(neubau) ohne Erhöhung der Übertragungskapazität\nErsatz(neubau) ohne Erhöhung der Übertragungskapazität\nErsatz(neubau) ohne Erhöhung der Übertragungskapazität\nErsatz(neubau) ohne Erhöhung der Übertragungskapazität\nErsatz(neubau) mit Erhöhung der Übertragungskapazität\nErsatz(neubau) mit Erhöhung der Übertragungskapazität\nErsatz(neubau) ohne Erhöhung der Übertragungskapazität",
+            "Betriebsmittel\n110-kV-Kabel\nLeittechnik u. Netzschutz\nLeittechnik u. Netzschutz\nLeittechnik u. Netzschutz\nLeittechnik u. Netzschutz\nLeittechnik u. Netzschutz\n110kV-Freileitung\n110kV-Schaltanlage und Leittechnik\n10kV-Schaltanlage",
+            "Länge des zugebauten, optimierten oder ersetzen Leitungsabschnitts\n[km]\n3,3\nk.A.\nk.A.\nk.A.\nk.A.\nk.A.\nk.A.\nk.A.\nk.A.",
+            "Änderung der Übertragungskapazität\n[+/- MVA]\n+152",
+            "netztechnische Begründung für den Netzausbau\nnetztechnische Begründung für den Netzausbau\n1. kurze Beschreibung\nÄnderung der Versorgungsaufgabe durch Umbau der 380kV-Kuppelstellen und Änderung der n-1-Versorgung des UW Universität von 10kV- auf 110kV\nAltersbedingte Erneuerung\nAltersbedingte Erneuerung\nAltersbedingte Erneuerung\nAltersbedingte Erneuerung\nAltersbedingte Erneuerung\nUmstellung 380/220/110kV\nIm Rahmen der Zielnetzentwicklung des 110kV-Innenstadtkabelnetzes\nIm Rahmen der Zielnetzentwicklung",
+            "netztechnische Begründung für den Netzausbau\n2. Aus welchem Grund erfolgt die Netzausbaumaßnahme überwiegend?\nKein Zubau (reiner Ersatz)\nKein Zubau (reiner Ersatz)\nKein Zubau (reiner Ersatz)\nKein Zubau (reiner Ersatz)\nKein Zubau (reiner Ersatz)\nKein Zubau (reiner Ersatz)\nKein Zubau (reiner Ersatz)\nKein Zubau (reiner Ersatz)\nKein Zubau (reiner Ersatz)",
+            "Erfolgt diese Netzausbaumaßnahme, um einen bereits bestehenden\nEngpass zu beheben?\nNein\nNein\nNein\nNein\nNein\nNein\nNein\nNein\nNein",
+            "Erfolgt diese Netzausbaumaßnahme, um einen prognostizierten\nEngpass vorzubeugen?\nJa, um einem verbrauchsbedingten Engpass vorzubeugen\nNein\nNein\nNein\nNein\nNein\nNein\nJa, um einem verbrauchsbedingten Engpass vorzubeugen\nNein",
+            "voraussichtlicher Zeitpunkt des Baubeginns\n[MM/JJJJ]\n04/2021\nXX/2017\nxx/2019\nXX/2017\n12/2020\nXX/2021\n06/2014\n12/2020\nXX/2016",
+            "voraussichtlicher Zeitpunkt der Inbetriebnahme\n[MM/JJJJ]\n06/2023\nXX/2018\nxx/2020\n06/2019\n06/2021\n12/2023\n06/2018\n12/2023\n12/2018",
+            "Im Falle einer Verzögerung der Maßnahme ist der Verzögerungsgrund (a-g) anzugeben\n(Angabe Buchstabe a-f & kurze Beschreibung)\nb) Genehmigungsprozess\nd) intern\nd) intern\ng) Verzögerung durch Dritte / Dienstleister",
+            "Kosten (geschätzt) in Euro\n3.593.000 €\n1.800.000 €\n820.000 €\n775.000 €\n850.000 €\n1.280.000 €\n4.010.000 €\n5.731.000 €\n2.700.000 €",
+            "Projektstatus\nim Bau\nabgeschlossen\nabgeschlossen\nabgeschlossen\nabgeschlossen\nkonkrete Planung\nabgeschlossen\nim Bau\nabgeschlossen",
+            "Stand Genehmigungsverfahren\nabgeschlossen\nBitte auswählen!\nBitte auswählen!\nBitte auswählen!\nBitte auswählen!\nkeine Genehmigung erforderlich\nBitte auswählen!\nbereits eingeleitet\nBitte auswählen!",
+            "Geprüfte Alternativen zum Netzausbau\nalternativlos\nalternativlos\nalternativlos\nalternativlos\nalternativlos\nalternativlos\nalternativlos\nalternativlos\nalternativlos",
+            "Vorrangig betroffene Netz- oder Umspannebene\nHS\nUW HS auf MS\nUW HS auf MS\nUW HS auf MS\nUW HS auf MS\nUW HS auf MS\nHS\nUW MS auf NS\nUW MS auf NS"
+          ],
+          [
+            "16\n17\n18\n19\n20\n21\n22a\n23\n24\n25\n26\n27\n28\n29a\n30\n31",
+            "UW Ost\nNetzstüzpunkt Herforder Str. 80\nUW Milse\nUW Sparrenberg\nUW Friedrich-Hagemann-Str.\nUW Brackwede\nUW Sparrenberg - UW Brackwede\nUW Kraftwerk\nUW Werther (10kV-Schwerpunktstation)\nUW Werther (10kV-Schwerpunktstation)\nUW Zwinger\nUW Kraftwerk\nUW Stieghorst\nUW Brüderpfad\nUW Brüderpfad\nUW Gaswerkstr.\nLeittechnik / Schutz",
+            "keine Betroffenheit\nkeine Betroffenheit\nkeine Betroffenheit\nkeine Betroffenheit\nkeine Betroffenheit\nkeine Betroffenheit\nkeine Betroffenheit\nkeine Betroffenheit\nkeine Betroffenheit\nkeine Betroffenheit\nkeine Betroffenheit\nkeine Betroffenheit\nkeine Betroffenheit\nkeine Betroffenheit\nkeine Betroffenheit\nkeine Betroffenheit",
+            "Austausch konventioneller Technik\nErneuerung der 10kV-Schaltanlage. Doppelsammelschienensystem\nErneuerung der 110kV-Schaltanlage. Doppelsammelschienensystem und Volleinbindung\nErneuerung 110kV-Anlage\nLetztverbraucheranschluss für Sauerstoffwerk / Luftzerlegungsanlage\nErneuerung 110kV-Schaltanlage\nErsatzneubau 110kV-Kabel / Netzverstärkung zur Optimierung des 110kV-Kabelnetzes\nErweiterung der bestehenden 10kV-Schaltanlage als Ersatz für die 10kV-Schwerpunktstation \"Netzstüzpunkt Herforder Str. 80 10kV-Schaltanlage\" - siehe Projekt mit lfd. Nummer 17\nErneuerung und Erweiterung 10kV-Schaltanlage\nStationsleittechnik\nErneuergung 110kV-Schaltanlage + Schutz- und Leittechnik\nErneuerung 110kV-Schaltanlage\n110kV-Schaltfeldausbau zum Anschluss eines zweiten 110/10kV-Transformators\nErneuergung Gebäude, Zentrale Leittechnik & 10kV-Schaltanlage\nErneuergung Schutz- und Leittechnik\nErneuergung Schutz- und Leittechnik",
+            "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität\nErsatz(neubau) ohne Erhöhung der Übertragungskapazität\nErsatz(neubau) ohne Erhöhung der Übertragungskapazität\nErsatz(neubau) mit Erhöhung der Übertragungskapazität\nNeubau\nErsatz(neubau) ohne Erhöhung der Übertragungskapazität\nErsatz(neubau) mit Erhöhung der Übertragungskapazität\nErsatz(neubau) mit Erhöhung der Übertragungskapazität\nErsatz(neubau) mit Erhöhung der Übertragungskapazität\nErsatz(neubau) mit Erhöhung der Übertragungskapazität\nErsatz(neubau) mit Erhöhung der Übertragungskapazität\nErsatz(neubau) ohne Erhöhung der Übertragungskapazität\nNeubau\nErsatz(neubau) ohne Erhöhung der Übertragungskapazität\nErsatz(neubau) ohne Erhöhung der Übertragungskapazität\nErsatz(neubau) ohne Erhöhung der Übertragungskapazität",
+            "Leittechnik u. Netzschutz\n10kV-Schaltanlage\n110kV-Schaltanlage\nPrimär- und Sekundärtechnik 110kV\n110kV-Letztverbraucheranschluss\n110kV-Schaltanlage\n110-kV-Kabel\n10kV-Schaltanlage\n10kV-Schaltanlage\nLeittechnik und Netzschutz\n110kV-Schaltanlage\n110kV-Schaltanlage\n110kV-Schaltanlage\nGebäude, zentr. Leittechnik, 10kV-Schaltanlage\nLeittechnik u. Netzschutz\nLeittechnik u. Netzschutz",
+            "k.A.\nk.A.\nk.A.\nk.A.\n0,03\nk.A.\n5,1\nk.A.\nk.A.\nk.A.\nk.A.\nk.A.\nk.A.\nk.A.\nk.A.\nk.A.",
+            "+84\n+40",
+            "Altersbedingte Erneuerung\nIm Rahmen der Zielnetzentwicklung\nAltersbedingte Erneuerung\nIm Rahmen der Zielnetzentwicklung des 110kV-Kabelnetzes\nNeuanschluss Letztverbraucher\nIm Rahmen der Zielnetzentwicklung des 110kV-Kabelnetzes\nErsatzneubau aufgrund Kabelalter und mangelder Verfügbarkeit von Ersatzmaterial und Montage-Knowhow sowie zur Beseitigung eines Netzengpasses\nIm Rahmen der Zielnetzentwicklung\nAltersbedingte Erneuerung und bestehenden Erweiterung der Anlage\nErneuerung und Erweiterung\nAltersbedingte Erneuerung und Umbau von Gasaußendruck- auf VPE-Technik im Rahmen der 110kV-Kabelnetzerneuerung sowie zur Einbindung des UW Universität\nAltersbedingte Erneuerung und Umbau von Gasaußendruck- auf VPE-Technik im Rahmen der 110kV-Kabelnetzerneuerung\nAnlagenerweiterung zur Verbesserung der N-1-Sicherheit und 10kV-Netzoptimierung\nAltersbedingte Erneuerung\nAltersbedingte Erneuerung\nAltersbedingte Erneuerung",
+            "Kein Zubau (reiner Ersatz)\nKein Zubau (reiner Ersatz)\nKein Zubau (reiner Ersatz)\nKein Zubau (reiner Ersatz)\nZubau Verbraucher\nKein Zubau (reiner Ersatz)\nKein Zubau (reiner Ersatz)\nKein Zubau (reiner Ersatz)\nKein Zubau (reiner Ersatz)\nKein Zubau (reiner Ersatz)\nKein Zubau (reiner Ersatz)\nKein Zubau (reiner Ersatz)\nKein Zubau (reiner Ersatz)\nKein Zubau (reiner Ersatz)\nKein Zubau (reiner Ersatz)\nKein Zubau (reiner Ersatz)",
+            "Nein\nNein\nNein\nNein\nNein\nNein\nNein\nNein\nNein\nNein\nNein\nNein\nNein\nNein\nNein\nNein",
+            "Nein\nNein\nNein\nNein\nNein\nNein\nJa, um einem verbrauchsbedingten Engpass vorzubeugen\nNein\nNein\nNein\nNein\nNein\nNein\nNein\nNein\nNein",
+            "XX/2020\nXX/2021\n11/2022\n12/2023\nxx/2018\n12/2023\n09/2021\nXX/2021\n01/2022\nxx/2021\n01/2020\n01/2028\nxx/2020\n01/2023\nxx/2025\n12/2026",
+            "XX/2021\nXX/2022\n12/2024\n12/2025\nxx/2019\n12/2025\n06/2026\nXX/2022\n11/2022\nxx/2022\n12/2020\n12/2030\nxx/2020\n12/2026\nxx/2026\n06/2027",
+            "d) intern\nd) intern\nd) intern\nd) intern",
+            "3.430.000 €\n2.000.000 €\n3.030.000 €\n2.689.000 €\n2.415.000 €\n3.200.000 €\n9.352.000 €\n2.000.000 €\n665.000 €\n105.000 €\n1.600.000 €\n7.500.000 €\n425.000 €\n3.670.000 €\n1.000.000 €\n800.000 €",
+            "abgeschlossen\naufgegebene Maßnahme\nvorgesehene Maßnahme\nvorgesehene Maßnahme\nabgeschlossen\nvorgesehene Maßnahme\nkonkrete Planung\nabgeschlossen\nim Bau\nim Bau\nabgeschlossen\nvorgesehene Maßnahme\nabgeschlossen\nvorgesehene Maßnahme\nvorgesehene Maßnahme\nvorgesehene Maßnahme",
+            "Bitte auswählen!\nBitte auswählen!\nkeine Genehmigung erforderlich\nkeine Genehmigung erforderlich\nBitte auswählen!\nkeine Genehmigung erforderlich\nnoch nicht eingeleitet\nkeine Genehmigung erforderlich\nkeine Genehmigung erforderlich\nkeine Genehmigung erforderlich\nBitte auswählen!\nkeine Genehmigung erforderlich\nBitte auswählen!\nkeine Genehmigung erforderlich\nkeine Genehmigung erforderlich\nkeine Genehmigung erforderlich",
+            "alternativlos\nMaßnahme wurde aufgegen, als Ersatz ist eine Erweiterung der 10kV-Anlage im UW Kraftwerk geplantMS\nalternativlos\nalternativlos\nalternativlos\nalternativlos\nalternativlos\nAlternativmaßnahme zur Maßnahme mit der lfd. Nummer 17\nalternativlos\nalternativlos\nalternativlos\nalternativlos\nalternativlos\nalternativlos\nalternativlos\nalternativlos",
+            "UW HS auf MS\nUW HS auf MS\nUW HS auf MS\nUW HS auf MS\nUW HS auf MS\nHS\nMS\nMS\nUW HS auf MS\nUW HS auf MS\nUW HS auf MS\nUW HS auf MS\nUW HS auf MS\nUW HS auf MS\nUW HS auf MS"
+          ],
+          [
+            "32",
+            "UW Nord\nLeittechnik / Schutz",
+            "keine Betroffenheit",
+            "Erneuergung Schutz- und Leittechnik",
+            "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+            "Leittechnik u. Netzschutz",
+            "k.A.",
+            "",
+            "Altersbedingte Erneuerung",
+            "Kein Zubau (reiner Ersatz)",
+            "Nein",
+            "Nein",
+            "12/2027",
+            "06/2028",
+            "",
+            "1.400.000 €",
+            "vorgesehene Maßnahme",
+            "keine Genehmigung erforderlich",
+            "alternativlos",
+            "UW HS auf MS"
+          ],
+          [
+            "33",
+            "UW Sieker\nLeittechnik / Schutz",
+            "keine Betroffenheit",
+            "Erneuergung Schutz- und Leittechnik",
+            "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+            "Leittechnik u. Netzschutz",
+            "k.A.",
+            "",
+            "Altersbedingte Erneuerung",
+            "Kein Zubau (reiner Ersatz)",
+            "Nein",
+            "Nein",
+            "xx/2029",
+            "xx/2030",
+            "",
+            "800.000 €",
+            "vorgesehene Maßnahme",
+            "keine Genehmigung erforderlich",
+            "alternativlos",
+            "UW HS auf MS"
+          ],
+          [
+            "34",
+            "UW Brackwede\nLeittechnik / Schutz",
+            "keine Betroffenheit",
+            "Erneuergung Schutz- und Leittechnik",
+            "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+            "Leittechnik u. Netzschutz",
+            "k.A.",
+            "",
+            "Altersbedingte Erneuerung",
+            "Kein Zubau (reiner Ersatz)",
+            "Nein",
+            "Nein",
+            "12/2023",
+            "06/2024",
+            "",
+            "1.000.000 €",
+            "konkrete Planung",
+            "keine Genehmigung erforderlich",
+            "alternativlos",
+            "UW HS auf MS"
+          ],
+          [
+            "35",
+            "UW West\n10kV-Schaltanlage",
+            "keine Betroffenheit",
+            "Erneuerung 10kV-Schaltanlage",
+            "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+            "10kV-Schaltanlage",
+            "k.A.",
+            "",
+            "Altersbedingte Erneuerung",
+            "Kein Zubau (reiner Ersatz)",
+            "Nein",
+            "Nein",
+            "01/2023",
+            "12/2024",
+            "",
+            "2.840.000 €",
+            "vorgesehene Maßnahme",
+            "keine Genehmigung erforderlich",
+            "alternativlos",
+            "UW HS auf MS"
+          ],
+          [
+            "36",
+            "UW Milse\n10kV-Schaltanlage",
+            "keine Betroffenheit",
+            "Erneuerung 10kV-Schaltanlage",
+            "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+            "10kV-Schaltanlage",
+            "k.A.",
+            "",
+            "Altersbedingte Erneuerung",
+            "Kein Zubau (reiner Ersatz)",
+            "Nein",
+            "Nein",
+            "12/2027",
+            "12/2029",
+            "d) intern",
+            "2.200.000 €",
+            "vorgesehene Maßnahme",
+            "keine Genehmigung erforderlich",
+            "alternativlos",
+            "UW HS auf MS"
+          ],
+          [
+            "37",
+            "UW Sparrenberg\n10kV-Schaltanlage",
+            "keine Betroffenheit",
+            "Erneuerung 10kV-Schaltanlage",
+            "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+            "10kV-Schaltanlage",
+            "k.A.",
+            "",
+            "Altersbedingte Erneuerung",
+            "Kein Zubau (reiner Ersatz)",
+            "Nein",
+            "Nein",
+            "12/2026",
+            "12/2028",
+            "d) intern",
+            "2.600.000 €",
+            "vorgesehene Maßnahme",
+            "keine Genehmigung erforderlich",
+            "alternativlos",
+            "UW HS auf MS"
+          ],
+          [
+            "38",
+            "UW Brackwede\n10kV-Schaltanlage",
+            "keine Betroffenheit",
+            "Erneuerung 10kV-Schaltanlage",
+            "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+            "10kV-Schaltanlage",
+            "k.A.",
+            "",
+            "Altersbedingte Erneuerung",
+            "Kein Zubau (reiner Ersatz)",
+            "Nein",
+            "Nein",
+            "12/2025",
+            "12/2027",
+            "d) intern",
+            "3.310.000 €",
+            "vorgesehene Maßnahme",
+            "keine Genehmigung erforderlich",
+            "alternativlos",
+            "UW HS auf MS"
+          ],
+          [
+            "39",
+            "UW Ost\n110/10kV-Transformator",
+            "keine Betroffenheit",
+            "Erneuerung 110/10kV-Transformator",
+            "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+            "110/10kV-Transformator",
+            "k.A.",
+            "+11,5",
+            "Altersbedingte Erneuerung und Leistungserhöhung aufgrund erhöhter Leistungsanforderungen im nachgelagerten Netzbezirk",
+            "Kein Zubau (reiner Ersatz)",
+            "Nein",
+            "Ja, um einem verbrauchsbedingten Engpass vorzubeugen",
+            "06/2023",
+            "12/2023",
+            "d) intern",
+            "625.000 €",
+            "konkrete Planung",
+            "keine Genehmigung erforderlich",
+            "alternativlos",
+            "UW HS auf MS"
+          ],
+          [
+            "40",
+            "UW Ost\n110/10kV-Transformator",
+            "keine Betroffenheit",
+            "Erneuerung 110/10kV-Transformator",
+            "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+            "110/10kV-Transformator",
+            "k.A.",
+            "+11,5",
+            "Altersbedingte Erneuerung und Leistungserhöhung aufgrund erhöhter Leistungsanforderungen im nachgelagerten Netzbezirk",
+            "Kein Zubau (reiner Ersatz)",
+            "Nein",
+            "Ja, um einem verbrauchsbedingten Engpass vorzubeugen",
+            "06/2023",
+            "12/2023",
+            "d) intern",
+            "850.000 €",
+            "konkrete Planung",
+            "keine Genehmigung erforderlich",
+            "alternativlos",
+            "UW HS auf MS"
+          ],
+          [
+            "41",
+            "UW Süd\n110/10kV-Transformator",
+            "keine Betroffenheit",
+            "Erneuerung 110/10kV-Transformator",
+            "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+            "110/10kV-Transformator",
+            "k.A.",
+            "",
+            "Altersbedingte Erneuerung",
+            "Kein Zubau (reiner Ersatz)",
+            "Nein",
+            "Nein",
+            "xx/2022",
+            "xx/2023",
+            "",
+            "850.000 €",
+            "vorgesehene Maßnahme",
+            "keine Genehmigung erforderlich",
+            "alternativlos",
+            "UW HS auf MS"
+          ],
+          [
+            "42",
+            "UW Steinhagen\n110/10kV-Transformator",
+            "keine Betroffenheit",
+            "Erneuerung 110/10kV-Transformator",
+            "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+            "110/10kV-Transformator",
+            "k.A.",
+            "",
+            "Altersbedingte Erneuerung",
+            "Kein Zubau (reiner Ersatz)",
+            "Nein",
+            "Nein",
+            "01/2024",
+            "12/2024",
+            "",
+            "850.000 €",
+            "vorgesehene Maßnahme",
+            "keine Genehmigung erforderlich",
+            "alternativlos",
+            "UW HS auf MS"
+          ],
+          [
+            "43",
+            "UW Stieghorst\n110/10kV-Transformator",
+            "keine Betroffenheit",
+            "Erneuerung 110/10kV-Transformator",
+            "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+            "110/10kV-Transformator",
+            "k.A.",
+            "",
+            "Altersbedingte Erneuerung",
+            "Kein Zubau (reiner Ersatz)",
+            "Nein",
+            "Nein",
+            "01/2027",
+            "12/2027",
+            "",
+            "850.000 €",
+            "vorgesehene Maßnahme",
+            "keine Genehmigung erforderlich",
+            "alternativlos",
+            "UW HS auf MS"
+          ],
+          [
+            "44",
+            "UW Steinhagen\n110/10kV-Transformator",
+            "keine Betroffenheit",
+            "Erneuerung 110/10kV-Transformator",
+            "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+            "110/10kV-Transformator",
+            "k.A.",
+            "",
+            "Altersbedingte Erneuerung",
+            "Kein Zubau (reiner Ersatz)",
+            "Nein",
+            "Nein",
+            "01/2025",
+            "12/2025",
+            "",
+            "850.000 €",
+            "vorgesehene Maßnahme",
+            "keine Genehmigung erforderlich",
+            "alternativlos",
+            "UW HS auf MS"
+          ],
+          [
+            "45",
+            "UW Nord\n110/10kV-Transformator",
+            "keine Betroffenheit",
+            "Erneuerung 110/10kV-Transformator",
+            "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+            "110/10kV-Transformator",
+            "k.A.",
+            "",
+            "Altersbedingte Erneuerung",
+            "Kein Zubau (reiner Ersatz)",
+            "Nein",
+            "Nein",
+            "01/2026",
+            "12/2026",
+            "",
+            "850.000 €",
+            "vorgesehene Maßnahme",
+            "keine Genehmigung erforderlich",
+            "alternativlos",
+            "UW HS auf MS"
+          ],
+          [
+            "46",
+            "UW Kraftwerk\n110/10kV-Transformator",
+            "keine Betroffenheit",
+            "Erneuerung 110/10kV-Transformator",
+            "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+            "110/10kV-Transformator",
+            "k.A.",
+            "",
+            "Altersbedingte Erneuerung",
+            "Kein Zubau (reiner Ersatz)",
+            "Nein",
+            "Nein",
+            "01/2027",
+            "12/2027",
+            "",
+            "850.000 €",
+            "vorgesehene Maßnahme",
+            "keine Genehmigung erforderlich",
+            "alternativlos",
+            "UW HS auf MS"
+          ],
+          [
+            "47",
+            "UW Sieker\n110/10kV-Transformator",
+            "keine Betroffenheit",
+            "Erneuerung 110/10kV-Transformator",
+            "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+            "110/10kV-Transformator",
+            "k.A.",
+            "",
+            "Altersbedingte Erneuerung",
+            "Kein Zubau (reiner Ersatz)",
+            "Nein",
+            "Nein",
+            "01/2028",
+            "12/2028",
+            "",
+            "950.000 €",
+            "vorgesehene Maßnahme",
+            "keine Genehmigung erforderlich",
+            "alternativlos",
+            "UW HS auf MS"
+          ],
+          [
+            "48",
+            "UW Sieker\n110/10kV-Transformator",
+            "keine Betroffenheit",
+            "Erneuerung 110/10kV-Transformator",
+            "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+            "110/10kV-Transformator",
+            "k.A.",
+            "",
+            "Altersbedingte Erneuerung",
+            "Kein Zubau (reiner Ersatz)",
+            "Nein",
+            "Nein",
+            "06/2028",
+            "06/2029",
+            "",
+            "950.000 €",
+            "vorgesehene Maßnahme",
+            "keine Genehmigung erforderlich",
+            "alternativlos",
+            "UW HS auf MS"
+          ],
+          [
+            "49",
+            "UW West\n110/10kV-Transformator",
+            "keine Betroffenheit",
+            "Erneuerung 110/10kV-Transformator",
+            "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+            "110/10kV-Transformator",
+            "k.A.",
+            "",
+            "Altersbedingte Erneuerung",
+            "Kein Zubau (reiner Ersatz)",
+            "Nein",
+            "Nein",
+            "01/2022",
+            "12/2022",
+            "",
+            "625.000 €",
+            "im Bau",
+            "keine Genehmigung erforderlich",
+            "alternativlos",
+            "UW HS auf MS"
+          ],
+          [
+            "80",
+            "UW West\n110/10kV-Transformator",
+            "keine Betroffenheit",
+            "Erneuerung 110/10kV-Transformator",
+            "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+            "110/10kV-Transformator",
+            "k.A.",
+            "k.A.",
+            "Altersbedingte Erneuerung",
+            "Kein Zubau (reiner Ersatz)",
+            "Nein",
+            "Nein",
+            "06/2030",
+            "06/2031",
+            "",
+            "900.000 €",
+            "vorgesehene Maßnahme",
+            "keine Genehmigung erforderlich",
+            "alternativlos",
+            "UW HS auf MS"
+          ],
+          [
+            "84",
+            "UW Sennestadt\n110kV-Schaltanlage",
+            "keine Betroffenheit",
+            "Erneuerung 110kV-Schaltanlage",
+            "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+            "110kV-Schaltanlage",
+            "k.A.",
+            "k.A.",
+            "Altersbedingte Erneuerung",
+            "Kein Zubau (reiner Ersatz)",
+            "Nein",
+            "Nein",
+            "01/2031",
+            "12/2032",
+            "",
+            "3.000.000 €",
+            "vorgesehene Maßnahme",
+            "keine Genehmigung erforderlich",
+            "alternativlos",
+            "UW HS auf MS"
+          ],
+          [
+            "85",
+            "UW Zwinger 10kV-Schaltanlage",
+            "keine Betroffenheit",
+            "Erneuerung 10kV-Schaltanlage",
+            "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+            "10kV-Schaltanlage",
+            "k.A.",
+            "k.A.",
+            "Altersbedingte Erneuerung",
+            "Kein Zubau (reiner Ersatz)",
+            "Nein",
+            "Nein",
+            "01/2029",
+            "12/2030",
+            "",
+            "3.000.000 €",
+            "vorgesehene Maßnahme",
+            "keine Genehmigung erforderlich",
+            "alternativlos",
+            "UW HS auf MS"
+          ],
+          [
+            "86",
+            "UW Jöllenbeck Schutz- und Leittechnik",
+            "keine Betroffenheit",
+            "Schutz- & Leittechnik",
+            "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+            "Schutz- & Leittechnik",
+            "k.A.",
+            "k.A.",
+            "Altersbedingte Erneuerung",
+            "Kein Zubau (reiner Ersatz)",
+            "Nein",
+            "Nein",
+            "xx/2031",
+            "xx/2032",
+            "",
+            "1.400.000 €",
+            "vorgesehene Maßnahme",
+            "keine Genehmigung erforderlich",
+            "alternativlos",
+            "UW HS auf MS"
+          ],
+          [
+            "87",
+            "UW Milse\n110/10kV-Transformator",
+            "keine Betroffenheit",
+            "Erneuerung 110/10kV-Transformator",
+            "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+            "110/10kV-Transformator",
+            "k.A.",
+            "k.A.",
+            "Altersbedingte Erneuerung",
+            "Kein Zubau (reiner Ersatz)",
+            "Nein",
+            "Nein",
+            "06/2032",
+            "06/2033",
+            "",
+            "900.000 €",
+            "vorgesehene Maßnahme",
+            "keine Genehmigung erforderlich",
+            "alternativlos",
+            "UW HS auf MS"
+          ],
+          [
+            "88",
+            "UW Milse\n110/10kV-Transformator",
+            "keine Betroffenheit",
+            "Erneuerung 110/10kV-Transformator",
+            "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+            "110/10kV-Transformator",
+            "k.A.",
+            "k.A.",
+            "Altersbedingte Erneuerung",
+            "Kein Zubau (reiner Ersatz)",
+            "Nein",
+            "Nein",
+            "06/2032",
+            "06/2033",
+            "",
+            "900.000 €",
+            "vorgesehene Maßnahme",
+            "keine Genehmigung erforderlich",
+            "alternativlos",
+            "UW HS auf MS"
+          ],
+          [
+            "89",
+            "UW Nord\n110/10kV-Transformator",
+            "keine Betroffenheit",
+            "Erneuerung 110/10kV-Transformator",
+            "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+            "110/10kV-Transformator",
+            "k.A.",
+            "k.A.",
+            "Altersbedingte Erneuerung",
+            "Kein Zubau (reiner Ersatz)",
+            "Nein",
+            "Nein",
+            "06/2030",
+            "06/2031",
+            "",
+            "900.000 €",
+            "vorgesehene Maßnahme",
+            "keine Genehmigung erforderlich",
+            "alternativlos",
+            "UW HS auf MS"
+          ],
+          [
+            "90",
+            "UW Hillegossen 110kV-Schaltanlage",
+            "keine Betroffenheit",
+            "Erneuerung 110kV-Schaltanlage",
+            "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+            "110kV-Schaltanlage",
+            "k.A.",
+            "k.A.",
+            "Altersbedingte Erneuerung",
+            "Kein Zubau (reiner Ersatz)",
+            "Nein",
+            "Nein",
+            "01/2030",
+            "12/2031",
+            "",
+            "3.000.000 €",
+            "vorgesehene Maßnahme",
+            "keine Genehmigung erforderlich",
+            "alternativlos",
+            "UW HS auf MS"
+          ]
+        ],
+        "provenance": [
+          {
+            "page": 5,
+            "bbox": [
+              36.26,
+              398.46,
+              1154.45,
+              403.22
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.26,
+              403.22,
+              1154.45,
+              456.91
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.26,
+              456.91,
+              1154.45,
+              499.24
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.26,
+              499.24,
+              1154.45,
+              539.58
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.26,
+              539.58,
+              1154.45,
+              544.14
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.26,
+              544.14,
+              1154.45,
+              548.7
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.26,
+              548.7,
+              1154.45,
+              553.26
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.26,
+              553.26,
+              1154.45,
+              557.82
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.26,
+              557.82,
+              1154.45,
+              562.38
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.26,
+              562.38,
+              1154.45,
+              566.94
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.26,
+              566.94,
+              1154.45,
+              571.5
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.26,
+              571.5,
+              1154.45,
+              582.9
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.26,
+              582.9,
+              1154.45,
+              594.3
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.26,
+              594.3,
+              1154.45,
+              598.86
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.26,
+              598.86,
+              1154.45,
+              603.42
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.26,
+              603.42,
+              1154.45,
+              607.98
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.26,
+              607.98,
+              1154.45,
+              612.54
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.26,
+              612.54,
+              1154.45,
+              617.1
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.26,
+              617.1,
+              1154.45,
+              621.66
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.26,
+              621.66,
+              1154.45,
+              626.22
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.26,
+              626.22,
+              1154.45,
+              630.78
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.26,
+              630.78,
+              1154.45,
+              635.34
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.26,
+              635.34,
+              1154.45,
+              639.9
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.26,
+              639.9,
+              1154.45,
+              644.46
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.26,
+              644.46,
+              1154.45,
+              649.02
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.26,
+              649.02,
+              1154.45,
+              653.58
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.26,
+              653.58,
+              1154.45,
+              658.14
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.26,
+              658.14,
+              1154.45,
+              662.7
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.26,
+              662.7,
+              1154.45,
+              667.26
+            ],
+            "segment_id": "segment-01"
+          },
+          {
+            "page": 5,
+            "bbox": [
+              36.26,
+              667.26,
+              1154.45,
+              671.82
+            ],
+            "segment_id": "segment-01"
+          }
+        ],
+        "line_wrap_decisions": []
+      }
+    }
+  }
+}

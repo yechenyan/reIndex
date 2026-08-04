@@ -1,0 +1,136 @@
+{
+  "spec": "pdf-extractor-pdf/workflow@1.0",
+  "history": [
+    {
+      "event": "project_initialized",
+      "phase": "initialized",
+      "at": "2026-08-04T12:24:17.760620+00:00",
+      "details": {
+        "source_sha256": "828d7e506917fc3d5331a1cc7ad0f4be78b425af0b7f6b1d74716f22c82e332a"
+      }
+    },
+    {
+      "event": "evidence_prepared",
+      "phase": "prepared",
+      "at": "2026-08-04T12:24:19.012012+00:00",
+      "details": {
+        "cache_hit": false
+      }
+    },
+    {
+      "event": "inventory_audited",
+      "phase": "prepared",
+      "at": "2026-08-04T12:27:15.720952+00:00",
+      "details": {
+        "passed": false,
+        "segment_count": 6,
+        "blocking_signal_count": 24
+      }
+    },
+    {
+      "event": "inventory_audited",
+      "phase": "prepared",
+      "at": "2026-08-04T12:27:29.119354+00:00",
+      "details": {
+        "passed": false,
+        "segment_count": 6,
+        "blocking_signal_count": 0
+      }
+    },
+    {
+      "event": "inventory_audited",
+      "phase": "prepared",
+      "at": "2026-08-04T12:28:13.709003+00:00",
+      "details": {
+        "passed": false,
+        "segment_count": 6,
+        "blocking_signal_count": 0
+      }
+    },
+    {
+      "event": "inventory_audited",
+      "phase": "prepared",
+      "at": "2026-08-04T12:28:38.260907+00:00",
+      "details": {
+        "passed": true,
+        "segment_count": 6,
+        "blocking_signal_count": 0
+      }
+    },
+    {
+      "event": "inventory_frozen",
+      "phase": "inventory_frozen",
+      "at": "2026-08-04T12:29:18.370779+00:00",
+      "details": {
+        "inventory_sha256": "8d3213ee2fcb541d77982820abaafa1312b16e4bad47a7aa403163ba6f06928d",
+        "table_count": 6,
+        "segment_count": 6,
+        "agent_output": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/agent-output/inventory-draft-fcf200f304b5c04d.json"
+      }
+    },
+    {
+      "event": "segment_evidence_generated",
+      "phase": "inspected",
+      "at": "2026-08-04T12:29:18.744208+00:00",
+      "details": {
+        "manifest_sha256": "fea676ff8d8783ec1348cb55a5e9d3a182d2092287dd9c87ce4f41e1f6826d66"
+      }
+    },
+    {
+      "event": "reference_frozen",
+      "phase": "reference_frozen",
+      "at": "2026-08-04T12:38:36.586668+00:00",
+      "details": {
+        "reference_sha256": "9f40390b1df0318a69bc3913bd2034a8d62685e88be713df5f66373ee4436229",
+        "agent_output": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/agent-output/reference-draft-7ddadb864cf64f4b.json"
+      }
+    },
+    {
+      "event": "validation_completed",
+      "phase": "reviewed",
+      "at": "2026-08-04T12:38:53.953582+00:00",
+      "details": {
+        "passed": false,
+        "issue_count": 3,
+        "merge_candidates": 0
+      }
+    },
+    {
+      "event": "reference_reopened",
+      "phase": "inspected",
+      "at": "2026-08-04T12:40:24.414407+00:00",
+      "details": {
+        "reason": "scoped QA repair"
+      }
+    },
+    {
+      "event": "reference_frozen",
+      "phase": "reference_frozen",
+      "at": "2026-08-04T12:42:12.469432+00:00",
+      "details": {
+        "reference_sha256": "086b09c5bfa9a428e8a2a8a3b314c480ea8e7d7c52832cc66c90e419df4f1ef7",
+        "agent_output": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/agent-output/reference-draft-6f37d9a36eb0a598.json"
+      }
+    },
+    {
+      "event": "validation_completed",
+      "phase": "reviewed",
+      "at": "2026-08-04T12:42:32.212451+00:00",
+      "details": {
+        "passed": true,
+        "issue_count": 0,
+        "merge_candidates": 0
+      }
+    },
+    {
+      "event": "hard_gate_2_passed",
+      "phase": "complete",
+      "at": "2026-08-04T12:42:45.668432+00:00",
+      "details": {
+        "review_sha256": "77e1f152e04dd8723b5c484e46cbde6f0b1eab043492c6dafab8d800e9609a49"
+      }
+    }
+  ],
+  "phase": "complete",
+  "updated_at": "2026-08-04T12:42:45.668432+00:00"
+}

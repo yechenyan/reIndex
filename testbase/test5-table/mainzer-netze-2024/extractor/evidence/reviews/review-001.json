@@ -1,0 +1,385 @@
+{
+  "spec": "pdf-extractor-pdf/review@4.0",
+  "review_target": "main_agent",
+  "passed": false,
+  "deterministic": true,
+  "source_sha256": "828d7e506917fc3d5331a1cc7ad0f4be78b425af0b7f6b1d74716f22c82e332a",
+  "inventory_sha256": "8d3213ee2fcb541d77982820abaafa1312b16e4bad47a7aa403163ba6f06928d",
+  "reference_sha256": "9f40390b1df0318a69bc3913bd2034a8d62685e88be713df5f66373ee4436229",
+  "extractor_sha256": "2a2f7008a51c749683ad69819ef349f5d3007db589e9b51de3f25787f253cd6d",
+  "summary": {
+    "issue_count": 3,
+    "case_count": 1,
+    "format_difference_count": 2,
+    "deterministically_routed_cases": 0,
+    "main_agent_case_reviews": 1,
+    "merge_reviews": 0
+  },
+  "issues": [
+    {
+      "id": "table-appendix-measures:sample_mismatch:1",
+      "code": "sample_mismatch",
+      "route": "main_agent",
+      "message": "table-appendix-measures: QA sample row 1 differs.",
+      "table_id": "table-appendix-measures",
+      "row_index": 1,
+      "sample_reasons": [
+        "first_rows"
+      ],
+      "extractor_sample": [
+        "4",
+        "Mainz-Kostheim \"Lindequartier\"",
+        "Erschließung \"Lindequartier\"",
+        "Neubau",
+        "2 Ortsnetzstadionen",
+        "",
+        "Zubau Verbraucher",
+        "2025",
+        "01/2018",
+        "12/2025",
+        "",
+        "",
+        "im Bau",
+        "abgeschlossen",
+        "UW MS auf NS",
+        "Mainz incl. AKK, Budenheim, Ingelheim, Ginsheim-Gustavsburg"
+      ],
+      "qa_reference": [
+        "4",
+        "Mainz-Kostheim \"Lindequartier\"",
+        "Erschließung \"Lindequartier\"",
+        "Neubau",
+        "2 Ortsnetzstadionen",
+        "Zubau Verbraucher",
+        "",
+        "2025",
+        "01/2018",
+        "12/2025",
+        "",
+        "",
+        "im Bau",
+        "abgeschlossen",
+        "UW MS auf NS",
+        "Mainz incl. AKK, Budenheim, Ingelheim, Ginsheim-Gustavsburg"
+      ],
+      "cell_diffs": [
+        {
+          "column_index": 5,
+          "extractor_raw": "",
+          "qa_raw": "Zubau Verbraucher",
+          "extractor_normalized": "",
+          "qa_normalized": "Zubau Verbraucher",
+          "extractor_content_key": "",
+          "qa_content_key": "zubauverbraucher",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        },
+        {
+          "column_index": 6,
+          "extractor_raw": "Zubau Verbraucher",
+          "qa_raw": "",
+          "extractor_normalized": "Zubau Verbraucher",
+          "qa_normalized": "",
+          "extractor_content_key": "zubauverbraucher",
+          "qa_content_key": "",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        }
+      ],
+      "evidence_refs": [
+        "table-appendix-measures::segment-01"
+      ]
+    },
+    {
+      "id": "table-appendix-measures:sample_mismatch:2",
+      "code": "sample_mismatch",
+      "route": "main_agent",
+      "message": "table-appendix-measures: QA sample row 2 differs.",
+      "table_id": "table-appendix-measures",
+      "row_index": 2,
+      "sample_reasons": [
+        "first_rows"
+      ],
+      "extractor_sample": [
+        "10",
+        "Erneuerung Trasse Goddelau-Biebesheim",
+        "Erneuerung der 110-kV-Trasse zwischen UW Goddelau und UW Biebesheim",
+        "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+        "Freileitungsseil, Masten",
+        "altersbedingt und leistungsbedingte Ersatzinvestition",
+        "Zubau Erzeugung und Verbrauch",
+        "2029",
+        "01/2026",
+        "12/2029",
+        "",
+        "",
+        "konkrete Planung",
+        "bereits eingeleitet",
+        "HS",
+        "Hessisches Ried"
+      ],
+      "qa_reference": [
+        "10",
+        "Erneuerung Trasse Goddelau-Biebesheim",
+        "Erneuerung der 110-kV-Trasse zwischen UW Goddelau und UW Biebesheim",
+        "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+        "Freileitungsseil",
+        "altersbedingt und leistungsbedingte Ersatzinvestition",
+        "Zubau Erzeugung und Verbrauch",
+        "2029",
+        "01/2026",
+        "12/2029",
+        "",
+        "",
+        "konkrete Planung",
+        "bereits eingeleitet",
+        "HS",
+        "Hessisches Ried"
+      ],
+      "cell_diffs": [
+        {
+          "column_index": 4,
+          "extractor_raw": "Freileitungsseil, Masten",
+          "qa_raw": "Freileitungsseil",
+          "extractor_normalized": "Freileitungsseil, Masten",
+          "qa_normalized": "Freileitungsseil",
+          "extractor_content_key": "freileitungsseilmasten",
+          "qa_content_key": "freileitungsseil",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        }
+      ],
+      "evidence_refs": [
+        "table-appendix-measures::segment-01"
+      ]
+    },
+    {
+      "id": "table-appendix-measures:sample_mismatch:39",
+      "code": "sample_mismatch",
+      "route": "main_agent",
+      "message": "table-appendix-measures: QA sample row 39 differs.",
+      "table_id": "table-appendix-measures",
+      "row_index": 39,
+      "sample_reasons": [
+        "last_rows"
+      ],
+      "extractor_sample": [
+        "60",
+        "Neubau von Niederspannungsnetz",
+        "Errichtung von Niederspannungsspannungsnetz",
+        "Netzoptimierung und - verstärkung",
+        "400V-Kabel",
+        "Um die kundenseitige Nachfrage nach Leistung erfüllen zu können muss das Netz in den betroffenen Bereichen Verstärkt werden",
+        "Zubau Erzeugung und Verbrauch",
+        "2028",
+        "01/2024",
+        "12/2028",
+        "",
+        "",
+        "im Bau",
+        "keine Genehmigung erforderlich",
+        "NS",
+        "Hessisches Ried"
+      ],
+      "qa_reference": [
+        "60",
+        "Neubau von Niederspannungsnetz",
+        "Errichtung von Niederspannungsnetz",
+        "Netzoptimierung und -verstärkung",
+        "400V-Kabel",
+        "Um die kundenseitige Nachfrage nach Leistung erfüllen zu können muss das Netz in den betroffenen Bereichen Verstärkt werden",
+        "Zubau Erzeugung und Verbrauch",
+        "2028",
+        "01/2024",
+        "12/2028",
+        "",
+        "",
+        "im Bau",
+        "keine Genehmigung erforderlich",
+        "NS",
+        "Hessisches Ried"
+      ],
+      "cell_diffs": [
+        {
+          "column_index": 2,
+          "extractor_raw": "Errichtung von Niederspannungsspannungsnetz",
+          "qa_raw": "Errichtung von Niederspannungsnetz",
+          "extractor_normalized": "Errichtung von Niederspannungsspannungsnetz",
+          "qa_normalized": "Errichtung von Niederspannungsnetz",
+          "extractor_content_key": "errichtungvonniederspannungsspannungsnetz",
+          "qa_content_key": "errichtungvonniederspannungsnetz",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        }
+      ],
+      "evidence_refs": [
+        "table-appendix-measures::segment-01"
+      ]
+    }
+  ],
+  "format_differences": [
+    {
+      "id": "table-appendix-measures:format:38",
+      "classification": "format_only",
+      "table_id": "table-appendix-measures",
+      "row_index": 38,
+      "cell_diffs": [
+        {
+          "column_index": 3,
+          "extractor_raw": "Netzoptimierung und - verstärkung",
+          "qa_raw": "Netzoptimierung und -verstärkung",
+          "extractor_normalized": "Netzoptimierung und - verstärkung",
+          "qa_normalized": "Netzoptimierung und -verstärkung",
+          "extractor_content_key": "netzoptimierungundverstärkung",
+          "qa_content_key": "netzoptimierungundverstärkung",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": true,
+          "difference_kind": "format_only"
+        }
+      ],
+      "evidence_refs": [
+        "table-appendix-measures::segment-01"
+      ]
+    },
+    {
+      "id": "table-appendix-measures:format:39",
+      "classification": "format_only",
+      "table_id": "table-appendix-measures",
+      "row_index": 39,
+      "cell_diffs": [
+        {
+          "column_index": 3,
+          "extractor_raw": "Netzoptimierung und - verstärkung",
+          "qa_raw": "Netzoptimierung und -verstärkung",
+          "extractor_normalized": "Netzoptimierung und - verstärkung",
+          "qa_normalized": "Netzoptimierung und -verstärkung",
+          "extractor_content_key": "netzoptimierungundverstärkung",
+          "qa_content_key": "netzoptimierungundverstärkung",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": true,
+          "difference_kind": "format_only"
+        }
+      ],
+      "evidence_refs": [
+        "table-appendix-measures::segment-01"
+      ]
+    }
+  ],
+  "review_cases": [
+    {
+      "id": "case::table-appendix-measures",
+      "table_id": "table-appendix-measures",
+      "route": "main_agent",
+      "route_confidence": 0.5,
+      "issue_ids": [
+        "table-appendix-measures:sample_mismatch:1",
+        "table-appendix-measures:sample_mismatch:2",
+        "table-appendix-measures:sample_mismatch:39"
+      ],
+      "issue_codes": [
+        "sample_mismatch"
+      ],
+      "evidence_refs": [
+        "table-appendix-measures::segment-01"
+      ],
+      "segment_ids": [
+        "segment-01"
+      ],
+      "root_cause_hints": [
+        "extractor_or_qa_transcription"
+      ],
+      "review_required": true
+    }
+  ],
+  "repair_plan": {
+    "main_agent": [
+      "table-appendix-measures"
+    ]
+  },
+  "issue_groups": {
+    "main_agent": [
+      "table-appendix-measures:sample_mismatch:1",
+      "table-appendix-measures:sample_mismatch:2",
+      "table-appendix-measures:sample_mismatch:39"
+    ]
+  },
+  "merge_candidates": [],
+  "evidence_index": {
+    "table-abbreviations::segment-01": {
+      "table_id": "table-abbreviations",
+      "segment_id": "segment-01",
+      "page": 5,
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-abbreviations/segment-01-70a0029daca0-page-0005.png",
+      "image_sha256": "2e65c6587523f723be35467be76814c57d1c6e82d24d14b814c31a5a3baa5f19",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-abbreviations/segment-01-70a0029daca0-page-0005.json"
+    },
+    "table-1::segment-01": {
+      "table_id": "table-1",
+      "segment_id": "segment-01",
+      "page": 10,
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-1/segment-01-6b27bc79a41f-page-0010.png",
+      "image_sha256": "27b8276b70088b410411f540d14002ce540b43470961eda0a0d35fa911ac1f15",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-1/segment-01-6b27bc79a41f-page-0010.json"
+    },
+    "table-2::segment-01": {
+      "table_id": "table-2",
+      "segment_id": "segment-01",
+      "page": 11,
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-2/segment-01-ce6f5d99a305-page-0011.png",
+      "image_sha256": "5e737880e796d6ad1016d45fd455607a0c82aab24138bb52048fb6da04c657ce",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-2/segment-01-ce6f5d99a305-page-0011.json"
+    },
+    "table-3::segment-01": {
+      "table_id": "table-3",
+      "segment_id": "segment-01",
+      "page": 13,
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-3/segment-01-1efb21a58fb5-page-0013.png",
+      "image_sha256": "4141ceac53d1989c4335e43d9a4cac694e5a784f22eda2602e2e2205bef90b64",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-3/segment-01-1efb21a58fb5-page-0013.json"
+    },
+    "table-4::segment-01": {
+      "table_id": "table-4",
+      "segment_id": "segment-01",
+      "page": 13,
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-4/segment-01-abc6fb24a692-page-0013.png",
+      "image_sha256": "de02f3f2115086826373fc7fc32f133a2dedf3bcc2d11efb2142f13668309d61",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-4/segment-01-abc6fb24a692-page-0013.json"
+    },
+    "table-appendix-measures::segment-01": {
+      "table_id": "table-appendix-measures",
+      "segment_id": "segment-01",
+      "page": 16,
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png",
+      "image_sha256": "70782ae80ee2b25ef25525fe6c25dcf89593c9418bf4c5bedec7128bbaa87590",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.json"
+    }
+  },
+  "review_queue": [
+    {
+      "kind": "case",
+      "id": "case::table-appendix-measures"
+    }
+  ],
+  "merge_decisions_sha256": null,
+  "output_hashes": {
+    "result.json": "7c2a26dcfd8a5dfd1505c8bc9d81e8aebb2f736edd08e1e9387d065403cc732c",
+    "table-1.csv": "96761c1c222136b6f80aec7febba159b92c06993ccd161a728de55c63befa7d2",
+    "table-2.csv": "73ae28f843803dceddf836dcd51f33d1491ae0df5c0eba782fb6d8cbe2ac3c40",
+    "table-3.csv": "737263b3602a1a49ebeb72c68f3bba33085a6118329f750032435ed978444846",
+    "table-4.csv": "8b3a885f6eb11e2247cc57a38d6f2059196be91b39e09d1bf7309dbf0b5026a8",
+    "table-abbreviations.csv": "9aa9c26dfd4f551c9c1e619fd731233d2ead09ce500a955753fb129c1f32fdfa",
+    "table-appendix-measures.csv": "02d40cb71265d0f13430b5d10042f873fb4a370aaca4ab2208cd32e9f3aba6ea"
+  },
+  "review_sequence": 1,
+  "review_archive": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/reviews/review-001.json"
+}

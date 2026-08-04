@@ -1,0 +1,112 @@
+{
+  "spec": "pdf-extractor-pdf/inventory-review@1.0",
+  "draft_sha256": "20f9753ccaf432fac35098eb965ffc3910f9dcc830dd968f537ee05e3f14c9aa",
+  "instructions": "Finder edits only all_visible_table_content_inside and reviewed_edges.",
+  "segments": [
+    {
+      "table_id": "table-abbreviations",
+      "segment_id": "segment-01",
+      "page": 4,
+      "bbox": [
+        70,
+        129,
+        537,
+        658
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/inventory-overlays/table-abbreviations/segment-01-2ac6b7c222c4-page-0004.png",
+      "overlay_sha256": "98c1428de009f20943db6f278bb6d85096e2cda3fa17e83c43377c1ffb4cf458",
+      "all_visible_table_content_inside": true,
+      "reviewed_edges": {"top": true, "bottom": true, "left": true, "right": true}
+    },
+    {
+      "table_id": "table-1",
+      "segment_id": "segment-01",
+      "page": 6,
+      "bbox": [
+        70,
+        516,
+        537,
+        605
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/inventory-overlays/table-1/segment-01-2f90b6b1b230-page-0006.png",
+      "overlay_sha256": "d5c4fa1860f9d9f9573d191bf5771928162039ca3a205ef41053f45e4fa85d54",
+      "all_visible_table_content_inside": true,
+      "reviewed_edges": {"top": true, "bottom": true, "left": true, "right": true}
+    },
+    {
+      "table_id": "table-2",
+      "segment_id": "segment-01",
+      "page": 10,
+      "bbox": [
+        70,
+        397,
+        537,
+        536
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/inventory-overlays/table-2/segment-01-474b1e7b2750-page-0010.png",
+      "overlay_sha256": "981ad64e8640d3edf2b6567f8cd94afd57359359eb9183c34420ee1f6fdd599c",
+      "all_visible_table_content_inside": true,
+      "reviewed_edges": {"top": true, "bottom": true, "left": true, "right": true}
+    },
+    {
+      "table_id": "table-3",
+      "segment_id": "segment-01",
+      "page": 13,
+      "bbox": [
+        70,
+        622,
+        537,
+        767
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/inventory-overlays/table-3/segment-01-5797c7de917a-page-0013.png",
+      "overlay_sha256": "140e3fecc875ba3b483a8af938436eeddd32112b711e6be89287477f9ef6c252",
+      "all_visible_table_content_inside": true,
+      "reviewed_edges": {"top": true, "bottom": true, "left": true, "right": true}
+    },
+    {
+      "table_id": "table-4",
+      "segment_id": "segment-01",
+      "page": 14,
+      "bbox": [
+        68.0,
+        129.848,
+        539.0,
+        475.0
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/inventory-overlays/table-4/segment-01-5172d858224e-page-0014.png",
+      "overlay_sha256": "06b2f671510a15152dbc5c740143f3c4cd8bea5e613887901244c9649bd1cbff",
+      "all_visible_table_content_inside": true,
+      "reviewed_edges": {"top": true, "bottom": true, "left": true, "right": true}
+    },
+    {
+      "table_id": "table-5",
+      "segment_id": "segment-01",
+      "page": 16,
+      "bbox": [
+        56,
+        106,
+        799,
+        515
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/inventory-overlays/table-5/segment-01-fbbad617aa87-page-0016.png",
+      "overlay_sha256": "b86fc0a7ff283bbc6e2ceb9bfe057bc6b31c7ddd1f5765fd0493c95da89c7ac3",
+      "all_visible_table_content_inside": true,
+      "reviewed_edges": {"top": true, "bottom": true, "left": true, "right": true}
+    },
+    {
+      "table_id": "table-5",
+      "segment_id": "segment-02",
+      "page": 17,
+      "bbox": [
+        56,
+        135,
+        799,
+        495
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/inventory-overlays/table-5/segment-02-70d842090241-page-0017.png",
+      "overlay_sha256": "ea6bf3ec1c6c8255627d35f3a3953b51ec0070849e28204783748f68d8d747e2",
+      "all_visible_table_content_inside": true,
+      "reviewed_edges": {"top": true, "bottom": true, "left": true, "right": true}
+    }
+  ]
+}

@@ -43,20 +43,20 @@ def test_source_evidenced_keep_separate_decision_unblocks_gate(tmp_path: Path) -
             {"page": 2, "label": "continuation", "notes": "visually continuation-like"},
         ],
         "tables": [
-            {"id": "table-a", "title": "Network plan", "segments": [{"id": "a1", "page": 1, "bbox": [30, 40, 270, 140]}]},
-            {"id": "table-b", "title": "Network plan", "segments": [{"id": "b1", "page": 2, "bbox": [30, 40, 270, 140]}]},
+            {"id": "table-a", "title": "Network plan", "column_count": 1, "segments": [{"id": "a1", "page": 1, "bbox": [30, 40, 270, 140]}]},
+            {"id": "table-b", "title": "Network plan", "column_count": 1, "segments": [{"id": "b1", "page": 2, "bbox": [30, 40, 270, 140]}]},
         ],
     })
     freeze_inventory(job, audit_and_attest(job, inventory_draft))
     inspect_inventory(job)
     reference_draft = job.evidence_dir / "reference-draft.json"
     write_json(reference_draft, {
-        "spec": "pdf-extractor-pdf/reference-draft@1.0", "role": "qa_agent",
+        "spec": "pdf-extractor-pdf/reference-draft@2.0", "role": "qa_agent",
         "independent_from_extractor": True, "source_evidence_only": True,
         "source_sha256": source_sha256(source), "inventory_sha256": artifact_hash(job.inventory),
         "tables": [
-            {"id": "table-a", "columns": ["Name"], "row_count": 1, "segment_row_counts": [1], "samples": [{"row_index": 0, "values": ["A"]}]},
-            {"id": "table-b", "columns": ["Name"], "row_count": 1, "segment_row_counts": [1], "samples": [{"row_index": 0, "values": ["B"]}]},
+            {"id": "table-a", "column_count": 1, "row_count": 1, "segment_row_counts": [1], "segment_source_row_counts": [1], "segment_repeated_leading_rows": [0], "samples": [{"row_index": 0, "values": ["A"]}]},
+            {"id": "table-b", "column_count": 1, "row_count": 1, "segment_row_counts": [1], "segment_source_row_counts": [1], "segment_repeated_leading_rows": [0], "samples": [{"row_index": 0, "values": ["B"]}]},
         ],
     })
     freeze_reference(job, reference_draft)
@@ -65,8 +65,8 @@ def test_source_evidenced_keep_separate_decision_unblocks_gate(tmp_path: Path) -
 from pdf_extractor_pdf import *
 def extract(source: Path, inventory: dict):
     tables = [
-      ExtractedTable("table-a", "Table A", ["Name"], [["A"]], [RowProvenance(1, (35, 70, 260, 90), "a1")]),
-      ExtractedTable("table-b", "Table B", ["Name"], [["B"]], [RowProvenance(2, (35, 70, 260, 90), "b1")]),
+      ExtractedTable("table-a", "Table A", 1, [["A"]], [RowProvenance(1, (35, 70, 260, 90), "a1")]),
+      ExtractedTable("table-b", "Table B", 1, [["B"]], [RowProvenance(2, (35, 70, 260, 90), "b1")]),
     ]
     return ExtractionResult("{digest}", tables)
 if __name__ == "__main__": project_entry(extract)
@@ -86,6 +86,9 @@ if __name__ == "__main__": project_entry(extract)
     assert len(frozen["decisions"][0]["evidence"]) == 2
     second = validate(job)
     assert second["passed"] is True and second["merge_candidates"][0]["resolved"] is True
+    assert sorted(path.name for path in (job.evidence_dir / "reviews").glob("*.json")) == [
+        "review-001.json", "review-002.json",
+    ]
     assert finalize(job)["merge_decisions_sha256"] == artifact_hash(job.evidence_dir / "merge-decisions.json")
 
 
@@ -97,5 +100,5 @@ def test_distinct_table_numbers_suppress_layout_only_merge_candidate() -> None:
             {"id": "b", "title": "Tabelle 4", "segments": [{"id": "b1", "page": 2}]},
         ],
     }
-    result = {"tables": [{"id": "a", "columns": ["X"]}, {"id": "b", "columns": ["X"]}]}
+    result = {"tables": [{"id": "a", "column_count": 1}, {"id": "b", "column_count": 1}]}
     assert merge_candidates(result, inventory, 0.85, {}) == []

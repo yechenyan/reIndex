@@ -1,0 +1,1998 @@
+{
+  "spec": "pdf-extractor-pdf/reference-draft@1.0",
+  "role": "qa_agent",
+  "independent_from_extractor": true,
+  "source_evidence_only": true,
+  "source_sha256": "fa05fea873a98ae45e11128fc12c4f4bec6cad1f5dfaf27e5de351ea4634c89a",
+  "inventory_sha256": "0f3c9e49d32b72ed748b7837651b485a654fe9db2211cd620998be0d3105474c",
+  "tables": [
+    {
+      "id": "table-01",
+      "columns": [
+        "Zeitraum",
+        "Einheit",
+        "2023",
+        "2028",
+        "2033",
+        "2045"
+      ],
+      "row_count": 8,
+      "segment_row_counts": [
+        8
+      ],
+      "line_wrap_decisions": [],
+      "samples": [
+        {
+          "row_index": 0,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "Elektromobilität",
+            "inst. Leistung (HS)",
+            "960 MW",
+            "2.290 MW",
+            "4.051 MW",
+            "5.537 MW"
+          ]
+        },
+        {
+          "row_index": 1,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "Wärmepumpen",
+            "inst. Leistung (HS)",
+            "132 MW",
+            "1.539 MW",
+            "2.261 MW",
+            "3.807 MW"
+          ]
+        },
+        {
+          "row_index": 4,
+          "reasons": [
+            "middle_row"
+          ],
+          "values": [
+            "Elektrolyse",
+            "inst. Leistung (HS)",
+            "-",
+            "140 MW",
+            "1.147 MW",
+            "10.352 MW"
+          ]
+        },
+        {
+          "row_index": 6,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "Wind onshore",
+            "inst. Leistung",
+            "4.700 MW",
+            "6.770 MW",
+            "9.440 MW",
+            "11.990 MW"
+          ]
+        },
+        {
+          "row_index": 7,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "Sonstige EE und KWK",
+            "Inst. Leistung",
+            "1.320 MW",
+            "1.370 MW",
+            "1.370 MW",
+            "1.370 MW"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "table-02",
+      "columns": [
+        "Zeitraum",
+        "Einheit",
+        "2023",
+        "2028",
+        "2033",
+        "2045"
+      ],
+      "row_count": 8,
+      "segment_row_counts": [
+        8
+      ],
+      "line_wrap_decisions": [],
+      "samples": [
+        {
+          "row_index": 0,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "Elektromobilität",
+            "inst. Leistung (HS)",
+            "640 MW",
+            "1.050 MW",
+            "1.810 MW",
+            "2.594 MW"
+          ]
+        },
+        {
+          "row_index": 1,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "Wärmepumpen",
+            "inst. Leistung (HS)",
+            "88 MW",
+            "813 MW",
+            "1.162 MW",
+            "1.886 MW"
+          ]
+        },
+        {
+          "row_index": 4,
+          "reasons": [
+            "middle_row"
+          ],
+          "values": [
+            "Elektrolyse",
+            "inst. Leistung (HS)",
+            "-",
+            "257 MW",
+            "307 MW",
+            "4.805 MW"
+          ]
+        },
+        {
+          "row_index": 6,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "Wind onshore",
+            "inst. Leistung",
+            "2.580 MW",
+            "4.050 MW",
+            "6.240 MW",
+            "8.200 MW"
+          ]
+        },
+        {
+          "row_index": 7,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "Sonstige EE und KWK",
+            "Inst. Leistung",
+            "430 MW",
+            "570 MW",
+            "570 MW",
+            "570 MW"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "table-03",
+      "columns": [
+        "Teilnetzgebiet",
+        "2028",
+        "2033",
+        "2045"
+      ],
+      "row_count": 2,
+      "segment_row_counts": [
+        2
+      ],
+      "line_wrap_decisions": [],
+      "samples": [
+        {
+          "row_index": 0,
+          "reasons": [
+            "first_rows",
+            "last_rows"
+          ],
+          "values": [
+            "Brandenburg",
+            "1.232 MW",
+            "1.916 MW",
+            "2.872 MW"
+          ]
+        },
+        {
+          "row_index": 1,
+          "reasons": [
+            "first_rows",
+            "last_rows",
+            "middle_row"
+          ],
+          "values": [
+            "Mecklenburg-Vorpommern",
+            "381 MW",
+            "696 MW",
+            "927 MW"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "table-04",
+      "columns": [
+        "Netzebene",
+        "2023",
+        "2028",
+        "2033",
+        "2045"
+      ],
+      "row_count": 5,
+      "segment_row_counts": [
+        5
+      ],
+      "line_wrap_decisions": [],
+      "samples": [
+        {
+          "row_index": 0,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "3 (HS)",
+            "4.900 MW",
+            "7.890 MW",
+            "15.460 MW",
+            "24.630 MW"
+          ]
+        },
+        {
+          "row_index": 1,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "4 (HS/MS)",
+            "680 MW",
+            "1.170 MW",
+            "1.240 MW",
+            "1.330 MW"
+          ]
+        },
+        {
+          "row_index": 2,
+          "reasons": [
+            "middle_row"
+          ],
+          "values": [
+            "5 (MS)",
+            "2.080 MW",
+            "2.110 MW",
+            "2.720 MW",
+            "3.570 MW"
+          ]
+        },
+        {
+          "row_index": 3,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "6 (MS/NS)",
+            "70 MW",
+            "500 MW",
+            "600 MW",
+            "760 MW"
+          ]
+        },
+        {
+          "row_index": 4,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "7 (NS)",
+            "380 MW",
+            "910 MW",
+            "1.380 MW",
+            "2.150 MW"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "table-05",
+      "columns": [
+        "Netzebene",
+        "2023",
+        "2028",
+        "2033",
+        "2045"
+      ],
+      "row_count": 5,
+      "segment_row_counts": [
+        5
+      ],
+      "line_wrap_decisions": [],
+      "samples": [
+        {
+          "row_index": 0,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "3 (HS)",
+            "1.660 MW",
+            "3.900 MW",
+            "10.860 MW",
+            "19.720 MW"
+          ]
+        },
+        {
+          "row_index": 1,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "4 (HS/MS)",
+            "530 MW",
+            "960 MW",
+            "1.110 MW",
+            "1.180 MW"
+          ]
+        },
+        {
+          "row_index": 2,
+          "reasons": [
+            "middle_row"
+          ],
+          "values": [
+            "5 (MS)",
+            "530 MW",
+            "1.890 MW",
+            "2.420 MW",
+            "2.960 MW"
+          ]
+        },
+        {
+          "row_index": 3,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "6 (MS/NS)",
+            "60 MW",
+            "370 MW",
+            "410 MW",
+            "480 MW"
+          ]
+        },
+        {
+          "row_index": 4,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "7 (NS)",
+            "290 MW",
+            "600 MW",
+            "800 MW",
+            "1.110 MW"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "table-06",
+      "columns": [
+        "Netzebene",
+        "2023",
+        "2028",
+        "2033",
+        "2045"
+      ],
+      "row_count": 5,
+      "segment_row_counts": [
+        5
+      ],
+      "line_wrap_decisions": [],
+      "samples": [
+        {
+          "row_index": 0,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "3 (HS)",
+            "747 MW",
+            "1995 MW",
+            "3638 MW",
+            "6029 MW"
+          ]
+        },
+        {
+          "row_index": 1,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "4 (HS/MS)",
+            "144 MW",
+            "338 MW",
+            "470 MW",
+            "722 MW"
+          ]
+        },
+        {
+          "row_index": 2,
+          "reasons": [
+            "middle_row"
+          ],
+          "values": [
+            "5 (MS)",
+            "360 MW",
+            "952 MW",
+            "1380 MW",
+            "1829 MW"
+          ]
+        },
+        {
+          "row_index": 3,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "6 (MS/NS)",
+            "72 MW",
+            "91 MW",
+            "109 MW",
+            "119 MW"
+          ]
+        },
+        {
+          "row_index": 4,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "7 (NS)",
+            "864 MW",
+            "1947 MW",
+            "2487 MW",
+            "3375 MW"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "table-07",
+      "columns": [
+        "Netzebene",
+        "2023",
+        "2028",
+        "2033",
+        "2045"
+      ],
+      "row_count": 5,
+      "segment_row_counts": [
+        5
+      ],
+      "line_wrap_decisions": [],
+      "samples": [
+        {
+          "row_index": 0,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "3 (HS)",
+            "86 MW",
+            "499 MW",
+            "684 MW",
+            "823 MW"
+          ]
+        },
+        {
+          "row_index": 1,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "4 (HS/MS)",
+            "82 MW",
+            "325 MW",
+            "538 MW",
+            "734 MW"
+          ]
+        },
+        {
+          "row_index": 2,
+          "reasons": [
+            "middle_row"
+          ],
+          "values": [
+            "5 (MS)",
+            "206 MW",
+            "500 MW",
+            "690 MW",
+            "905 MW"
+          ]
+        },
+        {
+          "row_index": 3,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "6 (MS/NS)",
+            "41 MW",
+            "50 MW",
+            "57 MW",
+            "60 MW"
+          ]
+        },
+        {
+          "row_index": 4,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "7 (NS)",
+            "495 MW",
+            "1052 MW",
+            "1292 MW",
+            "1739 MW"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "table-08",
+      "columns": [
+        "Zeitraum",
+        "Maßnahme",
+        "Geschätzte Menge",
+        "Geschätzte Kosten"
+      ],
+      "row_count": 6,
+      "segment_row_counts": [
+        6
+      ],
+      "line_wrap_decisions": [],
+      "samples": [
+        {
+          "row_index": 0,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "2023 bis 2028 (t+5)",
+            "Leitungen",
+            "423 km",
+            "414 Mio. €"
+          ]
+        },
+        {
+          "row_index": 1,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "",
+            "Anlagenstandorte*",
+            "100 Stück",
+            "563 Mio. €"
+          ]
+        },
+        {
+          "row_index": 3,
+          "reasons": [
+            "middle_row"
+          ],
+          "values": [
+            "",
+            "Anlagenstandorte*",
+            "158 Stück",
+            "1.045 Mio. €"
+          ]
+        },
+        {
+          "row_index": 4,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "2034 bis 2045 (t+11 bis Zielnetzjahr)",
+            "Leitungen",
+            "1.940 km",
+            "1.808 Mio. €"
+          ]
+        },
+        {
+          "row_index": 5,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "",
+            "Anlagenstandorte*",
+            "327 Stück",
+            "1.361 Mio. €"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "table-09",
+      "columns": [
+        "Zeitraum",
+        "Maßnahme",
+        "Geschätzte Menge",
+        "Geschätzte Kosten"
+      ],
+      "row_count": 6,
+      "segment_row_counts": [
+        6
+      ],
+      "line_wrap_decisions": [],
+      "samples": [
+        {
+          "row_index": 0,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "2023 bis 2028 (t+5)",
+            "Leitungen",
+            "214 km",
+            "172 Mio. €"
+          ]
+        },
+        {
+          "row_index": 1,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "",
+            "Anlagenstandorte*",
+            "40 Stück",
+            "264 Mio. €"
+          ]
+        },
+        {
+          "row_index": 3,
+          "reasons": [
+            "middle_row"
+          ],
+          "values": [
+            "",
+            "Anlagenstandorte*",
+            "120 Stück",
+            "714 Mio. €"
+          ]
+        },
+        {
+          "row_index": 4,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "2034 bis 2045 (t+11 bis Zielnetzjahr)",
+            "Leitungen",
+            "939 km",
+            "876 Mio. €"
+          ]
+        },
+        {
+          "row_index": 5,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "",
+            "Anlagenstandorte*",
+            "193 Stück",
+            "684 Mio. €"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "table-10",
+      "columns": [
+        "Zeitraum",
+        "Ausbau",
+        "Neubau"
+      ],
+      "row_count": 3,
+      "segment_row_counts": [
+        3
+      ],
+      "line_wrap_decisions": [],
+      "samples": [
+        {
+          "row_index": 0,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "2023 bis 2028 (t+5)",
+            "7 Stück",
+            "8 Stück"
+          ]
+        },
+        {
+          "row_index": 1,
+          "reasons": [
+            "first_rows",
+            "last_rows",
+            "middle_row"
+          ],
+          "values": [
+            "2029 bis 2033 (t+6 bis t+10)",
+            "8 Stück",
+            "18 Stück"
+          ]
+        },
+        {
+          "row_index": 2,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "2034 bis 2045 (t+11 bis Zielnetzjahr)",
+            "5 Stück",
+            "26 Stück"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "table-11",
+      "columns": [
+        "Teilnetzgebiet",
+        "überlastete Leitungen",
+        "überlastete Ortsnetzstationen",
+        "Auslöser Last",
+        "Auslöser Einspeisung"
+      ],
+      "row_count": 2,
+      "segment_row_counts": [
+        2
+      ],
+      "line_wrap_decisions": [
+        {
+          "id": "wrap-107d9f43da2b",
+          "line_end": "Ortsnetz-",
+          "next_line_start": "stationen",
+          "decision": "remove",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 3,
+              "line": 1,
+              "bbox": [
+                263.760009765625,
+                666.9165649414062,
+                303.2791748046875,
+                690.1345825195312
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-11/segment-01-bbd15ba42e7a-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-0b0ab2b9bb76",
+          "line_end": "Mecklenburg-",
+          "next_line_start": "Vorpommern",
+          "decision": "keep",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 8,
+              "line": 0,
+              "bbox": [
+                75.12020874023438,
+                710.6692504882812,
+                131.46218872070312,
+                733.8275146484375
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-11/segment-01-bbd15ba42e7a-page-0016.png"
+            }
+          ]
+        }
+      ],
+      "samples": [
+        {
+          "row_index": 0,
+          "reasons": [
+            "first_rows",
+            "last_rows"
+          ],
+          "values": [
+            "Brandenburg",
+            "67 %",
+            "63 %",
+            "35 %",
+            "65 %"
+          ]
+        },
+        {
+          "row_index": 1,
+          "reasons": [
+            "first_rows",
+            "last_rows",
+            "middle_row"
+          ],
+          "values": [
+            "Mecklenburg-Vorpommern",
+            "74 %",
+            "59 %",
+            "24 %",
+            "76 %"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "table-12",
+      "columns": [
+        "Zeitraum",
+        "Maßnahme",
+        "geschätzte Menge",
+        "geschätzte Kosten"
+      ],
+      "row_count": 6,
+      "segment_row_counts": [
+        6
+      ],
+      "line_wrap_decisions": [],
+      "samples": [
+        {
+          "row_index": 0,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "2023 bis 2028 (t+5)",
+            "Leitungen",
+            "2.723 km",
+            "281 Mio. €"
+          ]
+        },
+        {
+          "row_index": 1,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "",
+            "Anlagenstandorte*",
+            "4.305 Stück",
+            "389 Mio. €"
+          ]
+        },
+        {
+          "row_index": 3,
+          "reasons": [
+            "middle_row"
+          ],
+          "values": [
+            "",
+            "Anlagenstandorte*",
+            "2.293 Stück",
+            "201 Mio. €"
+          ]
+        },
+        {
+          "row_index": 4,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "2034 bis 2045 (t+11 bis Zielnetzjahr)",
+            "Leitungen",
+            "2.375 km",
+            "240 Mio. €"
+          ]
+        },
+        {
+          "row_index": 5,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "",
+            "Anlagenstandorte*",
+            "2.490 Stück",
+            "211 Mio. €"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "table-13",
+      "columns": [
+        "Zeitraum",
+        "Maßnahme",
+        "geschätzte Menge",
+        "geschätzte Kosten"
+      ],
+      "row_count": 6,
+      "segment_row_counts": [
+        6
+      ],
+      "line_wrap_decisions": [],
+      "samples": [
+        {
+          "row_index": 0,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "2023 bis 2028 (t+5)",
+            "Leitungen",
+            "2.119 km",
+            "215 Mio. €"
+          ]
+        },
+        {
+          "row_index": 1,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "",
+            "Anlagenstandorte*",
+            "2.833 Stück",
+            "261 Mio. €"
+          ]
+        },
+        {
+          "row_index": 3,
+          "reasons": [
+            "middle_row"
+          ],
+          "values": [
+            "",
+            "Anlagenstandorte*",
+            "1.149 Stück",
+            "108 Mio. €"
+          ]
+        },
+        {
+          "row_index": 4,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "2034 bis 2045 (t+11 bis Zielnetzjahr)",
+            "Leitungen",
+            "1.206 km",
+            "122 Mio. €"
+          ]
+        },
+        {
+          "row_index": 5,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "",
+            "Anlagenstandorte*",
+            "1.194 Stück",
+            "106 Mio. €"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "table-14",
+      "columns": [
+        "Zeitraum",
+        "Maßnahme",
+        "geschätzte Menge",
+        "geschätzte Kosten"
+      ],
+      "row_count": 3,
+      "segment_row_counts": [
+        3
+      ],
+      "line_wrap_decisions": [],
+      "samples": [
+        {
+          "row_index": 0,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "2023 bis 2028 (t+5)",
+            "Leitungen",
+            "357 km",
+            "50 Mio. €"
+          ]
+        },
+        {
+          "row_index": 1,
+          "reasons": [
+            "first_rows",
+            "last_rows",
+            "middle_row"
+          ],
+          "values": [
+            "2029 bis 2033 (t+6 bis t+10)",
+            "Leitungen",
+            "1.168 km",
+            "164 Mio. €"
+          ]
+        },
+        {
+          "row_index": 2,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "2034 bis 2045 (t+11 bis Zielnetzjahr)",
+            "Leitungen",
+            "2.815 km",
+            "394 Mio. €"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "table-15",
+      "columns": [
+        "Zeitraum",
+        "Maßnahme",
+        "geschätzte Menge",
+        "geschätzte Kosten"
+      ],
+      "row_count": 3,
+      "segment_row_counts": [
+        3
+      ],
+      "line_wrap_decisions": [],
+      "samples": [
+        {
+          "row_index": 0,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "2023 bis 2028 (t+5)",
+            "Leitungen",
+            "179 km",
+            "25 Mio. €"
+          ]
+        },
+        {
+          "row_index": 1,
+          "reasons": [
+            "first_rows",
+            "last_rows",
+            "middle_row"
+          ],
+          "values": [
+            "2029 bis 2033 (t+6 bis t+10)",
+            "Leitungen",
+            "530 km",
+            "75 Mio. €"
+          ]
+        },
+        {
+          "row_index": 2,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "2034 bis 2045 (t+11 bis Zielnetzjahr)",
+            "Leitungen",
+            "1.408 km",
+            "197 Mio. €"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "table-16",
+      "columns": [
+        "lfd. Nr.",
+        "Maßnahme",
+        "kurze Projektbeschreibung",
+        "Projektkategorie",
+        "Betriebsmittel",
+        "Länge des zugebauten, optimierten oder ersetzten Leitungsabschnitts",
+        "Änderung der Übertragungskapazität",
+        "netztechnische Begründung für den Netzausbau (Kurzbeschreibung)",
+        "netztechnische Begründung für den Netzausbau (Grund)",
+        "Erfolgt diese Netzausbaumaßnahme, um einen bereits bestehenden Engpass zu beheben?",
+        "Erfolgt diese Netzausbaumaßnahme, um einen prognostizierten Engpass vorzubeugen?",
+        "benötigt bis",
+        "voraussichtlicher Zeitpunkt des Baubeginns",
+        "voraussichtlicher Zeitpunkt der Inbetriebnahme",
+        "geschätzte Kosten",
+        "Projektstatus",
+        "Teilnetzgebiet"
+      ],
+      "row_count": 565,
+      "segment_row_counts": [
+        57,
+        57,
+        57,
+        57,
+        57,
+        57,
+        57,
+        57,
+        57,
+        52
+      ],
+      "line_wrap_decisions": [
+        {
+          "id": "wrap-4ac19f052b91",
+          "line_end": "zuge-",
+          "next_line_start": "Länge",
+          "decision": "remove",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 25,
+              "block": 1,
+              "line": 0,
+              "bbox": [
+                57.36941909790039,
+                695.5780029296875,
+                61.450469970703125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-01-3f667990151d-page-0025.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 26,
+              "block": 1,
+              "line": 0,
+              "bbox": [
+                57.36941909790039,
+                695.5780029296875,
+                61.450469970703125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-02-31a5c7abda70-page-0026.png"
+            },
+            {
+              "segment_id": "segment-03",
+              "page": 27,
+              "block": 1,
+              "line": 0,
+              "bbox": [
+                57.36941909790039,
+                695.5780029296875,
+                61.450469970703125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-03-2d84de5e1b07-page-0027.png"
+            },
+            {
+              "segment_id": "segment-04",
+              "page": 28,
+              "block": 1,
+              "line": 0,
+              "bbox": [
+                57.36941909790039,
+                695.5780029296875,
+                61.450469970703125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-04-0669ab092ef9-page-0028.png"
+            },
+            {
+              "segment_id": "segment-05",
+              "page": 29,
+              "block": 1,
+              "line": 0,
+              "bbox": [
+                57.36941909790039,
+                695.5780029296875,
+                61.450469970703125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-05-9a954c7747c2-page-0029.png"
+            },
+            {
+              "segment_id": "segment-06",
+              "page": 30,
+              "block": 1,
+              "line": 0,
+              "bbox": [
+                57.36941909790039,
+                695.5780029296875,
+                61.450469970703125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-06-97056fcaaa4c-page-0030.png"
+            },
+            {
+              "segment_id": "segment-07",
+              "page": 31,
+              "block": 1,
+              "line": 0,
+              "bbox": [
+                57.36941909790039,
+                695.5780029296875,
+                61.450469970703125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-07-acbd9c944e39-page-0031.png"
+            },
+            {
+              "segment_id": "segment-08",
+              "page": 32,
+              "block": 1,
+              "line": 0,
+              "bbox": [
+                57.36941909790039,
+                695.5780029296875,
+                61.450469970703125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-08-05d16265c1b2-page-0032.png"
+            },
+            {
+              "segment_id": "segment-09",
+              "page": 33,
+              "block": 1,
+              "line": 0,
+              "bbox": [
+                57.36941909790039,
+                695.5780029296875,
+                61.450469970703125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-09-04c4d9b5e87a-page-0033.png"
+            },
+            {
+              "segment_id": "segment-10",
+              "page": 34,
+              "block": 1,
+              "line": 0,
+              "bbox": [
+                57.36941909790039,
+                695.5780029296875,
+                61.450469970703125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-10-ad9ad52655d7-page-0034.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-ca115342d54d",
+          "line_end": "Übertragungs-",
+          "next_line_start": "oder",
+          "decision": "keep",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 25,
+              "block": 6,
+              "line": 0,
+              "bbox": [
+                69.0096664428711,
+                655.7550659179688,
+                73.09112548828125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-01-3f667990151d-page-0025.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 26,
+              "block": 6,
+              "line": 0,
+              "bbox": [
+                69.0096664428711,
+                655.7550659179688,
+                73.09112548828125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-02-31a5c7abda70-page-0026.png"
+            },
+            {
+              "segment_id": "segment-03",
+              "page": 27,
+              "block": 6,
+              "line": 0,
+              "bbox": [
+                69.0096664428711,
+                655.7550659179688,
+                73.09112548828125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-03-2d84de5e1b07-page-0027.png"
+            },
+            {
+              "segment_id": "segment-04",
+              "page": 28,
+              "block": 6,
+              "line": 0,
+              "bbox": [
+                69.0096664428711,
+                655.7550659179688,
+                73.09112548828125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-04-0669ab092ef9-page-0028.png"
+            },
+            {
+              "segment_id": "segment-05",
+              "page": 29,
+              "block": 6,
+              "line": 0,
+              "bbox": [
+                69.0096664428711,
+                655.7550659179688,
+                73.09112548828125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-05-9a954c7747c2-page-0029.png"
+            },
+            {
+              "segment_id": "segment-06",
+              "page": 30,
+              "block": 6,
+              "line": 0,
+              "bbox": [
+                69.0096664428711,
+                655.7550659179688,
+                73.09112548828125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-06-97056fcaaa4c-page-0030.png"
+            },
+            {
+              "segment_id": "segment-07",
+              "page": 31,
+              "block": 6,
+              "line": 0,
+              "bbox": [
+                69.0096664428711,
+                655.7550659179688,
+                73.09112548828125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-07-acbd9c944e39-page-0031.png"
+            },
+            {
+              "segment_id": "segment-08",
+              "page": 32,
+              "block": 6,
+              "line": 0,
+              "bbox": [
+                69.0096664428711,
+                655.7550659179688,
+                73.09112548828125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-08-05d16265c1b2-page-0032.png"
+            },
+            {
+              "segment_id": "segment-09",
+              "page": 33,
+              "block": 6,
+              "line": 0,
+              "bbox": [
+                69.0096664428711,
+                655.7550659179688,
+                73.09112548828125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-09-04c4d9b5e87a-page-0033.png"
+            },
+            {
+              "segment_id": "segment-10",
+              "page": 34,
+              "block": 6,
+              "line": 0,
+              "bbox": [
+                69.0096664428711,
+                655.7550659179688,
+                73.09112548828125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-10-ad9ad52655d7-page-0034.png"
+            }
+          ]
+        }
+      ],
+      "samples": [
+        {
+          "row_index": 0,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "7",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_index": 1,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "10",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_index": 56,
+          "reasons": [
+            "segment_boundary_before"
+          ],
+          "values": [
+            "151",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_index": 57,
+          "reasons": [
+            "segment_boundary_after"
+          ],
+          "values": [
+            "152",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_index": 113,
+          "reasons": [
+            "segment_boundary_before"
+          ],
+          "values": [
+            "241",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_index": 114,
+          "reasons": [
+            "segment_boundary_after"
+          ],
+          "values": [
+            "242",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_index": 170,
+          "reasons": [
+            "segment_boundary_before"
+          ],
+          "values": [
+            "298",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_index": 171,
+          "reasons": [
+            "segment_boundary_after"
+          ],
+          "values": [
+            "299",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_index": 227,
+          "reasons": [
+            "segment_boundary_before"
+          ],
+          "values": [
+            "355",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_index": 228,
+          "reasons": [
+            "segment_boundary_after"
+          ],
+          "values": [
+            "356",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_index": 282,
+          "reasons": [
+            "middle_row"
+          ],
+          "values": [
+            "412",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_index": 284,
+          "reasons": [
+            "segment_boundary_before"
+          ],
+          "values": [
+            "414",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_index": 285,
+          "reasons": [
+            "segment_boundary_after"
+          ],
+          "values": [
+            "415",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_index": 341,
+          "reasons": [
+            "segment_boundary_before"
+          ],
+          "values": [
+            "471",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_index": 342,
+          "reasons": [
+            "segment_boundary_after"
+          ],
+          "values": [
+            "472",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_index": 398,
+          "reasons": [
+            "segment_boundary_before"
+          ],
+          "values": [
+            "528",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_index": 399,
+          "reasons": [
+            "segment_boundary_after"
+          ],
+          "values": [
+            "529",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_index": 455,
+          "reasons": [
+            "segment_boundary_before"
+          ],
+          "values": [
+            "585",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_index": 456,
+          "reasons": [
+            "segment_boundary_after"
+          ],
+          "values": [
+            "586",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_index": 512,
+          "reasons": [
+            "segment_boundary_before"
+          ],
+          "values": [
+            "641",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_index": 513,
+          "reasons": [
+            "segment_boundary_after"
+          ],
+          "values": [
+            "642",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_index": 563,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "691",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_index": 564,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "692",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        }
+      ]
+    }
+  ]
+}

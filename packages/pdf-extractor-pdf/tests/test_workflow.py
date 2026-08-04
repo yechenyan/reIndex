@@ -51,7 +51,7 @@ def _inventory(job, uncertain: bool = False) -> Path:
             {"page": 2, "label": "continuation", "notes": "continued"},
         ],
         "tables": [{
-            "id": "example", "title": "Example",
+            "id": "example", "title": "Example", "column_count": 2,
             "segments": [
                 {"id": "segment-01", "page": 1, "bbox": [30, 40, 270, 150]},
                 {"id": "segment-02", "page": 2, "bbox": [30, 40, 270, 150]},
@@ -63,16 +63,11 @@ def _inventory(job, uncertain: bool = False) -> Path:
 
 def audit_and_attest(job, draft: Path) -> Path:
     report = audit_inventory(job, draft)
-    overlays = {(x["table_id"], x["segment_id"]): x["overlay_sha256"] for x in report["segments"]}
-    value = read_json(draft)
-    for table in value["tables"]:
-        for segment in table["segments"]:
-            segment["bbox_review"] = {
-                "overlay_sha256": overlays[(table["id"], segment["id"])],
-                "all_visible_table_content_inside": True,
-                "reviewed_edges": ["left", "right", "top", "bottom"],
-            }
-    write_json(draft, value)
+    review = read_json(Path(report["review_path"]))
+    for segment in review["segments"]:
+        segment["all_visible_table_content_inside"] = True
+        segment["reviewed_edges"] = ["left", "right", "top", "bottom"]
+    write_json(Path(report["review_path"]), review)
     assert audit_inventory(job, draft)["passed"] is True
     return draft
 
@@ -87,13 +82,14 @@ def _reference(job, missing_boundary: bool = False) -> Path:
         samples.pop(1)
     path = job.evidence_dir / "agent-output" / "reference-draft.json"
     write_json(path, {
-        "spec": "pdf-extractor-pdf/reference-draft@1.0",
+        "spec": "pdf-extractor-pdf/reference-draft@2.0",
         "role": "qa_agent", "independent_from_extractor": True, "source_evidence_only": True,
         "source_sha256": source_sha256(job.source),
         "inventory_sha256": artifact_hash(job.inventory),
         "tables": [{
-            "id": "example", "columns": ["Name", "Value"], "row_count": 3,
-            "segment_row_counts": [2, 1], "samples": samples,
+            "id": "example", "column_count": 2, "row_count": 3,
+            "segment_row_counts": [2, 1], "segment_source_row_counts": [2, 1],
+            "segment_repeated_leading_rows": [0, 0], "samples": samples,
         }],
     })
     return path
@@ -110,7 +106,7 @@ def extract(source: Path, inventory: dict):
         RowProvenance(1, (35, 90, 265, 115), "segment-01"),
         RowProvenance(2, (35, 70, 265, 95), "segment-02"),
     ]
-    return ExtractionResult("{digest}", [ExtractedTable("example", "Example", ["Name", "Value"], rows, provenance)])
+    return ExtractionResult("{digest}", [ExtractedTable("example", "Example", 2, rows, provenance)])
 if __name__ == "__main__": project_entry(extract)
 ''', encoding="utf-8")
 
@@ -145,6 +141,7 @@ def test_full_workflow_reaches_both_hard_gates(tmp_path: Path) -> None:
     assert verify_cache(job)["ok"] is True
     assert load_state(job.evidence_dir)["phase"] == "complete"
     assert sorted(path.name for path in (project / "output").iterdir()) == ["example.csv", "result.json"]
+    assert (project / "output" / "example.csv").read_text().splitlines()[0] == "Alpha,1"
     assert not (job.main.parent / "__pycache__").exists()
 
 
@@ -165,7 +162,7 @@ def test_reference_requires_cross_page_boundary_samples(tmp_path: Path) -> None:
 
 
 def test_required_samples_include_middle_and_boundaries() -> None:
-    assert required_sample_indices(13, [8, 5]) == [0, 1, 6, 7, 8, 11, 12]
+    assert required_sample_indices(13, [8, 5]) == [0, 1, 2, 6, 7, 8, 11, 12]
 
 
 def test_review_packet_is_compact_and_source_grounded(tmp_path: Path) -> None:
@@ -190,3 +187,5 @@ def test_review_packet_is_compact_and_source_grounded(tmp_path: Path) -> None:
     assert issue["cell_diffs"][0]["extractor_normalized"] == "Beta"
     evidence = report["evidence_index"][issue["evidence_refs"][0]]
     assert evidence["image"].endswith(".png")
+    assert report["review_sequence"] == 1
+    assert Path(report["review_archive"]).is_file()

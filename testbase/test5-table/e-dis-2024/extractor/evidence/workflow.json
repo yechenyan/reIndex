@@ -1,0 +1,213 @@
+{
+  "spec": "pdf-extractor-pdf/workflow@1.0",
+  "history": [
+    {
+      "event": "project_initialized",
+      "phase": "initialized",
+      "at": "2026-08-04T01:08:54.724539+00:00",
+      "details": {
+        "source_sha256": "fa05fea873a98ae45e11128fc12c4f4bec6cad1f5dfaf27e5de351ea4634c89a"
+      }
+    },
+    {
+      "event": "evidence_prepared",
+      "phase": "prepared",
+      "at": "2026-08-04T01:09:08.316876+00:00",
+      "details": {
+        "cache_hit": false
+      }
+    },
+    {
+      "event": "inventory_audited",
+      "phase": "prepared",
+      "at": "2026-08-04T01:12:58.847217+00:00",
+      "details": {
+        "passed": false,
+        "segment_count": 25,
+        "blocking_signal_count": 123
+      }
+    },
+    {
+      "event": "inventory_audited",
+      "phase": "prepared",
+      "at": "2026-08-04T01:14:47.368438+00:00",
+      "details": {
+        "passed": false,
+        "segment_count": 25,
+        "blocking_signal_count": 110
+      }
+    },
+    {
+      "event": "inventory_audited",
+      "phase": "prepared",
+      "at": "2026-08-04T01:15:28.218802+00:00",
+      "details": {
+        "passed": false,
+        "segment_count": 25,
+        "blocking_signal_count": 220
+      }
+    },
+    {
+      "event": "inventory_audited",
+      "phase": "prepared",
+      "at": "2026-08-04T01:16:10.344994+00:00",
+      "details": {
+        "passed": false,
+        "segment_count": 25,
+        "blocking_signal_count": 0
+      }
+    },
+    {
+      "event": "inventory_audited",
+      "phase": "prepared",
+      "at": "2026-08-04T01:22:06.945723+00:00",
+      "details": {
+        "passed": true,
+        "segment_count": 25,
+        "blocking_signal_count": 0
+      }
+    },
+    {
+      "event": "inventory_frozen",
+      "phase": "inventory_frozen",
+      "at": "2026-08-04T01:22:07.098646+00:00",
+      "details": {
+        "inventory_sha256": "0f3c9e49d32b72ed748b7837651b485a654fe9db2211cd620998be0d3105474c",
+        "table_count": 16,
+        "segment_count": 25,
+        "agent_output": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/agent-output/inventory-draft-7898a9f9811a90d4.json"
+      }
+    },
+    {
+      "event": "segment_evidence_generated",
+      "phase": "inspected",
+      "at": "2026-08-04T01:22:09.604910+00:00",
+      "details": {
+        "manifest_sha256": "08b68eef899e63e101877ec1d211dacedafbaba9bb87c407233fc2171609d475"
+      }
+    },
+    {
+      "event": "reference_frozen",
+      "phase": "reference_frozen",
+      "at": "2026-08-04T01:31:05.671337+00:00",
+      "details": {
+        "reference_sha256": "33d44f01be35d324996b9c3c4af0720997388caf7f25fbde67444cdbb01470e8",
+        "agent_output": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/agent-output/reference-draft-57b52cb63fed0a92.json"
+      }
+    },
+    {
+      "event": "validation_completed",
+      "phase": "reviewed",
+      "at": "2026-08-04T01:32:03.736337+00:00",
+      "details": {
+        "passed": false,
+        "issue_count": 73,
+        "merge_candidates": 0
+      }
+    },
+    {
+      "event": "validation_completed",
+      "phase": "reviewed",
+      "at": "2026-08-04T01:33:48.494674+00:00",
+      "details": {
+        "passed": false,
+        "issue_count": 54,
+        "merge_candidates": 0
+      }
+    },
+    {
+      "event": "validation_completed",
+      "phase": "reviewed",
+      "at": "2026-08-04T01:36:04.093461+00:00",
+      "details": {
+        "passed": false,
+        "issue_count": 26,
+        "merge_candidates": 0
+      }
+    },
+    {
+      "event": "validation_completed",
+      "phase": "reviewed",
+      "at": "2026-08-04T01:38:21.419437+00:00",
+      "details": {
+        "passed": false,
+        "issue_count": 26,
+        "merge_candidates": 0
+      }
+    },
+    {
+      "event": "validation_completed",
+      "phase": "reviewed",
+      "at": "2026-08-04T01:40:46.993321+00:00",
+      "details": {
+        "passed": false,
+        "issue_count": 23,
+        "merge_candidates": 0
+      }
+    },
+    {
+      "event": "reference_reopened",
+      "phase": "inspected",
+      "at": "2026-08-04T01:40:56.257069+00:00",
+      "details": {
+        "reason": "scoped QA repair"
+      }
+    },
+    {
+      "event": "reference_frozen",
+      "phase": "reference_frozen",
+      "at": "2026-08-04T01:43:44.488626+00:00",
+      "details": {
+        "reference_sha256": "c967608f9b8240233693bffa8e72e221a918a250cda4512d85ff5f58e35c3f2d",
+        "agent_output": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/agent-output/reference-draft-7537efd4bd5439e4.json"
+      }
+    },
+    {
+      "event": "validation_completed",
+      "phase": "reviewed",
+      "at": "2026-08-04T01:44:18.313631+00:00",
+      "details": {
+        "passed": false,
+        "issue_count": 23,
+        "merge_candidates": 0
+      }
+    },
+    {
+      "event": "reference_reopened",
+      "phase": "inspected",
+      "at": "2026-08-04T01:44:25.406542+00:00",
+      "details": {
+        "reason": "scoped QA repair"
+      }
+    },
+    {
+      "event": "reference_frozen",
+      "phase": "reference_frozen",
+      "at": "2026-08-04T01:45:12.978312+00:00",
+      "details": {
+        "reference_sha256": "54687a995f6f138afaf31f52fbc9fb035d233b87070c63e06dd6f4e4bac2d4ba",
+        "agent_output": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/agent-output/reference-draft-9ee99fd80c04b96e.json"
+      }
+    },
+    {
+      "event": "validation_completed",
+      "phase": "reviewed",
+      "at": "2026-08-04T01:45:31.480568+00:00",
+      "details": {
+        "passed": false,
+        "issue_count": 23,
+        "merge_candidates": 0
+      }
+    },
+    {
+      "event": "reference_reopened",
+      "phase": "inspected",
+      "at": "2026-08-04T01:46:47.631375+00:00",
+      "details": {
+        "reason": "scoped QA repair"
+      }
+    }
+  ],
+  "phase": "inspected",
+  "updated_at": "2026-08-04T01:46:47.631375+00:00"
+}

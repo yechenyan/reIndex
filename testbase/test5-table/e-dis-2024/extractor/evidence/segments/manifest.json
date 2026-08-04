@@ -1,0 +1,261 @@
+{
+  "spec": "pdf-extractor-pdf/segment-evidence@1.0",
+  "inventory_sha256": "0f3c9e49d32b72ed748b7837651b485a654fe9db2211cd620998be0d3105474c",
+  "dpi": 220,
+  "cache_hit": false,
+  "reused_segments": 0,
+  "rendered_segments": 25,
+  "stale_segments": [],
+  "segments": [
+    {
+      "table_id": "table-01",
+      "segment_id": "segment-01",
+      "page": 8,
+      "fingerprint": "24f352b74c561d74dbb6529d1026999f335ca6ec635c921f3bc4c6ccbbbd7004",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-01/segment-01-24f352b74c56-page-0008.png",
+      "image_sha256": "c7b4da85804f502dc4ef4d5bcd2af862635aab60d3e123b69ac8a4c4afb77d18",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-01/segment-01-24f352b74c56-page-0008.json",
+      "geometry_sha256": "1eaebdd980740648a4758e6ed0041d58c9312c564af7dd3dc08cf04619a42610"
+    },
+    {
+      "table_id": "table-02",
+      "segment_id": "segment-01",
+      "page": 8,
+      "fingerprint": "c8bd8511798222469ef264ad21532f8ba3160515cdb89150196729e9cbd8b2ff",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-02/segment-01-c8bd85117982-page-0008.png",
+      "image_sha256": "ed7613eee9e49b02ae07adf5698ce04e956e7ebe0da809bab85c942a2d8a88aa",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-02/segment-01-c8bd85117982-page-0008.json",
+      "geometry_sha256": "e4f18f2dacebb12b8ce7ca65de1360b1f1a2936f62d4e5f10ca24e3301c4d06a"
+    },
+    {
+      "table_id": "table-03",
+      "segment_id": "segment-01",
+      "page": 9,
+      "fingerprint": "e3a1695c5bbeffdbb0cba3562df9f98f118502c59e363e0534bb23671145c107",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-03/segment-01-e3a1695c5bbe-page-0009.png",
+      "image_sha256": "56ca70945442e19ff3904456a9d7b331afea53f715169399b7b0bb3dd2b3edee",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-03/segment-01-e3a1695c5bbe-page-0009.json",
+      "geometry_sha256": "97390cd2b850f478ed3b1506858b5acf2a2703d62671dd48aa5792dda2069813"
+    },
+    {
+      "table_id": "table-04",
+      "segment_id": "segment-01",
+      "page": 9,
+      "fingerprint": "d9a690d2f35c3e6438ce17d49dbf83999534922c0fad7d63d9a6c938a585e80d",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-04/segment-01-d9a690d2f35c-page-0009.png",
+      "image_sha256": "c5aee536c3eadd86994852be94345ecbf5e3f13a77f0b70d25a6b739e986d13e",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-04/segment-01-d9a690d2f35c-page-0009.json",
+      "geometry_sha256": "f210c2b3e5eb3836d9ac19d0cf9e362db0b91e3598dfe7c0eebd3322e3e198c2"
+    },
+    {
+      "table_id": "table-05",
+      "segment_id": "segment-01",
+      "page": 9,
+      "fingerprint": "8e5c4ace90ca4a66587da26ec8cc66d37966570a6cae1fc87fea0c43c1d5c558",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-05/segment-01-8e5c4ace90ca-page-0009.png",
+      "image_sha256": "dac0208d5fa5df0314165a7bee27b58ec140242ffb89d5b43c9c9068ae293c27",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-05/segment-01-8e5c4ace90ca-page-0009.json",
+      "geometry_sha256": "f9d5e2c42f60d4c5cc5f8a8297a78306d26a4b07245e0a6b9742e9ad354a3462"
+    },
+    {
+      "table_id": "table-06",
+      "segment_id": "segment-01",
+      "page": 10,
+      "fingerprint": "49f5731a1796955bb6d38fee491a396dcf5cfe71a5b45ee5b074ded2261023aa",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-06/segment-01-49f5731a1796-page-0010.png",
+      "image_sha256": "92f1cb192e05695912d4c28416b2aaef1b7803e2d2f7a3ebe101f6286e276705",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-06/segment-01-49f5731a1796-page-0010.json",
+      "geometry_sha256": "9b7dd70e808bce8edfaa85c1f0c331abd1d1e6b340e7b02aaaa149830ea48298"
+    },
+    {
+      "table_id": "table-07",
+      "segment_id": "segment-01",
+      "page": 10,
+      "fingerprint": "e55cd50abe2dc3242ca47808384c8b06fc85d6c2d8267ba1118f0a416bec71fe",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-07/segment-01-e55cd50abe2d-page-0010.png",
+      "image_sha256": "d70ba8eaf81482a3074dedeab032e85e9e260d40162094d580dcb87f04bcaef0",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-07/segment-01-e55cd50abe2d-page-0010.json",
+      "geometry_sha256": "954dab34957a0c82d3b437fef453ff6c0ef18259d7228f5d6422720b231ba662"
+    },
+    {
+      "table_id": "table-08",
+      "segment_id": "segment-01",
+      "page": 13,
+      "fingerprint": "9219dc1f3403d2226c8f517310ee59b914a48fcbc4c5e0470dce55bb51564110",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-08/segment-01-9219dc1f3403-page-0013.png",
+      "image_sha256": "f0387f718ca651d97ed4f93629f28cc9f078a19e8a1954f1e9f8abc7b4d6f442",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-08/segment-01-9219dc1f3403-page-0013.json",
+      "geometry_sha256": "bb55dd25e67da1ae52ebdb15b074a8431a8d3b0556574b8c46c3ff6444d55072"
+    },
+    {
+      "table_id": "table-09",
+      "segment_id": "segment-01",
+      "page": 14,
+      "fingerprint": "e9d2aa3af349f4a040639ca08c03a0a96111bc3d41c688bd3c25f78fcddffc75",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-09/segment-01-e9d2aa3af349-page-0014.png",
+      "image_sha256": "9fd0a57c3b173b14616132e396680c9e97b9104dd6559270dcbfa4db3d0ae8ae",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-09/segment-01-e9d2aa3af349-page-0014.json",
+      "geometry_sha256": "f816bd0644703d97d5f57f036e3f417fc4bea82eefa3fd0b831cc7da03d4bc27"
+    },
+    {
+      "table_id": "table-10",
+      "segment_id": "segment-01",
+      "page": 14,
+      "fingerprint": "f4f082b6da17ea2e5e9e08f6d3d927d395c7b8d8432f3052eacfa4e215d5eb53",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-10/segment-01-f4f082b6da17-page-0014.png",
+      "image_sha256": "0cdf95079f14fa02cc380c7a694bba2b7b44b4c273f970650190bc9baa08f3a1",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-10/segment-01-f4f082b6da17-page-0014.json",
+      "geometry_sha256": "c5cdb9aeff87b35a7664296a680ee1b9bdf770eec1bd84ce4b0d09d65211b876"
+    },
+    {
+      "table_id": "table-11",
+      "segment_id": "segment-01",
+      "page": 16,
+      "fingerprint": "bbd15ba42e7a1c74c97cd8b1b76e8e4b404b22b7d0b462ed04dd2c1188e582a9",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-11/segment-01-bbd15ba42e7a-page-0016.png",
+      "image_sha256": "b88152ab3d5a94a96ced42c4af323e9dffd37ef7e27abfe1215a09f5056b98c9",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-11/segment-01-bbd15ba42e7a-page-0016.json",
+      "geometry_sha256": "6bb36bb13d747460a28238d6a215f05419ca9491f161c19aa30d013b7ccb18ef"
+    },
+    {
+      "table_id": "table-12",
+      "segment_id": "segment-01",
+      "page": 17,
+      "fingerprint": "25d8d618b969cd2a2c14ace8957b68852c2033555a6b0484332470ceebbf50d9",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-12/segment-01-25d8d618b969-page-0017.png",
+      "image_sha256": "606ee26785abee990d3bc189cd1a8ff4689da1a1bcdc1189ee081df3c302ddf4",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-12/segment-01-25d8d618b969-page-0017.json",
+      "geometry_sha256": "52243507fd36c4709208d64a9fe47aba64f68850ec9651bacb8d581208660637"
+    },
+    {
+      "table_id": "table-13",
+      "segment_id": "segment-01",
+      "page": 17,
+      "fingerprint": "200f9336ebc0dcb2046171791ac203461afcc02eab341ce9b9c4dfd663766861",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-13/segment-01-200f9336ebc0-page-0017.png",
+      "image_sha256": "ebb0265571cac01f9832e6be6321c723cfbf15b8b57e67d3b1bb51fb6d31d0e2",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-13/segment-01-200f9336ebc0-page-0017.json",
+      "geometry_sha256": "a457f1e41f95da269281f4012687e34ef246fb26c99fb3104ad09ce28e32a396"
+    },
+    {
+      "table_id": "table-14",
+      "segment_id": "segment-01",
+      "page": 18,
+      "fingerprint": "4950354a849c70ce2ca22c955cf9ae9296806e1f5fca2867aae1a54da0d4ac4d",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-14/segment-01-4950354a849c-page-0018.png",
+      "image_sha256": "efa950cc9bcd659a1f1e050e9a69c0ec86419babd913804bd5a2ab61cff22908",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-14/segment-01-4950354a849c-page-0018.json",
+      "geometry_sha256": "5421fce3ef1693d03c102201fa5684c40eb4897f2115b6c13abf07610c82eb7d"
+    },
+    {
+      "table_id": "table-15",
+      "segment_id": "segment-01",
+      "page": 18,
+      "fingerprint": "666fb4ae207c4c1bd53cab0a3917b1ec311a22fc2b79b3a8fc314e5d56c29362",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-15/segment-01-666fb4ae207c-page-0018.png",
+      "image_sha256": "5fa4bb07478060e8c69d63cf5ac7c4256d112e4f0c18ce1e323a03d567d5594f",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-15/segment-01-666fb4ae207c-page-0018.json",
+      "geometry_sha256": "923a114813fcd0b5219b1814213de3f1f0784abaa27f3ce328a52c59394cf15b"
+    },
+    {
+      "table_id": "table-16",
+      "segment_id": "segment-01",
+      "page": 25,
+      "fingerprint": "3f667990151d0a57f561cc9a2c789a809fab1b675b422cf913541452eecc9071",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-01-3f667990151d-page-0025.png",
+      "image_sha256": "1a6d224e125c01c54068df82bd613efa8ccafbf36f9c25660b1c4452341a9fef",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-01-3f667990151d-page-0025.json",
+      "geometry_sha256": "cae25fa0dc20050f50ff85b46b492ced2bfa2225e6b1ee6e63b5f5fecf19e39f"
+    },
+    {
+      "table_id": "table-16",
+      "segment_id": "segment-02",
+      "page": 26,
+      "fingerprint": "31a5c7abda70bccbdb509a6379fd67c191d0ef92eb060685227c11033837ed9c",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-02-31a5c7abda70-page-0026.png",
+      "image_sha256": "a0824c27e7dea1c4f8773421b4f972c1741f8ced7ad4a0d786e134e65cf3e46b",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-02-31a5c7abda70-page-0026.json",
+      "geometry_sha256": "041435c99736e6de34b6553b844ef8f08843757494aed140aa6d742e9b3e4819"
+    },
+    {
+      "table_id": "table-16",
+      "segment_id": "segment-03",
+      "page": 27,
+      "fingerprint": "2d84de5e1b07fb07a13c017c9d3e7e06b030ffcdfc8356f70be0a6b75758ae49",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-03-2d84de5e1b07-page-0027.png",
+      "image_sha256": "137dd8929ed519f5d844c9cae08de849f5fff9da0300997c603a2108568df2aa",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-03-2d84de5e1b07-page-0027.json",
+      "geometry_sha256": "aa0b9555b791de4534d3f02b0d5e72b9f4cc99192ec8e28764a0a697d3ca8522"
+    },
+    {
+      "table_id": "table-16",
+      "segment_id": "segment-04",
+      "page": 28,
+      "fingerprint": "0669ab092ef9f53943fe204511ca143a01711ddcf13f8d069df9068a12c50cfc",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-04-0669ab092ef9-page-0028.png",
+      "image_sha256": "f1f05257a65e0cad6fe68be4839f679b8c08dd4b1054ff5aa65aed6ccf00249a",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-04-0669ab092ef9-page-0028.json",
+      "geometry_sha256": "1da84b1deb11132f713c62c115feb6b3a1bc8f40228787907d02ee73495566ac"
+    },
+    {
+      "table_id": "table-16",
+      "segment_id": "segment-05",
+      "page": 29,
+      "fingerprint": "9a954c7747c21bec28712df06af8f9a14a04096d41b23e5cba70f335a40c7486",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-05-9a954c7747c2-page-0029.png",
+      "image_sha256": "3c42ed07b88ea19780229f4d7f40e02357638c6a90fd87e5abba62f285917c5e",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-05-9a954c7747c2-page-0029.json",
+      "geometry_sha256": "a1cb2ba7601e206f1d99f79a1fa5597ee2a513cd4d9b10dc16864a1877a43ddd"
+    },
+    {
+      "table_id": "table-16",
+      "segment_id": "segment-06",
+      "page": 30,
+      "fingerprint": "97056fcaaa4cbfe1af7b51676da3c3a09f7db71d7df6eb89316b2e629873dad1",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-06-97056fcaaa4c-page-0030.png",
+      "image_sha256": "cc384d8c0dfc5523fec930f79d39847665f564de055805b4dab9f1d77ddb7098",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-06-97056fcaaa4c-page-0030.json",
+      "geometry_sha256": "5204211515f6f1034f5ef888d95fb5204435b73ef498064a21b80239c7314639"
+    },
+    {
+      "table_id": "table-16",
+      "segment_id": "segment-07",
+      "page": 31,
+      "fingerprint": "acbd9c944e39da3cee9217dcbcabe2fc5bc62d33986147ea30f3502af9a00f39",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-07-acbd9c944e39-page-0031.png",
+      "image_sha256": "07d334106c60f827655f52134b1d2543d0b292f4f764989d1fc789cf4d5f94b2",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-07-acbd9c944e39-page-0031.json",
+      "geometry_sha256": "697ac8a53c141eff309ba61409894ee64e856ecddfc1735045fbc5faba6b7d67"
+    },
+    {
+      "table_id": "table-16",
+      "segment_id": "segment-08",
+      "page": 32,
+      "fingerprint": "05d16265c1b27c2f68b41f082831003d3eee1c263b477f3abb0a685cc8e7533e",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-08-05d16265c1b2-page-0032.png",
+      "image_sha256": "722347fcb1bdd27f6464567bd9a28dbae44a108de7d64521a4305eaa64bb9a4b",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-08-05d16265c1b2-page-0032.json",
+      "geometry_sha256": "26b11db00bea810eabc82b4454654bcb500d5a79c4a86e1ae12afe5fb3eb1a69"
+    },
+    {
+      "table_id": "table-16",
+      "segment_id": "segment-09",
+      "page": 33,
+      "fingerprint": "04c4d9b5e87a16afb5b1429b9c5141f116cd586f643ff4a29500cb8c31462006",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-09-04c4d9b5e87a-page-0033.png",
+      "image_sha256": "56e794c0e231dc437931b2052c61134c855a9896bf19c5269116f74ec58ed3fe",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-09-04c4d9b5e87a-page-0033.json",
+      "geometry_sha256": "661ea259deb9351101006344776b6ff693c36b3db886427f3b1ce01fdc2d7e73"
+    },
+    {
+      "table_id": "table-16",
+      "segment_id": "segment-10",
+      "page": 34,
+      "fingerprint": "ad9ad52655d77ad31f839427f93523af71406bdfaa3709025aaf2f85aa3d843a",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-10-ad9ad52655d7-page-0034.png",
+      "image_sha256": "fdfdb09cdbbee82740b5bc44e40e75bfc2cc0d07224d71a33d20f716571bce75",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-10-ad9ad52655d7-page-0034.json",
+      "geometry_sha256": "ee43f7a1060fb93f12e9db2eb46abc41b3e5bc04a088d5aa55558a8f3243bd9e"
+    }
+  ]
+}

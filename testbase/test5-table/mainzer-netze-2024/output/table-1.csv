@@ -1,0 +1,21 @@
+Teilnetz Mainz,,,,,,,,
+,2023,,2028,,2033,,2045,
+PV,"46,9",MWp,"227,1",MWp,"407,3",MWp,"793,0",MWp
+Wind,"40,0",MWp,"74,1",MWp,"108,2",MWp,"150,0",MWp
+"Wasserkraft, Biomasse, s.EEG","5,0",MWp,"5,0",MWp,"5,0",MWp,"5,0",MWp
+Kraftwerke,"1017,2",MW,"947,8",MW,"878,4",MW,"712,0",MW
+,,,,,,,,
+Haushaltslasten,"125,0",MW,"120,0",MW,"116,3",MW,"108,8",MW
+"Gewerbe,Handel, Dienstleistung","107,6",MW,"103,3",MW,"100,1",MW,"93,6",MW
+Wärmepumpen,"4,0",MW,"31,3",MW,"58,6",MW,"124,1",MW
+Fernwärmeerzeugung,"0,0",MW,"0,0",MW,"15,0",MW,"30,0",MW
+Industrie,"97,4",MW,"112,0",MW,"126,6",MW,"160,7",MW
+Rechenzentren,"15,0",MW,"150,0",MW,"230,0",MW,"290,0",MW
+Verkehr (EMOB),"6,0",MW,"34,6",MW,"63,2",MW,"131,8",MW
+Elektrolyse,"0,0",MW,"15,0",MW,"30,0",MW,"0,0",MW
+Batteriespeicher,"1,0",MW,"15,0",MW,"30,0",MW,"55,0",MW
+,,,,,,,,
+nVNB,"208,1",MW,"309,3",MW,"51,6",MW,"67,1",MW
+,,,,,,,,
+Summe Verbrauch (GLZ),"423,1",MW,"623,4",MW,"533,9",MW,"689,8",MW
+Summe Einspeisung (GLZ),"666,0",MW,"761,4",MW,"857,4",MW,"1029,0",MW

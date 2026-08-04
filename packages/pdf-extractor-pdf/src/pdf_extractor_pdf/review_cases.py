@@ -37,8 +37,8 @@ def _route(codes: list[str]) -> tuple[str, float, list[str]]:
         if "sample_mismatch" in codes:
             hints.append("row_alignment_shift")
         return "extraction_agent", 0.9, hints
-    if "header_mismatch" in codes:
-        hints = ["column_schema_or_header_parsing"]
+    if "column_count_mismatch" in codes:
+        hints = ["positional_column_structure"]
         if "sample_mismatch" in codes:
             hints.append("column_alignment_shift")
         return "extraction_agent", 0.85, hints

@@ -1,0 +1,194 @@
+{
+  "spec": "pdf-extractor-pdf/inventory@1.0",
+  "role": "finder_agent",
+  "reviewed_all_pages": true,
+  "source_sha256": "828d7e506917fc3d5331a1cc7ad0f4be78b425af0b7f6b1d74716f22c82e332a",
+  "page_findings": [
+    {
+      "page": 1,
+      "label": "no_table",
+      "notes": "Cover."
+    },
+    {
+      "page": 2,
+      "label": "no_table",
+      "notes": "Narrative table of contents; no source data matrix."
+    },
+    {
+      "page": 3,
+      "label": "no_table",
+      "notes": "Figure list; no source data matrix."
+    },
+    {
+      "page": 4,
+      "label": "no_table",
+      "notes": "Table list; no source data matrix."
+    },
+    {
+      "page": 5,
+      "label": "table",
+      "notes": "Two-column abbreviation matrix."
+    },
+    {
+      "page": 6,
+      "label": "no_table",
+      "notes": "Narrative text and map."
+    },
+    {
+      "page": 7,
+      "label": "no_table",
+      "notes": "Maps and narrative text."
+    },
+    {
+      "page": 8,
+      "label": "no_table",
+      "notes": "Map and narrative text."
+    },
+    {
+      "page": 9,
+      "label": "no_table",
+      "notes": "Map and narrative text."
+    },
+    {
+      "page": 10,
+      "label": "table",
+      "notes": "Tabelle 1 forecast matrix."
+    },
+    {
+      "page": 11,
+      "label": "table",
+      "notes": "Tabelle 2 forecast matrix; distinct titled table, not a continuation of Tabelle 1."
+    },
+    {
+      "page": 12,
+      "label": "no_table",
+      "notes": "Narrative text."
+    },
+    {
+      "page": 13,
+      "label": "table",
+      "notes": "Two distinct four-column summary matrices (Tabellen 3 and 4)."
+    },
+    {
+      "page": 14,
+      "label": "no_table",
+      "notes": "Map and narrative text."
+    },
+    {
+      "page": 15,
+      "label": "no_table",
+      "notes": "Narrative statements and imprint."
+    },
+    {
+      "page": 16,
+      "label": "table",
+      "notes": "Appendix measures matrix."
+    }
+  ],
+  "tables": [
+    {
+      "id": "table-abbreviations",
+      "title": "Abkürzungsverzeichnis",
+      "column_count": 2,
+      "segments": [
+        {
+          "id": "segment-01",
+          "page": 5,
+          "bbox": [
+            68,
+            95,
+            527,
+            377
+          ]
+        }
+      ]
+    },
+    {
+      "id": "table-1",
+      "title": "Tabelle 1: Last- und Einspeiseprognose Teilnetz Mainz",
+      "column_count": 9,
+      "segments": [
+        {
+          "id": "segment-01",
+          "page": 10,
+          "bbox": [
+            78,
+            498,
+            517,
+            780
+          ]
+        }
+      ]
+    },
+    {
+      "id": "table-2",
+      "title": "Tabelle 2: Last- und Einspeiseprognose Teilnetz Hessisches Ried",
+      "column_count": 9,
+      "segments": [
+        {
+          "id": "segment-01",
+          "page": 11,
+          "bbox": [
+            78,
+            70,
+            517,
+            350
+          ]
+        }
+      ]
+    },
+    {
+      "id": "table-3",
+      "title": "Tabelle 3: Zusammengefasste Maßnahmentabelle Hochspannung",
+      "column_count": 4,
+      "segments": [
+        {
+          "id": "segment-01",
+          "page": 13,
+          "bbox": [
+            83,
+            134,
+            512,
+            260
+          ]
+        }
+      ]
+    },
+    {
+      "id": "table-4",
+      "title": "Tabelle 4: Zusammengefasste Maßnahmentabelle Mittelspannung",
+      "column_count": 4,
+      "segments": [
+        {
+          "id": "segment-01",
+          "page": 13,
+          "bbox": [
+            83,
+            276,
+            512,
+            397
+          ]
+        }
+      ]
+    },
+    {
+      "id": "table-appendix-measures",
+      "title": "Anhang: Maßnahmenplan",
+      "column_count": 16,
+      "segments": [
+        {
+          "id": "segment-01",
+          "page": 16,
+          "bbox": [
+            18,
+            103,
+            578,
+            725
+          ]
+        }
+      ]
+    }
+  ],
+  "draft_sha256": "fcf200f304b5c04d26c9bbc22db87431782c6e90c6bc33d64d31b4375c0e5883",
+  "frozen": true
+}

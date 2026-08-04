@@ -1,0 +1,169 @@
+{
+  "source_sha256": "3dc36a9917ac29b387c8fcc6e1a856f26e4fc0660d4e847a5070ee7dca0af497",
+  "page_count": 5,
+  "dpi": 72,
+  "contact_pages": 8,
+  "contact_columns": 4,
+  "contact_overlap_pages": 1,
+  "finder_candidate_dpi": 150,
+  "cache_hit": false,
+  "pages": [
+    {
+      "page": 1,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 1427,
+      "word_count": 184
+    },
+    {
+      "page": 2,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 918,
+      "word_count": 103
+    },
+    {
+      "page": 3,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 2856,
+      "word_count": 352
+    },
+    {
+      "page": 4,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 1901,
+      "word_count": 238
+    },
+    {
+      "page": 5,
+      "width": 1191.0,
+      "height": 842.0,
+      "rotation": 90,
+      "text_chars": 28071,
+      "word_count": 3365
+    }
+  ],
+  "contacts": [
+    "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/contact-sheets/contact-001.jpg"
+  ],
+  "contact_windows": [
+    {
+      "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/contact-sheets/contact-001.jpg",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  ],
+  "finder_packet": {
+    "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/finder-packet.json",
+    "sha256": "9eff50c93a1bf49237e933891dbb1b3e323a14d86f5088431ac3b09e309dc66a",
+    "spec": "pdf-extractor-pdf/finder-packet@1.0",
+    "instructions": "Review every contact-window page; freeze positional column_count without assuming a header, use candidate images first, and escalate only uncertain pages.",
+    "contact_windows": [
+      {
+        "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/contact-sheets/contact-001.jpg",
+        "pages": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    ],
+    "candidate_pages": [
+      5
+    ],
+    "candidate_images": [
+      {
+        "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/pages-candidate/page-0005-150dpi.png",
+        "sha256": "be99807301adfbda7276430f5fcea7c8d4c57d92203a29ee63f414ffd1ba96b0"
+      }
+    ],
+    "pages": [
+      {
+        "page": 1,
+        "candidate": false,
+        "reasons": [],
+        "table_term_hits": 0,
+        "grid_line_count": 16,
+        "width": 595.32,
+        "height": 841.92,
+        "rotation": 0,
+        "word_count": 184,
+        "candidate_image": null
+      },
+      {
+        "page": 2,
+        "candidate": false,
+        "reasons": [],
+        "table_term_hits": 0,
+        "grid_line_count": 4,
+        "width": 595.32,
+        "height": 841.92,
+        "rotation": 0,
+        "word_count": 103,
+        "candidate_image": null
+      },
+      {
+        "page": 3,
+        "candidate": false,
+        "reasons": [],
+        "table_term_hits": 0,
+        "grid_line_count": 4,
+        "width": 595.32,
+        "height": 841.92,
+        "rotation": 0,
+        "word_count": 352,
+        "candidate_image": null
+      },
+      {
+        "page": 4,
+        "candidate": false,
+        "reasons": [],
+        "table_term_hits": 0,
+        "grid_line_count": 16,
+        "width": 595.32,
+        "height": 841.92,
+        "rotation": 0,
+        "word_count": 238,
+        "candidate_image": null
+      },
+      {
+        "page": 5,
+        "candidate": true,
+        "reasons": [
+          "table_term",
+          "grid_geometry"
+        ],
+        "table_term_hits": 1,
+        "grid_line_count": 901,
+        "width": 1191.0,
+        "height": 842.0,
+        "rotation": 90,
+        "word_count": 3365,
+        "candidate_image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/pages-candidate/page-0005-150dpi.png"
+      }
+    ]
+  },
+  "page_hashes": {
+    "page-0001.png": "31b49b844e5e6f19c0fdcb8b0a6c7eb00524af7b5c6533fb8b8b94fe50352352",
+    "page-0002.png": "c9e3dd077aced747f1ef76eb2816235eec29ee3c255157e5d2215973cf4395eb",
+    "page-0003.png": "56e300cf6663dc35c23a57ce2421e554caa008e39e7a0195f753a774bec3d732",
+    "page-0004.png": "981a8da6c028b961f91b69cefe041b1f4cbe5b8180e633d1bf27bc83a327e939",
+    "page-0005.png": "56f22150bfdb9fd8c5add0eba0aad5d746a973290e6502acf6e1a524feda3c4b"
+  },
+  "contact_hashes": {
+    "contact-001.jpg": "ea921fd89780b7590fbe85bb48fdde20d786b7660e427ba82cec9e97c11ed4f2"
+  }
+}

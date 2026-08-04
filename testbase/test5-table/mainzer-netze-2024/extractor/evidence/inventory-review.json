@@ -1,0 +1,97 @@
+{
+  "spec": "pdf-extractor-pdf/inventory-review@1.0",
+  "draft_sha256": "fcf200f304b5c04d26c9bbc22db87431782c6e90c6bc33d64d31b4375c0e5883",
+  "instructions": "Finder edits only all_visible_table_content_inside and reviewed_edges.",
+  "segments": [
+    {
+      "table_id": "table-abbreviations",
+      "segment_id": "segment-01",
+      "page": 5,
+      "bbox": [
+        68,
+        95,
+        527,
+        377
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/inventory-overlays/table-abbreviations/segment-01-5f1869ff3983-page-0005.png",
+      "overlay_sha256": "e75f6e1ca3d8c02959729ea2d8c2bd54c34516b47940a0ff800beb104a684734",
+      "all_visible_table_content_inside": true,
+      "reviewed_edges": ["left", "right", "top", "bottom"]
+    },
+    {
+      "table_id": "table-1",
+      "segment_id": "segment-01",
+      "page": 10,
+      "bbox": [
+        78,
+        498,
+        517,
+        780
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/inventory-overlays/table-1/segment-01-04b5ddf58914-page-0010.png",
+      "overlay_sha256": "c8fb5c79d8e80928b6e175d240fad932612ae2971c8d7eb8634221d4fa4eb4c2",
+      "all_visible_table_content_inside": true,
+      "reviewed_edges": ["left", "right", "top", "bottom"]
+    },
+    {
+      "table_id": "table-2",
+      "segment_id": "segment-01",
+      "page": 11,
+      "bbox": [
+        78,
+        70,
+        517,
+        350
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/inventory-overlays/table-2/segment-01-cdfb4be6d0c7-page-0011.png",
+      "overlay_sha256": "8c27043e6e94b18f7df68ffc284d041d1f2cf04f40cf1c5d3bd9f2da5a9a0f80",
+      "all_visible_table_content_inside": true,
+      "reviewed_edges": ["left", "right", "top", "bottom"]
+    },
+    {
+      "table_id": "table-3",
+      "segment_id": "segment-01",
+      "page": 13,
+      "bbox": [
+        83,
+        134,
+        512,
+        260
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/inventory-overlays/table-3/segment-01-89580ac851db-page-0013.png",
+      "overlay_sha256": "71171d9e76896a8e1f9ae427460bbcaa381812aa9d6471dcd4c72a10f5030721",
+      "all_visible_table_content_inside": true,
+      "reviewed_edges": ["left", "right", "top", "bottom"]
+    },
+    {
+      "table_id": "table-4",
+      "segment_id": "segment-01",
+      "page": 13,
+      "bbox": [
+        83,
+        276,
+        512,
+        397
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/inventory-overlays/table-4/segment-01-247308390a5a-page-0013.png",
+      "overlay_sha256": "8f5778c88f5ff6e10983a67e0528dafaa9f8a93624ad0ac6b4fd315ccb0dd0eb",
+      "all_visible_table_content_inside": true,
+      "reviewed_edges": ["left", "right", "top", "bottom"]
+    },
+    {
+      "table_id": "table-appendix-measures",
+      "segment_id": "segment-01",
+      "page": 16,
+      "bbox": [
+        18,
+        103,
+        578,
+        725
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/inventory-overlays/table-appendix-measures/segment-01-1db0a4cee169-page-0016.png",
+      "overlay_sha256": "8dced5433d84874fbcf91aeab9b5a9a45413a3850f287f294fae76f9e66155d8",
+      "all_visible_table_content_inside": true,
+      "reviewed_edges": ["left", "right", "top", "bottom"]
+    }
+  ]
+}

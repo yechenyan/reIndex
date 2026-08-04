@@ -1,411 +1,501 @@
 {
-  "spec": "pdf-table-codegen/result@1.0",
-  "extractor_id": "bielefelder-netz-2022",
-  "extractor_version": "1.0.0",
+  "spec": "pdf-extractor-pdf/result@2.0",
   "source_sha256": "3dc36a9917ac29b387c8fcc6e1a856f26e4fc0660d4e847a5070ee7dca0af497",
+  "extractor_version": "1.0.0",
   "tables": [
     {
-      "id": "aggregierte-10-jahresplanung",
-      "title": "Teil 1: Aggregierte 10-Jahresplanung der unteren Netzebenen",
-      "headers": [
-        "Netzebene",
-        "Investitionsart",
-        "Betrag_EUR"
-      ],
+      "id": "table-1",
+      "title": "Optionale Erläuterungen zu Ihren Angaben an die BNetzA",
+      "column_count": 1,
       "rows": [
         [
-          "Mittelspannung",
-          "Neubau",
-          "3242160"
+          "optionale Erläuterungen zu Ihren Angaben an die BNetzA:"
         ],
         [
-          "Mittelspannung",
-          "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
-          "19452960"
-        ],
-        [
-          "Mittelspannung",
-          "Netzoptimierung und -verstärkung",
-          "8105400"
-        ],
-        [
-          "Mittelspannung",
-          "Summe Netzausbau",
-          "30800520"
-        ],
-        [
-          "Mittelspannung",
-          "davon überwiegend erzeugungsgetrieben",
-          "6160104"
-        ],
-        [
-          "Mittelspannung",
-          "davon überwiegend verbrauchsbedingt",
-          "24640416"
-        ],
-        [
-          "Mittelspannung",
-          "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
-          "1621080"
-        ],
-        [
-          "Mittelspannung",
-          "Rückbau / Altlastentsorgung",
-          "0"
-        ],
-        [
-          "Umspannung MS/NS",
-          "Neubau",
-          "1500000"
-        ],
-        [
-          "Umspannung MS/NS",
-          "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
-          "8250000"
-        ],
-        [
-          "Umspannung MS/NS",
-          "Netzoptimierung und -verstärkung",
-          "750000"
-        ],
-        [
-          "Umspannung MS/NS",
-          "Summe Netzausbau",
-          "10500000"
-        ],
-        [
-          "Umspannung MS/NS",
-          "davon überwiegend erzeugungsgetrieben",
-          "0"
-        ],
-        [
-          "Umspannung MS/NS",
-          "davon überwiegend verbrauchsbedingt",
-          "10500000"
-        ],
-        [
-          "Umspannung MS/NS",
-          "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
-          "4500000"
-        ],
-        [
-          "Umspannung MS/NS",
-          "Rückbau / Altlastentsorgung",
-          "0"
-        ],
-        [
-          "Niederspannung",
-          "Neubau",
-          "9828000"
-        ],
-        [
-          "Niederspannung",
-          "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
-          "27371520"
-        ],
-        [
-          "Niederspannung",
-          "Netzoptimierung und -verstärkung",
-          "4561920"
-        ],
-        [
-          "Niederspannung",
-          "Summe Netzausbau",
-          "41761440"
-        ],
-        [
-          "Niederspannung",
-          "davon überwiegend erzeugungsgetrieben",
-          "4176144"
-        ],
-        [
-          "Niederspannung",
-          "davon überwiegend verbrauchsbedingt",
-          "37585296"
-        ],
-        [
-          "Niederspannung",
-          "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
-          "13685760"
-        ],
-        [
-          "Niederspannung",
-          "Rückbau / Altlastentsorgung",
-          "0"
+          ""
         ]
-      ],
-      "pages": [
-        5
       ],
       "provenance": [
         {
           "page": 5,
           "bbox": [
-            265.92,
-            725.55,
-            333.24,
-            1154.67
+            36.33,
+            193.2,
+            465.0,
+            198.72
           ],
-          "segment": "summary-grids"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            265.92,
-            725.55,
-            333.24,
-            1154.67
+            36.33,
+            198.72,
+            465.0,
+            222.72
           ],
-          "segment": "summary-grids"
-        },
-        {
-          "page": 5,
-          "bbox": [
-            265.92,
-            725.55,
-            333.24,
-            1154.67
-          ],
-          "segment": "summary-grids"
-        },
-        {
-          "page": 5,
-          "bbox": [
-            265.92,
-            725.55,
-            333.24,
-            1154.67
-          ],
-          "segment": "summary-grids"
-        },
-        {
-          "page": 5,
-          "bbox": [
-            265.92,
-            725.55,
-            333.24,
-            1154.67
-          ],
-          "segment": "summary-grids"
-        },
-        {
-          "page": 5,
-          "bbox": [
-            265.92,
-            725.55,
-            333.24,
-            1154.67
-          ],
-          "segment": "summary-grids"
-        },
-        {
-          "page": 5,
-          "bbox": [
-            265.92,
-            725.55,
-            333.24,
-            1154.67
-          ],
-          "segment": "summary-grids"
-        },
-        {
-          "page": 5,
-          "bbox": [
-            265.92,
-            725.55,
-            333.24,
-            1154.67
-          ],
-          "segment": "summary-grids"
-        },
-        {
-          "page": 5,
-          "bbox": [
-            265.92,
-            725.55,
-            333.24,
-            1154.67
-          ],
-          "segment": "summary-grids"
-        },
-        {
-          "page": 5,
-          "bbox": [
-            265.92,
-            725.55,
-            333.24,
-            1154.67
-          ],
-          "segment": "summary-grids"
-        },
-        {
-          "page": 5,
-          "bbox": [
-            265.92,
-            725.55,
-            333.24,
-            1154.67
-          ],
-          "segment": "summary-grids"
-        },
-        {
-          "page": 5,
-          "bbox": [
-            265.92,
-            725.55,
-            333.24,
-            1154.67
-          ],
-          "segment": "summary-grids"
-        },
-        {
-          "page": 5,
-          "bbox": [
-            265.92,
-            725.55,
-            333.24,
-            1154.67
-          ],
-          "segment": "summary-grids"
-        },
-        {
-          "page": 5,
-          "bbox": [
-            265.92,
-            725.55,
-            333.24,
-            1154.67
-          ],
-          "segment": "summary-grids"
-        },
-        {
-          "page": 5,
-          "bbox": [
-            265.92,
-            725.55,
-            333.24,
-            1154.67
-          ],
-          "segment": "summary-grids"
-        },
-        {
-          "page": 5,
-          "bbox": [
-            265.92,
-            725.55,
-            333.24,
-            1154.67
-          ],
-          "segment": "summary-grids"
-        },
-        {
-          "page": 5,
-          "bbox": [
-            265.92,
-            725.55,
-            333.24,
-            1154.67
-          ],
-          "segment": "summary-grids"
-        },
-        {
-          "page": 5,
-          "bbox": [
-            265.92,
-            725.55,
-            333.24,
-            1154.67
-          ],
-          "segment": "summary-grids"
-        },
-        {
-          "page": 5,
-          "bbox": [
-            265.92,
-            725.55,
-            333.24,
-            1154.67
-          ],
-          "segment": "summary-grids"
-        },
-        {
-          "page": 5,
-          "bbox": [
-            265.92,
-            725.55,
-            333.24,
-            1154.67
-          ],
-          "segment": "summary-grids"
-        },
-        {
-          "page": 5,
-          "bbox": [
-            265.92,
-            725.55,
-            333.24,
-            1154.67
-          ],
-          "segment": "summary-grids"
-        },
-        {
-          "page": 5,
-          "bbox": [
-            265.92,
-            725.55,
-            333.24,
-            1154.67
-          ],
-          "segment": "summary-grids"
-        },
-        {
-          "page": 5,
-          "bbox": [
-            265.92,
-            725.55,
-            333.24,
-            1154.67
-          ],
-          "segment": "summary-grids"
-        },
-        {
-          "page": 5,
-          "bbox": [
-            265.92,
-            725.55,
-            333.24,
-            1154.67
-          ],
-          "segment": "summary-grids"
+          "segment_id": "segment-01"
         }
-      ]
+      ],
+      "line_wrap_decisions": []
     },
     {
-      "id": "massnahmenplan",
-      "title": "Teil 2: Maßnahmenplan aller Spannungsebenen",
-      "headers": [
-        "lfd. Nr.",
-        "Maßnahme",
-        "Betroffener Netzknoten im überlagerten HöS-Netz",
-        "Kurze Projektbeschreibung",
-        "Projektkategorie",
-        "Betriebsmittel",
-        "Länge Leitungsabschnitt [km]",
-        "Änderung Übertragungskapazität [+/- MVA]",
-        "Netztechnische Begründung",
-        "Überwiegender Ausbaugrund",
-        "Bestehenden Engpass beheben",
-        "Prognostiziertem Engpass vorbeugen",
-        "Voraussichtlicher Baubeginn [MM/JJJJ]",
-        "Voraussichtliche Inbetriebnahme [MM/JJJJ]",
-        "Verzögerungsgrund",
-        "Kosten (geschätzt) in Euro",
-        "Projektstatus",
-        "Stand Genehmigungsverfahren",
-        "Geprüfte Alternativen",
-        "Vorrangige Netz- oder Umspannebene"
-      ],
+      "id": "table-2",
+      "title": "Teil 1 – Hinweise und Neuerungen zum Vorjahr",
+      "column_count": 2,
       "rows": [
+        [
+          "Hinweise:",
+          "Neuerungen zum Vorjahr"
+        ],
+        [
+          "1. Bitte geben Sie für die Nieder- und Mittelspannung die für Neubau, Ersatz(neubau) mit/ ohne Übertragungskapazitätserhöhung, Netzoptimierung/-verstärkung sowie Rückbau/ Altlastentsorgung jeweils die geplanten Investitionen als aggregierten Wert an.",
+          "! Aufteilung der Tabelle in 2 Tabellen: Investitionen mit Erhöhung der Übertragungskapazität und ohne Erhöhung der Übertragungskapazität"
+        ],
+        [
+          "2. Falls Sie für die Investitionen in die unteren Netzebenen eine jährliche Pauschale annehmen, teilen Sie diese bitte auf die entsprechenden Bereiche (Neubau usw.) auf und rechen Sie diese auf 10 Jahre hoch.",
+          "! Wegfall Angabe zum Anteil \"Ladeinfrastruktur-Aufbau\""
+        ],
+        [
+          "3. Konkrete Einzelmaßnahmen der unteren Netzebenen (z.B. Anbindung Neubaugebiet) tragen Sie bitte weiterhin in den Maßnahmenplan ein und nicht in die aggregierte 10-Jahres Planung. Achten Sie darauf, dass diese NICHT zusätzlich in der aggregierten 10-Jahresplanung enthalten sind",
+          "! Neue Felder: Aufteilung, ob die Kosten überwiegend erzeugungs- oder einspeisebedingt sind"
+        ],
+        [
+          "4. In Spalte G und H teilen Sie bitte die Summe der Netzebeneninvestitionen (Spalte F) auf",
+          ""
+        ]
+      ],
+      "provenance": [
+        {
+          "page": 5,
+          "bbox": [
+            36.0,
+            230.0,
+            946.0,
+            234.9
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            36.0,
+            234.9,
+            946.0,
+            238.8
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            36.0,
+            238.8,
+            946.0,
+            244.9
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            36.0,
+            244.9,
+            946.0,
+            252.1
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            36.0,
+            252.1,
+            946.0,
+            261.0
+          ],
+          "segment_id": "segment-01"
+        }
+      ],
+      "line_wrap_decisions": []
+    },
+    {
+      "id": "table-3",
+      "title": "Teil 1 – Aggregierte 10-Jahres-Investitionen mit Übertragungskapazität",
+      "column_count": 7,
+      "rows": [
+        [
+          "",
+          "10-Jahres-Investition für Neubau",
+          "10-Jahres-Investition für Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+          "10-Jahres-Investition für Netzoptimierung und -verstärkung",
+          "Summe\n10-Jahres Netzausbau\n[automatische Berechnung]",
+          "davon: Kosten des überwiegend erzeugungsgetrieben\nNetzausbaus",
+          "davon: Kosten des überwiegend verbrauchsbedingten\nNetzausbaus"
+        ],
+        [
+          "Mittelspannung",
+          "3.242.160 €",
+          "19.452.960 €",
+          "8.105.400 €",
+          "30.800.520 €",
+          "6.160.104 €",
+          "24.640.416 €"
+        ],
+        [
+          "Umspannung MS/NS",
+          "1.500.000 €",
+          "8.250.000 €",
+          "750.000 €",
+          "10.500.000 €",
+          "0 €",
+          "10.500.000 €"
+        ],
+        [
+          "Niederspannung",
+          "9.828.000 €",
+          "27.371.520 €",
+          "4.561.920 €",
+          "41.761.440 €",
+          "4.176.144 €",
+          "37.585.296 €"
+        ]
+      ],
+      "provenance": [
+        {
+          "page": 5,
+          "bbox": [
+            49.0,
+            266.04,
+            465.0,
+            280.38
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            49.0,
+            280.38,
+            465.0,
+            287.58
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            49.0,
+            287.58,
+            465.0,
+            294.78
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            49.0,
+            294.78,
+            465.0,
+            301.92
+          ],
+          "segment_id": "segment-01"
+        }
+      ],
+      "line_wrap_decisions": []
+    },
+    {
+      "id": "table-4",
+      "title": "Teil 1 – Aggregierte 10-Jahres-Investitionen ohne Übertragungskapazität",
+      "column_count": 3,
+      "rows": [
+        [
+          "",
+          "10-Jahres-Investition für Ersatz(neubau) ohne Erhöhung der\nÜbertragungskapazität",
+          "10-Jahres-Investition für Rückbau / Altlastentsorgung"
+        ],
+        [
+          "Mittelspannung",
+          "1.621.080 €",
+          "0 €"
+        ],
+        [
+          "Umspannung MS/NS",
+          "4.500.000 €",
+          "0 €"
+        ],
+        [
+          "Niederspannung",
+          "13.685.760 €",
+          "0 €"
+        ]
+      ],
+      "provenance": [
+        {
+          "page": 5,
+          "bbox": [
+            49.0,
+            304.38,
+            283.0,
+            311.58
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            49.0,
+            311.58,
+            283.0,
+            318.78
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            49.0,
+            318.78,
+            283.0,
+            325.98
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            49.0,
+            325.98,
+            283.0,
+            332.9
+          ],
+          "segment_id": "segment-01"
+        }
+      ],
+      "line_wrap_decisions": []
+    },
+    {
+      "id": "table-5",
+      "title": "Teil 2 – Hinweise und Neuerungen zum Vorjahr",
+      "column_count": 2,
+      "rows": [
+        [
+          "Hinweise:",
+          "Neuerungen zum Vorjahr"
+        ],
+        [
+          "1. Bitte tragen Sie für alle Spannungsebenen Ihre Einzelmaßnahmen in die Liste ein.",
+          "! Spalte G \"Trassenlänge\" und H \"Änderungen MVA\" wurden in den Hinweisen klarer Definiert da es zu unterschiedlichen Auslegungen kam"
+        ],
+        [
+          "2. Die Laufende Nummer entspricht dem Pimärschlüssel zur eindeutigen Identifizierung Ihrer Maßnahmen im Zeitverlauf.",
+          "! Die Antwortmöglichkeiten der Spalte J \"2. netztechnische Begründung\" hat sich geändert."
+        ],
+        [
+          "3. Betrifft eine Maßnahme mehrere Netzebenen wählen Sie bitte die überwiegend betroffene Netzebene in Spalte T aus.",
+          "! Spalte L \"prognostizierter Engpass\" ist hinzu gekommen"
+        ],
+        [
+          "4. Maßnahmen die bis zum 31.12.2021 abgeschlossen (fertiggestellt) wurden oder weggefallen sind, melden Sie bitte mit entsprechendem Status.",
+          "! Spalte O \"Verzögerungsgrund g) Verzögerung durch Dritte hinzu genommen"
+        ],
+        [
+          "5. Maßnahmen die Sie im Vorjahr bereits über den Maßnahmenplan als abgeschlossen oder endgültig eingestellt (weggefallen/aufgegeben) gemeldet haben müssen nicht mehr eingetragen werden. ACHTUNG: die laufende Nummer darf NICHT neu vergeben werden.",
+          "! Die Antwortmöglichkeiten in Spalte Q \"Status\" wurden angepasst. \"Aufgegebene Maßnahme\" wurde in \"weggefallene Maßnahme geändert. Maßnahmen die in der letzten Abfrage als aufgegeben gekennzeichnet wurden müssen nicht mehr gemeldet werden."
+        ],
+        [
+          "6. Maßnahmen die im letzten Jahr in die 10-JP überführt wurden -und dies mit uns geklärt wurde- müssen nicht mehr gemeldet werden. ACHTUNG: die laufende Nummer darf NICHT neu vergeben werden.",
+          "! Aufgrund erweiterter gesetzlicher Anforderungen durch § 14d EnWG ist die Spalte R hinzu gekommen"
+        ],
+        [
+          "7. Spalte Verzögerungen: Bitte geben Sie hinter dem gewählten Buchstaben den Grund näher an. Siehe Ausfüllbeispiele in Zeile 37. Sollten die Kategorien a, e, und g nicht zutreffend sein, kann für einen sonstigen Grund die Kategorie f unter Nennung des Grundes gewählt werden. Den Verzögerungsgrund bitte in den Optionalen Erläuterungen Zeile 2 bis 7 beschreiben",
+          ""
+        ],
+        [
+          "8. Sie können die Maßnahmen aus dem Vorjahr in diesen Plan kopieren und die aktualisieren (Spalte M-Q). Beachten Sie dass Sie die neu eingefügten/geänderten Spalten (J,L,und R) dabei nicht überschrieben werden und beantwortet werden müssen .",
+          ""
+        ],
+        [
+          "9. Füllen Sie alle Spalten aus!",
+          ""
+        ]
+      ],
+      "provenance": [
+        {
+          "page": 5,
+          "bbox": [
+            36.0,
+            344.0,
+            946.0,
+            348.0
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            36.0,
+            348.0,
+            946.0,
+            350.9
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            36.0,
+            350.9,
+            946.0,
+            355.8
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            36.0,
+            355.8,
+            946.0,
+            360.6
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            36.0,
+            360.6,
+            946.0,
+            365.2
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            36.0,
+            365.2,
+            946.0,
+            369.9
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            36.0,
+            369.9,
+            946.0,
+            374.7
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            36.0,
+            374.7,
+            946.0,
+            380.1
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            36.0,
+            380.1,
+            946.0,
+            385.0
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            36.0,
+            385.0,
+            946.0,
+            391.0
+          ],
+          "segment_id": "segment-01"
+        }
+      ],
+      "line_wrap_decisions": []
+    },
+    {
+      "id": "table-6",
+      "title": "Teil 2 – Maßnahmenplan mit Ausfüllbeispielen und Zellenhinweisen",
+      "column_count": 20,
+      "rows": [
+        [
+          "Ausfüllbeispiele und Zellenhinweise",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "1",
+          "Nordleitung",
+          "Bspw. \"Audorf\", \"Hamburg-Nord\"",
+          "Errichtung einer Leitung von-bis (Netzknotenpunkt mit Ortsangabe, bspw. 01111 Musterdorf- 01112 Musterstadt)",
+          "(Dropdown-Liste)\n• Neubau\n• Ersatz(neubau) mit Erhöhung der Übertragungskapazität\n• Ersatz(neubau) ohne Erhöhung der Übertragungskapazität\n• Netzoptimierung und -verstärkung\n• Rückbau / Altlastentsorgung",
+          "bspw. Freileitung",
+          "Bitte geben Sie hier die Länge in Kilometern der Trasse an, in der\nLeitungen oder Kabel neu gebaut, optimiert oder bestehende\nersetzt wurden.\nACHTUNG Definitionsvorgabe!\nBitte geben Sie bei Freileitungen nicht die Länge der einzelnen\nLeitungen an, sondern die Länge der Trasse/des\nLeitungsabschnitts.\nBei Kabeln ist die Länge der einzelnen Leitungen anzugeben.",
+          "Bitte geben Sie bei Neubaumaßnahmen die neu geschaffene\nÜbertragungskapazität an.\nACHTUNG Definitionsvorgabe!\nBei Optimierungs- oder Ersatzmaßnahmen geben Sie bitte an,\nwie sich die Übertragungskapazität im Vergleich zum Zustand\nvor Beginn der Maßnahme verändert.",
+          "zunehmende PV-Einspeisung in \"Musterortsteil\" in 01112 Musterstadt erfordert die Anbindung an die ... Leitung in ... etc.",
+          "(Dropdown-Liste)\nACHTUNG\ngeänderte Antwortmöglichkeiten!\n• Zubau EE-Anlagen\n• Zubau Power to X\n• Zubau anderer Erzeugungsanlagen\n• Zubau Verbraucher\n• Zubau Erzeugung und Verbrauch\n• Kein Zubau (reiner Ersatz)\nAntworten bereits gemeldete Einzelmaßnahmen bis Abfrage aus 2021:\n• ja\n• ja, teilweise\n• nein",
+          "(Dropdown-Liste)\n• Ja, um einen verbrauchsbedingten Engpass zu beheben\n• Ja, um einen erzeugungsbedingten Engpass zu beheben\n• Ja, beides (verbrauchsbedingt und erzeugungsbeding)\n• Nein",
+          "(Dropdown-Liste)\n• Ja, um einen verbrauchsbedingten Engpass vorzubeugen\n• Ja, um einen erzeugungsbedingten Engpass vorzubeugen\n• Ja, beides (verbrauchsbedingt und erzeugungsbeding)\n• Nein",
+          "03/2020",
+          "11/2024",
+          "Bitte bei der Begründung die Kategorie mit angeben:\na) Akzeptanz Bevölkerung\nb) Genehmigungs-prozess\nc) ÜNB\nd) Intern\ne) Baubeginn (Lieferengpässe, Insolvenzen etc.)\nf) Sonstige Gründe\ng) Verzögerung durch Dritte\nBeispiel: d) Änderung Priorität, e) wegen Lieferengpass verzögert.\ng) Verzögerung der städtischen Erschließung",
+          "60000\nHinweis: Bitte nennen Sie auch kleinere Maßnahmen. Setzen\nSie kein Mindestbudget!",
+          "(Dropdown-Liste)\n• weggefallene Maßnahme,\n• vorgesehene Maßnahme,\n• konkrete Planung,\n• im Bau,\n• abgeschlossen\n• in 10-JP überführt (Die Überführung war in der Abfrage 2021!)\nHinweis:\nMaßnahmen gelten insbesondere als konkret geplant, wenn die für\ndie Maßnahme notwendigen öffentlich-rechtlichen Planungs- oder\nGenehmigungsverfahren eingeleitet wurden oder vom Betreiber\nbereits Investitionsentscheidungen bezüglich der\nAusbaumaßnahmen getroffen wurden oder der Betreiber von einer\ntatsächlichen Realisierung innerhalb der kommenden fünf Jahre\nausgeht.",
+          "(Dropdown-Liste)\n• noch nicht eingeleitet\n• bereits eingeleitet\n• abgeschlossen\n• keine Genehmigung erforderlich",
+          "bspw. 80°-Trassierung von Leitungen, Spitzenkappung, Hochtemperaturleiterseile, Leiterseilmonitoring, Einbau von\nregelbaren Ortnetztransformatoren, Erhöhung des Querschnitts von Leitungen, Erhöhung der Trafoleistung,\nVerkabelung von Freileitungen, Trennstellenoptimierung, Änderung der Netztopologie, Einbau von Messtechnik, Bau\nvon Paralellsystemen, Einbau von Spannungsreglern, Regulierung der Seildurchhänge, Sonstiges [bitte benennen].",
+          "(Dropdown-Liste)\n• NS,\n• UW MS auf NS,\n• MS,\n• UW HS auf MS oder\n• HS\n• Gesamtnetz [nur bei Projekten die nicht überwiegend einer\nNetzebene zugeordnet werden können. Bsp.: Errichtung\nFunknetz mit 450 MHz, flächendeckender Aufbau neuer\nStationsleittechnik"
+        ],
+        [
+          "lfd. Nr.",
+          "Maßnahme",
+          "Von der Netzausbaumaßnahme betroffene(r) Netzknoten im überlagerten HöS-\nNetz",
+          "kurze Projektbeschreibung",
+          "Projektkategorie",
+          "Betriebsmittel",
+          "Länge des zugebauten, optimierten oder ersetzen Leitungsabschnitts\n[km]",
+          "Änderung der Übertragungskapazität\n[+/- MVA]",
+          "netztechnische Begründung für den Netzausbau\nnetztechnische Begründung für den Netzausbau\n1. kurze Beschreibung",
+          "netztechnische Begründung für den Netzausbau\n2. Aus welchem Grund erfolgt die Netzausbaumaßnahme überwiegend?",
+          "Erfolgt diese Netzausbaumaßnahme, um einen bereits bestehenden\nEngpass zu beheben?",
+          "Erfolgt diese Netzausbaumaßnahme, um einen prognostizierten\nEngpass vorzubeugen?",
+          "voraussichtlicher Zeitpunkt des Baubeginns\n[MM/JJJJ]",
+          "voraussichtlicher Zeitpunkt der Inbetriebnahme\n[MM/JJJJ]",
+          "Im Falle einer Verzögerung der Maßnahme ist der Verzögerungsgrund (a-g) anzugeben\n(Angabe Buchstabe a-f & kurze Beschreibung)",
+          "Kosten (geschätzt) in Euro",
+          "Projektstatus",
+          "Stand Genehmigungsverfahren",
+          "Geprüfte Alternativen zum Netzausbau",
+          "Vorrangig betroffene Netz- oder Umspannebene"
+        ],
         [
           "4aa",
           "UW Universität - UW Zwinger",
@@ -936,7 +1026,7 @@
         ],
         [
           "31",
-          "UW Gaswerkstr. Leittechnik / Schutz",
+          "UW Gaswerkstr.\nLeittechnik / Schutz",
           "keine Betroffenheit",
           "Erneuergung Schutz- und Leittechnik",
           "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
@@ -958,7 +1048,7 @@
         ],
         [
           "32",
-          "UW Nord Leittechnik / Schutz",
+          "UW Nord\nLeittechnik / Schutz",
           "keine Betroffenheit",
           "Erneuergung Schutz- und Leittechnik",
           "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
@@ -980,7 +1070,7 @@
         ],
         [
           "33",
-          "UW Sieker Leittechnik / Schutz",
+          "UW Sieker\nLeittechnik / Schutz",
           "keine Betroffenheit",
           "Erneuergung Schutz- und Leittechnik",
           "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
@@ -1002,7 +1092,7 @@
         ],
         [
           "34",
-          "UW Brackwede Leittechnik / Schutz",
+          "UW Brackwede\nLeittechnik / Schutz",
           "keine Betroffenheit",
           "Erneuergung Schutz- und Leittechnik",
           "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
@@ -1024,7 +1114,7 @@
         ],
         [
           "35",
-          "UW West 10kV-Schaltanlage",
+          "UW West\n10kV-Schaltanlage",
           "keine Betroffenheit",
           "Erneuerung 10kV-Schaltanlage",
           "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
@@ -1046,7 +1136,7 @@
         ],
         [
           "36",
-          "UW Milse 10kV-Schaltanlage",
+          "UW Milse\n10kV-Schaltanlage",
           "keine Betroffenheit",
           "Erneuerung 10kV-Schaltanlage",
           "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
@@ -1068,7 +1158,7 @@
         ],
         [
           "37",
-          "UW Sparrenberg 10kV-Schaltanlage",
+          "UW Sparrenberg\n10kV-Schaltanlage",
           "keine Betroffenheit",
           "Erneuerung 10kV-Schaltanlage",
           "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
@@ -1090,7 +1180,7 @@
         ],
         [
           "38",
-          "UW Brackwede 10kV-Schaltanlage",
+          "UW Brackwede\n10kV-Schaltanlage",
           "keine Betroffenheit",
           "Erneuerung 10kV-Schaltanlage",
           "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
@@ -1112,7 +1202,7 @@
         ],
         [
           "39",
-          "UW Ost 110/10kV-Transformator",
+          "UW Ost\n110/10kV-Transformator",
           "keine Betroffenheit",
           "Erneuerung 110/10kV-Transformator",
           "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
@@ -1134,7 +1224,7 @@
         ],
         [
           "40",
-          "UW Ost 110/10kV-Transformator",
+          "UW Ost\n110/10kV-Transformator",
           "keine Betroffenheit",
           "Erneuerung 110/10kV-Transformator",
           "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
@@ -1156,7 +1246,7 @@
         ],
         [
           "41",
-          "UW Süd 110/10kV-Transformator",
+          "UW Süd\n110/10kV-Transformator",
           "keine Betroffenheit",
           "Erneuerung 110/10kV-Transformator",
           "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
@@ -1178,7 +1268,7 @@
         ],
         [
           "42",
-          "UW Steinhagen 110/10kV-Transformator",
+          "UW Steinhagen\n110/10kV-Transformator",
           "keine Betroffenheit",
           "Erneuerung 110/10kV-Transformator",
           "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
@@ -1200,7 +1290,7 @@
         ],
         [
           "43",
-          "UW Stieghorst 110/10kV-Transformator",
+          "UW Stieghorst\n110/10kV-Transformator",
           "keine Betroffenheit",
           "Erneuerung 110/10kV-Transformator",
           "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
@@ -1222,7 +1312,7 @@
         ],
         [
           "44",
-          "UW Steinhagen 110/10kV-Transformator",
+          "UW Steinhagen\n110/10kV-Transformator",
           "keine Betroffenheit",
           "Erneuerung 110/10kV-Transformator",
           "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
@@ -1244,7 +1334,7 @@
         ],
         [
           "45",
-          "UW Nord 110/10kV-Transformator",
+          "UW Nord\n110/10kV-Transformator",
           "keine Betroffenheit",
           "Erneuerung 110/10kV-Transformator",
           "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
@@ -1266,7 +1356,7 @@
         ],
         [
           "46",
-          "UW Kraftwerk 110/10kV-Transformator",
+          "UW Kraftwerk\n110/10kV-Transformator",
           "keine Betroffenheit",
           "Erneuerung 110/10kV-Transformator",
           "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
@@ -1288,7 +1378,7 @@
         ],
         [
           "47",
-          "UW Sieker 110/10kV-Transformator",
+          "UW Sieker\n110/10kV-Transformator",
           "keine Betroffenheit",
           "Erneuerung 110/10kV-Transformator",
           "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
@@ -1310,7 +1400,7 @@
         ],
         [
           "48",
-          "UW Sieker 110/10kV-Transformator",
+          "UW Sieker\n110/10kV-Transformator",
           "keine Betroffenheit",
           "Erneuerung 110/10kV-Transformator",
           "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
@@ -1332,7 +1422,7 @@
         ],
         [
           "49",
-          "UW West 110/10kV-Transformator",
+          "UW West\n110/10kV-Transformator",
           "keine Betroffenheit",
           "Erneuerung 110/10kV-Transformator",
           "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
@@ -1354,7 +1444,7 @@
         ],
         [
           "80",
-          "UW West 110/10kV-Transformator",
+          "UW West\n110/10kV-Transformator",
           "keine Betroffenheit",
           "Erneuerung 110/10kV-Transformator",
           "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
@@ -1376,7 +1466,7 @@
         ],
         [
           "84",
-          "UW Sennestadt 110kV-Schaltanlage",
+          "UW Sennestadt\n110kV-Schaltanlage",
           "keine Betroffenheit",
           "Erneuerung 110kV-Schaltanlage",
           "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
@@ -1442,7 +1532,7 @@
         ],
         [
           "87",
-          "UW Milse 110/10kV-Transformator",
+          "UW Milse\n110/10kV-Transformator",
           "keine Betroffenheit",
           "Erneuerung 110/10kV-Transformator",
           "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
@@ -1464,7 +1554,7 @@
         ],
         [
           "88",
-          "UW Milse 110/10kV-Transformator",
+          "UW Milse\n110/10kV-Transformator",
           "keine Betroffenheit",
           "Erneuerung 110/10kV-Transformator",
           "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
@@ -1486,7 +1576,7 @@
         ],
         [
           "89",
-          "UW Nord 110/10kV-Transformator",
+          "UW Nord\n110/10kV-Transformator",
           "keine Betroffenheit",
           "Erneuerung 110/10kV-Transformator",
           "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
@@ -1551,535 +1641,560 @@
           "UW HS auf MS"
         ]
       ],
-      "pages": [
-        5
-      ],
       "provenance": [
         {
           "page": 5,
           "bbox": [
-            477.48,
-            36.51,
-            479.88,
-            1154.67
+            36.26,
+            398.4,
+            1154.45,
+            403.2
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            479.88,
-            36.51,
-            482.28,
-            1154.67
+            36.26,
+            403.2,
+            1154.45,
+            454.2
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            482.28,
-            36.51,
-            484.68,
-            1154.67
+            36.26,
+            454.2,
+            1154.45,
+            477.24
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            484.68,
-            36.51,
-            487.08,
-            1154.67
+            36.26,
+            477.24,
+            1154.45,
+            479.76
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            487.08,
-            36.51,
-            489.48,
-            1154.67
+            36.26,
+            479.76,
+            1154.45,
+            482.16
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            489.48,
-            36.51,
-            491.88,
-            1154.67
+            36.26,
+            482.16,
+            1154.45,
+            484.56
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            491.88,
-            36.51,
-            494.28,
-            1154.67
+            36.26,
+            484.56,
+            1154.45,
+            486.96
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            494.28,
-            36.51,
-            496.68,
-            1154.67
+            36.26,
+            486.96,
+            1154.45,
+            489.36
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            496.68,
-            36.51,
-            499.08,
-            1154.67
+            36.26,
+            489.36,
+            1154.45,
+            491.76
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            499.08,
-            36.51,
-            501.48,
-            1154.67
+            36.26,
+            491.76,
+            1154.45,
+            494.16
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            501.48,
-            36.51,
-            503.88,
-            1154.67
+            36.26,
+            494.16,
+            1154.45,
+            496.56
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            503.88,
-            36.51,
-            506.28,
-            1154.67
+            36.26,
+            496.56,
+            1154.45,
+            498.96
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            506.28,
-            36.51,
-            508.68,
-            1154.67
+            36.26,
+            498.96,
+            1154.45,
+            501.36
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            508.68,
-            36.51,
-            511.08,
-            1154.67
+            36.26,
+            501.36,
+            1154.45,
+            503.76
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            511.08,
-            36.51,
-            513.48,
-            1154.67
+            36.26,
+            503.76,
+            1154.45,
+            506.16
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            513.48,
-            36.51,
-            515.88,
-            1154.67
+            36.26,
+            506.16,
+            1154.45,
+            508.56
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            515.88,
-            36.51,
-            518.28,
-            1154.67
+            36.26,
+            508.56,
+            1154.45,
+            510.96
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            518.28,
-            36.51,
-            520.68,
-            1154.67
+            36.26,
+            510.96,
+            1154.45,
+            513.36
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            520.68,
-            36.51,
-            523.08,
-            1154.67
+            36.26,
+            513.36,
+            1154.45,
+            515.76
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            523.08,
-            36.51,
-            525.48,
-            1154.67
+            36.26,
+            515.76,
+            1154.45,
+            518.16
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            525.48,
-            36.51,
-            527.88,
-            1154.67
+            36.26,
+            518.16,
+            1154.45,
+            520.56
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            527.88,
-            36.51,
-            530.28,
-            1154.67
+            36.26,
+            520.56,
+            1154.45,
+            522.96
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            530.28,
-            36.51,
-            532.68,
-            1154.67
+            36.26,
+            522.96,
+            1154.45,
+            525.36
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            532.68,
-            36.51,
-            535.08,
-            1154.67
+            36.26,
+            525.36,
+            1154.45,
+            527.76
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            535.08,
-            36.51,
-            539.64,
-            1154.67
+            36.26,
+            527.76,
+            1154.45,
+            530.16
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            539.64,
-            36.51,
-            544.2,
-            1154.67
+            36.26,
+            530.16,
+            1154.45,
+            532.56
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            544.2,
-            36.51,
-            548.76,
-            1154.67
+            36.26,
+            532.56,
+            1154.45,
+            534.96
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            548.76,
-            36.51,
-            553.32,
-            1154.67
+            36.26,
+            534.96,
+            1154.45,
+            539.52
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            553.32,
-            36.51,
-            557.88,
-            1154.67
+            36.26,
+            539.52,
+            1154.45,
+            544.08
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            557.88,
-            36.51,
-            562.44,
-            1154.67
+            36.26,
+            544.08,
+            1154.45,
+            548.64
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            562.44,
-            36.51,
-            567.0,
-            1154.67
+            36.26,
+            548.64,
+            1154.45,
+            553.2
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            567.0,
-            36.51,
-            571.56,
-            1154.67
+            36.26,
+            553.2,
+            1154.45,
+            557.76
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            571.56,
-            36.51,
-            582.96,
-            1154.67
+            36.26,
+            557.76,
+            1154.45,
+            562.32
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            582.96,
-            36.51,
-            594.36,
-            1154.67
+            36.26,
+            562.32,
+            1154.45,
+            566.88
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            594.36,
-            36.51,
-            598.92,
-            1154.67
+            36.26,
+            566.88,
+            1154.45,
+            571.44
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            598.92,
-            36.51,
-            603.48,
-            1154.67
+            36.26,
+            571.44,
+            1154.45,
+            582.84
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            603.48,
-            36.51,
-            608.04,
-            1154.67
+            36.26,
+            582.84,
+            1154.45,
+            594.24
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            608.04,
-            36.51,
-            612.6,
-            1154.67
+            36.26,
+            594.24,
+            1154.45,
+            598.8
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            612.6,
-            36.51,
-            617.16,
-            1154.67
+            36.26,
+            598.8,
+            1154.45,
+            603.36
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            617.16,
-            36.51,
-            621.72,
-            1154.67
+            36.26,
+            603.36,
+            1154.45,
+            607.92
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            621.72,
-            36.51,
-            626.28,
-            1154.67
+            36.26,
+            607.92,
+            1154.45,
+            612.48
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            626.28,
-            36.51,
-            630.84,
-            1154.67
+            36.26,
+            612.48,
+            1154.45,
+            617.04
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            630.84,
-            36.51,
-            635.4,
-            1154.67
+            36.26,
+            617.04,
+            1154.45,
+            621.6
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            635.4,
-            36.51,
-            639.96,
-            1154.67
+            36.26,
+            621.6,
+            1154.45,
+            626.16
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            639.96,
-            36.51,
-            644.52,
-            1154.67
+            36.26,
+            626.16,
+            1154.45,
+            630.72
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            644.52,
-            36.51,
-            649.08,
-            1154.67
+            36.26,
+            630.72,
+            1154.45,
+            635.28
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            649.08,
-            36.51,
-            653.64,
-            1154.67
+            36.26,
+            635.28,
+            1154.45,
+            639.84
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            653.64,
-            36.51,
-            658.2,
-            1154.67
+            36.26,
+            639.84,
+            1154.45,
+            644.4
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            658.2,
-            36.51,
-            662.76,
-            1154.67
+            36.26,
+            644.4,
+            1154.45,
+            648.96
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            662.76,
-            36.51,
-            667.32,
-            1154.67
+            36.26,
+            648.96,
+            1154.45,
+            653.52
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            667.32,
-            36.51,
-            671.88,
-            1154.67
+            36.26,
+            653.52,
+            1154.45,
+            658.08
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
         },
         {
           "page": 5,
           "bbox": [
-            671.88,
-            36.51,
-            676.44,
-            1154.67
+            36.26,
+            658.08,
+            1154.45,
+            662.64
           ],
-          "segment": "detail-grid"
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            36.26,
+            662.64,
+            1154.45,
+            667.2
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            36.26,
+            667.2,
+            1154.45,
+            671.76
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            36.26,
+            671.76,
+            1154.45,
+            676.0
+          ],
+          "segment_id": "segment-01"
         }
-      ]
+      ],
+      "line_wrap_decisions": []
     }
   ],
-  "qa": {
-    "ok": true,
-    "findings": []
-  }
+  "warnings": []
 }

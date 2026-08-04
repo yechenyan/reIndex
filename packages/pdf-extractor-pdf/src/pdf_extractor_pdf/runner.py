@@ -10,6 +10,7 @@ from tempfile import TemporaryDirectory
 
 from pdf_extractor_pdf.artifacts import read_json, write_json
 from pdf_extractor_pdf.job import Job
+from pdf_extractor_pdf.line_wrap import apply_result
 from pdf_extractor_pdf.workflow import require_phase
 
 
@@ -21,7 +22,7 @@ def execute(job: Job) -> dict:
 
 
 def invoke_twice(job: Job) -> tuple[dict, dict]:
-    require_phase(job.evidence_dir, "reference_frozen", "reviewed")
+    require_phase(job.evidence_dir, "reference_frozen", "reviewed", "complete")
     return _invoke(job), _invoke(job)
 
 
@@ -46,7 +47,10 @@ def _invoke(job: Job) -> dict:
             raise RuntimeError(f"extractor exited {completed.returncode}: {message[-2000:]}")
         if not result_path.is_file():
             raise RuntimeError("extractor did not write result.json")
-        return read_json(result_path)
+        result = read_json(result_path)
+        if job.reference.is_file():
+            result = apply_result(read_json(job.reference), result)
+        return result
 
 
 def _write_outputs(job: Job, result: dict) -> None:
@@ -59,6 +63,5 @@ def _write_outputs(job: Job, result: dict) -> None:
         path = job.output_dir / f"{table['id']}.csv"
         with path.open("w", encoding="utf-8", newline="") as stream:
             writer = csv.writer(stream)
-            writer.writerow(table["columns"])
             writer.writerows(table["rows"])
     write_json(old_result, result)

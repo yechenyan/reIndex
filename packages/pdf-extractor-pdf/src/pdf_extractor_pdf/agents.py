@@ -21,10 +21,10 @@ def generate_agent_briefs(job: Job) -> dict:
     root = job.evidence_dir / "agent-tasks"
     root.mkdir(parents=True, exist_ok=True)
     briefs = {
-        "main-agent.md": _brief("Main Agent", job, "Own requirements, ambiguity decisions, merge decisions, and final review.", "All project evidence and reports.", "Do not author QA source values."),
-        "finder-agent.md": _brief("Finder Agent", job, "Inspect every PDF page and draft the complete logical-table Inventory.", "Source PDF, low pages, contact sheets, targeted high pages.", "Do not read extractor code, output, or prior answers."),
-        "extraction-agent.md": _brief("Extraction Agent", job, "Implement project main.py for the frozen Inventory with row provenance and merge policy.", "Frozen Inventory, Segment images, neutral geometry, source PDF.", "Do not read QA reference drafts or frozen reference."),
-        "qa-agent.md": _brief("QA Agent", job, "Independently fill reference structure, row counts, and planned source samples.", "Frozen Inventory, Segment images, neutral geometry, source PDF.", "Do not read extractor code, output, result, or extraction logs."),
+        "main-agent.md": _brief("Main Agent", job, "Own requirements, positional-column ambiguity, merge decisions, and final review. Tables are header-neutral matrices: row 0 is an ordinary source row. Treat format_only differences as non-blocking; route real row/column/content errors only.", "All project evidence and reports.", "Do not author QA source values or invent column names."),
+        "finder-agent.md": _brief("Finder Agent", job, "In one dispatch, inspect every page, draft the complete Inventory with positional column_count, run audit-inventory, apply required BBox repairs, attest every reviewed edge, and rerun the audit until it passes. Return only a freeze-ready draft; do not stop after writing the first draft.", "Finder packet, rolling contact sheets, pre-rendered candidate pages, targeted uncertain pages, Inventory audit overlays, and inventory-review.json.", "Do not read extractor code, output, or prior answers. Do not assume row 0 is a header or rerender pages already supplied."),
+        "extraction-agent.md": _brief("Extraction Agent", job, "Implement project main.py for the frozen header-neutral matrix Inventory with row provenance and merge policy. Preserve row 0; remove only explicitly repeated leading rows on continuation Segments. Fix wrong row/column alignment in table-specific code. Generated project code has no artificial 200-line limit.", "Frozen Inventory, Segment images, neutral geometry, source PDF.", "Do not read QA reference drafts or frozen reference; do not invent column names or emit a separate header array."),
+        "qa-agent.md": _brief("QA Agent", job, "Independently confirm positional column_count, assign exact/text per column, count source rows and repeated leading rows per Segment, decide only unresolved line-wrap candidates, and transcribe planned samples. Row 0 is not implicitly a header. Use exact for numbers/dates/IDs/codes/amounts and text for free text. List every genuinely empty cell in source_blank_indices.", "Frozen Inventory, Segment images, neutral geometry, source PDF, and code-detected line-wrap candidates.", "Do not read extractor code, output, result, or extraction logs. Do not invent column names or change code-classified line-wrap decisions."),
     }
     written = []
     for name, content in briefs.items():
@@ -104,5 +104,6 @@ def _stage_summary(item: dict) -> dict:
     keys = {
         "agent_id", "model", "run_id", "stage", "role", "table_ids", "started_at", "ended_at",
         "wall_seconds", "conversation_turns", "repair_rounds", "dispatch_ordinal",
+        "dispatch_kind",
     }
     return {key: value for key, value in item.items() if key in keys}

@@ -1,0 +1,48 @@
+{
+  "spec": "pdf-extractor-pdf/agent-briefs@1.0",
+  "phase": "inspected",
+  "briefs": [
+    {
+      "role": "main-agent",
+      "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/agent-tasks/main-agent.md",
+      "sha256": "3f08944bdc319de27135aa5e13dc25bd9ba7c752c2c8f15e812c39a3cc9cffd9"
+    },
+    {
+      "role": "finder-agent",
+      "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/agent-tasks/finder-agent.md",
+      "sha256": "5a855d93d4b7eee12a8a7f6f6b31b8a581ae0acd0b944c7b92017b00b91d2bc8"
+    },
+    {
+      "role": "extraction-agent",
+      "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/agent-tasks/extraction-agent.md",
+      "sha256": "b6f743059dc11d433fd9579c1ff5c84a65ba2720515c6880cefe0584064dcc4d"
+    },
+    {
+      "role": "qa-agent",
+      "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/agent-tasks/qa-agent.md",
+      "sha256": "28ae4e4e21aab8e5e0703628d4cd830aab8134775f17f82ee2c59e0421e29d9a"
+    }
+  ],
+  "repair_scope": {
+    "spec": "pdf-extractor-pdf/repair-scope@1.0",
+    "review_sha256": "9b0d1ea2edcd22feb8df7b107353169a6c744e5e023ffb8dc4fee111a69064b2",
+    "route": "qa_agent",
+    "affected_table_ids": [
+      "table-16"
+    ],
+    "evidence_refs": [
+      "table-16::segment-01",
+      "table-16::segment-02",
+      "table-16::segment-03",
+      "table-16::segment-04",
+      "table-16::segment-05",
+      "table-16::segment-06",
+      "table-16::segment-07",
+      "table-16::segment-08",
+      "table-16::segment-09",
+      "table-16::segment-10"
+    ],
+    "origin": "failed_review",
+    "instructions": "Agents may inspect and change only affected_table_ids; fixed validation protects every other table."
+  }
+}

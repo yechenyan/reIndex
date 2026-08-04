@@ -1,0 +1,21 @@
+Teilnetz Hessisches Ried,,,,,,,,
+,2023,,2028,,2033,,2045,
+PV,"61,5",MWp,"313,6",MWp,"565,6",MWp,"1109,0",MWp
+Wind,"0,0",MWp,"0,0",MWp,"0,0",MWp,"0,0",MWp
+"Wasserkraft, Biomasse, s.EEG","0,0",MWp,"0,0",MWp,"0,0",MWp,"0,0",MWp
+Kraftwerke,"0,0",MW,"0,0",MW,"0,0",MW,"0,0",MW
+,,,,,,,,
+Haushaltslasten,"49,2",MW,"47,2",MW,"45,7",MW,"42,8",MW
+"Gewerbe,Handel, Dienstleistung","28,9",MW,"27,8",MW,"26,9",MW,"25,2",MW
+Wärmepumpen,"5,0",MW,"13,6",MW,"22,2",MW,"42,9",MW
+Fernwärmeerzeugung,"0,0",MW,"0,0",MW,"15,0",MW,"30,0",MW
+Industrie,"12,5",MW,"14,4",MW,"16,3",MW,"20,7",MW
+Rechenzentren,"60,0",MW,"90,0",MW,"120,0",MW,"130,0",MW
+Verkehr (EMOB),"3,0",MW,"16,9",MW,"30,8",MW,"64,2",MW
+Elektrolyse,"0,0",MW,"10,0",MW,"10,0",MW,"10,0",MW
+Batteriespeicher,"1,0",MW,"20,0",MW,"35,0",MW,"60,0",MW
+,,,,,,,,
+nVNB,"33,5",MW,"49,7",MW,"61,4",MW,"79,9",MW
+,,,,,,,,
+Summe Verbrauch (GLZ),"144,8",MW,"202,7",MW,"249,2",MW,"328,6",MW
+Summe Einspeisung (GLZ),"37,5",MW,"200,1",MW,"360,4",MW,"701,4",MW

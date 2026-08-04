@@ -1,0 +1,139 @@
+{
+  "spec": "pdf-extractor-pdf/inventory@1.0",
+  "role": "finder_agent",
+  "reviewed_all_pages": true,
+  "source_sha256": "3dc36a9917ac29b387c8fcc6e1a856f26e4fc0660d4e847a5070ee7dca0af497",
+  "page_findings": [
+    {
+      "page": 1,
+      "label": "no_table",
+      "notes": "Narrative cover/introduction page; no visible matrix table."
+    },
+    {
+      "page": 2,
+      "label": "no_table",
+      "notes": "Map and narrative page; no visible matrix table."
+    },
+    {
+      "page": 3,
+      "label": "no_table",
+      "notes": "Narrative page; no visible matrix table."
+    },
+    {
+      "page": 4,
+      "label": "no_table",
+      "notes": "Narrative page; no visible matrix table."
+    },
+    {
+      "page": 5,
+      "label": "table",
+      "notes": "Rotated landscape worksheet. Reviewed against the 150 dpi candidate in displayed page orientation; the BBoxes below are PyMuPDF rotated-page coordinates (1191 x 842), not unrotated-media coordinates."
+    }
+  ],
+  "tables": [
+    {
+      "id": "table-1",
+      "title": "Optionale Erläuterungen zu Ihren Angaben an die BNetzA",
+      "column_count": 1,
+      "segments": [
+        {
+          "id": "segment-01",
+          "page": 5,
+          "bbox": [
+            36.0,
+            193.0,
+            465.0,
+            223.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "table-2",
+      "title": "Teil 1 – Hinweise und Neuerungen zum Vorjahr",
+      "column_count": 2,
+      "segments": [
+        {
+          "id": "segment-01",
+          "page": 5,
+          "bbox": [
+            36.0,
+            230.0,
+            946.0,
+            261.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "table-3",
+      "title": "Teil 1 – Aggregierte 10-Jahres-Investitionen mit Übertragungskapazität",
+      "column_count": 7,
+      "segments": [
+        {
+          "id": "segment-01",
+          "page": 5,
+          "bbox": [
+            49.0,
+            266.0,
+            465.0,
+            302.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "table-4",
+      "title": "Teil 1 – Aggregierte 10-Jahres-Investitionen ohne Übertragungskapazität",
+      "column_count": 3,
+      "segments": [
+        {
+          "id": "segment-01",
+          "page": 5,
+          "bbox": [
+            49.0,
+            304.0,
+            283.0,
+            333.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "table-5",
+      "title": "Teil 2 – Hinweise und Neuerungen zum Vorjahr",
+      "column_count": 2,
+      "segments": [
+        {
+          "id": "segment-01",
+          "page": 5,
+          "bbox": [
+            36.0,
+            344.0,
+            946.0,
+            391.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "table-6",
+      "title": "Teil 2 – Maßnahmenplan mit Ausfüllbeispielen und Zellenhinweisen",
+      "column_count": 20,
+      "segments": [
+        {
+          "id": "segment-01",
+          "page": 5,
+          "bbox": [
+            36.0,
+            398.0,
+            1155.0,
+            676.0
+          ]
+        }
+      ]
+    }
+  ],
+  "draft_sha256": "c134bb64edaf5de5bbfdb5a2e7127729b348ad28c89251dacef9e6d35476144b",
+  "frozen": true
+}

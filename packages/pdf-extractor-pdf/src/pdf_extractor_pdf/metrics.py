@@ -8,6 +8,7 @@ from typing import Iterator
 from uuid import uuid4
 
 from pdf_extractor_pdf.artifacts import append_jsonl, write_json
+from pdf_extractor_pdf.stage_state import require_stage_start_allowed
 
 STAGES = {
     "clarification", "prepare", "discovery", "inventory", "inspection",
@@ -49,14 +50,20 @@ def record_agent(evidence_dir: Path, payload: dict) -> Path:
 def start_stage(
     evidence_dir: Path, stage: str, role: str, model: str,
     run_id: str | None = None, agent_id: str | None = None, workflow_phase: str | None = None,
-    table_ids: list[str] | None = None,
+    table_ids: list[str] | None = None, dispatch_kind: str = "spawn",
 ) -> dict:
     if stage not in STAGES:
         raise ValueError(f"unknown stage: {stage}")
+    if dispatch_kind not in {"spawn", "followup", "orchestrator"}:
+        raise ValueError("dispatch_kind must be spawn, followup, or orchestrator")
+    records = _jsonl(evidence_dir / "metrics" / "stages.jsonl")
+    chosen_run_id = run_id or str(uuid4())
+    require_stage_start_allowed(records, chosen_run_id, agent_id)
     record = {
         "spec": "pdf-extractor-pdf/stage-event@1.0", "event": "started",
-        "run_id": run_id or str(uuid4()), "stage": stage, "role": role,
+        "run_id": chosen_run_id, "stage": stage, "role": role,
         "model": model, "agent_id": agent_id, "workflow_phase": workflow_phase,
+        "dispatch_kind": dispatch_kind,
         "table_ids": sorted(set(table_ids)) if table_ids else None,
         "at": datetime.now(UTC).isoformat(),
     }
@@ -70,7 +77,8 @@ def finish_stage(evidence_dir: Path, run_id: str, status: str, **details) -> dic
     records = _jsonl(evidence_dir / "metrics" / "stages.jsonl")
     starts = [item for item in records if item.get("run_id") == run_id and item.get("event") == "started"]
     finishes = [item for item in records if item.get("run_id") == run_id and item.get("event") == "finished"]
-    if len(starts) != 1 or finishes:
+    cancelled = [item for item in records if item.get("run_id") == run_id and item.get("event") == "cancelled"]
+    if len(starts) != 1 or finishes or cancelled:
         raise ValueError("run_id must identify one unfinished stage")
     ended = datetime.now(UTC)
     elapsed = max(0.0, (ended - datetime.fromisoformat(starts[0]["at"])).total_seconds())
@@ -93,6 +101,20 @@ def finish_stage(evidence_dir: Path, run_id: str, status: str, **details) -> dic
     return record
 
 
+def cancel_stage(evidence_dir: Path, run_id: str, reason: str) -> dict:
+    records = _jsonl(evidence_dir / "metrics" / "stages.jsonl")
+    starts = [item for item in records if item.get("run_id") == run_id and item.get("event") == "started"]
+    terminal = [item for item in records if item.get("run_id") == run_id and item.get("event") in {"finished", "cancelled"}]
+    if len(starts) != 1 or terminal:
+        raise ValueError("run_id must identify one unterminated stage")
+    record = {
+        **starts[0], "event": "cancelled", "at": datetime.now(UTC).isoformat(),
+        "reason": reason, "conversation_dispatched": False,
+    }
+    append_jsonl(evidence_dir / "metrics" / "stages.jsonl", record)
+    return record
+
+
 def metrics_report(evidence_dir: Path) -> dict:
     commands = _jsonl(evidence_dir / "metrics" / "commands.jsonl")
     stages = [item for item in _jsonl(evidence_dir / "metrics" / "stages.jsonl") if item.get("event") == "finished"]
@@ -104,7 +126,7 @@ def metrics_report(evidence_dir: Path) -> dict:
         bucket["failures"] += int(not item.get("ok"))
         bucket["elapsed_seconds"] = round(bucket["elapsed_seconds"] + float(item.get("elapsed_seconds", 0)), 6)
     report = {
-        "spec": "pdf-extractor-pdf/metrics-summary@1.0",
+        "spec": "pdf-extractor-pdf/metrics-summary@2.0",
         "commands": {"total_calls": len(commands), "by_command": by_command},
         "stages": stages,
         "stage_totals": {
@@ -113,9 +135,8 @@ def metrics_report(evidence_dir: Path) -> dict:
             "parallel_envelope_seconds": _stage_envelope(stages),
             "active_seconds": round(sum(float(item.get("active_seconds", 0)) for item in stages), 6),
             "waiting_seconds": round(sum(float(item.get("waiting_seconds", 0)) for item in stages), 6),
-            "conversation_turns": sum(int(item.get("conversation_turns", 0)) for item in stages),
-            "repair_rounds": sum(int(item.get("repair_rounds", 0)) for item in stages),
         },
+        "dispatch_totals": _dispatch_totals(stages),
         "agent_runs": agents,
         "token_usage": _token_summary(stages or agents),
     }
@@ -149,6 +170,24 @@ def _token_summary(records: list[dict]) -> dict:
     return {
         "available_runs": len(available), "unavailable_runs": len(usages) - len(available),
         "totals": {key: sum(item.get(key, 0) for item in available) for key in sorted(keys)},
+    }
+
+
+def _dispatch_totals(records: list[dict]) -> dict:
+    child = [item for item in records if item.get("role") != "main_agent"]
+    main = [item for item in records if item.get("role") == "main_agent"]
+    by_role = {}
+    for item in child:
+        bucket = by_role.setdefault(item.get("role", "unknown"), {"conversations": 0, "followups": 0})
+        bucket["conversations"] += 1
+        bucket["followups"] += int(item.get("dispatch_kind") == "followup")
+    return {
+        "recorded_stage_runs": len(records),
+        "main_orchestration_steps": len(main),
+        "child_agent_conversations": len(child),
+        "child_initial_dispatches": sum(item.get("dispatch_kind") == "spawn" for item in child),
+        "child_followup_dispatches": sum(item.get("dispatch_kind") == "followup" for item in child),
+        "by_child_role": by_role,
     }
 
 

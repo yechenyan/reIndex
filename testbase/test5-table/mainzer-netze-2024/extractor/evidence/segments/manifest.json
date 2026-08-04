@@ -1,0 +1,71 @@
+{
+  "spec": "pdf-extractor-pdf/segment-evidence@1.0",
+  "inventory_sha256": "8d3213ee2fcb541d77982820abaafa1312b16e4bad47a7aa403163ba6f06928d",
+  "dpi": 220,
+  "cache_hit": false,
+  "reused_segments": 0,
+  "rendered_segments": 6,
+  "stale_segments": [],
+  "segments": [
+    {
+      "table_id": "table-abbreviations",
+      "segment_id": "segment-01",
+      "page": 5,
+      "fingerprint": "70a0029daca09b44802e1b656a5f8bfe40e8c0dd9e751592017379dd7aba7f67",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-abbreviations/segment-01-70a0029daca0-page-0005.png",
+      "image_sha256": "2e65c6587523f723be35467be76814c57d1c6e82d24d14b814c31a5a3baa5f19",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-abbreviations/segment-01-70a0029daca0-page-0005.json",
+      "geometry_sha256": "e1d928471ae22e175753c7206a02886dcd6df92c94350f2c39261587015136a5"
+    },
+    {
+      "table_id": "table-1",
+      "segment_id": "segment-01",
+      "page": 10,
+      "fingerprint": "6b27bc79a41fbeafe272c78afe4cffa7d0568558c4db8244d09a7d5cd693c94f",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-1/segment-01-6b27bc79a41f-page-0010.png",
+      "image_sha256": "27b8276b70088b410411f540d14002ce540b43470961eda0a0d35fa911ac1f15",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-1/segment-01-6b27bc79a41f-page-0010.json",
+      "geometry_sha256": "49b89535ee8650975786e4e810e064601afbc6c7a2e8df702cc2ba6acf424474"
+    },
+    {
+      "table_id": "table-2",
+      "segment_id": "segment-01",
+      "page": 11,
+      "fingerprint": "ce6f5d99a305617989f9dfc43fcc29d7276a19857ea00b3b714eebdb0301be9b",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-2/segment-01-ce6f5d99a305-page-0011.png",
+      "image_sha256": "5e737880e796d6ad1016d45fd455607a0c82aab24138bb52048fb6da04c657ce",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-2/segment-01-ce6f5d99a305-page-0011.json",
+      "geometry_sha256": "932c81a19f4b695ee9afc4c5dace7ca99b60e0d94724950507011e1217f344a1"
+    },
+    {
+      "table_id": "table-3",
+      "segment_id": "segment-01",
+      "page": 13,
+      "fingerprint": "1efb21a58fb5617e0cc7449b8d435b5966710094a02a15b92c16f604a8beac75",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-3/segment-01-1efb21a58fb5-page-0013.png",
+      "image_sha256": "4141ceac53d1989c4335e43d9a4cac694e5a784f22eda2602e2e2205bef90b64",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-3/segment-01-1efb21a58fb5-page-0013.json",
+      "geometry_sha256": "93a8b322f0fe3247f5612bbf0309d46f2029da2919b2815a6c9a64b478381ffc"
+    },
+    {
+      "table_id": "table-4",
+      "segment_id": "segment-01",
+      "page": 13,
+      "fingerprint": "abc6fb24a6924d63378c08ba08dfbf61aa62de43089fda524e57579265d35adc",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-4/segment-01-abc6fb24a692-page-0013.png",
+      "image_sha256": "de02f3f2115086826373fc7fc32f133a2dedf3bcc2d11efb2142f13668309d61",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-4/segment-01-abc6fb24a692-page-0013.json",
+      "geometry_sha256": "5918b9fddef57eb9f9578af5d3d55d895291e0aa737599334f5c8e0f551c4406"
+    },
+    {
+      "table_id": "table-appendix-measures",
+      "segment_id": "segment-01",
+      "page": 16,
+      "fingerprint": "b733c8d30ad4f72ad67affdc012d5cb720d776cb497094092a8fa57d4fccc7d0",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png",
+      "image_sha256": "70782ae80ee2b25ef25525fe6c25dcf89593c9418bf4c5bedec7128bbaa87590",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.json",
+      "geometry_sha256": "e9295b47631c07c4db13547a99e9e3222898b05b436b6fc9450b27e3e2da764f"
+    }
+  ]
+}

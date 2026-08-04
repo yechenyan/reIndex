@@ -1,0 +1,168 @@
+Ausfüllbeispiele und Zellenhinweise,,,,,,,,,,,,,,,,,,,
+1,Nordleitung,"Bspw. ""Audorf"", ""Hamburg-Nord""","Errichtung einer Leitung von-bis (Netzknotenpunkt mit Ortsangabe, bspw. 01111 Musterdorf- 01112 Musterstadt)","(Dropdown-Liste)
+• Neubau
+• Ersatz(neubau) mit Erhöhung der Übertragungskapazität
+• Ersatz(neubau) ohne Erhöhung der Übertragungskapazität
+• Netzoptimierung und -verstärkung
+• Rückbau / Altlastentsorgung",bspw. Freileitung,"Bitte geben Sie hier die Länge in Kilometern der Trasse an, in der
+Leitungen oder Kabel neu gebaut, optimiert oder bestehende
+ersetzt wurden.
+ACHTUNG Definitionsvorgabe!
+Bitte geben Sie bei Freileitungen nicht die Länge der einzelnen
+Leitungen an, sondern die Länge der Trasse/des
+Leitungsabschnitts.
+Bei Kabeln ist die Länge der einzelnen Leitungen anzugeben.","Bitte geben Sie bei Neubaumaßnahmen die neu geschaffene
+Übertragungskapazität an.
+ACHTUNG Definitionsvorgabe!
+Bei Optimierungs- oder Ersatzmaßnahmen geben Sie bitte an,
+wie sich die Übertragungskapazität im Vergleich zum Zustand
+vor Beginn der Maßnahme verändert.","zunehmende PV-Einspeisung in ""Musterortsteil"" in 01112 Musterstadt erfordert die Anbindung an die ... Leitung in ... etc.","(Dropdown-Liste)
+ACHTUNG
+geänderte Antwortmöglichkeiten!
+• Zubau EE-Anlagen
+• Zubau Power to X
+• Zubau anderer Erzeugungsanlagen
+• Zubau Verbraucher
+• Zubau Erzeugung und Verbrauch
+• Kein Zubau (reiner Ersatz)
+Antworten bereits gemeldete Einzelmaßnahmen bis Abfrage aus 2021:
+• ja
+• ja, teilweise
+• nein","(Dropdown-Liste)
+• Ja, um einen verbrauchsbedingten Engpass zu beheben
+• Ja, um einen erzeugungsbedingten Engpass zu beheben
+• Ja, beides (verbrauchsbedingt und erzeugungsbeding)
+• Nein","(Dropdown-Liste)
+• Ja, um einen verbrauchsbedingten Engpass vorzubeugen
+• Ja, um einen erzeugungsbedingten Engpass vorzubeugen
+• Ja, beides (verbrauchsbedingt und erzeugungsbeding)
+• Nein",03/2020,11/2024,"Bitte bei der Begründung die Kategorie mit angeben:
+a) Akzeptanz Bevölkerung
+b) Genehmigungs-prozess
+c) ÜNB
+d) Intern
+e) Baubeginn (Lieferengpässe, Insolvenzen etc.)
+f) Sonstige Gründe
+g) Verzögerung durch Dritte
+Beispiel: d) Änderung Priorität, e) wegen Lieferengpass verzögert.
+g) Verzögerung der städtischen Erschließung","60000
+Hinweis: Bitte nennen Sie auch kleinere Maßnahmen. Setzen
+Sie kein Mindestbudget!","(Dropdown-Liste)
+• weggefallene Maßnahme,
+• vorgesehene Maßnahme,
+• konkrete Planung,
+• im Bau,
+• abgeschlossen
+• in 10-JP überführt (Die Überführung war in der Abfrage 2021!)
+Hinweis:
+Maßnahmen gelten insbesondere als konkret geplant, wenn die für
+die Maßnahme notwendigen öffentlich-rechtlichen Planungs- oder
+Genehmigungsverfahren eingeleitet wurden oder vom Betreiber
+bereits Investitionsentscheidungen bezüglich der
+Ausbaumaßnahmen getroffen wurden oder der Betreiber von einer
+tatsächlichen Realisierung innerhalb der kommenden fünf Jahre
+ausgeht.","(Dropdown-Liste)
+• noch nicht eingeleitet
+• bereits eingeleitet
+• abgeschlossen
+• keine Genehmigung erforderlich","bspw. 80°-Trassierung von Leitungen, Spitzenkappung, Hochtemperaturleiterseile, Leiterseilmonitoring, Einbau von
+regelbaren Ortnetztransformatoren, Erhöhung des Querschnitts von Leitungen, Erhöhung der Trafoleistung,
+Verkabelung von Freileitungen, Trennstellenoptimierung, Änderung der Netztopologie, Einbau von Messtechnik, Bau
+von Paralellsystemen, Einbau von Spannungsreglern, Regulierung der Seildurchhänge, Sonstiges [bitte benennen].","(Dropdown-Liste)
+• NS,
+• UW MS auf NS,
+• MS,
+• UW HS auf MS oder
+• HS
+• Gesamtnetz [nur bei Projekten die nicht überwiegend einer
+Netzebene zugeordnet werden können. Bsp.: Errichtung
+Funknetz mit 450 MHz, flächendeckender Aufbau neuer
+Stationsleittechnik"
+lfd. Nr.,Maßnahme,"Von der Netzausbaumaßnahme betroffene(r) Netzknoten im überlagerten HöS-
+Netz",kurze Projektbeschreibung,Projektkategorie,Betriebsmittel,"Länge des zugebauten, optimierten oder ersetzen Leitungsabschnitts
+[km]","Änderung der Übertragungskapazität
+[+/- MVA]","netztechnische Begründung für den Netzausbau
+netztechnische Begründung für den Netzausbau
+1. kurze Beschreibung","netztechnische Begründung für den Netzausbau
+2. Aus welchem Grund erfolgt die Netzausbaumaßnahme überwiegend?","Erfolgt diese Netzausbaumaßnahme, um einen bereits bestehenden
+Engpass zu beheben?","Erfolgt diese Netzausbaumaßnahme, um einen prognostizierten
+Engpass vorzubeugen?","voraussichtlicher Zeitpunkt des Baubeginns
+[MM/JJJJ]","voraussichtlicher Zeitpunkt der Inbetriebnahme
+[MM/JJJJ]","Im Falle einer Verzögerung der Maßnahme ist der Verzögerungsgrund (a-g) anzugeben
+(Angabe Buchstabe a-f & kurze Beschreibung)",Kosten (geschätzt) in Euro,Projektstatus,Stand Genehmigungsverfahren,Geprüfte Alternativen zum Netzausbau,Vorrangig betroffene Netz- oder Umspannebene
+4aa,UW Universität - UW Zwinger,keine Betroffenheit,Kabelneubau / Netzverstärkung zur Optimierung des 110kV-Kabelnetzes,Neubau,110-kV-Kabel,"3,3",+152,Änderung der Versorgungsaufgabe durch Umbau der 380kV-Kuppelstellen und Änderung der n-1-Versorgung des UW Universität von 10kV- auf 110kV,Kein Zubau (reiner Ersatz),Nein,"Ja, um einem verbrauchsbedingten Engpass vorzubeugen",04/2021,06/2023,b) Genehmigungsprozess,3.593.000 €,im Bau,abgeschlossen,alternativlos,HS
+5a,UW Kraftwerk,keine Betroffenheit,Austausch konventioneller Technik,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,Leittechnik u. Netzschutz,k.A.,,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,XX/2017,XX/2018,,1.800.000 €,abgeschlossen,Bitte auswählen!,alternativlos,UW HS auf MS
+6aa,UW Zwinger,keine Betroffenheit,Austausch konventioneller Technik,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,Leittechnik u. Netzschutz,k.A.,,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,xx/2019,xx/2020,d) intern,820.000 €,abgeschlossen,Bitte auswählen!,alternativlos,UW HS auf MS
+7a,UW Sennestadt,keine Betroffenheit,Austausch konventioneller Technik,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,Leittechnik u. Netzschutz,k.A.,,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,XX/2017,06/2019,,775.000 €,abgeschlossen,Bitte auswählen!,alternativlos,UW HS auf MS
+8aa,UW Stieghorst,keine Betroffenheit,Austausch konventioneller Technik,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,Leittechnik u. Netzschutz,k.A.,,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,12/2020,06/2021,,850.000 €,abgeschlossen,Bitte auswählen!,alternativlos,UW HS auf MS
+9aa,UW Steinhagen,keine Betroffenheit,Austausch konventioneller Technik,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,Leittechnik u. Netzschutz,k.A.,,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,XX/2021,12/2023,d) intern,1.280.000 €,konkrete Planung,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+11aa,UW Eickum - UW Nord,keine Betroffenheit,k.A.,Ersatz(neubau) mit Erhöhung der Übertragungskapazität,110kV-Freileitung,k.A.,,Umstellung 380/220/110kV,Kein Zubau (reiner Ersatz),Nein,Nein,06/2014,06/2018,,4.010.000 €,abgeschlossen,Bitte auswählen!,alternativlos,HS
+14a,UW West,keine Betroffenheit,Erneuerung der 110kV-Schaltanlage. Doppelsammelschienensystem und Volleinbindung und Leittechnik,Ersatz(neubau) mit Erhöhung der Übertragungskapazität,110kV-Schaltanlage und Leittechnik,k.A.,,Im Rahmen der Zielnetzentwicklung des 110kV-Innenstadtkabelnetzes,Kein Zubau (reiner Ersatz),Nein,"Ja, um einem verbrauchsbedingten Engpass vorzubeugen",12/2020,12/2023,g) Verzögerung durch Dritte / Dienstleister,5.731.000 €,im Bau,bereits eingeleitet,alternativlos,UW MS auf NS
+15,UW Sieker,keine Betroffenheit,Erneuerung der 10kV-Schaltanlage. Doppelsammelschienensystem,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,10kV-Schaltanlage,k.A.,,Im Rahmen der Zielnetzentwicklung,Kein Zubau (reiner Ersatz),Nein,Nein,XX/2016,12/2018,,2.700.000 €,abgeschlossen,Bitte auswählen!,alternativlos,UW MS auf NS
+16,UW Ost,keine Betroffenheit,Austausch konventioneller Technik,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,Leittechnik u. Netzschutz,k.A.,,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,XX/2020,XX/2021,,3.430.000 €,abgeschlossen,Bitte auswählen!,alternativlos,UW HS auf MS
+17,Netzstüzpunkt Herforder Str. 80,keine Betroffenheit,Erneuerung der 10kV-Schaltanlage. Doppelsammelschienensystem,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,10kV-Schaltanlage,k.A.,,Im Rahmen der Zielnetzentwicklung,Kein Zubau (reiner Ersatz),Nein,Nein,XX/2021,XX/2022,,2.000.000 €,aufgegebene Maßnahme,Bitte auswählen!,"Maßnahme wurde aufgegen, als Ersatz ist eine Erweiterung der 10kV-Anlage im UW Kraftwerk geplantMS",
+18,UW Milse,keine Betroffenheit,Erneuerung der 110kV-Schaltanlage. Doppelsammelschienensystem und Volleinbindung,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,110kV-Schaltanlage,k.A.,,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,11/2022,12/2024,,3.030.000 €,vorgesehene Maßnahme,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+19,UW Sparrenberg,keine Betroffenheit,Erneuerung 110kV-Anlage,Ersatz(neubau) mit Erhöhung der Übertragungskapazität,Primär- und Sekundärtechnik 110kV,k.A.,,Im Rahmen der Zielnetzentwicklung des 110kV-Kabelnetzes,Kein Zubau (reiner Ersatz),Nein,Nein,12/2023,12/2025,d) intern,2.689.000 €,vorgesehene Maßnahme,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+20,UW Friedrich-Hagemann-Str.,keine Betroffenheit,Letztverbraucheranschluss für Sauerstoffwerk / Luftzerlegungsanlage,Neubau,110kV-Letztverbraucheranschluss,"0,03",,Neuanschluss Letztverbraucher,Zubau Verbraucher,Nein,Nein,xx/2018,xx/2019,,2.415.000 €,abgeschlossen,Bitte auswählen!,alternativlos,UW HS auf MS
+21,UW Brackwede,keine Betroffenheit,Erneuerung 110kV-Schaltanlage,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,110kV-Schaltanlage,k.A.,,Im Rahmen der Zielnetzentwicklung des 110kV-Kabelnetzes,Kein Zubau (reiner Ersatz),Nein,Nein,12/2023,12/2025,,3.200.000 €,vorgesehene Maßnahme,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+22a,UW Sparrenberg - UW Brackwede,keine Betroffenheit,Ersatzneubau 110kV-Kabel / Netzverstärkung zur Optimierung des 110kV-Kabelnetzes,Ersatz(neubau) mit Erhöhung der Übertragungskapazität,110-kV-Kabel,"5,1",+84,Ersatzneubau aufgrund Kabelalter und mangelder Verfügbarkeit von Ersatzmaterial und Montage-Knowhow sowie zur Beseitigung eines Netzengpasses,Kein Zubau (reiner Ersatz),Nein,"Ja, um einem verbrauchsbedingten Engpass vorzubeugen",09/2021,06/2026,d) intern,9.352.000 €,konkrete Planung,noch nicht eingeleitet,alternativlos,HS
+23,UW Kraftwerk,keine Betroffenheit,"Erweiterung der bestehenden 10kV-Schaltanlage als Ersatz für die 10kV-Schwerpunktstation ""Netzstüzpunkt Herforder Str. 80 10kV-Schaltanlage"" - siehe Projekt mit lfd. Nummer 17",Ersatz(neubau) mit Erhöhung der Übertragungskapazität,10kV-Schaltanlage,k.A.,,Im Rahmen der Zielnetzentwicklung,Kein Zubau (reiner Ersatz),Nein,Nein,XX/2021,XX/2022,,2.000.000 €,abgeschlossen,keine Genehmigung erforderlich,Alternativmaßnahme zur Maßnahme mit der lfd. Nummer 17,MS
+24,UW Werther (10kV-Schwerpunktstation),keine Betroffenheit,Erneuerung und Erweiterung 10kV-Schaltanlage,Ersatz(neubau) mit Erhöhung der Übertragungskapazität,10kV-Schaltanlage,k.A.,,Altersbedingte Erneuerung und bestehenden Erweiterung der Anlage,Kein Zubau (reiner Ersatz),Nein,Nein,01/2022,11/2022,,665.000 €,im Bau,keine Genehmigung erforderlich,alternativlos,MS
+25,UW Werther (10kV-Schwerpunktstation),keine Betroffenheit,Stationsleittechnik,Ersatz(neubau) mit Erhöhung der Übertragungskapazität,Leittechnik und Netzschutz,k.A.,,Erneuerung und Erweiterung,Kein Zubau (reiner Ersatz),Nein,Nein,xx/2021,xx/2022,,105.000 €,im Bau,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+26,UW Zwinger,keine Betroffenheit,Erneuergung 110kV-Schaltanlage + Schutz- und Leittechnik,Ersatz(neubau) mit Erhöhung der Übertragungskapazität,110kV-Schaltanlage,k.A.,,Altersbedingte Erneuerung und Umbau von Gasaußendruck- auf VPE-Technik im Rahmen der 110kV-Kabelnetzerneuerung sowie zur Einbindung des UW Universität,Kein Zubau (reiner Ersatz),Nein,Nein,01/2020,12/2020,,1.600.000 €,abgeschlossen,Bitte auswählen!,alternativlos,UW HS auf MS
+27,UW Kraftwerk,keine Betroffenheit,Erneuerung 110kV-Schaltanlage,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,110kV-Schaltanlage,k.A.,,Altersbedingte Erneuerung und Umbau von Gasaußendruck- auf VPE-Technik im Rahmen der 110kV-Kabelnetzerneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,01/2028,12/2030,,7.500.000 €,vorgesehene Maßnahme,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+28,UW Stieghorst,keine Betroffenheit,110kV-Schaltfeldausbau zum Anschluss eines zweiten 110/10kV-Transformators,Neubau,110kV-Schaltanlage,k.A.,+40,Anlagenerweiterung zur Verbesserung der N-1-Sicherheit und 10kV-Netzoptimierung,Kein Zubau (reiner Ersatz),Nein,Nein,xx/2020,xx/2020,,425.000 €,abgeschlossen,Bitte auswählen!,alternativlos,UW HS auf MS
+29a,UW Brüderpfad,keine Betroffenheit,"Erneuergung Gebäude, Zentrale Leittechnik & 10kV-Schaltanlage",Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,"Gebäude, zentr. Leittechnik, 10kV-Schaltanlage",k.A.,,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,01/2023,12/2026,d) intern,3.670.000 €,vorgesehene Maßnahme,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+30,UW Brüderpfad,keine Betroffenheit,Erneuergung Schutz- und Leittechnik,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,Leittechnik u. Netzschutz,k.A.,,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,xx/2025,xx/2026,d) intern,1.000.000 €,vorgesehene Maßnahme,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+31,"UW Gaswerkstr.
+Leittechnik / Schutz",keine Betroffenheit,Erneuergung Schutz- und Leittechnik,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,Leittechnik u. Netzschutz,k.A.,,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,12/2026,06/2027,,800.000 €,vorgesehene Maßnahme,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+32,"UW Nord
+Leittechnik / Schutz",keine Betroffenheit,Erneuergung Schutz- und Leittechnik,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,Leittechnik u. Netzschutz,k.A.,,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,12/2027,06/2028,,1.400.000 €,vorgesehene Maßnahme,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+33,"UW Sieker
+Leittechnik / Schutz",keine Betroffenheit,Erneuergung Schutz- und Leittechnik,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,Leittechnik u. Netzschutz,k.A.,,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,xx/2029,xx/2030,,800.000 €,vorgesehene Maßnahme,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+34,"UW Brackwede
+Leittechnik / Schutz",keine Betroffenheit,Erneuergung Schutz- und Leittechnik,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,Leittechnik u. Netzschutz,k.A.,,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,12/2023,06/2024,,1.000.000 €,konkrete Planung,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+35,"UW West
+10kV-Schaltanlage",keine Betroffenheit,Erneuerung 10kV-Schaltanlage,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,10kV-Schaltanlage,k.A.,,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,01/2023,12/2024,,2.840.000 €,vorgesehene Maßnahme,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+36,"UW Milse
+10kV-Schaltanlage",keine Betroffenheit,Erneuerung 10kV-Schaltanlage,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,10kV-Schaltanlage,k.A.,,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,12/2027,12/2029,d) intern,2.200.000 €,vorgesehene Maßnahme,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+37,"UW Sparrenberg
+10kV-Schaltanlage",keine Betroffenheit,Erneuerung 10kV-Schaltanlage,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,10kV-Schaltanlage,k.A.,,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,12/2026,12/2028,d) intern,2.600.000 €,vorgesehene Maßnahme,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+38,"UW Brackwede
+10kV-Schaltanlage",keine Betroffenheit,Erneuerung 10kV-Schaltanlage,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,10kV-Schaltanlage,k.A.,,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,12/2025,12/2027,d) intern,3.310.000 €,vorgesehene Maßnahme,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+39,"UW Ost
+110/10kV-Transformator",keine Betroffenheit,Erneuerung 110/10kV-Transformator,Ersatz(neubau) mit Erhöhung der Übertragungskapazität,110/10kV-Transformator,k.A.,"+11,5",Altersbedingte Erneuerung und Leistungserhöhung aufgrund erhöhter Leistungsanforderungen im nachgelagerten Netzbezirk,Kein Zubau (reiner Ersatz),Nein,"Ja, um einem verbrauchsbedingten Engpass vorzubeugen",06/2023,12/2023,d) intern,625.000 €,konkrete Planung,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+40,"UW Ost
+110/10kV-Transformator",keine Betroffenheit,Erneuerung 110/10kV-Transformator,Ersatz(neubau) mit Erhöhung der Übertragungskapazität,110/10kV-Transformator,k.A.,"+11,5",Altersbedingte Erneuerung und Leistungserhöhung aufgrund erhöhter Leistungsanforderungen im nachgelagerten Netzbezirk,Kein Zubau (reiner Ersatz),Nein,"Ja, um einem verbrauchsbedingten Engpass vorzubeugen",06/2023,12/2023,d) intern,850.000 €,konkrete Planung,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+41,"UW Süd
+110/10kV-Transformator",keine Betroffenheit,Erneuerung 110/10kV-Transformator,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,110/10kV-Transformator,k.A.,,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,xx/2022,xx/2023,,850.000 €,vorgesehene Maßnahme,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+42,"UW Steinhagen
+110/10kV-Transformator",keine Betroffenheit,Erneuerung 110/10kV-Transformator,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,110/10kV-Transformator,k.A.,,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,01/2024,12/2024,,850.000 €,vorgesehene Maßnahme,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+43,"UW Stieghorst
+110/10kV-Transformator",keine Betroffenheit,Erneuerung 110/10kV-Transformator,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,110/10kV-Transformator,k.A.,,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,01/2027,12/2027,,850.000 €,vorgesehene Maßnahme,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+44,"UW Steinhagen
+110/10kV-Transformator",keine Betroffenheit,Erneuerung 110/10kV-Transformator,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,110/10kV-Transformator,k.A.,,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,01/2025,12/2025,,850.000 €,vorgesehene Maßnahme,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+45,"UW Nord
+110/10kV-Transformator",keine Betroffenheit,Erneuerung 110/10kV-Transformator,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,110/10kV-Transformator,k.A.,,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,01/2026,12/2026,,850.000 €,vorgesehene Maßnahme,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+46,"UW Kraftwerk
+110/10kV-Transformator",keine Betroffenheit,Erneuerung 110/10kV-Transformator,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,110/10kV-Transformator,k.A.,,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,01/2027,12/2027,,850.000 €,vorgesehene Maßnahme,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+47,"UW Sieker
+110/10kV-Transformator",keine Betroffenheit,Erneuerung 110/10kV-Transformator,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,110/10kV-Transformator,k.A.,,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,01/2028,12/2028,,950.000 €,vorgesehene Maßnahme,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+48,"UW Sieker
+110/10kV-Transformator",keine Betroffenheit,Erneuerung 110/10kV-Transformator,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,110/10kV-Transformator,k.A.,,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,06/2028,06/2029,,950.000 €,vorgesehene Maßnahme,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+49,"UW West
+110/10kV-Transformator",keine Betroffenheit,Erneuerung 110/10kV-Transformator,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,110/10kV-Transformator,k.A.,,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,01/2022,12/2022,,625.000 €,im Bau,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+80,"UW West
+110/10kV-Transformator",keine Betroffenheit,Erneuerung 110/10kV-Transformator,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,110/10kV-Transformator,k.A.,k.A.,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,06/2030,06/2031,,900.000 €,vorgesehene Maßnahme,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+84,"UW Sennestadt
+110kV-Schaltanlage",keine Betroffenheit,Erneuerung 110kV-Schaltanlage,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,110kV-Schaltanlage,k.A.,k.A.,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,01/2031,12/2032,,3.000.000 €,vorgesehene Maßnahme,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+85,UW Zwinger 10kV-Schaltanlage,keine Betroffenheit,Erneuerung 10kV-Schaltanlage,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,10kV-Schaltanlage,k.A.,k.A.,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,01/2029,12/2030,,3.000.000 €,vorgesehene Maßnahme,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+86,UW Jöllenbeck Schutz- und Leittechnik,keine Betroffenheit,Schutz- & Leittechnik,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,Schutz- & Leittechnik,k.A.,k.A.,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,xx/2031,xx/2032,,1.400.000 €,vorgesehene Maßnahme,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+87,"UW Milse
+110/10kV-Transformator",keine Betroffenheit,Erneuerung 110/10kV-Transformator,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,110/10kV-Transformator,k.A.,k.A.,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,06/2032,06/2033,,900.000 €,vorgesehene Maßnahme,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+88,"UW Milse
+110/10kV-Transformator",keine Betroffenheit,Erneuerung 110/10kV-Transformator,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,110/10kV-Transformator,k.A.,k.A.,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,06/2032,06/2033,,900.000 €,vorgesehene Maßnahme,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+89,"UW Nord
+110/10kV-Transformator",keine Betroffenheit,Erneuerung 110/10kV-Transformator,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,110/10kV-Transformator,k.A.,k.A.,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,06/2030,06/2031,,900.000 €,vorgesehene Maßnahme,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+90,UW Hillegossen 110kV-Schaltanlage,keine Betroffenheit,Erneuerung 110kV-Schaltanlage,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,110kV-Schaltanlage,k.A.,k.A.,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,01/2030,12/2031,,3.000.000 €,vorgesehene Maßnahme,keine Genehmigung erforderlich,alternativlos,UW HS auf MS
+91,UW Kraftwerk 10kV-Schaltanlage,keine Betroffenheit,Erneuerung 10kV-Schaltanlage,Ersatz(neubau) ohne Erhöhung der Übertragungskapazität,10kV-Schaltanlage,k.A.,k.A.,Altersbedingte Erneuerung,Kein Zubau (reiner Ersatz),Nein,Nein,06/2030,12/2032,,3.500.000 €,vorgesehene Maßnahme,keine Genehmigung erforderlich,alternativlos,UW HS auf MS

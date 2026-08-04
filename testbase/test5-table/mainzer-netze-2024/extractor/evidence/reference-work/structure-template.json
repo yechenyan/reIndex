@@ -1,0 +1,353 @@
+{
+  "spec": "pdf-extractor-pdf/reference-structure-template@2.0",
+  "role": "qa_agent",
+  "independent_from_extractor": true,
+  "source_evidence_only": true,
+  "source_sha256": "828d7e506917fc3d5331a1cc7ad0f4be78b425af0b7f6b1d74716f22c82e332a",
+  "inventory_sha256": "8d3213ee2fcb541d77982820abaafa1312b16e4bad47a7aa403163ba6f06928d",
+  "instructions": "QA confirms frozen positional column_count, fills one exact/text mode per column, and counts retained rows from source evidence. Row 0 is not implicitly a header.",
+  "tables": [
+    {
+      "id": "table-appendix-measures",
+      "title": "Anhang: Maßnahmenplan",
+      "column_count": 16,
+      "comparison_modes": [],
+      "line_wrap_candidates": [
+        {
+          "id": "wrap-fce5a9bb3926",
+          "line_end": "400V-",
+          "next_line_start": "Kabel",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 8,
+              "line": 0,
+              "bbox": [
+                152.1826629638672,
+                136.97335815429688,
+                170.7733612060547,
+                142.14393615722656
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-b2a7f44335b5",
+          "line_end": "110-kV-",
+          "next_line_start": "Schaltanlage",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 12,
+              "line": 0,
+              "bbox": [
+                152.1834259033203,
+                148.01333618164062,
+                164.66171264648438,
+                153.1839141845703
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 17,
+              "line": 22,
+              "bbox": [
+                92.54344177246094,
+                217.01351928710938,
+                125.53595733642578,
+                222.18409729003906
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-1c19ffd56a5d",
+          "line_end": "110-kV-",
+          "next_line_start": "Netzverstärkung",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 16,
+              "line": 1,
+              "bbox": [
+                35.66344451904297,
+                156.29330444335938,
+                76.22566223144531,
+                161.46388244628906
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-b9e2539bc6a4",
+          "line_end": "380/110-kV-",
+          "next_line_start": "Umspanner",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 17,
+              "line": 0,
+              "bbox": [
+                92.54344177246094,
+                156.29330444335938,
+                118.8239974975586,
+                161.46388244628906
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-baff5a5cf237",
+          "line_end": "110-",
+          "next_line_start": "kV-Netzgruppe",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 17,
+              "line": 2,
+              "bbox": [
+                92.54344177246094,
+                161.81332397460938,
+                124.69964599609375,
+                166.98390197753906
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-470af966911d",
+          "line_end": "110-kV-",
+          "next_line_start": "Investitionsmaßnahmen",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 17,
+              "line": 4,
+              "bbox": [
+                92.54344177246094,
+                167.33334350585938,
+                125.89409637451172,
+                172.50392150878906
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-7dae7f3f32f6",
+          "line_end": "110-kV-",
+          "next_line_start": "Schaltanlagenerweiterung",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 17,
+              "line": 8,
+              "bbox": [
+                92.54344177246094,
+                178.37338256835938,
+                117.49773406982422,
+                183.54396057128906
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-9c059aba4655",
+          "line_end": "(n-1)-",
+          "next_line_start": "gesicherten",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 17,
+              "line": 15,
+              "bbox": [
+                92.54344177246094,
+                197.69345092773438,
+                125.77787780761719,
+                202.86402893066406
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-c45dc433ac26",
+          "line_end": "110-kV-",
+          "next_line_start": "Sammelschienenverstärkung",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 17,
+              "line": 19,
+              "bbox": [
+                92.54344177246094,
+                208.73348999023438,
+                120.1371078491211,
+                213.90406799316406
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-f6debfe633f6",
+          "line_end": "Budenheim-",
+          "next_line_start": "Ingelheim",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 27,
+              "line": 1,
+              "bbox": [
+                35.66338348388672,
+                261.1735534667969,
+                87.84525299072266,
+                266.3441162109375
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-53e4d8e7d681",
+          "line_end": "110/20-kV-",
+          "next_line_start": "Umspannwerks",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 32,
+              "line": 2,
+              "bbox": [
+                92.54483795166016,
+                277.7336120605469,
+                116.9048843383789,
+                282.9041748046875
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 37,
+              "line": 2,
+              "bbox": [
+                92.54566192626953,
+                297.0537414550781,
+                116.90653991699219,
+                302.22430419921875
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-0a8a0369b81b",
+          "line_end": "110-kV-",
+          "next_line_start": "Kabelverbindung",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 56,
+              "line": 3,
+              "bbox": [
+                92.54566955566406,
+                352.2539367675781,
+                112.45899963378906,
+                357.42449951171875
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 59,
+              "line": 2,
+              "bbox": [
+                92.5456771850586,
+                360.53399658203125,
+                124.58494567871094,
+                365.7045593261719
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-ba4b62b1f772",
+          "line_end": "MS-",
+          "next_line_start": "Schaltanlage",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 98,
+              "line": 1,
+              "bbox": [
+                152.18408203125,
+                459.8937072753906,
+                169.0953826904297,
+                465.06427001953125
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        }
+      ],
+      "segments": [
+        {
+          "id": "segment-01",
+          "page": 16,
+          "source_row_count": null,
+          "repeated_leading_rows": 0,
+          "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+        }
+      ]
+    }
+  ]
+}

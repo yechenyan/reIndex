@@ -16,15 +16,9 @@
     {
       "id": "table-1",
       "title": "Table 1",
+      "column_count": 2,
       "segments": [
-        {
-          "id": "segment-01", "page": 2, "bbox": [40, 80, 550, 730],
-          "bbox_review": {
-            "overlay_sha256": "...",
-            "all_visible_table_content_inside": true,
-            "reviewed_edges": ["left", "right", "top", "bottom"]
-          }
-        }
+        {"id": "segment-01", "page": 2, "bbox": [40, 80, 550, 730]}
       ]
     }
   ]
@@ -35,15 +29,18 @@ Use one finding per PDF page. A page containing multiple table Segments still
 has one `table` finding. A continuation page uses `continuation`. BBoxes are PDF
 points in PyMuPDF page coordinates, not image pixels.
 
-Generate the overlay SHA with `audit-inventory`; never invent it. The first audit
-normally fails until Finder visually reviews the generated full-page overlays
-and copies their hashes into the draft. The second audit freezes that attestation.
+The first audit generates `inventory-review.json` and binds every overlay hash.
+Finder fixes blocking bboxes, then edits only the visibility boolean and four
+reviewed edges in that file. The next audit freezes the attestation.
 
 ## Reference structure draft
 
-Run `scaffold-reference` and fill only the `columns` plus each Segment
-`row_count`. Change the spec to
-`pdf-extractor-pdf/reference-structure-draft@1.0`, then pass it to
+Run `scaffold-reference` and confirm the frozen positional `column_count`, fill
+one `comparison_modes` entry per column, and fill each Segment's
+`source_row_count` and `repeated_leading_rows`. Row 0 is an ordinary source row,
+not a special header. Code preclassifies obvious line-wrap candidates; QA fills
+only unresolved `decision` values. Change the spec to
+`pdf-extractor-pdf/reference-structure-draft@2.0`, then pass it to
 `plan-reference`. Do not invent sample indices: fixed code derives them from
 the observed Segment sizes, including both sides of every boundary.
 
@@ -51,7 +48,7 @@ the observed Segment sizes, including both sides of every boundary.
 
 ```json
 {
-  "spec": "pdf-extractor-pdf/reference-draft@1.0",
+  "spec": "pdf-extractor-pdf/reference-draft@2.0",
   "role": "qa_agent",
   "independent_from_extractor": true,
   "source_evidence_only": true,
@@ -60,11 +57,18 @@ the observed Segment sizes, including both sides of every boundary.
   "tables": [
     {
       "id": "table-1",
-      "columns": ["Name", "Value"],
+      "column_count": 2,
+      "comparison_modes": ["text", "exact"],
       "row_count": 3,
       "segment_row_counts": [3],
+      "segment_source_row_counts": [3],
+      "segment_repeated_leading_rows": [0],
+      "line_wrap_decisions": [{
+        "id": "wrap-...", "line_end": "Zusammenfas-",
+        "next_line_start": "sen", "decision": "remove", "occurrences": []
+      }],
       "samples": [
-        {"row_index": 0, "reasons": ["first_rows"], "values": ["Alpha", "1"]},
+        {"row_index": 0, "reasons": ["first_rows"], "values": ["Alpha", "1"], "source_blank_indices": []},
         {"row_index": 1, "values": ["Beta", "2"]},
         {"row_index": 2, "values": ["Gamma", "3"]}
       ]
@@ -73,8 +77,14 @@ the observed Segment sizes, including both sides of every boundary.
 }
 ```
 
-All cells are strings copied from source images. The freezer calculates required
-sample indices and rejects missing first/last/middle/boundary samples.
+All cells are strings copied from source images. Use `text` only for free text;
+use `exact` for numbers, dates, IDs, codes, and amounts. Every empty value must
+list its zero-based column index in `source_blank_indices`. `column_count` must
+match Inventory, and every sample width must match it. A continuation Segment's
+repeated leading rows are counted but excluded from retained row counts; the
+first Segment must declare zero repeated rows. The freezer rejects undeclared
+blanks and missing first-three/last-two/middle/boundary samples. No column names exist in
+the extraction truth layer.
 
 ## Merge-decision draft
 

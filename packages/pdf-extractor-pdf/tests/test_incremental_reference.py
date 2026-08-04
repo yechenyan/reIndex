@@ -37,13 +37,17 @@ def test_reference_structure_generates_adaptive_sample_template(tmp_path) -> Non
     inspect_inventory(job)
     scaffold = scaffold_reference(job)
     structure = read_json(Path(scaffold["path"]))
-    structure["spec"] = "pdf-extractor-pdf/reference-structure-draft@1.0"
-    structure["tables"][0]["columns"] = ["Name", "Value"]
-    structure["tables"][0]["segments"][0]["row_count"] = 2
-    structure["tables"][0]["segments"][1]["row_count"] = 1
+    structure["spec"] = "pdf-extractor-pdf/reference-structure-draft@2.0"
+    assert structure["tables"][0]["column_count"] == 2
+    structure["tables"][0]["comparison_modes"] = ["text", "exact"]
+    structure["tables"][0]["segments"][0]["source_row_count"] = 2
+    structure["tables"][0]["segments"][1]["source_row_count"] = 2
+    structure["tables"][0]["segments"][1]["repeated_leading_rows"] = 1
     draft = job.evidence_dir / "reference-work" / "structure-draft.json"
     write_json(draft, structure)
     planned = read_json(Path(plan_reference(job, draft)["path"]))
     assert planned["tables"][0]["row_count"] == 3
+    assert planned["tables"][0]["segment_repeated_leading_rows"] == [0, 1]
+    assert planned["tables"][0]["comparison_modes"] == ["text", "exact"]
     assert [item["row_index"] for item in planned["tables"][0]["samples"]] == [0, 1, 2]
     assert "segment_boundary_before" in planned["tables"][0]["samples"][1]["reasons"]

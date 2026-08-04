@@ -47,8 +47,8 @@ def _continuity_signals(left: dict, right: dict, actual: dict, finding: dict) ->
         signals.append({"code": "same_normalized_title", "weight": 0.25})
     elif left_title and right_title:
         contradictions.append({"code": "different_titles", "weight": -0.2})
-    if actual[left["id"]].get("columns") == actual[right["id"]].get("columns"):
-        signals.append({"code": "same_headers", "weight": 0.15})
+    if actual[left["id"]].get("column_count") == actual[right["id"]].get("column_count"):
+        signals.append({"code": "same_column_count", "weight": 0.15})
     if _looks_like_split_row(actual[left["id"]], actual[right["id"]]):
         signals.append({"code": "boundary_row_may_continue", "weight": 0.2})
     if left_number and right_number and left_number != right_number:

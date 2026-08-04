@@ -1,0 +1,22 @@
+{
+  "spec": "pdf-extractor-pdf/repair-scope@1.0",
+  "review_sha256": "9b0d1ea2edcd22feb8df7b107353169a6c744e5e023ffb8dc4fee111a69064b2",
+  "route": "qa_agent",
+  "affected_table_ids": [
+    "table-16"
+  ],
+  "evidence_refs": [
+    "table-16::segment-01",
+    "table-16::segment-02",
+    "table-16::segment-03",
+    "table-16::segment-04",
+    "table-16::segment-05",
+    "table-16::segment-06",
+    "table-16::segment-07",
+    "table-16::segment-08",
+    "table-16::segment-09",
+    "table-16::segment-10"
+  ],
+  "origin": "failed_review",
+  "instructions": "Agents may inspect and change only affected_table_ids; fixed validation protects every other table."
+}

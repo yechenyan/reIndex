@@ -2,11 +2,11 @@
 
 ## Request
 
-Extract all tables from the source PDF into CSV files with conservative source-faithful values and row-level provenance.
+Extract all tables into project-local output. Header-neutral matrix: inventory freezes positional column_count; result returns column_count plus rows; row 0 ordinary source row; CSV has no separate header. Do not invent column names. Explicitly account continuation duplicate leading rows.
 
 ## Objective
 
-Implement project main.py for the frozen Inventory with row provenance and merge policy.
+Implement project main.py for the frozen header-neutral matrix Inventory with row provenance and merge policy. Preserve row 0; remove only explicitly repeated leading rows on continuation Segments. Fix wrong row/column alignment in table-specific code. Generated project code has no artificial 200-line limit.
 
 ## Allowed inputs
 
@@ -14,7 +14,7 @@ Frozen Inventory, Segment images, neutral geometry, source PDF.
 
 ## Prohibited inputs
 
-Do not read QA reference drafts or frozen reference.
+Do not read QA reference drafts or frozen reference; do not invent column names or emit a separate header array.
 
 ## Repair scope
 

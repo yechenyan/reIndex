@@ -1,0 +1,58 @@
+{
+  "spec": "pdf-extractor-pdf/reference-structure-draft@2.0",
+  "role": "qa_agent",
+  "independent_from_extractor": true,
+  "source_evidence_only": true,
+  "source_sha256": "3dc36a9917ac29b387c8fcc6e1a856f26e4fc0660d4e847a5070ee7dca0af497",
+  "inventory_sha256": "a5a793af1903df032daddd3b1482279dd30f8baefc2aa0a488984bd90ca201f4",
+  "tables": [
+    {
+      "id": "table-1",
+      "title": "Optionale Erläuterungen zu Ihren Angaben an die BNetzA",
+      "column_count": 1,
+      "comparison_modes": ["text"],
+      "line_wrap_candidates": [],
+      "segments": [{"id": "segment-01", "page": 5, "source_row_count": 2, "repeated_leading_rows": 0, "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/segments/table-1/segment-01-6d449fd8d23b-page-0005.png"}]
+    },
+    {
+      "id": "table-2",
+      "title": "Teil 1 – Hinweise und Neuerungen zum Vorjahr",
+      "column_count": 2,
+      "comparison_modes": ["text", "text"],
+      "line_wrap_candidates": [],
+      "segments": [{"id": "segment-01", "page": 5, "source_row_count": 5, "repeated_leading_rows": 0, "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/segments/table-2/segment-01-26accfc192d2-page-0005.png"}]
+    },
+    {
+      "id": "table-3",
+      "title": "Teil 1 – Aggregierte 10-Jahres-Investitionen mit Übertragungskapazität",
+      "column_count": 7,
+      "comparison_modes": ["text", "exact", "exact", "exact", "exact", "exact", "exact"],
+      "line_wrap_candidates": [],
+      "segments": [{"id": "segment-01", "page": 5, "source_row_count": 4, "repeated_leading_rows": 0, "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/segments/table-3/segment-01-a10ae1edf49c-page-0005.png"}]
+    },
+    {
+      "id": "table-4",
+      "title": "Teil 1 – Aggregierte 10-Jahres-Investitionen ohne Übertragungskapazität",
+      "column_count": 3,
+      "comparison_modes": ["text", "exact", "exact"],
+      "line_wrap_candidates": [],
+      "segments": [{"id": "segment-01", "page": 5, "source_row_count": 4, "repeated_leading_rows": 0, "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/segments/table-4/segment-01-052e1b109548-page-0005.png"}]
+    },
+    {
+      "id": "table-5",
+      "title": "Teil 2 – Hinweise und Neuerungen zum Vorjahr",
+      "column_count": 2,
+      "comparison_modes": ["text", "text"],
+      "line_wrap_candidates": [],
+      "segments": [{"id": "segment-01", "page": 5, "source_row_count": 10, "repeated_leading_rows": 0, "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/segments/table-5/segment-01-48d8ac977ef6-page-0005.png"}]
+    },
+    {
+      "id": "table-6",
+      "title": "Teil 2 – Maßnahmenplan mit Ausfüllbeispielen und Zellenhinweisen",
+      "column_count": 20,
+      "comparison_modes": ["exact", "text", "text", "text", "text", "text", "exact", "exact", "text", "text", "text", "text", "exact", "exact", "exact", "exact", "text", "text", "text", "text"],
+      "line_wrap_candidates": [],
+      "segments": [{"id": "segment-01", "page": 5, "source_row_count": 55, "repeated_leading_rows": 0, "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/segments/table-6/segment-01-0b882e507b84-page-0005.png"}]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "spec": "pdf-extractor-pdf/normalization-decisions@1.0",
+  "tables": [
+    {
+      "id": "table-1",
+      "line_wrap_decisions": []
+    },
+    {
+      "id": "table-2",
+      "line_wrap_decisions": []
+    },
+    {
+      "id": "table-3",
+      "line_wrap_decisions": []
+    },
+    {
+      "id": "table-4",
+      "line_wrap_decisions": []
+    },
+    {
+      "id": "table-5",
+      "line_wrap_decisions": []
+    },
+    {
+      "id": "table-6",
+      "line_wrap_decisions": []
+    }
+  ]
+}

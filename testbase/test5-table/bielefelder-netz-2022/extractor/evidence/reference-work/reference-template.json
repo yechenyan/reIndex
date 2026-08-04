@@ -1,0 +1,223 @@
+{
+  "spec": "pdf-extractor-pdf/reference-draft@2.0",
+  "role": "qa_agent",
+  "independent_from_extractor": true,
+  "source_evidence_only": true,
+  "source_sha256": "3dc36a9917ac29b387c8fcc6e1a856f26e4fc0660d4e847a5070ee7dca0af497",
+  "inventory_sha256": "a5a793af1903df032daddd3b1482279dd30f8baefc2aa0a488984bd90ca201f4",
+  "tables": [
+    {
+      "id": "table-6",
+      "column_count": 20,
+      "comparison_modes": [
+        "exact",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "exact",
+        "exact",
+        "text",
+        "text",
+        "text",
+        "text",
+        "exact",
+        "exact",
+        "exact",
+        "exact",
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "row_count": 55,
+      "segment_row_counts": [
+        55
+      ],
+      "segment_source_row_counts": [
+        55
+      ],
+      "segment_repeated_leading_rows": [
+        0
+      ],
+      "line_wrap_decisions": [],
+      "samples": [
+        {
+          "row_index": 0,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "source_blank_indices": []
+        },
+        {
+          "row_index": 1,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "source_blank_indices": []
+        },
+        {
+          "row_index": 2,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "source_blank_indices": []
+        },
+        {
+          "row_index": 27,
+          "reasons": [
+            "middle_row"
+          ],
+          "values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "source_blank_indices": []
+        },
+        {
+          "row_index": 53,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "source_blank_indices": []
+        },
+        {
+          "row_index": 54,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "source_blank_indices": []
+        }
+      ]
+    }
+  ]
+}

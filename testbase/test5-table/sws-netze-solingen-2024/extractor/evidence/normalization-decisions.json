@@ -1,0 +1,1768 @@
+{
+  "spec": "pdf-extractor-pdf/normalization-decisions@1.0",
+  "tables": [
+    {
+      "id": "table-abbreviations",
+      "line_wrap_decisions": []
+    },
+    {
+      "id": "table-1",
+      "line_wrap_decisions": []
+    },
+    {
+      "id": "table-2",
+      "line_wrap_decisions": []
+    },
+    {
+      "id": "table-3",
+      "line_wrap_decisions": []
+    },
+    {
+      "id": "table-4",
+      "line_wrap_decisions": []
+    },
+    {
+      "id": "table-5",
+      "line_wrap_decisions": [
+        {
+          "id": "wrap-46851c5fa445",
+          "line_end": "Netzkno-",
+          "next_line_start": "ten",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 2,
+              "line": 0,
+              "bbox": [
+                130.55999755859375,
+                138.54144287109375,
+                161.2998046875,
+                154.3485107421875
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 2,
+              "line": 0,
+              "bbox": [
+                130.6800079345703,
+                153.1814422607422,
+                161.53982543945312,
+                169.10850524902344
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-7c9bbe9236df",
+          "line_end": "Projektbe-",
+          "next_line_start": "schreibung",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 3,
+              "line": 0,
+              "bbox": [
+                178.9199981689453,
+                134.46144104003906,
+                213.00997924804688,
+                150.26849365234375
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 3,
+              "line": 0,
+              "bbox": [
+                179.16000366210938,
+                149.22145080566406,
+                213.24998474121094,
+                165.02850341796875
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-6dffa0d5d56c",
+          "line_end": "Projektkatego-",
+          "next_line_start": "rie",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 4,
+              "line": 0,
+              "bbox": [
+                228.83999633789062,
+                134.46144104003906,
+                273.8753662109375,
+                150.26849365234375
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 4,
+              "line": 0,
+              "bbox": [
+                229.0800018310547,
+                149.22145080566406,
+                274.1153869628906,
+                165.02850341796875
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-43991392955e",
+          "line_end": "Be-",
+          "next_line_start": "triebs-",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 6,
+              "line": 0,
+              "bbox": [
+                285.8399963378906,
+                130.50143432617188,
+                305.2298889160156,
+                146.30850219726562
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 6,
+              "line": 0,
+              "bbox": [
+                286.08001708984375,
+                145.14144897460938,
+                305.4698791503906,
+                160.94850158691406
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-14b1caaa044e",
+          "line_end": "triebs-",
+          "next_line_start": "mittel",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 6,
+              "line": 1,
+              "bbox": [
+                285.8399963378906,
+                138.54144287109375,
+                305.2298889160156,
+                154.3485107421875
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 6,
+              "line": 1,
+              "bbox": [
+                286.08001708984375,
+                153.1814422607422,
+                305.4698791503906,
+                169.10850524902344
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-1a81730bb6fa",
+          "line_end": "Lei-",
+          "next_line_start": "tungsab-",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 8,
+              "line": 1,
+              "bbox": [
+                317.8800048828125,
+                130.50143432617188,
+                345.02880859375,
+                146.30850219726562
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 8,
+              "line": 1,
+              "bbox": [
+                318.1199951171875,
+                145.14144897460938,
+                345.268798828125,
+                160.94850158691406
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-aeef7e614d5c",
+          "line_end": "tungsab-",
+          "next_line_start": "schnitts",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 8,
+              "line": 2,
+              "bbox": [
+                317.8800048828125,
+                138.54144287109375,
+                345.02880859375,
+                154.3485107421875
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 8,
+              "line": 2,
+              "bbox": [
+                318.1199951171875,
+                153.1814422607422,
+                345.268798828125,
+                169.10850524902344
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-de4228c6b1a0",
+          "line_end": "Über-",
+          "next_line_start": "tragungs-",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 11,
+              "line": 1,
+              "bbox": [
+                355.67999267578125,
+                130.50143432617188,
+                385.1614990234375,
+                146.30850219726562
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 11,
+              "line": 1,
+              "bbox": [
+                356.1600036621094,
+                145.14144897460938,
+                385.6415100097656,
+                160.94850158691406
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-393c9158c883",
+          "line_end": "tragungs-",
+          "next_line_start": "kapazität",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 11,
+              "line": 2,
+              "bbox": [
+                355.67999267578125,
+                138.54144287109375,
+                385.0928649902344,
+                154.3485107421875
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 11,
+              "line": 2,
+              "bbox": [
+                356.1600036621094,
+                153.1814422607422,
+                385.5728454589844,
+                169.10850524902344
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-de1a98fe7965",
+          "line_end": "Prognosti-",
+          "next_line_start": "zierter",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 17,
+              "line": 0,
+              "bbox": [
+                502.91998291015625,
+                130.50143432617188,
+                536.891845703125,
+                146.30850219726562
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 17,
+              "line": 0,
+              "bbox": [
+                503.4000244140625,
+                145.14144897460938,
+                537.371826171875,
+                160.94850158691406
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-ea8fdd860619",
+          "line_end": "Eng-",
+          "next_line_start": "pass?",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 17,
+              "line": 1,
+              "bbox": [
+                511.67999267578125,
+                138.54144287109375,
+                539.0921020507812,
+                154.3485107421875
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 17,
+              "line": 1,
+              "bbox": [
+                512.1600341796875,
+                153.1814422607422,
+                539.5720825195312,
+                169.10850524902344
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-6bbf05ee2135",
+          "line_end": "voraus-",
+          "next_line_start": "sichtlicher",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 19,
+              "line": 0,
+              "bbox": [
+                551.52001953125,
+                126.42144775390625,
+                582.5267944335938,
+                142.22850036621094
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 19,
+              "line": 0,
+              "bbox": [
+                552.0,
+                141.1814422607422,
+                583.0067749023438,
+                156.98851013183594
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-738645c3d2bd",
+          "line_end": "Voraus-",
+          "next_line_start": "sichtliche",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 21,
+              "line": 0,
+              "bbox": [
+                595.199951171875,
+                122.34144592285156,
+                623.9309692382812,
+                138.26849365234375
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 21,
+              "line": 0,
+              "bbox": [
+                595.5599975585938,
+                137.1014404296875,
+                624.291015625,
+                152.90850830078125
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-e7c4d06b2368",
+          "line_end": "Inbetrieb-",
+          "next_line_start": "nahme",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 21,
+              "line": 2,
+              "bbox": [
+                594.8399658203125,
+                138.54144287109375,
+                624.2645263671875,
+                154.3485107421875
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 21,
+              "line": 2,
+              "bbox": [
+                595.0800170898438,
+                153.1814422607422,
+                624.5045776367188,
+                169.10850524902344
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-73fc82d531f9",
+          "line_end": "(ge-",
+          "next_line_start": "schätzt)",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 23,
+              "line": 0,
+              "bbox": [
+                639.1199951171875,
+                130.50143432617188,
+                672.9736938476562,
+                146.30850219726562
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 23,
+              "line": 0,
+              "bbox": [
+                639.3599853515625,
+                145.14144897460938,
+                673.2136840820312,
+                160.94850158691406
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-09a5e8d627dc",
+          "line_end": "Projektsta-",
+          "next_line_start": "tus",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 26,
+              "line": 0,
+              "bbox": [
+                685.6799926757812,
+                134.46144104003906,
+                719.0774536132812,
+                150.26849365234375
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 26,
+              "line": 0,
+              "bbox": [
+                685.9199829101562,
+                149.22145080566406,
+                719.3174438476562,
+                165.02850341796875
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-c4966d5190de",
+          "line_end": "Genehmi-",
+          "next_line_start": "gungsver-",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 28,
+              "line": 0,
+              "bbox": [
+                730.5599975585938,
+                130.50143432617188,
+                761.5726928710938,
+                146.30850219726562
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 28,
+              "line": 0,
+              "bbox": [
+                730.800048828125,
+                145.14144897460938,
+                761.812744140625,
+                160.94850158691406
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-d4928bed303d",
+          "line_end": "gungsver-",
+          "next_line_start": "fahren",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 28,
+              "line": 1,
+              "bbox": [
+                730.5599975585938,
+                138.54144287109375,
+                761.5726928710938,
+                154.3485107421875
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 28,
+              "line": 1,
+              "bbox": [
+                730.800048828125,
+                153.1814422607422,
+                761.812744140625,
+                169.10850524902344
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-7824e8961e3c",
+          "line_end": "ei-",
+          "next_line_start": "nes",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 32,
+              "line": 1,
+              "bbox": [
+                171.95999145507812,
+                194.46144104003906,
+                219.42538452148438,
+                210.26849365234375
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 39,
+              "line": 0,
+              "bbox": [
+                171.95999145507812,
+                220.26144409179688,
+                219.42538452148438,
+                236.06849670410156
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 52,
+              "line": 1,
+              "bbox": [
+                171.95999145507812,
+                320.1014709472656,
+                219.42538452148438,
+                335.90850830078125
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 60,
+              "line": 1,
+              "bbox": [
+                171.95999145507812,
+                361.9814453125,
+                219.42538452148438,
+                377.78851318359375
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 69,
+              "line": 1,
+              "bbox": [
+                171.95999145507812,
+                403.9814147949219,
+                219.42538452148438,
+                419.78851318359375
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 77,
+              "line": 1,
+              "bbox": [
+                171.95999145507812,
+                445.8614501953125,
+                219.42538452148438,
+                461.6684875488281
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 84,
+              "line": 1,
+              "bbox": [
+                171.95999145507812,
+                487.7414245605469,
+                219.42538452148438,
+                503.54852294921875
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-b8463b96aa1d",
+          "line_end": "Übertra-",
+          "next_line_start": "gungskapazität",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 33,
+              "line": 2,
+              "bbox": [
+                227.16000366210938,
+                198.42144775390625,
+                274.09063720703125,
+                214.22850036621094
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 45,
+              "line": 2,
+              "bbox": [
+                227.16000366210938,
+                282.3014221191406,
+                274.09063720703125,
+                298.1084899902344
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 53,
+              "line": 2,
+              "bbox": [
+                227.16000366210938,
+                324.18145751953125,
+                274.09063720703125,
+                339.9884948730469
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 61,
+              "line": 2,
+              "bbox": [
+                227.16000366210938,
+                366.06146240234375,
+                274.09063720703125,
+                381.8685302734375
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 70,
+              "line": 2,
+              "bbox": [
+                227.16000366210938,
+                407.9414367675781,
+                274.09063720703125,
+                423.74847412109375
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 78,
+              "line": 2,
+              "bbox": [
+                227.16000366210938,
+                449.8214416503906,
+                274.09063720703125,
+                465.6285095214844
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 85,
+              "line": 2,
+              "bbox": [
+                227.16000366210938,
+                491.7014465332031,
+                274.09063720703125,
+                507.50848388671875
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 34,
+              "line": 2,
+              "bbox": [
+                227.40000915527344,
+                213.18145751953125,
+                274.3306579589844,
+                228.98849487304688
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 43,
+              "line": 2,
+              "bbox": [
+                227.40000915527344,
+                255.06146240234375,
+                274.3306579589844,
+                270.8685302734375
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 52,
+              "line": 2,
+              "bbox": [
+                227.40000915527344,
+                296.9414367675781,
+                274.3306579589844,
+                312.7485046386719
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 61,
+              "line": 2,
+              "bbox": [
+                227.40000915527344,
+                338.9414367675781,
+                274.3306579589844,
+                354.7485046386719
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 69,
+              "line": 2,
+              "bbox": [
+                227.40000915527344,
+                380.8214416503906,
+                274.3306579589844,
+                396.6285095214844
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-7a42916b9389",
+          "line_end": "MS-",
+          "next_line_start": "Kabel",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 34,
+              "line": 0,
+              "bbox": [
+                282.7200012207031,
+                190.38143920898438,
+                300.4335632324219,
+                206.18850708007812
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 41,
+              "line": 0,
+              "bbox": [
+                282.7200012207031,
+                232.26144409179688,
+                300.4335632324219,
+                248.06849670410156
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 54,
+              "line": 0,
+              "bbox": [
+                282.7200012207031,
+                316.1414489746094,
+                300.4335632324219,
+                331.9485168457031
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 62,
+              "line": 0,
+              "bbox": [
+                282.7200012207031,
+                358.0214538574219,
+                300.4335632324219,
+                373.8285217285156
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 71,
+              "line": 0,
+              "bbox": [
+                282.7200012207031,
+                399.90142822265625,
+                300.4335632324219,
+                415.70849609375
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 79,
+              "line": 0,
+              "bbox": [
+                282.7200012207031,
+                441.7814636230469,
+                300.4335632324219,
+                457.5885009765625
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 86,
+              "line": 0,
+              "bbox": [
+                282.7200012207031,
+                483.6614685058594,
+                300.4335632324219,
+                499.468505859375
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 35,
+              "line": 0,
+              "bbox": [
+                282.9599914550781,
+                205.14144897460938,
+                300.6735534667969,
+                220.94851684570312
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 44,
+              "line": 0,
+              "bbox": [
+                282.9599914550781,
+                247.02145385742188,
+                300.6735534667969,
+                262.8285217285156
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-89f9a18fe16f",
+          "line_end": "abge-",
+          "next_line_start": "schlossen",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 36,
+              "line": 6,
+              "bbox": [
+                729.3599853515625,
+                190.38143920898438,
+                760.3458251953125,
+                206.18850708007812
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-c9064cf7142b",
+          "line_end": "Langhans-",
+          "next_line_start": "straße",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 37,
+              "line": 1,
+              "bbox": [
+                77.39999389648438,
+                232.26144409179688,
+                110.45281219482422,
+                248.06849670410156
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-ab54c37bb7c2",
+          "line_end": "Ladeparkan-",
+          "next_line_start": "frage",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 39,
+              "line": 3,
+              "bbox": [
+                171.95999145507812,
+                244.38143920898438,
+                211.25473022460938,
+                260.1885070800781
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-0e6538bef944",
+          "line_end": "Netzoptimie-",
+          "next_line_start": "rung",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 40,
+              "line": 0,
+              "bbox": [
+                227.16000366210938,
+                228.3014373779297,
+                266.3097229003906,
+                244.10848999023438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-9d15fa0fa385",
+          "line_end": "-ver-",
+          "next_line_start": "stärkung",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 40,
+              "line": 1,
+              "bbox": [
+                227.16000366210938,
+                236.3414306640625,
+                271.0053405761719,
+                252.14849853515625
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-5a914f5bb38f",
+          "line_end": "Verbrau-",
+          "next_line_start": "cher",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 41,
+              "line": 4,
+              "bbox": [
+                393.4800109863281,
+                232.26144409179688,
+                442.4867858886719,
+                248.06849670410156
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 35,
+              "line": 4,
+              "bbox": [
+                393.96002197265625,
+                205.14144897460938,
+                442.9668273925781,
+                220.94851684570312
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 53,
+              "line": 4,
+              "bbox": [
+                393.96002197265625,
+                288.9014587402344,
+                442.9668273925781,
+                304.70849609375
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-70e09fac290d",
+          "line_end": "Zusammenfas-",
+          "next_line_start": "sen",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 44,
+              "line": 0,
+              "bbox": [
+                171.95999145507812,
+                270.18145751953125,
+                218.56927490234375,
+                285.9884948730469
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-929011bf702b",
+          "line_end": "MS-",
+          "next_line_start": "Station",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 46,
+              "line": 0,
+              "bbox": [
+                282.7200012207031,
+                274.1414489746094,
+                304.48291015625,
+                290.0684814453125
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-64391e7d064d",
+          "line_end": "vorgese-",
+          "next_line_start": "hene",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 49,
+              "line": 0,
+              "bbox": [
+                682.5599975585938,
+                270.18145751953125,
+                709.718017578125,
+                285.9884948730469
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 57,
+              "line": 0,
+              "bbox": [
+                682.5599975585938,
+                312.06146240234375,
+                709.718017578125,
+                327.8685302734375
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 65,
+              "line": 0,
+              "bbox": [
+                682.5599975585938,
+                353.9414367675781,
+                709.718017578125,
+                369.7485046386719
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 74,
+              "line": 0,
+              "bbox": [
+                682.5599975585938,
+                395.8214416503906,
+                709.718017578125,
+                411.74847412109375
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 89,
+              "line": 0,
+              "bbox": [
+                682.5599975585938,
+                479.7014465332031,
+                709.718017578125,
+                495.50848388671875
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 37,
+              "line": 3,
+              "bbox": [
+                682.800048828125,
+                201.06146240234375,
+                709.9580688476562,
+                216.86851501464844
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 46,
+              "line": 5,
+              "bbox": [
+                682.800048828125,
+                243.06146240234375,
+                709.9580688476562,
+                258.8685302734375
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 55,
+              "line": 3,
+              "bbox": [
+                682.800048828125,
+                284.9414367675781,
+                709.9580688476562,
+                300.7485046386719
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 64,
+              "line": 5,
+              "bbox": [
+                682.800048828125,
+                326.8214416503906,
+                709.9580688476562,
+                342.6285095214844
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 72,
+              "line": 5,
+              "bbox": [
+                682.800048828125,
+                368.7014465332031,
+                709.9580688476562,
+                384.5085144042969
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-5b8e8c078738",
+          "line_end": "Maß-",
+          "next_line_start": "nahme",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 49,
+              "line": 1,
+              "bbox": [
+                682.5599975585938,
+                278.221435546875,
+                716.3414916992188,
+                294.02850341796875
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 57,
+              "line": 1,
+              "bbox": [
+                682.5599975585938,
+                320.1014709472656,
+                716.3414916992188,
+                335.90850830078125
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 65,
+              "line": 1,
+              "bbox": [
+                682.5599975585938,
+                361.9814453125,
+                716.3414916992188,
+                377.78851318359375
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 74,
+              "line": 1,
+              "bbox": [
+                682.5599975585938,
+                403.9814147949219,
+                716.3414916992188,
+                419.78851318359375
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 89,
+              "line": 1,
+              "bbox": [
+                682.5599975585938,
+                487.7414245605469,
+                716.3414916992188,
+                503.54852294921875
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 37,
+              "line": 4,
+              "bbox": [
+                682.800048828125,
+                209.10145568847656,
+                716.5814819335938,
+                225.02850341796875
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 46,
+              "line": 6,
+              "bbox": [
+                682.800048828125,
+                251.10147094726562,
+                716.5814819335938,
+                266.90850830078125
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 55,
+              "line": 4,
+              "bbox": [
+                682.800048828125,
+                292.9814453125,
+                716.5814819335938,
+                308.78851318359375
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 64,
+              "line": 6,
+              "bbox": [
+                682.800048828125,
+                334.8614501953125,
+                716.5814819335938,
+                350.66851806640625
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 72,
+              "line": 6,
+              "bbox": [
+                682.800048828125,
+                376.741455078125,
+                716.5814819335938,
+                392.54852294921875
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-92a1e3ce770c",
+          "line_end": "engpassbe-",
+          "next_line_start": "dingte",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 31,
+              "line": 1,
+              "bbox": [
+                77.39999389648438,
+                205.14144897460938,
+                113.93267059326172,
+                220.94851684570312
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 49,
+              "line": 1,
+              "bbox": [
+                77.39999389648438,
+                288.9014587402344,
+                113.93267059326172,
+                304.70849609375
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-4ca2b65c2b4c",
+          "line_end": "MS-",
+          "next_line_start": "Maßnahmen",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 31,
+              "line": 2,
+              "bbox": [
+                77.39999389648438,
+                213.18145751953125,
+                116.55545043945312,
+                228.98849487304688
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-9366acbe21ee",
+          "line_end": "verbrauchs-",
+          "next_line_start": "bedingten",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 36,
+              "line": 1,
+              "bbox": [
+                500.27996826171875,
+                201.06146240234375,
+                537.138916015625,
+                216.86851501464844
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 54,
+              "line": 1,
+              "bbox": [
+                500.27996826171875,
+                284.9414367675781,
+                537.138916015625,
+                300.7485046386719
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-799183c8596a",
+          "line_end": "vor-",
+          "next_line_start": "zubeugen",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 36,
+              "line": 3,
+              "bbox": [
+                500.27996826171875,
+                217.26144409179688,
+                541.5093994140625,
+                233.06849670410156
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 54,
+              "line": 3,
+              "bbox": [
+                500.27996826171875,
+                301.0214538574219,
+                541.5093994140625,
+                316.8285217285156
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-cf1adcd3a52d",
+          "line_end": "MS-Maßnah-",
+          "next_line_start": "men",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 40,
+              "line": 2,
+              "bbox": [
+                77.39999389648438,
+                255.06146240234375,
+                118.0866470336914,
+                270.8685302734375
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-2780cbd1e09b",
+          "line_end": "ONS-",
+          "next_line_start": "Maßnahmen",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 49,
+              "line": 2,
+              "bbox": [
+                77.39999389648438,
+                296.9414367675781,
+                116.55545043945312,
+                312.7485046386719
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-1255d70f24cf",
+          "line_end": "ONS-Maßnah-",
+          "next_line_start": "men",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 58,
+              "line": 2,
+              "bbox": [
+                77.39999389648438,
+                338.9414367675781,
+                122.8041763305664,
+                354.7485046386719
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-9a467766626b",
+          "line_end": "NS-Maßnah-",
+          "next_line_start": "men",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 66,
+              "line": 2,
+              "bbox": [
+                77.39999389648438,
+                376.741455078125,
+                117.38483428955078,
+                392.54852294921875
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-fe123d1d7642",
+          "line_end": "NS-",
+          "next_line_start": "Kabel",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-02",
+              "page": 17,
+              "block": 70,
+              "line": 0,
+              "bbox": [
+                282.9599914550781,
+                372.7814636230469,
+                300.6735534667969,
+                388.5885009765625
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

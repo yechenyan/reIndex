@@ -1,0 +1,22 @@
+spec: pdf-extractor-pdf/job@1.0
+source: ../2022_07_28_netzausbauplan_bielefelder_netz_gmbh_2022_inkl_anhang_pdf.pdf
+main: ./main.py
+evidence_dir: ./evidence
+inventory: ./evidence/inventory.json
+reference: ./evidence/reference.json
+output_dir: ../output
+request: "Extract every visible source table as header-neutral positional CSV matrices, preserving segment order, text, numeric values, and row provenance."
+evidence:
+  thumbnail_dpi: 72
+  contact_columns: 4
+  contact_pages: 8
+  contact_overlap_pages: 1
+  finder_candidate_dpi: 150
+  table_dpi: 220
+policy:
+  scope: full_document
+  extractor_timeout_seconds: 120
+  require_row_bbox: true
+  merge_candidate_threshold: 0.85
+  require_independent_agents: true
+  require_parallel_extraction_qa: true

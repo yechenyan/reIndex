@@ -1,0 +1,493 @@
+{
+  "source_sha256": "828d7e506917fc3d5331a1cc7ad0f4be78b425af0b7f6b1d74716f22c82e332a",
+  "page_count": 16,
+  "dpi": 72,
+  "contact_pages": 8,
+  "contact_columns": 4,
+  "contact_overlap_pages": 1,
+  "finder_candidate_dpi": 150,
+  "cache_hit": false,
+  "pages": [
+    {
+      "page": 1,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 85,
+      "word_count": 9
+    },
+    {
+      "page": 2,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 2406,
+      "word_count": 85
+    },
+    {
+      "page": 3,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 921,
+      "word_count": 44
+    },
+    {
+      "page": 4,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 589,
+      "word_count": 39
+    },
+    {
+      "page": 5,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 749,
+      "word_count": 70
+    },
+    {
+      "page": 6,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 2625,
+      "word_count": 318
+    },
+    {
+      "page": 7,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 1155,
+      "word_count": 151
+    },
+    {
+      "page": 8,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 418,
+      "word_count": 47
+    },
+    {
+      "page": 9,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 1305,
+      "word_count": 165
+    },
+    {
+      "page": 10,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 2756,
+      "word_count": 385
+    },
+    {
+      "page": 11,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 2316,
+      "word_count": 342
+    },
+    {
+      "page": 12,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 2975,
+      "word_count": 354
+    },
+    {
+      "page": 13,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 593,
+      "word_count": 58
+    },
+    {
+      "page": 14,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 1230,
+      "word_count": 149
+    },
+    {
+      "page": 15,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 735,
+      "word_count": 99
+    },
+    {
+      "page": 16,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 16637,
+      "word_count": 1956
+    }
+  ],
+  "contacts": [
+    "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/contact-sheets/contact-001.jpg",
+    "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/contact-sheets/contact-002.jpg",
+    "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/contact-sheets/contact-003.jpg"
+  ],
+  "contact_windows": [
+    {
+      "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/contact-sheets/contact-001.jpg",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/contact-sheets/contact-002.jpg",
+      "pages": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/contact-sheets/contact-003.jpg",
+      "pages": [
+        15,
+        16
+      ]
+    }
+  ],
+  "finder_packet": {
+    "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/finder-packet.json",
+    "sha256": "a507ee683baacfbb09d1d10f82f8f6716e35d58602d75e86363466071815673d",
+    "spec": "pdf-extractor-pdf/finder-packet@1.0",
+    "instructions": "Review every contact-window page; freeze positional column_count without assuming a header, use candidate images first, and escalate only uncertain pages.",
+    "contact_windows": [
+      {
+        "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/contact-sheets/contact-001.jpg",
+        "pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      },
+      {
+        "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/contact-sheets/contact-002.jpg",
+        "pages": [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      {
+        "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/contact-sheets/contact-003.jpg",
+        "pages": [
+          15,
+          16
+        ]
+      }
+    ],
+    "candidate_pages": [
+      4,
+      5,
+      10,
+      11,
+      13,
+      14,
+      16
+    ],
+    "candidate_images": [
+      {
+        "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/pages-candidate/page-0004-150dpi.png",
+        "sha256": "f19b0855fda125a4d3edd4dbbdcf16bfd36ebc5ea5266437e51f5a73e20ed256"
+      },
+      {
+        "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/pages-candidate/page-0005-150dpi.png",
+        "sha256": "a8ce66355b03b2d1f122f93632f933e70b5bc96242b0ed0674b6a1d8733aeda4"
+      },
+      {
+        "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/pages-candidate/page-0010-150dpi.png",
+        "sha256": "6495306d2d0bff29b1bc8f9af0166832b43f7b08dc83b8124a585eb7e226882f"
+      },
+      {
+        "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/pages-candidate/page-0011-150dpi.png",
+        "sha256": "d0e71f8bf5efaebfb875d4ef4de79e3899239e3d13ab019add1ac12a4c2038dc"
+      },
+      {
+        "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/pages-candidate/page-0013-150dpi.png",
+        "sha256": "9811c4baddd13f7d2346d225f2e65673ff22e099a1212b6de5b16635f17f34e1"
+      },
+      {
+        "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/pages-candidate/page-0014-150dpi.png",
+        "sha256": "67a9fd1fc45613f2f97249c589eaab956d647f970de4771ebd8a1ab88803459c"
+      },
+      {
+        "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/pages-candidate/page-0016-150dpi.png",
+        "sha256": "dc5ab776c9843d62a66067c0336c94159584cf47d39b057e70e3068049691d2c"
+      }
+    ],
+    "pages": [
+      {
+        "page": 1,
+        "candidate": false,
+        "reasons": [],
+        "table_term_hits": 0,
+        "grid_line_count": 0,
+        "width": 595.32,
+        "height": 841.92,
+        "rotation": 0,
+        "word_count": 9,
+        "candidate_image": null
+      },
+      {
+        "page": 2,
+        "candidate": false,
+        "reasons": [],
+        "table_term_hits": 0,
+        "grid_line_count": 8,
+        "width": 595.32,
+        "height": 841.92,
+        "rotation": 0,
+        "word_count": 85,
+        "candidate_image": null
+      },
+      {
+        "page": 3,
+        "candidate": false,
+        "reasons": [],
+        "table_term_hits": 0,
+        "grid_line_count": 8,
+        "width": 595.32,
+        "height": 841.92,
+        "rotation": 0,
+        "word_count": 44,
+        "candidate_image": null
+      },
+      {
+        "page": 4,
+        "candidate": true,
+        "reasons": [
+          "table_term"
+        ],
+        "table_term_hits": 4,
+        "grid_line_count": 8,
+        "width": 595.32,
+        "height": 841.92,
+        "rotation": 0,
+        "word_count": 39,
+        "candidate_image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/pages-candidate/page-0004-150dpi.png"
+      },
+      {
+        "page": 5,
+        "candidate": true,
+        "reasons": [
+          "grid_geometry"
+        ],
+        "table_term_hits": 0,
+        "grid_line_count": 716,
+        "width": 595.32,
+        "height": 841.92,
+        "rotation": 0,
+        "word_count": 70,
+        "candidate_image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/pages-candidate/page-0005-150dpi.png"
+      },
+      {
+        "page": 6,
+        "candidate": false,
+        "reasons": [],
+        "table_term_hits": 0,
+        "grid_line_count": 8,
+        "width": 595.32,
+        "height": 841.92,
+        "rotation": 0,
+        "word_count": 318,
+        "candidate_image": null
+      },
+      {
+        "page": 7,
+        "candidate": false,
+        "reasons": [],
+        "table_term_hits": 0,
+        "grid_line_count": 12,
+        "width": 595.32,
+        "height": 841.92,
+        "rotation": 0,
+        "word_count": 151,
+        "candidate_image": null
+      },
+      {
+        "page": 8,
+        "candidate": false,
+        "reasons": [],
+        "table_term_hits": 0,
+        "grid_line_count": 8,
+        "width": 595.32,
+        "height": 841.92,
+        "rotation": 0,
+        "word_count": 47,
+        "candidate_image": null
+      },
+      {
+        "page": 9,
+        "candidate": false,
+        "reasons": [],
+        "table_term_hits": 0,
+        "grid_line_count": 12,
+        "width": 595.32,
+        "height": 841.92,
+        "rotation": 0,
+        "word_count": 165,
+        "candidate_image": null
+      },
+      {
+        "page": 10,
+        "candidate": true,
+        "reasons": [
+          "table_term",
+          "grid_geometry"
+        ],
+        "table_term_hits": 3,
+        "grid_line_count": 914,
+        "width": 595.32,
+        "height": 841.92,
+        "rotation": 0,
+        "word_count": 385,
+        "candidate_image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/pages-candidate/page-0010-150dpi.png"
+      },
+      {
+        "page": 11,
+        "candidate": true,
+        "reasons": [
+          "table_term",
+          "grid_geometry"
+        ],
+        "table_term_hits": 1,
+        "grid_line_count": 914,
+        "width": 595.32,
+        "height": 841.92,
+        "rotation": 0,
+        "word_count": 342,
+        "candidate_image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/pages-candidate/page-0011-150dpi.png"
+      },
+      {
+        "page": 12,
+        "candidate": false,
+        "reasons": [],
+        "table_term_hits": 0,
+        "grid_line_count": 8,
+        "width": 595.32,
+        "height": 841.92,
+        "rotation": 0,
+        "word_count": 354,
+        "candidate_image": null
+      },
+      {
+        "page": 13,
+        "candidate": true,
+        "reasons": [
+          "table_term"
+        ],
+        "table_term_hits": 2,
+        "grid_line_count": 8,
+        "width": 595.32,
+        "height": 841.92,
+        "rotation": 0,
+        "word_count": 58,
+        "candidate_image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/pages-candidate/page-0013-150dpi.png"
+      },
+      {
+        "page": 14,
+        "candidate": true,
+        "reasons": [
+          "table_term"
+        ],
+        "table_term_hits": 2,
+        "grid_line_count": 8,
+        "width": 595.32,
+        "height": 841.92,
+        "rotation": 0,
+        "word_count": 149,
+        "candidate_image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/pages-candidate/page-0014-150dpi.png"
+      },
+      {
+        "page": 15,
+        "candidate": false,
+        "reasons": [],
+        "table_term_hits": 0,
+        "grid_line_count": 16,
+        "width": 595.32,
+        "height": 841.92,
+        "rotation": 0,
+        "word_count": 99,
+        "candidate_image": null
+      },
+      {
+        "page": 16,
+        "candidate": true,
+        "reasons": [
+          "grid_geometry"
+        ],
+        "table_term_hits": 0,
+        "grid_line_count": 244,
+        "width": 595.32,
+        "height": 841.92,
+        "rotation": 0,
+        "word_count": 1956,
+        "candidate_image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/pages-candidate/page-0016-150dpi.png"
+      }
+    ]
+  },
+  "page_hashes": {
+    "page-0001.png": "4a22ccbe375bfd5c7a9348e2408f9a170c24071cfde50ae4d9b1736f18d26fd4",
+    "page-0002.png": "78e20217265c72bc5ae384e861bbf4b52be84955057997ac61c5f117e50b9635",
+    "page-0003.png": "d14c97739201e53a2abc0959903f9c7a3f18c0c403f556577daa0788a3e70480",
+    "page-0004.png": "c37335a5ee5525244b99fb591e22d67c38fb8a660af4ff34de4ab86ee1ca9b37",
+    "page-0005.png": "db7ed3d144187dfc0dd471117fc3f1c9052de7b68a5b6148282de7935ad68108",
+    "page-0006.png": "6c7afe7e26230156332082b286740c9e3b0def60bf8f07b2a7038e5e5f0a7a32",
+    "page-0007.png": "5ad185e13adea7a64300f1aa24ed5fa13cb705b67dc86cea0ae53de069673a4f",
+    "page-0008.png": "43006ae23410284f73fdf4f87f2672e8fa6be2371058e45fef6e8d699156c51a",
+    "page-0009.png": "de0bc0c20c422a7b7b95e1fb9e440c05d205d133525d97fa7afd7d6cd095d5dc",
+    "page-0010.png": "e0c5620c728c215baad9f51f81cdd05766ecee2ae5002faef7bf166b7a6196f7",
+    "page-0011.png": "01fe38b6a27feb0a597932ffcbb03cf1a1201a152caec74f4ca142fa50722523",
+    "page-0012.png": "8763798c95a160c6dbeef7350dd4479c2632bb84c5983f8194baa5d5ef274917",
+    "page-0013.png": "6545d0e850ea6a512cb7e938f63e7f8a75d576ec7f97b77f93836407377a5be1",
+    "page-0014.png": "d7889435647e65425d199d56e61e8d4809c93d56c2621fcab2dafc5a1e8b0cb7",
+    "page-0015.png": "94bee91b6a0dd2cea98d8110f3bbfad9e615311cce3061e272feb0a7784141d0",
+    "page-0016.png": "46ff081ac9e9649aae2ef9f736376d635069edd0bab53cf715274a93f7b2d223"
+  },
+  "contact_hashes": {
+    "contact-001.jpg": "3b13c16b42ce8c9bef22520af858c11f6d34091b70c54ffc161084cf7401099f",
+    "contact-002.jpg": "4cf03c1645ef56ea851642961a204b286dd43a4edecccfb5e5d50cc670a927ee",
+    "contact-003.jpg": "ec151fd053f86f06591f10bc963495570b48e60071bcd8b3234d282e3aa0c0b4"
+  }
+}

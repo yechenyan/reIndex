@@ -1,0 +1,84 @@
+{"command": "prepare", "started_at": "2026-08-04T01:09:00.300338+00:00", "ok": true, "ended_at": "2026-08-04T01:09:08.317278+00:00", "elapsed_seconds": 8.016844}
+{"command": "status", "started_at": "2026-08-04T01:09:08.473431+00:00", "ok": true, "ended_at": "2026-08-04T01:09:08.473489+00:00", "elapsed_seconds": 5.6e-05}
+{"command": "stage-start", "started_at": "2026-08-04T01:09:22.034501+00:00", "ok": true, "ended_at": "2026-08-04T01:09:22.034936+00:00", "elapsed_seconds": 0.000419}
+{"command": "stage-finish", "started_at": "2026-08-04T01:12:57.291890+00:00", "ok": true, "ended_at": "2026-08-04T01:12:57.292251+00:00", "elapsed_seconds": 0.000349}
+{"command": "audit-inventory", "started_at": "2026-08-04T01:12:57.435926+00:00", "ok": true, "ended_at": "2026-08-04T01:12:58.847589+00:00", "elapsed_seconds": 1.411648}
+{"command": "stage-start", "started_at": "2026-08-04T01:13:33.021919+00:00", "ok": true, "ended_at": "2026-08-04T01:13:33.022349+00:00", "elapsed_seconds": 0.000417}
+{"command": "stage-finish", "started_at": "2026-08-04T01:14:46.307655+00:00", "ok": true, "ended_at": "2026-08-04T01:14:46.308007+00:00", "elapsed_seconds": 0.00034}
+{"command": "audit-inventory", "started_at": "2026-08-04T01:14:46.458065+00:00", "ok": true, "ended_at": "2026-08-04T01:14:47.368806+00:00", "elapsed_seconds": 0.910729}
+{"command": "stage-start", "started_at": "2026-08-04T01:14:53.750195+00:00", "ok": true, "ended_at": "2026-08-04T01:14:53.750681+00:00", "elapsed_seconds": 0.000484}
+{"command": "stage-finish", "started_at": "2026-08-04T01:15:27.263782+00:00", "ok": true, "ended_at": "2026-08-04T01:15:27.264128+00:00", "elapsed_seconds": 0.000335}
+{"command": "audit-inventory", "started_at": "2026-08-04T01:15:27.398462+00:00", "ok": true, "ended_at": "2026-08-04T01:15:28.220513+00:00", "elapsed_seconds": 0.822067}
+{"command": "stage-start", "started_at": "2026-08-04T01:15:34.687532+00:00", "ok": true, "ended_at": "2026-08-04T01:15:34.687992+00:00", "elapsed_seconds": 0.000457}
+{"command": "stage-finish", "started_at": "2026-08-04T01:16:09.349550+00:00", "ok": true, "ended_at": "2026-08-04T01:16:09.349940+00:00", "elapsed_seconds": 0.000381}
+{"command": "audit-inventory", "started_at": "2026-08-04T01:16:09.489981+00:00", "ok": true, "ended_at": "2026-08-04T01:16:10.345290+00:00", "elapsed_seconds": 0.855298}
+{"command": "stage-start", "started_at": "2026-08-04T01:16:15.126857+00:00", "ok": true, "ended_at": "2026-08-04T01:16:15.127242+00:00", "elapsed_seconds": 0.000384}
+{"command": "stage-finish", "started_at": "2026-08-04T01:22:06.182711+00:00", "ok": true, "ended_at": "2026-08-04T01:22:06.183099+00:00", "elapsed_seconds": 0.000377}
+{"command": "audit-inventory", "started_at": "2026-08-04T01:22:06.336360+00:00", "ok": true, "ended_at": "2026-08-04T01:22:06.946060+00:00", "elapsed_seconds": 0.609691}
+{"command": "freeze-inventory", "started_at": "2026-08-04T01:22:07.082771+00:00", "ok": true, "ended_at": "2026-08-04T01:22:07.098991+00:00", "elapsed_seconds": 0.016219}
+{"command": "inspect", "started_at": "2026-08-04T01:22:07.231319+00:00", "ok": true, "ended_at": "2026-08-04T01:22:09.605401+00:00", "elapsed_seconds": 2.374053}
+{"command": "agent-briefs", "started_at": "2026-08-04T01:22:09.742315+00:00", "ok": true, "ended_at": "2026-08-04T01:22:09.744328+00:00", "elapsed_seconds": 0.002014}
+{"command": "stage-start", "started_at": "2026-08-04T01:22:53.017113+00:00", "ok": true, "ended_at": "2026-08-04T01:22:53.017562+00:00", "elapsed_seconds": 0.000438}
+{"command": "stage-start", "started_at": "2026-08-04T01:23:40.686487+00:00", "ok": true, "ended_at": "2026-08-04T01:23:40.686921+00:00", "elapsed_seconds": 0.000423}
+{"command": "scaffold-reference", "started_at": "2026-08-04T01:23:59.803097+00:00", "ok": true, "ended_at": "2026-08-04T01:23:59.866305+00:00", "elapsed_seconds": 0.063201}
+{"command": "stage-finish", "started_at": "2026-08-04T01:25:45.816734+00:00", "ok": true, "ended_at": "2026-08-04T01:25:45.817087+00:00", "elapsed_seconds": 0.000342}
+{"command": "plan-reference", "started_at": "2026-08-04T01:28:11.639182+00:00", "ok": false, "error": "ValueError: reference structure draft spec mismatch", "ended_at": "2026-08-04T01:28:11.639729+00:00", "elapsed_seconds": 0.000535}
+{"command": "plan-reference", "started_at": "2026-08-04T01:28:22.168111+00:00", "ok": false, "error": "ValueError: reference structure draft spec mismatch", "ended_at": "2026-08-04T01:28:22.168593+00:00", "elapsed_seconds": 0.000481}
+{"command": "plan-reference", "started_at": "2026-08-04T01:28:31.948793+00:00", "ok": false, "error": "ValueError: reference structure draft spec mismatch", "ended_at": "2026-08-04T01:28:31.949270+00:00", "elapsed_seconds": 0.000476}
+{"command": "plan-reference", "started_at": "2026-08-04T01:28:52.852176+00:00", "ok": false, "error": "ValueError: reference structure draft spec mismatch", "ended_at": "2026-08-04T01:28:52.852712+00:00", "elapsed_seconds": 0.000526}
+{"command": "plan-reference", "started_at": "2026-08-04T01:29:00.938686+00:00", "ok": true, "ended_at": "2026-08-04T01:29:00.951784+00:00", "elapsed_seconds": 0.013105}
+{"command": "freeze-reference", "started_at": "2026-08-04T01:30:28.204877+00:00", "ok": false, "error": "ValueError: reference sample values must match columns and be strings", "ended_at": "2026-08-04T01:30:28.212002+00:00", "elapsed_seconds": 0.007117}
+{"command": "freeze-reference", "started_at": "2026-08-04T01:31:05.661021+00:00", "ok": true, "ended_at": "2026-08-04T01:31:05.671792+00:00", "elapsed_seconds": 0.010759}
+{"command": "stage-finish", "started_at": "2026-08-04T01:31:51.256695+00:00", "ok": true, "ended_at": "2026-08-04T01:31:51.257180+00:00", "elapsed_seconds": 0.000473}
+{"command": "repair-scope", "started_at": "2026-08-04T01:31:51.519780+00:00", "ok": false, "error": "ValueError: phase 'reference_frozen' is not one of ('reviewed', 'complete')", "ended_at": "2026-08-04T01:31:51.520578+00:00", "elapsed_seconds": 0.000796}
+{"command": "begin-qa-repair", "started_at": "2026-08-04T01:31:51.649725+00:00", "ok": false, "error": "ValueError: phase 'reference_frozen' is not one of ('reviewed', 'complete')", "ended_at": "2026-08-04T01:31:51.649788+00:00", "elapsed_seconds": 6.1e-05}
+{"command": "agent-briefs", "started_at": "2026-08-04T01:31:51.781630+00:00", "ok": true, "ended_at": "2026-08-04T01:31:51.783585+00:00", "elapsed_seconds": 0.001955}
+{"command": "validate", "started_at": "2026-08-04T01:32:03.301170+00:00", "ok": true, "ended_at": "2026-08-04T01:32:03.736921+00:00", "elapsed_seconds": 0.435737}
+{"command": "stage-start", "started_at": "2026-08-04T01:32:27.341622+00:00", "ok": true, "ended_at": "2026-08-04T01:32:27.342213+00:00", "elapsed_seconds": 0.000399}
+{"command": "stage-finish", "started_at": "2026-08-04T01:32:27.493079+00:00", "ok": true, "ended_at": "2026-08-04T01:32:27.493416+00:00", "elapsed_seconds": 0.000332}
+{"command": "repair-scope", "started_at": "2026-08-04T01:32:27.626591+00:00", "ok": true, "ended_at": "2026-08-04T01:32:27.646366+00:00", "elapsed_seconds": 0.019778}
+{"command": "agent-briefs", "started_at": "2026-08-04T01:32:27.777833+00:00", "ok": true, "ended_at": "2026-08-04T01:32:27.779389+00:00", "elapsed_seconds": 0.001558}
+{"command": "stage-start", "started_at": "2026-08-04T01:32:31.954566+00:00", "ok": true, "ended_at": "2026-08-04T01:32:31.954795+00:00", "elapsed_seconds": 0.000227}
+{"command": "stage-finish", "started_at": "2026-08-04T01:33:47.798222+00:00", "ok": true, "ended_at": "2026-08-04T01:33:47.798999+00:00", "elapsed_seconds": 0.000584}
+{"command": "validate", "started_at": "2026-08-04T01:33:47.936571+00:00", "ok": true, "ended_at": "2026-08-04T01:33:48.495264+00:00", "elapsed_seconds": 0.558687}
+{"command": "stage-start", "started_at": "2026-08-04T01:34:04.348128+00:00", "ok": true, "ended_at": "2026-08-04T01:34:04.349010+00:00", "elapsed_seconds": 0.000869}
+{"command": "stage-finish", "started_at": "2026-08-04T01:34:04.498606+00:00", "ok": true, "ended_at": "2026-08-04T01:34:04.498880+00:00", "elapsed_seconds": 0.000271}
+{"command": "repair-scope", "started_at": "2026-08-04T01:34:04.642841+00:00", "ok": true, "ended_at": "2026-08-04T01:34:04.674423+00:00", "elapsed_seconds": 0.031589}
+{"command": "agent-briefs", "started_at": "2026-08-04T01:34:04.846786+00:00", "ok": true, "ended_at": "2026-08-04T01:34:04.848023+00:00", "elapsed_seconds": 0.001234}
+{"command": "stage-start", "started_at": "2026-08-04T01:34:08.724728+00:00", "ok": true, "ended_at": "2026-08-04T01:34:08.724965+00:00", "elapsed_seconds": 0.000235}
+{"command": "stage-finish", "started_at": "2026-08-04T01:36:03.493325+00:00", "ok": true, "ended_at": "2026-08-04T01:36:03.493800+00:00", "elapsed_seconds": 0.000461}
+{"command": "validate", "started_at": "2026-08-04T01:36:03.627473+00:00", "ok": true, "ended_at": "2026-08-04T01:36:04.094189+00:00", "elapsed_seconds": 0.466712}
+{"command": "stage-start", "started_at": "2026-08-04T01:36:19.417868+00:00", "ok": true, "ended_at": "2026-08-04T01:36:19.418479+00:00", "elapsed_seconds": 0.000607}
+{"command": "stage-finish", "started_at": "2026-08-04T01:36:19.551435+00:00", "ok": true, "ended_at": "2026-08-04T01:36:19.551728+00:00", "elapsed_seconds": 0.00029}
+{"command": "repair-scope", "started_at": "2026-08-04T01:36:19.687287+00:00", "ok": true, "ended_at": "2026-08-04T01:36:19.709114+00:00", "elapsed_seconds": 0.021829}
+{"command": "agent-briefs", "started_at": "2026-08-04T01:36:19.839022+00:00", "ok": true, "ended_at": "2026-08-04T01:36:19.840530+00:00", "elapsed_seconds": 0.001509}
+{"command": "stage-start", "started_at": "2026-08-04T01:36:19.970412+00:00", "ok": true, "ended_at": "2026-08-04T01:36:19.970619+00:00", "elapsed_seconds": 0.000205}
+{"command": "stage-finish", "started_at": "2026-08-04T01:38:20.780893+00:00", "ok": true, "ended_at": "2026-08-04T01:38:20.781623+00:00", "elapsed_seconds": 0.000537}
+{"command": "validate", "started_at": "2026-08-04T01:38:20.963762+00:00", "ok": true, "ended_at": "2026-08-04T01:38:21.420052+00:00", "elapsed_seconds": 0.456284}
+{"command": "stage-start", "started_at": "2026-08-04T01:38:44.096213+00:00", "ok": true, "ended_at": "2026-08-04T01:38:44.096858+00:00", "elapsed_seconds": 0.000634}
+{"command": "stage-finish", "started_at": "2026-08-04T01:40:46.377658+00:00", "ok": true, "ended_at": "2026-08-04T01:40:46.378546+00:00", "elapsed_seconds": 0.000703}
+{"command": "validate", "started_at": "2026-08-04T01:40:46.540601+00:00", "ok": true, "ended_at": "2026-08-04T01:40:46.994253+00:00", "elapsed_seconds": 0.45365}
+{"command": "begin-qa-repair", "started_at": "2026-08-04T01:40:56.234809+00:00", "ok": true, "ended_at": "2026-08-04T01:40:56.315765+00:00", "elapsed_seconds": 0.080957}
+{"command": "agent-briefs", "started_at": "2026-08-04T01:40:56.497082+00:00", "ok": true, "ended_at": "2026-08-04T01:40:56.498949+00:00", "elapsed_seconds": 0.001867}
+{"command": "stage-start", "started_at": "2026-08-04T01:40:56.639139+00:00", "ok": true, "ended_at": "2026-08-04T01:40:56.639380+00:00", "elapsed_seconds": 0.000235}
+{"command": "plan-reference", "started_at": "2026-08-04T01:43:07.702993+00:00", "ok": false, "error": "ValueError: reference structure draft spec mismatch", "ended_at": "2026-08-04T01:43:07.705651+00:00", "elapsed_seconds": 0.002648}
+{"command": "plan-reference", "started_at": "2026-08-04T01:43:16.725152+00:00", "ok": true, "ended_at": "2026-08-04T01:43:16.740315+00:00", "elapsed_seconds": 0.015163}
+{"command": "freeze-reference", "started_at": "2026-08-04T01:43:44.475170+00:00", "ok": true, "ended_at": "2026-08-04T01:43:44.489025+00:00", "elapsed_seconds": 0.013854}
+{"command": "stage-finish", "started_at": "2026-08-04T01:44:17.729672+00:00", "ok": true, "ended_at": "2026-08-04T01:44:17.730276+00:00", "elapsed_seconds": 0.000593}
+{"command": "validate", "started_at": "2026-08-04T01:44:17.863228+00:00", "ok": true, "ended_at": "2026-08-04T01:44:18.314374+00:00", "elapsed_seconds": 0.451141}
+{"command": "begin-qa-repair", "started_at": "2026-08-04T01:44:25.384232+00:00", "ok": true, "ended_at": "2026-08-04T01:44:25.465477+00:00", "elapsed_seconds": 0.081248}
+{"command": "stage-start", "started_at": "2026-08-04T01:44:25.597179+00:00", "ok": true, "ended_at": "2026-08-04T01:44:25.598287+00:00", "elapsed_seconds": 0.001108}
+{"command": "freeze-reference", "started_at": "2026-08-04T01:45:12.966564+00:00", "ok": true, "ended_at": "2026-08-04T01:45:12.978691+00:00", "elapsed_seconds": 0.012116}
+{"command": "stage-finish", "started_at": "2026-08-04T01:45:30.886964+00:00", "ok": true, "ended_at": "2026-08-04T01:45:30.887498+00:00", "elapsed_seconds": 0.000519}
+{"command": "validate", "started_at": "2026-08-04T01:45:31.021151+00:00", "ok": true, "ended_at": "2026-08-04T01:45:31.481245+00:00", "elapsed_seconds": 0.460089}
+{"command": "stage-finish", "started_at": "2026-08-04T01:46:29.066334+00:00", "ok": false, "error": "ValueError: run_id must identify one unfinished stage", "ended_at": "2026-08-04T01:46:29.066703+00:00", "elapsed_seconds": 0.00036}
+{"command": "render-pages", "started_at": "2026-08-04T01:46:29.202059+00:00", "ok": true, "ended_at": "2026-08-04T01:46:36.862594+00:00", "elapsed_seconds": 7.660456}
+{"command": "begin-qa-repair", "started_at": "2026-08-04T01:46:47.610131+00:00", "ok": true, "ended_at": "2026-08-04T01:46:47.694221+00:00", "elapsed_seconds": 0.084092}
+{"command": "stage-start", "started_at": "2026-08-04T01:46:47.821716+00:00", "ok": true, "ended_at": "2026-08-04T01:46:47.821959+00:00", "elapsed_seconds": 0.000242}
+{"command": "stage-finish", "started_at": "2026-08-04T01:49:46.655241+00:00", "ok": true, "ended_at": "2026-08-04T01:49:46.656025+00:00", "elapsed_seconds": 0.000764}
+{"command": "validate", "started_at": "2026-08-04T01:49:46.793650+00:00", "ok": false, "error": "ValueError: phase 'inspected' is not one of ('reference_frozen', 'reviewed')", "ended_at": "2026-08-04T01:49:46.794882+00:00", "elapsed_seconds": 0.001231}
+{"command": "begin-qa-repair", "started_at": "2026-08-04T01:49:46.930300+00:00", "ok": false, "error": "ValueError: phase 'inspected' is not one of ('reviewed', 'complete')", "ended_at": "2026-08-04T01:49:46.930371+00:00", "elapsed_seconds": 7e-05}
+{"command": "stage-start", "started_at": "2026-08-04T01:49:47.059580+00:00", "ok": true, "ended_at": "2026-08-04T01:49:47.060752+00:00", "elapsed_seconds": 0.001171}
+{"command": "stage-finish", "started_at": "2026-08-04T01:52:11.324437+00:00", "ok": true, "ended_at": "2026-08-04T01:52:11.325143+00:00", "elapsed_seconds": 0.000507}
+{"command": "status", "started_at": "2026-08-04T01:52:11.462872+00:00", "ok": true, "ended_at": "2026-08-04T01:52:11.463685+00:00", "elapsed_seconds": 0.000812}
+{"command": "metrics-report", "started_at": "2026-08-04T01:52:11.592086+00:00", "ok": true, "ended_at": "2026-08-04T01:52:11.593133+00:00", "elapsed_seconds": 0.001047}

@@ -1,0 +1,311 @@
+{
+  "spec": "pdf-extractor-pdf/finder-packet@1.0",
+  "instructions": "Review every contact-window page; freeze positional column_count without assuming a header, use candidate images first, and escalate only uncertain pages.",
+  "contact_windows": [
+    {
+      "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/contact-sheets/contact-001.jpg",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/contact-sheets/contact-002.jpg",
+      "pages": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/contact-sheets/contact-003.jpg",
+      "pages": [
+        15,
+        16,
+        17
+      ]
+    }
+  ],
+  "candidate_pages": [
+    4,
+    5,
+    6,
+    10,
+    13,
+    14,
+    16,
+    17
+  ],
+  "candidate_images": [
+    {
+      "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/pages-candidate/page-0004-150dpi.png",
+      "sha256": "34da360082ab9818b7e320fd8d002ac6a23c59ccf10742590b1e21311115dda8"
+    },
+    {
+      "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/pages-candidate/page-0005-150dpi.png",
+      "sha256": "4cd2cf74902f2e60054251bb7dd8996ed731c4c10bdab879dc15ff1ee625747d"
+    },
+    {
+      "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/pages-candidate/page-0006-150dpi.png",
+      "sha256": "f78aebcdaaecee33936a3085dff2107ae7bd654768214793ff12ad635b2a047b"
+    },
+    {
+      "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/pages-candidate/page-0010-150dpi.png",
+      "sha256": "1d7812ffbe171493eaca0b5d1ff2c86e8ed094661996d548e3ecc5dac67a2f4f"
+    },
+    {
+      "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/pages-candidate/page-0013-150dpi.png",
+      "sha256": "27ff1eb6da50887bfdf3a24f352c1c668feeea66ebadfdd9af11e6f462b81c5d"
+    },
+    {
+      "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/pages-candidate/page-0014-150dpi.png",
+      "sha256": "776502b2071dca57e8a2934ce3736718f7a252332802e94ec6ace7ac2b08f570"
+    },
+    {
+      "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/pages-candidate/page-0016-150dpi.png",
+      "sha256": "5c1e0c614b44bb53ca2b1db5e98c0e9b804c26c5f1fe2e4c62e5742841e2d265"
+    },
+    {
+      "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/pages-candidate/page-0017-150dpi.png",
+      "sha256": "c921ad3ae19f3fc7f9bdb673f4bb96359404003a2d16a8cf8d1b9d9198d5649d"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "candidate": false,
+      "reasons": [],
+      "table_term_hits": 0,
+      "grid_line_count": 0,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "word_count": 7,
+      "candidate_image": null
+    },
+    {
+      "page": 2,
+      "candidate": false,
+      "reasons": [],
+      "table_term_hits": 0,
+      "grid_line_count": 8,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "word_count": 57,
+      "candidate_image": null
+    },
+    {
+      "page": 3,
+      "candidate": false,
+      "reasons": [],
+      "table_term_hits": 0,
+      "grid_line_count": 4,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "word_count": 60,
+      "candidate_image": null
+    },
+    {
+      "page": 4,
+      "candidate": true,
+      "reasons": [
+        "grid_geometry"
+      ],
+      "table_term_hits": 0,
+      "grid_line_count": 516,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "word_count": 80,
+      "candidate_image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/pages-candidate/page-0004-150dpi.png"
+    },
+    {
+      "page": 5,
+      "candidate": true,
+      "reasons": [
+        "table_term"
+      ],
+      "table_term_hits": 5,
+      "grid_line_count": 4,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "word_count": 94,
+      "candidate_image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/pages-candidate/page-0005-150dpi.png"
+    },
+    {
+      "page": 6,
+      "candidate": true,
+      "reasons": [
+        "table_term",
+        "grid_geometry"
+      ],
+      "table_term_hits": 2,
+      "grid_line_count": 140,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "word_count": 326,
+      "candidate_image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/pages-candidate/page-0006-150dpi.png"
+    },
+    {
+      "page": 7,
+      "candidate": false,
+      "reasons": [],
+      "table_term_hits": 0,
+      "grid_line_count": 4,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "word_count": 119,
+      "candidate_image": null
+    },
+    {
+      "page": 8,
+      "candidate": false,
+      "reasons": [],
+      "table_term_hits": 0,
+      "grid_line_count": 4,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "word_count": 118,
+      "candidate_image": null
+    },
+    {
+      "page": 9,
+      "candidate": false,
+      "reasons": [],
+      "table_term_hits": 0,
+      "grid_line_count": 4,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "word_count": 24,
+      "candidate_image": null
+    },
+    {
+      "page": 10,
+      "candidate": true,
+      "reasons": [
+        "table_term",
+        "grid_geometry"
+      ],
+      "table_term_hits": 2,
+      "grid_line_count": 352,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "word_count": 251,
+      "candidate_image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/pages-candidate/page-0010-150dpi.png"
+    },
+    {
+      "page": 11,
+      "candidate": false,
+      "reasons": [],
+      "table_term_hits": 0,
+      "grid_line_count": 4,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "word_count": 372,
+      "candidate_image": null
+    },
+    {
+      "page": 12,
+      "candidate": false,
+      "reasons": [],
+      "table_term_hits": 0,
+      "grid_line_count": 4,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "word_count": 83,
+      "candidate_image": null
+    },
+    {
+      "page": 13,
+      "candidate": true,
+      "reasons": [
+        "table_term",
+        "grid_geometry"
+      ],
+      "table_term_hits": 2,
+      "grid_line_count": 232,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "word_count": 311,
+      "candidate_image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/pages-candidate/page-0013-150dpi.png"
+    },
+    {
+      "page": 14,
+      "candidate": true,
+      "reasons": [
+        "table_term",
+        "grid_geometry"
+      ],
+      "table_term_hits": 2,
+      "grid_line_count": 232,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "word_count": 254,
+      "candidate_image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/pages-candidate/page-0014-150dpi.png"
+    },
+    {
+      "page": 15,
+      "candidate": false,
+      "reasons": [],
+      "table_term_hits": 0,
+      "grid_line_count": 8,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "word_count": 90,
+      "candidate_image": null
+    },
+    {
+      "page": 16,
+      "candidate": true,
+      "reasons": [
+        "grid_geometry"
+      ],
+      "table_term_hits": 0,
+      "grid_line_count": 2576,
+      "width": 841.92,
+      "height": 595.32,
+      "rotation": 0,
+      "word_count": 364,
+      "candidate_image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/pages-candidate/page-0016-150dpi.png"
+    },
+    {
+      "page": 17,
+      "candidate": true,
+      "reasons": [
+        "table_term",
+        "grid_geometry"
+      ],
+      "table_term_hits": 1,
+      "grid_line_count": 1872,
+      "width": 841.92,
+      "height": 595.32,
+      "rotation": 0,
+      "word_count": 273,
+      "candidate_image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/pages-candidate/page-0017-150dpi.png"
+    }
+  ]
+}

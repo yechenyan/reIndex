@@ -1,0 +1,900 @@
+{
+  "spec": "pdf-extractor-pdf/reference-draft@1.0",
+  "role": "qa_agent",
+  "independent_from_extractor": true,
+  "source_evidence_only": true,
+  "source_sha256": "fa05fea873a98ae45e11128fc12c4f4bec6cad1f5dfaf27e5de351ea4634c89a",
+  "inventory_sha256": "0f3c9e49d32b72ed748b7837651b485a654fe9db2211cd620998be0d3105474c",
+  "tables": [
+    {
+      "id": "table-16",
+      "columns": [
+        "lfd. Nr.",
+        "Maßnahme",
+        "kurze Projektbeschreibung",
+        "Projektkategorie",
+        "Betriebsmittel",
+        "Länge des zugebauten, optimierten oder ersetzten Leitungsabschnitts",
+        "Änderung der Übertragungskapazität",
+        "netztechnische Begründung für den Netzausbau (Kurzbeschreibung)",
+        "netztechnische Begründung für den Netzausbau (Grund)",
+        "Erfolgt diese Netzausbaumaßnahme, um einen bereits bestehenden Engpass zu beheben?",
+        "Erfolgt diese Netzausbaumaßnahme, um einen prognostizierten Engpass vorzubeugen?",
+        "benötigt bis",
+        "voraussichtlicher Zeitpunkt des Baubeginns",
+        "voraussichtlicher Zeitpunkt der Inbetriebnahme",
+        "geschätzte Kosten",
+        "Projektstatus",
+        "Teilnetzgebiet"
+      ],
+      "row_count": 565,
+      "segment_row_counts": [
+        57,
+        57,
+        57,
+        57,
+        57,
+        57,
+        57,
+        57,
+        57,
+        52
+      ],
+      "line_wrap_decisions": [
+        {
+          "id": "wrap-4ac19f052b91",
+          "line_end": "zuge-",
+          "next_line_start": "Länge",
+          "decision": "remove",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 25,
+              "block": 1,
+              "line": 0,
+              "bbox": [
+                57.36941909790039,
+                695.5780029296875,
+                61.450469970703125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-01-3f667990151d-page-0025.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 26,
+              "block": 1,
+              "line": 0,
+              "bbox": [
+                57.36941909790039,
+                695.5780029296875,
+                61.450469970703125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-02-31a5c7abda70-page-0026.png"
+            },
+            {
+              "segment_id": "segment-03",
+              "page": 27,
+              "block": 1,
+              "line": 0,
+              "bbox": [
+                57.36941909790039,
+                695.5780029296875,
+                61.450469970703125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-03-2d84de5e1b07-page-0027.png"
+            },
+            {
+              "segment_id": "segment-04",
+              "page": 28,
+              "block": 1,
+              "line": 0,
+              "bbox": [
+                57.36941909790039,
+                695.5780029296875,
+                61.450469970703125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-04-0669ab092ef9-page-0028.png"
+            },
+            {
+              "segment_id": "segment-05",
+              "page": 29,
+              "block": 1,
+              "line": 0,
+              "bbox": [
+                57.36941909790039,
+                695.5780029296875,
+                61.450469970703125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-05-9a954c7747c2-page-0029.png"
+            },
+            {
+              "segment_id": "segment-06",
+              "page": 30,
+              "block": 1,
+              "line": 0,
+              "bbox": [
+                57.36941909790039,
+                695.5780029296875,
+                61.450469970703125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-06-97056fcaaa4c-page-0030.png"
+            },
+            {
+              "segment_id": "segment-07",
+              "page": 31,
+              "block": 1,
+              "line": 0,
+              "bbox": [
+                57.36941909790039,
+                695.5780029296875,
+                61.450469970703125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-07-acbd9c944e39-page-0031.png"
+            },
+            {
+              "segment_id": "segment-08",
+              "page": 32,
+              "block": 1,
+              "line": 0,
+              "bbox": [
+                57.36941909790039,
+                695.5780029296875,
+                61.450469970703125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-08-05d16265c1b2-page-0032.png"
+            },
+            {
+              "segment_id": "segment-09",
+              "page": 33,
+              "block": 1,
+              "line": 0,
+              "bbox": [
+                57.36941909790039,
+                695.5780029296875,
+                61.450469970703125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-09-04c4d9b5e87a-page-0033.png"
+            },
+            {
+              "segment_id": "segment-10",
+              "page": 34,
+              "block": 1,
+              "line": 0,
+              "bbox": [
+                57.36941909790039,
+                695.5780029296875,
+                61.450469970703125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-10-ad9ad52655d7-page-0034.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-ca115342d54d",
+          "line_end": "Übertragungs-",
+          "next_line_start": "oder",
+          "decision": "keep",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 25,
+              "block": 6,
+              "line": 0,
+              "bbox": [
+                69.0096664428711,
+                655.7550659179688,
+                73.09112548828125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-01-3f667990151d-page-0025.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 26,
+              "block": 6,
+              "line": 0,
+              "bbox": [
+                69.0096664428711,
+                655.7550659179688,
+                73.09112548828125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-02-31a5c7abda70-page-0026.png"
+            },
+            {
+              "segment_id": "segment-03",
+              "page": 27,
+              "block": 6,
+              "line": 0,
+              "bbox": [
+                69.0096664428711,
+                655.7550659179688,
+                73.09112548828125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-03-2d84de5e1b07-page-0027.png"
+            },
+            {
+              "segment_id": "segment-04",
+              "page": 28,
+              "block": 6,
+              "line": 0,
+              "bbox": [
+                69.0096664428711,
+                655.7550659179688,
+                73.09112548828125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-04-0669ab092ef9-page-0028.png"
+            },
+            {
+              "segment_id": "segment-05",
+              "page": 29,
+              "block": 6,
+              "line": 0,
+              "bbox": [
+                69.0096664428711,
+                655.7550659179688,
+                73.09112548828125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-05-9a954c7747c2-page-0029.png"
+            },
+            {
+              "segment_id": "segment-06",
+              "page": 30,
+              "block": 6,
+              "line": 0,
+              "bbox": [
+                69.0096664428711,
+                655.7550659179688,
+                73.09112548828125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-06-97056fcaaa4c-page-0030.png"
+            },
+            {
+              "segment_id": "segment-07",
+              "page": 31,
+              "block": 6,
+              "line": 0,
+              "bbox": [
+                69.0096664428711,
+                655.7550659179688,
+                73.09112548828125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-07-acbd9c944e39-page-0031.png"
+            },
+            {
+              "segment_id": "segment-08",
+              "page": 32,
+              "block": 6,
+              "line": 0,
+              "bbox": [
+                69.0096664428711,
+                655.7550659179688,
+                73.09112548828125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-08-05d16265c1b2-page-0032.png"
+            },
+            {
+              "segment_id": "segment-09",
+              "page": 33,
+              "block": 6,
+              "line": 0,
+              "bbox": [
+                69.0096664428711,
+                655.7550659179688,
+                73.09112548828125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-09-04c4d9b5e87a-page-0033.png"
+            },
+            {
+              "segment_id": "segment-10",
+              "page": 34,
+              "block": 6,
+              "line": 0,
+              "bbox": [
+                69.0096664428711,
+                655.7550659179688,
+                73.09112548828125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-10-ad9ad52655d7-page-0034.png"
+            }
+          ]
+        }
+      ],
+      "samples": [
+        {
+          "row_index": 0,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "7",
+            "N Beetzsee Nord) N",
+            "eubau der vorhandenen Freileitungstrasse Ü eubau der vorhandenen Freileitungstrasse und Netzverstärkung mittels                 E",
+            "H bertragungskapazität rsatz(neubau) mit Erhöhung der",
+            "S-Freileitu",
+            "ng",
+            "42 km",
+            "277 MVA",
+            "Freileitungsneubau auf vorhandener Trasse",
+            "Zubau EE-Anlagen Engpa Ja, u",
+            "ss zu beheben                     Engpa m einen erzeugungsbedingten       Ja, u",
+            "ss vorzubeugen m einem erzeugungsbedingten",
+            "2024",
+            "01/2027",
+            "12/2031",
+            "27.300.000 €",
+            "vorgesehene Maßnahme"
+          ]
+        },
+        {
+          "row_index": 1,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "10",
+            "HS-Freileitung Siedenbrünzow - Grimmen H HS-Freileitung Angermünde-Schwedt-Vierraden (Abschnitt Angermünde -",
+            "ochtemperaturleiterseil                                                              Ü E",
+            "H bertragungskapazität rsatz(neubau) mit Erhöhung der",
+            "S-Freileitu",
+            "ng",
+            "27 km",
+            "319 MVA",
+            "Freileitungsneubau auf vorhandener Trasse",
+            "Zubau EE-Anlagen Engpa Ja, u",
+            "ss zu beheben                     Engpa m einen erzeugungsbedingten       Ja, u",
+            "ss vorzubeugen m einem erzeugungsbedingten",
+            "2028",
+            "01/2027",
+            "12/2029",
+            "17.900.000 €",
+            "konkrete Planung"
+          ]
+        },
+        {
+          "row_index": 56,
+          "reasons": [
+            "segment_boundary_before"
+          ],
+          "values": [
+            "151",
+            "HS-Freileitung Bentwisch - Riekdahl                                         N GmbH Str. 60, 15517 Fürstenwalde/Spree, www.e-dis-netz.de",
+            "eubau der vorhandenen Freileitungstrasse Ü",
+            "H bertragungskapazität",
+            "S-Freileitu",
+            "ng",
+            "2 km",
+            "56 MVA",
+            "Freileitungsneubau auf vorhandener Trasse",
+            "Zubau Verbraucher                   Nein",
+            "Nein",
+            "",
+            "2027",
+            "01/2029",
+            "12/2029",
+            "2.000.000 €",
+            "vorgesehene Maßnahme"
+          ]
+        },
+        {
+          "row_index": 57,
+          "reasons": [
+            "segment_boundary_after"
+          ],
+          "values": [
+            "152",
+            "UW Karlshagen                                                      Ersatzneub",
+            "au des vorhandenen HS/MS-Umspannwerkes Übertragun Ersatz(neu",
+            "HS/MS-Umsp gskapazität bau) mit Erhöhung der",
+            "annwerk",
+            "-",
+            "",
+            "- Kurzschlu Ersatzneu",
+            "Zubau Erz ssfestigkeit bau der HS-Schaltanlage auf eine höhere Übertragungs- und",
+            "eugung und Verbrauch       Nein",
+            "Nein",
+            "2025",
+            "04/2023",
+            "12/2025",
+            "5.500.00",
+            "0 €   im Bau",
+            "Mecklenbu"
+          ]
+        },
+        {
+          "row_index": 113,
+          "reasons": [
+            "segment_boundary_before"
+          ],
+          "values": [
+            "241",
+            "UW Berlin/Südost                                                   Neubau ein GmbH Str. 60, 15517 Fürstenwalde/Spree, www.e-dis-netz.de",
+            "er neuen HS-Schaltanlage zum ÜNB                                            Neubau",
+            "HS-Schalta",
+            "nlage zum Ü",
+            "NB                     -",
+            "",
+            "-   Neuerrich",
+            "tung einer HöS/HS-Netzschnittstelle zum ÜNB                                   Zubau Ver",
+            "braucher Engpass zu beh",
+            "eben                     Engpass vorzub",
+            "2028 eugen",
+            "01/2027",
+            "12/2028",
+            "10.000.00",
+            "0 €   konkrete",
+            "Planung        Brandenbu"
+          ]
+        },
+        {
+          "row_index": 114,
+          "reasons": [
+            "segment_boundary_after"
+          ],
+          "values": [
+            "242",
+            "UW Genshagen",
+            "Neubau einer neuen HS-Schaltanlage für den Anschluss von Kundenanlagen               N",
+            "eubau                            H",
+            "S-Schaltanl",
+            "age",
+            "-",
+            "-",
+            "Neuerrichtung einer HS-Schaltanlage im Industriegebiet Ludwigsfelde",
+            "Zubau Verbraucher En",
+            "gpass zu beheben                     En",
+            "gpass vorzubeugen",
+            "2026",
+            "10/2025",
+            "12/2028",
+            "14.000.000 €",
+            "konkrete Planung"
+          ]
+        },
+        {
+          "row_index": 170,
+          "reasons": [
+            "segment_boundary_before"
+          ],
+          "values": [
+            "298",
+            "Trenntransformatoren UW Freienbrink GmbH Str. 60, 15517 Fürstenwalde/Spree, www.e-dis-netz.de",
+            "Errichtung von zwei Trenntransformatoren                                             N",
+            "eubau                            H",
+            "S/HS-Transf",
+            "ormator",
+            "-",
+            "400 MVA",
+            "HS-Netztrennung mittels Trenntrafo (RESPE/NOSPE)",
+            "Zubau Verbraucher                   Ne",
+            "in En",
+            "gpass vorzubeugen",
+            "2030",
+            "01/2029",
+            "12/2030",
+            "10.000.000 €",
+            "konkrete Planung"
+          ]
+        },
+        {
+          "row_index": 171,
+          "reasons": [
+            "segment_boundary_after"
+          ],
+          "values": [
+            "299",
+            "Trenntransformatoren SP Rietz                              Errichtung von dre",
+            "i Trenntransformatoren                                          Neubau",
+            "HS/HS-Transformator",
+            "",
+            "-        600 MVA",
+            "HS-Net",
+            "ztrennung mitte",
+            "ls Trenntrafo (RESPE/NOSPE)                                        Zubau EE-Anlagen",
+            "Nein Ja, um einen verbrauchsbe",
+            "Engpass vorzubeugen dingten       Ja, um einem erzeugungsbe",
+            "2033           01/20 dingten",
+            "31",
+            "12/2033            1",
+            "5.000.000 €   vorge",
+            "sehene Maßnahme",
+            "Brandenburg"
+          ]
+        },
+        {
+          "row_index": 227,
+          "reasons": [
+            "segment_boundary_before"
+          ],
+          "values": [
+            "355",
+            "HS-E-Spule UW Falkensee Süd                                Neuerrichtung eine GmbH Str. 60, 15517 Fürstenwalde/Spree, www.e-dis-netz.de",
+            "r HS-Petersenspule im RESPE-Netz                                Neubau",
+            "HS-Petersenspule",
+            "",
+            "-",
+            "- Netz",
+            "",
+            "Zubau Erzeugung und",
+            "Verbrauch       Nein",
+            "erzeugungsbedingt)",
+            "2033           01/20",
+            "33",
+            "12/2033",
+            "350.000 €   vorge",
+            "sehene Maßnahme",
+            "Brandenburg"
+          ]
+        },
+        {
+          "row_index": 228,
+          "reasons": [
+            "segment_boundary_after"
+          ],
+          "values": [
+            "356",
+            "HS-E-Spule UW Greifswald                                Neuerrichtung einer H",
+            "S-Petersenspule im RESPE-Netz                                    Neubau             HS",
+            "-Petersenspule",
+            "-",
+            "- Netz Ausbau",
+            "der Spulenkap",
+            "azität im HS-Ne",
+            "Zubau Erzeugung und Verbrauch tz zur Gewährleistung der Löschfähigkeit im RESPE-",
+            "Nein",
+            "erzeugungsbedingt) Ja, beides (verbrauchsbedingt und",
+            "2033           01/2033",
+            "12/2033",
+            "350.000 €",
+            "vorgesehene Maßnahm",
+            "e   Mecklenburg",
+            "-Vorpommern"
+          ]
+        },
+        {
+          "row_index": 282,
+          "reasons": [
+            "middle_row"
+          ],
+          "values": [
+            "412",
+            "HS-Kabel Grünow-Basedow                                 Neubau eines Erdkabel GmbH Str. 60, 15517 Fürstenwalde/Spree, www.e-dis-netz.de",
+            "s auf neuer Trasse                                               Neubau             HS",
+            "-Erdkabel",
+            "13 km",
+            "400 MVA        Neuerr",
+            "ichtung eines",
+            "HS-Kabelsysteme",
+            "Zubau EE-Anlagen",
+            "Engpass zu beheben",
+            "Engpass vorzubeugen",
+            "2033           01/2031",
+            "12/2033",
+            "18.200.000 €",
+            "vorgesehene Maßnahm",
+            "e   Brandenburg",
+            ""
+          ]
+        },
+        {
+          "row_index": 284,
+          "reasons": [
+            "segment_boundary_before"
+          ],
+          "values": [
+            "414",
+            "UW Seddin Süd                                           Neuerrichtung einer H",
+            "S-Schaltanlage zum ÜNB südlich von Geltow                        Neubau",
+            "HS-Schaltanlage zum Ü",
+            "NB",
+            "-",
+            "-   Neuer",
+            "richtung einer",
+            "HöS/HS-Netzschnittstelle zum ÜNB                                Zubau Verbraucher",
+            "Nein",
+            "Engpass vorzubeugen Ja, um einem verbrauchsbedin",
+            "2033           01/2031 gten",
+            "12/",
+            "2033             6.5",
+            "00.000 €   vorgeseh",
+            "ene Maßnahme",
+            "Brandenburg"
+          ]
+        },
+        {
+          "row_index": 285,
+          "reasons": [
+            "segment_boundary_after"
+          ],
+          "values": [
+            "415",
+            "UW Mahlow                                               Neuerrichtung einer H",
+            "S-Schaltanlage zum ÜNB östlich von Großbeeren                    Neubau",
+            "HS-Schaltanlage zum Ü",
+            "NB",
+            "-",
+            "-   Neuer",
+            "richtung einer",
+            "HöS/HS-Netzschnittstelle zum ÜNB                                Zubau Verbraucher",
+            "Nein",
+            "Engpass vorzubeugen Ja, um einem verbrauchsbedin",
+            "2029           01/2028 gten",
+            "12/",
+            "2029             8.0",
+            "00.000 €   vorgeseh",
+            "ene Maßnahme",
+            "Brandenburg"
+          ]
+        },
+        {
+          "row_index": 341,
+          "reasons": [
+            "segment_boundary_before"
+          ],
+          "values": [
+            "471",
+            "Neubau UW (Suchraum Schönberg)                          UW-Neubau zur Entlast",
+            "ung des Bestands-UW   Neubau             HS/MS-Umspannwerk                     -",
+            "80 MVA    Leistungsentwicklung",
+            "erfordert d",
+            "en Ausbau der HS/MS-Umspann",
+            "ebene   Zubau",
+            "Erzeugung und V",
+            "erbrauch       Nein erzeugungsbedingt) Ja, beides (verbrauchsbedingt und",
+            "2033           01/2031",
+            "12/2033             9.000.000 €   vo",
+            "rgesehene Maßnahme   Mecklenburg-Vorp",
+            "ommern",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_index": 342,
+          "reasons": [
+            "segment_boundary_after"
+          ],
+          "values": [
+            "472",
+            "Neubau UW (Suchraum Schönberg)                          UW-Neubau zur Entlast",
+            "ung des Bestands-UW   Neubau             HS/MS-Umspannwerk                     -",
+            "80 MVA    Leistungsentwicklung",
+            "erfordert d",
+            "en Ausbau der HS/MS-Umspann",
+            "ebene   Zubau",
+            "Erzeugung und V",
+            "erbrauch       Nein erzeugungsbedingt) Ja, beides (verbrauchsbedingt und",
+            "2033           01/2031",
+            "12/2033             9.000.000 €   vo",
+            "rgesehene Maßnahme   Mecklenburg-Vorp",
+            "ommern",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_index": 398,
+          "reasons": [
+            "segment_boundary_before"
+          ],
+          "values": [
+            "528",
+            "Neubau UW (Suchraum Dahlwitz-Hoppegarten)               UW-Neubau zur Entlast",
+            "ung des Bestands-UW   Neubau             HS/MS-Umspannwerk                     -",
+            "80 MVA    Leistungsentwicklung",
+            "erfordert d",
+            "en Ausbau der HS/MS-Umspann",
+            "ebene   Zubau",
+            "Erzeugung und V",
+            "erbrauch       Nein erzeugungsbedingt) Ja, beides (verbrauchsbedingt und",
+            "2028           01/2027",
+            "12/2028             9.000.000 €   vo",
+            "rgesehene Maßnahme   Brandenburg",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_index": 399,
+          "reasons": [
+            "segment_boundary_after"
+          ],
+          "values": [
+            "529",
+            "Neubau UW (Suchraum Briesen Dorf)                       UW-Neubau zur Entlast",
+            "ung des Bestands-UW   Neubau             HS/MS-Umspannwerk                     -",
+            "80 MVA    Leistungsentwicklung",
+            "erfordert d",
+            "en Ausbau der HS/MS-Umspann",
+            "ebene   Zubau",
+            "Erzeugung und V",
+            "erbrauch       Nein erzeugungsbedingt) Ja, beides (verbrauchsbedingt und",
+            "2033           01/2031",
+            "12/2033             9.000.000 €   vo",
+            "rgesehene Maßnahme   Brandenburg",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_index": 455,
+          "reasons": [
+            "segment_boundary_before"
+          ],
+          "values": [
+            "585",
+            "Neubau UW (Suchraum Erkner)                             UW-Neubau zur Entlast",
+            "ung des Bestands-UW                                Neubau             HS/MS-Umspannwer",
+            "k                     -         80",
+            "MVA    Lei",
+            "stungsentwicklung erfordert",
+            "den Ausbau de",
+            "r HS/MS-Umspann",
+            "ebene   Zubau Erzeugung und Verbrauch       Nein erze Ja,",
+            "203 ugungsbedingt) beides (verbrauchsbedingt und",
+            "3           01/2031             12/2033",
+            "9.000.000 €   vorgesehen",
+            "e Maßnahme   Br",
+            "andenburg",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_index": 456,
+          "reasons": [
+            "segment_boundary_after"
+          ],
+          "values": [
+            "586",
+            "Neubau UW (Suchraum Garz)                               UW-Neubau zur Entlast",
+            "ung des Bestands-UW                                Neubau             HS/MS-Umspannwer",
+            "k                     -         80",
+            "MVA    Lei",
+            "stungsentwicklung erfordert",
+            "den Ausbau de",
+            "r HS/MS-Umspann",
+            "ebene   Zubau Erzeugung und Verbrauch       Nein erze Ja,",
+            "203 ugungsbedingt) beides (verbrauchsbedingt und",
+            "3           01/2031             12/2033",
+            "9.000.000 €   vorgesehen",
+            "e Maßnahme   Me",
+            "cklenburg-Vorpommern",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_index": 512,
+          "reasons": [
+            "segment_boundary_before"
+          ],
+          "values": [
+            "641",
+            "Neubau UW (Suchraum Treuenbrietzen)                     Erweiterung des Besta",
+            "nds-UW mit einem zusätlichen HS/MS-Transformator    Neubau             HS/MS-Umspannwe",
+            "rk                           -",
+            "40 MVA",
+            "Leistungsentwicklun",
+            "g erfordert de",
+            "n Ausbau der HS",
+            "/MS-Umspannebene   Zubau Erzeugung und Verbrauch       Nein",
+            "erzeugungsbedingt) Ja, beides (verbrauchsbedingt und",
+            "2033           01/2031",
+            "12/2033             2.200.000 €",
+            "vorgesehene Ma",
+            "ßnahme   Brandenburg",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_index": 513,
+          "reasons": [
+            "segment_boundary_after"
+          ],
+          "values": [
+            "642",
+            "Neubau UW (Suchraum Walsleben)                          Erweiterung des Besta",
+            "nds-UW mit einem zusätlichen HS/MS-Transformator    Neubau             HS/MS-Umspannwe",
+            "rk                           -",
+            "40 MVA",
+            "Leistungsentwicklun",
+            "g erfordert de",
+            "n Ausbau der HS",
+            "/MS-Umspannebene   Zubau Erzeugung und Verbrauch       Nein",
+            "erzeugungsbedingt) Ja, beides (verbrauchsbedingt und",
+            "2033           01/2031",
+            "12/2033             2.200.000 €",
+            "vorgesehene Ma",
+            "ßnahme   Brandenburg",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_index": 563,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "691",
+            "UW Putlitz Süd                                          Erweiterung der HS-Sc",
+            "haltanlage zum ÜNB                                  Neubau             HS-Schaltanlage",
+            "zum ÜNB                     -",
+            "",
+            "-   Erweiterung der vor",
+            "handenen HöS/H",
+            "S-Netzschnittst",
+            "elle zum ÜNB       Zubau EE-Anlagen Engpass zu beheben Ja, um einen erzeugungsbedingten",
+            "Engpass vorzubeugen Ja, um einem erzeugungsbedingten",
+            "2033           01/2031",
+            "12/2033             2.500.000 €",
+            "vorgesehene Ma",
+            "ßnahme   Brandenburg",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_index": 564,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "692",
+            "UW Schönewalde/Süd                                      Erweiterung der HS-Sc GmbH Str. 60, 15517 Fürstenwalde/Spree, www.e-dis-netz.de",
+            "haltanlage zum ÜNB                                  Neubau             HS-Schaltanlage",
+            "zum ÜNB                     -",
+            "",
+            "-   Erweiterung der vor",
+            "handenen HöS/H",
+            "S-Netzschnittst",
+            "elle zum ÜNB       Zubau EE-Anlagen Engpass zu beheben",
+            "Engpass vorzubeugen",
+            "2033           01/2031",
+            "12/2033             2.500.000 €",
+            "vorgesehene Ma",
+            "ßnahme   Brandenburg",
+            "",
+            "",
+            ""
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -5,12 +5,13 @@ evidence_dir: ./evidence
 inventory: ./evidence/inventory.json
 reference: ./evidence/reference.json
 output_dir: ../output
-request: "Extract all tables from the source PDF into CSV files with conservative source-faithful values and row-level provenance."
+request: "Extract all tables into project-local output. Header-neutral matrix: inventory freezes positional column_count; result returns column_count plus rows; row 0 ordinary source row; CSV has no separate header. Do not invent column names. Explicitly account continuation duplicate leading rows."
 evidence:
   thumbnail_dpi: 72
   contact_columns: 4
   contact_pages: 8
   contact_overlap_pages: 1
+  finder_candidate_dpi: 150
   table_dpi: 220
 policy:
   scope: full_document

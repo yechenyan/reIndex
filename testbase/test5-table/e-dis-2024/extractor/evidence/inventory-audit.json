@@ -1,0 +1,565 @@
+{
+  "spec": "pdf-extractor-pdf/inventory-audit@2.0",
+  "source_sha256": "fa05fea873a98ae45e11128fc12c4f4bec6cad1f5dfaf27e5de351ea4634c89a",
+  "draft_sha256": "7898a9f9811a90d4becf4e139c97b3e7a2bf8924b313c8c4be3a77aee6164a6f",
+  "passed": true,
+  "review_path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/inventory-review.json",
+  "review_sha256": "3a8c91f3646e4880e6778f08d165def85bee4e3a9e097001d6208e7b5abb22ad",
+  "instructions": "Fix blocking bboxes, then set visible=true and all four edges in inventory-review.json; overlay hashes are code-bound.",
+  "segments": [
+    {
+      "table_id": "table-01",
+      "segment_id": "segment-01",
+      "page": 8,
+      "bbox": [
+        68,
+        195,
+        525,
+        378
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/inventory-overlays/table-01/segment-01-9cf2e01978df-page-0008.png",
+      "overlay_sha256": "183265eb9822671874f5df5045a8d6d4ecf4b6ddde994315b825e8e1c7ccfc2d",
+      "blocking_signals": [],
+      "advisory_signals": [],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-02",
+      "segment_id": "segment-01",
+      "page": 8,
+      "bbox": [
+        68,
+        390,
+        525,
+        573
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/inventory-overlays/table-02/segment-01-c0e801cd51ce-page-0008.png",
+      "overlay_sha256": "3e72c0d56d05978241ccbae2c04486826456dc013f487598da057ea0c827b02b",
+      "blocking_signals": [],
+      "advisory_signals": [],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-03",
+      "segment_id": "segment-01",
+      "page": 9,
+      "bbox": [
+        68,
+        140,
+        498,
+        215
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/inventory-overlays/table-03/segment-01-3c506465fc66-page-0009.png",
+      "overlay_sha256": "1693142b59179ea2c3eb028fed5daf00da86fa36548b1c98a3478d4c1fc88ff7",
+      "blocking_signals": [],
+      "advisory_signals": [],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-04",
+      "segment_id": "segment-01",
+      "page": 9,
+      "bbox": [
+        68,
+        474,
+        498,
+        600
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/inventory-overlays/table-04/segment-01-d77aea7c5a16-page-0009.png",
+      "overlay_sha256": "c5eabb31b36381f2b6f71a3f71aba05e3096e0c59d51ea4ac68a2ddec876ab58",
+      "blocking_signals": [],
+      "advisory_signals": [],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-05",
+      "segment_id": "segment-01",
+      "page": 9,
+      "bbox": [
+        66.0,
+        613.471,
+        500.0,
+        745.0
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/inventory-overlays/table-05/segment-01-ef1afb84a2b0-page-0009.png",
+      "overlay_sha256": "e3b3b7ff508760760c1b4b810716aaa2cae5c05e8b429cb1badbd446305507ad",
+      "blocking_signals": [],
+      "advisory_signals": [],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-06",
+      "segment_id": "segment-01",
+      "page": 10,
+      "bbox": [
+        68,
+        5,
+        498,
+        225
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/inventory-overlays/table-06/segment-01-156ef4bb5645-page-0010.png",
+      "overlay_sha256": "ab9c98e8ede062fc460986f7a946588a100d1dca4bac7d3a908f2746cbcd7422",
+      "blocking_signals": [],
+      "advisory_signals": [],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-07",
+      "segment_id": "segment-01",
+      "page": 10,
+      "bbox": [
+        68,
+        238,
+        498,
+        366
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/inventory-overlays/table-07/segment-01-11cb94c91634-page-0010.png",
+      "overlay_sha256": "05e7016e23b82932df059cc11252bc6ac56719a73f276a836d0b408de037851c",
+      "blocking_signals": [],
+      "advisory_signals": [],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-08",
+      "segment_id": "segment-01",
+      "page": 13,
+      "bbox": [
+        68,
+        602,
+        520,
+        746
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/inventory-overlays/table-08/segment-01-b9c05b7ec753-page-0013.png",
+      "overlay_sha256": "e30982ae1ab8e16930f4f4ea0cbf46ce4de432302d53af5db767971c5e959f6b",
+      "blocking_signals": [],
+      "advisory_signals": [],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-09",
+      "segment_id": "segment-01",
+      "page": 14,
+      "bbox": [
+        66.0,
+        3.0,
+        522.0,
+        298.81
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/inventory-overlays/table-09/segment-01-3b7015558f3b-page-0014.png",
+      "overlay_sha256": "bfedd2d0158535036c7721fbfe8a7295813264f951bbc53f9df34a305d3dc520",
+      "blocking_signals": [],
+      "advisory_signals": [],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-10",
+      "segment_id": "segment-01",
+      "page": 14,
+      "bbox": [
+        68,
+        628,
+        520,
+        726
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/inventory-overlays/table-10/segment-01-c274869c34a2-page-0014.png",
+      "overlay_sha256": "b52d83d9ca7db5c4fc7d8ef629e290ff063ea211fe96844c8a179141a196c00b",
+      "blocking_signals": [],
+      "advisory_signals": [],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-11",
+      "segment_id": "segment-01",
+      "page": 16,
+      "bbox": [
+        68,
+        630,
+        498,
+        737
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/inventory-overlays/table-11/segment-01-1bdeae927a28-page-0016.png",
+      "overlay_sha256": "8427e0d4fdc557d67299b62e56f3b9a9970aa4c259b354723ce5007f0be98b2a",
+      "blocking_signals": [],
+      "advisory_signals": [],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-12",
+      "segment_id": "segment-01",
+      "page": 17,
+      "bbox": [
+        68,
+        170,
+        520,
+        314
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/inventory-overlays/table-12/segment-01-32ef75007457-page-0017.png",
+      "overlay_sha256": "f09a7b76e01e1a9c94ccfbf86819bbc51b43f08d162708fa2e823738a31f0699",
+      "blocking_signals": [],
+      "advisory_signals": [],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-13",
+      "segment_id": "segment-01",
+      "page": 17,
+      "bbox": [
+        68,
+        334,
+        520,
+        512
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/inventory-overlays/table-13/segment-01-eb5ac0855242-page-0017.png",
+      "overlay_sha256": "bebf6ea08cf9b7ab6c109072d9e6618296e21a14ed783f39e1397f5a2a2f2672",
+      "blocking_signals": [],
+      "advisory_signals": [],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-14",
+      "segment_id": "segment-01",
+      "page": 18,
+      "bbox": [
+        68,
+        214,
+        520,
+        358
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/inventory-overlays/table-14/segment-01-b25eabfe7f7e-page-0018.png",
+      "overlay_sha256": "1683af7b0495bc4d4f2909e96fdaf626d651bce298e8b58bc09541635fbbe29d",
+      "blocking_signals": [],
+      "advisory_signals": [],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-15",
+      "segment_id": "segment-01",
+      "page": 18,
+      "bbox": [
+        68,
+        378,
+        520,
+        521
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/inventory-overlays/table-15/segment-01-7254865f771f-page-0018.png",
+      "overlay_sha256": "ad8039440e77e93391db42dccd3c4b81a7c1a16979deec8e4c239fb11ec1e7ac",
+      "blocking_signals": [],
+      "advisory_signals": [],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-16",
+      "segment_id": "segment-01",
+      "page": 25,
+      "bbox": [
+        32,
+        12,
+        1151,
+        841.253
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/inventory-overlays/table-16/segment-01-e8d17c6e0962-page-0025.png",
+      "overlay_sha256": "64b609ae7452309b7f143db9110fb63d8aef9480a0caf75f5a7378f1be63eefc",
+      "blocking_signals": [],
+      "advisory_signals": [
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "den",
+          "bbox": [
+            156.92604064941406,
+            847.976806640625,
+            161.00709533691406,
+            854.3424682617188
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "HS/MS-",
+          "bbox": [
+            349.2841796875,
+            851.8348388671875,
+            353.365234375,
+            864.3052368164062
+          ]
+        }
+      ],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-16",
+      "segment_id": "segment-02",
+      "page": 26,
+      "bbox": [
+        32,
+        0,
+        1151,
+        841.253
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/inventory-overlays/table-16/segment-02-aef33b609487-page-0026.png",
+      "overlay_sha256": "9d128fedde0ce6b7de566729005a149a0bc828248fc75a366363852f8bb81dfb",
+      "blocking_signals": [],
+      "advisory_signals": [
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "den",
+          "bbox": [
+            495.50506591796875,
+            847.97705078125,
+            499.58612060546875,
+            854.3427124023438
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "Kabelstrecke",
+          "bbox": [
+            570.7438354492188,
+            844.990478515625,
+            574.8248901367188,
+            866.453369140625
+          ]
+        }
+      ],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-16",
+      "segment_id": "segment-03",
+      "page": 27,
+      "bbox": [
+        32,
+        0,
+        1151,
+        841.252
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/inventory-overlays/table-16/segment-03-da26245419f6-page-0027.png",
+      "overlay_sha256": "d599f9c8a3e32c93461ffacf17cc8d8f01d51df9b63fe8c3977cd748d6858d67",
+      "blocking_signals": [],
+      "advisory_signals": [
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "Kabelstrecke",
+          "bbox": [
+            244.70530700683594,
+            844.9907836914062,
+            248.78636169433594,
+            866.4536743164062
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "Kabelstrecke",
+          "bbox": [
+            319.9454650878906,
+            844.9909057617188,
+            324.0265197753906,
+            866.4537353515625
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "Anbindung",
+          "bbox": [
+            771.3845825195312,
+            849.0282592773438,
+            775.4656372070312,
+            867.3858642578125
+          ]
+        }
+      ],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-16",
+      "segment_id": "segment-04",
+      "page": 28,
+      "bbox": [
+        32,
+        0,
+        1151,
+        841.25
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/inventory-overlays/table-16/segment-04-0b6b26b79b04-page-0028.png",
+      "overlay_sha256": "995a9b0754446b2a17ba38b220fa1b166235d524b710d2f0169d83c1650a5823",
+      "blocking_signals": [],
+      "advisory_signals": [
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "Anbindung",
+          "bbox": [
+            169.46591186523438,
+            849.0278930664062,
+            173.54696655273438,
+            867.385498046875
+          ]
+        }
+      ],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-16",
+      "segment_id": "segment-05",
+      "page": 29,
+      "bbox": [
+        38,
+        18,
+        1145,
+        788
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/inventory-overlays/table-16/segment-05-900b6c865f65-page-0029.png",
+      "overlay_sha256": "d5a727794a65fe73f1dac214b348cac7286d1e404c4b2e68a25d7ffc7c5cecee",
+      "blocking_signals": [],
+      "advisory_signals": [],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-16",
+      "segment_id": "segment-06",
+      "page": 30,
+      "bbox": [
+        32,
+        0,
+        1151,
+        841.252
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/inventory-overlays/table-16/segment-06-642067e3bdc5-page-0030.png",
+      "overlay_sha256": "54f939bd3add6d2cd7ee8c9e7b4bf55d3597bec235b921add21185159add828c",
+      "blocking_signals": [],
+      "advisory_signals": [
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "Kabelnetz",
+          "bbox": [
+            257.2452392578125,
+            849.3304443359375,
+            261.3262939453125,
+            865.8580322265625
+          ]
+        }
+      ],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-16",
+      "segment_id": "segment-07",
+      "page": 31,
+      "bbox": [
+        38,
+        18,
+        1145,
+        788
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/inventory-overlays/table-16/segment-07-a246017582b2-page-0031.png",
+      "overlay_sha256": "1cdd0ba7a43d47992cf3bda2fe37a197a33522efa0a01a845222af9d93f53d7c",
+      "blocking_signals": [],
+      "advisory_signals": [],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-16",
+      "segment_id": "segment-08",
+      "page": 32,
+      "bbox": [
+        38,
+        0,
+        1145,
+        788
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/inventory-overlays/table-16/segment-08-e545630ea256-page-0032.png",
+      "overlay_sha256": "60a6003ad1ab600f3093ac9ef6ac8d5b4f03b0ea459e107b911661677f702c9f",
+      "blocking_signals": [],
+      "advisory_signals": [],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-16",
+      "segment_id": "segment-09",
+      "page": 33,
+      "bbox": [
+        38,
+        18,
+        1145,
+        788
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/inventory-overlays/table-16/segment-09-3dabed44be85-page-0033.png",
+      "overlay_sha256": "5a6fe73373454ec20bc8a9857069355078fcca067290d66286695f8cd45f0b3a",
+      "blocking_signals": [],
+      "advisory_signals": [],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-16",
+      "segment_id": "segment-10",
+      "page": 34,
+      "bbox": [
+        38,
+        0,
+        1145,
+        788
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/inventory-overlays/table-16/segment-10-c7b745fe4102-page-0034.png",
+      "overlay_sha256": "7bface88a05b04fe237ca145243b9946f3d4d32c3df8a6812222bec55700ce73",
+      "blocking_signals": [],
+      "advisory_signals": [],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    }
+  ]
+}

@@ -25,7 +25,7 @@ class RowProvenance:
 class ExtractedTable:
     id: str
     title: str
-    columns: list[str]
+    column_count: int
     rows: list[list[str]]
     provenance: list[RowProvenance]
 
@@ -42,7 +42,7 @@ class ExtractionResult:
 
     def to_dict(self) -> dict[str, Any]:
         return {
-            "spec": "pdf-extractor-pdf/result@1.0",
+            "spec": "pdf-extractor-pdf/result@2.0",
             "source_sha256": self.source_sha256,
             "extractor_version": self.extractor_version,
             "tables": [table.to_dict() for table in self.tables],

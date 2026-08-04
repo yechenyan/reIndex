@@ -1,0 +1,356 @@
+{
+  "spec": "pdf-extractor-pdf/reference-structure-draft@1.0",
+  "role": "qa_agent",
+  "independent_from_extractor": true,
+  "source_evidence_only": true,
+  "source_sha256": "fa05fea873a98ae45e11128fc12c4f4bec6cad1f5dfaf27e5de351ea4634c89a",
+  "inventory_sha256": "0f3c9e49d32b72ed748b7837651b485a654fe9db2211cd620998be0d3105474c",
+  "instructions": "QA fills columns and each Segment row_count from source evidence only.",
+  "tables": [
+    {
+      "id": "table-16",
+      "title": "Maßnahmen Hochspannung und HS/MS-Umspannung bis 2033",
+      "columns": ["lfd. Nr.", "Maßnahme", "kurze Projektbeschreibung", "Projektkategorie", "Betriebsmittel", "Länge des zugebauten, optimierten oder ersetzten Leitungsabschnitts", "Änderung der Übertragungskapazität", "netztechnische Begründung für den Netzausbau (Kurzbeschreibung)", "netztechnische Begründung für den Netzausbau (Grund)", "Erfolgt diese Netzausbaumaßnahme, um einen bereits bestehenden Engpass zu beheben?", "Erfolgt diese Netzausbaumaßnahme, um einen prognostizierten Engpass vorzubeugen?", "benötigt bis", "voraussichtlicher Zeitpunkt des Baubeginns", "voraussichtlicher Zeitpunkt der Inbetriebnahme", "geschätzte Kosten", "Projektstatus", "Teilnetzgebiet"],
+      "line_wrap_candidates": [
+        {
+          "id": "wrap-4ac19f052b91",
+          "line_end": "zuge-",
+          "next_line_start": "Länge",
+          "decision": "remove",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 25,
+              "block": 1,
+              "line": 0,
+              "bbox": [
+                57.36941909790039,
+                695.5780029296875,
+                61.450469970703125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-01-3f667990151d-page-0025.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 26,
+              "block": 1,
+              "line": 0,
+              "bbox": [
+                57.36941909790039,
+                695.5780029296875,
+                61.450469970703125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-02-31a5c7abda70-page-0026.png"
+            },
+            {
+              "segment_id": "segment-03",
+              "page": 27,
+              "block": 1,
+              "line": 0,
+              "bbox": [
+                57.36941909790039,
+                695.5780029296875,
+                61.450469970703125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-03-2d84de5e1b07-page-0027.png"
+            },
+            {
+              "segment_id": "segment-04",
+              "page": 28,
+              "block": 1,
+              "line": 0,
+              "bbox": [
+                57.36941909790039,
+                695.5780029296875,
+                61.450469970703125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-04-0669ab092ef9-page-0028.png"
+            },
+            {
+              "segment_id": "segment-05",
+              "page": 29,
+              "block": 1,
+              "line": 0,
+              "bbox": [
+                57.36941909790039,
+                695.5780029296875,
+                61.450469970703125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-05-9a954c7747c2-page-0029.png"
+            },
+            {
+              "segment_id": "segment-06",
+              "page": 30,
+              "block": 1,
+              "line": 0,
+              "bbox": [
+                57.36941909790039,
+                695.5780029296875,
+                61.450469970703125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-06-97056fcaaa4c-page-0030.png"
+            },
+            {
+              "segment_id": "segment-07",
+              "page": 31,
+              "block": 1,
+              "line": 0,
+              "bbox": [
+                57.36941909790039,
+                695.5780029296875,
+                61.450469970703125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-07-acbd9c944e39-page-0031.png"
+            },
+            {
+              "segment_id": "segment-08",
+              "page": 32,
+              "block": 1,
+              "line": 0,
+              "bbox": [
+                57.36941909790039,
+                695.5780029296875,
+                61.450469970703125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-08-05d16265c1b2-page-0032.png"
+            },
+            {
+              "segment_id": "segment-09",
+              "page": 33,
+              "block": 1,
+              "line": 0,
+              "bbox": [
+                57.36941909790039,
+                695.5780029296875,
+                61.450469970703125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-09-04c4d9b5e87a-page-0033.png"
+            },
+            {
+              "segment_id": "segment-10",
+              "page": 34,
+              "block": 1,
+              "line": 0,
+              "bbox": [
+                57.36941909790039,
+                695.5780029296875,
+                61.450469970703125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-10-ad9ad52655d7-page-0034.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-ca115342d54d",
+          "line_end": "Übertragungs-",
+          "next_line_start": "oder",
+          "decision": "keep",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 25,
+              "block": 6,
+              "line": 0,
+              "bbox": [
+                69.0096664428711,
+                655.7550659179688,
+                73.09112548828125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-01-3f667990151d-page-0025.png"
+            },
+            {
+              "segment_id": "segment-02",
+              "page": 26,
+              "block": 6,
+              "line": 0,
+              "bbox": [
+                69.0096664428711,
+                655.7550659179688,
+                73.09112548828125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-02-31a5c7abda70-page-0026.png"
+            },
+            {
+              "segment_id": "segment-03",
+              "page": 27,
+              "block": 6,
+              "line": 0,
+              "bbox": [
+                69.0096664428711,
+                655.7550659179688,
+                73.09112548828125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-03-2d84de5e1b07-page-0027.png"
+            },
+            {
+              "segment_id": "segment-04",
+              "page": 28,
+              "block": 6,
+              "line": 0,
+              "bbox": [
+                69.0096664428711,
+                655.7550659179688,
+                73.09112548828125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-04-0669ab092ef9-page-0028.png"
+            },
+            {
+              "segment_id": "segment-05",
+              "page": 29,
+              "block": 6,
+              "line": 0,
+              "bbox": [
+                69.0096664428711,
+                655.7550659179688,
+                73.09112548828125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-05-9a954c7747c2-page-0029.png"
+            },
+            {
+              "segment_id": "segment-06",
+              "page": 30,
+              "block": 6,
+              "line": 0,
+              "bbox": [
+                69.0096664428711,
+                655.7550659179688,
+                73.09112548828125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-06-97056fcaaa4c-page-0030.png"
+            },
+            {
+              "segment_id": "segment-07",
+              "page": 31,
+              "block": 6,
+              "line": 0,
+              "bbox": [
+                69.0096664428711,
+                655.7550659179688,
+                73.09112548828125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-07-acbd9c944e39-page-0031.png"
+            },
+            {
+              "segment_id": "segment-08",
+              "page": 32,
+              "block": 6,
+              "line": 0,
+              "bbox": [
+                69.0096664428711,
+                655.7550659179688,
+                73.09112548828125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-08-05d16265c1b2-page-0032.png"
+            },
+            {
+              "segment_id": "segment-09",
+              "page": 33,
+              "block": 6,
+              "line": 0,
+              "bbox": [
+                69.0096664428711,
+                655.7550659179688,
+                73.09112548828125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-09-04c4d9b5e87a-page-0033.png"
+            },
+            {
+              "segment_id": "segment-10",
+              "page": 34,
+              "block": 6,
+              "line": 0,
+              "bbox": [
+                69.0096664428711,
+                655.7550659179688,
+                73.09112548828125,
+                722.4921264648438
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-10-ad9ad52655d7-page-0034.png"
+            }
+          ]
+        }
+      ],
+      "segments": [
+        {
+          "id": "segment-01",
+          "page": 25,
+          "row_count": 57,
+          "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-01-3f667990151d-page-0025.png"
+        },
+        {
+          "id": "segment-02",
+          "page": 26,
+          "row_count": 57,
+          "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-02-31a5c7abda70-page-0026.png"
+        },
+        {
+          "id": "segment-03",
+          "page": 27,
+          "row_count": 57,
+          "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-03-2d84de5e1b07-page-0027.png"
+        },
+        {
+          "id": "segment-04",
+          "page": 28,
+          "row_count": 57,
+          "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-04-0669ab092ef9-page-0028.png"
+        },
+        {
+          "id": "segment-05",
+          "page": 29,
+          "row_count": 57,
+          "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-05-9a954c7747c2-page-0029.png"
+        },
+        {
+          "id": "segment-06",
+          "page": 30,
+          "row_count": 57,
+          "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-06-97056fcaaa4c-page-0030.png"
+        },
+        {
+          "id": "segment-07",
+          "page": 31,
+          "row_count": 57,
+          "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-07-acbd9c944e39-page-0031.png"
+        },
+        {
+          "id": "segment-08",
+          "page": 32,
+          "row_count": 57,
+          "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-08-05d16265c1b2-page-0032.png"
+        },
+        {
+          "id": "segment-09",
+          "page": 33,
+          "row_count": 57,
+          "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-09-04c4d9b5e87a-page-0033.png"
+        },
+        {
+          "id": "segment-10",
+          "page": 34,
+          "row_count": 52,
+          "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/e-dis-2024/extractor/evidence/segments/table-16/segment-10-ad9ad52655d7-page-0034.png"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,227 @@
+{
+  "spec": "pdf-extractor-pdf/workflow@1.0",
+  "history": [
+    {
+      "event": "project_initialized",
+      "phase": "initialized",
+      "at": "2026-08-04T08:16:01.632869+00:00",
+      "details": {
+        "source_sha256": "3dc36a9917ac29b387c8fcc6e1a856f26e4fc0660d4e847a5070ee7dca0af497"
+      }
+    },
+    {
+      "event": "evidence_prepared",
+      "phase": "prepared",
+      "at": "2026-08-04T08:16:17.536218+00:00",
+      "details": {
+        "cache_hit": false
+      }
+    },
+    {
+      "event": "inventory_audited",
+      "phase": "prepared",
+      "at": "2026-08-04T08:21:28.435749+00:00",
+      "details": {
+        "passed": false,
+        "segment_count": 6,
+        "blocking_signal_count": 0
+      }
+    },
+    {
+      "event": "inventory_audited",
+      "phase": "prepared",
+      "at": "2026-08-04T08:22:28.085544+00:00",
+      "details": {
+        "passed": true,
+        "segment_count": 6,
+        "blocking_signal_count": 0
+      }
+    },
+    {
+      "event": "inventory_frozen",
+      "phase": "inventory_frozen",
+      "at": "2026-08-04T08:23:19.110039+00:00",
+      "details": {
+        "inventory_sha256": "af9ec751097fe404d4a12dc09c83e12559fb945583d49e99da1f348f9dbc0898",
+        "table_count": 6,
+        "segment_count": 6,
+        "agent_output": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/agent-output/inventory-draft-2afafc488417f94a.json"
+      }
+    },
+    {
+      "event": "segment_evidence_generated",
+      "phase": "inspected",
+      "at": "2026-08-04T08:23:19.400379+00:00",
+      "details": {
+        "manifest_sha256": "31ca3f09dc4655125351ff945178f1aff24eb870a170ef920822bbc4151f8bae"
+      }
+    },
+    {
+      "event": "inventory_reopened",
+      "phase": "prepared",
+      "at": "2026-08-04T08:32:10.405874+00:00",
+      "details": {
+        "reason": "Independent QA source-only audit and main visual inspection confirm table-3 has seven positional columns, not the frozen six."
+      }
+    },
+    {
+      "event": "inventory_audited",
+      "phase": "prepared",
+      "at": "2026-08-04T08:32:35.785132+00:00",
+      "details": {
+        "passed": false,
+        "segment_count": 6,
+        "blocking_signal_count": 0
+      }
+    },
+    {
+      "event": "inventory_audited",
+      "phase": "prepared",
+      "at": "2026-08-04T08:32:59.905156+00:00",
+      "details": {
+        "passed": true,
+        "segment_count": 6,
+        "blocking_signal_count": 0
+      }
+    },
+    {
+      "event": "inventory_frozen",
+      "phase": "inventory_frozen",
+      "at": "2026-08-04T08:33:44.074218+00:00",
+      "details": {
+        "inventory_sha256": "a5a793af1903df032daddd3b1482279dd30f8baefc2aa0a488984bd90ca201f4",
+        "table_count": 6,
+        "segment_count": 6,
+        "agent_output": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/agent-output/inventory-draft-c134bb64edaf5de5.json"
+      }
+    },
+    {
+      "event": "segment_evidence_generated",
+      "phase": "inspected",
+      "at": "2026-08-04T08:33:44.212778+00:00",
+      "details": {
+        "manifest_sha256": "022080726c7d9797f8775ef334eb73a8feaffcd13bef5347cc9a411524f6137c"
+      }
+    },
+    {
+      "event": "reference_frozen",
+      "phase": "reference_frozen",
+      "at": "2026-08-04T08:36:48.344462+00:00",
+      "details": {
+        "reference_sha256": "2d27716ab21d8c3c71641fd604de41376f5b4b49ddf632edab50140a013f2d72",
+        "agent_output": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/agent-output/reference-draft-90440fb1828b5240.json"
+      }
+    },
+    {
+      "event": "validation_completed",
+      "phase": "reviewed",
+      "at": "2026-08-04T08:37:01.456032+00:00",
+      "details": {
+        "passed": false,
+        "issue_count": 6,
+        "merge_candidates": 0
+      }
+    },
+    {
+      "event": "validation_completed",
+      "phase": "reviewed",
+      "at": "2026-08-04T08:39:32.177887+00:00",
+      "details": {
+        "passed": false,
+        "issue_count": 5,
+        "merge_candidates": 0
+      }
+    },
+    {
+      "event": "reference_reopened",
+      "phase": "inspected",
+      "at": "2026-08-04T08:41:20.781389+00:00",
+      "details": {
+        "reason": "scoped QA repair"
+      }
+    },
+    {
+      "event": "reference_frozen",
+      "phase": "reference_frozen",
+      "at": "2026-08-04T08:43:49.922307+00:00",
+      "details": {
+        "reference_sha256": "cc65bb5218634b9c0333973429d79c92baad225bcae18c24616e98578f04c22c",
+        "agent_output": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/agent-output/reference-draft-5308e31dbeb119ec.json"
+      }
+    },
+    {
+      "event": "validation_completed",
+      "phase": "reviewed",
+      "at": "2026-08-04T08:44:12.972235+00:00",
+      "details": {
+        "passed": false,
+        "issue_count": 2,
+        "merge_candidates": 0
+      }
+    },
+    {
+      "event": "reference_reopened",
+      "phase": "inspected",
+      "at": "2026-08-04T08:44:56.901641+00:00",
+      "details": {
+        "reason": "scoped QA repair"
+      }
+    },
+    {
+      "event": "reference_frozen",
+      "phase": "reference_frozen",
+      "at": "2026-08-04T08:47:20.487718+00:00",
+      "details": {
+        "reference_sha256": "594eccc060ad47862c9d27381724d44c18a82bbb68164a1046840f6a74eaf73c",
+        "agent_output": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/agent-output/reference-draft-5cbc205f417ca37a.json"
+      }
+    },
+    {
+      "event": "validation_completed",
+      "phase": "reviewed",
+      "at": "2026-08-04T08:47:42.831083+00:00",
+      "details": {
+        "passed": false,
+        "issue_count": 1,
+        "merge_candidates": 0
+      }
+    },
+    {
+      "event": "reference_reopened",
+      "phase": "inspected",
+      "at": "2026-08-04T08:47:56.394032+00:00",
+      "details": {
+        "reason": "scoped QA repair"
+      }
+    },
+    {
+      "event": "reference_frozen",
+      "phase": "reference_frozen",
+      "at": "2026-08-04T08:49:30.073902+00:00",
+      "details": {
+        "reference_sha256": "5d01db307058366f5c0fdde84256705ae2ddbd3f5e127ac1ecdafccccf7cc959",
+        "agent_output": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/agent-output/reference-draft-7404c2a7ab9299db.json"
+      }
+    },
+    {
+      "event": "validation_completed",
+      "phase": "reviewed",
+      "at": "2026-08-04T08:49:52.633805+00:00",
+      "details": {
+        "passed": true,
+        "issue_count": 0,
+        "merge_candidates": 0
+      }
+    },
+    {
+      "event": "hard_gate_2_passed",
+      "phase": "complete",
+      "at": "2026-08-04T08:50:07.289366+00:00",
+      "details": {
+        "review_sha256": "f3bb89caa031ab3a0ee4c2ffdd303c3edb2fcaf8c8e16631fe01161853685e4f"
+      }
+    }
+  ],
+  "phase": "complete",
+  "updated_at": "2026-08-04T08:50:07.289366+00:00"
+}

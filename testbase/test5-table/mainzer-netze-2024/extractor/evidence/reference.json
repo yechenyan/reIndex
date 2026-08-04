@@ -1,0 +1,1144 @@
+{
+  "spec": "pdf-extractor-pdf/reference@2.0",
+  "role": "qa_agent",
+  "independent_from_extractor": true,
+  "source_evidence_only": true,
+  "source_sha256": "828d7e506917fc3d5331a1cc7ad0f4be78b425af0b7f6b1d74716f22c82e332a",
+  "inventory_sha256": "8d3213ee2fcb541d77982820abaafa1312b16e4bad47a7aa403163ba6f06928d",
+  "tables": [
+    {
+      "id": "table-abbreviations",
+      "column_count": 2,
+      "comparison_modes": [
+        "exact",
+        "text"
+      ],
+      "row_count": 21,
+      "segment_row_counts": [
+        21
+      ],
+      "segment_source_row_counts": [
+        21
+      ],
+      "segment_repeated_leading_rows": [
+        0
+      ],
+      "line_wrap_decisions": [],
+      "samples": [
+        {
+          "row_index": 0,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "BDEW",
+            "Bundesverband der Energie- und Wasserwirtschaft e.V."
+          ],
+          "source_blank_indices": []
+        },
+        {
+          "row_index": 1,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "BNetzA",
+            "Bundesnetzagentur"
+          ],
+          "source_blank_indices": []
+        },
+        {
+          "row_index": 2,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "EnWG",
+            "Energiewirtschaftsgesetz"
+          ],
+          "source_blank_indices": []
+        },
+        {
+          "row_index": 10,
+          "reasons": [
+            "middle_row"
+          ],
+          "values": [
+            "NS",
+            "Niederspannung"
+          ],
+          "source_blank_indices": []
+        },
+        {
+          "row_index": 19,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "MN",
+            "Mainzer Netze GmbH"
+          ],
+          "source_blank_indices": []
+        },
+        {
+          "row_index": 20,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "sw netz",
+            "Stadtwerke Wiesbaden Netz GmbH"
+          ],
+          "source_blank_indices": []
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": "table-1",
+      "column_count": 9,
+      "comparison_modes": [
+        "text",
+        "exact",
+        "exact",
+        "exact",
+        "exact",
+        "exact",
+        "exact",
+        "exact",
+        "exact"
+      ],
+      "row_count": 21,
+      "segment_row_counts": [
+        21
+      ],
+      "segment_source_row_counts": [
+        21
+      ],
+      "segment_repeated_leading_rows": [
+        0
+      ],
+      "line_wrap_decisions": [],
+      "samples": [
+        {
+          "row_index": 0,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "Teilnetz Mainz",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "source_blank_indices": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "row_index": 1,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "",
+            "2023",
+            "",
+            "2028",
+            "",
+            "2033",
+            "",
+            "2045",
+            ""
+          ],
+          "source_blank_indices": [
+            0,
+            2,
+            4,
+            6,
+            8
+          ]
+        },
+        {
+          "row_index": 2,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "PV",
+            "46,9",
+            "MWp",
+            "227,1",
+            "MWp",
+            "407,3",
+            "MWp",
+            "793,0",
+            "MWp"
+          ],
+          "source_blank_indices": []
+        },
+        {
+          "row_index": 10,
+          "reasons": [
+            "middle_row"
+          ],
+          "values": [
+            "Fernwärmeerzeugung",
+            "0,0",
+            "MW",
+            "0,0",
+            "MW",
+            "15,0",
+            "MW",
+            "30,0",
+            "MW"
+          ],
+          "source_blank_indices": []
+        },
+        {
+          "row_index": 19,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "Summe Verbrauch (GLZ)",
+            "423,1",
+            "MW",
+            "623,4",
+            "MW",
+            "533,9",
+            "MW",
+            "689,8",
+            "MW"
+          ],
+          "source_blank_indices": []
+        },
+        {
+          "row_index": 20,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "Summe Einspeisung (GLZ)",
+            "666,0",
+            "MW",
+            "761,4",
+            "MW",
+            "857,4",
+            "MW",
+            "1029,0",
+            "MW"
+          ],
+          "source_blank_indices": []
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": "table-2",
+      "column_count": 9,
+      "comparison_modes": [
+        "text",
+        "exact",
+        "exact",
+        "exact",
+        "exact",
+        "exact",
+        "exact",
+        "exact",
+        "exact"
+      ],
+      "row_count": 21,
+      "segment_row_counts": [
+        21
+      ],
+      "segment_source_row_counts": [
+        21
+      ],
+      "segment_repeated_leading_rows": [
+        0
+      ],
+      "line_wrap_decisions": [],
+      "samples": [
+        {
+          "row_index": 0,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "Teilnetz Hessisches Ried",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "source_blank_indices": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "row_index": 1,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "",
+            "2023",
+            "",
+            "2028",
+            "",
+            "2033",
+            "",
+            "2045",
+            ""
+          ],
+          "source_blank_indices": [
+            0,
+            2,
+            4,
+            6,
+            8
+          ]
+        },
+        {
+          "row_index": 2,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "PV",
+            "61,5",
+            "MWp",
+            "313,6",
+            "MWp",
+            "565,6",
+            "MWp",
+            "1109,0",
+            "MWp"
+          ],
+          "source_blank_indices": []
+        },
+        {
+          "row_index": 10,
+          "reasons": [
+            "middle_row"
+          ],
+          "values": [
+            "Fernwärmeerzeugung",
+            "0,0",
+            "MW",
+            "0,0",
+            "MW",
+            "15,0",
+            "MW",
+            "30,0",
+            "MW"
+          ],
+          "source_blank_indices": []
+        },
+        {
+          "row_index": 19,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "Summe Verbrauch (GLZ)",
+            "144,8",
+            "MW",
+            "202,7",
+            "MW",
+            "249,2",
+            "MW",
+            "328,6",
+            "MW"
+          ],
+          "source_blank_indices": []
+        },
+        {
+          "row_index": 20,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "Summe Einspeisung (GLZ)",
+            "37,5",
+            "MW",
+            "200,1",
+            "MW",
+            "360,4",
+            "MW",
+            "701,4",
+            "MW"
+          ],
+          "source_blank_indices": []
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": "table-3",
+      "column_count": 4,
+      "comparison_modes": [
+        "text",
+        "text",
+        "exact",
+        "exact"
+      ],
+      "row_count": 7,
+      "segment_row_counts": [
+        7
+      ],
+      "segment_source_row_counts": [
+        7
+      ],
+      "segment_repeated_leading_rows": [
+        0
+      ],
+      "line_wrap_decisions": [],
+      "samples": [
+        {
+          "row_index": 0,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "Zeitraum",
+            "Maßnahme",
+            "Geschätzte Menge",
+            "Geschätzte Kosten"
+          ],
+          "source_blank_indices": []
+        },
+        {
+          "row_index": 1,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "2023 bis 2028 (T+5)",
+            "Leitungen",
+            "21,4 km",
+            "45 Mio. €"
+          ],
+          "source_blank_indices": []
+        },
+        {
+          "row_index": 2,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "",
+            "Anlagenstandorte",
+            "4",
+            "46 Mio. €"
+          ],
+          "source_blank_indices": [
+            0
+          ]
+        },
+        {
+          "row_index": 3,
+          "reasons": [
+            "middle_row"
+          ],
+          "values": [
+            "2029 bis 2033 (T+6 bis T+10)",
+            "Leitungen",
+            "33,5 km",
+            "37 Mio. €"
+          ],
+          "source_blank_indices": []
+        },
+        {
+          "row_index": 5,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "2034 bis 2045 (T+11 bis Zielnetzjahr)",
+            "Leitungen",
+            "12 km",
+            "29 Mio. €"
+          ],
+          "source_blank_indices": []
+        },
+        {
+          "row_index": 6,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "",
+            "Anlagenstandorte",
+            "5",
+            "129 Mio. €"
+          ],
+          "source_blank_indices": [
+            0
+          ]
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": "table-4",
+      "column_count": 4,
+      "comparison_modes": [
+        "text",
+        "text",
+        "exact",
+        "exact"
+      ],
+      "row_count": 7,
+      "segment_row_counts": [
+        7
+      ],
+      "segment_source_row_counts": [
+        7
+      ],
+      "segment_repeated_leading_rows": [
+        0
+      ],
+      "line_wrap_decisions": [],
+      "samples": [
+        {
+          "row_index": 0,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "Zeitraum",
+            "Maßnahme",
+            "Geschätzte Menge",
+            "Geschätzte Kosten"
+          ],
+          "source_blank_indices": []
+        },
+        {
+          "row_index": 1,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "2023 bis 2028 (T+5)",
+            "Leitungen",
+            "129 km",
+            "31 Mio. €"
+          ],
+          "source_blank_indices": []
+        },
+        {
+          "row_index": 2,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "",
+            "Anlagenstandorte",
+            "180",
+            "12 Mio. €"
+          ],
+          "source_blank_indices": [
+            0
+          ]
+        },
+        {
+          "row_index": 3,
+          "reasons": [
+            "middle_row"
+          ],
+          "values": [
+            "2029 bis 2033 (T+6 bis T+10)",
+            "Leitungen",
+            "235 km",
+            "87 Mio. €"
+          ],
+          "source_blank_indices": []
+        },
+        {
+          "row_index": 5,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "2034 bis 2045 (T+11 bis Zielnetzjahr)",
+            "Leitungen",
+            "230 km",
+            "88 Mio. €"
+          ],
+          "source_blank_indices": []
+        },
+        {
+          "row_index": 6,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "",
+            "Anlagenstandorte",
+            "330",
+            "26 Mio. €"
+          ],
+          "source_blank_indices": [
+            0
+          ]
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": "table-appendix-measures",
+      "column_count": 16,
+      "comparison_modes": [
+        "exact",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "exact",
+        "exact",
+        "exact",
+        "text",
+        "text",
+        "text",
+        "text",
+        "exact",
+        "text"
+      ],
+      "row_count": 40,
+      "segment_row_counts": [
+        40
+      ],
+      "segment_source_row_counts": [
+        40
+      ],
+      "segment_repeated_leading_rows": [
+        0
+      ],
+      "line_wrap_decisions": [
+        {
+          "id": "wrap-fce5a9bb3926",
+          "line_end": "400V-",
+          "next_line_start": "Kabel",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 8,
+              "line": 0,
+              "bbox": [
+                152.1826629638672,
+                136.97335815429688,
+                170.7733612060547,
+                142.14393615722656
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-b2a7f44335b5",
+          "line_end": "110-kV-",
+          "next_line_start": "Schaltanlage",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 12,
+              "line": 0,
+              "bbox": [
+                152.1834259033203,
+                148.01333618164062,
+                164.66171264648438,
+                153.1839141845703
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 17,
+              "line": 22,
+              "bbox": [
+                92.54344177246094,
+                217.01351928710938,
+                125.53595733642578,
+                222.18409729003906
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-1c19ffd56a5d",
+          "line_end": "110-kV-",
+          "next_line_start": "Netzverstärkung",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 16,
+              "line": 1,
+              "bbox": [
+                35.66344451904297,
+                156.29330444335938,
+                76.22566223144531,
+                161.46388244628906
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-b9e2539bc6a4",
+          "line_end": "380/110-kV-",
+          "next_line_start": "Umspanner",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 17,
+              "line": 0,
+              "bbox": [
+                92.54344177246094,
+                156.29330444335938,
+                118.8239974975586,
+                161.46388244628906
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-baff5a5cf237",
+          "line_end": "110-",
+          "next_line_start": "kV-Netzgruppe",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 17,
+              "line": 2,
+              "bbox": [
+                92.54344177246094,
+                161.81332397460938,
+                124.69964599609375,
+                166.98390197753906
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-470af966911d",
+          "line_end": "110-kV-",
+          "next_line_start": "Investitionsmaßnahmen",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 17,
+              "line": 4,
+              "bbox": [
+                92.54344177246094,
+                167.33334350585938,
+                125.89409637451172,
+                172.50392150878906
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-7dae7f3f32f6",
+          "line_end": "110-kV-",
+          "next_line_start": "Schaltanlagenerweiterung",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 17,
+              "line": 8,
+              "bbox": [
+                92.54344177246094,
+                178.37338256835938,
+                117.49773406982422,
+                183.54396057128906
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-9c059aba4655",
+          "line_end": "(n-1)-",
+          "next_line_start": "gesicherten",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 17,
+              "line": 15,
+              "bbox": [
+                92.54344177246094,
+                197.69345092773438,
+                125.77787780761719,
+                202.86402893066406
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-c45dc433ac26",
+          "line_end": "110-kV-",
+          "next_line_start": "Sammelschienenverstärkung",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 17,
+              "line": 19,
+              "bbox": [
+                92.54344177246094,
+                208.73348999023438,
+                120.1371078491211,
+                213.90406799316406
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-f6debfe633f6",
+          "line_end": "Budenheim-",
+          "next_line_start": "Ingelheim",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 27,
+              "line": 1,
+              "bbox": [
+                35.66338348388672,
+                261.1735534667969,
+                87.84525299072266,
+                266.3441162109375
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-53e4d8e7d681",
+          "line_end": "110/20-kV-",
+          "next_line_start": "Umspannwerks",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 32,
+              "line": 2,
+              "bbox": [
+                92.54483795166016,
+                277.7336120605469,
+                116.9048843383789,
+                282.9041748046875
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 37,
+              "line": 2,
+              "bbox": [
+                92.54566192626953,
+                297.0537414550781,
+                116.90653991699219,
+                302.22430419921875
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-0a8a0369b81b",
+          "line_end": "110-kV-",
+          "next_line_start": "Kabelverbindung",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 56,
+              "line": 3,
+              "bbox": [
+                92.54566955566406,
+                352.2539367675781,
+                112.45899963378906,
+                357.42449951171875
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 59,
+              "line": 2,
+              "bbox": [
+                92.5456771850586,
+                360.53399658203125,
+                124.58494567871094,
+                365.7045593261719
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-ba4b62b1f772",
+          "line_end": "MS-",
+          "next_line_start": "Schaltanlage",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 98,
+              "line": 1,
+              "bbox": [
+                152.18408203125,
+                459.8937072753906,
+                169.0953826904297,
+                465.06427001953125
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        }
+      ],
+      "samples": [
+        {
+          "row_index": 0,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "lfd. Nr.",
+            "Maßnahme",
+            "kurze Projektbeschreibung",
+            "Projektkategorie",
+            "Betriebsmittel",
+            "netztechnische Begründung für den Netzausbau 1. kurze Beschreibung",
+            "netztechnische Begründung für den Netzausbau 2. Aus welchem Grund erfolgt die Netzausbaumaßnahme überwiegend?",
+            "optimaler Zeitpunkt der Fertigstellung aus Sicht der Netzplanung [JJJJ]",
+            "voraussichtlicher Zeitpunkt des Baubeginns [MM/JJJJ]",
+            "voraussichtlicher Zeitpunkt der Inbetriebnahme [MM/JJJJ]",
+            "Angabe des Verzögerungsgrundes a) bis g), Mehrfachnennung möglich",
+            "Beschreibung angegebener Verzögerungsgrund",
+            "Projektstatus",
+            "Stand Genehmigungsverfahren",
+            "13",
+            "Hauptsächlich betroffenes Teilnetzgebiet"
+          ],
+          "source_blank_indices": []
+        },
+        {
+          "row_index": 1,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "4",
+            "Mainz-Kostheim \"Lindequartier\"",
+            "Erschließung \"Lindequartier\"",
+            "Neubau",
+            "2 Ortsnetzstadionen",
+            "",
+            "Zubau Verbraucher",
+            "2025",
+            "01/2018",
+            "12/2025",
+            "",
+            "",
+            "im Bau",
+            "abgeschlossen",
+            "UW MS auf NS",
+            "Mainz incl. AKK, Budenheim, Ingelheim, Ginsheim-Gustavsburg"
+          ],
+          "source_blank_indices": [
+            5,
+            10,
+            11
+          ]
+        },
+        {
+          "row_index": 2,
+          "reasons": [
+            "first_rows"
+          ],
+          "values": [
+            "10",
+            "Erneuerung Trasse Goddelau-Biebesheim",
+            "Erneuerung der 110-kV-Trasse zwischen UW Goddelau und UW Biebesheim",
+            "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+            "Freileitungsseil, Masten",
+            "altersbedingt und leistungsbedingte Ersatzinvestition",
+            "Zubau Erzeugung und Verbrauch",
+            "2029",
+            "01/2026",
+            "12/2029",
+            "",
+            "",
+            "konkrete Planung",
+            "bereits eingeleitet",
+            "HS",
+            "Hessisches Ried"
+          ],
+          "source_blank_indices": [
+            10,
+            11
+          ]
+        },
+        {
+          "row_index": 20,
+          "reasons": [
+            "middle_row"
+          ],
+          "values": [
+            "41",
+            "WI - Ausbau 110-kV-Nordring auf 4 System",
+            "Der Nordring soll erneuert werden und in dem Zug auf 4 Systeme erweitert werden",
+            "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+            "Freileitungsseile, Masten",
+            "Angefragten Leistungen bedingen eine Erhöhung der Leitungskapazität",
+            "Zubau Erzeugung und Verbrauch",
+            "2027",
+            "06/2025",
+            "12/2027",
+            "",
+            "",
+            "vorgesehene Maßnahme",
+            "bereits eingeleitet",
+            "HS",
+            "Mainz incl. AKK, Budenheim, Ingelheim, Ginsheim-Gustavsburg"
+          ],
+          "source_blank_indices": [
+            10,
+            11
+          ]
+        },
+        {
+          "row_index": 38,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "59",
+            "Neubau von Niederspannungsnetz",
+            "Errichtung von Niederspannungsnetz",
+            "Netzoptimierung und -verstärkung",
+            "400V-Kabel",
+            "Um die kundenseitige Nachfrage nach Leistung erfüllen zu können muss das Netz in den betroffenen Bereichen Verstärkt werden",
+            "Zubau Erzeugung und Verbrauch",
+            "2028",
+            "01/2024",
+            "12/2028",
+            "",
+            "",
+            "im Bau",
+            "keine Genehmigung erforderlich",
+            "NS",
+            "Mainz incl. AKK, Budenheim, Ingelheim, Ginsheim-Gustavsburg"
+          ],
+          "source_blank_indices": [
+            10,
+            11
+          ]
+        },
+        {
+          "row_index": 39,
+          "reasons": [
+            "last_rows"
+          ],
+          "values": [
+            "60",
+            "Neubau von Niederspannungsnetz",
+            "Errichtung von Niederspannungsspannungsnetz",
+            "Netzoptimierung und -verstärkung",
+            "400V-Kabel",
+            "Um die kundenseitige Nachfrage nach Leistung erfüllen zu können muss das Netz in den betroffenen Bereichen Verstärkt werden",
+            "Zubau Erzeugung und Verbrauch",
+            "2028",
+            "01/2024",
+            "12/2028",
+            "",
+            "",
+            "im Bau",
+            "keine Genehmigung erforderlich",
+            "NS",
+            "Hessisches Ried"
+          ],
+          "source_blank_indices": [
+            10,
+            11
+          ]
+        }
+      ],
+      "rows": []
+    }
+  ],
+  "frozen": true,
+  "draft_sha256": "6f37d9a36eb0a5980d8122bdac1925ba2288fa9af606a0f27248d3952fd079d6"
+}

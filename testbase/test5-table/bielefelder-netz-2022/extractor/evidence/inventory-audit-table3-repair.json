@@ -1,0 +1,1512 @@
+{
+  "spec": "pdf-extractor-pdf/inventory-audit@2.0",
+  "source_sha256": "3dc36a9917ac29b387c8fcc6e1a856f26e4fc0660d4e847a5070ee7dca0af497",
+  "draft_sha256": "c134bb64edaf5de5bbfdb5a2e7127729b348ad28c89251dacef9e6d35476144b",
+  "passed": true,
+  "review_path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/inventory-review.json",
+  "review_sha256": "55f17266358c377e195c3b8b6fc5c317fbb7cbf72cd41432c67c9f02c40cd551",
+  "instructions": "Fix blocking bboxes, then set visible=true and all four edges in inventory-review.json; overlay hashes are code-bound.",
+  "segments": [
+    {
+      "table_id": "table-1",
+      "segment_id": "segment-01",
+      "page": 5,
+      "bbox": [
+        36.0,
+        193.0,
+        465.0,
+        223.0
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/inventory-overlays/table-1/segment-01-f3d1c1dcbf17-page-0005.png",
+      "overlay_sha256": "c306a8e270a0b1982ff42e0529a774cabe3684127ed6e7ba51cbaab824aa3fa4",
+      "blocking_signals": [],
+      "advisory_signals": [
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Netzausbauplanung",
+          "bbox": [
+            36.9278564453125,
+            180.48480224609375,
+            73.41162109375,
+            184.77024841308594
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "Hinweise:",
+          "bbox": [
+            36.6878662109375,
+            230.25660705566406,
+            47.3309326171875,
+            232.80108642578125
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "Teil",
+          "bbox": [
+            36.807861328125,
+            224.79359436035156,
+            41.7701416015625,
+            228.00767517089844
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "1:",
+          "bbox": [
+            42.57080078125,
+            224.79359436035156,
+            45.131103515625,
+            228.00767517089844
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "Aggregierte",
+          "bbox": [
+            45.9317626953125,
+            224.79359436035156,
+            62.0943603515625,
+            228.00767517089844
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "10-Jahresplanung",
+          "bbox": [
+            62.8948974609375,
+            224.79359436035156,
+            87.5419921875,
+            228.00767517089844
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "der",
+          "bbox": [
+            88.3426513671875,
+            224.79359436035156,
+            92.823974609375,
+            228.00767517089844
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "unteren",
+          "bbox": [
+            93.62451171875,
+            224.79359436035156,
+            104.1854248046875,
+            228.00767517089844
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "Netzebenen",
+          "bbox": [
+            104.9862060546875,
+            224.79359436035156,
+            121.148681640625,
+            228.00767517089844
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Maßnahmen",
+          "bbox": [
+            36.807861328125,
+            186.5135955810547,
+            53.6097412109375,
+            189.72767639160156
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "zum",
+          "bbox": [
+            54.4105224609375,
+            186.5135955810547,
+            60.17041015625,
+            189.72767639160156
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Ersatz(neubau),",
+          "bbox": [
+            60.9710693359375,
+            186.5135955810547,
+            82.573974609375,
+            189.72767639160156
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "zur",
+          "bbox": [
+            83.3746337890625,
+            186.5135955810547,
+            87.6947021484375,
+            189.72767639160156
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Optimierung,",
+          "bbox": [
+            88.4952392578125,
+            186.5135955810547,
+            106.4176025390625,
+            189.72767639160156
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "zur",
+          "bbox": [
+            107.2181396484375,
+            186.5135955810547,
+            111.5382080078125,
+            189.72767639160156
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Verstärkung",
+          "bbox": [
+            112.3388671875,
+            186.5135955810547,
+            129.1435546875,
+            189.72767639160156
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "und",
+          "bbox": [
+            129.9443359375,
+            186.5135955810547,
+            135.2232666015625,
+            189.72767639160156
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "zum",
+          "bbox": [
+            136.02392578125,
+            186.5135955810547,
+            141.783935546875,
+            189.72767639160156
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Ausbau",
+          "bbox": [
+            142.5845947265625,
+            186.5135955810547,
+            153.1455078125,
+            189.72767639160156
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Ihres",
+          "bbox": [
+            153.9461669921875,
+            186.5135955810547,
+            160.829345703125,
+            189.72767639160156
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Netzes",
+          "bbox": [
+            161.6300048828125,
+            186.5135955810547,
+            170.91229248046875,
+            189.72767639160156
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "in",
+          "bbox": [
+            171.71295166015625,
+            186.5135955810547,
+            174.27325439453125,
+            189.72767639160156
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "den",
+          "bbox": [
+            175.07391357421875,
+            186.5135955810547,
+            180.19451904296875,
+            189.72767639160156
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "nächsten",
+          "bbox": [
+            180.99517822265625,
+            186.5135955810547,
+            193.63836669921875,
+            189.72767639160156
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "10",
+          "bbox": [
+            194.43902587890625,
+            186.5135955810547,
+            197.64154052734375,
+            189.72767639160156
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Jahren",
+          "bbox": [
+            198.44219970703125,
+            186.5135955810547,
+            207.8857421875,
+            189.72767639160156
+          ]
+        }
+      ],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-2",
+      "segment_id": "segment-01",
+      "page": 5,
+      "bbox": [
+        36.0,
+        230.0,
+        946.0,
+        261.0
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/inventory-overlays/table-2/segment-01-258f527951ca-page-0005.png",
+      "overlay_sha256": "acecbf811ec8b4faf49af1c57ea00c4e2963239ee4f6a4f05536339e28c1dd23",
+      "blocking_signals": [],
+      "advisory_signals": [
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "10-Jahres-Investition",
+          "bbox": [
+            84.9278564453125,
+            272.3081970214844,
+            99.40625,
+            274.0491638183594
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "für",
+          "bbox": [
+            99.8399658203125,
+            272.3081970214844,
+            101.6605224609375,
+            274.0491638183594
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "Neubau",
+          "bbox": [
+            102.0941162109375,
+            272.3081970214844,
+            107.5572509765625,
+            274.0491638183594
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "10-Jahres-Investition",
+          "bbox": [
+            137.005126953125,
+            272.3081970214844,
+            151.4833984375,
+            274.0491638183594
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "für",
+          "bbox": [
+            151.9171142578125,
+            272.3081970214844,
+            153.7376708984375,
+            274.0491638183594
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "Ersatz(neubau)",
+          "bbox": [
+            154.17138671875,
+            272.3081970214844,
+            164.8355712890625,
+            274.0491638183594
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "mit",
+          "bbox": [
+            164.72802734375,
+            272.3081970214844,
+            167.06793212890625,
+            274.0491638183594
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "Erhöhung",
+          "bbox": [
+            167.501708984375,
+            272.3081970214844,
+            174.86798095703125,
+            274.0491638183594
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "der",
+          "bbox": [
+            175.3016357421875,
+            272.3081970214844,
+            177.72900390625,
+            274.0491638183594
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "Übertragungskapazität",
+          "bbox": [
+            178.1627197265625,
+            272.3081970214844,
+            195.06524658203125,
+            274.0491638183594
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "10-Jahres-Investition",
+          "bbox": [
+            285.087890625,
+            272.3081970214844,
+            299.56634521484375,
+            274.0491638183594
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "für",
+          "bbox": [
+            300.0,
+            272.3081970214844,
+            301.82049560546875,
+            274.0491638183594
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "Netzoptimierung",
+          "bbox": [
+            302.25421142578125,
+            272.3081970214844,
+            313.61102294921875,
+            274.0491638183594
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "und",
+          "bbox": [
+            314.04473876953125,
+            272.3081970214844,
+            316.6468505859375,
+            274.0491638183594
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "-verstärkung",
+          "bbox": [
+            317.08056640625,
+            272.3081970214844,
+            325.74945068359375,
+            274.0491638183594
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "Summe",
+          "bbox": [
+            333.68780517578125,
+            270.3881530761719,
+            339.06201171875,
+            272.1291198730469
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "10-Jahres",
+          "bbox": [
+            333.68780517578125,
+            272.42816162109375,
+            340.6236572265625,
+            274.16912841796875
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "Netzausbau",
+          "bbox": [
+            341.0572509765625,
+            272.42816162109375,
+            349.38153076171875,
+            274.16912841796875
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "davon:",
+          "bbox": [
+            372.6878662109375,
+            271.34820556640625,
+            377.37103271484375,
+            273.08917236328125
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "Kosten",
+          "bbox": [
+            377.80474853515625,
+            271.34820556640625,
+            382.66107177734375,
+            273.08917236328125
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "des",
+          "bbox": [
+            383.0947265625,
+            271.34820556640625,
+            385.6094970703125,
+            273.08917236328125
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "überwiegend",
+          "bbox": [
+            386.043212890625,
+            271.34820556640625,
+            394.9742431640625,
+            273.08917236328125
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "erzeugungsgetrieben",
+          "bbox": [
+            395.407958984375,
+            271.34820556640625,
+            410.06268310546875,
+            273.08917236328125
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "davon:",
+          "bbox": [
+            420.80780029296875,
+            271.34820556640625,
+            425.49090576171875,
+            273.08917236328125
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "Kosten",
+          "bbox": [
+            425.9246826171875,
+            271.34820556640625,
+            430.78094482421875,
+            273.08917236328125
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "des",
+          "bbox": [
+            431.21466064453125,
+            271.34820556640625,
+            433.72943115234375,
+            273.08917236328125
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "überwiegend",
+          "bbox": [
+            434.1630859375,
+            271.34820556640625,
+            443.09417724609375,
+            273.08917236328125
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "verbrauchsbedingten",
+          "bbox": [
+            443.52783203125,
+            271.34820556640625,
+            458.09521484375,
+            273.08917236328125
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Teil",
+          "bbox": [
+            36.807861328125,
+            224.79359436035156,
+            41.7701416015625,
+            228.00767517089844
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "1:",
+          "bbox": [
+            42.57080078125,
+            224.79359436035156,
+            45.131103515625,
+            228.00767517089844
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Aggregierte",
+          "bbox": [
+            45.9317626953125,
+            224.79359436035156,
+            62.0943603515625,
+            228.00767517089844
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "10-Jahresplanung",
+          "bbox": [
+            62.8948974609375,
+            224.79359436035156,
+            87.5419921875,
+            228.00767517089844
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "der",
+          "bbox": [
+            88.3426513671875,
+            224.79359436035156,
+            92.823974609375,
+            228.00767517089844
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "unteren",
+          "bbox": [
+            93.62451171875,
+            224.79359436035156,
+            104.1854248046875,
+            228.00767517089844
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Netzebenen",
+          "bbox": [
+            104.9862060546875,
+            224.79359436035156,
+            121.148681640625,
+            228.00767517089844
+          ]
+        }
+      ],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-3",
+      "segment_id": "segment-01",
+      "page": 5,
+      "bbox": [
+        49.0,
+        266.0,
+        465.0,
+        302.0
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/inventory-overlays/table-3/segment-01-25a30ebeff04-page-0005.png",
+      "overlay_sha256": "a3811915cbf95bb5439b0c4303abd53ef4dafbed4f2eea28a50f1c44325b286f",
+      "blocking_signals": [],
+      "advisory_signals": [
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "10-Jahres-Investition",
+          "bbox": [
+            84.9278564453125,
+            306.1483459472656,
+            99.4061279296875,
+            307.8893127441406
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "für",
+          "bbox": [
+            99.83984375,
+            306.1483459472656,
+            101.660400390625,
+            307.8893127441406
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "Ersatz(neubau)",
+          "bbox": [
+            102.093994140625,
+            306.1483459472656,
+            112.75830078125,
+            307.8893127441406
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "ohne",
+          "bbox": [
+            112.647705078125,
+            306.1483459472656,
+            116.37451171875,
+            307.8893127441406
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "Erhöhung",
+          "bbox": [
+            116.808349609375,
+            306.1483459472656,
+            124.174560546875,
+            307.8893127441406
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "der",
+          "bbox": [
+            124.6082763671875,
+            306.1483459472656,
+            127.03564453125,
+            307.8893127441406
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "Übertragungskapazität",
+          "bbox": [
+            84.9278564453125,
+            308.1883544921875,
+            101.8304443359375,
+            309.9293212890625
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "10-Jahres-Investition",
+          "bbox": [
+            137.0078125,
+            307.1083679199219,
+            151.486083984375,
+            308.8493347167969
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "für",
+          "bbox": [
+            151.9197998046875,
+            307.1083679199219,
+            153.7403564453125,
+            308.8493347167969
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "Rückbau",
+          "bbox": [
+            154.174072265625,
+            307.1083679199219,
+            160.3297119140625,
+            308.8493347167969
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "/",
+          "bbox": [
+            160.763427734375,
+            307.1083679199219,
+            161.1971435546875,
+            308.8493347167969
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "Altlastentsorgung",
+          "bbox": [
+            161.630859375,
+            307.1083679199219,
+            173.683349609375,
+            308.8493347167969
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "In",
+          "bbox": [
+            49.287841796875,
+            256.7082214355469,
+            50.5888671875,
+            258.4491882324219
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Spalte",
+          "bbox": [
+            51.0225830078125,
+            256.7082214355469,
+            55.4451904296875,
+            258.4491882324219
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "G",
+          "bbox": [
+            55.87890625,
+            256.7082214355469,
+            57.092529296875,
+            258.4491882324219
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "und",
+          "bbox": [
+            57.5262451171875,
+            256.7082214355469,
+            60.1282958984375,
+            258.4491882324219
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "H",
+          "bbox": [
+            60.56201171875,
+            256.7082214355469,
+            61.6883544921875,
+            258.4491882324219
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "teilen",
+          "bbox": [
+            62.1219482421875,
+            256.7082214355469,
+            65.850341796875,
+            258.4491882324219
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Sie",
+          "bbox": [
+            66.2840576171875,
+            256.7082214355469,
+            68.5382080078125,
+            258.4491882324219
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "bitte",
+          "bbox": [
+            68.971923828125,
+            256.7082214355469,
+            71.9202880859375,
+            258.4491882324219
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "die",
+          "bbox": [
+            72.35400390625,
+            256.7082214355469,
+            74.43505859375,
+            258.4491882324219
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Summe",
+          "bbox": [
+            74.8687744140625,
+            256.7082214355469,
+            80.242919921875,
+            258.4491882324219
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "der",
+          "bbox": [
+            80.6766357421875,
+            256.7082214355469,
+            82.930908203125,
+            258.4491882324219
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Netzebeneninvestitionen",
+          "bbox": [
+            83.364501953125,
+            256.7082214355469,
+            100.446533203125,
+            258.4491882324219
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "(Spalte",
+          "bbox": [
+            100.8802490234375,
+            256.7082214355469,
+            105.822265625,
+            258.4491882324219
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "F)",
+          "bbox": [
+            106.2559814453125,
+            256.7082214355469,
+            107.7286376953125,
+            258.4491882324219
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "auf",
+          "bbox": [
+            108.162353515625,
+            256.7082214355469,
+            110.3306884765625,
+            258.4491882324219
+          ]
+        }
+      ],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-4",
+      "segment_id": "segment-01",
+      "page": 5,
+      "bbox": [
+        49.0,
+        304.0,
+        283.0,
+        333.0
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/inventory-overlays/table-4/segment-01-131268ff83f0-page-0005.png",
+      "overlay_sha256": "b9109c2cf6010ca2314dc0850c85e29aa4acfff1d29db04a6ee4ee61d24b01f3",
+      "blocking_signals": [],
+      "advisory_signals": [
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Umspannung",
+          "bbox": [
+            50.727783203125,
+            290.30828857421875,
+            60.0050048828125,
+            292.04925537109375
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "MS/NS",
+          "bbox": [
+            60.438720703125,
+            290.30828857421875,
+            65.3792724609375,
+            292.04925537109375
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "1.500.000",
+          "bbox": [
+            84.926025390625,
+            290.30828857421875,
+            91.8648681640625,
+            292.04925537109375
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "€",
+          "bbox": [
+            92.2451171875,
+            290.30828857421875,
+            93.1124267578125,
+            292.04925537109375
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "8.250.000",
+          "bbox": [
+            137.0050048828125,
+            290.30828857421875,
+            143.9437255859375,
+            292.04925537109375
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "€",
+          "bbox": [
+            144.32421875,
+            290.30828857421875,
+            145.1915283203125,
+            292.04925537109375
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Niederspannung",
+          "bbox": [
+            50.727783203125,
+            297.50830078125,
+            62.1734619140625,
+            299.249267578125
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "9.828.000",
+          "bbox": [
+            84.9248046875,
+            297.50830078125,
+            91.8636474609375,
+            299.249267578125
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "€",
+          "bbox": [
+            92.243896484375,
+            297.50830078125,
+            93.1112060546875,
+            299.249267578125
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "27.371.520",
+          "bbox": [
+            137.003662109375,
+            297.50830078125,
+            144.8099365234375,
+            299.249267578125
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "€",
+          "bbox": [
+            145.16259765625,
+            297.50830078125,
+            146.0299072265625,
+            299.249267578125
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "Maßnahmenplan",
+          "bbox": [
+            47.072265625,
+            340.1477966308594,
+            72.6357421875,
+            343.7636413574219
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "(alle",
+          "bbox": [
+            73.5364990234375,
+            340.1477966308594,
+            80.0196533203125,
+            343.7636413574219
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "Spannungsebenen)",
+          "bbox": [
+            80.9205322265625,
+            340.1477966308594,
+            110.9844970703125,
+            343.7636413574219
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "in",
+          "bbox": [
+            111.8851318359375,
+            340.1477966308594,
+            114.7655029296875,
+            343.7636413574219
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "den",
+          "bbox": [
+            115.6661376953125,
+            340.1477966308594,
+            121.4268798828125,
+            343.7636413574219
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "nächsten",
+          "bbox": [
+            122.32763671875,
+            340.1477966308594,
+            136.5511474609375,
+            343.7636413574219
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "10",
+          "bbox": [
+            137.451904296875,
+            340.1477966308594,
+            141.0548095703125,
+            343.7636413574219
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "Jahren",
+          "bbox": [
+            141.95556640625,
+            340.1477966308594,
+            152.5794677734375,
+            343.7636413574219
+          ]
+        }
+      ],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-5",
+      "segment_id": "segment-01",
+      "page": 5,
+      "bbox": [
+        36.0,
+        344.0,
+        946.0,
+        391.0
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/inventory-overlays/table-5/segment-01-a2321c5a5fac-page-0005.png",
+      "overlay_sha256": "092e0d0180fc9b0c8246b942edf72d32e45801d5ef9b663bfb95a28607514916",
+      "blocking_signals": [],
+      "advisory_signals": [
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Teil",
+          "bbox": [
+            36.807861328125,
+            340.1477966308594,
+            42.3905029296875,
+            343.7636413574219
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "2:",
+          "bbox": [
+            43.2911376953125,
+            340.1477966308594,
+            46.1715087890625,
+            343.7636413574219
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Maßnahmenplan",
+          "bbox": [
+            47.072265625,
+            340.1477966308594,
+            72.6357421875,
+            343.7636413574219
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "(alle",
+          "bbox": [
+            73.5364990234375,
+            340.1477966308594,
+            80.0196533203125,
+            343.7636413574219
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Spannungsebenen)",
+          "bbox": [
+            80.9205322265625,
+            340.1477966308594,
+            110.9844970703125,
+            343.7636413574219
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "in",
+          "bbox": [
+            111.8851318359375,
+            340.1477966308594,
+            114.7655029296875,
+            343.7636413574219
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "den",
+          "bbox": [
+            115.6661376953125,
+            340.1477966308594,
+            121.4268798828125,
+            343.7636413574219
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "nächsten",
+          "bbox": [
+            122.32763671875,
+            340.1477966308594,
+            136.5511474609375,
+            343.7636413574219
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "10",
+          "bbox": [
+            137.451904296875,
+            340.1477966308594,
+            141.0548095703125,
+            343.7636413574219
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Jahren",
+          "bbox": [
+            141.95556640625,
+            340.1477966308594,
+            152.5794677734375,
+            343.7636413574219
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "Ausfüllbeispiele",
+          "bbox": [
+            36.6878662109375,
+            398.7366027832031,
+            54.1732177734375,
+            401.28106689453125
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "und",
+          "bbox": [
+            54.8070068359375,
+            398.7366027832031,
+            58.986328125,
+            401.28106689453125
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "Zellenhinweise",
+          "bbox": [
+            59.6201171875,
+            398.7366027832031,
+            75.840087890625,
+            401.28106689453125
+          ]
+        }
+      ],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    },
+    {
+      "table_id": "table-6",
+      "segment_id": "segment-01",
+      "page": 5,
+      "bbox": [
+        36.0,
+        398.0,
+        1155.0,
+        676.0
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/inventory-overlays/table-6/segment-01-c7f64d29421c-page-0005.png",
+      "overlay_sha256": "6d0c35f518713e2be3b3224209d5b83f30c22ded6230f43dae68444f5ce9eca4",
+      "blocking_signals": [],
+      "advisory_signals": [
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "9.",
+          "bbox": [
+            36.807861328125,
+            387.0338134765625,
+            39.2098388671875,
+            390.2478942871094
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Füllen",
+          "bbox": [
+            49.287841796875,
+            387.7481994628906,
+            53.53564453125,
+            389.4891662597656
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Sie",
+          "bbox": [
+            53.9693603515625,
+            387.7481994628906,
+            56.2235107421875,
+            389.4891662597656
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "alle",
+          "bbox": [
+            56.6572265625,
+            387.7481994628906,
+            59.0845947265625,
+            389.4891662597656
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Spalten",
+          "bbox": [
+            59.518310546875,
+            387.7481994628906,
+            64.8082275390625,
+            389.4891662597656
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "aus!",
+          "bbox": [
+            65.241943359375,
+            387.7481994628906,
+            68.1903076171875,
+            389.4891662597656
+          ]
+        }
+      ],
+      "suggested_bbox": null,
+      "attested": true,
+      "passed": true
+    }
+  ],
+  "elapsed_seconds": 0.298881
+}

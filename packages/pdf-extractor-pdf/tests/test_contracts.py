@@ -6,6 +6,7 @@ from pathlib import Path
 import fitz
 import pytest
 
+from pdf_extractor_pdf.agents import generate_agent_briefs
 from pdf_extractor_pdf.artifacts import write_json
 from pdf_extractor_pdf.evidence import prepare
 from pdf_extractor_pdf.inventory import freeze_inventory
@@ -35,6 +36,14 @@ def test_scaffold_keeps_every_non_output_artifact_in_extractor(tmp_path: Path) -
     assert job.output_dir == project / "output"
 
 
+def test_finder_brief_requires_one_dispatch_through_passed_audit(tmp_path: Path) -> None:
+    job, _ = _job(tmp_path)
+    generate_agent_briefs(job)
+    brief = (job.evidence_dir / "agent-tasks" / "finder-agent.md").read_text()
+    assert "In one dispatch" in brief
+    assert "do not stop after writing the first draft" in brief
+
+
 def test_inventory_requires_exact_page_coverage(tmp_path: Path) -> None:
     job, _ = _job(tmp_path)
     prepare(job)
@@ -43,7 +52,8 @@ def test_inventory_requires_exact_page_coverage(tmp_path: Path) -> None:
         "spec": "pdf-extractor-pdf/inventory-draft@1.0", "role": "finder_agent",
         "reviewed_all_pages": True, "source_sha256": source_sha256(job.source),
         "page_findings": [], "tables": [{
-            "id": "x", "title": "x", "segments": [{"id": "s1", "page": 1, "bbox": [1, 1, 10, 10]}],
+            "id": "x", "title": "x", "column_count": 1,
+            "segments": [{"id": "s1", "page": 1, "bbox": [1, 1, 10, 10]}],
         }],
     })
     with pytest.raises(ValueError, match="every page exactly once"):

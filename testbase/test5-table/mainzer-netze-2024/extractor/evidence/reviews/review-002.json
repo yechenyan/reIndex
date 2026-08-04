@@ -1,0 +1,136 @@
+{
+  "spec": "pdf-extractor-pdf/review@4.0",
+  "review_target": "main_agent",
+  "passed": true,
+  "deterministic": true,
+  "source_sha256": "828d7e506917fc3d5331a1cc7ad0f4be78b425af0b7f6b1d74716f22c82e332a",
+  "inventory_sha256": "8d3213ee2fcb541d77982820abaafa1312b16e4bad47a7aa403163ba6f06928d",
+  "reference_sha256": "086b09c5bfa9a428e8a2a8a3b314c480ea8e7d7c52832cc66c90e419df4f1ef7",
+  "extractor_sha256": "2a2f7008a51c749683ad69819ef349f5d3007db589e9b51de3f25787f253cd6d",
+  "summary": {
+    "issue_count": 0,
+    "case_count": 0,
+    "format_difference_count": 2,
+    "deterministically_routed_cases": 0,
+    "main_agent_case_reviews": 0,
+    "merge_reviews": 0
+  },
+  "issues": [],
+  "format_differences": [
+    {
+      "id": "table-appendix-measures:format:38",
+      "classification": "format_only",
+      "table_id": "table-appendix-measures",
+      "row_index": 38,
+      "cell_diffs": [
+        {
+          "column_index": 3,
+          "extractor_raw": "Netzoptimierung und - verstärkung",
+          "qa_raw": "Netzoptimierung und -verstärkung",
+          "extractor_normalized": "Netzoptimierung und - verstärkung",
+          "qa_normalized": "Netzoptimierung und -verstärkung",
+          "extractor_content_key": "netzoptimierungundverstärkung",
+          "qa_content_key": "netzoptimierungundverstärkung",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": true,
+          "difference_kind": "format_only"
+        }
+      ],
+      "evidence_refs": [
+        "table-appendix-measures::segment-01"
+      ]
+    },
+    {
+      "id": "table-appendix-measures:format:39",
+      "classification": "format_only",
+      "table_id": "table-appendix-measures",
+      "row_index": 39,
+      "cell_diffs": [
+        {
+          "column_index": 3,
+          "extractor_raw": "Netzoptimierung und - verstärkung",
+          "qa_raw": "Netzoptimierung und -verstärkung",
+          "extractor_normalized": "Netzoptimierung und - verstärkung",
+          "qa_normalized": "Netzoptimierung und -verstärkung",
+          "extractor_content_key": "netzoptimierungundverstärkung",
+          "qa_content_key": "netzoptimierungundverstärkung",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": true,
+          "difference_kind": "format_only"
+        }
+      ],
+      "evidence_refs": [
+        "table-appendix-measures::segment-01"
+      ]
+    }
+  ],
+  "review_cases": [],
+  "repair_plan": {},
+  "issue_groups": {},
+  "merge_candidates": [],
+  "evidence_index": {
+    "table-abbreviations::segment-01": {
+      "table_id": "table-abbreviations",
+      "segment_id": "segment-01",
+      "page": 5,
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-abbreviations/segment-01-70a0029daca0-page-0005.png",
+      "image_sha256": "2e65c6587523f723be35467be76814c57d1c6e82d24d14b814c31a5a3baa5f19",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-abbreviations/segment-01-70a0029daca0-page-0005.json"
+    },
+    "table-1::segment-01": {
+      "table_id": "table-1",
+      "segment_id": "segment-01",
+      "page": 10,
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-1/segment-01-6b27bc79a41f-page-0010.png",
+      "image_sha256": "27b8276b70088b410411f540d14002ce540b43470961eda0a0d35fa911ac1f15",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-1/segment-01-6b27bc79a41f-page-0010.json"
+    },
+    "table-2::segment-01": {
+      "table_id": "table-2",
+      "segment_id": "segment-01",
+      "page": 11,
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-2/segment-01-ce6f5d99a305-page-0011.png",
+      "image_sha256": "5e737880e796d6ad1016d45fd455607a0c82aab24138bb52048fb6da04c657ce",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-2/segment-01-ce6f5d99a305-page-0011.json"
+    },
+    "table-3::segment-01": {
+      "table_id": "table-3",
+      "segment_id": "segment-01",
+      "page": 13,
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-3/segment-01-1efb21a58fb5-page-0013.png",
+      "image_sha256": "4141ceac53d1989c4335e43d9a4cac694e5a784f22eda2602e2e2205bef90b64",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-3/segment-01-1efb21a58fb5-page-0013.json"
+    },
+    "table-4::segment-01": {
+      "table_id": "table-4",
+      "segment_id": "segment-01",
+      "page": 13,
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-4/segment-01-abc6fb24a692-page-0013.png",
+      "image_sha256": "de02f3f2115086826373fc7fc32f133a2dedf3bcc2d11efb2142f13668309d61",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-4/segment-01-abc6fb24a692-page-0013.json"
+    },
+    "table-appendix-measures::segment-01": {
+      "table_id": "table-appendix-measures",
+      "segment_id": "segment-01",
+      "page": 16,
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png",
+      "image_sha256": "70782ae80ee2b25ef25525fe6c25dcf89593c9418bf4c5bedec7128bbaa87590",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.json"
+    }
+  },
+  "review_queue": [],
+  "merge_decisions_sha256": null,
+  "output_hashes": {
+    "result.json": "7c2a26dcfd8a5dfd1505c8bc9d81e8aebb2f736edd08e1e9387d065403cc732c",
+    "table-1.csv": "96761c1c222136b6f80aec7febba159b92c06993ccd161a728de55c63befa7d2",
+    "table-2.csv": "73ae28f843803dceddf836dcd51f33d1491ae0df5c0eba782fb6d8cbe2ac3c40",
+    "table-3.csv": "737263b3602a1a49ebeb72c68f3bba33085a6118329f750032435ed978444846",
+    "table-4.csv": "8b3a885f6eb11e2247cc57a38d6f2059196be91b39e09d1bf7309dbf0b5026a8",
+    "table-abbreviations.csv": "9aa9c26dfd4f551c9c1e619fd731233d2ead09ce500a955753fb129c1f32fdfa",
+    "table-appendix-measures.csv": "02d40cb71265d0f13430b5d10042f873fb4a370aaca4ab2208cd32e9f3aba6ea"
+  },
+  "review_sequence": 2,
+  "review_archive": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/reviews/review-002.json"
+}

@@ -5,6 +5,7 @@ from pathlib import Path
 
 from pdf_extractor_pdf.artifacts import artifact_hash, read_json
 from pdf_extractor_pdf.inspection import _valid_cache
+from pdf_extractor_pdf.finder_packet import valid_finder_packet
 from pdf_extractor_pdf.job import Job
 from pdf_extractor_pdf.models import source_sha256
 from pdf_extractor_pdf.workflow import load_state
@@ -53,7 +54,7 @@ def _verify_prepare(job: Job, path) -> bool:
         contact = Path(value)
         if not contact.is_file() or manifest.get("contact_hashes", {}).get(contact.name) != artifact_hash(contact):
             return False
-    return bool(manifest.get("contacts"))
+    return bool(manifest.get("contacts")) and valid_finder_packet(manifest.get("finder_packet", {}))
 
 
 def _verify_inventory_audit(job: Job) -> bool:
@@ -62,6 +63,9 @@ def _verify_inventory_audit(job: Job) -> bool:
         return False
     report, inventory = read_json(path), read_json(job.inventory)
     if not report.get("passed") or report.get("draft_sha256") != inventory.get("draft_sha256"):
+        return False
+    review = Path(report.get("review_path", ""))
+    if not review.is_file() or artifact_hash(review) != report.get("review_sha256"):
         return False
     for item in report.get("segments", []):
         overlay = Path(item["overlay"])

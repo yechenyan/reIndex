@@ -21,14 +21,18 @@ project/
     └── evidence/
         ├── pages-low/      # all-page thumbnails
         ├── contact-sheets/
+        ├── finder-packet.json # ranked pages plus pre-rendered candidates
         ├── inventory-overlays/ # full-page Segment BBox review images
+        ├── inventory-review.json # Finder edits booleans/edges only
         ├── pages-high/     # targeted escalations only
         ├── segments/       # frozen crops and geometry
         ├── inventory.json
         ├── reference.json
+        ├── normalization-decisions.json # frozen visual line-wrap decisions
         ├── reference-work/ # QA structure and adaptive sample templates
         ├── agent-tasks/    # role-scoped briefs
         ├── review.json     # compact evidence packet for the main Agent
+        ├── reviews/        # immutable numbered Review history
         ├── role-separation.json
         ├── final.json
         └── metrics/        # CLI and Agent timing/usage records
@@ -49,6 +53,7 @@ pdf-extractor-pdf freeze-reference PROJECT/extractor/job.yaml reference-draft.js
 pdf-extractor-pdf run PROJECT/extractor/job.yaml
 pdf-extractor-pdf validate PROJECT/extractor/job.yaml
 pdf-extractor-pdf repair-scope PROJECT/extractor/job.yaml --route extraction_agent
+pdf-extractor-pdf begin-qa-repair PROJECT/extractor/job.yaml --tables table-5
 pdf-extractor-pdf resolve-merges PROJECT/extractor/job.yaml merge-decisions.json
 pdf-extractor-pdf finalize PROJECT/extractor/job.yaml
 pdf-extractor-pdf verify-cache PROJECT/extractor/job.yaml
@@ -64,15 +69,36 @@ confirmed merges still require reopening Inventory. `check` verifies the latest
 review and output hashes without rerunning extraction, while `verify-cache`
 non-mutatively verifies neutral evidence even after completion.
 
-`prepare` creates rolling eight-page contact sheets with one-page overlap, so a
-possible continuation is visible in two consecutive sheets. Inventory freezing
-requires a two-pass `audit-inventory`: fixed code creates full-page BBox overlays
-and edge diagnostics, then Finder records each overlay hash after reviewing all
-four edges. Failed reviews are grouped into table-level cases. Before any repair
+Tables are header-neutral matrices. Inventory freezes positional `column_count`;
+the first visible row is output as row 0 and is never implicitly promoted to a
+header. CSV files contain the matrix rows once, without an extra field-name row.
+QA declares each column position `exact` or `text`. Structure, row/column order,
+provenance, and `exact` values remain strict. `text` comparison removes only
+separator characters while preserving letter/digit order: line breaks, spaces,
+and hyphens can produce a non-blocking `format_only` report, but missing or
+reordered content still fails. Every empty QA sample cell must be explicitly
+listed in `source_blank_indices` before the reference can freeze. Continuation
+Segments record source rows and repeated leading rows separately, so only proven
+repetitions are removed during merge.
+Every table samples its first three rows, last two rows, middle row, and both
+sides of Segment boundaries; duplicate indices are collapsed.
+
+`prepare` creates rolling eight-page contact sheets with one-page overlap and a
+Finder packet with code-ranked, pre-rendered candidate pages. In one dispatch,
+Finder writes its draft, runs `audit-inventory`, fixes blocking BBoxes, attests
+the visibility and four reviewed edges, and reruns until the audit passes.
+Failed reviews are grouped into table-level cases. Before any repair
 dispatch, `repair-scope` freezes the affected table IDs; Agent briefs expose only
 that scope and validation rejects changes to unaffected Inventory, reference, or
 result tables. QA reference repair templates contain only affected tables, while
 fixed code reuses the unaffected frozen reference entries.
+
+After Segment geometry exists, `scaffold-reference` lists each distinct token
+ending in `-` at a visual line boundary with the next line's first token. A
+standalone fixed function classifies obvious lowercase continuation as `remove`
+and uppercase/digit continuation as `keep`; QA marks only ambiguous candidates.
+Fixed code applies decisions to matching cells. Soft hyphens are removed
+deterministically.
 
 The package launches extractor code in a controlled subprocess with a timeout,
 fixed hash seed, isolated temporary result path, and bytecode disabled. This is
@@ -103,9 +129,20 @@ not misreported as serial elapsed time.
 pdf-extractor-pdf stage-start JOB extraction --role extraction_agent --model MODEL --run-id extraction-1 --agent-id AGENT-A
 pdf-extractor-pdf stage-start JOB qa --role qa_agent --model MODEL --run-id qa-1 --agent-id AGENT-B
 pdf-extractor-pdf stage-finish JOB extraction-1
+pdf-extractor-pdf stage-cancel JOB qa-1 --reason "dispatch did not occur"
 pdf-extractor-pdf metrics-report JOB
 ```
 
-Each `stage-start` is one real Agent dispatch. `stage-finish` derives conversation
-and repair counts from recorded dispatch history; children do not self-report
-those values. Start a new run ID before every routed follow-up.
+Each `stage-start` is one recorded dispatch or orchestration step; pass
+`--dispatch-kind spawn`, `followup`, or `orchestrator`. The report counts only
+child `spawn/followup` records as Agent conversations and reports main-Agent
+records separately as orchestration steps. Start a new run ID before every routed follow-up.
+The same `agent_id` cannot have two unfinished stages, preventing overlapping
+self-time from inflating totals. `begin-qa-repair` is resumable and performs
+scope, reopen, partial template, and brief refresh as one operation. Every
+validation archives `reviews/review-NNN.json`; reopening keeps that history.
+If a stage was opened but no real Agent dispatch occurred, cancel it instead of
+counting a phantom conversation. After a passed/finalized review, an independent
+source audit may create an explicit `repair-scope --tables ...`; validation still
+protects every table outside that narrowly reopened scope. Extraction-only
+post-final repairs validate directly without reopening an unchanged QA reference.

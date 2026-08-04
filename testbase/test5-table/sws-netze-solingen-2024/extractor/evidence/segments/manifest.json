@@ -1,6 +1,6 @@
 {
   "spec": "pdf-extractor-pdf/segment-evidence@1.0",
-  "inventory_sha256": "15ef274e483beea0b39436bd01b48358603bfb38c1276f074d0f42740455a52e",
+  "inventory_sha256": "56aa98f7d16c2a16acc99157e80705dbfe4e828cd27bfc935858ff5a96240c31",
   "dpi": 220,
   "cache_hit": false,
   "reused_segments": 0,
@@ -11,71 +11,71 @@
       "table_id": "table-abbreviations",
       "segment_id": "segment-01",
       "page": 4,
-      "fingerprint": "a93f2823b26325b79188b1ebd9749797981222ac4443b3f765e792e06b69f6d0",
-      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-abbreviations/segment-01-a93f2823b263-page-0004.png",
-      "image_sha256": "aa5c020b3c4d3f5984624695f2a980f488c7d3a48cd422344bb6217132a455ef",
-      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-abbreviations/segment-01-a93f2823b263-page-0004.json",
-      "geometry_sha256": "37aecd64f1262b1d05ed1fade77feaf874067266bd07b06f9c5a46072a8922fe"
+      "fingerprint": "1bf59af62120cc355a616fe268760f9942754a6aef1329d88b06c71020242b73",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-abbreviations/segment-01-1bf59af62120-page-0004.png",
+      "image_sha256": "4359b7240a809d8c4ff75071f4089bed6a5e3d3071101d4e5743e74d16359d1c",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-abbreviations/segment-01-1bf59af62120-page-0004.json",
+      "geometry_sha256": "2f0ff41ab3c204c73f221268694bb54798f1915bf56f393cafd801040e87a9e9"
     },
     {
       "table_id": "table-1",
       "segment_id": "segment-01",
       "page": 6,
-      "fingerprint": "b2265094489f1c5917ee58eb21ce93410a89e52df9e53a9cd298e32668ec55fe",
-      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-1/segment-01-b2265094489f-page-0006.png",
-      "image_sha256": "3f408e016988d8dc3c8a8d360924bf41f1e3e080f9942d7ac51aa970551bf3a4",
-      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-1/segment-01-b2265094489f-page-0006.json",
-      "geometry_sha256": "9281352a6d80c1c826a4b4b4a1583e3f300b0dad9ff6518fbb3e606e40e7f93e"
+      "fingerprint": "a1fbffc62ad4cf75e6d9feb680474036e33d60e039f110732f1f9caca6ef8018",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-1/segment-01-a1fbffc62ad4-page-0006.png",
+      "image_sha256": "12baeab04f68d07598278b7d12f58d098636a8e291fbdabf0a77015b867c9aa3",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-1/segment-01-a1fbffc62ad4-page-0006.json",
+      "geometry_sha256": "bcb06203fbc393c4438b783b9282f5c31c9d11295aec4c928d0be0b69ecb6217"
     },
     {
       "table_id": "table-2",
       "segment_id": "segment-01",
       "page": 10,
-      "fingerprint": "f8dd680452a9e9978809efee76f1ceef20e78794b23cf3817ec9dcb146393b73",
-      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-2/segment-01-f8dd680452a9-page-0010.png",
-      "image_sha256": "dd2fc06f5493c14327a764270d7c425fb97786f2d795bc58b7378d1e9750278d",
-      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-2/segment-01-f8dd680452a9-page-0010.json",
-      "geometry_sha256": "e2a214d1a13cb132a3871e5e8145828cf3a84857d638ab5ec62224062a0ddafe"
+      "fingerprint": "18f78448e0c0b2e07889537125694eea856f0c13f9b821ad27e4f422c3f48b19",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-2/segment-01-18f78448e0c0-page-0010.png",
+      "image_sha256": "1d85bb945b4c0cf2fe0f21db5eb0ef2063156b55a7dd27f20c47e3993eb357bd",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-2/segment-01-18f78448e0c0-page-0010.json",
+      "geometry_sha256": "9c081d828224dfc0e23cfdae476e4a35f3fbac1760aa2f16a08f0609e42f6361"
     },
     {
       "table_id": "table-3",
       "segment_id": "segment-01",
       "page": 13,
-      "fingerprint": "fb9cb39907faa2c5c2d33d80d06017374473ac1e38780b4713dbbcfb48001b92",
-      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-3/segment-01-fb9cb39907fa-page-0013.png",
-      "image_sha256": "364af445610d5ff7ee81e778a6a0cd4d101e263e1ed90432f15be24fd1e743d6",
-      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-3/segment-01-fb9cb39907fa-page-0013.json",
-      "geometry_sha256": "301199f33272178b752b5b0b30cd0758f585af4bec3708a5752ac492fab11e2c"
+      "fingerprint": "e3bf81f2fd47360fe6b60d3e5912b677df6a9f3ff2114ae6555346fd2b1f34dc",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-3/segment-01-e3bf81f2fd47-page-0013.png",
+      "image_sha256": "2886f3f9f4e280f7389fc9aee8cfc6ef4ad21f674b989ff90039ffbcfe4815be",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-3/segment-01-e3bf81f2fd47-page-0013.json",
+      "geometry_sha256": "61a066173bc2052eba100bf60633b9e4161900375d8df32fb7dd8b16bbca37fb"
     },
     {
       "table_id": "table-4",
       "segment_id": "segment-01",
       "page": 14,
-      "fingerprint": "ed6353e843f0ef4c661cb3b1798b568ba324f92c1a10b572e7ebba9928ebf37b",
-      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-4/segment-01-ed6353e843f0-page-0014.png",
-      "image_sha256": "f35ee1ffebda3a3d81cc11b84bc64c8e7f785f185558776bbef882c5d47772ea",
-      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-4/segment-01-ed6353e843f0-page-0014.json",
-      "geometry_sha256": "793ab1d4bde10c3fec73f61aacf2ddc53552d12d29c03fd4891a49d6c2d959da"
+      "fingerprint": "ce293d2b46e92ebd4d1497ff3a3a6619326d78c2656360baa88a05fa4483c988",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-4/segment-01-ce293d2b46e9-page-0014.png",
+      "image_sha256": "26f97666a8e312fbe6079a3a0e4168972239632679333a6eae36ec737f4ebdd9",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-4/segment-01-ce293d2b46e9-page-0014.json",
+      "geometry_sha256": "4553e43aaa6412a8e6eb46565624eb7a758133daa78c16cc87c3652a8c12deae"
     },
     {
       "table_id": "table-5",
       "segment_id": "segment-01",
       "page": 16,
-      "fingerprint": "718468eb99397bab2610c8599031b3ba51db8f8075ebb31255235485a388a5f7",
-      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-718468eb9939-page-0016.png",
-      "image_sha256": "104ac0faf6d5fec2f597c9f85c0bf367957528515fbef3f12ed1d90e7ec3153f",
-      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-718468eb9939-page-0016.json",
-      "geometry_sha256": "591c54f3e07121fa6231c39fa185140f5a3e23727ff92f0843887e1be539285c"
+      "fingerprint": "1b8a87037ac088ec281e50658d51f6dc87a0962e736519dd3c4e973517f9d4c2",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png",
+      "image_sha256": "e017c9fd830f1d24dd84e5a434f66ce2b4ed0e872b79675cd10fbd7608d0b6d6",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.json",
+      "geometry_sha256": "373746dd312b0ebe92a3541246ada77476ab0a2132e9e0a167cb50e1aa497934"
     },
     {
       "table_id": "table-5",
       "segment_id": "segment-02",
       "page": 17,
-      "fingerprint": "9f8e663aef0fef05acd2a558e34682776a32c342a52fa39f9f16fb28539c2c34",
-      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-9f8e663aef0f-page-0017.png",
-      "image_sha256": "a969e76434c3a424543bbe28063240d21b80e368490ee8937df86cc31d17fce1",
-      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-9f8e663aef0f-page-0017.json",
-      "geometry_sha256": "ec25043e96de744d8be683a1d86522b81f18511cb161a7988f86ccf3296403f8"
+      "fingerprint": "c45de42536c208464e6c8bea078cb04d07946ee3d43211ca5034a872f1b644e9",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png",
+      "image_sha256": "462e52ddbcfb22fdc7909187debeedffb02170f0d6209615cce04c5ce456db93",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.json",
+      "geometry_sha256": "47a5afe58b9acd6215991b85c92400356b10dee1c99f3ee735af59ae2e6149dc"
     }
   ]
 }

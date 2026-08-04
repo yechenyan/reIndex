@@ -1,0 +1,1123 @@
+{
+  "spec": "pdf-extractor-pdf/review@4.0",
+  "review_target": "main_agent",
+  "passed": false,
+  "deterministic": true,
+  "source_sha256": "a9642d5a0051ab5bf992e3c28b447e9710c28ff5265f452ae8e6f966b958baa7",
+  "inventory_sha256": "56aa98f7d16c2a16acc99157e80705dbfe4e828cd27bfc935858ff5a96240c31",
+  "reference_sha256": "238da09550583743c130036651a5df9b5e873f5ea947db566662e0616c320ba8",
+  "extractor_sha256": "53c11f250c7a853b5f5c6b02916e08c0193f4c4134fe57d70d89c1f2bc885bc7",
+  "summary": {
+    "issue_count": 10,
+    "case_count": 4,
+    "format_difference_count": 1,
+    "deterministically_routed_cases": 0,
+    "main_agent_case_reviews": 4,
+    "merge_reviews": 0
+  },
+  "issues": [
+    {
+      "id": "table-2:sample_mismatch:6",
+      "code": "sample_mismatch",
+      "route": "main_agent",
+      "message": "table-2: QA sample row 6 differs.",
+      "table_id": "table-2",
+      "row_index": 6,
+      "sample_reasons": [
+        "last_rows"
+      ],
+      "extractor_sample": [
+        "Verbrauch",
+        "Wärmepumpen",
+        "5,5",
+        "42,1",
+        "78,7",
+        "186,3"
+      ],
+      "qa_reference": [
+        "",
+        "Wärmepumpen",
+        "5,5",
+        "42,1",
+        "78,7",
+        "186,3"
+      ],
+      "cell_diffs": [
+        {
+          "column_index": 0,
+          "extractor_raw": "Verbrauch",
+          "qa_raw": "",
+          "extractor_normalized": "Verbrauch",
+          "qa_normalized": "",
+          "extractor_content_key": "verbrauch",
+          "qa_content_key": "",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        }
+      ],
+      "evidence_refs": [
+        "table-2::segment-01"
+      ]
+    },
+    {
+      "id": "table-3:sample_mismatch:6",
+      "code": "sample_mismatch",
+      "route": "main_agent",
+      "message": "table-3: QA sample row 6 differs.",
+      "table_id": "table-3",
+      "row_index": 6,
+      "sample_reasons": [
+        "last_rows"
+      ],
+      "extractor_sample": [
+        "2034 bis 2045 (T+11 bis Zielnetzjahr)",
+        "Anlagenstandorte",
+        "145 Stk",
+        "7.250.000 €"
+      ],
+      "qa_reference": [
+        "",
+        "Anlagenstandorte",
+        "145 Stk",
+        "7.250.000 €"
+      ],
+      "cell_diffs": [
+        {
+          "column_index": 0,
+          "extractor_raw": "2034 bis 2045 (T+11 bis Zielnetzjahr)",
+          "qa_raw": "",
+          "extractor_normalized": "2034 bis 2045 (T+11 bis Zielnetzjahr)",
+          "qa_normalized": "",
+          "extractor_content_key": "2034bis2045t11biszielnetzjahr",
+          "qa_content_key": "",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        }
+      ],
+      "evidence_refs": [
+        "table-3::segment-01"
+      ]
+    },
+    {
+      "id": "table-4:sample_mismatch:6",
+      "code": "sample_mismatch",
+      "route": "main_agent",
+      "message": "table-4: QA sample row 6 differs.",
+      "table_id": "table-4",
+      "row_index": 6,
+      "sample_reasons": [
+        "last_rows"
+      ],
+      "extractor_sample": [
+        "2034 bis 2045 (T+11 bis Zielnetzjahr)",
+        "Anlagenstandorte",
+        "19 Stk",
+        "950.000 €"
+      ],
+      "qa_reference": [
+        "",
+        "Anlagenstandorte",
+        "19 Stk",
+        "950.000 €"
+      ],
+      "cell_diffs": [
+        {
+          "column_index": 0,
+          "extractor_raw": "2034 bis 2045 (T+11 bis Zielnetzjahr)",
+          "qa_raw": "",
+          "extractor_normalized": "2034 bis 2045 (T+11 bis Zielnetzjahr)",
+          "qa_normalized": "",
+          "extractor_content_key": "2034bis2045t11biszielnetzjahr",
+          "qa_content_key": "",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        }
+      ],
+      "evidence_refs": [
+        "table-4::segment-01"
+      ]
+    },
+    {
+      "id": "table-5:sample_mismatch:0",
+      "code": "sample_mismatch",
+      "route": "main_agent",
+      "message": "table-5: QA sample row 0 differs.",
+      "table_id": "table-5",
+      "row_index": 0,
+      "sample_reasons": [
+        "first_rows"
+      ],
+      "extractor_sample": [
+        "Nr.",
+        "Maßnahme",
+        "Betroffener Netzknoten HS/MS",
+        "Projektbeschreibung",
+        "Projektkategorie",
+        "Betriebsmittel",
+        "Länge des Leitungsabschnitts [km]",
+        "Änderung der Übertragungskapazität [+/-MVA]",
+        "netztechnische Begründung",
+        "Bestehender Engpass?",
+        "Prognostizierter Engpass?",
+        "voraussichtlicher Baubeginn [MM/JJJJ] [MM/JJJJ]",
+        "Voraussichtliche Inbetriebnahme",
+        "Kosten (geschätzt) in Euro",
+        "Projektstatus",
+        "Genehmigungsverfahren"
+      ],
+      "qa_reference": [
+        "Nr.",
+        "Maßnahme",
+        "Betroffener Netzknoten HS/MS",
+        "Projektbeschreibung",
+        "Projektkategorie",
+        "Betriebsmittel",
+        "Länge des Leitungsabschnitts [km]",
+        "Änderung der Übertragungskapazität [+/- MVA]",
+        "netztechnische Begründung",
+        "Bestehender Engpass?",
+        "Prognostizierter Engpass?",
+        "voraussichtlicher Baubeginn [MM/JJJJ]",
+        "Voraussichtliche Inbetriebnahme [MM/JJJJ]",
+        "Kosten (geschätzt) in Euro",
+        "Projektstatus",
+        "Genehmigungsverfahren"
+      ],
+      "cell_diffs": [
+        {
+          "column_index": 7,
+          "extractor_raw": "Änderung der Übertragungskapazität [+/-MVA]",
+          "qa_raw": "Änderung der Übertragungskapazität [+/- MVA]",
+          "extractor_normalized": "Änderung der Übertragungskapazität [+/-MVA]",
+          "qa_normalized": "Änderung der Übertragungskapazität [+/- MVA]",
+          "extractor_content_key": "Änderung der Übertragungskapazität [+/-MVA]",
+          "qa_content_key": "Änderung der Übertragungskapazität [+/- MVA]",
+          "comparison_mode": "exact",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        },
+        {
+          "column_index": 11,
+          "extractor_raw": "voraussichtlicher Baubeginn [MM/JJJJ] [MM/JJJJ]",
+          "qa_raw": "voraussichtlicher Baubeginn [MM/JJJJ]",
+          "extractor_normalized": "voraussichtlicher Baubeginn [MM/JJJJ] [MM/JJJJ]",
+          "qa_normalized": "voraussichtlicher Baubeginn [MM/JJJJ]",
+          "extractor_content_key": "voraussichtlicher Baubeginn [MM/JJJJ] [MM/JJJJ]",
+          "qa_content_key": "voraussichtlicher Baubeginn [MM/JJJJ]",
+          "comparison_mode": "exact",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        },
+        {
+          "column_index": 12,
+          "extractor_raw": "Voraussichtliche Inbetriebnahme",
+          "qa_raw": "Voraussichtliche Inbetriebnahme [MM/JJJJ]",
+          "extractor_normalized": "Voraussichtliche Inbetriebnahme",
+          "qa_normalized": "Voraussichtliche Inbetriebnahme [MM/JJJJ]",
+          "extractor_content_key": "Voraussichtliche Inbetriebnahme",
+          "qa_content_key": "Voraussichtliche Inbetriebnahme [MM/JJJJ]",
+          "comparison_mode": "exact",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        }
+      ],
+      "evidence_refs": [
+        "table-5::segment-01"
+      ]
+    },
+    {
+      "id": "table-5:sample_mismatch:1",
+      "code": "sample_mismatch",
+      "route": "main_agent",
+      "message": "table-5: QA sample row 1 differs.",
+      "table_id": "table-5",
+      "row_index": 1,
+      "sample_reasons": [
+        "first_rows"
+      ],
+      "extractor_sample": [
+        "1",
+        "Wuppertaler Straße 169-195",
+        "Erneuerung/ UA07 -Verstärkung Flachsberg nes",
+        "ei-MS-Kabels",
+        "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+        "MS-Kabel",
+        "0,78",
+        "",
+        "Kein Zubau (reiner Ersatz, N-1 Sicherheit, Sonstiges)",
+        "Nein Nein",
+        "",
+        "03/2024",
+        "08/2024",
+        "-",
+        "abge-im Bau schlossen",
+        ""
+      ],
+      "qa_reference": [
+        "1",
+        "Wuppertaler Straße 169-195",
+        "UA07 - Flachsberg",
+        "Erneuerung/ Verstärkung eines MS-Kabels",
+        "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+        "MS-Kabel",
+        "0,78",
+        "",
+        "Kein Zubau (reiner Ersatz, N-1 Sicherheit, Sonstiges)",
+        "Nein",
+        "Nein",
+        "03/2024",
+        "08/2024",
+        "-",
+        "im Bau",
+        "abgeschlossen"
+      ],
+      "cell_diffs": [
+        {
+          "column_index": 2,
+          "extractor_raw": "Erneuerung/ UA07 -Verstärkung Flachsberg nes",
+          "qa_raw": "UA07 - Flachsberg",
+          "extractor_normalized": "Erneuerung/ UA07 -Verstärkung Flachsberg nes",
+          "qa_normalized": "UA07 - Flachsberg",
+          "extractor_content_key": "Erneuerung/ UA07 -Verstärkung Flachsberg nes",
+          "qa_content_key": "UA07 - Flachsberg",
+          "comparison_mode": "exact",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        },
+        {
+          "column_index": 3,
+          "extractor_raw": "ei-MS-Kabels",
+          "qa_raw": "Erneuerung/ Verstärkung eines MS-Kabels",
+          "extractor_normalized": "ei-MS-Kabels",
+          "qa_normalized": "Erneuerung/ Verstärkung eines MS-Kabels",
+          "extractor_content_key": "eimskabels",
+          "qa_content_key": "erneuerungverstärkungeinesmskabels",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        },
+        {
+          "column_index": 9,
+          "extractor_raw": "Nein Nein",
+          "qa_raw": "Nein",
+          "extractor_normalized": "Nein Nein",
+          "qa_normalized": "Nein",
+          "extractor_content_key": "Nein Nein",
+          "qa_content_key": "Nein",
+          "comparison_mode": "exact",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        },
+        {
+          "column_index": 10,
+          "extractor_raw": "",
+          "qa_raw": "Nein",
+          "extractor_normalized": "",
+          "qa_normalized": "Nein",
+          "extractor_content_key": "",
+          "qa_content_key": "nein",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        },
+        {
+          "column_index": 14,
+          "extractor_raw": "abge-im Bau schlossen",
+          "qa_raw": "im Bau",
+          "extractor_normalized": "abge-im Bau schlossen",
+          "qa_normalized": "im Bau",
+          "extractor_content_key": "abgeimbauschlossen",
+          "qa_content_key": "imbau",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        },
+        {
+          "column_index": 15,
+          "extractor_raw": "",
+          "qa_raw": "abgeschlossen",
+          "extractor_normalized": "",
+          "qa_normalized": "abgeschlossen",
+          "extractor_content_key": "",
+          "qa_content_key": "abgeschlossen",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        }
+      ],
+      "evidence_refs": [
+        "table-5::segment-01"
+      ]
+    },
+    {
+      "id": "table-5:sample_mismatch:7",
+      "code": "sample_mismatch",
+      "route": "main_agent",
+      "message": "table-5: QA sample row 7 differs.",
+      "table_id": "table-5",
+      "row_index": 7,
+      "sample_reasons": [
+        "middle_row"
+      ],
+      "extractor_sample": [
+        "7",
+        "Ziegelstraße",
+        "Erneuerung/ UA01 -Verstärkung Ohligs nes",
+        "ei-MS-Kabels",
+        "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+        "MS-Kabel",
+        "0,5",
+        "",
+        "Kein Zubau (reiner Ersatz, N-1 Sicherheit, Sonstiges)",
+        "Nein Nein",
+        "",
+        "09/2024",
+        "11/2024",
+        "-",
+        "konkrete bereits Planung eingeleitet",
+        ""
+      ],
+      "qa_reference": [
+        "7",
+        "Ziegelstraße",
+        "UA01 - Ohligs",
+        "Erneuerung/ Verstärkung eines MS-Kabels",
+        "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+        "MS-Kabel",
+        "0,5",
+        "",
+        "Kein Zubau (reiner Ersatz, N-1 Sicherheit, Sonstiges)",
+        "Nein",
+        "Nein",
+        "09/2024",
+        "11/2024",
+        "-",
+        "konkrete Planung",
+        "bereits eingeleitet"
+      ],
+      "cell_diffs": [
+        {
+          "column_index": 2,
+          "extractor_raw": "Erneuerung/ UA01 -Verstärkung Ohligs nes",
+          "qa_raw": "UA01 - Ohligs",
+          "extractor_normalized": "Erneuerung/ UA01 -Verstärkung Ohligs nes",
+          "qa_normalized": "UA01 - Ohligs",
+          "extractor_content_key": "Erneuerung/ UA01 -Verstärkung Ohligs nes",
+          "qa_content_key": "UA01 - Ohligs",
+          "comparison_mode": "exact",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        },
+        {
+          "column_index": 3,
+          "extractor_raw": "ei-MS-Kabels",
+          "qa_raw": "Erneuerung/ Verstärkung eines MS-Kabels",
+          "extractor_normalized": "ei-MS-Kabels",
+          "qa_normalized": "Erneuerung/ Verstärkung eines MS-Kabels",
+          "extractor_content_key": "eimskabels",
+          "qa_content_key": "erneuerungverstärkungeinesmskabels",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        },
+        {
+          "column_index": 9,
+          "extractor_raw": "Nein Nein",
+          "qa_raw": "Nein",
+          "extractor_normalized": "Nein Nein",
+          "qa_normalized": "Nein",
+          "extractor_content_key": "Nein Nein",
+          "qa_content_key": "Nein",
+          "comparison_mode": "exact",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        },
+        {
+          "column_index": 10,
+          "extractor_raw": "",
+          "qa_raw": "Nein",
+          "extractor_normalized": "",
+          "qa_normalized": "Nein",
+          "extractor_content_key": "",
+          "qa_content_key": "nein",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        },
+        {
+          "column_index": 14,
+          "extractor_raw": "konkrete bereits Planung eingeleitet",
+          "qa_raw": "konkrete Planung",
+          "extractor_normalized": "konkrete bereits Planung eingeleitet",
+          "qa_normalized": "konkrete Planung",
+          "extractor_content_key": "konkretebereitsplanungeingeleitet",
+          "qa_content_key": "konkreteplanung",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        },
+        {
+          "column_index": 15,
+          "extractor_raw": "",
+          "qa_raw": "bereits eingeleitet",
+          "extractor_normalized": "",
+          "qa_normalized": "bereits eingeleitet",
+          "extractor_content_key": "",
+          "qa_content_key": "bereitseingeleitet",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        }
+      ],
+      "evidence_refs": [
+        "table-5::segment-01"
+      ]
+    },
+    {
+      "id": "table-5:sample_mismatch:8",
+      "code": "sample_mismatch",
+      "route": "main_agent",
+      "message": "table-5: QA sample row 8 differs.",
+      "table_id": "table-5",
+      "row_index": 8,
+      "sample_reasons": [
+        "segment_boundary_before"
+      ],
+      "extractor_sample": [
+        "8",
+        "Hästen",
+        "Erneuerung/ UA03 -Verstärkung Halfeshof nes",
+        "ei-MS-Kabels",
+        "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+        "MS-Kabel",
+        "0,4",
+        "",
+        "Kein Zubau (reiner Ersatz, N-1 Sicherheit, Sonstiges)",
+        "Nein Nein",
+        "",
+        "09/2024",
+        "11/2024",
+        "-",
+        "vorgese-noch hene Maß-eingeleitet nahme",
+        "nicht"
+      ],
+      "qa_reference": [
+        "8",
+        "Hästen",
+        "UA03 - Halfeshof",
+        "Erneuerung/ Verstärkung eines MS-Kabels",
+        "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+        "MS-Kabel",
+        "0,4",
+        "",
+        "Kein Zubau (reiner Ersatz, N-1 Sicherheit, Sonstiges)",
+        "Nein",
+        "Nein",
+        "09/2024",
+        "11/2024",
+        "-",
+        "vorgesehene Maßnahme",
+        "noch nicht eingeleitet"
+      ],
+      "cell_diffs": [
+        {
+          "column_index": 2,
+          "extractor_raw": "Erneuerung/ UA03 -Verstärkung Halfeshof nes",
+          "qa_raw": "UA03 - Halfeshof",
+          "extractor_normalized": "Erneuerung/ UA03 -Verstärkung Halfeshof nes",
+          "qa_normalized": "UA03 - Halfeshof",
+          "extractor_content_key": "Erneuerung/ UA03 -Verstärkung Halfeshof nes",
+          "qa_content_key": "UA03 - Halfeshof",
+          "comparison_mode": "exact",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        },
+        {
+          "column_index": 3,
+          "extractor_raw": "ei-MS-Kabels",
+          "qa_raw": "Erneuerung/ Verstärkung eines MS-Kabels",
+          "extractor_normalized": "ei-MS-Kabels",
+          "qa_normalized": "Erneuerung/ Verstärkung eines MS-Kabels",
+          "extractor_content_key": "eimskabels",
+          "qa_content_key": "erneuerungverstärkungeinesmskabels",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        },
+        {
+          "column_index": 9,
+          "extractor_raw": "Nein Nein",
+          "qa_raw": "Nein",
+          "extractor_normalized": "Nein Nein",
+          "qa_normalized": "Nein",
+          "extractor_content_key": "Nein Nein",
+          "qa_content_key": "Nein",
+          "comparison_mode": "exact",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        },
+        {
+          "column_index": 10,
+          "extractor_raw": "",
+          "qa_raw": "Nein",
+          "extractor_normalized": "",
+          "qa_normalized": "Nein",
+          "extractor_content_key": "",
+          "qa_content_key": "nein",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        },
+        {
+          "column_index": 14,
+          "extractor_raw": "vorgese-noch hene Maß-eingeleitet nahme",
+          "qa_raw": "vorgesehene Maßnahme",
+          "extractor_normalized": "vorgese-noch hene Maß-eingeleitet nahme",
+          "qa_normalized": "vorgesehene Maßnahme",
+          "extractor_content_key": "vorgesenochhenemasseingeleitetnahme",
+          "qa_content_key": "vorgesehenemassnahme",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        },
+        {
+          "column_index": 15,
+          "extractor_raw": "nicht",
+          "qa_raw": "noch nicht eingeleitet",
+          "extractor_normalized": "nicht",
+          "qa_normalized": "noch nicht eingeleitet",
+          "extractor_content_key": "nicht",
+          "qa_content_key": "nochnichteingeleitet",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        }
+      ],
+      "evidence_refs": [
+        "table-5::segment-01"
+      ]
+    },
+    {
+      "id": "table-5:sample_mismatch:9",
+      "code": "sample_mismatch",
+      "route": "main_agent",
+      "message": "table-5: QA sample row 9 differs.",
+      "table_id": "table-5",
+      "row_index": 9,
+      "sample_reasons": [
+        "segment_boundary_after"
+      ],
+      "extractor_sample": [
+        "9",
+        "Sammler engpassbedingte MS-Maßnahmen",
+        "Alle UA",
+        "Erneuerung/ Verstärkung von MS-Kabeln",
+        "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+        "MS-Kabel",
+        "39,4",
+        "",
+        "Zubau Verbraucher",
+        "Nein",
+        "Ja, um einem verbrauchsbedingten Engpass vorzubeugen",
+        "01/2025",
+        "12/2028",
+        "8.668.000 €",
+        "vorgese-noch hene Maß-eingeleitet nahme",
+        "nicht"
+      ],
+      "qa_reference": [
+        "9",
+        "Sammler engpassbedingte MS-Maßnahmen",
+        "Alle UA",
+        "Erneuerung/ Verstärkung von MS-Kabeln",
+        "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+        "MS-Kabel",
+        "39,4",
+        "",
+        "Zubau Verbraucher",
+        "Nein",
+        "Ja, um einem verbrauchsbedingten Engpass vorzubeugen",
+        "01/2025",
+        "12/2028",
+        "8.668.000 €",
+        "vorgesehene Maßnahme",
+        "noch nicht eingeleitet"
+      ],
+      "cell_diffs": [
+        {
+          "column_index": 14,
+          "extractor_raw": "vorgese-noch hene Maß-eingeleitet nahme",
+          "qa_raw": "vorgesehene Maßnahme",
+          "extractor_normalized": "vorgese-noch hene Maß-eingeleitet nahme",
+          "qa_normalized": "vorgesehene Maßnahme",
+          "extractor_content_key": "vorgesenochhenemasseingeleitetnahme",
+          "qa_content_key": "vorgesehenemassnahme",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        },
+        {
+          "column_index": 15,
+          "extractor_raw": "nicht",
+          "qa_raw": "noch nicht eingeleitet",
+          "extractor_normalized": "nicht",
+          "qa_normalized": "noch nicht eingeleitet",
+          "extractor_content_key": "nicht",
+          "qa_content_key": "nochnichteingeleitet",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        }
+      ],
+      "evidence_refs": [
+        "table-5::segment-02"
+      ]
+    },
+    {
+      "id": "table-5:sample_mismatch:12",
+      "code": "sample_mismatch",
+      "route": "main_agent",
+      "message": "table-5: QA sample row 12 differs.",
+      "table_id": "table-5",
+      "row_index": 12,
+      "sample_reasons": [
+        "last_rows"
+      ],
+      "extractor_sample": [
+        "12",
+        "Sammler assetbedingte ONS-Maßnahmen",
+        "Alle UA",
+        "Erneuerung/ Verstärkung von ONS MS/NS",
+        "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+        "ONS MS/NS",
+        "",
+        "0",
+        "Kein Zubau (reiner Ersatz, N-1 Sicherheit, Sonstiges)",
+        "Nein",
+        "Nein",
+        "01/2024",
+        "12/2028",
+        "550.000 €",
+        "vorgese-noch hene Maß-eingeleitet nahme",
+        "nicht"
+      ],
+      "qa_reference": [
+        "12",
+        "Sammler assetbedingte ONS-Maßnahmen",
+        "Alle UA",
+        "Erneuerung/ Verstärkung von ONS MS/NS",
+        "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+        "ONS MS/NS",
+        "",
+        "0",
+        "Kein Zubau (reiner Ersatz, N-1 Sicherheit, Sonstiges)",
+        "Nein",
+        "Nein",
+        "01/2024",
+        "12/2028",
+        "550.000 €",
+        "vorgesehene Maßnahme",
+        "noch nicht eingeleitet"
+      ],
+      "cell_diffs": [
+        {
+          "column_index": 14,
+          "extractor_raw": "vorgese-noch hene Maß-eingeleitet nahme",
+          "qa_raw": "vorgesehene Maßnahme",
+          "extractor_normalized": "vorgese-noch hene Maß-eingeleitet nahme",
+          "qa_normalized": "vorgesehene Maßnahme",
+          "extractor_content_key": "vorgesenochhenemasseingeleitetnahme",
+          "qa_content_key": "vorgesehenemassnahme",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        },
+        {
+          "column_index": 15,
+          "extractor_raw": "nicht",
+          "qa_raw": "noch nicht eingeleitet",
+          "extractor_normalized": "nicht",
+          "qa_normalized": "noch nicht eingeleitet",
+          "extractor_content_key": "nicht",
+          "qa_content_key": "nochnichteingeleitet",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        }
+      ],
+      "evidence_refs": [
+        "table-5::segment-02"
+      ]
+    },
+    {
+      "id": "table-5:sample_mismatch:13",
+      "code": "sample_mismatch",
+      "route": "main_agent",
+      "message": "table-5: QA sample row 13 differs.",
+      "table_id": "table-5",
+      "row_index": 13,
+      "sample_reasons": [
+        "last_rows"
+      ],
+      "extractor_sample": [
+        "13",
+        "Sammler NS-Maßnahmen",
+        "Alle UA",
+        "Erneuerung/ Verstärkung von NS-Kabeln",
+        "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+        "NS-Kabel",
+        "97,1",
+        "",
+        "Kein Zubau (reiner Ersatz, N-1 Sicherheit, Sonstiges)",
+        "Nein",
+        "Nein",
+        "01/2024",
+        "12/2028 21.362.000",
+        "€",
+        "vorgese-noch hene Maß-eingeleitet nahme",
+        "nicht"
+      ],
+      "qa_reference": [
+        "13",
+        "Sammler NS-Maßnahmen",
+        "Alle UA",
+        "Erneuerung/ Verstärkung von NS-Kabeln",
+        "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+        "NS-Kabel",
+        "97,1",
+        "",
+        "Kein Zubau (reiner Ersatz, N-1 Sicherheit, Sonstiges)",
+        "Nein",
+        "Nein",
+        "01/2024",
+        "12/2028",
+        "21.362.000 €",
+        "vorgesehene Maßnahme",
+        "noch nicht eingeleitet"
+      ],
+      "cell_diffs": [
+        {
+          "column_index": 12,
+          "extractor_raw": "12/2028 21.362.000",
+          "qa_raw": "12/2028",
+          "extractor_normalized": "12/2028 21.362.000",
+          "qa_normalized": "12/2028",
+          "extractor_content_key": "12/2028 21.362.000",
+          "qa_content_key": "12/2028",
+          "comparison_mode": "exact",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        },
+        {
+          "column_index": 13,
+          "extractor_raw": "€",
+          "qa_raw": "21.362.000 €",
+          "extractor_normalized": "€",
+          "qa_normalized": "21.362.000 €",
+          "extractor_content_key": "€",
+          "qa_content_key": "21.362.000 €",
+          "comparison_mode": "exact",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        },
+        {
+          "column_index": 14,
+          "extractor_raw": "vorgese-noch hene Maß-eingeleitet nahme",
+          "qa_raw": "vorgesehene Maßnahme",
+          "extractor_normalized": "vorgese-noch hene Maß-eingeleitet nahme",
+          "qa_normalized": "vorgesehene Maßnahme",
+          "extractor_content_key": "vorgesenochhenemasseingeleitetnahme",
+          "qa_content_key": "vorgesehenemassnahme",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        },
+        {
+          "column_index": 15,
+          "extractor_raw": "nicht",
+          "qa_raw": "noch nicht eingeleitet",
+          "extractor_normalized": "nicht",
+          "qa_normalized": "noch nicht eingeleitet",
+          "extractor_content_key": "nicht",
+          "qa_content_key": "nochnichteingeleitet",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        }
+      ],
+      "evidence_refs": [
+        "table-5::segment-02"
+      ]
+    }
+  ],
+  "format_differences": [
+    {
+      "id": "table-abbreviations:format:0",
+      "classification": "format_only",
+      "table_id": "table-abbreviations",
+      "row_index": 0,
+      "cell_diffs": [
+        {
+          "column_index": 1,
+          "extractor_raw": "BDEW Bundesverband der Energie-und Wasserwirtschaft e.V.",
+          "qa_raw": "BDEW Bundesverband der Energie- und Wasserwirtschaft e.V.",
+          "extractor_normalized": "BDEW Bundesverband der Energie-und Wasserwirtschaft e.V.",
+          "qa_normalized": "BDEW Bundesverband der Energie- und Wasserwirtschaft e.V.",
+          "extractor_content_key": "bdewbundesverbandderenergieundwasserwirtschaftev",
+          "qa_content_key": "bdewbundesverbandderenergieundwasserwirtschaftev",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": true,
+          "difference_kind": "format_only"
+        }
+      ],
+      "evidence_refs": [
+        "table-abbreviations::segment-01"
+      ]
+    }
+  ],
+  "review_cases": [
+    {
+      "id": "case::table-2",
+      "table_id": "table-2",
+      "route": "main_agent",
+      "route_confidence": 0.5,
+      "issue_ids": [
+        "table-2:sample_mismatch:6"
+      ],
+      "issue_codes": [
+        "sample_mismatch"
+      ],
+      "evidence_refs": [
+        "table-2::segment-01"
+      ],
+      "segment_ids": [
+        "segment-01"
+      ],
+      "root_cause_hints": [
+        "extractor_or_qa_transcription"
+      ],
+      "review_required": true
+    },
+    {
+      "id": "case::table-3",
+      "table_id": "table-3",
+      "route": "main_agent",
+      "route_confidence": 0.5,
+      "issue_ids": [
+        "table-3:sample_mismatch:6"
+      ],
+      "issue_codes": [
+        "sample_mismatch"
+      ],
+      "evidence_refs": [
+        "table-3::segment-01"
+      ],
+      "segment_ids": [
+        "segment-01"
+      ],
+      "root_cause_hints": [
+        "extractor_or_qa_transcription"
+      ],
+      "review_required": true
+    },
+    {
+      "id": "case::table-4",
+      "table_id": "table-4",
+      "route": "main_agent",
+      "route_confidence": 0.5,
+      "issue_ids": [
+        "table-4:sample_mismatch:6"
+      ],
+      "issue_codes": [
+        "sample_mismatch"
+      ],
+      "evidence_refs": [
+        "table-4::segment-01"
+      ],
+      "segment_ids": [
+        "segment-01"
+      ],
+      "root_cause_hints": [
+        "extractor_or_qa_transcription"
+      ],
+      "review_required": true
+    },
+    {
+      "id": "case::table-5",
+      "table_id": "table-5",
+      "route": "main_agent",
+      "route_confidence": 0.5,
+      "issue_ids": [
+        "table-5:sample_mismatch:0",
+        "table-5:sample_mismatch:1",
+        "table-5:sample_mismatch:7",
+        "table-5:sample_mismatch:8",
+        "table-5:sample_mismatch:9",
+        "table-5:sample_mismatch:12",
+        "table-5:sample_mismatch:13"
+      ],
+      "issue_codes": [
+        "sample_mismatch"
+      ],
+      "evidence_refs": [
+        "table-5::segment-01",
+        "table-5::segment-02"
+      ],
+      "segment_ids": [
+        "segment-01",
+        "segment-02"
+      ],
+      "root_cause_hints": [
+        "extractor_or_qa_transcription"
+      ],
+      "review_required": true
+    }
+  ],
+  "repair_plan": {
+    "main_agent": [
+      "table-2",
+      "table-3",
+      "table-4",
+      "table-5"
+    ]
+  },
+  "issue_groups": {
+    "main_agent": [
+      "table-2:sample_mismatch:6",
+      "table-3:sample_mismatch:6",
+      "table-4:sample_mismatch:6",
+      "table-5:sample_mismatch:0",
+      "table-5:sample_mismatch:1",
+      "table-5:sample_mismatch:7",
+      "table-5:sample_mismatch:8",
+      "table-5:sample_mismatch:9",
+      "table-5:sample_mismatch:12",
+      "table-5:sample_mismatch:13"
+    ]
+  },
+  "merge_candidates": [],
+  "evidence_index": {
+    "table-abbreviations::segment-01": {
+      "table_id": "table-abbreviations",
+      "segment_id": "segment-01",
+      "page": 4,
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-abbreviations/segment-01-1bf59af62120-page-0004.png",
+      "image_sha256": "4359b7240a809d8c4ff75071f4089bed6a5e3d3071101d4e5743e74d16359d1c",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-abbreviations/segment-01-1bf59af62120-page-0004.json"
+    },
+    "table-1::segment-01": {
+      "table_id": "table-1",
+      "segment_id": "segment-01",
+      "page": 6,
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-1/segment-01-a1fbffc62ad4-page-0006.png",
+      "image_sha256": "12baeab04f68d07598278b7d12f58d098636a8e291fbdabf0a77015b867c9aa3",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-1/segment-01-a1fbffc62ad4-page-0006.json"
+    },
+    "table-2::segment-01": {
+      "table_id": "table-2",
+      "segment_id": "segment-01",
+      "page": 10,
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-2/segment-01-18f78448e0c0-page-0010.png",
+      "image_sha256": "1d85bb945b4c0cf2fe0f21db5eb0ef2063156b55a7dd27f20c47e3993eb357bd",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-2/segment-01-18f78448e0c0-page-0010.json"
+    },
+    "table-3::segment-01": {
+      "table_id": "table-3",
+      "segment_id": "segment-01",
+      "page": 13,
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-3/segment-01-e3bf81f2fd47-page-0013.png",
+      "image_sha256": "2886f3f9f4e280f7389fc9aee8cfc6ef4ad21f674b989ff90039ffbcfe4815be",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-3/segment-01-e3bf81f2fd47-page-0013.json"
+    },
+    "table-4::segment-01": {
+      "table_id": "table-4",
+      "segment_id": "segment-01",
+      "page": 14,
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-4/segment-01-ce293d2b46e9-page-0014.png",
+      "image_sha256": "26f97666a8e312fbe6079a3a0e4168972239632679333a6eae36ec737f4ebdd9",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-4/segment-01-ce293d2b46e9-page-0014.json"
+    },
+    "table-5::segment-01": {
+      "table_id": "table-5",
+      "segment_id": "segment-01",
+      "page": 16,
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png",
+      "image_sha256": "e017c9fd830f1d24dd84e5a434f66ce2b4ed0e872b79675cd10fbd7608d0b6d6",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.json"
+    },
+    "table-5::segment-02": {
+      "table_id": "table-5",
+      "segment_id": "segment-02",
+      "page": 17,
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png",
+      "image_sha256": "462e52ddbcfb22fdc7909187debeedffb02170f0d6209615cce04c5ce456db93",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.json"
+    }
+  },
+  "review_queue": [
+    {
+      "kind": "case",
+      "id": "case::table-2"
+    },
+    {
+      "kind": "case",
+      "id": "case::table-3"
+    },
+    {
+      "kind": "case",
+      "id": "case::table-4"
+    },
+    {
+      "kind": "case",
+      "id": "case::table-5"
+    }
+  ],
+  "merge_decisions_sha256": null,
+  "output_hashes": {
+    "result.json": "048244f247c5a0cd9295dee8621b5502bb4bf461328915812ec9c4b524210eae",
+    "table-1.csv": "2599a215aeaf064e52c9092965870798432beb77f6656430e159445c4de9c983",
+    "table-2.csv": "7e96438b5b5ef6169dac6834795d7350ebaa869eac0cb868d18e4792f0158627",
+    "table-3.csv": "29aa477cbf63d96fdcdb511c47363f63dad66fa3cbcf5e1d39085f8ab614c96a",
+    "table-4.csv": "10b43466014b2496f69430bb70690b4576e3180444a4358caaeebf7b820f9be5",
+    "table-5.csv": "2f1e7ca8dd4fbedc766f5f1d3857fbd6e0462069897036116a4a28119370c6a6",
+    "table-abbreviations.csv": "4b7d4fed0cc8bf3bc5ee082571db750d77c13d7ca8397abd99cf308594219ae0"
+  },
+  "review_sequence": 1,
+  "review_archive": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/reviews/review-001.json"
+}

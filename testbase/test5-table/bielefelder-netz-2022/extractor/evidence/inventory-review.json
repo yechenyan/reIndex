@@ -1,0 +1,97 @@
+{
+  "spec": "pdf-extractor-pdf/inventory-review@1.0",
+  "draft_sha256": "c134bb64edaf5de5bbfdb5a2e7127729b348ad28c89251dacef9e6d35476144b",
+  "instructions": "Finder edits only all_visible_table_content_inside and reviewed_edges.",
+  "segments": [
+    {
+      "table_id": "table-1",
+      "segment_id": "segment-01",
+      "page": 5,
+      "bbox": [
+        36.0,
+        193.0,
+        465.0,
+        223.0
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/inventory-overlays/table-1/segment-01-f3d1c1dcbf17-page-0005.png",
+      "overlay_sha256": "c306a8e270a0b1982ff42e0529a774cabe3684127ed6e7ba51cbaab824aa3fa4",
+      "all_visible_table_content_inside": true,
+      "reviewed_edges": ["top", "right", "bottom", "left"]
+    },
+    {
+      "table_id": "table-2",
+      "segment_id": "segment-01",
+      "page": 5,
+      "bbox": [
+        36.0,
+        230.0,
+        946.0,
+        261.0
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/inventory-overlays/table-2/segment-01-258f527951ca-page-0005.png",
+      "overlay_sha256": "acecbf811ec8b4faf49af1c57ea00c4e2963239ee4f6a4f05536339e28c1dd23",
+      "all_visible_table_content_inside": true,
+      "reviewed_edges": ["top", "right", "bottom", "left"]
+    },
+    {
+      "table_id": "table-3",
+      "segment_id": "segment-01",
+      "page": 5,
+      "bbox": [
+        49.0,
+        266.0,
+        465.0,
+        302.0
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/inventory-overlays/table-3/segment-01-25a30ebeff04-page-0005.png",
+      "overlay_sha256": "a3811915cbf95bb5439b0c4303abd53ef4dafbed4f2eea28a50f1c44325b286f",
+      "all_visible_table_content_inside": true,
+      "reviewed_edges": ["top", "right", "bottom", "left"]
+    },
+    {
+      "table_id": "table-4",
+      "segment_id": "segment-01",
+      "page": 5,
+      "bbox": [
+        49.0,
+        304.0,
+        283.0,
+        333.0
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/inventory-overlays/table-4/segment-01-131268ff83f0-page-0005.png",
+      "overlay_sha256": "b9109c2cf6010ca2314dc0850c85e29aa4acfff1d29db04a6ee4ee61d24b01f3",
+      "all_visible_table_content_inside": true,
+      "reviewed_edges": ["top", "right", "bottom", "left"]
+    },
+    {
+      "table_id": "table-5",
+      "segment_id": "segment-01",
+      "page": 5,
+      "bbox": [
+        36.0,
+        344.0,
+        946.0,
+        391.0
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/inventory-overlays/table-5/segment-01-a2321c5a5fac-page-0005.png",
+      "overlay_sha256": "092e0d0180fc9b0c8246b942edf72d32e45801d5ef9b663bfb95a28607514916",
+      "all_visible_table_content_inside": true,
+      "reviewed_edges": ["top", "right", "bottom", "left"]
+    },
+    {
+      "table_id": "table-6",
+      "segment_id": "segment-01",
+      "page": 5,
+      "bbox": [
+        36.0,
+        398.0,
+        1155.0,
+        676.0
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/inventory-overlays/table-6/segment-01-c7f64d29421c-page-0005.png",
+      "overlay_sha256": "6d0c35f518713e2be3b3224209d5b83f30c22ded6230f43dae68444f5ce9eca4",
+      "all_visible_table_content_inside": true,
+      "reviewed_edges": ["top", "right", "bottom", "left"]
+    }
+  ]
+}

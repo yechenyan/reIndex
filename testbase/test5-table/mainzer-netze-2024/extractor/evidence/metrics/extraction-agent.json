@@ -1,0 +1,14 @@
+{
+  "role": "extraction_agent",
+  "agent_id": "agent-extraction-mainzer-2024",
+  "model": "gpt-5.6-terra",
+  "started_at": "2026-08-04T12:29:29.713684+00:00",
+  "ended_at": "2026-08-04T12:35:23.826332+00:00",
+  "wall_seconds": 354.112648,
+  "active_seconds": 304.112648,
+  "conversation_turns": 1,
+  "repair_rounds": 0,
+  "token_usage": null,
+  "blockers": [],
+  "notes": "Implemented only project extractor/main.py; no reference or output access."
+}

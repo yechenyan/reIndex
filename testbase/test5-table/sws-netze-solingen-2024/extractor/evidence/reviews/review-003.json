@@ -1,0 +1,120 @@
+{
+  "spec": "pdf-extractor-pdf/review@4.0",
+  "review_target": "main_agent",
+  "passed": true,
+  "deterministic": true,
+  "source_sha256": "a9642d5a0051ab5bf992e3c28b447e9710c28ff5265f452ae8e6f966b958baa7",
+  "inventory_sha256": "56aa98f7d16c2a16acc99157e80705dbfe4e828cd27bfc935858ff5a96240c31",
+  "reference_sha256": "238da09550583743c130036651a5df9b5e873f5ea947db566662e0616c320ba8",
+  "extractor_sha256": "f624375339ab4c5a6d5fa2a14659097d9f4a5f5fda2fe7e1422709c30b3af0f0",
+  "summary": {
+    "issue_count": 0,
+    "case_count": 0,
+    "format_difference_count": 1,
+    "deterministically_routed_cases": 0,
+    "main_agent_case_reviews": 0,
+    "merge_reviews": 0
+  },
+  "issues": [],
+  "format_differences": [
+    {
+      "id": "table-abbreviations:format:0",
+      "classification": "format_only",
+      "table_id": "table-abbreviations",
+      "row_index": 0,
+      "cell_diffs": [
+        {
+          "column_index": 1,
+          "extractor_raw": "BDEW Bundesverband der Energie-und Wasserwirtschaft e.V.",
+          "qa_raw": "BDEW Bundesverband der Energie- und Wasserwirtschaft e.V.",
+          "extractor_normalized": "BDEW Bundesverband der Energie-und Wasserwirtschaft e.V.",
+          "qa_normalized": "BDEW Bundesverband der Energie- und Wasserwirtschaft e.V.",
+          "extractor_content_key": "bdewbundesverbandderenergieundwasserwirtschaftev",
+          "qa_content_key": "bdewbundesverbandderenergieundwasserwirtschaftev",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": true,
+          "difference_kind": "format_only"
+        }
+      ],
+      "evidence_refs": [
+        "table-abbreviations::segment-01"
+      ]
+    }
+  ],
+  "review_cases": [],
+  "repair_plan": {},
+  "issue_groups": {},
+  "merge_candidates": [],
+  "evidence_index": {
+    "table-abbreviations::segment-01": {
+      "table_id": "table-abbreviations",
+      "segment_id": "segment-01",
+      "page": 4,
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-abbreviations/segment-01-1bf59af62120-page-0004.png",
+      "image_sha256": "4359b7240a809d8c4ff75071f4089bed6a5e3d3071101d4e5743e74d16359d1c",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-abbreviations/segment-01-1bf59af62120-page-0004.json"
+    },
+    "table-1::segment-01": {
+      "table_id": "table-1",
+      "segment_id": "segment-01",
+      "page": 6,
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-1/segment-01-a1fbffc62ad4-page-0006.png",
+      "image_sha256": "12baeab04f68d07598278b7d12f58d098636a8e291fbdabf0a77015b867c9aa3",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-1/segment-01-a1fbffc62ad4-page-0006.json"
+    },
+    "table-2::segment-01": {
+      "table_id": "table-2",
+      "segment_id": "segment-01",
+      "page": 10,
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-2/segment-01-18f78448e0c0-page-0010.png",
+      "image_sha256": "1d85bb945b4c0cf2fe0f21db5eb0ef2063156b55a7dd27f20c47e3993eb357bd",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-2/segment-01-18f78448e0c0-page-0010.json"
+    },
+    "table-3::segment-01": {
+      "table_id": "table-3",
+      "segment_id": "segment-01",
+      "page": 13,
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-3/segment-01-e3bf81f2fd47-page-0013.png",
+      "image_sha256": "2886f3f9f4e280f7389fc9aee8cfc6ef4ad21f674b989ff90039ffbcfe4815be",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-3/segment-01-e3bf81f2fd47-page-0013.json"
+    },
+    "table-4::segment-01": {
+      "table_id": "table-4",
+      "segment_id": "segment-01",
+      "page": 14,
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-4/segment-01-ce293d2b46e9-page-0014.png",
+      "image_sha256": "26f97666a8e312fbe6079a3a0e4168972239632679333a6eae36ec737f4ebdd9",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-4/segment-01-ce293d2b46e9-page-0014.json"
+    },
+    "table-5::segment-01": {
+      "table_id": "table-5",
+      "segment_id": "segment-01",
+      "page": 16,
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.png",
+      "image_sha256": "e017c9fd830f1d24dd84e5a434f66ce2b4ed0e872b79675cd10fbd7608d0b6d6",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-1b8a87037ac0-page-0016.json"
+    },
+    "table-5::segment-02": {
+      "table_id": "table-5",
+      "segment_id": "segment-02",
+      "page": 17,
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.png",
+      "image_sha256": "462e52ddbcfb22fdc7909187debeedffb02170f0d6209615cce04c5ce456db93",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-c45de42536c2-page-0017.json"
+    }
+  },
+  "review_queue": [],
+  "merge_decisions_sha256": null,
+  "output_hashes": {
+    "result.json": "b64fd61eda4fdbfb5005dc42f007188c8f50d00003c9f03ee5a75bf14153a776",
+    "table-1.csv": "2599a215aeaf064e52c9092965870798432beb77f6656430e159445c4de9c983",
+    "table-2.csv": "1b93fc9074c3a3a4bb7b33cc38d7b9edf0f9d8234b204e98647c4a0834113b51",
+    "table-3.csv": "0ec7516bf37b45a62f9353552ce1ed73f610ea21a2498385566b67805baa7ee7",
+    "table-4.csv": "6c54d5f2822cf0c04e88f1e4a73cc2e2788e26f036de0f93c173353268653630",
+    "table-5.csv": "e4f091943cb74e288715e63c930fbee4b9852ca45e522cbb9300a10fef4937e8",
+    "table-abbreviations.csv": "4b7d4fed0cc8bf3bc5ee082571db750d77c13d7ca8397abd99cf308594219ae0"
+  },
+  "review_sequence": 3,
+  "review_archive": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/reviews/review-003.json"
+}

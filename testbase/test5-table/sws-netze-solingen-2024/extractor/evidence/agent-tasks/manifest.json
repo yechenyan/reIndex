@@ -1,38 +1,40 @@
 {
   "spec": "pdf-extractor-pdf/agent-briefs@1.0",
-  "phase": "reviewed",
+  "phase": "complete",
   "briefs": [
     {
       "role": "main-agent",
       "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/agent-tasks/main-agent.md",
-      "sha256": "f588a71e30614c897f50b09df85fa4e7e72d00eb60f44b366a3c61f25316f8a9"
+      "sha256": "aab8426977004fc4642bec3796fbd757c8f9cfcf427a6c26c2a858e9897c1f9e"
     },
     {
       "role": "finder-agent",
       "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/agent-tasks/finder-agent.md",
-      "sha256": "5e83c4de8c7b42c0f2a541c23627b31957f92de9ba8f209fdb910c66c6d0080e"
+      "sha256": "7b49126a17c8977f36f2969fdab9d725e823bf5c2cd244857a4d4dfd3a1fad3e"
     },
     {
       "role": "extraction-agent",
       "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/agent-tasks/extraction-agent.md",
-      "sha256": "16b2b6442d13922ace774e850dc322f0088eadad475d52a1434186d24c3d39b6"
+      "sha256": "e58d4c02161455f4f6cd6f1ed8131fcc9f46982ce3b8f5b42a69e87e5a7682cc"
     },
     {
       "role": "qa-agent",
       "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/agent-tasks/qa-agent.md",
-      "sha256": "fd0782317aa40d4059bfa13560f7d2a86d71528c4bffc503d34322a73c5fb733"
+      "sha256": "d3e48134441504876f0613dadb2dfc3f1ae548f5eaa8e288904836f2178d0581"
     }
   ],
   "repair_scope": {
     "spec": "pdf-extractor-pdf/repair-scope@1.0",
-    "review_sha256": "2b65a0201e33aba78b9bc9cf952711391bc947b5d9b7e865183ec4e7a9514e45",
+    "review_sha256": "7a92f0e5ea1ab3378feb30c8d7ac763c029e3bd44b703bc13cf4367049487d5b",
     "route": "extraction_agent",
     "affected_table_ids": [
       "table-5"
     ],
     "evidence_refs": [
-      "table-5::segment-01"
+      "table-5::segment-01",
+      "table-5::segment-02"
     ],
+    "origin": "post_review_explicit",
     "instructions": "Agents may inspect and change only affected_table_ids; fixed validation protects every other table."
   }
 }

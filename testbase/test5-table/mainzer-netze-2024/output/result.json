@@ -1,0 +1,2916 @@
+{
+  "spec": "pdf-extractor-pdf/result@2.0",
+  "source_sha256": "828d7e506917fc3d5331a1cc7ad0f4be78b425af0b7f6b1d74716f22c82e332a",
+  "extractor_version": "1.0.0",
+  "tables": [
+    {
+      "id": "table-abbreviations",
+      "title": "Abkürzungsverzeichnis",
+      "column_count": 2,
+      "rows": [
+        [
+          "BDEW",
+          "Bundesverband der Energie- und Wasserwirtschaft e.V."
+        ],
+        [
+          "BNetzA",
+          "Bundesnetzagentur"
+        ],
+        [
+          "EnWG",
+          "Energiewirtschaftsgesetz"
+        ],
+        [
+          "HöS",
+          "Höchstspannung"
+        ],
+        [
+          "HS",
+          "Hochspannung"
+        ],
+        [
+          "MS",
+          "Mittelspannung"
+        ],
+        [
+          "NAP",
+          "Netzausbauplan"
+        ],
+        [
+          "NE",
+          "Netzebene"
+        ],
+        [
+          "NEP",
+          "Netzentwicklungsplan der Übertragungsnetzbetreiber"
+        ],
+        [
+          "NNB",
+          "Nachgelagerter Netzbetreiber"
+        ],
+        [
+          "NS",
+          "Niederspannung"
+        ],
+        [
+          "NVNB",
+          "Nachgelagerter Verteilnetzbetreiber"
+        ],
+        [
+          "ONS",
+          "Ortsnetzstation (Netzebene 6)"
+        ],
+        [
+          "PR",
+          "Planungsregion"
+        ],
+        [
+          "RZ",
+          "Regionalszenario"
+        ],
+        [
+          "ÜNB",
+          "Übertragungsnetzbetreiber"
+        ],
+        [
+          "UW",
+          "Umspannwerk (Netzebene 2 oder 4)"
+        ],
+        [
+          "VNB",
+          "Verteilnetzbetreiber"
+        ],
+        [
+          "VVNB",
+          "Vorgelagerter Verteilnetzbetreiber"
+        ],
+        [
+          "MN",
+          "Mainzer Netze GmbH"
+        ],
+        [
+          "sw netz",
+          "Stadtwerke Wiesbaden Netz GmbH"
+        ]
+      ],
+      "provenance": [
+        {
+          "page": 5,
+          "bbox": [
+            68,
+            97.8,
+            527,
+            111.0
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            68,
+            111.0,
+            527,
+            124.1
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            68,
+            124.1,
+            527,
+            137.3
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            68,
+            137.3,
+            527,
+            150.5
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            68,
+            150.5,
+            527,
+            163.6
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            68,
+            163.6,
+            527,
+            176.7
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            68,
+            176.7,
+            527,
+            189.9
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            68,
+            189.9,
+            527,
+            203.0
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            68,
+            203.0,
+            527,
+            216.2
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            68,
+            216.2,
+            527,
+            229.3
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            68,
+            229.3,
+            527,
+            242.5
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            68,
+            242.5,
+            527,
+            255.6
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            68,
+            255.6,
+            527,
+            268.8
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            68,
+            268.8,
+            527,
+            281.9
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            68,
+            281.9,
+            527,
+            295.1
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            68,
+            295.1,
+            527,
+            308.2
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            68,
+            308.2,
+            527,
+            321.3
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            68,
+            321.3,
+            527,
+            334.5
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            68,
+            334.5,
+            527,
+            347.7
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            68,
+            347.7,
+            527,
+            360.8
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 5,
+          "bbox": [
+            68,
+            360.8,
+            527,
+            377
+          ],
+          "segment_id": "segment-01"
+        }
+      ],
+      "line_wrap_decisions": []
+    },
+    {
+      "id": "table-1",
+      "title": "Tabelle 1: Last- und Einspeiseprognose Teilnetz Mainz",
+      "column_count": 9,
+      "rows": [
+        [
+          "Teilnetz Mainz",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "2023",
+          "",
+          "2028",
+          "",
+          "2033",
+          "",
+          "2045",
+          ""
+        ],
+        [
+          "PV",
+          "46,9",
+          "MWp",
+          "227,1",
+          "MWp",
+          "407,3",
+          "MWp",
+          "793,0",
+          "MWp"
+        ],
+        [
+          "Wind",
+          "40,0",
+          "MWp",
+          "74,1",
+          "MWp",
+          "108,2",
+          "MWp",
+          "150,0",
+          "MWp"
+        ],
+        [
+          "Wasserkraft, Biomasse, s.EEG",
+          "5,0",
+          "MWp",
+          "5,0",
+          "MWp",
+          "5,0",
+          "MWp",
+          "5,0",
+          "MWp"
+        ],
+        [
+          "Kraftwerke",
+          "1017,2",
+          "MW",
+          "947,8",
+          "MW",
+          "878,4",
+          "MW",
+          "712,0",
+          "MW"
+        ],
+        [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Haushaltslasten",
+          "125,0",
+          "MW",
+          "120,0",
+          "MW",
+          "116,3",
+          "MW",
+          "108,8",
+          "MW"
+        ],
+        [
+          "Gewerbe,Handel, Dienstleistung",
+          "107,6",
+          "MW",
+          "103,3",
+          "MW",
+          "100,1",
+          "MW",
+          "93,6",
+          "MW"
+        ],
+        [
+          "Wärmepumpen",
+          "4,0",
+          "MW",
+          "31,3",
+          "MW",
+          "58,6",
+          "MW",
+          "124,1",
+          "MW"
+        ],
+        [
+          "Fernwärmeerzeugung",
+          "0,0",
+          "MW",
+          "0,0",
+          "MW",
+          "15,0",
+          "MW",
+          "30,0",
+          "MW"
+        ],
+        [
+          "Industrie",
+          "97,4",
+          "MW",
+          "112,0",
+          "MW",
+          "126,6",
+          "MW",
+          "160,7",
+          "MW"
+        ],
+        [
+          "Rechenzentren",
+          "15,0",
+          "MW",
+          "150,0",
+          "MW",
+          "230,0",
+          "MW",
+          "290,0",
+          "MW"
+        ],
+        [
+          "Verkehr (EMOB)",
+          "6,0",
+          "MW",
+          "34,6",
+          "MW",
+          "63,2",
+          "MW",
+          "131,8",
+          "MW"
+        ],
+        [
+          "Elektrolyse",
+          "0,0",
+          "MW",
+          "15,0",
+          "MW",
+          "30,0",
+          "MW",
+          "0,0",
+          "MW"
+        ],
+        [
+          "Batteriespeicher",
+          "1,0",
+          "MW",
+          "15,0",
+          "MW",
+          "30,0",
+          "MW",
+          "55,0",
+          "MW"
+        ],
+        [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "nVNB",
+          "208,1",
+          "MW",
+          "309,3",
+          "MW",
+          "51,6",
+          "MW",
+          "67,1",
+          "MW"
+        ],
+        [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Summe Verbrauch (GLZ)",
+          "423,1",
+          "MW",
+          "623,4",
+          "MW",
+          "533,9",
+          "MW",
+          "689,8",
+          "MW"
+        ],
+        [
+          "Summe Einspeisung (GLZ)",
+          "666,0",
+          "MW",
+          "761,4",
+          "MW",
+          "857,4",
+          "MW",
+          "1029,0",
+          "MW"
+        ]
+      ],
+      "provenance": [
+        {
+          "page": 10,
+          "bbox": [
+            78,
+            501.29,
+            517,
+            516.68
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 10,
+          "bbox": [
+            78,
+            516.68,
+            517,
+            528.99
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 10,
+          "bbox": [
+            78,
+            528.99,
+            517,
+            541.31
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 10,
+          "bbox": [
+            78,
+            541.31,
+            517,
+            553.62
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 10,
+          "bbox": [
+            78,
+            553.62,
+            517,
+            565.93
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 10,
+          "bbox": [
+            78,
+            565.93,
+            517,
+            578.24
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 10,
+          "bbox": [
+            78,
+            578.24,
+            517,
+            584.4
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 10,
+          "bbox": [
+            78,
+            584.4,
+            517,
+            596.71
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 10,
+          "bbox": [
+            78,
+            596.71,
+            517,
+            609.02
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 10,
+          "bbox": [
+            78,
+            609.02,
+            517,
+            621.33
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 10,
+          "bbox": [
+            78,
+            621.33,
+            517,
+            633.65
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 10,
+          "bbox": [
+            78,
+            633.65,
+            517,
+            645.96
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 10,
+          "bbox": [
+            78,
+            645.96,
+            517,
+            658.27
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 10,
+          "bbox": [
+            78,
+            658.27,
+            517,
+            670.58
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 10,
+          "bbox": [
+            78,
+            670.58,
+            517,
+            682.89
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 10,
+          "bbox": [
+            78,
+            682.89,
+            517,
+            695.21
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 10,
+          "bbox": [
+            78,
+            695.21,
+            517,
+            701.36
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 10,
+          "bbox": [
+            78,
+            701.36,
+            517,
+            713.67
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 10,
+          "bbox": [
+            78,
+            713.67,
+            517,
+            725.99
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 10,
+          "bbox": [
+            78,
+            725.99,
+            517,
+            738.3
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 10,
+          "bbox": [
+            78,
+            738.3,
+            517,
+            750.61
+          ],
+          "segment_id": "segment-01"
+        }
+      ],
+      "line_wrap_decisions": []
+    },
+    {
+      "id": "table-2",
+      "title": "Tabelle 2: Last- und Einspeiseprognose Teilnetz Hessisches Ried",
+      "column_count": 9,
+      "rows": [
+        [
+          "Teilnetz Hessisches Ried",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "2023",
+          "",
+          "2028",
+          "",
+          "2033",
+          "",
+          "2045",
+          ""
+        ],
+        [
+          "PV",
+          "61,5",
+          "MWp",
+          "313,6",
+          "MWp",
+          "565,6",
+          "MWp",
+          "1109,0",
+          "MWp"
+        ],
+        [
+          "Wind",
+          "0,0",
+          "MWp",
+          "0,0",
+          "MWp",
+          "0,0",
+          "MWp",
+          "0,0",
+          "MWp"
+        ],
+        [
+          "Wasserkraft, Biomasse, s.EEG",
+          "0,0",
+          "MWp",
+          "0,0",
+          "MWp",
+          "0,0",
+          "MWp",
+          "0,0",
+          "MWp"
+        ],
+        [
+          "Kraftwerke",
+          "0,0",
+          "MW",
+          "0,0",
+          "MW",
+          "0,0",
+          "MW",
+          "0,0",
+          "MW"
+        ],
+        [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Haushaltslasten",
+          "49,2",
+          "MW",
+          "47,2",
+          "MW",
+          "45,7",
+          "MW",
+          "42,8",
+          "MW"
+        ],
+        [
+          "Gewerbe,Handel, Dienstleistung",
+          "28,9",
+          "MW",
+          "27,8",
+          "MW",
+          "26,9",
+          "MW",
+          "25,2",
+          "MW"
+        ],
+        [
+          "Wärmepumpen",
+          "5,0",
+          "MW",
+          "13,6",
+          "MW",
+          "22,2",
+          "MW",
+          "42,9",
+          "MW"
+        ],
+        [
+          "Fernwärmeerzeugung",
+          "0,0",
+          "MW",
+          "0,0",
+          "MW",
+          "15,0",
+          "MW",
+          "30,0",
+          "MW"
+        ],
+        [
+          "Industrie",
+          "12,5",
+          "MW",
+          "14,4",
+          "MW",
+          "16,3",
+          "MW",
+          "20,7",
+          "MW"
+        ],
+        [
+          "Rechenzentren",
+          "60,0",
+          "MW",
+          "90,0",
+          "MW",
+          "120,0",
+          "MW",
+          "130,0",
+          "MW"
+        ],
+        [
+          "Verkehr (EMOB)",
+          "3,0",
+          "MW",
+          "16,9",
+          "MW",
+          "30,8",
+          "MW",
+          "64,2",
+          "MW"
+        ],
+        [
+          "Elektrolyse",
+          "0,0",
+          "MW",
+          "10,0",
+          "MW",
+          "10,0",
+          "MW",
+          "10,0",
+          "MW"
+        ],
+        [
+          "Batteriespeicher",
+          "1,0",
+          "MW",
+          "20,0",
+          "MW",
+          "35,0",
+          "MW",
+          "60,0",
+          "MW"
+        ],
+        [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "nVNB",
+          "33,5",
+          "MW",
+          "49,7",
+          "MW",
+          "61,4",
+          "MW",
+          "79,9",
+          "MW"
+        ],
+        [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Summe Verbrauch (GLZ)",
+          "144,8",
+          "MW",
+          "202,7",
+          "MW",
+          "249,2",
+          "MW",
+          "328,6",
+          "MW"
+        ],
+        [
+          "Summe Einspeisung (GLZ)",
+          "37,5",
+          "MW",
+          "200,1",
+          "MW",
+          "360,4",
+          "MW",
+          "701,4",
+          "MW"
+        ]
+      ],
+      "provenance": [
+        {
+          "page": 11,
+          "bbox": [
+            78,
+            70.85,
+            517,
+            86.5
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 11,
+          "bbox": [
+            78,
+            86.5,
+            517,
+            99.02
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 11,
+          "bbox": [
+            78,
+            99.02,
+            517,
+            111.54
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 11,
+          "bbox": [
+            78,
+            111.54,
+            517,
+            124.05
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 11,
+          "bbox": [
+            78,
+            124.05,
+            517,
+            136.57
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 11,
+          "bbox": [
+            78,
+            136.57,
+            517,
+            149.09
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 11,
+          "bbox": [
+            78,
+            149.09,
+            517,
+            155.35
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 11,
+          "bbox": [
+            78,
+            155.35,
+            517,
+            167.87
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 11,
+          "bbox": [
+            78,
+            167.87,
+            517,
+            180.39
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 11,
+          "bbox": [
+            78,
+            180.39,
+            517,
+            192.91
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 11,
+          "bbox": [
+            78,
+            192.91,
+            517,
+            205.42
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 11,
+          "bbox": [
+            78,
+            205.42,
+            517,
+            217.94
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 11,
+          "bbox": [
+            78,
+            217.94,
+            517,
+            230.46
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 11,
+          "bbox": [
+            78,
+            230.46,
+            517,
+            242.98
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 11,
+          "bbox": [
+            78,
+            242.98,
+            517,
+            255.5
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 11,
+          "bbox": [
+            78,
+            255.5,
+            517,
+            268.02
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 11,
+          "bbox": [
+            78,
+            268.02,
+            517,
+            274.28
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 11,
+          "bbox": [
+            78,
+            274.28,
+            517,
+            286.79
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 11,
+          "bbox": [
+            78,
+            286.79,
+            517,
+            299.31
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 11,
+          "bbox": [
+            78,
+            299.31,
+            517,
+            311.83
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 11,
+          "bbox": [
+            78,
+            311.83,
+            517,
+            324.35
+          ],
+          "segment_id": "segment-01"
+        }
+      ],
+      "line_wrap_decisions": []
+    },
+    {
+      "id": "table-3",
+      "title": "Tabelle 3: Zusammengefasste Maßnahmentabelle Hochspannung",
+      "column_count": 4,
+      "rows": [
+        [
+          "Zeitraum",
+          "Maßnahme",
+          "Geschätzte Menge",
+          "Geschätzte Kosten"
+        ],
+        [
+          "2023 bis 2028 (T+5)",
+          "Leitungen",
+          "21,4 km",
+          "45 Mio. €"
+        ],
+        [
+          "",
+          "Anlagenstandorte",
+          "4",
+          "46 Mio. €"
+        ],
+        [
+          "2029 bis 2033 (T+6 bis T+10)",
+          "Leitungen",
+          "33,5 km",
+          "37 Mio. €"
+        ],
+        [
+          "",
+          "Anlagenstandorte",
+          "12",
+          "140 Mio. €"
+        ],
+        [
+          "2034 bis 2045 (T+11 bis Zielnetzjahr)",
+          "Leitungen",
+          "12 km",
+          "29 Mio. €"
+        ],
+        [
+          "",
+          "Anlagenstandorte",
+          "5",
+          "129 Mio. €"
+        ]
+      ],
+      "provenance": [
+        {
+          "page": 13,
+          "bbox": [
+            83,
+            148,
+            512,
+            160
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 13,
+          "bbox": [
+            83,
+            160,
+            512,
+            171
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 13,
+          "bbox": [
+            83,
+            171,
+            512,
+            183
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 13,
+          "bbox": [
+            83,
+            183,
+            512,
+            194
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 13,
+          "bbox": [
+            83,
+            194,
+            512,
+            206
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 13,
+          "bbox": [
+            83,
+            206,
+            512,
+            217
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 13,
+          "bbox": [
+            83,
+            217,
+            512,
+            229
+          ],
+          "segment_id": "segment-01"
+        }
+      ],
+      "line_wrap_decisions": []
+    },
+    {
+      "id": "table-4",
+      "title": "Tabelle 4: Zusammengefasste Maßnahmentabelle Mittelspannung",
+      "column_count": 4,
+      "rows": [
+        [
+          "Zeitraum",
+          "Maßnahme",
+          "Geschätzte Menge",
+          "Geschätzte Kosten"
+        ],
+        [
+          "2023 bis 2028 (T+5)",
+          "Leitungen",
+          "129 km",
+          "31 Mio. €"
+        ],
+        [
+          "",
+          "Anlagenstandorte",
+          "180",
+          "12 Mio. €"
+        ],
+        [
+          "2029 bis 2033 (T+6 bis T+10)",
+          "Leitungen",
+          "235 km",
+          "87 Mio. €"
+        ],
+        [
+          "",
+          "Anlagenstandorte",
+          "353",
+          "23 Mio. €"
+        ],
+        [
+          "2034 bis 2045 (T+11 bis Zielnetzjahr)",
+          "Leitungen",
+          "230 km",
+          "88 Mio. €"
+        ],
+        [
+          "",
+          "Anlagenstandorte",
+          "330",
+          "26 Mio. €"
+        ]
+      ],
+      "provenance": [
+        {
+          "page": 13,
+          "bbox": [
+            83,
+            281,
+            512,
+            293
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 13,
+          "bbox": [
+            83,
+            293,
+            512,
+            304
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 13,
+          "bbox": [
+            83,
+            304,
+            512,
+            316
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 13,
+          "bbox": [
+            83,
+            316,
+            512,
+            328
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 13,
+          "bbox": [
+            83,
+            328,
+            512,
+            340
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 13,
+          "bbox": [
+            83,
+            340,
+            512,
+            351
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 13,
+          "bbox": [
+            83,
+            351,
+            512,
+            363
+          ],
+          "segment_id": "segment-01"
+        }
+      ],
+      "line_wrap_decisions": []
+    },
+    {
+      "id": "table-appendix-measures",
+      "title": "Anhang: Maßnahmenplan",
+      "column_count": 16,
+      "rows": [
+        [
+          "lfd. Nr.",
+          "Maßnahme",
+          "kurze Projektbeschreibung",
+          "Projektkategorie",
+          "Betriebsmittel",
+          "netztechnische Begründung für den Netzausbau 1. kurze Beschreibung",
+          "netztechnische Begründung für den Netzausbau 2. Aus welchem Grund erfolgt die Netzausbaumaßnahme überwiegend?",
+          "optimaler Zeitpunkt der Fertigstellung aus Sicht der Netzplanung [JJJJ]",
+          "voraussichtlicher Zeitpunkt des Baubeginns [MM/JJJJ]",
+          "voraussichtlicher Zeitpunkt der Inbetriebnahme [MM/JJJJ]",
+          "Angabe des Verzögerungsgrundes a) bis g), Mehrfachnennung möglich",
+          "Beschreibung angegebener Verzögerungsgrund",
+          "Projektstatus",
+          "Stand Genehmigungsverfahren",
+          "13",
+          "Hauptsächlich betroffenes Teilnetzgebiet"
+        ],
+        [
+          "4",
+          "Mainz-Kostheim \"Lindequartier\"",
+          "Erschließung \"Lindequartier\"",
+          "Neubau",
+          "2 Ortsnetzstadionen",
+          "",
+          "Zubau Verbraucher",
+          "2025",
+          "01/2018",
+          "12/2025",
+          "",
+          "",
+          "im Bau",
+          "abgeschlossen",
+          "UW MS auf NS",
+          "Mainz incl. AKK, Budenheim, Ingelheim, Ginsheim-Gustavsburg"
+        ],
+        [
+          "10",
+          "Erneuerung Trasse Goddelau-Biebesheim",
+          "Erneuerung der 110-kV-Trasse zwischen UW Goddelau und UW Biebesheim",
+          "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+          "Freileitungsseil, Masten",
+          "altersbedingt und leistungsbedingte Ersatzinvestition",
+          "Zubau Erzeugung und Verbrauch",
+          "2029",
+          "01/2026",
+          "12/2029",
+          "",
+          "",
+          "konkrete Planung",
+          "bereits eingeleitet",
+          "HS",
+          "Hessisches Ried"
+        ],
+        [
+          "14",
+          "Sanierungsgebiet \"Südl.Altstadt Mainz\"",
+          "Sanierung der südl.Altstadt in Mainz + Netzumstrukturierungen der Mittel- und Niederspannung",
+          "Ersatz(neubau) mit in Erhöhung der Übertragungskapazität",
+          "20-kV-Kabel, 400V-Kabel",
+          "altersbedingt und leistungsbedingte Ersatzinvestition",
+          "Zubau Verbraucher",
+          "2027",
+          "01/2025",
+          "12/2027",
+          "",
+          "",
+          "vorgesehene Maßnahme",
+          "noch nicht eingeleitet",
+          "MS",
+          "Mainz incl. AKK, Budenheim, Ingelheim, Ginsheim-Gustavsburg"
+        ],
+        [
+          "16",
+          "Sanierung der 110-kV-Schaltanlage UW KW2",
+          "Ertüchtigung und Optimierung 110-kV-Schaltanlage",
+          "der Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+          "110-kV-Schaltanlage",
+          "altersbedingt und leistungsbedingte Ersatzinvestition",
+          "Kein Zubau (reiner Ersatz, N-1 Sicherheit, Sonstiges)",
+          "",
+          "01/2028",
+          "",
+          "",
+          "",
+          "vorgesehene Maßnahme",
+          "Bitte auswählen!",
+          "UW HS auf MS",
+          "Mainz incl. AKK, Budenheim, Ingelheim, Ginsheim-Gustavsburg"
+        ],
+        [
+          "19",
+          "Dritte 380-kV-Einspeisung (D3E) - 110-kV-Netzverstärkung (ehem. Investitionsmaßnahmenantrag gemäß §23 ARegV vom 27.03.2015 mit dem Aktenzeichen BK4-15-002)",
+          "Um den dritten 380/110-kV-Umspanner geeignet in die vorhandene Netzstruktur der 110kV-Netzgruppe einbinden zu können, sind resultierende 110-kV-Investitionsmaßnahmen zur Netzverstärkung im Teilnetz der Mainzer Netze GmbH erforderlich: 1.) 110-kV-Schaltanlagenerweiterung im UW Bischofsheim 2.) 110-kV-Stromkreis- und Anlagenerweiterung zur Erhöhung der Leitungstransportkapazität den Abtransport der Einspeiseleistung sowie zum gesicherten Parallelbetrieb von drei 380/110-kV-Umspannern im UW Bischofsheim 3.) 110-kV-Sammelschienenverstärkung zur Beherrschung der erhöhten Kurzschlussleistung in der 110-kV-Schaltanlage UW Hof Schönau",
+          "Netzoptimierung und - verstärkung für (n-1)-",
+          "380/110-kV Umspanner",
+          "",
+          "Zubau Erzeugung und Verbrauch",
+          "2023",
+          "",
+          "12/2023",
+          "",
+          "",
+          "vorgesehene Maßnahme",
+          "Bitte auswählen!",
+          "HS",
+          "Mainz incl. AKK, Budenheim, Ingelheim, Ginsheim-Gustavsburg"
+        ],
+        [
+          "24",
+          "Versetzung von drei Hochspannungsmasten im Zuge des Autobahnbrückenneubaus A643 (Schiersteiner Brücke)",
+          "Für den Neubau der Autobahnbrücke A643 (Schiersteiner Brücke) müssen drei Hochspannungsmasten versetzt bzw. neu errichtet werden. Da diese Maßnahme im Zuge laufenden Weiterbetriebes stattfinden muss, ist somit ein Neubau der Masten zwingend erforderlich.",
+          "Ersatz(neubau) mit Erhöhung der Übertragungskapazität des",
+          "Mast",
+          "Versetzung Aufgrund Autobahnbrückenneubaus A643",
+          "des Kein Zubau (reiner Ersatz, N-1 Sicherheit, Sonstiges)",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "vorgesehene Maßnahme",
+          "bereits eingeleitet",
+          "Bitte auswählen!",
+          "Mainz incl. AKK, Budenheim, Ingelheim, Ginsheim-Gustavsburg"
+        ],
+        [
+          "26",
+          "Erneuerung der Leiterseile auf der Trasse Budenheim-Ingelheim",
+          "Erneuerung der 110-kV-Leiterseile auf der Trasse zwischen UW Budenheim und UW Ingelheim",
+          "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+          "Freileitungsseil",
+          "Zur Erhöhung der Übertragungskapazität und aufgrudn des Alters der Komponenten muss eine Ertüchtigung der Leiterseile erfolgen",
+          "Zubau Erzeugung und Verbrauch",
+          "2030",
+          "01/2028",
+          "12/2030",
+          "",
+          "",
+          "vorgesehene Maßnahme",
+          "noch nicht eingeleitet",
+          "HS",
+          "Mainz incl. AKK, Budenheim, Ingelheim, Ginsheim-Gustavsburg"
+        ],
+        [
+          "28",
+          "Neubau des UW Obere Austraße",
+          "Neubau eines 110/20-kV-Umspannwerks",
+          "Netzoptimierung und - verstärkung",
+          "Hochspannungssch altanlage, Tarfo 110/20, Mittelspannungssch altanlage, Mittelspannungskab elnetz",
+          "Aufgrund von Leistungsanfragen von Kunden ist der Neubau dieses Umspannwerkes erforderlich",
+          "Zubau Erzeugung und Verbrauch",
+          "2027",
+          "01/2025",
+          "12/2027",
+          "",
+          "",
+          "konkrete Planung",
+          "bereits eingeleitet",
+          "UW HS auf MS",
+          "Mainz incl. AKK, Budenheim, Ingelheim, Ginsheim-Gustavsburg"
+        ],
+        [
+          "30",
+          "Neubau des UW Mainspitze",
+          "Neubau eines 110/20-kV-Umspannwerks",
+          "Netzoptimierung und - verstärkung",
+          "Hochspannungssch altanlage, Tarfo 110/20, Mittelspannungssch altanlage, Mittelspannungskab elnetz",
+          "Aufgrund von Leistungsanfragen von Kunden ist der Neubau dieses Umspannwerkes erforderlich",
+          "Zubau Verbraucher",
+          "2025",
+          "06/2023",
+          "12/2025",
+          "",
+          "",
+          "im Bau",
+          "abgeschlossen",
+          "UW HS auf MS",
+          "Mainz incl. AKK, Budenheim, Ingelheim, Ginsheim-Gustavsburg"
+        ],
+        [
+          "31",
+          "MZ - D3E Leiterseilneuordnung MZ-Südring",
+          "Obere Systeme an Hechtsheim vorbeiführen für 2 durchgängige Systeme von Gass bis Bisch",
+          "Netzoptimierung und - verstärkung",
+          "Freileitungsseil",
+          "Netzoptimierung und Inbetriebnahme der durchgehenden 110-kV trasse",
+          "Zubau Erzeugung und Verbrauch",
+          "2026",
+          "01/2025",
+          "12/2026",
+          "",
+          "",
+          "konkrete Planung",
+          "keine Genehmigung erforderlich",
+          "HS",
+          "Mainz incl. AKK, Budenheim, Ingelheim, Ginsheim-Gustavsburg"
+        ],
+        [
+          "32",
+          "HTLS oder 4-fach 'Bischofsheim-Mainspitze'",
+          "Ersetzung von Leiterseilen durch HTLS oder 4-fach Ausbau der Trasse",
+          "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+          "Freileitungsseil",
+          "Angefragten Leistungen bedingen eine Erhöhung der Leitungskapazität",
+          "Zubau Erzeugung und Verbrauch",
+          "2030",
+          "01/2028",
+          "12/2030",
+          "",
+          "",
+          "vorgesehene Maßnahme",
+          "noch nicht eingeleitet",
+          "HS",
+          "Mainz incl. AKK, Budenheim, Ingelheim, Ginsheim-Gustavsburg"
+        ],
+        [
+          "33",
+          "KOS - Errichtung 110-kV-SA UW Hochheimer",
+          "UW Hochheimer Str. soll mittels 110-kV-GIS samt Sekundärtechnik erweitert werden.",
+          "Neubau",
+          "110-kV Schaltanlage",
+          "Ertüchtigung des Umspannwerks im Zuge der Netzoptimierung",
+          "Zubau Erzeugung und Verbrauch",
+          "2027",
+          "01/2025",
+          "12/2027",
+          "",
+          "",
+          "vorgesehene Maßnahme",
+          "bereits eingeleitet",
+          "HS",
+          "Mainz incl. AKK, Budenheim, Ingelheim, Ginsheim-Gustavsburg"
+        ],
+        [
+          "34",
+          "MzA 110-kV-Trasse UW Hoch-UW Obere Austr.",
+          "Vom Umspannwerk Hochheimer Str. soll eine 110-kV-Kabelverbindung zum UW Obere Austr. gelegt werden.",
+          "Neubau",
+          "110-kV-Kabel",
+          "Angefragten Leistungen bedingen eine Erhöhung der Leitungskapazität",
+          "Zubau Erzeugung und Verbrauch",
+          "2027",
+          "01/2025",
+          "12/2027",
+          "",
+          "",
+          "im Bau",
+          "abgeschlossen",
+          "HS",
+          "Mainz incl. AKK, Budenheim, Ingelheim, Ginsheim-Gustavsburg"
+        ],
+        [
+          "35",
+          "Kabel 'Obere Austr.-KW2/3'",
+          "Vom UW KW2/3 soll eine 110-kV-Kabelverbindung zum UW Obere Austr. Gelegt werden.",
+          "Neubau",
+          "110-kV-Kabel",
+          "Angefragten Leistungen bedingen eine Erhöhung der Leitungskapazität",
+          "Zubau Erzeugung und Verbrauch",
+          "2029",
+          "01/2028",
+          "12/2029",
+          "",
+          "",
+          "vorgesehene Maßnahme",
+          "noch nicht eingeleitet",
+          "HS",
+          "Mainz incl. AKK, Budenheim, Ingelheim, Ginsheim-Gustavsburg"
+        ],
+        [
+          "36",
+          "110-kV-Trasse Bingen-Ingelheim",
+          "Es soll eine weitere Netzeinspeisung in Bingen (Westnetz) realisiert zwischen Bestands-Uws Bingen und Ingelheim",
+          "Neubau den",
+          "Freileitungstrasse",
+          "Bereitstellung der Übertragungskapazität und erhöhung der Redundanz",
+          "Zubau Erzeugung und Verbrauch",
+          "2034",
+          "01/2025",
+          "12/2034",
+          "",
+          "",
+          "vorgesehene Maßnahme",
+          "bereits eingeleitet",
+          "HS",
+          "Mainz incl. AKK, Budenheim, Ingelheim, Ginsheim-Gustavsburg"
+        ],
+        [
+          "37",
+          "Trassenredundanter Anschluss UW Schottt (Kabel und Umspanner)",
+          "Vom UW Obere Austr. Soll eine Trassenverbindung zum Schotthauptwerk zum dort aufgestellten Umspanner gelegt werden.",
+          "Neubau",
+          "110-kV-Kabel, Transformator 110/20",
+          "Angefragten Leistungen bedingen eine Erhöhung der Leitungskapazität",
+          "Zubau Verbraucher",
+          "2026",
+          "01/2025",
+          "12/2026",
+          "",
+          "",
+          "vorgesehene Maßnahme",
+          "keine Genehmigung erforderlich",
+          "HS",
+          "Mainz incl. AKK, Budenheim, Ingelheim, Ginsheim-Gustavsburg"
+        ],
+        [
+          "38",
+          "Leistungserhöhung Übergabe EVR in UW Hof Schönau",
+          "Erweiterung der Einspeisung nVNB Energieversorgung Rüsselsheim GmbH zur Leistungsverstärkung im UW Hof Schönau.",
+          "Netzoptimierung und - verstärkung",
+          "Hochspannungssch altanlage, Tarfo 110/20, Mittelspannungssch altanlage, Mittelspannungskab elnetz",
+          "Angefragten Leistungen bedingen eine Erhöhung der Leitungskapazität",
+          "Zubau Erzeugung und Verbrauch",
+          "2026",
+          "01/2026",
+          "12/2026",
+          "",
+          "",
+          "vorgesehene Maßnahme",
+          "noch nicht eingeleitet",
+          "UW HS auf MS",
+          "Hessisches Ried"
+        ],
+        [
+          "39",
+          "LWL-Erdseil- und Leiterseilerneuerung KW2-UW Budenheim Planung / Erneuerung",
+          "Die bestehende Trasse besitzt ein Erdseil das bei Erneuerung ein LWL ergänzt werde soll.",
+          "nur Ersatz(neubau) mit um Erhöhung der Übertragungskapazität",
+          "Erdseil LWL, Freileitungsseil",
+          "Angefragten Leistungen bedingen eine Erhöhung der Leitungskapazität",
+          "Zubau Erzeugung und Verbrauch",
+          "2028",
+          "01/2027",
+          "12/2028",
+          "",
+          "",
+          "vorgesehene Maßnahme",
+          "noch nicht eingeleitet",
+          "HS",
+          "Mainz incl. AKK, Budenheim, Ingelheim, Ginsheim-Gustavsburg"
+        ],
+        [
+          "40",
+          "Verstärkung 110-kV-Trasse Bisch-Hof Schö",
+          "Verstärkung der Trasse mittels HTLS",
+          "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+          "Freileitungsseil",
+          "Angefragten Leistungen bedingen eine Erhöhung der Leitungskapazität",
+          "Zubau Erzeugung und Verbrauch",
+          "2030",
+          "01/2029",
+          "12/2030",
+          "",
+          "",
+          "vorgesehene Maßnahme",
+          "noch nicht eingeleitet",
+          "HS",
+          "Hessisches Ried"
+        ],
+        [
+          "41",
+          "WI - Ausbau 110-kV-Nordring auf 4 System",
+          "Der Nordring soll erneuert werden und in dem Zug auf 4 Systeme erweitert werden",
+          "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+          "Freileitungsseile, Masten",
+          "Angefragten Leistungen bedingen eine Erhöhung der Leitungskapazität",
+          "Zubau Erzeugung und Verbrauch",
+          "2027",
+          "06/2025",
+          "12/2027",
+          "",
+          "",
+          "vorgesehene Maßnahme",
+          "bereits eingeleitet",
+          "HS",
+          "Mainz incl. AKK, Budenheim, Ingelheim, Ginsheim-Gustavsburg"
+        ],
+        [
+          "42",
+          "MZO - 110-kV-Kabel Umlegung Pulverturm TRON",
+          "2 110-kV-Kabel müssen verlegt werden.",
+          "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+          "110-kV-Kabel",
+          "Neubau eines Kunden bedingt verlegung",
+          "Kein Zubau (reiner Ersatz, N-1 Sicherheit, Sonstiges)",
+          "2024",
+          "06/2023",
+          "12/2024",
+          "",
+          "",
+          "im Bau",
+          "abgeschlossen",
+          "HS",
+          "Mainz incl. AKK, Budenheim, Ingelheim, Ginsheim-Gustavsburg"
+        ],
+        [
+          "43",
+          "MZO - An der Goldgrube, Biontech",
+          "Erschließung eines Kundenspezifischen Neubaugebiets",
+          "Neubau",
+          "20-kV-Kabel, MS-Schaltanlage",
+          "Herrstellung Anschluss einen Kunden",
+          "für Zubau Verbraucher",
+          "2026",
+          "01/2024",
+          "12/2026",
+          "",
+          "",
+          "im Bau",
+          "keine Genehmigung erforderlich",
+          "MS",
+          "Mainz incl. AKK, Budenheim, Ingelheim, Ginsheim-Gustavsburg"
+        ],
+        [
+          "44",
+          "MZN - Zollhafen EA3 UW OAU -Moselstr.",
+          "Erschließung Zollhafen",
+          "Neubau",
+          "20-kV-Kabel",
+          "Herrstellung Anschluss einen Kunden",
+          "für Zubau Verbraucher",
+          "2026",
+          "01/2024",
+          "12/2026",
+          "",
+          "",
+          "im Bau",
+          "keine Genehmigung erforderlich",
+          "MS",
+          "Mainz incl. AKK, Budenheim, Ingelheim, Ginsheim-Gustavsburg"
+        ],
+        [
+          "45",
+          "Ertüchtigung von Umspannwerken",
+          "Erneuerung und Verstärkung vorhandener Umspannwerke",
+          "Netzoptimierung und - verstärkung",
+          "110/20 kV Umspanner, 110-kV Schaltanlagen , 20 kv- Schaltanlage",
+          "Erwarteter Lastanstieg bedingt eine Verstärkung der Kapazität der Umspannwerke",
+          "Zubau Erzeugung und Verbrauch",
+          "2033",
+          "01/2025",
+          "12/2033",
+          "",
+          "",
+          "vorgesehene Maßnahme",
+          "noch nicht eingeleitet",
+          "UW HS auf MS",
+          "Mainz incl. AKK, Budenheim, Ingelheim, Ginsheim-Gustavsburg"
+        ],
+        [
+          "46",
+          "Ertüchtigung von Umspannwerken",
+          "Erneuerung und Verstärkung vorhandener Umspannwerke",
+          "Netzoptimierung und - verstärkung",
+          "110/20 kV Umspanner, 110-kV Schaltanlagen , 20 kv- Schaltanlage",
+          "Erwarteter Lastanstieg bedingt eine Verstärkung der Kapazität der Umspannwerke",
+          "Zubau Erzeugung und Verbrauch",
+          "2033",
+          "01/2025",
+          "12/2033",
+          "",
+          "",
+          "vorgesehene Maßnahme",
+          "noch nicht eingeleitet",
+          "UW HS auf MS",
+          "Hessisches Ried"
+        ],
+        [
+          "47",
+          "Neubau von Umspannwerken",
+          "Errichtung neuer Umspannwerke",
+          "Neubau",
+          "110/20 kV Umspanner, 110-kV Schaltanlagen , 20 kv- Schaltanlage",
+          "Erwarteter Lastanstieg bedingt einen Neubau Umspannwerken",
+          "Zubau Erzeugung und Verbrauch von",
+          "2033",
+          "01/2025",
+          "12/2033",
+          "",
+          "",
+          "vorgesehene Maßnahme",
+          "noch nicht eingeleitet",
+          "UW HS auf MS",
+          "Mainz incl. AKK, Budenheim, Ingelheim, Ginsheim-Gustavsburg"
+        ],
+        [
+          "48",
+          "Neubau von Umspannwerken",
+          "Errichtung neuer Umspannwerke",
+          "Neubau",
+          "110/20 kV Umspanner, 110-kV Schaltanlagen , 20 kv- Schaltanlage",
+          "Erwarteter Lastanstieg bedingt einen Neubau Umspannwerken",
+          "Zubau Erzeugung und Verbrauch von",
+          "2033",
+          "01/2025",
+          "12/2033",
+          "",
+          "",
+          "vorgesehene Maßnahme",
+          "noch nicht eingeleitet",
+          "UW HS auf MS",
+          "Hessisches Ried"
+        ],
+        [
+          "49",
+          "Ertüchtigung von Ortsnetzstationen",
+          "Erneuerung und Verstärkung vorhandener Ortsnetzstationen",
+          "Netzoptimierung und - verstärkung",
+          "Ortsnetzstationen",
+          "Leistungsverstärkung vorhandener Trafos",
+          "Zubau Erzeugung und Verbrauch",
+          "2028",
+          "01/2024",
+          "12/2028",
+          "",
+          "",
+          "im Bau",
+          "keine Genehmigung erforderlich",
+          "UW MS auf NS",
+          "Mainz incl. AKK, Budenheim, Ingelheim, Ginsheim-Gustavsburg"
+        ],
+        [
+          "50",
+          "Ertüchtigung von Ortsnetzstationen",
+          "Erneuerung und Verstärkung vorhandener Ortsnetzstationen",
+          "Netzoptimierung und - verstärkung",
+          "Ortsnetzstationen",
+          "Leistungsverstärkung vorhandener Trafos",
+          "Zubau Erzeugung und Verbrauch",
+          "2028",
+          "01/2024",
+          "12/2028",
+          "",
+          "",
+          "im Bau",
+          "keine Genehmigung erforderlich",
+          "UW MS auf NS",
+          "Hessisches Ried"
+        ],
+        [
+          "51",
+          "Neubau von Ortsnetzstationen",
+          "Errichtung neuer Ortsnetzstationen",
+          "Netzoptimierung und - verstärkung",
+          "Ortsnetzstationen",
+          "Lastbedingte Verdichtung der Ortsnetzstationen",
+          "Zubau Erzeugung und Verbrauch",
+          "2028",
+          "01/2024",
+          "12/2028",
+          "",
+          "",
+          "im Bau",
+          "keine Genehmigung erforderlich",
+          "UW MS auf NS",
+          "Mainz incl. AKK, Budenheim, Ingelheim, Ginsheim-Gustavsburg"
+        ],
+        [
+          "52",
+          "Neubau von Ortsnetzstationen",
+          "Errichtung neuer Ortsnetzstationen",
+          "Netzoptimierung und - verstärkung",
+          "Ortsnetzstationen",
+          "Lastbedingte Verdichtung der Ortsnetzstationen",
+          "Zubau Erzeugung und Verbrauch",
+          "2028",
+          "01/2024",
+          "12/2028",
+          "",
+          "",
+          "im Bau",
+          "keine Genehmigung erforderlich",
+          "UW MS auf NS",
+          "Hessisches Ried"
+        ],
+        [
+          "53",
+          "Ertüchtigung im Mittelspannungsnetz",
+          "Erneuerung und Verstärkung vorhandenes Mittelspannungsnetz",
+          "Netzoptimierung und - verstärkung",
+          "20-kV-Kabel",
+          "Um die kundenseitige Nachfrage nach Leistung erfüllen zu können muss das Netz in den betroffenen Bereichen Verstärkt werden",
+          "Zubau Erzeugung und Verbrauch",
+          "2028",
+          "01/2024",
+          "12/2028",
+          "",
+          "",
+          "im Bau",
+          "keine Genehmigung erforderlich",
+          "MS",
+          "Mainz incl. AKK, Budenheim, Ingelheim, Ginsheim-Gustavsburg"
+        ],
+        [
+          "54",
+          "Ertüchtigung im Mittelspannungsnetz",
+          "Erneuerung und Verstärkung vorhandenes Mittelspannungsnetz",
+          "Netzoptimierung und - verstärkung",
+          "20-kV-Kabel",
+          "Um die kundenseitige Nachfrage nach Leistung erfüllen zu können muss das Netz in den betroffenen Bereichen Verstärkt werden",
+          "Zubau Erzeugung und Verbrauch",
+          "2028",
+          "01/2024",
+          "12/2028",
+          "",
+          "",
+          "im Bau",
+          "keine Genehmigung erforderlich",
+          "MS",
+          "Hessisches Ried"
+        ],
+        [
+          "55",
+          "Neubau von Mittelspannungsnetz",
+          "Errichtung von Mittelspannungsnetz",
+          "Netzoptimierung und - verstärkung",
+          "20-kV-Kabel",
+          "Um die kundenseitige Nachfrage nach Leistung erfüllen zu können muss das Netz in den betroffenen Bereichen Verstärkt werden",
+          "Zubau Erzeugung und Verbrauch",
+          "2028",
+          "01/2024",
+          "12/2028",
+          "",
+          "",
+          "im Bau",
+          "keine Genehmigung erforderlich",
+          "MS",
+          "Mainz incl. AKK, Budenheim, Ingelheim, Ginsheim-Gustavsburg"
+        ],
+        [
+          "56",
+          "Neubau von Mittelspannungsnetz",
+          "Errichtung von Mittelspannungsnetz",
+          "Netzoptimierung und - verstärkung",
+          "20-kV-Kabel",
+          "Um die kundenseitige Nachfrage nach Leistung erfüllen zu können muss das Netz in den betroffenen Bereichen Verstärkt werden",
+          "Zubau Erzeugung und Verbrauch",
+          "2028",
+          "01/2024",
+          "12/2028",
+          "",
+          "",
+          "im Bau",
+          "keine Genehmigung erforderlich",
+          "MS",
+          "Hessisches Ried"
+        ],
+        [
+          "57",
+          "Ertüchtigung im Niederspannungsnetz",
+          "Erneuerung und Verstärkung vorhandenes Niederspannungsnetz",
+          "Netzoptimierung und - verstärkung",
+          "400V-Kabel",
+          "Um die kundenseitige Nachfrage nach Leistung erfüllen zu können muss das Netz in den betroffenen Bereichen Verstärkt werden",
+          "Zubau Erzeugung und Verbrauch",
+          "2028",
+          "01/2024",
+          "12/2028",
+          "",
+          "",
+          "im Bau",
+          "keine Genehmigung erforderlich",
+          "NS",
+          "Mainz incl. AKK, Budenheim, Ingelheim, Ginsheim-Gustavsburg"
+        ],
+        [
+          "58",
+          "Ertüchtigung im Niederspannungsnetz",
+          "Erneuerung und Verstärkung vorhandenes Niederspannungsnetz",
+          "Netzoptimierung und - verstärkung",
+          "400V-Kabel",
+          "Um die kundenseitige Nachfrage nach Leistung erfüllen zu können muss das Netz in den betroffenen Bereichen Verstärkt werden",
+          "Zubau Erzeugung und Verbrauch",
+          "2028",
+          "01/2024",
+          "12/2028",
+          "",
+          "",
+          "im Bau",
+          "keine Genehmigung erforderlich",
+          "NS",
+          "Hessisches Ried"
+        ],
+        [
+          "59",
+          "Neubau von Niederspannungsnetz",
+          "Errichtung von Niederspannungsnetz",
+          "Netzoptimierung und - verstärkung",
+          "400V-Kabel",
+          "Um die kundenseitige Nachfrage nach Leistung erfüllen zu können muss das Netz in den betroffenen Bereichen Verstärkt werden",
+          "Zubau Erzeugung und Verbrauch",
+          "2028",
+          "01/2024",
+          "12/2028",
+          "",
+          "",
+          "im Bau",
+          "keine Genehmigung erforderlich",
+          "NS",
+          "Mainz incl. AKK, Budenheim, Ingelheim, Ginsheim-Gustavsburg"
+        ],
+        [
+          "60",
+          "Neubau von Niederspannungsnetz",
+          "Errichtung von Niederspannungsspannungsnetz",
+          "Netzoptimierung und - verstärkung",
+          "400V-Kabel",
+          "Um die kundenseitige Nachfrage nach Leistung erfüllen zu können muss das Netz in den betroffenen Bereichen Verstärkt werden",
+          "Zubau Erzeugung und Verbrauch",
+          "2028",
+          "01/2024",
+          "12/2028",
+          "",
+          "",
+          "im Bau",
+          "keine Genehmigung erforderlich",
+          "NS",
+          "Hessisches Ried"
+        ]
+      ],
+      "provenance": [
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            103,
+            578,
+            120
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            123.2,
+            578,
+            128.7
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            128.7,
+            578,
+            137.0
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            137.0,
+            578,
+            148.0
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            148.0,
+            578,
+            156.3
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            156.3,
+            578,
+            233.6
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            233.6,
+            578,
+            261.2
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            261.2,
+            578,
+            277.7
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            277.7,
+            578,
+            297.1
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            297.1,
+            578,
+            316.4
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            316.4,
+            578,
+            327.4
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            327.4,
+            578,
+            338.5
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            338.5,
+            578,
+            349.5
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            349.5,
+            578,
+            360.5
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            360.5,
+            578,
+            371.6
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            371.6,
+            578,
+            385.4
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            385.4,
+            578,
+            399.2
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            399.2,
+            578,
+            418.5
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            418.5,
+            578,
+            429.5
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            429.5,
+            578,
+            440.6
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            440.6,
+            578,
+            451.6
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            451.6,
+            578,
+            459.9
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            459.9,
+            578,
+            468.2
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            468.2,
+            578,
+            473.7
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            473.7,
+            578,
+            487.5
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            487.5,
+            578,
+            501.3
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            501.3,
+            578,
+            515.1
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            515.1,
+            578,
+            528.9
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            528.9,
+            578,
+            535.0
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            535.0,
+            578,
+            540.8
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            540.8,
+            578,
+            549.1
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            549.1,
+            578,
+            557.3
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            557.3,
+            578,
+            576.7
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            576.7,
+            578,
+            596.0
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            596.0,
+            578,
+            615.3
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            615.3,
+            578,
+            634.6
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            634.6,
+            578,
+            653.9
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            653.9,
+            578,
+            673.3
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            673.3,
+            578,
+            692.6
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            18,
+            692.6,
+            578,
+            725
+          ],
+          "segment_id": "segment-01"
+        }
+      ],
+      "line_wrap_decisions": [
+        {
+          "id": "wrap-fce5a9bb3926",
+          "line_end": "400V-",
+          "next_line_start": "Kabel",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 8,
+              "line": 0,
+              "bbox": [
+                152.1826629638672,
+                136.97335815429688,
+                170.7733612060547,
+                142.14393615722656
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-b2a7f44335b5",
+          "line_end": "110-kV-",
+          "next_line_start": "Schaltanlage",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 12,
+              "line": 0,
+              "bbox": [
+                152.1834259033203,
+                148.01333618164062,
+                164.66171264648438,
+                153.1839141845703
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 17,
+              "line": 22,
+              "bbox": [
+                92.54344177246094,
+                217.01351928710938,
+                125.53595733642578,
+                222.18409729003906
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-1c19ffd56a5d",
+          "line_end": "110-kV-",
+          "next_line_start": "Netzverstärkung",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 16,
+              "line": 1,
+              "bbox": [
+                35.66344451904297,
+                156.29330444335938,
+                76.22566223144531,
+                161.46388244628906
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-b9e2539bc6a4",
+          "line_end": "380/110-kV-",
+          "next_line_start": "Umspanner",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 17,
+              "line": 0,
+              "bbox": [
+                92.54344177246094,
+                156.29330444335938,
+                118.8239974975586,
+                161.46388244628906
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-baff5a5cf237",
+          "line_end": "110-",
+          "next_line_start": "kV-Netzgruppe",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 17,
+              "line": 2,
+              "bbox": [
+                92.54344177246094,
+                161.81332397460938,
+                124.69964599609375,
+                166.98390197753906
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-470af966911d",
+          "line_end": "110-kV-",
+          "next_line_start": "Investitionsmaßnahmen",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 17,
+              "line": 4,
+              "bbox": [
+                92.54344177246094,
+                167.33334350585938,
+                125.89409637451172,
+                172.50392150878906
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-7dae7f3f32f6",
+          "line_end": "110-kV-",
+          "next_line_start": "Schaltanlagenerweiterung",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 17,
+              "line": 8,
+              "bbox": [
+                92.54344177246094,
+                178.37338256835938,
+                117.49773406982422,
+                183.54396057128906
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-9c059aba4655",
+          "line_end": "(n-1)-",
+          "next_line_start": "gesicherten",
+          "decision": "remove",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 17,
+              "line": 15,
+              "bbox": [
+                92.54344177246094,
+                197.69345092773438,
+                125.77787780761719,
+                202.86402893066406
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-c45dc433ac26",
+          "line_end": "110-kV-",
+          "next_line_start": "Sammelschienenverstärkung",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 17,
+              "line": 19,
+              "bbox": [
+                92.54344177246094,
+                208.73348999023438,
+                120.1371078491211,
+                213.90406799316406
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-f6debfe633f6",
+          "line_end": "Budenheim-",
+          "next_line_start": "Ingelheim",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 27,
+              "line": 1,
+              "bbox": [
+                35.66338348388672,
+                261.1735534667969,
+                87.84525299072266,
+                266.3441162109375
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-53e4d8e7d681",
+          "line_end": "110/20-kV-",
+          "next_line_start": "Umspannwerks",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 32,
+              "line": 2,
+              "bbox": [
+                92.54483795166016,
+                277.7336120605469,
+                116.9048843383789,
+                282.9041748046875
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 37,
+              "line": 2,
+              "bbox": [
+                92.54566192626953,
+                297.0537414550781,
+                116.90653991699219,
+                302.22430419921875
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-0a8a0369b81b",
+          "line_end": "110-kV-",
+          "next_line_start": "Kabelverbindung",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 56,
+              "line": 3,
+              "bbox": [
+                92.54566955566406,
+                352.2539367675781,
+                112.45899963378906,
+                357.42449951171875
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            },
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 59,
+              "line": 2,
+              "bbox": [
+                92.5456771850586,
+                360.53399658203125,
+                124.58494567871094,
+                365.7045593261719
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        },
+        {
+          "id": "wrap-ba4b62b1f772",
+          "line_end": "MS-",
+          "next_line_start": "Schaltanlage",
+          "decision": "keep",
+          "decision_source": "code",
+          "occurrences": [
+            {
+              "segment_id": "segment-01",
+              "page": 16,
+              "block": 98,
+              "line": 1,
+              "bbox": [
+                152.18408203125,
+                459.8937072753906,
+                169.0953826904297,
+                465.06427001953125
+              ],
+              "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/mainzer-netze-2024/extractor/evidence/segments/table-appendix-measures/segment-01-b733c8d30ad4-page-0016.png"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "warnings": [
+    "Source wraps are conservatively joined with spaces; no dehyphenation applied."
+  ]
+}

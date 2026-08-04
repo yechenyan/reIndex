@@ -1,0 +1,182 @@
+{
+  "spec": "pdf-extractor-pdf/role-separation@1.0",
+  "ok": true,
+  "agents": {
+    "main_agent": {
+      "run_id": "0b058bbd-373f-4eec-a4ea-0d5e47be710d",
+      "stage": "review",
+      "model": "gpt-5.6-terra",
+      "agent_id": "agent-mainzer-orchestrator",
+      "started_at": "2026-08-04T12:40:24.136196+00:00",
+      "ended_at": "2026-08-04T12:42:29.797352+00:00",
+      "wall_seconds": 125.661156
+    },
+    "finder_agent": {
+      "run_id": "5f119b3f-ffe5-4110-85ad-5266428d1fc0",
+      "stage": "discovery",
+      "model": "gpt-5.6-terra",
+      "agent_id": "agent-finder-mainzer-2024",
+      "started_at": "2026-08-04T12:24:33.057193+00:00",
+      "ended_at": "2026-08-04T12:29:18.047179+00:00",
+      "wall_seconds": 284.989986
+    },
+    "extraction_agent": {
+      "run_id": "1ebb47c5-1d10-47b2-a6e8-dca561641f63",
+      "stage": "extraction",
+      "model": "gpt-5.6-terra",
+      "agent_id": "agent-extraction-mainzer-2024",
+      "started_at": "2026-08-04T12:29:29.713684+00:00",
+      "ended_at": "2026-08-04T12:35:23.826332+00:00",
+      "wall_seconds": 354.112648
+    },
+    "qa_agent": {
+      "run_id": "540029e9-837d-4a55-96a2-15da1117b4fb",
+      "stage": "qa",
+      "model": "gpt-5.6-terra",
+      "agent_id": "agent-qa-mainzer-2024",
+      "started_at": "2026-08-04T12:34:02.049593+00:00",
+      "ended_at": "2026-08-04T12:38:51.534257+00:00",
+      "wall_seconds": 289.484664
+    }
+  },
+  "extraction_qa_overlapped": true,
+  "dispatches": [
+    {
+      "run_id": "5f119b3f-ffe5-4110-85ad-5266428d1fc0",
+      "stage": "discovery",
+      "role": "finder_agent",
+      "model": "gpt-5.6-terra",
+      "agent_id": "agent-finder-mainzer-2024",
+      "dispatch_kind": "spawn",
+      "table_ids": null,
+      "started_at": "2026-08-04T12:24:33.057193+00:00",
+      "ended_at": "2026-08-04T12:29:18.047179+00:00",
+      "wall_seconds": 284.989986,
+      "conversation_turns": 1,
+      "repair_rounds": 0,
+      "dispatch_ordinal": 1
+    },
+    {
+      "run_id": "7fe9c574-642e-4d54-ac24-a22209aebe7b",
+      "stage": "inventory",
+      "role": "main_agent",
+      "model": "gpt-5.6-terra",
+      "agent_id": "agent-mainzer-orchestrator",
+      "dispatch_kind": "orchestrator",
+      "table_ids": null,
+      "started_at": "2026-08-04T12:29:18.216297+00:00",
+      "ended_at": "2026-08-04T12:29:29.584211+00:00",
+      "wall_seconds": 11.367914,
+      "conversation_turns": 1,
+      "repair_rounds": 0,
+      "dispatch_ordinal": 1
+    },
+    {
+      "run_id": "c574854e-e998-4e89-b1ba-4ed2eb93b782",
+      "stage": "qa",
+      "role": "qa_agent",
+      "model": "gpt-5.6-terra",
+      "agent_id": "agent-qa-mainzer-2024",
+      "dispatch_kind": "spawn",
+      "table_ids": null,
+      "started_at": "2026-08-04T12:29:29.843127+00:00",
+      "ended_at": "2026-08-04T12:34:01.921121+00:00",
+      "wall_seconds": 272.077994,
+      "conversation_turns": 1,
+      "repair_rounds": 0,
+      "dispatch_ordinal": 1
+    },
+    {
+      "run_id": "1ebb47c5-1d10-47b2-a6e8-dca561641f63",
+      "stage": "extraction",
+      "role": "extraction_agent",
+      "model": "gpt-5.6-terra",
+      "agent_id": "agent-extraction-mainzer-2024",
+      "dispatch_kind": "spawn",
+      "table_ids": null,
+      "started_at": "2026-08-04T12:29:29.713684+00:00",
+      "ended_at": "2026-08-04T12:35:23.826332+00:00",
+      "wall_seconds": 354.112648,
+      "conversation_turns": 1,
+      "repair_rounds": 0,
+      "dispatch_ordinal": 1
+    },
+    {
+      "run_id": "540029e9-837d-4a55-96a2-15da1117b4fb",
+      "stage": "qa",
+      "role": "qa_agent",
+      "model": "gpt-5.6-terra",
+      "agent_id": "agent-qa-mainzer-2024",
+      "dispatch_kind": "followup",
+      "table_ids": null,
+      "started_at": "2026-08-04T12:34:02.049593+00:00",
+      "ended_at": "2026-08-04T12:38:51.534257+00:00",
+      "wall_seconds": 289.484664,
+      "conversation_turns": 1,
+      "repair_rounds": 1,
+      "dispatch_ordinal": 2
+    },
+    {
+      "run_id": "56387a42-f84c-4d3f-9695-6043328052be",
+      "stage": "validation",
+      "role": "main_agent",
+      "model": "gpt-5.6-terra",
+      "agent_id": "agent-mainzer-orchestrator",
+      "dispatch_kind": "orchestrator",
+      "table_ids": null,
+      "started_at": "2026-08-04T12:38:51.664391+00:00",
+      "ended_at": "2026-08-04T12:40:23.998971+00:00",
+      "wall_seconds": 92.33458,
+      "conversation_turns": 1,
+      "repair_rounds": 1,
+      "dispatch_ordinal": 2
+    },
+    {
+      "run_id": "0f944d25-5122-4720-a99b-912d22c390aa",
+      "stage": "qa",
+      "role": "qa_agent",
+      "model": "gpt-5.6-terra",
+      "agent_id": "agent-qa-mainzer-2024",
+      "dispatch_kind": "followup",
+      "table_ids": [
+        "table-appendix-measures"
+      ],
+      "started_at": "2026-08-04T12:40:31.899869+00:00",
+      "ended_at": "2026-08-04T12:42:29.665150+00:00",
+      "wall_seconds": 117.765281,
+      "conversation_turns": 1,
+      "repair_rounds": 1,
+      "dispatch_ordinal": 3
+    },
+    {
+      "run_id": "0b058bbd-373f-4eec-a4ea-0d5e47be710d",
+      "stage": "review",
+      "role": "main_agent",
+      "model": "gpt-5.6-terra",
+      "agent_id": "agent-mainzer-orchestrator",
+      "dispatch_kind": "orchestrator",
+      "table_ids": null,
+      "started_at": "2026-08-04T12:40:24.136196+00:00",
+      "ended_at": "2026-08-04T12:42:29.797352+00:00",
+      "wall_seconds": 125.661156,
+      "conversation_turns": 1,
+      "repair_rounds": 1,
+      "dispatch_ordinal": 3
+    },
+    {
+      "run_id": "8dc9493b-6f25-49a2-9010-e14f0e96b094",
+      "stage": "validation",
+      "role": "main_agent",
+      "model": "gpt-5.6-terra",
+      "agent_id": "agent-mainzer-orchestrator",
+      "dispatch_kind": "orchestrator",
+      "table_ids": null,
+      "started_at": "2026-08-04T12:42:29.927171+00:00",
+      "ended_at": "2026-08-04T12:42:45.404916+00:00",
+      "wall_seconds": 15.477745,
+      "conversation_turns": 1,
+      "repair_rounds": 1,
+      "dispatch_ordinal": 4
+    }
+  ]
+}

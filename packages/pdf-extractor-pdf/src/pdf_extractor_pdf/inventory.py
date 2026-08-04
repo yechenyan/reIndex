@@ -74,6 +74,9 @@ def _validate_draft(draft: dict, job: Job, document: fitz.Document) -> None:
         raise ValueError("logical table IDs must be non-empty and unique")
     segment_pages = []
     for table in tables:
+        column_count = table.get("column_count")
+        if not isinstance(column_count, int) or isinstance(column_count, bool) or column_count < 1:
+            raise ValueError(f"table {table.get('id')} needs a positive column_count")
         segments = table.get("segments")
         if not isinstance(segments, list) or not segments:
             raise ValueError(f"table {table.get('id')} has no segments")

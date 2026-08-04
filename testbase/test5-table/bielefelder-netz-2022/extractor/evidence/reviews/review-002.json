@@ -1,0 +1,941 @@
+{
+  "spec": "pdf-extractor-pdf/review@4.0",
+  "review_target": "main_agent",
+  "passed": false,
+  "deterministic": true,
+  "source_sha256": "3dc36a9917ac29b387c8fcc6e1a856f26e4fc0660d4e847a5070ee7dca0af497",
+  "inventory_sha256": "a5a793af1903df032daddd3b1482279dd30f8baefc2aa0a488984bd90ca201f4",
+  "reference_sha256": "2d27716ab21d8c3c71641fd604de41376f5b4b49ddf632edab50140a013f2d72",
+  "extractor_sha256": "13e326ed1689227b7e334fe7be581928b534f9fe6fe2d4ff972e6083b03af83f",
+  "summary": {
+    "issue_count": 5,
+    "case_count": 1,
+    "format_difference_count": 6,
+    "deterministically_routed_cases": 0,
+    "main_agent_case_reviews": 1,
+    "merge_reviews": 0
+  },
+  "issues": [
+    {
+      "id": "table-6:sample_mismatch:1",
+      "code": "sample_mismatch",
+      "route": "main_agent",
+      "message": "table-6: QA sample row 1 differs.",
+      "table_id": "table-6",
+      "row_index": 1,
+      "sample_reasons": [
+        "first_rows"
+      ],
+      "extractor_sample": [
+        "1",
+        "Nordleitung",
+        "Bspw. \"Audorf\", \"Hamburg-Nord\"",
+        "Errichtung einer Leitung von-bis (Netzknotenpunkt mit Ortsangabe, bspw. 01111 Musterdorf- 01112 Musterstadt)",
+        "(Dropdown-Liste)\n• Neubau\n• Ersatz(neubau) mit Erhöhung der Übertragungskapazität\n• Ersatz(neubau) ohne Erhöhung der Übertragungskapazität\n• Netzoptimierung und -verstärkung\n• Rückbau / Altlastentsorgung",
+        "bspw. Freileitung",
+        "Bitte geben Sie hier die Länge in Kilometern der Trasse an, in der\nLeitungen oder Kabel neu gebaut, optimiert oder bestehende\nersetzt wurden.\nACHTUNG Definitionsvorgabe!\nBitte geben Sie bei Freileitungen nicht die Länge der einzelnen\nLeitungen an, sondern die Länge der Trasse/des\nLeitungsabschnitts.\nBei Kabeln ist die Länge der einzelnen Leitungen anzugeben.",
+        "Bitte geben Sie bei Neubaumaßnahmen die neu geschaffene\nÜbertragungskapazität an.\nACHTUNG Definitionsvorgabe!\nBei Optimierungs- oder Ersatzmaßnahmen geben Sie bitte an,\nwie sich die Übertragungskapazität im Vergleich zum Zustand\nvor Beginn der Maßnahme verändert.",
+        "zunehmende PV-Einspeisung in \"Musterortsteil\" in 01112 Musterstadt erfordert die Anbindung an die ... Leitung in ... etc.",
+        "(Dropdown-Liste)\nACHTUNG\ngeänderte Antwortmöglichkeiten!\n• Zubau EE-Anlagen\n• Zubau Power to X\n• Zubau anderer Erzeugungsanlagen\n• Zubau Verbraucher\n• Zubau Erzeugung und Verbrauch\n• Kein Zubau (reiner Ersatz)\nAntworten bereits gemeldete Einzelmaßnahmen bis Abfrage aus 2021:\n• ja\n• ja, teilweise\n• nein",
+        "(Dropdown-Liste)\n• Ja, um einen verbrauchsbedingten Engpass zu beheben\n• Ja, um einen erzeugungsbedingten Engpass zu beheben\n• Ja, beides (verbrauchsbedingt und erzeugungsbeding)\n• Nein",
+        "(Dropdown-Liste)\n• Ja, um einen verbrauchsbedingten Engpass vorzubeugen\n• Ja, um einen erzeugungsbedingten Engpass vorzubeugen\n• Ja, beides (verbrauchsbedingt und erzeugungsbeding)\n• Nein",
+        "03/2020",
+        "11/2024",
+        "Bitte bei der Begründung die Kategorie mit angeben:\na) Akzeptanz Bevölkerung\nb) Genehmigungs-prozess\nc) ÜNB\nd) Intern\ne) Baubeginn (Lieferengpässe, Insolvenzen etc.)\nf) Sonstige Gründe\ng) Verzögerung durch Dritte\nBeispiel: d) Änderung Priorität, e) wegen Lieferengpass verzögert.\ng) Verzögerung der städtischen Erschließung",
+        "60000\nHinweis: Bitte nennen Sie auch kleinere Maßnahmen. Setzen\nSie kein Mindestbudget!",
+        "(Dropdown-Liste)\n• weggefallene Maßnahme,\n• vorgesehene Maßnahme,\n• konkrete Planung,\n• im Bau,\n• abgeschlossen\n• in 10-JP überführt (Die Überführung war in der Abfrage 2021!)\nHinweis:\nMaßnahmen gelten insbesondere als konkret geplant, wenn die für\ndie Maßnahme notwendigen öffentlich-rechtlichen Planungs- oder\nGenehmigungsverfahren eingeleitet wurden oder vom Betreiber\nbereits Investitionsentscheidungen bezüglich der\nAusbaumaßnahmen getroffen wurden oder der Betreiber von einer\ntatsächlichen Realisierung innerhalb der kommenden fünf Jahre\nausgeht.",
+        "(Dropdown-Liste)\n• noch nicht eingeleitet\n• bereits eingeleitet\n• abgeschlossen\n• keine Genehmigung erforderlich",
+        "bspw. 80°-Trassierung von Leitungen, Spitzenkappung, Hochtemperaturleiterseile, Leiterseilmonitoring, Einbau von\nregelbaren Ortnetztransformatoren, Erhöhung des Querschnitts von Leitungen, Erhöhung der Trafoleistung,\nVerkabelung von Freileitungen, Trennstellenoptimierung, Änderung der Netztopologie, Einbau von Messtechnik, Bau\nvon Paralellsystemen, Einbau von Spannungsreglern, Regulierung der Seildurchhänge, Sonstiges [bitte benennen].",
+        "(Dropdown-Liste)\n• NS,\n• UW MS auf NS,\n• MS,\n• UW HS auf MS oder\n• HS\n• Gesamtnetz [nur bei Projekten die nicht überwiegend einer\nNetzebene zugeordnet werden können. Bsp.: Errichtung\nFunknetz mit 450 MHz, flächendeckender Aufbau neuer\nStationsleittechnik"
+      ],
+      "qa_reference": [
+        "1",
+        "Nordleitung",
+        "Bspw. \"Audorf\", \"Hamburg-Nord\"",
+        "Errichtung einer Leitung von-bis (Netzknotenpunkt mit Ortsangabe, bspw. 01111 Musterdorf- 01112 Musterstadt)",
+        "(Dropdown-Liste) • Neubau • Ersatz(neubau) mit Erhöhung der Übertragungskapazität • Ersatz(neubau) ohne Erhöhung der Übertragungskapazität • Netzoptimierung und -verstärkung • Rückbau / Altlastentsorgung",
+        "bspw. Freileitung",
+        "Bitte geben Sie hier die Länge in Kilometern der Trasse an, in der Leitungen oder Kabel neu gebaut, optimiert oder bestehende ersetzt wurden. ACHTUNG Definitionsvorgabe! Bitte geben Sie bei Freileitungen nicht die Länge der einzelnen Leitungen an, sondern die Länge der Trasse/des Leitungsabschnitts. Bei Kabeln ist die Länge der einzelnen Leitungen anzugeben.",
+        "Bitte geben Sie bei Neubaumaßnahmen die neu geschaffene Übertragungskapazität an. ACHTUNG Definitionsvorgabe! Bei Optimierungs- oder Ersatzmaßnahmen geben Sie bitte an, wie sich die Übertragungskapazität im Vergleich zum Zustand vor Beginn der Maßnahme verändert.",
+        "zunehmende PV-Einspeisung in \"Musterortsteil\" in 01112 Musterstadt erfordert die Anbindung an die ... Leitung in ... etc.",
+        "(Dropdown-Liste) ACHTUNG geänderte Antwortmöglichkeiten! • Zubau EE-Anlagen • Zubau Power to X • Zubau anderer Erzeugungsanlagen • Zubau Verbraucher • Zubau Erzeugung und Verbrauch • Kein Zubau (reiner Ersatz) Antworten bereits gemeldete Einzelmaßnahmen bis Abfrage aus 2021: • ja • ja, teilweise • nein",
+        "(Dropdown-Liste) • Ja, um einen verbrauchsbedingten Engpass zu beheben • Ja, um einen erzeugungsbedingten Engpass zu beheben • Ja, beides (verbrauchsbedingt und erzeugungsbeding) • Nein",
+        "(Dropdown-Liste) • Ja, um einen verbrauchsbedingten Engpass vorzubeugen • Ja, um einen erzeugungsbedingten Engpass vorzubeugen • Ja, beides (verbrauchsbedingt und erzeugungsbeding) • Nein",
+        "03/2020",
+        "11/2024",
+        "Bitte bei der Begründung die Kategorie mit angeben: a) Akzeptanz Bevölkerung b) Genehmigungs-prozess c) ÜNB d) Intern e) Baubeginn (Lieferengpässe, Insolvenzen etc.) f) Sonstige Gründe g) Verzögerung durch Dritte Beispiel: d) Änderung Priorität, e) wegen Lieferengpass verzögert. g) Verzögerung der städtischen Erschließung",
+        "60000",
+        "(Dropdown-Liste) • weggefallene Maßnahme, • vorgesehene Maßnahme, • konkrete Planung, • im Bau, • abgeschlossen • in 10-JP überführt (Die Überführung war in der Abfrage 2021!) Hinweis: Maßnahmen gelten insbesondere als konkret geplant, wenn die für die Maßnahme notwendigen öffentlich-rechtlichen Planungs- oder Genehmigungsverfahren eingeleitet wurden oder vom Betreiber bereits Investitionsentscheidungen bezüglich der Ausbaumaßnahmen getroffen wurden oder der Betreiber von einer tatsächlichen Realisierung innerhalb der kommenden fünf Jahre ausgeht.",
+        "(Dropdown-Liste) • noch nicht eingeleitet • bereits eingeleitet • abgeschlossen • keine Genehmigung erforderlich",
+        "bspw. 80°-Trassierung von Leitungen, Spitzenkappung, Hochtemperaturleiterseile, Leiterseilmonitoring, Einbau von regelbaren Ortnetztransformatoren, Erhöhung des Querschnitts von Leitungen, Erhöhung der Trafoleistung, Verkabelung von Freileitungen, Trennstellenoptimierung, Änderung der Netztopologie, Einbau von Messtechnik, Bau von Paralellsystemen, Einbau von Spannungsreglern, Regulierung der Seildurchhänge, Sonstiges [bitte benennen].",
+        "(Dropdown-Liste) • NS, • UW MS auf NS, • MS, • UW HS auf MS oder • HS • Gesamtnetz [nur bei Projekten die nicht überwiegend einer Netzebene zugeordnet werden können. Bsp.: Errichtung Funknetz mit 450 MHz, flächendeckender Aufbau neuer Stationsleittechnik]"
+      ],
+      "cell_diffs": [
+        {
+          "column_index": 15,
+          "extractor_raw": "60000\nHinweis: Bitte nennen Sie auch kleinere Maßnahmen. Setzen\nSie kein Mindestbudget!",
+          "qa_raw": "60000",
+          "extractor_normalized": "60000 Hinweis: Bitte nennen Sie auch kleinere Maßnahmen. Setzen Sie kein Mindestbudget!",
+          "qa_normalized": "60000",
+          "extractor_content_key": "60000 Hinweis: Bitte nennen Sie auch kleinere Maßnahmen. Setzen Sie kein Mindestbudget!",
+          "qa_content_key": "60000",
+          "comparison_mode": "exact",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        }
+      ],
+      "evidence_refs": [
+        "table-6::segment-01"
+      ]
+    },
+    {
+      "id": "table-6:sample_mismatch:2",
+      "code": "sample_mismatch",
+      "route": "main_agent",
+      "message": "table-6: QA sample row 2 differs.",
+      "table_id": "table-6",
+      "row_index": 2,
+      "sample_reasons": [
+        "first_rows"
+      ],
+      "extractor_sample": [
+        "lfd. Nr.",
+        "Maßnahme",
+        "Von der Netzausbaumaßnahme betroffene(r) Netzknoten im überlagerten HöS-\nNetz",
+        "kurze Projektbeschreibung",
+        "Projektkategorie",
+        "Betriebsmittel",
+        "Länge des zugebauten, optimierten oder ersetzen Leitungsabschnitts\n[km]",
+        "Änderung der Übertragungskapazität\n[+/- MVA]",
+        "netztechnische Begründung für den Netzausbau\nnetztechnische Begründung für den Netzausbau\n1. kurze Beschreibung",
+        "netztechnische Begründung für den Netzausbau\n2. Aus welchem Grund erfolgt die Netzausbaumaßnahme überwiegend?",
+        "Erfolgt diese Netzausbaumaßnahme, um einen bereits bestehenden\nEngpass zu beheben?",
+        "Erfolgt diese Netzausbaumaßnahme, um einen prognostizierten\nEngpass vorzubeugen?",
+        "voraussichtlicher Zeitpunkt des Baubeginns\n[MM/JJJJ]",
+        "voraussichtlicher Zeitpunkt der Inbetriebnahme\n[MM/JJJJ]",
+        "Im Falle einer Verzögerung der Maßnahme ist der Verzögerungsgrund (a-g) anzugeben\n(Angabe Buchstabe a-f & kurze Beschreibung)",
+        "Kosten (geschätzt) in Euro",
+        "Projektstatus",
+        "Stand Genehmigungsverfahren",
+        "Geprüfte Alternativen zum Netzausbau",
+        "Vorrangig betroffene Netz- oder Umspannebene"
+      ],
+      "qa_reference": [
+        "lfd. Nr.",
+        "Maßnahme",
+        "Von der Netzausbaumaßnahme betroffene(r) Netzknoten im überlagerten HöS-Netz",
+        "kurze Projektbeschreibung",
+        "Projektkategorie",
+        "Betriebsmittel",
+        "Länge des zugebauten, optimierten oder ersetzen Leitungsabschnitts [km]",
+        "Änderung der Übertragungskapazität [+/- MVA]",
+        "netztechnische Begründung für den Netzausbau 1. kurze Beschreibung",
+        "netztechnische Begründung für den Netzausbau 2. Aus welchem Grund erfolgt die Netzausbaumaßnahme überwiegend?",
+        "Erfolgt diese Netzausbaumaßnahme, um einen bereits bestehenden Engpass zu beheben?",
+        "Erfolgt diese Netzausbaumaßnahme, um einen prognostizierten Engpass vorzubeugen?",
+        "voraussichtlicher Zeitpunkt des Baubeginns [MM/JJJJ]",
+        "voraussichtlicher Zeitpunkt der Inbetriebnahme [MM/JJJJ]",
+        "Im Falle einer Verzögerung der Maßnahme ist der Verzögerungsgrund (a-g) anzugeben (Angabe Buchstabe a-f & kurze Beschreibung)",
+        "Kosten (geschätzt) in Euro",
+        "Projektstatus",
+        "Stand Genehmigungsverfahren",
+        "Geprüfte Alternativen zum Netzausbau",
+        "Vorrangig betroffene Netz- oder Umspannebene"
+      ],
+      "cell_diffs": [
+        {
+          "column_index": 8,
+          "extractor_raw": "netztechnische Begründung für den Netzausbau\nnetztechnische Begründung für den Netzausbau\n1. kurze Beschreibung",
+          "qa_raw": "netztechnische Begründung für den Netzausbau 1. kurze Beschreibung",
+          "extractor_normalized": "netztechnische Begründung für den Netzausbau netztechnische Begründung für den Netzausbau 1. kurze Beschreibung",
+          "qa_normalized": "netztechnische Begründung für den Netzausbau 1. kurze Beschreibung",
+          "extractor_content_key": "netztechnischebegründungfürdennetzausbaunetztechnischebegründungfürdennetzausbau1kurzebeschreibung",
+          "qa_content_key": "netztechnischebegründungfürdennetzausbau1kurzebeschreibung",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        }
+      ],
+      "evidence_refs": [
+        "table-6::segment-01"
+      ]
+    },
+    {
+      "id": "table-6:sample_mismatch:27",
+      "code": "sample_mismatch",
+      "route": "main_agent",
+      "message": "table-6: QA sample row 27 differs.",
+      "table_id": "table-6",
+      "row_index": 27,
+      "sample_reasons": [
+        "middle_row"
+      ],
+      "extractor_sample": [
+        "31",
+        "UW Gaswerkstr.\nLeittechnik / Schutz",
+        "keine Betroffenheit",
+        "Erneuergung Schutz- und Leittechnik",
+        "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+        "Leittechnik u. Netzschutz",
+        "k.A.",
+        "",
+        "Altersbedingte Erneuerung",
+        "Kein Zubau (reiner Ersatz)",
+        "Nein",
+        "Nein",
+        "12/2026",
+        "06/2027",
+        "",
+        "800.000 €",
+        "vorgesehene Maßnahme",
+        "keine Genehmigung erforderlich",
+        "alternativlos",
+        "UW HS auf MS"
+      ],
+      "qa_reference": [
+        "31",
+        "UW Gaswerkstr. Leittechnik / Schutz",
+        "keine Betroffenheit",
+        "Erneuergung Schutz- und Leittechnik",
+        "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+        "",
+        "Leittechnik u. Netzschutz",
+        "",
+        "Altersbedingte Erneuerung",
+        "Kein Zubau (reiner Ersatz)",
+        "Nein",
+        "Nein",
+        "12/2026",
+        "06/2027",
+        "",
+        "800.000 €",
+        "vorgesehene Maßnahme",
+        "keine Genehmigung erforderlich",
+        "alternativlos",
+        "UW HS auf MS"
+      ],
+      "cell_diffs": [
+        {
+          "column_index": 5,
+          "extractor_raw": "Leittechnik u. Netzschutz",
+          "qa_raw": "",
+          "extractor_normalized": "Leittechnik u. Netzschutz",
+          "qa_normalized": "",
+          "extractor_content_key": "leittechnikunetzschutz",
+          "qa_content_key": "",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        },
+        {
+          "column_index": 6,
+          "extractor_raw": "k.A.",
+          "qa_raw": "Leittechnik u. Netzschutz",
+          "extractor_normalized": "k.A.",
+          "qa_normalized": "Leittechnik u. Netzschutz",
+          "extractor_content_key": "k.A.",
+          "qa_content_key": "Leittechnik u. Netzschutz",
+          "comparison_mode": "exact",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        }
+      ],
+      "evidence_refs": [
+        "table-6::segment-01"
+      ]
+    },
+    {
+      "id": "table-6:sample_mismatch:53",
+      "code": "sample_mismatch",
+      "route": "main_agent",
+      "message": "table-6: QA sample row 53 differs.",
+      "table_id": "table-6",
+      "row_index": 53,
+      "sample_reasons": [
+        "last_rows"
+      ],
+      "extractor_sample": [
+        "90",
+        "UW Hillegossen 110kV-Schaltanlage",
+        "keine Betroffenheit",
+        "Erneuerung 110kV-Schaltanlage",
+        "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+        "110kV-Schaltanlage",
+        "k.A.",
+        "k.A.",
+        "Altersbedingte Erneuerung",
+        "Kein Zubau (reiner Ersatz)",
+        "Nein",
+        "Nein",
+        "01/2030",
+        "12/2031",
+        "",
+        "3.000.000 €",
+        "vorgesehene Maßnahme",
+        "keine Genehmigung erforderlich",
+        "alternativlos",
+        "UW HS auf MS"
+      ],
+      "qa_reference": [
+        "90",
+        "UW Hillegossen 110kV-Schaltanlage",
+        "keine Betroffenheit",
+        "Erneuerung 110kV-Schaltanlage",
+        "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+        "",
+        "110kV-Schaltanlage",
+        "k.A.",
+        "Altersbedingte Erneuerung",
+        "Kein Zubau (reiner Ersatz)",
+        "Nein",
+        "Nein",
+        "01/2030",
+        "12/2031",
+        "",
+        "3.000.000 €",
+        "vorgesehene Maßnahme",
+        "keine Genehmigung erforderlich",
+        "alternativlos",
+        "UW HS auf MS"
+      ],
+      "cell_diffs": [
+        {
+          "column_index": 5,
+          "extractor_raw": "110kV-Schaltanlage",
+          "qa_raw": "",
+          "extractor_normalized": "110kV-Schaltanlage",
+          "qa_normalized": "",
+          "extractor_content_key": "110kvschaltanlage",
+          "qa_content_key": "",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        },
+        {
+          "column_index": 6,
+          "extractor_raw": "k.A.",
+          "qa_raw": "110kV-Schaltanlage",
+          "extractor_normalized": "k.A.",
+          "qa_normalized": "110kV-Schaltanlage",
+          "extractor_content_key": "k.A.",
+          "qa_content_key": "110kV-Schaltanlage",
+          "comparison_mode": "exact",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        }
+      ],
+      "evidence_refs": [
+        "table-6::segment-01"
+      ]
+    },
+    {
+      "id": "table-6:sample_mismatch:54",
+      "code": "sample_mismatch",
+      "route": "main_agent",
+      "message": "table-6: QA sample row 54 differs.",
+      "table_id": "table-6",
+      "row_index": 54,
+      "sample_reasons": [
+        "last_rows"
+      ],
+      "extractor_sample": [
+        "91",
+        "UW Kraftwerk 10kV-Schaltanlage",
+        "keine Betroffenheit",
+        "Erneuerung 10kV-Schaltanlage",
+        "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+        "10kV-Schaltanlage",
+        "k.A.",
+        "k.A.",
+        "Altersbedingte Erneuerung",
+        "Kein Zubau (reiner Ersatz)",
+        "Nein",
+        "Nein",
+        "06/2030",
+        "12/2032",
+        "",
+        "3.500.000 €",
+        "vorgesehene Maßnahme",
+        "keine Genehmigung erforderlich",
+        "alternativlos",
+        "UW HS auf MS"
+      ],
+      "qa_reference": [
+        "91",
+        "UW Kraftwerk 10kV-Schaltanlage",
+        "keine Betroffenheit",
+        "Erneuerung 10kV-Schaltanlage",
+        "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+        "",
+        "10kV-Schaltanlage",
+        "k.A.",
+        "Altersbedingte Erneuerung",
+        "Kein Zubau (reiner Ersatz)",
+        "Nein",
+        "Nein",
+        "06/2030",
+        "12/2032",
+        "",
+        "3.500.000 €",
+        "vorgesehene Maßnahme",
+        "keine Genehmigung erforderlich",
+        "alternativlos",
+        "UW HS auf MS"
+      ],
+      "cell_diffs": [
+        {
+          "column_index": 5,
+          "extractor_raw": "10kV-Schaltanlage",
+          "qa_raw": "",
+          "extractor_normalized": "10kV-Schaltanlage",
+          "qa_normalized": "",
+          "extractor_content_key": "10kvschaltanlage",
+          "qa_content_key": "",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        },
+        {
+          "column_index": 6,
+          "extractor_raw": "k.A.",
+          "qa_raw": "10kV-Schaltanlage",
+          "extractor_normalized": "k.A.",
+          "qa_normalized": "10kV-Schaltanlage",
+          "extractor_content_key": "k.A.",
+          "qa_content_key": "10kV-Schaltanlage",
+          "comparison_mode": "exact",
+          "raw_equal": false,
+          "content_equal": false,
+          "difference_kind": "value_difference"
+        }
+      ],
+      "evidence_refs": [
+        "table-6::segment-01"
+      ]
+    }
+  ],
+  "format_differences": [
+    {
+      "id": "table-3:format:0",
+      "classification": "format_only",
+      "table_id": "table-3",
+      "row_index": 0,
+      "cell_diffs": [
+        {
+          "column_index": 4,
+          "extractor_raw": "Summe\n10-Jahres Netzausbau\n[automatische Berechnung]",
+          "qa_raw": "Summe 10-Jahres Netzausbau [automatische Berechnung]",
+          "extractor_normalized": "Summe 10-Jahres Netzausbau [automatische Berechnung]",
+          "qa_normalized": "Summe 10-Jahres Netzausbau [automatische Berechnung]",
+          "extractor_content_key": "Summe 10-Jahres Netzausbau [automatische Berechnung]",
+          "qa_content_key": "Summe 10-Jahres Netzausbau [automatische Berechnung]",
+          "comparison_mode": "exact",
+          "raw_equal": false,
+          "content_equal": true,
+          "difference_kind": "format_only"
+        },
+        {
+          "column_index": 5,
+          "extractor_raw": "davon: Kosten des überwiegend erzeugungsgetrieben\nNetzausbaus",
+          "qa_raw": "davon: Kosten des überwiegend erzeugungsgetrieben Netzausbaus",
+          "extractor_normalized": "davon: Kosten des überwiegend erzeugungsgetrieben Netzausbaus",
+          "qa_normalized": "davon: Kosten des überwiegend erzeugungsgetrieben Netzausbaus",
+          "extractor_content_key": "davon: Kosten des überwiegend erzeugungsgetrieben Netzausbaus",
+          "qa_content_key": "davon: Kosten des überwiegend erzeugungsgetrieben Netzausbaus",
+          "comparison_mode": "exact",
+          "raw_equal": false,
+          "content_equal": true,
+          "difference_kind": "format_only"
+        },
+        {
+          "column_index": 6,
+          "extractor_raw": "davon: Kosten des überwiegend verbrauchsbedingten\nNetzausbaus",
+          "qa_raw": "davon: Kosten des überwiegend verbrauchsbedingten Netzausbaus",
+          "extractor_normalized": "davon: Kosten des überwiegend verbrauchsbedingten Netzausbaus",
+          "qa_normalized": "davon: Kosten des überwiegend verbrauchsbedingten Netzausbaus",
+          "extractor_content_key": "davon: Kosten des überwiegend verbrauchsbedingten Netzausbaus",
+          "qa_content_key": "davon: Kosten des überwiegend verbrauchsbedingten Netzausbaus",
+          "comparison_mode": "exact",
+          "raw_equal": false,
+          "content_equal": true,
+          "difference_kind": "format_only"
+        }
+      ],
+      "evidence_refs": [
+        "table-3::segment-01"
+      ]
+    },
+    {
+      "id": "table-4:format:0",
+      "classification": "format_only",
+      "table_id": "table-4",
+      "row_index": 0,
+      "cell_diffs": [
+        {
+          "column_index": 1,
+          "extractor_raw": "10-Jahres-Investition für Ersatz(neubau) ohne Erhöhung der\nÜbertragungskapazität",
+          "qa_raw": "10-Jahres-Investition für Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+          "extractor_normalized": "10-Jahres-Investition für Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+          "qa_normalized": "10-Jahres-Investition für Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+          "extractor_content_key": "10-Jahres-Investition für Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+          "qa_content_key": "10-Jahres-Investition für Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+          "comparison_mode": "exact",
+          "raw_equal": false,
+          "content_equal": true,
+          "difference_kind": "format_only"
+        }
+      ],
+      "evidence_refs": [
+        "table-4::segment-01"
+      ]
+    },
+    {
+      "id": "table-5:format:8",
+      "classification": "format_only",
+      "table_id": "table-5",
+      "row_index": 8,
+      "cell_diffs": [
+        {
+          "column_index": 0,
+          "extractor_raw": "8. Sie können die Maßnahmen aus dem Vorjahr in diesen Plan kopieren und die aktualisieren (Spalte M-Q). Beachten Sie dass Sie die neu eingefügten/geänderten Spalten (J,L,und R) dabei nicht überschrieben werden und beantwortet werden müssen .",
+          "qa_raw": "8. Sie können die Maßnahmen aus dem Vorjahr in diesen Plan kopieren und die aktualisieren (Spalte M-Q). Beachten Sie dass Sie die neu eingefügten/geänderten Spalten (J,L,und R) dabei nicht überschrieben werden und beantwortet werden müssen.",
+          "extractor_normalized": "8. Sie können die Maßnahmen aus dem Vorjahr in diesen Plan kopieren und die aktualisieren (Spalte M-Q). Beachten Sie dass Sie die neu eingefügten/geänderten Spalten (J,L,und R) dabei nicht überschrieben werden und beantwortet werden müssen .",
+          "qa_normalized": "8. Sie können die Maßnahmen aus dem Vorjahr in diesen Plan kopieren und die aktualisieren (Spalte M-Q). Beachten Sie dass Sie die neu eingefügten/geänderten Spalten (J,L,und R) dabei nicht überschrieben werden und beantwortet werden müssen.",
+          "extractor_content_key": "8siekönnendiemassnahmenausdemvorjahrindiesenplankopierenunddieaktualisierenspaltemqbeachtensiedasssiedieneueingefügtengeändertenspaltenjlundrdabeinichtüberschriebenwerdenundbeantwortetwerdenmüssen",
+          "qa_content_key": "8siekönnendiemassnahmenausdemvorjahrindiesenplankopierenunddieaktualisierenspaltemqbeachtensiedasssiedieneueingefügtengeändertenspaltenjlundrdabeinichtüberschriebenwerdenundbeantwortetwerdenmüssen",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": true,
+          "difference_kind": "format_only"
+        }
+      ],
+      "evidence_refs": [
+        "table-5::segment-01"
+      ]
+    },
+    {
+      "id": "table-6:format:1",
+      "classification": "format_only",
+      "table_id": "table-6",
+      "row_index": 1,
+      "cell_diffs": [
+        {
+          "column_index": 4,
+          "extractor_raw": "(Dropdown-Liste)\n• Neubau\n• Ersatz(neubau) mit Erhöhung der Übertragungskapazität\n• Ersatz(neubau) ohne Erhöhung der Übertragungskapazität\n• Netzoptimierung und -verstärkung\n• Rückbau / Altlastentsorgung",
+          "qa_raw": "(Dropdown-Liste) • Neubau • Ersatz(neubau) mit Erhöhung der Übertragungskapazität • Ersatz(neubau) ohne Erhöhung der Übertragungskapazität • Netzoptimierung und -verstärkung • Rückbau / Altlastentsorgung",
+          "extractor_normalized": "(Dropdown-Liste) • Neubau • Ersatz(neubau) mit Erhöhung der Übertragungskapazität • Ersatz(neubau) ohne Erhöhung der Übertragungskapazität • Netzoptimierung und -verstärkung • Rückbau / Altlastentsorgung",
+          "qa_normalized": "(Dropdown-Liste) • Neubau • Ersatz(neubau) mit Erhöhung der Übertragungskapazität • Ersatz(neubau) ohne Erhöhung der Übertragungskapazität • Netzoptimierung und -verstärkung • Rückbau / Altlastentsorgung",
+          "extractor_content_key": "dropdownlisteneubauersatzneubaumiterhöhungderübertragungskapazitätersatzneubauohneerhöhungderübertragungskapazitätnetzoptimierungundverstärkungrückbaualtlastentsorgung",
+          "qa_content_key": "dropdownlisteneubauersatzneubaumiterhöhungderübertragungskapazitätersatzneubauohneerhöhungderübertragungskapazitätnetzoptimierungundverstärkungrückbaualtlastentsorgung",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": true,
+          "difference_kind": "format_only"
+        },
+        {
+          "column_index": 6,
+          "extractor_raw": "Bitte geben Sie hier die Länge in Kilometern der Trasse an, in der\nLeitungen oder Kabel neu gebaut, optimiert oder bestehende\nersetzt wurden.\nACHTUNG Definitionsvorgabe!\nBitte geben Sie bei Freileitungen nicht die Länge der einzelnen\nLeitungen an, sondern die Länge der Trasse/des\nLeitungsabschnitts.\nBei Kabeln ist die Länge der einzelnen Leitungen anzugeben.",
+          "qa_raw": "Bitte geben Sie hier die Länge in Kilometern der Trasse an, in der Leitungen oder Kabel neu gebaut, optimiert oder bestehende ersetzt wurden. ACHTUNG Definitionsvorgabe! Bitte geben Sie bei Freileitungen nicht die Länge der einzelnen Leitungen an, sondern die Länge der Trasse/des Leitungsabschnitts. Bei Kabeln ist die Länge der einzelnen Leitungen anzugeben.",
+          "extractor_normalized": "Bitte geben Sie hier die Länge in Kilometern der Trasse an, in der Leitungen oder Kabel neu gebaut, optimiert oder bestehende ersetzt wurden. ACHTUNG Definitionsvorgabe! Bitte geben Sie bei Freileitungen nicht die Länge der einzelnen Leitungen an, sondern die Länge der Trasse/des Leitungsabschnitts. Bei Kabeln ist die Länge der einzelnen Leitungen anzugeben.",
+          "qa_normalized": "Bitte geben Sie hier die Länge in Kilometern der Trasse an, in der Leitungen oder Kabel neu gebaut, optimiert oder bestehende ersetzt wurden. ACHTUNG Definitionsvorgabe! Bitte geben Sie bei Freileitungen nicht die Länge der einzelnen Leitungen an, sondern die Länge der Trasse/des Leitungsabschnitts. Bei Kabeln ist die Länge der einzelnen Leitungen anzugeben.",
+          "extractor_content_key": "Bitte geben Sie hier die Länge in Kilometern der Trasse an, in der Leitungen oder Kabel neu gebaut, optimiert oder bestehende ersetzt wurden. ACHTUNG Definitionsvorgabe! Bitte geben Sie bei Freileitungen nicht die Länge der einzelnen Leitungen an, sondern die Länge der Trasse/des Leitungsabschnitts. Bei Kabeln ist die Länge der einzelnen Leitungen anzugeben.",
+          "qa_content_key": "Bitte geben Sie hier die Länge in Kilometern der Trasse an, in der Leitungen oder Kabel neu gebaut, optimiert oder bestehende ersetzt wurden. ACHTUNG Definitionsvorgabe! Bitte geben Sie bei Freileitungen nicht die Länge der einzelnen Leitungen an, sondern die Länge der Trasse/des Leitungsabschnitts. Bei Kabeln ist die Länge der einzelnen Leitungen anzugeben.",
+          "comparison_mode": "exact",
+          "raw_equal": false,
+          "content_equal": true,
+          "difference_kind": "format_only"
+        },
+        {
+          "column_index": 7,
+          "extractor_raw": "Bitte geben Sie bei Neubaumaßnahmen die neu geschaffene\nÜbertragungskapazität an.\nACHTUNG Definitionsvorgabe!\nBei Optimierungs- oder Ersatzmaßnahmen geben Sie bitte an,\nwie sich die Übertragungskapazität im Vergleich zum Zustand\nvor Beginn der Maßnahme verändert.",
+          "qa_raw": "Bitte geben Sie bei Neubaumaßnahmen die neu geschaffene Übertragungskapazität an. ACHTUNG Definitionsvorgabe! Bei Optimierungs- oder Ersatzmaßnahmen geben Sie bitte an, wie sich die Übertragungskapazität im Vergleich zum Zustand vor Beginn der Maßnahme verändert.",
+          "extractor_normalized": "Bitte geben Sie bei Neubaumaßnahmen die neu geschaffene Übertragungskapazität an. ACHTUNG Definitionsvorgabe! Bei Optimierungs- oder Ersatzmaßnahmen geben Sie bitte an, wie sich die Übertragungskapazität im Vergleich zum Zustand vor Beginn der Maßnahme verändert.",
+          "qa_normalized": "Bitte geben Sie bei Neubaumaßnahmen die neu geschaffene Übertragungskapazität an. ACHTUNG Definitionsvorgabe! Bei Optimierungs- oder Ersatzmaßnahmen geben Sie bitte an, wie sich die Übertragungskapazität im Vergleich zum Zustand vor Beginn der Maßnahme verändert.",
+          "extractor_content_key": "Bitte geben Sie bei Neubaumaßnahmen die neu geschaffene Übertragungskapazität an. ACHTUNG Definitionsvorgabe! Bei Optimierungs- oder Ersatzmaßnahmen geben Sie bitte an, wie sich die Übertragungskapazität im Vergleich zum Zustand vor Beginn der Maßnahme verändert.",
+          "qa_content_key": "Bitte geben Sie bei Neubaumaßnahmen die neu geschaffene Übertragungskapazität an. ACHTUNG Definitionsvorgabe! Bei Optimierungs- oder Ersatzmaßnahmen geben Sie bitte an, wie sich die Übertragungskapazität im Vergleich zum Zustand vor Beginn der Maßnahme verändert.",
+          "comparison_mode": "exact",
+          "raw_equal": false,
+          "content_equal": true,
+          "difference_kind": "format_only"
+        },
+        {
+          "column_index": 9,
+          "extractor_raw": "(Dropdown-Liste)\nACHTUNG\ngeänderte Antwortmöglichkeiten!\n• Zubau EE-Anlagen\n• Zubau Power to X\n• Zubau anderer Erzeugungsanlagen\n• Zubau Verbraucher\n• Zubau Erzeugung und Verbrauch\n• Kein Zubau (reiner Ersatz)\nAntworten bereits gemeldete Einzelmaßnahmen bis Abfrage aus 2021:\n• ja\n• ja, teilweise\n• nein",
+          "qa_raw": "(Dropdown-Liste) ACHTUNG geänderte Antwortmöglichkeiten! • Zubau EE-Anlagen • Zubau Power to X • Zubau anderer Erzeugungsanlagen • Zubau Verbraucher • Zubau Erzeugung und Verbrauch • Kein Zubau (reiner Ersatz) Antworten bereits gemeldete Einzelmaßnahmen bis Abfrage aus 2021: • ja • ja, teilweise • nein",
+          "extractor_normalized": "(Dropdown-Liste) ACHTUNG geänderte Antwortmöglichkeiten! • Zubau EE-Anlagen • Zubau Power to X • Zubau anderer Erzeugungsanlagen • Zubau Verbraucher • Zubau Erzeugung und Verbrauch • Kein Zubau (reiner Ersatz) Antworten bereits gemeldete Einzelmaßnahmen bis Abfrage aus 2021: • ja • ja, teilweise • nein",
+          "qa_normalized": "(Dropdown-Liste) ACHTUNG geänderte Antwortmöglichkeiten! • Zubau EE-Anlagen • Zubau Power to X • Zubau anderer Erzeugungsanlagen • Zubau Verbraucher • Zubau Erzeugung und Verbrauch • Kein Zubau (reiner Ersatz) Antworten bereits gemeldete Einzelmaßnahmen bis Abfrage aus 2021: • ja • ja, teilweise • nein",
+          "extractor_content_key": "dropdownlisteachtunggeänderteantwortmöglichkeitenzubaueeanlagenzubaupowertoxzubauanderererzeugungsanlagenzubauverbraucherzubauerzeugungundverbrauchkeinzubaureinerersatzantwortenbereitsgemeldeteeinzelmassnahmenbisabfrageaus2021jajateilweisenein",
+          "qa_content_key": "dropdownlisteachtunggeänderteantwortmöglichkeitenzubaueeanlagenzubaupowertoxzubauanderererzeugungsanlagenzubauverbraucherzubauerzeugungundverbrauchkeinzubaureinerersatzantwortenbereitsgemeldeteeinzelmassnahmenbisabfrageaus2021jajateilweisenein",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": true,
+          "difference_kind": "format_only"
+        },
+        {
+          "column_index": 10,
+          "extractor_raw": "(Dropdown-Liste)\n• Ja, um einen verbrauchsbedingten Engpass zu beheben\n• Ja, um einen erzeugungsbedingten Engpass zu beheben\n• Ja, beides (verbrauchsbedingt und erzeugungsbeding)\n• Nein",
+          "qa_raw": "(Dropdown-Liste) • Ja, um einen verbrauchsbedingten Engpass zu beheben • Ja, um einen erzeugungsbedingten Engpass zu beheben • Ja, beides (verbrauchsbedingt und erzeugungsbeding) • Nein",
+          "extractor_normalized": "(Dropdown-Liste) • Ja, um einen verbrauchsbedingten Engpass zu beheben • Ja, um einen erzeugungsbedingten Engpass zu beheben • Ja, beides (verbrauchsbedingt und erzeugungsbeding) • Nein",
+          "qa_normalized": "(Dropdown-Liste) • Ja, um einen verbrauchsbedingten Engpass zu beheben • Ja, um einen erzeugungsbedingten Engpass zu beheben • Ja, beides (verbrauchsbedingt und erzeugungsbeding) • Nein",
+          "extractor_content_key": "dropdownlistejaumeinenverbrauchsbedingtenengpasszubehebenjaumeinenerzeugungsbedingtenengpasszubehebenjabeidesverbrauchsbedingtunderzeugungsbedingnein",
+          "qa_content_key": "dropdownlistejaumeinenverbrauchsbedingtenengpasszubehebenjaumeinenerzeugungsbedingtenengpasszubehebenjabeidesverbrauchsbedingtunderzeugungsbedingnein",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": true,
+          "difference_kind": "format_only"
+        },
+        {
+          "column_index": 11,
+          "extractor_raw": "(Dropdown-Liste)\n• Ja, um einen verbrauchsbedingten Engpass vorzubeugen\n• Ja, um einen erzeugungsbedingten Engpass vorzubeugen\n• Ja, beides (verbrauchsbedingt und erzeugungsbeding)\n• Nein",
+          "qa_raw": "(Dropdown-Liste) • Ja, um einen verbrauchsbedingten Engpass vorzubeugen • Ja, um einen erzeugungsbedingten Engpass vorzubeugen • Ja, beides (verbrauchsbedingt und erzeugungsbeding) • Nein",
+          "extractor_normalized": "(Dropdown-Liste) • Ja, um einen verbrauchsbedingten Engpass vorzubeugen • Ja, um einen erzeugungsbedingten Engpass vorzubeugen • Ja, beides (verbrauchsbedingt und erzeugungsbeding) • Nein",
+          "qa_normalized": "(Dropdown-Liste) • Ja, um einen verbrauchsbedingten Engpass vorzubeugen • Ja, um einen erzeugungsbedingten Engpass vorzubeugen • Ja, beides (verbrauchsbedingt und erzeugungsbeding) • Nein",
+          "extractor_content_key": "dropdownlistejaumeinenverbrauchsbedingtenengpassvorzubeugenjaumeinenerzeugungsbedingtenengpassvorzubeugenjabeidesverbrauchsbedingtunderzeugungsbedingnein",
+          "qa_content_key": "dropdownlistejaumeinenverbrauchsbedingtenengpassvorzubeugenjaumeinenerzeugungsbedingtenengpassvorzubeugenjabeidesverbrauchsbedingtunderzeugungsbedingnein",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": true,
+          "difference_kind": "format_only"
+        },
+        {
+          "column_index": 14,
+          "extractor_raw": "Bitte bei der Begründung die Kategorie mit angeben:\na) Akzeptanz Bevölkerung\nb) Genehmigungs-prozess\nc) ÜNB\nd) Intern\ne) Baubeginn (Lieferengpässe, Insolvenzen etc.)\nf) Sonstige Gründe\ng) Verzögerung durch Dritte\nBeispiel: d) Änderung Priorität, e) wegen Lieferengpass verzögert.\ng) Verzögerung der städtischen Erschließung",
+          "qa_raw": "Bitte bei der Begründung die Kategorie mit angeben: a) Akzeptanz Bevölkerung b) Genehmigungs-prozess c) ÜNB d) Intern e) Baubeginn (Lieferengpässe, Insolvenzen etc.) f) Sonstige Gründe g) Verzögerung durch Dritte Beispiel: d) Änderung Priorität, e) wegen Lieferengpass verzögert. g) Verzögerung der städtischen Erschließung",
+          "extractor_normalized": "Bitte bei der Begründung die Kategorie mit angeben: a) Akzeptanz Bevölkerung b) Genehmigungs-prozess c) ÜNB d) Intern e) Baubeginn (Lieferengpässe, Insolvenzen etc.) f) Sonstige Gründe g) Verzögerung durch Dritte Beispiel: d) Änderung Priorität, e) wegen Lieferengpass verzögert. g) Verzögerung der städtischen Erschließung",
+          "qa_normalized": "Bitte bei der Begründung die Kategorie mit angeben: a) Akzeptanz Bevölkerung b) Genehmigungs-prozess c) ÜNB d) Intern e) Baubeginn (Lieferengpässe, Insolvenzen etc.) f) Sonstige Gründe g) Verzögerung durch Dritte Beispiel: d) Änderung Priorität, e) wegen Lieferengpass verzögert. g) Verzögerung der städtischen Erschließung",
+          "extractor_content_key": "Bitte bei der Begründung die Kategorie mit angeben: a) Akzeptanz Bevölkerung b) Genehmigungs-prozess c) ÜNB d) Intern e) Baubeginn (Lieferengpässe, Insolvenzen etc.) f) Sonstige Gründe g) Verzögerung durch Dritte Beispiel: d) Änderung Priorität, e) wegen Lieferengpass verzögert. g) Verzögerung der städtischen Erschließung",
+          "qa_content_key": "Bitte bei der Begründung die Kategorie mit angeben: a) Akzeptanz Bevölkerung b) Genehmigungs-prozess c) ÜNB d) Intern e) Baubeginn (Lieferengpässe, Insolvenzen etc.) f) Sonstige Gründe g) Verzögerung durch Dritte Beispiel: d) Änderung Priorität, e) wegen Lieferengpass verzögert. g) Verzögerung der städtischen Erschließung",
+          "comparison_mode": "exact",
+          "raw_equal": false,
+          "content_equal": true,
+          "difference_kind": "format_only"
+        },
+        {
+          "column_index": 16,
+          "extractor_raw": "(Dropdown-Liste)\n• weggefallene Maßnahme,\n• vorgesehene Maßnahme,\n• konkrete Planung,\n• im Bau,\n• abgeschlossen\n• in 10-JP überführt (Die Überführung war in der Abfrage 2021!)\nHinweis:\nMaßnahmen gelten insbesondere als konkret geplant, wenn die für\ndie Maßnahme notwendigen öffentlich-rechtlichen Planungs- oder\nGenehmigungsverfahren eingeleitet wurden oder vom Betreiber\nbereits Investitionsentscheidungen bezüglich der\nAusbaumaßnahmen getroffen wurden oder der Betreiber von einer\ntatsächlichen Realisierung innerhalb der kommenden fünf Jahre\nausgeht.",
+          "qa_raw": "(Dropdown-Liste) • weggefallene Maßnahme, • vorgesehene Maßnahme, • konkrete Planung, • im Bau, • abgeschlossen • in 10-JP überführt (Die Überführung war in der Abfrage 2021!) Hinweis: Maßnahmen gelten insbesondere als konkret geplant, wenn die für die Maßnahme notwendigen öffentlich-rechtlichen Planungs- oder Genehmigungsverfahren eingeleitet wurden oder vom Betreiber bereits Investitionsentscheidungen bezüglich der Ausbaumaßnahmen getroffen wurden oder der Betreiber von einer tatsächlichen Realisierung innerhalb der kommenden fünf Jahre ausgeht.",
+          "extractor_normalized": "(Dropdown-Liste) • weggefallene Maßnahme, • vorgesehene Maßnahme, • konkrete Planung, • im Bau, • abgeschlossen • in 10-JP überführt (Die Überführung war in der Abfrage 2021!) Hinweis: Maßnahmen gelten insbesondere als konkret geplant, wenn die für die Maßnahme notwendigen öffentlich-rechtlichen Planungs- oder Genehmigungsverfahren eingeleitet wurden oder vom Betreiber bereits Investitionsentscheidungen bezüglich der Ausbaumaßnahmen getroffen wurden oder der Betreiber von einer tatsächlichen Realisierung innerhalb der kommenden fünf Jahre ausgeht.",
+          "qa_normalized": "(Dropdown-Liste) • weggefallene Maßnahme, • vorgesehene Maßnahme, • konkrete Planung, • im Bau, • abgeschlossen • in 10-JP überführt (Die Überführung war in der Abfrage 2021!) Hinweis: Maßnahmen gelten insbesondere als konkret geplant, wenn die für die Maßnahme notwendigen öffentlich-rechtlichen Planungs- oder Genehmigungsverfahren eingeleitet wurden oder vom Betreiber bereits Investitionsentscheidungen bezüglich der Ausbaumaßnahmen getroffen wurden oder der Betreiber von einer tatsächlichen Realisierung innerhalb der kommenden fünf Jahre ausgeht.",
+          "extractor_content_key": "dropdownlisteweggefallenemassnahmevorgesehenemassnahmekonkreteplanungimbauabgeschlossenin10jpüberführtdieüberführungwarinderabfrage2021hinweismassnahmengelteninsbesonderealskonkretgeplantwenndiefürdiemassnahmenotwendigenöffentlichrechtlichenplanungsodergenehmigungsverfahreneingeleitetwurdenodervombetreiberbereitsinvestitionsentscheidungenbezüglichderausbaumassnahmengetroffenwurdenoderderbetreibervoneinertatsächlichenrealisierunginnerhalbderkommendenfünfjahreausgeht",
+          "qa_content_key": "dropdownlisteweggefallenemassnahmevorgesehenemassnahmekonkreteplanungimbauabgeschlossenin10jpüberführtdieüberführungwarinderabfrage2021hinweismassnahmengelteninsbesonderealskonkretgeplantwenndiefürdiemassnahmenotwendigenöffentlichrechtlichenplanungsodergenehmigungsverfahreneingeleitetwurdenodervombetreiberbereitsinvestitionsentscheidungenbezüglichderausbaumassnahmengetroffenwurdenoderderbetreibervoneinertatsächlichenrealisierunginnerhalbderkommendenfünfjahreausgeht",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": true,
+          "difference_kind": "format_only"
+        },
+        {
+          "column_index": 17,
+          "extractor_raw": "(Dropdown-Liste)\n• noch nicht eingeleitet\n• bereits eingeleitet\n• abgeschlossen\n• keine Genehmigung erforderlich",
+          "qa_raw": "(Dropdown-Liste) • noch nicht eingeleitet • bereits eingeleitet • abgeschlossen • keine Genehmigung erforderlich",
+          "extractor_normalized": "(Dropdown-Liste) • noch nicht eingeleitet • bereits eingeleitet • abgeschlossen • keine Genehmigung erforderlich",
+          "qa_normalized": "(Dropdown-Liste) • noch nicht eingeleitet • bereits eingeleitet • abgeschlossen • keine Genehmigung erforderlich",
+          "extractor_content_key": "dropdownlistenochnichteingeleitetbereitseingeleitetabgeschlossenkeinegenehmigungerforderlich",
+          "qa_content_key": "dropdownlistenochnichteingeleitetbereitseingeleitetabgeschlossenkeinegenehmigungerforderlich",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": true,
+          "difference_kind": "format_only"
+        },
+        {
+          "column_index": 18,
+          "extractor_raw": "bspw. 80°-Trassierung von Leitungen, Spitzenkappung, Hochtemperaturleiterseile, Leiterseilmonitoring, Einbau von\nregelbaren Ortnetztransformatoren, Erhöhung des Querschnitts von Leitungen, Erhöhung der Trafoleistung,\nVerkabelung von Freileitungen, Trennstellenoptimierung, Änderung der Netztopologie, Einbau von Messtechnik, Bau\nvon Paralellsystemen, Einbau von Spannungsreglern, Regulierung der Seildurchhänge, Sonstiges [bitte benennen].",
+          "qa_raw": "bspw. 80°-Trassierung von Leitungen, Spitzenkappung, Hochtemperaturleiterseile, Leiterseilmonitoring, Einbau von regelbaren Ortnetztransformatoren, Erhöhung des Querschnitts von Leitungen, Erhöhung der Trafoleistung, Verkabelung von Freileitungen, Trennstellenoptimierung, Änderung der Netztopologie, Einbau von Messtechnik, Bau von Paralellsystemen, Einbau von Spannungsreglern, Regulierung der Seildurchhänge, Sonstiges [bitte benennen].",
+          "extractor_normalized": "bspw. 80°-Trassierung von Leitungen, Spitzenkappung, Hochtemperaturleiterseile, Leiterseilmonitoring, Einbau von regelbaren Ortnetztransformatoren, Erhöhung des Querschnitts von Leitungen, Erhöhung der Trafoleistung, Verkabelung von Freileitungen, Trennstellenoptimierung, Änderung der Netztopologie, Einbau von Messtechnik, Bau von Paralellsystemen, Einbau von Spannungsreglern, Regulierung der Seildurchhänge, Sonstiges [bitte benennen].",
+          "qa_normalized": "bspw. 80°-Trassierung von Leitungen, Spitzenkappung, Hochtemperaturleiterseile, Leiterseilmonitoring, Einbau von regelbaren Ortnetztransformatoren, Erhöhung des Querschnitts von Leitungen, Erhöhung der Trafoleistung, Verkabelung von Freileitungen, Trennstellenoptimierung, Änderung der Netztopologie, Einbau von Messtechnik, Bau von Paralellsystemen, Einbau von Spannungsreglern, Regulierung der Seildurchhänge, Sonstiges [bitte benennen].",
+          "extractor_content_key": "bspw80trassierungvonleitungenspitzenkappunghochtemperaturleiterseileleiterseilmonitoringeinbauvonregelbarenortnetztransformatorenerhöhungdesquerschnittsvonleitungenerhöhungdertrafoleistungverkabelungvonfreileitungentrennstellenoptimierungänderungdernetztopologieeinbauvonmesstechnikbauvonparalellsystemeneinbauvonspannungsreglernregulierungderseildurchhängesonstigesbittebenennen",
+          "qa_content_key": "bspw80trassierungvonleitungenspitzenkappunghochtemperaturleiterseileleiterseilmonitoringeinbauvonregelbarenortnetztransformatorenerhöhungdesquerschnittsvonleitungenerhöhungdertrafoleistungverkabelungvonfreileitungentrennstellenoptimierungänderungdernetztopologieeinbauvonmesstechnikbauvonparalellsystemeneinbauvonspannungsreglernregulierungderseildurchhängesonstigesbittebenennen",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": true,
+          "difference_kind": "format_only"
+        },
+        {
+          "column_index": 19,
+          "extractor_raw": "(Dropdown-Liste)\n• NS,\n• UW MS auf NS,\n• MS,\n• UW HS auf MS oder\n• HS\n• Gesamtnetz [nur bei Projekten die nicht überwiegend einer\nNetzebene zugeordnet werden können. Bsp.: Errichtung\nFunknetz mit 450 MHz, flächendeckender Aufbau neuer\nStationsleittechnik",
+          "qa_raw": "(Dropdown-Liste) • NS, • UW MS auf NS, • MS, • UW HS auf MS oder • HS • Gesamtnetz [nur bei Projekten die nicht überwiegend einer Netzebene zugeordnet werden können. Bsp.: Errichtung Funknetz mit 450 MHz, flächendeckender Aufbau neuer Stationsleittechnik]",
+          "extractor_normalized": "(Dropdown-Liste) • NS, • UW MS auf NS, • MS, • UW HS auf MS oder • HS • Gesamtnetz [nur bei Projekten die nicht überwiegend einer Netzebene zugeordnet werden können. Bsp.: Errichtung Funknetz mit 450 MHz, flächendeckender Aufbau neuer Stationsleittechnik",
+          "qa_normalized": "(Dropdown-Liste) • NS, • UW MS auf NS, • MS, • UW HS auf MS oder • HS • Gesamtnetz [nur bei Projekten die nicht überwiegend einer Netzebene zugeordnet werden können. Bsp.: Errichtung Funknetz mit 450 MHz, flächendeckender Aufbau neuer Stationsleittechnik]",
+          "extractor_content_key": "dropdownlistensuwmsaufnsmsuwhsaufmsoderhsgesamtnetznurbeiprojektendienichtüberwiegendeinernetzebenezugeordnetwerdenkönnenbsperrichtungfunknetzmit450mhzflächendeckenderaufbauneuerstationsleittechnik",
+          "qa_content_key": "dropdownlistensuwmsaufnsmsuwhsaufmsoderhsgesamtnetznurbeiprojektendienichtüberwiegendeinernetzebenezugeordnetwerdenkönnenbsperrichtungfunknetzmit450mhzflächendeckenderaufbauneuerstationsleittechnik",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": true,
+          "difference_kind": "format_only"
+        }
+      ],
+      "evidence_refs": [
+        "table-6::segment-01"
+      ]
+    },
+    {
+      "id": "table-6:format:2",
+      "classification": "format_only",
+      "table_id": "table-6",
+      "row_index": 2,
+      "cell_diffs": [
+        {
+          "column_index": 2,
+          "extractor_raw": "Von der Netzausbaumaßnahme betroffene(r) Netzknoten im überlagerten HöS-\nNetz",
+          "qa_raw": "Von der Netzausbaumaßnahme betroffene(r) Netzknoten im überlagerten HöS-Netz",
+          "extractor_normalized": "Von der Netzausbaumaßnahme betroffene(r) Netzknoten im überlagerten HöS- Netz",
+          "qa_normalized": "Von der Netzausbaumaßnahme betroffene(r) Netzknoten im überlagerten HöS-Netz",
+          "extractor_content_key": "vondernetzausbaumassnahmebetroffenernetzknotenimüberlagertenhösnetz",
+          "qa_content_key": "vondernetzausbaumassnahmebetroffenernetzknotenimüberlagertenhösnetz",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": true,
+          "difference_kind": "format_only"
+        },
+        {
+          "column_index": 6,
+          "extractor_raw": "Länge des zugebauten, optimierten oder ersetzen Leitungsabschnitts\n[km]",
+          "qa_raw": "Länge des zugebauten, optimierten oder ersetzen Leitungsabschnitts [km]",
+          "extractor_normalized": "Länge des zugebauten, optimierten oder ersetzen Leitungsabschnitts [km]",
+          "qa_normalized": "Länge des zugebauten, optimierten oder ersetzen Leitungsabschnitts [km]",
+          "extractor_content_key": "Länge des zugebauten, optimierten oder ersetzen Leitungsabschnitts [km]",
+          "qa_content_key": "Länge des zugebauten, optimierten oder ersetzen Leitungsabschnitts [km]",
+          "comparison_mode": "exact",
+          "raw_equal": false,
+          "content_equal": true,
+          "difference_kind": "format_only"
+        },
+        {
+          "column_index": 7,
+          "extractor_raw": "Änderung der Übertragungskapazität\n[+/- MVA]",
+          "qa_raw": "Änderung der Übertragungskapazität [+/- MVA]",
+          "extractor_normalized": "Änderung der Übertragungskapazität [+/- MVA]",
+          "qa_normalized": "Änderung der Übertragungskapazität [+/- MVA]",
+          "extractor_content_key": "Änderung der Übertragungskapazität [+/- MVA]",
+          "qa_content_key": "Änderung der Übertragungskapazität [+/- MVA]",
+          "comparison_mode": "exact",
+          "raw_equal": false,
+          "content_equal": true,
+          "difference_kind": "format_only"
+        },
+        {
+          "column_index": 9,
+          "extractor_raw": "netztechnische Begründung für den Netzausbau\n2. Aus welchem Grund erfolgt die Netzausbaumaßnahme überwiegend?",
+          "qa_raw": "netztechnische Begründung für den Netzausbau 2. Aus welchem Grund erfolgt die Netzausbaumaßnahme überwiegend?",
+          "extractor_normalized": "netztechnische Begründung für den Netzausbau 2. Aus welchem Grund erfolgt die Netzausbaumaßnahme überwiegend?",
+          "qa_normalized": "netztechnische Begründung für den Netzausbau 2. Aus welchem Grund erfolgt die Netzausbaumaßnahme überwiegend?",
+          "extractor_content_key": "netztechnischebegründungfürdennetzausbau2auswelchemgrunderfolgtdienetzausbaumassnahmeüberwiegend",
+          "qa_content_key": "netztechnischebegründungfürdennetzausbau2auswelchemgrunderfolgtdienetzausbaumassnahmeüberwiegend",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": true,
+          "difference_kind": "format_only"
+        },
+        {
+          "column_index": 10,
+          "extractor_raw": "Erfolgt diese Netzausbaumaßnahme, um einen bereits bestehenden\nEngpass zu beheben?",
+          "qa_raw": "Erfolgt diese Netzausbaumaßnahme, um einen bereits bestehenden Engpass zu beheben?",
+          "extractor_normalized": "Erfolgt diese Netzausbaumaßnahme, um einen bereits bestehenden Engpass zu beheben?",
+          "qa_normalized": "Erfolgt diese Netzausbaumaßnahme, um einen bereits bestehenden Engpass zu beheben?",
+          "extractor_content_key": "erfolgtdiesenetzausbaumassnahmeumeinenbereitsbestehendenengpasszubeheben",
+          "qa_content_key": "erfolgtdiesenetzausbaumassnahmeumeinenbereitsbestehendenengpasszubeheben",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": true,
+          "difference_kind": "format_only"
+        },
+        {
+          "column_index": 11,
+          "extractor_raw": "Erfolgt diese Netzausbaumaßnahme, um einen prognostizierten\nEngpass vorzubeugen?",
+          "qa_raw": "Erfolgt diese Netzausbaumaßnahme, um einen prognostizierten Engpass vorzubeugen?",
+          "extractor_normalized": "Erfolgt diese Netzausbaumaßnahme, um einen prognostizierten Engpass vorzubeugen?",
+          "qa_normalized": "Erfolgt diese Netzausbaumaßnahme, um einen prognostizierten Engpass vorzubeugen?",
+          "extractor_content_key": "erfolgtdiesenetzausbaumassnahmeumeinenprognostiziertenengpassvorzubeugen",
+          "qa_content_key": "erfolgtdiesenetzausbaumassnahmeumeinenprognostiziertenengpassvorzubeugen",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": true,
+          "difference_kind": "format_only"
+        },
+        {
+          "column_index": 12,
+          "extractor_raw": "voraussichtlicher Zeitpunkt des Baubeginns\n[MM/JJJJ]",
+          "qa_raw": "voraussichtlicher Zeitpunkt des Baubeginns [MM/JJJJ]",
+          "extractor_normalized": "voraussichtlicher Zeitpunkt des Baubeginns [MM/JJJJ]",
+          "qa_normalized": "voraussichtlicher Zeitpunkt des Baubeginns [MM/JJJJ]",
+          "extractor_content_key": "voraussichtlicher Zeitpunkt des Baubeginns [MM/JJJJ]",
+          "qa_content_key": "voraussichtlicher Zeitpunkt des Baubeginns [MM/JJJJ]",
+          "comparison_mode": "exact",
+          "raw_equal": false,
+          "content_equal": true,
+          "difference_kind": "format_only"
+        },
+        {
+          "column_index": 13,
+          "extractor_raw": "voraussichtlicher Zeitpunkt der Inbetriebnahme\n[MM/JJJJ]",
+          "qa_raw": "voraussichtlicher Zeitpunkt der Inbetriebnahme [MM/JJJJ]",
+          "extractor_normalized": "voraussichtlicher Zeitpunkt der Inbetriebnahme [MM/JJJJ]",
+          "qa_normalized": "voraussichtlicher Zeitpunkt der Inbetriebnahme [MM/JJJJ]",
+          "extractor_content_key": "voraussichtlicher Zeitpunkt der Inbetriebnahme [MM/JJJJ]",
+          "qa_content_key": "voraussichtlicher Zeitpunkt der Inbetriebnahme [MM/JJJJ]",
+          "comparison_mode": "exact",
+          "raw_equal": false,
+          "content_equal": true,
+          "difference_kind": "format_only"
+        },
+        {
+          "column_index": 14,
+          "extractor_raw": "Im Falle einer Verzögerung der Maßnahme ist der Verzögerungsgrund (a-g) anzugeben\n(Angabe Buchstabe a-f & kurze Beschreibung)",
+          "qa_raw": "Im Falle einer Verzögerung der Maßnahme ist der Verzögerungsgrund (a-g) anzugeben (Angabe Buchstabe a-f & kurze Beschreibung)",
+          "extractor_normalized": "Im Falle einer Verzögerung der Maßnahme ist der Verzögerungsgrund (a-g) anzugeben (Angabe Buchstabe a-f & kurze Beschreibung)",
+          "qa_normalized": "Im Falle einer Verzögerung der Maßnahme ist der Verzögerungsgrund (a-g) anzugeben (Angabe Buchstabe a-f & kurze Beschreibung)",
+          "extractor_content_key": "Im Falle einer Verzögerung der Maßnahme ist der Verzögerungsgrund (a-g) anzugeben (Angabe Buchstabe a-f & kurze Beschreibung)",
+          "qa_content_key": "Im Falle einer Verzögerung der Maßnahme ist der Verzögerungsgrund (a-g) anzugeben (Angabe Buchstabe a-f & kurze Beschreibung)",
+          "comparison_mode": "exact",
+          "raw_equal": false,
+          "content_equal": true,
+          "difference_kind": "format_only"
+        }
+      ],
+      "evidence_refs": [
+        "table-6::segment-01"
+      ]
+    },
+    {
+      "id": "table-6:format:27",
+      "classification": "format_only",
+      "table_id": "table-6",
+      "row_index": 27,
+      "cell_diffs": [
+        {
+          "column_index": 1,
+          "extractor_raw": "UW Gaswerkstr.\nLeittechnik / Schutz",
+          "qa_raw": "UW Gaswerkstr. Leittechnik / Schutz",
+          "extractor_normalized": "UW Gaswerkstr. Leittechnik / Schutz",
+          "qa_normalized": "UW Gaswerkstr. Leittechnik / Schutz",
+          "extractor_content_key": "uwgaswerkstrleittechnikschutz",
+          "qa_content_key": "uwgaswerkstrleittechnikschutz",
+          "comparison_mode": "text",
+          "raw_equal": false,
+          "content_equal": true,
+          "difference_kind": "format_only"
+        }
+      ],
+      "evidence_refs": [
+        "table-6::segment-01"
+      ]
+    }
+  ],
+  "review_cases": [
+    {
+      "id": "case::table-6",
+      "table_id": "table-6",
+      "route": "main_agent",
+      "route_confidence": 0.5,
+      "issue_ids": [
+        "table-6:sample_mismatch:1",
+        "table-6:sample_mismatch:2",
+        "table-6:sample_mismatch:27",
+        "table-6:sample_mismatch:53",
+        "table-6:sample_mismatch:54"
+      ],
+      "issue_codes": [
+        "sample_mismatch"
+      ],
+      "evidence_refs": [
+        "table-6::segment-01"
+      ],
+      "segment_ids": [
+        "segment-01"
+      ],
+      "root_cause_hints": [
+        "extractor_or_qa_transcription"
+      ],
+      "review_required": true
+    }
+  ],
+  "repair_plan": {
+    "main_agent": [
+      "table-6"
+    ]
+  },
+  "issue_groups": {
+    "main_agent": [
+      "table-6:sample_mismatch:1",
+      "table-6:sample_mismatch:2",
+      "table-6:sample_mismatch:27",
+      "table-6:sample_mismatch:53",
+      "table-6:sample_mismatch:54"
+    ]
+  },
+  "merge_candidates": [],
+  "evidence_index": {
+    "table-1::segment-01": {
+      "table_id": "table-1",
+      "segment_id": "segment-01",
+      "page": 5,
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/segments/table-1/segment-01-6d449fd8d23b-page-0005.png",
+      "image_sha256": "9e113df956dd1dded83eef96f5385266284078f1b64045c335176154f5a7d859",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/segments/table-1/segment-01-6d449fd8d23b-page-0005.json"
+    },
+    "table-2::segment-01": {
+      "table_id": "table-2",
+      "segment_id": "segment-01",
+      "page": 5,
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/segments/table-2/segment-01-26accfc192d2-page-0005.png",
+      "image_sha256": "57abb5267544b816996e73ebce1e694e7ab8a358bc78dffb6ec8d7bacbf91830",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/segments/table-2/segment-01-26accfc192d2-page-0005.json"
+    },
+    "table-3::segment-01": {
+      "table_id": "table-3",
+      "segment_id": "segment-01",
+      "page": 5,
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/segments/table-3/segment-01-a10ae1edf49c-page-0005.png",
+      "image_sha256": "30ea08edeea7965369c6187fc6698ae96607ba488c3b31965a473e34cb2bc748",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/segments/table-3/segment-01-a10ae1edf49c-page-0005.json"
+    },
+    "table-4::segment-01": {
+      "table_id": "table-4",
+      "segment_id": "segment-01",
+      "page": 5,
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/segments/table-4/segment-01-052e1b109548-page-0005.png",
+      "image_sha256": "74a999f8b249a000829034a7213ce538d2b5b6803e375f1c2136f0bc4d166ea9",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/segments/table-4/segment-01-052e1b109548-page-0005.json"
+    },
+    "table-5::segment-01": {
+      "table_id": "table-5",
+      "segment_id": "segment-01",
+      "page": 5,
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/segments/table-5/segment-01-48d8ac977ef6-page-0005.png",
+      "image_sha256": "4a05755005bac44c4361dbe78043eb4641cf7d78805b4a752842b5c72ec1cbc6",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/segments/table-5/segment-01-48d8ac977ef6-page-0005.json"
+    },
+    "table-6::segment-01": {
+      "table_id": "table-6",
+      "segment_id": "segment-01",
+      "page": 5,
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/segments/table-6/segment-01-0b882e507b84-page-0005.png",
+      "image_sha256": "607a0f7fef7dbadd25a4839d451328f5bd56b7cda852c756c1906363248e6dab",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/segments/table-6/segment-01-0b882e507b84-page-0005.json"
+    }
+  },
+  "review_queue": [
+    {
+      "kind": "case",
+      "id": "case::table-6"
+    }
+  ],
+  "merge_decisions_sha256": null,
+  "output_hashes": {
+    "result.json": "1353f5803abcb78c7334ac7f4dda6bf9908a97fdcda91e75aff49c591fdefb8c",
+    "table-1.csv": "2ef28bc60a1fe6b8e7605cc1b2f029708964295454ff8574753051a4f42d2d5a",
+    "table-2.csv": "f7c038a875b51d243ea4bfabcef1aed7234e858e2266c71c47031bea097f940c",
+    "table-3.csv": "55ecb22fef142bc99769f0731f6a5672ac6b18b08ffd0c12a2a2c4a03524525f",
+    "table-4.csv": "20457376b2480b9bf850c70d1e071e2a0d06c5581543dcb9360d022246efeb08",
+    "table-5.csv": "58cb11766c744bcecfa6119eeda34962d791afca761656468d2c45e75bff99a5",
+    "table-6.csv": "edf5e097a8700b10e845b8fe7add9964df15ec0f0fc99737033355cdaef64d79"
+  },
+  "review_sequence": 2,
+  "review_archive": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/reviews/review-002.json"
+}

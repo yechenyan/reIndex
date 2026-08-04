@@ -19,6 +19,7 @@ evidence:
   contact_columns: 4
   contact_pages: 8
   contact_overlap_pages: 1
+  finder_candidate_dpi: 150
   table_dpi: 220
 policy:
   scope: full_document

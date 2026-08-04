@@ -1,0 +1,27 @@
+{
+  "spec": "pdf-extractor-pdf/reference-structure-template@2.0",
+  "role": "qa_agent",
+  "independent_from_extractor": true,
+  "source_evidence_only": true,
+  "source_sha256": "3dc36a9917ac29b387c8fcc6e1a856f26e4fc0660d4e847a5070ee7dca0af497",
+  "inventory_sha256": "a5a793af1903df032daddd3b1482279dd30f8baefc2aa0a488984bd90ca201f4",
+  "instructions": "QA confirms frozen positional column_count, fills one exact/text mode per column, and counts retained rows from source evidence. Row 0 is not implicitly a header.",
+  "tables": [
+    {
+      "id": "table-6",
+      "title": "Teil 2 – Maßnahmenplan mit Ausfüllbeispielen und Zellenhinweisen",
+      "column_count": 20,
+      "comparison_modes": [],
+      "line_wrap_candidates": [],
+      "segments": [
+        {
+          "id": "segment-01",
+          "page": 5,
+          "source_row_count": null,
+          "repeated_leading_rows": 0,
+          "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/segments/table-6/segment-01-0b882e507b84-page-0005.png"
+        }
+      ]
+    }
+  ]
+}

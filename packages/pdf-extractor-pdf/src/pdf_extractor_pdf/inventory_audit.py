@@ -27,24 +27,32 @@ def audit_inventory(job: Job, draft_path: Path) -> dict:
             page = document[segment["page"] - 1]
             overlay = _overlay(job, page, table["id"], segment)
             blocking, advisory = _edge_signals(page, fitz.Rect(*segment["bbox"]))
-            review = segment.get("bbox_review", {})
-            attested = (
-                review.get("overlay_sha256") == artifact_hash(overlay)
-                and review.get("all_visible_table_content_inside") is True
-                and set(review.get("reviewed_edges", [])) == EDGES
-            )
             records.append({
                 "table_id": table["id"], "segment_id": segment["id"], "page": segment["page"],
                 "bbox": segment["bbox"], "overlay": str(overlay),
-                "overlay_sha256": artifact_hash(overlay), "attested": attested,
+                "overlay_sha256": artifact_hash(overlay),
                 "blocking_signals": blocking, "advisory_signals": advisory,
-                "passed": attested and not blocking,
+                "suggested_bbox": _suggested_bbox(page.rect, fitz.Rect(*segment["bbox"]), blocking),
             })
     document.close()
+    draft_hash = artifact_hash(draft_path)
+    review_path = job.evidence_dir / "inventory-review.json"
+    review = _review(job, review_path, draft_hash, records)
+    decisions = {(x["table_id"], x["segment_id"]): x for x in review["segments"]}
+    for record in records:
+        decision = decisions.get((record["table_id"], record["segment_id"]), {})
+        record["attested"] = (
+            decision.get("overlay_sha256") == record["overlay_sha256"]
+            and decision.get("all_visible_table_content_inside") is True
+            and set(decision.get("reviewed_edges", [])) == EDGES
+        )
+        record["passed"] = record["attested"] and not record["blocking_signals"]
     report = {
-        "spec": "pdf-extractor-pdf/inventory-audit@1.0", "source_sha256": source_sha256(job.source),
-        "draft_sha256": artifact_hash(draft_path), "passed": all(x["passed"] for x in records),
-        "instructions": "Review each full-page overlay and copy its SHA into bbox_review after checking all four edges.",
+        "spec": "pdf-extractor-pdf/inventory-audit@2.0", "source_sha256": source_sha256(job.source),
+        "draft_sha256": draft_hash, "passed": all(x["passed"] for x in records),
+        "review_path": str(review_path),
+        "review_sha256": artifact_hash(review_path),
+        "instructions": "Fix blocking bboxes, then set visible=true and all four edges in inventory-review.json; overlay hashes are code-bound.",
         "segments": records,
     }
     write_json(job.evidence_dir / "inventory-audit.json", report)
@@ -55,6 +63,44 @@ def audit_inventory(job: Job, draft_path: Path) -> dict:
     return report
 
 
+def _review(job: Job, path: Path, draft_hash: str, records: list[dict]) -> dict:
+    existing = read_json(path) if path.is_file() else {}
+    expected = [(x["table_id"], x["segment_id"], x["bbox"], x["overlay_sha256"]) for x in records]
+    supplied = [
+        (x.get("table_id"), x.get("segment_id"), x.get("bbox"), x.get("overlay_sha256"))
+        for x in existing.get("segments", [])
+    ]
+    if existing.get("draft_sha256") == draft_hash and supplied == expected:
+        return existing
+    value = {
+        "spec": "pdf-extractor-pdf/inventory-review@1.0", "draft_sha256": draft_hash,
+        "instructions": "Finder edits only all_visible_table_content_inside and reviewed_edges.",
+        "segments": [
+            {
+                "table_id": x["table_id"], "segment_id": x["segment_id"], "page": x["page"],
+                "bbox": x["bbox"], "overlay": x["overlay"], "overlay_sha256": x["overlay_sha256"],
+                "all_visible_table_content_inside": False, "reviewed_edges": [],
+            }
+            for x in records
+        ],
+    }
+    write_json(path, value)
+    return value
+
+
+def _suggested_bbox(page: fitz.Rect, bbox: fitz.Rect, blocking: list[dict]) -> list[float] | None:
+    if not blocking:
+        return None
+    suggested = fitz.Rect(bbox)
+    for item in blocking:
+        suggested.include_rect(fitz.Rect(*item["bbox"]))
+    suggested = fitz.Rect(
+        max(page.x0, suggested.x0 - 2), max(page.y0, suggested.y0 - 2),
+        min(page.x1, suggested.x1 + 2), min(page.y1, suggested.y1 + 2),
+    )
+    return [round(value, 3) for value in suggested]
+
+
 def require_inventory_audit(job: Job, draft_path: Path) -> dict:
     path = job.evidence_dir / "inventory-audit.json"
     if not path.is_file():
@@ -62,6 +108,9 @@ def require_inventory_audit(job: Job, draft_path: Path) -> dict:
     report = read_json(path)
     if report.get("draft_sha256") != artifact_hash(draft_path):
         raise ValueError("Inventory draft changed after audit; rerun audit-inventory")
+    review_path = Path(report.get("review_path", ""))
+    if not review_path.is_file() or report.get("review_sha256") != artifact_hash(review_path):
+        raise ValueError("Inventory review changed after audit; rerun audit-inventory")
     if report.get("source_sha256") != source_sha256(job.source) or not report.get("passed"):
         raise ValueError("Inventory audit has unreviewed or clipped Segment bounds")
     return report
@@ -93,8 +142,9 @@ def _overlay(job: Job, page: fitz.Page, table_id: str, segment: dict) -> Path:
 
 def _edge_signals(page: fitz.Page, bbox: fitz.Rect) -> tuple[list[dict], list[dict]]:
     blocking, advisory = [], []
+    matrix = page.rotation_matrix
     for word in page.get_text("words"):
-        rect = fitz.Rect(*word[:4])
+        rect = fitz.Rect(*word[:4]) * matrix
         if rect.intersects(bbox) and not bbox.contains(rect):
             blocking.append({"code": "clipped_word", "text": word[4], "bbox": list(rect)})
         edge = _near_edge(rect, bbox, 12)
@@ -103,7 +153,7 @@ def _edge_signals(page: fitz.Page, bbox: fitz.Rect) -> tuple[list[dict], list[di
     for drawing in page.get_drawings():
         for item in drawing.get("items", []):
             if item[0] == "l":
-                start, end = item[1], item[2]
+                start, end = item[1] * matrix, item[2] * matrix
                 if _line_crosses(start, end, bbox):
                     advisory.append({"code": "drawing_crosses_bbox", "from": [start.x, start.y], "to": [end.x, end.y]})
     return _dedupe(blocking), _dedupe(advisory)[:40]

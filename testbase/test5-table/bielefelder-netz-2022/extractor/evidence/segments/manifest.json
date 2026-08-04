@@ -1,0 +1,71 @@
+{
+  "spec": "pdf-extractor-pdf/segment-evidence@1.0",
+  "inventory_sha256": "a5a793af1903df032daddd3b1482279dd30f8baefc2aa0a488984bd90ca201f4",
+  "dpi": 220,
+  "cache_hit": false,
+  "reused_segments": 6,
+  "rendered_segments": 0,
+  "stale_segments": [],
+  "segments": [
+    {
+      "table_id": "table-1",
+      "segment_id": "segment-01",
+      "page": 5,
+      "fingerprint": "6d449fd8d23b4581c0e9e8f892decedcd07fbb662247e516e9f42358ab467b5e",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/segments/table-1/segment-01-6d449fd8d23b-page-0005.png",
+      "image_sha256": "9e113df956dd1dded83eef96f5385266284078f1b64045c335176154f5a7d859",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/segments/table-1/segment-01-6d449fd8d23b-page-0005.json",
+      "geometry_sha256": "3e6e6a7a3bff80dedcdb60888dc61aedfdda7e9385860aadc41201bb04a46cb4"
+    },
+    {
+      "table_id": "table-2",
+      "segment_id": "segment-01",
+      "page": 5,
+      "fingerprint": "26accfc192d22abded5de91d589b746a110e79c54760749d6d3f40af5f0f6165",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/segments/table-2/segment-01-26accfc192d2-page-0005.png",
+      "image_sha256": "57abb5267544b816996e73ebce1e694e7ab8a358bc78dffb6ec8d7bacbf91830",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/segments/table-2/segment-01-26accfc192d2-page-0005.json",
+      "geometry_sha256": "5805b040f39b479522cb2c5ea50e8a5ce72ae49345287394703519ff3a95889d"
+    },
+    {
+      "table_id": "table-3",
+      "segment_id": "segment-01",
+      "page": 5,
+      "fingerprint": "a10ae1edf49c1ab4de677a28391cb3a83923a4dfef008a9bebf30e43a3203029",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/segments/table-3/segment-01-a10ae1edf49c-page-0005.png",
+      "image_sha256": "30ea08edeea7965369c6187fc6698ae96607ba488c3b31965a473e34cb2bc748",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/segments/table-3/segment-01-a10ae1edf49c-page-0005.json",
+      "geometry_sha256": "612b6c532a65b635ab26f1afe623706f5d622902e9fd39ad7a0d88fd3c97992a"
+    },
+    {
+      "table_id": "table-4",
+      "segment_id": "segment-01",
+      "page": 5,
+      "fingerprint": "052e1b109548c0db317c34acdbc0542bdfb80e025f6b5a35594d1cd0661c764a",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/segments/table-4/segment-01-052e1b109548-page-0005.png",
+      "image_sha256": "74a999f8b249a000829034a7213ce538d2b5b6803e375f1c2136f0bc4d166ea9",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/segments/table-4/segment-01-052e1b109548-page-0005.json",
+      "geometry_sha256": "ad0edf2b8058bf4bbc6daecf7566f0eeca95ea0054ed58876b00352f7b21ec15"
+    },
+    {
+      "table_id": "table-5",
+      "segment_id": "segment-01",
+      "page": 5,
+      "fingerprint": "48d8ac977ef6f45c7e29cb8c92405ed726709745f1370ff7504b8cfeaa9231c8",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/segments/table-5/segment-01-48d8ac977ef6-page-0005.png",
+      "image_sha256": "4a05755005bac44c4361dbe78043eb4641cf7d78805b4a752842b5c72ec1cbc6",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/segments/table-5/segment-01-48d8ac977ef6-page-0005.json",
+      "geometry_sha256": "de8902ca2125d960a3a5b24116fc89abc6738c7f7f0a312bfc1db159cc8f0a35"
+    },
+    {
+      "table_id": "table-6",
+      "segment_id": "segment-01",
+      "page": 5,
+      "fingerprint": "0b882e507b8433a9f323479acc971b09fde7e5dc9040c53add3cfc33ab342ddb",
+      "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/segments/table-6/segment-01-0b882e507b84-page-0005.png",
+      "image_sha256": "607a0f7fef7dbadd25a4839d451328f5bd56b7cda852c756c1906363248e6dab",
+      "geometry": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/bielefelder-netz-2022/extractor/evidence/segments/table-6/segment-01-0b882e507b84-page-0005.json",
+      "geometry_sha256": "3c416eec7dcd58ca84816f328bbcc636cabca5297aba9971b3fc2769254732ca"
+    }
+  ]
+}
