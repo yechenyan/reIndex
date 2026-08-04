@@ -1,0 +1,212 @@
+{
+  "source_sha256": "a9642d5a0051ab5bf992e3c28b447e9710c28ff5265f452ae8e6f966b958baa7",
+  "page_count": 17,
+  "dpi": 72,
+  "contact_pages": 8,
+  "contact_columns": 4,
+  "contact_overlap_pages": 1,
+  "cache_hit": false,
+  "pages": [
+    {
+      "page": 1,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 52,
+      "word_count": 7
+    },
+    {
+      "page": 2,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 504,
+      "word_count": 57
+    },
+    {
+      "page": 3,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 1376,
+      "word_count": 60
+    },
+    {
+      "page": 4,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 831,
+      "word_count": 80
+    },
+    {
+      "page": 5,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 1066,
+      "word_count": 94
+    },
+    {
+      "page": 6,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 2508,
+      "word_count": 326
+    },
+    {
+      "page": 7,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 902,
+      "word_count": 119
+    },
+    {
+      "page": 8,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 928,
+      "word_count": 118
+    },
+    {
+      "page": 9,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 186,
+      "word_count": 24
+    },
+    {
+      "page": 10,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 1928,
+      "word_count": 251
+    },
+    {
+      "page": 11,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 2776,
+      "word_count": 372
+    },
+    {
+      "page": 12,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 651,
+      "word_count": 83
+    },
+    {
+      "page": 13,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 2468,
+      "word_count": 311
+    },
+    {
+      "page": 14,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 1957,
+      "word_count": 254
+    },
+    {
+      "page": 15,
+      "width": 595.32,
+      "height": 841.92,
+      "rotation": 0,
+      "text_chars": 662,
+      "word_count": 90
+    },
+    {
+      "page": 16,
+      "width": 841.92,
+      "height": 595.32,
+      "rotation": 0,
+      "text_chars": 2855,
+      "word_count": 364
+    },
+    {
+      "page": 17,
+      "width": 841.92,
+      "height": 595.32,
+      "rotation": 0,
+      "text_chars": 2183,
+      "word_count": 273
+    }
+  ],
+  "contacts": [
+    "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/contact-sheets/contact-001.jpg",
+    "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/contact-sheets/contact-002.jpg",
+    "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/contact-sheets/contact-003.jpg"
+  ],
+  "contact_windows": [
+    {
+      "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/contact-sheets/contact-001.jpg",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/contact-sheets/contact-002.jpg",
+      "pages": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "path": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/contact-sheets/contact-003.jpg",
+      "pages": [
+        15,
+        16,
+        17
+      ]
+    }
+  ],
+  "page_hashes": {
+    "page-0001.png": "c7483c053693c125e4caff645352bdd0bb5bd9557ce5b6205ab8f9bf340f3497",
+    "page-0002.png": "4fb610b755b187e27a0da043b11fc64c7b0e7b0f937f29be69f10d4332235a1b",
+    "page-0003.png": "53a9dcf8d1d2a8d9b1a55d293c71b364b3655ae78ba9964f573d88feaf9f7680",
+    "page-0004.png": "388c537bc786c56a1f557dee4a1a026d6afeb3543e523b5bebf1eb855e51a4c6",
+    "page-0005.png": "3318274ae651b3893e4092d569cbd3ab732d768dd572d46195fabdca9ec61425",
+    "page-0006.png": "4479050ed692df448f23e6a0a519be8ddc3715c9ce8b1efb06dde1f7fde33a26",
+    "page-0007.png": "c90607f290a3830b27fa1bf5a2e051424218471bb08fb2e5c4e32fe2766b1ee7",
+    "page-0008.png": "4884f84d4f285f1324405fbe363bb6e796e9e65f52006d360677e415b8deee29",
+    "page-0009.png": "eea48124375b1186595af827e89e4ba01a83b942ee8e1afa61d0eb923d1da70b",
+    "page-0010.png": "0a7b9c4f23a0e058b4c963d144774402e0d1947d031a63394b2a14a7d0de16e7",
+    "page-0011.png": "b1f245a525bebfea1e7db6452ef427fb93410e35faa61c1476cfbcc713d46ac4",
+    "page-0012.png": "797cede62fa2c114fc5919466b0272490790748f39f115cf0972f804229e3e1c",
+    "page-0013.png": "1c9eff01a5dba37596600dde82f76762517ff99f5bf91c391692692407fbe546",
+    "page-0014.png": "f13885692722109421a463ee79628cd3a14ea203bebb91e8a2b8bff79e9ce981",
+    "page-0015.png": "a883ebe9bcc022c3b50307d6b79dff9504e51604d8fa9dd6f489f6122400f2dc",
+    "page-0016.png": "e3256d44c48e1fabedd815a97d293098ca74e13e666491c92a92f5101c647751",
+    "page-0017.png": "160783e15182c89b603965f1ae7ba2c33199cb198f7a9a8a0d249408e9aac771"
+  },
+  "contact_hashes": {
+    "contact-001.jpg": "8685862d233099cbf9c3b12998ce9863154705602918d1e85c96aac3a21b2734",
+    "contact-002.jpg": "b544a692c6df966caa3dc19b2d06e1b506764f845080e233f435522b3e8999b6",
+    "contact-003.jpg": "fe4d4c8fd11bd275a64adefcbd2f98badde38423b52c5f2f42f365fa2de6c3e8"
+  }
+}

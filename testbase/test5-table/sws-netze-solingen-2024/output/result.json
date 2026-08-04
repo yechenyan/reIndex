@@ -1,0 +1,1210 @@
+{
+  "spec": "pdf-extractor-pdf/result@1.0",
+  "source_sha256": "a9642d5a0051ab5bf992e3c28b447e9710c28ff5265f452ae8e6f966b958baa7",
+  "extractor_version": "1.0.0",
+  "tables": [
+    {
+      "id": "table-abbreviations",
+      "title": "Abkürzungsverzeichnis",
+      "columns": [
+        "Abkürzung",
+        "Bedeutung"
+      ],
+      "rows": [
+        [
+          "BDEW",
+          "BDEW Bundesverband der Energie- und Wasserwirtschaft e.V."
+        ],
+        [
+          "BNetzA",
+          "Bundesnetzagentur"
+        ],
+        [
+          "EEG",
+          "Erneuerbare Energien"
+        ],
+        [
+          "EnWG",
+          "Energiewirtschaftsgesetz"
+        ],
+        [
+          "F-Gas",
+          "Fluoriertes Gas"
+        ],
+        [
+          "GHD",
+          "Gewerbe, Handel, Dienstleistungen"
+        ],
+        [
+          "HöS",
+          "Höchstspannung"
+        ],
+        [
+          "HS",
+          "Hochspannung"
+        ],
+        [
+          "KWK",
+          "Kraft-Wärme-Kopplung"
+        ],
+        [
+          "MS",
+          "Mittelspannung"
+        ],
+        [
+          "NAP",
+          "Netzausbauplan"
+        ],
+        [
+          "NE",
+          "Netzebene"
+        ],
+        [
+          "NEP",
+          "Netzentwicklungsplan der Übertragungsnetzbetreiber"
+        ],
+        [
+          "NNB",
+          "Nachgelagerter Netzbetreiber"
+        ],
+        [
+          "NS",
+          "Niederspannung"
+        ],
+        [
+          "NVNB",
+          "Nachgelagerter Verteilnetzbetreiber"
+        ],
+        [
+          "ONS",
+          "Ortsnetzstation (Netzebene 6)"
+        ],
+        [
+          "PR",
+          "Planungsregion"
+        ],
+        [
+          "PV",
+          "Photovoltaik"
+        ],
+        [
+          "RZ",
+          "Regionalszenario"
+        ],
+        [
+          "Netze Solingen",
+          "SWS Netze Solingen GmbH"
+        ],
+        [
+          "ÜNB",
+          "Übertragungsnetzbetreiber"
+        ],
+        [
+          "UW",
+          "Umspannwerk (Netzebene 4)"
+        ],
+        [
+          "VNB",
+          "Verteilnetzbetreiber"
+        ],
+        [
+          "VVNB",
+          "Vorgelagerter Verteilnetzbetreiber"
+        ]
+      ],
+      "provenance": [
+        {
+          "page": 4,
+          "bbox": [
+            65,
+            136.5283966064453,
+            545,
+            148.8495330810547
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 4,
+          "bbox": [
+            65,
+            157.5283966064453,
+            545,
+            169.8495330810547
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 4,
+          "bbox": [
+            65,
+            178.6483917236328,
+            545,
+            190.9695281982422
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 4,
+          "bbox": [
+            65,
+            199.64837646484375,
+            545,
+            211.96951293945312
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 4,
+          "bbox": [
+            65,
+            220.7683868408203,
+            545,
+            233.0895233154297
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 4,
+          "bbox": [
+            65,
+            241.7683868408203,
+            545,
+            254.0895233154297
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 4,
+          "bbox": [
+            65,
+            262.7684020996094,
+            545,
+            275.08953857421875
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 4,
+          "bbox": [
+            65,
+            283.8883972167969,
+            545,
+            296.20953369140625
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 4,
+          "bbox": [
+            65,
+            304.8883972167969,
+            545,
+            317.20953369140625
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 4,
+          "bbox": [
+            65,
+            325.8883972167969,
+            545,
+            338.20953369140625
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 4,
+          "bbox": [
+            65,
+            347.0083923339844,
+            545,
+            359.32952880859375
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 4,
+          "bbox": [
+            65,
+            368.0083923339844,
+            545,
+            380.32952880859375
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 4,
+          "bbox": [
+            65,
+            389.1283874511719,
+            545,
+            401.44952392578125
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 4,
+          "bbox": [
+            65,
+            410.1283874511719,
+            545,
+            422.44952392578125
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 4,
+          "bbox": [
+            65,
+            431.1283874511719,
+            545,
+            443.44952392578125
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 4,
+          "bbox": [
+            65,
+            452.2483825683594,
+            545,
+            464.56951904296875
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 4,
+          "bbox": [
+            65,
+            473.2483825683594,
+            545,
+            485.56951904296875
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 4,
+          "bbox": [
+            65,
+            494.3683776855469,
+            545,
+            506.68951416015625
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 4,
+          "bbox": [
+            65,
+            515.368408203125,
+            545,
+            527.6895141601562
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 4,
+          "bbox": [
+            65,
+            536.368408203125,
+            545,
+            548.6895141601562
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 4,
+          "bbox": [
+            65,
+            557.4884033203125,
+            545,
+            569.8095092773438
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 4,
+          "bbox": [
+            65,
+            578.4884033203125,
+            545,
+            590.8095092773438
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 4,
+          "bbox": [
+            65,
+            599.4884033203125,
+            545,
+            611.8095092773438
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 4,
+          "bbox": [
+            65,
+            620.6083984375,
+            545,
+            632.9295043945312
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 4,
+          "bbox": [
+            65,
+            641.6083984375,
+            545,
+            653.9295043945312
+          ],
+          "segment_id": "segment-01"
+        }
+      ]
+    },
+    {
+      "id": "table-1",
+      "title": "Tabelle 1: Betriebsmittel im Stromnetz",
+      "columns": [
+        "Netzebene",
+        "Betriebsmittel",
+        "Bestand"
+      ],
+      "rows": [
+        [
+          "Netzebene 4",
+          "Umspannwerke HS/MS",
+          "7 Stück (Betrieb: Westnetz GmbH)"
+        ],
+        [
+          "Netzebene 5",
+          "Mittelspannungskabel",
+          "490,35 km"
+        ],
+        [
+          "Netzebene 6",
+          "Netzstationen MS/NS",
+          "750 Stück"
+        ],
+        [
+          "Netzebene 6",
+          "Kundenstationen MS/NS",
+          "246 Stück"
+        ],
+        [
+          "Netzebene 7",
+          "Niederspannungskabel",
+          "1.414,33 km"
+        ]
+      ],
+      "provenance": [
+        {
+          "page": 6,
+          "bbox": [
+            65,
+            518.368408203125,
+            545,
+            530.6895141601562
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 6,
+          "bbox": [
+            65,
+            535.5284423828125,
+            545,
+            547.8495483398438
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 6,
+          "bbox": [
+            65,
+            552.6884155273438,
+            545,
+            565.009521484375
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 6,
+          "bbox": [
+            65,
+            569.9684448242188,
+            545,
+            582.28955078125
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 6,
+          "bbox": [
+            65,
+            587.12841796875,
+            545,
+            599.4495239257812
+          ],
+          "segment_id": "segment-01"
+        }
+      ]
+    },
+    {
+      "id": "table-2",
+      "title": "Tabelle 2: Übersicht Erzeugung und Verbrauch (Einheit MW)",
+      "columns": [
+        "Kategorie",
+        "Art",
+        "2023",
+        "2028",
+        "2033",
+        "2045"
+      ],
+      "rows": [
+        [
+          "Erzeugung",
+          "Photovoltaik",
+          "22,5",
+          "103,8",
+          "185,2",
+          "310,8"
+        ],
+        [
+          "",
+          "Biomasse",
+          "0,9",
+          "0,9",
+          "0,9",
+          "0,9"
+        ],
+        [
+          "",
+          "Wasserkraft und sonstige EEG",
+          "0,5",
+          "0,5",
+          "0,5",
+          "0,5"
+        ],
+        [
+          "",
+          "Konventionelle Kraftwerke/KWK",
+          "14,7",
+          "14,7",
+          "14,7",
+          "14,7"
+        ],
+        [
+          "Verbrauch",
+          "Haushalte, GHD, Industrie",
+          "158,3",
+          "167,2",
+          "173,0",
+          "187,8"
+        ],
+        [
+          "",
+          "Wärmepumpen",
+          "5,5",
+          "42,1",
+          "78,7",
+          "186,3"
+        ],
+        [
+          "",
+          "Verkehr",
+          "15,6",
+          "53,9",
+          "92,2",
+          "173,1"
+        ]
+      ],
+      "provenance": [
+        {
+          "page": 10,
+          "bbox": [
+            65,
+            418.2883605957031,
+            545,
+            430.6094970703125
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 10,
+          "bbox": [
+            65,
+            435.3283996582031,
+            545,
+            447.6495361328125
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 10,
+          "bbox": [
+            65,
+            442.4084167480469,
+            545,
+            462.8895263671875
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 10,
+          "bbox": [
+            65,
+            466.6484069824219,
+            545,
+            478.96954345703125
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 10,
+          "bbox": [
+            65,
+            483.3283996582031,
+            545,
+            495.6495361328125
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 10,
+          "bbox": [
+            65,
+            499.52838134765625,
+            545,
+            511.8495178222656
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 10,
+          "bbox": [
+            65,
+            515.6083984375,
+            545,
+            527.9295043945312
+          ],
+          "segment_id": "segment-01"
+        }
+      ]
+    },
+    {
+      "id": "table-3",
+      "title": "Tabelle 3: Engpassbedingte Maßnahmen der Mittelspannung und Umspannung MS/NS",
+      "columns": [
+        "Zeitraum",
+        "Maßnahme",
+        "Geschätzte Menge",
+        "Geschätzte Kosten"
+      ],
+      "rows": [
+        [
+          "2023 bis 2028 (T+5)",
+          "Leitungen",
+          "41,4 km",
+          "9.108.000 €"
+        ],
+        [
+          "",
+          "Anlagenstandorte",
+          "274 Stk",
+          "13.700.000 €"
+        ],
+        [
+          "2029 bis 2033 (T+6 bis T+10)",
+          "Leitungen",
+          "47 km",
+          "10.340.000 €"
+        ],
+        [
+          "",
+          "Anlagenstandorte",
+          "191 Stk",
+          "9.550.000 €"
+        ],
+        [
+          "2034 bis 2045 (T+11 bis Zielnetzjahr)",
+          "Leitungen",
+          "90 km",
+          "19.800.000 €"
+        ],
+        [
+          "",
+          "Anlagenstandorte",
+          "145 Stk",
+          "7.250.000 €"
+        ]
+      ],
+      "provenance": [
+        {
+          "page": 13,
+          "bbox": [
+            65,
+            644.848388671875,
+            545,
+            660.049560546875
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 13,
+          "bbox": [
+            65,
+            662.368408203125,
+            545,
+            677.5695190429688
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 13,
+          "bbox": [
+            65,
+            686.0084228515625,
+            545,
+            701.3295288085938
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 13,
+          "bbox": [
+            65,
+            703.5284423828125,
+            545,
+            718.7295532226562
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 13,
+          "bbox": [
+            65,
+            727.2883911132812,
+            545,
+            742.4895629882812
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 13,
+          "bbox": [
+            65,
+            744.6884155273438,
+            545,
+            759.8895263671875
+          ],
+          "segment_id": "segment-01"
+        }
+      ]
+    },
+    {
+      "id": "table-4",
+      "title": "Tabelle 4: Assetbedingte Maßnahmen der Mittelspannung und Umspannung MS/NS",
+      "columns": [
+        "Zeitraum",
+        "Maßnahme",
+        "Geschätzte Menge",
+        "Geschätzte Kosten"
+      ],
+      "rows": [
+        [
+          "2023 bis 2028 (T+5)",
+          "Leitungen",
+          "20,3 km",
+          "4.427.000 €"
+        ],
+        [
+          "",
+          "Anlagenstandorte",
+          "13 Stk",
+          "675.000 €"
+        ],
+        [
+          "2029 bis 2033 (T+6 bis T+10)",
+          "Leitungen",
+          "18 km",
+          "3.960.000 €"
+        ],
+        [
+          "",
+          "Anlagenstandorte",
+          "14 Stk",
+          "700.000 €"
+        ],
+        [
+          "2034 bis 2045 (T+11 bis Zielnetzjahr)",
+          "Leitungen",
+          "60 km",
+          "13.200.000 €"
+        ],
+        [
+          "",
+          "Anlagenstandorte",
+          "19 Stk",
+          "950.000 €"
+        ]
+      ],
+      "provenance": [
+        {
+          "page": 14,
+          "bbox": [
+            65,
+            258.4483947753906,
+            545,
+            273.6495361328125
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 14,
+          "bbox": [
+            65,
+            275.848388671875,
+            545,
+            291.1695251464844
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 14,
+          "bbox": [
+            65,
+            299.6083679199219,
+            545,
+            314.8095397949219
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 14,
+          "bbox": [
+            65,
+            317.1283874511719,
+            545,
+            332.32952880859375
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 14,
+          "bbox": [
+            65,
+            340.8883972167969,
+            545,
+            356.08953857421875
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 14,
+          "bbox": [
+            65,
+            358.28839111328125,
+            545,
+            373.4895324707031
+          ],
+          "segment_id": "segment-01"
+        }
+      ]
+    },
+    {
+      "id": "table-5",
+      "title": "Tabelle 5: Maßnahmenplan bis 31.12.2028",
+      "columns": [
+        "Nr.",
+        "Maßnahme",
+        "Betroffener Netzknoten HS/MS",
+        "Projektbeschreibung",
+        "Projektkategorie",
+        "Betriebsmittel",
+        "Länge des Leitungsabschnitts [km]",
+        "Änderung der Übertragungskapazität [+/- MVA]",
+        "netztechnische Begründung",
+        "Bestehender Engpass?",
+        "Prognostizierter Engpass?",
+        "voraussichtlicher Baubeginn [MM/JJJJ]",
+        "Voraussichtliche Inbetriebnahme [MM/JJJJ]",
+        "Kosten (geschätzt) in Euro",
+        "Projektstatus",
+        "Genehmigungsverfahren"
+      ],
+      "rows": [
+        [
+          "1",
+          "Wuppertaler Straße 169-195",
+          "UA07 - Flachsberg",
+          "Erneuerung/ Verstärkung eines MS-Kabels",
+          "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+          "MS-Kabel",
+          "0,78",
+          "",
+          "Kein Zubau (reiner Ersatz, N-1 Sicherheit, Sonstiges)",
+          "Nein",
+          "Nein",
+          "03/2024",
+          "08/2024",
+          "-",
+          "im Bau",
+          "abgeschlossen"
+        ],
+        [
+          "2",
+          "Langhansstraße I + II",
+          "UA05 - Löhdorf",
+          "Verstärkung eines MS-Kabels im Zuge einer Ladeparkanfrage",
+          "Netzoptimierung und -verstärkung",
+          "MS-Kabel",
+          "2",
+          "",
+          "Zubau Verbraucher",
+          "Nein",
+          "Nein",
+          "03/2025",
+          "09/2025",
+          "-",
+          "konkrete Planung",
+          "bereits eingeleitet"
+        ],
+        [
+          "3",
+          "Burgstraße",
+          "UA02 -Solingen",
+          "Zusammenfas-sen von zwei MS-Stationen",
+          "Ersatz(neubau) mit Erhöhung der Übertra-gungskapazität",
+          "MS-Station",
+          "0,1",
+          "",
+          "Kein Zubau (reiner Ersatz, N-1 Sicherheit, Sonstiges)",
+          "Nein",
+          "Nein",
+          "01/2026",
+          "06/2026",
+          "-",
+          "vorgese-hene Maß-nahme",
+          "noch nicht eingeleitet"
+        ],
+        [
+          "4",
+          "Felder Straße",
+          "UA03 -Halfeshof",
+          "Erneuerung/ Verstärkung ei-nes MS-Kabels",
+          "Ersatz(neubau) mit Erhöhung der Übertra-gungskapazität",
+          "MS-Kabel",
+          "0,5",
+          "",
+          "Kein Zubau (reiner Ersatz, N-1 Sicherheit, Sonstiges)",
+          "Nein",
+          "Nein",
+          "09/2025",
+          "01/2026",
+          "-",
+          "vorgese-hene Maß-nahme",
+          "noch nicht eingeleitet"
+        ],
+        [
+          "5",
+          "Kotter Straße",
+          "UA02 -Solingen",
+          "Erneuerung/ Verstärkung ei-nes MS-Kabels",
+          "Ersatz(neubau) mit Erhöhung der Übertra-gungskapazität",
+          "MS-Kabel",
+          "0,75",
+          "",
+          "Kein Zubau (reiner Ersatz, N-1 Sicherheit, Sonstiges)",
+          "Nein",
+          "Nein",
+          "09/2025",
+          "01/2026",
+          "-",
+          "vorgese-hene Maß-nahme",
+          "noch nicht eingeleitet"
+        ],
+        [
+          "6",
+          "Birkenweiher, Flurstraße",
+          "UA02 -Solingen",
+          "Erneuerung/ Verstärkung ei-nes MS-Kabels",
+          "Ersatz(neubau) mit Erhöhung der Übertra-gungskapazität",
+          "MS-Kabel",
+          "0,3",
+          "",
+          "Kein Zubau (reiner Ersatz, N-1 Sicherheit, Sonstiges)",
+          "Nein",
+          "Nein",
+          "10/2024",
+          "11/2024",
+          "-",
+          "vorgese-hene Maß-nahme",
+          "noch nicht eingeleitet"
+        ],
+        [
+          "7",
+          "Ziegelstraße",
+          "UA01 - Ohligs",
+          "Erneuerung/ Verstärkung eines MS-Kabels",
+          "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+          "MS-Kabel",
+          "0,5",
+          "",
+          "Kein Zubau (reiner Ersatz, N-1 Sicherheit, Sonstiges)",
+          "Nein",
+          "Nein",
+          "09/2024",
+          "11/2024",
+          "-",
+          "konkrete Planung",
+          "bereits eingeleitet"
+        ],
+        [
+          "8",
+          "Hästen",
+          "UA03 - Halfeshof",
+          "Erneuerung/ Verstärkung eines MS-Kabels",
+          "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+          "MS-Kabel",
+          "0,4",
+          "",
+          "Kein Zubau (reiner Ersatz, N-1 Sicherheit, Sonstiges)",
+          "Nein",
+          "Nein",
+          "09/2024",
+          "11/2024",
+          "-",
+          "vorgesehene Maßnahme",
+          "noch nicht eingeleitet"
+        ],
+        [
+          "9",
+          "Sammler engpassbedingte MS-Maßnahmen",
+          "Alle UA",
+          "Erneuerung/ Verstärkung von MS-Kabeln",
+          "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+          "MS-Kabel",
+          "39,4",
+          "",
+          "Zubau Verbraucher",
+          "Nein",
+          "Ja, um einem verbrauchsbedingten Engpass vorzubeugen",
+          "01/2025",
+          "12/2028",
+          "8.668.000 €",
+          "vorgesehene Maßnahme",
+          "noch nicht eingeleitet"
+        ],
+        [
+          "10",
+          "Sammler assetbedingte MS-Maßnah-men",
+          "Alle UA",
+          "Erneuerung/ Verstärkung von MS-Kabeln",
+          "Ersatz(neubau) mit Erhöhung der Übertra-gungskapazität",
+          "MS-Kabel",
+          "17,1",
+          "",
+          "Kein Zubau (reiner Ersatz, N-1 Sicherheit, Sonstiges)",
+          "Nein",
+          "Nein",
+          "01/2024",
+          "12/2028",
+          "3.762.000 €",
+          "vorgese-hene Maß-nahme",
+          "noch nicht eingeleitet"
+        ],
+        [
+          "11",
+          "Sammler engpassbe-dingte ONS-Maßnahmen",
+          "Alle UA",
+          "Erneuerung/ Verstärkung von ONS MS/NS",
+          "Ersatz(neubau) mit Erhöhung der Übertra-gungskapazität",
+          "ONS MS/NS",
+          "",
+          "202,7",
+          "Zubau Verbrau-cher",
+          "Nein",
+          "Ja, um einem verbrauchs-bedingten Engpass vor-zubeugen",
+          "01/2025",
+          "12/2028",
+          "13.700.000 €",
+          "vorgese-hene Maß-nahme",
+          "noch nicht eingeleitet"
+        ],
+        [
+          "12",
+          "Sammler assetbedingte ONS-Maßnahmen",
+          "Alle UA",
+          "Erneuerung/ Verstärkung von ONS MS/NS",
+          "Ersatz(neubau) ohne Erhöhung der Übertragungskapazität",
+          "ONS MS/NS",
+          "",
+          "0",
+          "Kein Zubau (reiner Ersatz, N-1 Sicherheit, Sonstiges)",
+          "Nein",
+          "Nein",
+          "01/2024",
+          "12/2028",
+          "550.000 €",
+          "vorgesehene Maßnahme",
+          "noch nicht eingeleitet"
+        ],
+        [
+          "13",
+          "Sammler NS-Maßnahmen",
+          "Alle UA",
+          "Erneuerung/ Verstärkung von NS-Kabeln",
+          "Ersatz(neubau) mit Erhöhung der Übertragungskapazität",
+          "NS-Kabel",
+          "97,1",
+          "",
+          "Kein Zubau (reiner Ersatz, N-1 Sicherheit, Sonstiges)",
+          "Nein",
+          "Nein",
+          "01/2024",
+          "12/2028",
+          "21.362.000 €",
+          "vorgesehene Maßnahme",
+          "noch nicht eingeleitet"
+        ]
+      ],
+      "provenance": [
+        {
+          "page": 16,
+          "bbox": [
+            50,
+            182.34144592285156,
+            775,
+            214.22850036621094
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            50,
+            220.26144409179688,
+            775,
+            260.1885070800781
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            50,
+            266.1014709472656,
+            775,
+            298.1084899902344
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            50,
+            308.1014709472656,
+            775,
+            339.9884948730469
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            50,
+            349.9814453125,
+            775,
+            381.8685302734375
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            50,
+            391.8614501953125,
+            775,
+            423.74847412109375
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            50,
+            433.7414245605469,
+            775,
+            465.6285095214844
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 16,
+          "bbox": [
+            50,
+            475.6214294433594,
+            775,
+            507.50848388671875
+          ],
+          "segment_id": "segment-01"
+        },
+        {
+          "page": 17,
+          "bbox": [
+            50,
+            193.02145385742188,
+            775,
+            233.06849670410156
+          ],
+          "segment_id": "segment-02"
+        },
+        {
+          "page": 17,
+          "bbox": [
+            50,
+            238.9814453125,
+            775,
+            270.8685302734375
+          ],
+          "segment_id": "segment-02"
+        },
+        {
+          "page": 17,
+          "bbox": [
+            50,
+            276.9014587402344,
+            775,
+            316.8285217285156
+          ],
+          "segment_id": "segment-02"
+        },
+        {
+          "page": 17,
+          "bbox": [
+            50,
+            322.741455078125,
+            775,
+            354.7485046386719
+          ],
+          "segment_id": "segment-02"
+        },
+        {
+          "page": 17,
+          "bbox": [
+            50,
+            364.741455078125,
+            775,
+            396.6285095214844
+          ],
+          "segment_id": "segment-02"
+        }
+      ]
+    }
+  ],
+  "warnings": []
+}

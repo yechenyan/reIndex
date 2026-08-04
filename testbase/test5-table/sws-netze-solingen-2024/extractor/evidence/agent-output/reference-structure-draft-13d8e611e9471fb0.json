@@ -1,0 +1,30 @@
+{
+  "spec": "pdf-extractor-pdf/reference-structure-draft@1.0",
+  "role": "qa_agent",
+  "independent_from_extractor": true,
+  "source_evidence_only": true,
+  "source_sha256": "a9642d5a0051ab5bf992e3c28b447e9710c28ff5265f452ae8e6f966b958baa7",
+  "inventory_sha256": "15ef274e483beea0b39436bd01b48358603bfb38c1276f074d0f42740455a52e",
+  "instructions": "QA fills columns and each Segment row_count from source evidence only.",
+  "tables": [
+    {
+      "id": "table-5",
+      "title": "Tabelle 5: Maßnahmenplan bis 31.12.2028",
+      "columns": ["Nr.", "Maßnahme", "Betroffener Netzknoten HS/MS", "Projektbeschreibung", "Projektkategorie", "Betriebsmittel", "Länge des Leitungsabschnitts [km]", "Änderung der Übertragungskapazität [+/- MVA]", "netztechnische Begründung", "Bestehender Engpass?", "Prognostizierter Engpass?", "voraussichtlicher Baubeginn [MM/JJJJ]", "Voraussichtliche Inbetriebnahme [MM/JJJJ]", "Kosten (geschätzt) in Euro", "Projektstatus", "Genehmigungsverfahren"],
+      "segments": [
+        {
+          "id": "segment-01",
+          "page": 16,
+          "row_count": 8,
+          "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-01-718468eb9939-page-0016.png"
+        },
+        {
+          "id": "segment-02",
+          "page": 17,
+          "row_count": 5,
+          "image": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/segments/table-5/segment-02-9f8e663aef0f-page-0017.png"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: PDF Extractor PDF
+  short_description: Build and verify reusable PDF-specific table extractors.
+  default_prompt: Follow the seven-stage frozen-inventory and independent-QA workflow.

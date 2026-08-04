@@ -12,6 +12,7 @@
 - [`overview.md`](overview.md): product intent and workflow
 - [`user/quickstart.md`](user/quickstart.md): current local commands and fixture
 - [`user/pdf-table-codegen.md`](user/pdf-table-codegen.md): let an Agent generate reusable PDF table extraction code
+- [`user/pdf-extractor-pdf.md`](user/pdf-extractor-pdf.md): seven-stage frozen-inventory PDF table extraction workflow
 - [`user/start-local-service.md`](user/start-local-service.md): start ParadeDB and the local API with embeddings enabled
 
 ## Developer guides

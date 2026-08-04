@@ -1,0 +1,286 @@
+{
+  "spec": "pdf-extractor-pdf/inventory-audit@1.0",
+  "source_sha256": "a9642d5a0051ab5bf992e3c28b447e9710c28ff5265f452ae8e6f966b958baa7",
+  "draft_sha256": "560ee88c8902aa62870ed4ee41b647d86f2f97c85736212a9f9b91aea8733406",
+  "passed": true,
+  "instructions": "Review each full-page overlay and copy its SHA into bbox_review after checking all four edges.",
+  "segments": [
+    {
+      "table_id": "table-abbreviations",
+      "segment_id": "segment-01",
+      "page": 4,
+      "bbox": [
+        65,
+        90,
+        545,
+        660
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/inventory-overlays/table-abbreviations/segment-01-12d0b0d95b33-page-0004.png",
+      "overlay_sha256": "73d48b6b279075efdb3125f9d1bcdbe8e19fb71c86bbe7d5bec55735f32a452b",
+      "attested": true,
+      "blocking_signals": [],
+      "advisory_signals": [],
+      "passed": true
+    },
+    {
+      "table_id": "table-1",
+      "segment_id": "segment-01",
+      "page": 6,
+      "bbox": [
+        65,
+        510,
+        545,
+        625
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/inventory-overlays/table-1/segment-01-f039c48f54de-page-0006.png",
+      "overlay_sha256": "dae1eca7d83607b99441429cda3cf159aac4df6614bed8c42e7aa0fb31717660",
+      "attested": true,
+      "blocking_signals": [],
+      "advisory_signals": [
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "tionen",
+          "bbox": [
+            70.91999816894531,
+            491.2483825683594,
+            100.93130493164062,
+            503.56951904296875
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "und",
+          "bbox": [
+            104.00038146972656,
+            491.2483825683594,
+            122.41921997070312,
+            503.56951904296875
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "246",
+          "bbox": [
+            125.55470275878906,
+            491.2483825683594,
+            143.90560913085938,
+            503.56951904296875
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Kundenstationen",
+          "bbox": [
+            146.93067932128906,
+            491.2483825683594,
+            229.32460021972656,
+            503.56951904296875
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "aufteilen",
+          "bbox": [
+            232.39366149902344,
+            491.2483825683594,
+            273.9788818359375,
+            503.56951904296875
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "(vgl.",
+          "bbox": [
+            277.1144104003906,
+            491.2483825683594,
+            297.8280334472656,
+            503.56951904296875
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "Tabelle",
+          "bbox": [
+            300.90460205078125,
+            491.2483825683594,
+            336.8430480957031,
+            503.56951904296875
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "1).",
+          "bbox": [
+            339.912109375,
+            491.2483825683594,
+            352.8642272949219,
+            503.56951904296875
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "table_id": "table-2",
+      "segment_id": "segment-01",
+      "page": 10,
+      "bbox": [
+        65,
+        395,
+        545,
+        555
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/inventory-overlays/table-2/segment-01-1c69d7112e5a-page-0010.png",
+      "overlay_sha256": "8ebb0eed9e24dc5957d8e614a7cec1fa7589ed0bc0bb2b1080d7b5a962aeb2c3",
+      "attested": true,
+      "blocking_signals": [],
+      "advisory_signals": [
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "Erzeugung",
+          "bbox": [
+            70.91999816894531,
+            565.3795776367188,
+            133.02023315429688,
+            578.7720947265625
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "table_id": "table-3",
+      "segment_id": "segment-01",
+      "page": 13,
+      "bbox": [
+        65,
+        615,
+        545,
+        790
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/inventory-overlays/table-3/segment-01-edc8d7c6d296-page-0013.png",
+      "overlay_sha256": "4c9abb29451cb386425faabe11a434272a186f1a685d43bed8cd423c6b92fcb6",
+      "attested": true,
+      "blocking_signals": [],
+      "advisory_signals": [
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "hang",
+          "bbox": [
+            70.91999816894531,
+            592.16845703125,
+            95.41107940673828,
+            604.4895629882812
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "zu",
+          "bbox": [
+            98.48014831542969,
+            592.16845703125,
+            110.13887023925781,
+            604.4895629882812
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "finden.",
+          "bbox": [
+            113.1214828491211,
+            592.16845703125,
+            146.19268798828125,
+            604.4895629882812
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "table_id": "table-4",
+      "segment_id": "segment-01",
+      "page": 14,
+      "bbox": [
+        65,
+        230,
+        545,
+        405
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/inventory-overlays/table-4/segment-01-8fbdfede2b73-page-0014.png",
+      "overlay_sha256": "a113bde1af9b0e2a1055841209899f2adcadcf75a97c7db376e480b7b1b85d92",
+      "attested": true,
+      "blocking_signals": [],
+      "advisory_signals": [
+        {
+          "code": "word_just_outside",
+          "edge": "top",
+          "text": "fasst.",
+          "bbox": [
+            70.91999816894531,
+            207.68838500976562,
+            97.2071304321289,
+            220.009521484375
+          ]
+        },
+        {
+          "code": "word_just_outside",
+          "edge": "bottom",
+          "text": "Herausforderungen",
+          "bbox": [
+            70.91999816894531,
+            412.9795837402344,
+            182.37557983398438,
+            426.3721008300781
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "table_id": "table-5",
+      "segment_id": "segment-01",
+      "page": 16,
+      "bbox": [
+        50,
+        70,
+        775,
+        510
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/inventory-overlays/table-5/segment-01-c6ac6055857d-page-0016.png",
+      "overlay_sha256": "0d6ba2f87599311a4b3cdcbb5cadd23acd99c64e2749b2767e769718a3e771c4",
+      "attested": true,
+      "blocking_signals": [],
+      "advisory_signals": [],
+      "passed": true
+    },
+    {
+      "table_id": "table-5",
+      "segment_id": "segment-02",
+      "page": 17,
+      "bbox": [
+        50,
+        115,
+        775,
+        425
+      ],
+      "overlay": "/Users/maxiao/Documents/code2/reIndex/testbase/test5-table/sws-netze-solingen-2024/extractor/evidence/inventory-overlays/table-5/segment-02-396d899e4556-page-0017.png",
+      "overlay_sha256": "ea6a71cb9ba9ea27d79782f0d1e2bda3c3f91389afaef62275e5ca8080e3ec10",
+      "attested": true,
+      "blocking_signals": [],
+      "advisory_signals": [],
+      "passed": true
+    }
+  ]
+}

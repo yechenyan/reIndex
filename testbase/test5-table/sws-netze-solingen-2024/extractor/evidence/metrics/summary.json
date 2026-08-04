@@ -1,0 +1,313 @@
+{
+  "spec": "pdf-extractor-pdf/metrics-summary@1.0",
+  "commands": {
+    "total_calls": 58,
+    "by_command": {
+      "prepare": {
+        "calls": 1,
+        "failures": 0,
+        "elapsed_seconds": 0.510572
+      },
+      "stage-start": {
+        "calls": 9,
+        "failures": 1,
+        "elapsed_seconds": 0.007251
+      },
+      "render-pages": {
+        "calls": 2,
+        "failures": 0,
+        "elapsed_seconds": 1.193358
+      },
+      "audit-inventory": {
+        "calls": 6,
+        "failures": 1,
+        "elapsed_seconds": 0.679314
+      },
+      "stage-finish": {
+        "calls": 8,
+        "failures": 0,
+        "elapsed_seconds": 0.002953
+      },
+      "freeze-inventory": {
+        "calls": 1,
+        "failures": 0,
+        "elapsed_seconds": 0.003623
+      },
+      "inspect": {
+        "calls": 1,
+        "failures": 0,
+        "elapsed_seconds": 0.267632
+      },
+      "agent-briefs": {
+        "calls": 5,
+        "failures": 0,
+        "elapsed_seconds": 0.006611
+      },
+      "scaffold-reference": {
+        "calls": 2,
+        "failures": 0,
+        "elapsed_seconds": 0.007103
+      },
+      "plan-reference": {
+        "calls": 2,
+        "failures": 0,
+        "elapsed_seconds": 0.007515
+      },
+      "freeze-reference": {
+        "calls": 3,
+        "failures": 0,
+        "elapsed_seconds": 0.009746
+      },
+      "validate": {
+        "calls": 6,
+        "failures": 0,
+        "elapsed_seconds": 1.563162
+      },
+      "repair-scope": {
+        "calls": 5,
+        "failures": 1,
+        "elapsed_seconds": 0.0145
+      },
+      "reopen-reference": {
+        "calls": 2,
+        "failures": 0,
+        "elapsed_seconds": 0.001694
+      },
+      "status": {
+        "calls": 1,
+        "failures": 0,
+        "elapsed_seconds": 5.9e-05
+      },
+      "finalize": {
+        "calls": 2,
+        "failures": 1,
+        "elapsed_seconds": 0.005758
+      },
+      "check": {
+        "calls": 1,
+        "failures": 0,
+        "elapsed_seconds": 0.002453
+      },
+      "verify-cache": {
+        "calls": 1,
+        "failures": 0,
+        "elapsed_seconds": 0.017856
+      }
+    }
+  },
+  "stages": [
+    {
+      "spec": "pdf-extractor-pdf/stage-event@1.0",
+      "event": "finished",
+      "run_id": "finder-1",
+      "stage": "discovery",
+      "role": "finder_agent",
+      "model": "gpt-5.6-terra",
+      "agent_id": "/root/sws_audit_scope_benchmark/finder_agent",
+      "workflow_phase": "prepared",
+      "table_ids": null,
+      "at": "2026-08-03T19:12:11.032444+00:00",
+      "status": "completed",
+      "started_at": "2026-08-03T19:06:51.335743+00:00",
+      "ended_at": "2026-08-03T19:12:11.032444+00:00",
+      "wall_seconds": 319.696701,
+      "waiting_seconds": 0.0,
+      "active_seconds": 319.696701,
+      "token_usage": null,
+      "notes": "All pages reviewed; audited inventory draft returned by the real finder agent.",
+      "conversation_turns": 1,
+      "repair_rounds": 0,
+      "dispatch_ordinal": 1
+    },
+    {
+      "spec": "pdf-extractor-pdf/stage-event@1.0",
+      "event": "finished",
+      "run_id": "qa-1",
+      "stage": "qa",
+      "role": "qa_agent",
+      "model": "gpt-5.6-terra",
+      "agent_id": "/root/sws_audit_scope_benchmark/qa_agent",
+      "workflow_phase": "inspected",
+      "table_ids": null,
+      "at": "2026-08-03T19:16:04.255697+00:00",
+      "status": "completed",
+      "started_at": "2026-08-03T19:12:19.162959+00:00",
+      "ended_at": "2026-08-03T19:16:04.255697+00:00",
+      "wall_seconds": 225.092738,
+      "waiting_seconds": 0.0,
+      "active_seconds": 225.092738,
+      "token_usage": null,
+      "notes": "Independent source-only QA reference frozen with 32 required samples across six tables.",
+      "conversation_turns": 1,
+      "repair_rounds": 0,
+      "dispatch_ordinal": 1
+    },
+    {
+      "spec": "pdf-extractor-pdf/stage-event@1.0",
+      "event": "finished",
+      "run_id": "extraction-1",
+      "stage": "extraction",
+      "role": "extraction_agent",
+      "model": "gpt-5.6-terra",
+      "agent_id": "/root/sws_audit_scope_benchmark/extraction_agent",
+      "workflow_phase": "inspected",
+      "table_ids": null,
+      "at": "2026-08-03T19:16:12.626798+00:00",
+      "status": "completed",
+      "started_at": "2026-08-03T19:12:19.032665+00:00",
+      "ended_at": "2026-08-03T19:16:12.626798+00:00",
+      "wall_seconds": 233.594133,
+      "waiting_seconds": 0.0,
+      "active_seconds": 233.594133,
+      "token_usage": null,
+      "notes": "Reusable geometry-based extractor completed; source/layout assertions and continuation rules included.",
+      "conversation_turns": 1,
+      "repair_rounds": 0,
+      "dispatch_ordinal": 1
+    },
+    {
+      "spec": "pdf-extractor-pdf/stage-event@1.0",
+      "event": "finished",
+      "run_id": "extraction-2",
+      "stage": "extraction",
+      "role": "extraction_agent",
+      "model": "gpt-5.6-terra",
+      "agent_id": "/root/sws_audit_scope_benchmark/extraction_agent",
+      "workflow_phase": "reviewed",
+      "table_ids": [
+        "table-1",
+        "table-3",
+        "table-4",
+        "table-5",
+        "table-abbreviations"
+      ],
+      "at": "2026-08-03T19:18:03.478501+00:00",
+      "status": "completed",
+      "started_at": "2026-08-03T19:16:43.072312+00:00",
+      "ended_at": "2026-08-03T19:18:03.478501+00:00",
+      "wall_seconds": 80.406189,
+      "waiting_seconds": 0.0,
+      "active_seconds": 80.406189,
+      "token_usage": null,
+      "notes": "Scoped repair restricted to table-1, table-3, table-4, table-5, and table-abbreviations; protected table-2 was not inspected.",
+      "conversation_turns": 1,
+      "repair_rounds": 1,
+      "dispatch_ordinal": 2
+    },
+    {
+      "spec": "pdf-extractor-pdf/stage-event@1.0",
+      "event": "finished",
+      "run_id": "extraction-3",
+      "stage": "extraction",
+      "role": "extraction_agent",
+      "model": "gpt-5.6-terra",
+      "agent_id": "/root/sws_audit_scope_benchmark/extraction_agent",
+      "workflow_phase": "reviewed",
+      "table_ids": [
+        "table-3",
+        "table-4",
+        "table-5"
+      ],
+      "at": "2026-08-03T19:20:55.566644+00:00",
+      "status": "completed",
+      "started_at": "2026-08-03T19:18:15.693253+00:00",
+      "ended_at": "2026-08-03T19:20:55.566644+00:00",
+      "wall_seconds": 159.873391,
+      "waiting_seconds": 0.0,
+      "active_seconds": 159.873391,
+      "token_usage": null,
+      "notes": "Scoped repair limited to tables 3-5; table 3/4 merged cells and table 5 visual cell reconstruction corrected.",
+      "conversation_turns": 1,
+      "repair_rounds": 1,
+      "dispatch_ordinal": 3
+    },
+    {
+      "spec": "pdf-extractor-pdf/stage-event@1.0",
+      "event": "finished",
+      "run_id": "qa-2",
+      "stage": "qa",
+      "role": "qa_agent",
+      "model": "gpt-5.6-terra",
+      "agent_id": "/root/sws_audit_scope_benchmark/qa_agent",
+      "workflow_phase": "reviewed",
+      "table_ids": [
+        "table-5"
+      ],
+      "at": "2026-08-03T19:25:13.813821+00:00",
+      "status": "completed",
+      "started_at": "2026-08-03T19:23:10.134772+00:00",
+      "ended_at": "2026-08-03T19:25:13.813821+00:00",
+      "wall_seconds": 123.679049,
+      "waiting_seconds": 0.0,
+      "active_seconds": 123.679049,
+      "token_usage": null,
+      "notes": "Scoped table-5-only source QA repair; seven samples rechecked with soft-wrap dehyphenation.",
+      "conversation_turns": 1,
+      "repair_rounds": 1,
+      "dispatch_ordinal": 2
+    },
+    {
+      "spec": "pdf-extractor-pdf/stage-event@1.0",
+      "event": "finished",
+      "run_id": "extraction-4",
+      "stage": "extraction",
+      "role": "extraction_agent",
+      "model": "gpt-5.6-terra",
+      "agent_id": "/root/sws_audit_scope_benchmark/extraction_agent",
+      "workflow_phase": "reviewed",
+      "table_ids": [
+        "table-5"
+      ],
+      "at": "2026-08-03T19:26:02.235348+00:00",
+      "status": "completed",
+      "started_at": "2026-08-03T19:25:21.317968+00:00",
+      "ended_at": "2026-08-03T19:26:02.235348+00:00",
+      "wall_seconds": 40.91738,
+      "waiting_seconds": 0.0,
+      "active_seconds": 40.91738,
+      "token_usage": null,
+      "notes": "Table-5-only repair corrected row 2 visible I glyphs and Löhdorf spelling; provenance retained.",
+      "conversation_turns": 1,
+      "repair_rounds": 1,
+      "dispatch_ordinal": 4
+    },
+    {
+      "spec": "pdf-extractor-pdf/stage-event@1.0",
+      "event": "finished",
+      "run_id": "main-1",
+      "stage": "review",
+      "role": "main_agent",
+      "model": "gpt-5.6-terra",
+      "agent_id": "/root/sws_audit_scope_benchmark",
+      "workflow_phase": "prepared",
+      "table_ids": null,
+      "at": "2026-08-03T19:26:22.574159+00:00",
+      "status": "completed",
+      "started_at": "2026-08-03T19:06:51.208039+00:00",
+      "ended_at": "2026-08-03T19:26:22.574159+00:00",
+      "wall_seconds": 1171.36612,
+      "waiting_seconds": 0.0,
+      "active_seconds": 1171.36612,
+      "token_usage": null,
+      "notes": "Main orchestration, review decisions, validation, scoped repairs, and final verification completed.",
+      "conversation_turns": 1,
+      "repair_rounds": 0,
+      "dispatch_ordinal": 1
+    }
+  ],
+  "stage_totals": {
+    "runs": 8,
+    "summed_wall_seconds": 2354.625701,
+    "parallel_envelope_seconds": 1171.36612,
+    "active_seconds": 2354.625701,
+    "waiting_seconds": 0.0,
+    "conversation_turns": 8,
+    "repair_rounds": 4
+  },
+  "agent_runs": [],
+  "token_usage": {
+    "available_runs": 0,
+    "unavailable_runs": 8,
+    "totals": {}
+  }
+}
