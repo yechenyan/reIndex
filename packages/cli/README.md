@@ -89,7 +89,8 @@ MPS can stall on long Qwen inputs. Override with
 `REINDEX_LOCAL_EMBEDDING_DEVICE` (`cpu`, `mps`, `cuda`, or `auto`) and
 `REINDEX_LOCAL_EMBEDDING_BATCH_SIZE` when appropriate.
 
-`push` sends a complete target manifest, uploads only missing SHA-256 blobs, and
+`push` finishes local embedding before it opens the server upload session, then
+sends a complete target manifest, uploads only missing SHA-256 blobs, and
 atomically publishes a new version. A stale base is rejected; the server never
 merges. `fetch` updates only remote metadata. `pull` creates or fast-forwards a
 Node-only checkout; local/remote changes create `.rei/conflicts.json`, block

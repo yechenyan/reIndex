@@ -40,6 +40,9 @@ def push_collection(
     state = _optional_remote(context.root)
     if state and state.get("collection_id") not in {None, context.collection_id}:
         raise ReIndexError("Local Collection ID differs from configured remote")
+    embeddings = None
+    if not dry_run:
+        embeddings = local_embeddings(context.output_dir, context.root)
     result = _publish(
         ApiClient(url),
         name=context.state["name"],
@@ -49,7 +52,7 @@ def push_collection(
         blobs=blobs,
         message=message or "Publish Collection",
         dry_run=dry_run,
-        embedding_source=None if dry_run else (context.output_dir, context.root),
+        embeddings=embeddings,
     )
     version_id = result.get("version_id") or result.get("head_version_id")
     if not dry_run:
@@ -212,7 +215,7 @@ def _publish(
     dry_run,
     operation="publish",
     source_version_id=None,
-    embedding_source=None,
+    embeddings=None,
 ):
     payload = {
         "name": name,
@@ -234,9 +237,8 @@ def _publish(
             raise ReIndexError(f"Server is missing retained blob: {item['sha256']}")
         client.upload_blob(upload_id, item["sha256"], path)
     commit = {"upload_id": upload_id}
-    if embedding_source:
-        if embeddings := local_embeddings(*embedding_source):
-            commit["embeddings"] = embeddings
+    if embeddings:
+        commit["embeddings"] = embeddings
     return client.json("/v1/push/commit", commit)
 
 
