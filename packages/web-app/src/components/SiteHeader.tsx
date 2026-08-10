@@ -21,6 +21,9 @@ export function SiteHeader({ active }: Props) {
         <a className={active === "search" ? "active" : ""} href="/#/search">
           {t("nav.search")}
         </a>
+        <a className={active === "search" ? "active" : ""} href="/v1/tables/query">
+          {t("nav.tables")}
+        </a>
         <a className={active === "doc" ? "active" : ""} href="/#/doc">
           {t("nav.docs")}
         </a>

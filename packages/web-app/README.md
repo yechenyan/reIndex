@@ -6,6 +6,7 @@ React frontend for browsing and searching active ReIndex Collections.
 
 - `#/explore`: Collection and Node tree with card, content, and resource views.
 - `#/search`: lexical, semantic, or hybrid Evidence search scoped to one Collection.
+- `/v1/tables/query`: direct URL for running a read-only SQL query against an active table node.
 - `#/doc`: parent entry for protocol documentation.
 - `#/doc/cli`: CLI reference generated from the `reindex/cli@1.0` contract.
 - `#/doc/api`: Redoc reference rendered from the HTTP OpenAPI contract.

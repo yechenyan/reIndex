@@ -4,6 +4,7 @@ import { App } from "./App";
 import "./styles/base.css";
 import "./styles/explore.css";
 import "./styles/search.css";
+import "./styles/table-query.css";
 import "./styles/markdown.css";
 import "./styles/doc.css";
 import "./styles/responsive.css";

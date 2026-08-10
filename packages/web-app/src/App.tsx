@@ -4,6 +4,7 @@ import { ExplorePage } from "./pages/ExplorePage";
 import { CliDocPage } from "./pages/CliDocPage";
 import { DocHomePage } from "./pages/DocHomePage";
 import { SearchPage } from "./pages/SearchPage";
+import { TableQueryPage } from "./pages/TableQueryPage";
 import { normalizeHash, readAppPath } from "./route";
 import { I18nProvider, useI18n } from "./i18n";
 
@@ -43,12 +44,13 @@ function AppContent() {
   const { t } = useI18n();
   const active = path.startsWith("/doc")
     ? "doc"
-    : path === "/search"
+    : path === "/search" || path === "/tables/query"
       ? "search"
       : "explore";
 
   const page = () => {
     if (path === "/search") return <SearchPage />;
+    if (path === "/tables/query") return <TableQueryPage />;
     if (path === "/doc/cli") return <CliDocPage />;
     if (path === "/doc/api") return <ApiDocPage />;
     if (path.startsWith("/doc")) return <DocHomePage />;

@@ -6,6 +6,7 @@ type Dictionary = Record<string, Record<Language, string>>;
 const messages: Dictionary = {
   "nav.explore": { de: "Erkunden", en: "Explore", zh: "浏览" },
   "nav.search": { de: "Suche", en: "Search", zh: "搜索" },
+  "nav.tables": { de: "Tabellen", en: "Tables", zh: "表格" },
   "nav.docs": { de: "Dokumentation", en: "Docs", zh: "文档" },
   "nav.wiki": { de: "Wiki ↗", en: "Wiki ↗", zh: "Wiki ↗" },
   "nav.github": { de: "GitHub ↗", en: "GitHub ↗", zh: "GitHub ↗" },

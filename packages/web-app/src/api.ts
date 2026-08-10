@@ -3,6 +3,7 @@ import type {
   NodeKind,
   NodeSummary,
   SearchResponse,
+  TableQueryResponse,
 } from "./types";
 
 const API_BASE = (import.meta.env.VITE_API_BASE_URL || "").replace(/\/$/, "");
@@ -75,5 +76,13 @@ export function searchNodes(input: SearchInput) {
     candidate_limit: 100,
     ...(input.cursor ? { cursor: input.cursor } : {}),
     filters: { kinds: input.kinds },
+  });
+}
+
+export function queryTable(input: { collection: string; nodeId: string; sql: string }) {
+  return postJson<TableQueryResponse>("/v1/tables/query", {
+    collection: input.collection,
+    node_id: input.nodeId,
+    sql: input.sql,
   });
 }

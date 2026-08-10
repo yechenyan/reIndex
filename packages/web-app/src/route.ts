@@ -5,6 +5,7 @@ export function normalizeHash(hash: string) {
 }
 
 export function readAppPath() {
+  if (window.location.pathname === "/v1/tables/query") return "/tables/query";
   return normalizeHash(window.location.hash).slice(1).split("?")[0];
 }
 

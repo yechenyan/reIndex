@@ -73,3 +73,9 @@ export type SearchResponse = {
   next_cursor: string | null;
   results: SearchResult[];
 };
+
+export type TableQueryResponse = {
+  columns: string[];
+  rows: Record<string, unknown>[];
+  truncated: boolean;
+};
