@@ -1,10 +1,9 @@
 import { FormEvent, useEffect, useState } from "react";
 import { listCollections, searchNodes } from "../api";
 import { SearchResults } from "../components/SearchResults";
-import type { CollectionSummary, NodeKind, SearchResult } from "../types";
+import { defaultSearchSettings, SearchOptionsPanel, type SearchSettings } from "../components/SearchOptionsPanel";
+import type { CollectionSummary, SearchResult } from "../types";
 import { useI18n } from "../i18n";
-
-const kinds: NodeKind[] = ["group", "text", "table", "image", "file"];
 
 export function SearchPage() {
   const { t } = useI18n();
@@ -12,8 +11,7 @@ export function SearchPage() {
   const [collection, setCollection] = useState("");
   const [query, setQuery] = useState("");
   const [submittedQuery, setSubmittedQuery] = useState("");
-  const [mode, setMode] = useState<"lexical" | "semantic" | "hybrid">("hybrid");
-  const [selectedKinds, setSelectedKinds] = useState<NodeKind[]>([]);
+  const [settings, setSettings] = useState<SearchSettings>(defaultSearchSettings);
   const [results, setResults] = useState<SearchResult[]>([]);
   const [nextCursor, setNextCursor] = useState<string | null>(null);
   const [searched, setSearched] = useState(false);
@@ -29,19 +27,15 @@ export function SearchPage() {
       .catch((reason: Error) => setError(reason.message));
   }, []);
 
-  function toggleKind(kind: NodeKind) {
-    setSelectedKinds((current) => current.includes(kind) ? current.filter((value) => value !== kind) : [...current, kind]);
-  }
-
-  async function runSearch(cursor?: string) {
-    const activeQuery = cursor ? submittedQuery : query.trim();
+  async function runSearch(cursor?: string, append = false) {
+    const activeQuery = append ? submittedQuery : query.trim();
     if (!collection || !activeQuery) return;
-    if (!cursor) setSubmittedQuery(activeQuery);
+    if (!append) setSubmittedQuery(activeQuery);
     setLoading(true);
     setError("");
     try {
-      const response = await searchNodes({ collection, query: activeQuery, mode, kinds: selectedKinds, cursor });
-      setResults((current) => cursor ? [...current, ...response.results] : response.results);
+      const response = await searchNodes({ collection, query: activeQuery, mode: settings.mode, limit: settings.limit, candidateLimit: settings.candidateLimit, nodeIds: settings.nodeIds.split(",").map((value) => value.trim()).filter(Boolean), kinds: settings.kinds, pathPrefix: settings.pathPrefix || undefined, subtreeNodeId: settings.subtreeNodeId || undefined, lexicalWeight: settings.lexicalWeight, semanticWeight: settings.semanticWeight, rrfK: settings.rrfK, maxPerNode: settings.maxPerNode, semanticThreshold: settings.semanticThreshold === "" ? undefined : Number(settings.semanticThreshold), cursor });
+      setResults((current) => append ? [...current, ...response.results] : response.results);
       setNextCursor(response.next_cursor);
       setSearched(true);
     } catch (reason) {
@@ -56,7 +50,7 @@ export function SearchPage() {
     event.preventDefault();
     setResults([]);
     setNextCursor(null);
-    void runSearch();
+    void runSearch(settings.cursor || undefined);
   }
 
   return (
@@ -80,28 +74,13 @@ export function SearchPage() {
         </form>
       </section>
       <section className="search-workspace">
-        <aside className="search-filters">
-          <div className="filter-heading"><p className="eyebrow">SEARCH SETTINGS</p><button onClick={() => setSelectedKinds([])} type="button">{t("search.reset")}</button></div>
-          <fieldset>
-            <legend>{t("search.mode")}</legend>
-            {(["hybrid", "lexical", "semantic"] as const).map((value) => (
-              <label className="radio-row" key={value}><input checked={mode === value} name="mode" onChange={() => setMode(value)} type="radio" /><span><strong>{value}</strong><small>{t(`search.${value}`)}</small></span></label>
-            ))}
-          </fieldset>
-          <fieldset>
-            <legend>{t("search.types")}</legend>
-            {kinds.map((kind) => (
-              <label className="check-row" key={kind}><input checked={selectedKinds.includes(kind)} onChange={() => toggleKind(kind)} type="checkbox" /><span>{kind}</span></label>
-            ))}
-          </fieldset>
-          <div className="scope-note"><span>i</span><p>{t("search.scope")}</p></div>
-        </aside>
+        <SearchOptionsPanel settings={settings} setSettings={setSettings} />
         <SearchResults
           collection={collection}
           error={error}
           loading={loading}
           nextCursor={nextCursor}
-          onMore={() => nextCursor && void runSearch(nextCursor)}
+          onMore={() => nextCursor && void runSearch(nextCursor, true)}
           query={submittedQuery}
           results={results}
           searched={searched}

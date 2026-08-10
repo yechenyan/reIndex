@@ -63,7 +63,17 @@ export type SearchInput = {
   collection: string;
   query: string;
   mode: "lexical" | "semantic" | "hybrid";
+  limit: number;
+  candidateLimit: number;
+  nodeIds: string[];
   kinds: NodeKind[];
+  pathPrefix?: string;
+  subtreeNodeId?: string;
+  lexicalWeight: number;
+  semanticWeight: number;
+  rrfK: number;
+  maxPerNode: number;
+  semanticThreshold?: number;
   cursor?: string;
 };
 
@@ -72,10 +82,22 @@ export function searchNodes(input: SearchInput) {
     collection: input.collection,
     query: input.query,
     mode: input.mode,
-    limit: 20,
-    candidate_limit: 100,
+    limit: input.limit,
+    candidate_limit: input.candidateLimit,
     ...(input.cursor ? { cursor: input.cursor } : {}),
-    filters: { kinds: input.kinds },
+    filters: {
+      node_ids: input.nodeIds,
+      kinds: input.kinds,
+      ...(input.pathPrefix ? { path_prefix: input.pathPrefix } : {}),
+      ...(input.subtreeNodeId ? { subtree_node_id: input.subtreeNodeId } : {}),
+    },
+    ranking: {
+      lexical_weight: input.lexicalWeight,
+      semantic_weight: input.semanticWeight,
+      rrf_k: input.rrfK,
+      max_per_node: input.maxPerNode,
+      ...(input.semanticThreshold === undefined ? {} : { semantic_threshold: input.semanticThreshold }),
+    },
   });
 }
 
