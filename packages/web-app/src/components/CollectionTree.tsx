@@ -27,7 +27,7 @@ export function CollectionTree(props: Props) {
   const { nodes } = props;
 
   useEffect(() => {
-    setOpen(new Set(nodes.filter((node) => node.kind === "group").map((node) => node.id)));
+    setOpen(new Set(nodes.filter((node) => node.depth === 0 && node.kind === "group").map((node) => node.id)));
   }, [nodes]);
 
   const visibleNodes = useMemo(() => {
