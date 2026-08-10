@@ -14,7 +14,7 @@ from reindex_cli.cli_dispatch import HANDLERS, validate_handler_coverage
 
 ROOT = Path(__file__).resolve().parents[1]
 WEB_CONTRACT = ROOT / "packages" / "web-app" / "public" / "doc" / "cli-v1.json"
-V1_SURFACE_SHA256 = "470d6c80e24e275846b51e47af4c7768e91d3ffe6716f68cfe2a491d98e3fd74"
+V1_SURFACE_SHA256 = "bf4ac7c4a7711a0e883a1a38492645b3058009b3057b47db771fc45818ea8e2a"
 
 
 def test_contract_is_authoritative_for_commands_and_handlers() -> None:
@@ -22,7 +22,7 @@ def test_contract_is_authoritative_for_commands_and_handlers() -> None:
     validate_handler_coverage()
     contract_ids = {command["id"] for command in contract["commands"]}
     assert contract_ids == set(HANDLERS)
-    assert len(contract_ids) == 17
+    assert len(contract_ids) == 18
 
 
 def test_click_tree_preserves_v1_command_paths() -> None:
@@ -31,7 +31,7 @@ def test_click_tree_preserves_v1_command_paths() -> None:
     skills = runner.invoke(build_cli(), ["skills", "--help"])
     assert root.exit_code == 0
     for name in (
-        "init create rename inspect scan check skills set-api push fetch pull "
+        "init create rename inspect scan check skills set-api config push fetch pull "
         "history diff rollback search get"
     ).split():
         assert name in root.output

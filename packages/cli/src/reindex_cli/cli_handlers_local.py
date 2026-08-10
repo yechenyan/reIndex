@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import Any
 
 from reindex_cli.collection import create_collection
-from reindex_cli.config import set_api_url
+from reindex_cli.config import get_api_url, set_api_url
 from reindex_cli.skills import manage_skills
 
 
@@ -43,6 +43,11 @@ def skills_update(parameters: dict[str, Any]) -> dict[str, Any]:
 
 def set_api(parameters: dict[str, Any]) -> dict[str, Any]:
     return {"status": "ready", "api_url": set_api_url(parameters["url"])}
+
+
+def config(parameters: dict[str, Any]) -> dict[str, Any]:
+    url = parameters.get("api_url")
+    return {"status": "ready", "api_url": set_api_url(url) if url else get_api_url()}
 
 
 def _create_or_rename(

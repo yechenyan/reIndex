@@ -854,11 +854,37 @@ components:
           type: string
           format: uuid
           title: Upload Id
+        embeddings:
+          anyOf:
+          - $ref: '#/components/schemas/EmbeddingBatch'
+          - type: 'null'
       additionalProperties: false
       type: object
       required:
       - upload_id
       title: CommitRequest
+    EmbeddingBatch:
+      properties:
+        profile:
+          type: string
+          minLength: 1
+          maxLength: 255
+          title: Profile
+        vectors:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: number
+          minProperties: 1
+          maxProperties: 100000
+          title: Vectors
+      additionalProperties: false
+      type: object
+      required:
+      - profile
+      - vectors
+      title: EmbeddingBatch
     ComponentScores:
       properties:
         bm25:

@@ -382,6 +382,34 @@
       }
     },
     {
+      "id": "config",
+      "path": [
+        "config"
+      ],
+      "summary": "Show or persist the default API URL.",
+      "parameters": [
+        {
+          "name": "api_url",
+          "kind": "option",
+          "flags": [
+            "--api-url"
+          ],
+          "type": "string",
+          "description": "ReIndex API base URL to persist."
+        }
+      ],
+      "side_effects": [
+        "Updates local ReIndex configuration when --api-url is given."
+      ],
+      "examples": [
+        "rei config",
+        "rei config --api-url https://reindex-api.onrender.com"
+      ],
+      "output_schema": {
+        "$ref": "#/$defs/set_api_output"
+      }
+    },
+    {
       "id": "push",
       "path": [
         "push"

@@ -77,6 +77,18 @@ rei get <node-path> [--target card|source|content|asset] [--version <version-id>
 rei get raw://<path>
 ```
 
+### Local embeddings on push
+
+`rei push` automatically uses the locally cached `Qwen/Qwen3-Embedding-0.6B`
+model when the optional embedding runtime is installed. It loads the model in
+offline mode and uploads vectors with the Collection, so the server does not
+need to embed documents. Install the runtime with `pip install 'reindex[embeddings]'`.
+Set `REINDEX_LOCAL_EMBEDDINGS=disabled` to skip it, or `qwen` to require it.
+On macOS the CLI uses the CPU backend and batches four texts at a time because
+MPS can stall on long Qwen inputs. Override with
+`REINDEX_LOCAL_EMBEDDING_DEVICE` (`cpu`, `mps`, `cuda`, or `auto`) and
+`REINDEX_LOCAL_EMBEDDING_BATCH_SIZE` when appropriate.
+
 `push` sends a complete target manifest, uploads only missing SHA-256 blobs, and
 atomically publishes a new version. A stale base is rejected; the server never
 merges. `fetch` updates only remote metadata. `pull` creates or fast-forwards a

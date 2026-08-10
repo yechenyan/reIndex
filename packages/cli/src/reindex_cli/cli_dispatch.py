@@ -20,6 +20,7 @@ HANDLERS: dict[str, Handler] = {
     "skills_install": local.skills_install,
     "skills_update": local.skills_update,
     "set_api": local.set_api,
+    "config": local.config,
     "push": remote.push,
     "fetch": remote.fetch,
     "pull": remote.pull,

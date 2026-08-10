@@ -1,24 +1,22 @@
 from __future__ import annotations
 
-import hashlib
-import json
-from datetime import UTC, datetime, timedelta
+from datetime import UTC, datetime
 from pathlib import Path
 from threading import RLock
 from uuid import uuid4
 
-from reindex_server.domain import CollectionVersion, SearchUnit
+from reindex_server.domain import CollectionVersion
 from reindex_server.errors import ConflictError, StaleBaseError
 from reindex_server.push_protocol import (
     UploadSession,
     canonical_manifest,
     load_snapshot_from_manifest,
-    manifest_hashes,
 )
-from reindex_server.version_serialization import unique_blobs, version_json
+from reindex_server.publication_support import PublicationSupportMixin
+from reindex_server.version_serialization import unique_blobs
 
 
-class PublicationManager:
+class PublicationManager(PublicationSupportMixin):
     def __init__(self, catalog, store, embeddings) -> None:
         self.catalog = catalog
         self.store = store
@@ -98,7 +96,7 @@ class PublicationManager:
             "byte_size": stored.byte_size,
         }
 
-    def commit(self, upload_id: str) -> dict:
+    def commit(self, upload_id: str, supplied_embeddings=None) -> dict:
         session = self._session(upload_id)
         if session.result is not None:
             return session.result
@@ -115,7 +113,7 @@ class PublicationManager:
         snapshot = load_snapshot_from_manifest(
             session.manifest, session.collection_id, self.store
         )
-        profile, embedded, reused = self._embed(snapshot.units)
+        profile, embedded, reused = self._embed(snapshot.units, supplied_embeddings)
         stats = {
             "nodes": len(snapshot.nodes),
             "sources": sum(
@@ -166,97 +164,6 @@ class PublicationManager:
         }
         self._maintain(session.collection_id)
         return session.result
-
-    def fetch(self, collection_name: str, version_id: str | None = None) -> dict:
-        collection = self.catalog.get_by_name(collection_name)
-        version = (
-            self.catalog.get_version(collection.id, version_id)
-            if version_id
-            else self.catalog.current_version(collection.id)
-        )
-        if version is None:
-            raise KeyError("Collection has no published version")
-        with self.store.open(version.manifest_object_key) as stream:
-            manifest = json.load(stream)
-        return {
-            "name": collection.name,
-            "collection_id": collection.id,
-            "version": version_json(version, collection.active_version_id),
-            "manifest": manifest,
-        }
-
-    def history(self, collection_name: str, limit: int, cursor: str | None) -> dict:
-        collection = self.catalog.get_by_name(collection_name)
-        offset = int(cursor or 0)
-        if offset < 0:
-            raise ValueError("history cursor must be non-negative")
-        values = self.catalog.list_versions(
-            collection.id, limit=offset + limit + 1, before=None
-        )
-        page = values[offset : offset + limit]
-        next_cursor = str(offset + limit) if len(values) > offset + limit else None
-        return {
-            "name": collection.name,
-            "collection_id": collection.id,
-            "versions": [
-                version_json(item, collection.active_version_id) for item in page
-            ],
-            "next_cursor": next_cursor,
-        }
-
-    def _embed(self, units: list[SearchUnit]) -> tuple[str | None, int, int]:
-        if self.embeddings.name == "disabled":
-            return None, 0, 0
-        hashes = [
-            hashlib.sha256(item.contextual_text.encode()).hexdigest() for item in units
-        ]
-        cached = self.catalog.get_cached_embeddings(self.embeddings.name, set(hashes))
-        missing_text = {
-            digest: unit.contextual_text
-            for digest, unit in zip(hashes, units, strict=True)
-            if digest not in cached
-        }
-        if missing_text:
-            vectors = self.embeddings.embed_documents(missing_text.values())
-            created = dict(zip(missing_text, vectors, strict=True))
-            self.catalog.put_cached_embeddings(self.embeddings.name, created)
-            cached.update(created)
-        for digest, unit in zip(hashes, units, strict=True):
-            unit.embedding = cached[digest]
-        return self.embeddings.name, len(missing_text), len(units) - len(missing_text)
-
-    def _maintain(self, collection_id: str) -> None:
-        self.catalog.prune_versions(
-            collection_id,
-            keep_last=10,
-            keep_newer_than=datetime.now(UTC) - timedelta(days=30),
-        )
-        retained = {item.manifest_sha256 for item in self.catalog.list_all_versions()}
-        for version in self.catalog.list_all_versions():
-            with self.store.open(version.manifest_object_key) as stream:
-                retained.update(manifest_hashes(json.load(stream)))
-        with self._lock:
-            for session in self._sessions.values():
-                retained.add(session.manifest_sha256)
-                retained.update(manifest_hashes(session.manifest))
-        self.store.sweep(retained, self.gc_grace_seconds)
-
-    def _session(self, upload_id: str) -> UploadSession:
-        self._expire_sessions()
-        with self._lock:
-            try:
-                return self._sessions[upload_id]
-            except KeyError as error:
-                raise KeyError("upload session not found or expired") from error
-
-    def _expire_sessions(self) -> None:
-        now = datetime.now(UTC)
-        with self._lock:
-            self._sessions = {
-                key: value
-                for key, value in self._sessions.items()
-                if value.expires_at > now
-            }
 
     def _check_name(self, collection_id: str, name: str) -> None:
         try:

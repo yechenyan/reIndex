@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 from typing import Literal
 from uuid import UUID
 
@@ -105,8 +106,25 @@ class PushRequest(ApiRequest):
         return self
 
 
+class EmbeddingBatch(ApiRequest):
+    profile: str = Field(min_length=1, max_length=255)
+    vectors: dict[str, list[float]] = Field(min_length=1, max_length=100000)
+
+    @field_validator("vectors")
+    @classmethod
+    def validate_vectors(cls, value: dict[str, list[float]]) -> dict[str, list[float]]:
+        if any(not re.fullmatch(r"[0-9a-f]{64}", key) for key in value):
+            raise ValueError("embedding vector keys must be SHA-256 hashes")
+        if any(not vector for vector in value.values()):
+            raise ValueError("embedding vectors must not be empty")
+        if len({len(vector) for vector in value.values()}) != 1:
+            raise ValueError("embedding vectors must have one dimension")
+        return value
+
+
 class CommitRequest(ApiRequest):
     upload_id: UUID
+    embeddings: EmbeddingBatch | None = None
 
 
 class FetchRequest(CollectionRequest):

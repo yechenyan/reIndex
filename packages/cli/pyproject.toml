@@ -28,6 +28,9 @@ dependencies = [
     "pyyaml>=6,<7",
 ]
 
+[project.optional-dependencies]
+embeddings = ["sentence-transformers>=3.0,<6"]
+
 [project.urls]
 Homepage = "https://github.com/yechenyan/reIndex"
 Documentation = "https://github.com/yechenyan/reIndex/tree/main/wiki"

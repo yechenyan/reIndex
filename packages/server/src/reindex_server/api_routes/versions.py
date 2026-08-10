@@ -57,7 +57,7 @@ def install_version_routes(app: FastAPI) -> None:
     async def commit_push(request: CommitRequest) -> dict:
         try:
             return await asyncio.to_thread(
-                app.state.service.commit_push, str(request.upload_id)
+                app.state.service.commit_push, str(request.upload_id), request.embeddings
             )
         except Exception as error:
             raise http_error(error) from error

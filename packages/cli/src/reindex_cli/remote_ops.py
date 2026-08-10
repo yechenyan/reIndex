@@ -7,6 +7,7 @@ from reindex_cli.checkout import local_manifest
 from reindex_cli.collection import resolve_collection
 from reindex_cli.config import get_api_url
 from reindex_cli.errors import ReIndexError
+from reindex_cli.local_embeddings import local_embeddings
 from reindex_cli.pipeline.runner import check_collection
 from reindex_cli.remote_state import (
     cache_manifest,
@@ -48,6 +49,7 @@ def push_collection(
         blobs=blobs,
         message=message or "Publish Collection",
         dry_run=dry_run,
+        embedding_source=None if dry_run else (context.output_dir, context.root),
     )
     version_id = result.get("version_id") or result.get("head_version_id")
     if not dry_run:
@@ -210,6 +212,7 @@ def _publish(
     dry_run,
     operation="publish",
     source_version_id=None,
+    embedding_source=None,
 ):
     payload = {
         "name": name,
@@ -230,7 +233,11 @@ def _publish(
         if path is None:
             raise ReIndexError(f"Server is missing retained blob: {item['sha256']}")
         client.upload_blob(upload_id, item["sha256"], path)
-    return client.json("/v1/push/commit", {"upload_id": upload_id})
+    commit = {"upload_id": upload_id}
+    if embedding_source:
+        if embeddings := local_embeddings(*embedding_source):
+            commit["embeddings"] = embeddings
+    return client.json("/v1/push/commit", commit)
 
 
 def _name_and_url(target: str, api_url: str | None) -> tuple[str, str]:
