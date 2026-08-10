@@ -19,7 +19,7 @@ class EmbeddingProvider:
 
 
 class QwenEmbeddingProvider(EmbeddingProvider):
-    name = "Qwen/Qwen3-Embedding-0.6B@1024"
+    name = "qwen3-embedding-0.6b@1024"
 
     def __init__(self) -> None:
         self._model = None

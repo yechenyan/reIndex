@@ -14,6 +14,10 @@ def test_qwen_embeddings_are_enabled_by_default(monkeypatch) -> None:
     assert isinstance(provider_from_environment(), QwenEmbeddingProvider)
 
 
+def test_qwen_profile_matches_local_cli_uploads() -> None:
+    assert QwenEmbeddingProvider.name == "qwen3-embedding-0.6b@1024"
+
+
 def test_embeddings_can_be_explicitly_disabled(monkeypatch) -> None:
     monkeypatch.setenv("REINDEX_EMBEDDINGS", "disabled")
     provider = provider_from_environment()
