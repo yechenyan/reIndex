@@ -69,7 +69,7 @@ class SearchRequest(CollectionRequest):
             "examples": [
                 {
                     "collection": "energy-reports",
-                    "query": "未来十年光伏装机容量会增长到多少？",
+                    "query": "Wie stark wird die installierte Photovoltaikleistung in den nächsten zehn Jahren wachsen?",
                     "mode": "hybrid",
                     "limit": 10,
                     "candidate_limit": 100,

@@ -1550,7 +1550,7 @@ components:
           - table
         limit: 10
         mode: hybrid
-        query: 未来十年光伏装机容量会增长到多少？
+        query: Wie stark wird die installierte Photovoltaikleistung in den nächsten zehn Jahren wachsen?
         ranking:
           lexical_weight: 0.5
           max_per_node: 3
