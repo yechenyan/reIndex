@@ -1,5 +1,6 @@
 import { exploreHref } from "../route";
 import type { SearchEvidence, SearchResult } from "../types";
+import { useI18n } from "../i18n";
 
 type Props = {
   collection: string;
@@ -67,13 +68,14 @@ function EvidencePreview({ evidence, query }: { evidence: SearchEvidence; query:
 }
 
 export function SearchResults(props: Props) {
-  if (props.error) return <section className="search-empty error"><h2>搜索失败</h2><p>{props.error}</p></section>;
-  if (props.loading && !props.results.length) return <section className="search-empty"><span className="search-pulse" /><h2>正在搜索</h2><p>正在组合匹配的 Evidence。</p></section>;
-  if (!props.searched) return <section className="search-empty"><span className="search-compass">⌕</span><h2>搜索可信证据</h2><p>选择 Collection，输入问题，然后从数据卡、正文和表格行中查找结果。</p></section>;
-  if (!props.results.length) return <section className="search-empty"><h2>没有找到结果</h2><p>尝试更短的关键词、其他模式或移除 Node 类型筛选。</p></section>;
+  const { t } = useI18n();
+  if (props.error) return <section className="search-empty error"><h2>{t("search.failed")}</h2><p>{props.error}</p></section>;
+  if (props.loading && !props.results.length) return <section className="search-empty"><span className="search-pulse" /><h2>{t("search.searching")}</h2><p>{t("search.progress")}</p></section>;
+  if (!props.searched) return <section className="search-empty"><span className="search-compass">⌕</span><h2>{t("search.prompt")}</h2><p>{t("search.promptText")}</p></section>;
+  if (!props.results.length) return <section className="search-empty"><h2>{t("search.none")}</h2><p>{t("search.noneText")}</p></section>;
   return (
     <section className="result-list">
-      <header><p><strong>{props.results.length}</strong> results</p><span>按相关性排序</span></header>
+      <header><p><strong>{props.results.length}</strong> results</p><span>{t("search.sorted")}</span></header>
       {props.results.map((result) => {
         const evidence = result.evidence;
         const location = evidence.row ? `Row ${evidence.row}` : evidence.line_start ? `Lines ${evidence.line_start}–${evidence.line_end || evidence.line_start}` : "Data card";
@@ -85,12 +87,12 @@ export function SearchResults(props: Props) {
               <h2><HighlightText query={props.query} text={evidence.title} /></h2>
               <p className="result-path">{props.collection} / {evidence.path}</p>
               <EvidencePreview evidence={evidence} query={props.query} />
-              <div className="result-footer"><span>score {result.score.toFixed(3)} · {result.channels.join(" + ")}</span><a href={exploreHref(props.collection, evidence.node_id, evidence.line_start)}>在 Explore 中打开 →</a></div>
+              <div className="result-footer"><span>score {result.score.toFixed(3)} · {result.channels.join(" + ")}</span><a href={exploreHref(props.collection, evidence.node_id, evidence.line_start)}>{t("search.open")}</a></div>
             </div>
           </article>
         );
       })}
-      {props.nextCursor ? <button className="load-more" disabled={props.loading} onClick={props.onMore} type="button">{props.loading ? "加载中…" : "加载更多结果"}</button> : null}
+      {props.nextCursor ? <button className="load-more" disabled={props.loading} onClick={props.onMore} type="button">{props.loading ? t("search.moreLoading") : t("search.more")}</button> : null}
     </section>
   );
 }

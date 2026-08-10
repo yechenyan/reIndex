@@ -11,7 +11,8 @@ For Agent-assisted setup, say: “Run `uv tool install --upgrade reindex`, then 
 - Product overview: [`wiki/overview.md`](wiki/overview.md)
 - Quick start: [`wiki/user/quickstart.md`](wiki/user/quickstart.md)
 - PDF table extractor generation: [`wiki/user/pdf-table-codegen.md`](wiki/user/pdf-table-codegen.md)
-- Seven-stage PDF extraction workflow: [`wiki/user/pdf-extractor-pdf.md`](wiki/user/pdf-extractor-pdf.md)
+- Sequential per-table PDF extraction workflow: [`wiki/user/pdf-extractor-pdf.md`](wiki/user/pdf-extractor-pdf.md)
+- Verified PDF-to-Markdown conversion: [`wiki/user/pdf-to-markdown.md`](wiki/user/pdf-to-markdown.md)
 - Architecture: [`wiki/dev/architecture.md`](wiki/dev/architecture.md)
 - Development setup: [`wiki/dev/setup.md`](wiki/dev/setup.md)
 - Package release: [`wiki/dev/release.md`](wiki/dev/release.md)
@@ -23,7 +24,9 @@ For Agent-assisted setup, say: “Run `uv tool install --upgrade reindex`, then 
 - `packages/server`: backend service package
 - `packages/web-app`: React Explore and Search application
 - `packages/pdf-table-codegen`: independent Agent workflow and runtime API for PDF-specific table extractors
-- `packages/pdf-extractor-pdf`: frozen-inventory workflow with independent QA and project-local delivery
+- `packages/pdf-extractor-pdf`: coarse discovery and a one-table Extraction/QA pipeline
+- `packages/pdf-table-5`: resumable Finder/Merge/per-table Agent workflow with structured sample verification
+- `packages/pdf-to-markdown`: LiteParse-first Markdown conversion with sampled and specialist table verification
 - `testbase`: raw fixtures and generated ReIndex packages
 - `wiki`: reference, user, and developer documentation
 - `tasks`: active and human-approved historical task notes

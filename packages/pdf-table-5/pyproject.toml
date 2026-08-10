@@ -1,0 +1,24 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pdf-table-5"
+version = "0.1.0"
+description = "Agent-orchestrated PDF table extraction workflow"
+readme = "readme.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pillow>=12,<13",
+    "pymupdf>=1.26,<2",
+]
+
+[project.scripts]
+pdf-table-5 = "pdf_table_5.cli:main"
+pdf-table-5-screenshot = "pdf_table_5.screenshot:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pdf_table_5"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

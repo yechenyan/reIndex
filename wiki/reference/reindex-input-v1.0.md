@@ -16,7 +16,7 @@ collection:
   title: "Example"
 ---
 
-这里可以写给人和 Agent 阅读的补充说明。
+Hier können ergänzende Hinweise für Menschen und Agents stehen.
 ```
 
 frontmatter 禁止重复 key、anchor、alias、自定义 tag 和多文档。Markdown body 可省略，只供人和 Agent 阅读，

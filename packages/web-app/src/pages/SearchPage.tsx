@@ -2,10 +2,12 @@ import { FormEvent, useEffect, useState } from "react";
 import { listCollections, searchNodes } from "../api";
 import { SearchResults } from "../components/SearchResults";
 import type { CollectionSummary, NodeKind, SearchResult } from "../types";
+import { useI18n } from "../i18n";
 
 const kinds: NodeKind[] = ["group", "text", "table", "image", "file"];
 
 export function SearchPage() {
+  const { t } = useI18n();
   const [collections, setCollections] = useState<CollectionSummary[]>([]);
   const [collection, setCollection] = useState("");
   const [query, setQuery] = useState("");
@@ -43,7 +45,7 @@ export function SearchPage() {
       setNextCursor(response.next_cursor);
       setSearched(true);
     } catch (reason) {
-      setError(reason instanceof Error ? reason.message : "搜索失败");
+      setError(reason instanceof Error ? reason.message : t("search.failed"));
       setSearched(true);
     } finally {
       setLoading(false);
@@ -61,8 +63,8 @@ export function SearchPage() {
     <div className="search-page">
       <section className="search-hero">
         <p className="eyebrow">REINDEX SEARCH</p>
-        <h1>从真实来源中找到答案。</h1>
-        <p>搜索数据卡、正文与表格行，并直接回到对应 Node。</p>
+        <h1>{t("search.title")}</h1>
+        <p>{t("search.description")}</p>
         <form className="search-form" onSubmit={submit}>
           <label>
             <span>Collection</span>
@@ -71,28 +73,28 @@ export function SearchPage() {
             </select>
           </label>
           <label className="query-field">
-            <span className="sr-only">搜索内容</span>
-            <input onChange={(event) => setQuery(event.target.value)} placeholder="例如：未来十年的电网投资计划是什么？" value={query} />
+            <span className="sr-only">Search query</span>
+            <input onChange={(event) => setQuery(event.target.value)} placeholder={t("search.placeholder")} value={query} />
           </label>
-          <button disabled={!collection || !query.trim() || loading} type="submit">{loading ? "搜索中" : "搜索"}<i>→</i></button>
+          <button disabled={!collection || !query.trim() || loading} type="submit">{loading ? t("search.searching") : t("search.submit")}<i>→</i></button>
         </form>
       </section>
       <section className="search-workspace">
         <aside className="search-filters">
-          <div className="filter-heading"><p className="eyebrow">SEARCH SETTINGS</p><button onClick={() => setSelectedKinds([])} type="button">重置</button></div>
+          <div className="filter-heading"><p className="eyebrow">SEARCH SETTINGS</p><button onClick={() => setSelectedKinds([])} type="button">{t("search.reset")}</button></div>
           <fieldset>
-            <legend>搜索模式</legend>
+            <legend>{t("search.mode")}</legend>
             {(["hybrid", "lexical", "semantic"] as const).map((value) => (
-              <label className="radio-row" key={value}><input checked={mode === value} name="mode" onChange={() => setMode(value)} type="radio" /><span><strong>{value}</strong><small>{value === "hybrid" ? "全文与语义融合" : value === "lexical" ? "精确关键词匹配" : "自然语言相似度"}</small></span></label>
+              <label className="radio-row" key={value}><input checked={mode === value} name="mode" onChange={() => setMode(value)} type="radio" /><span><strong>{value}</strong><small>{t(`search.${value}`)}</small></span></label>
             ))}
           </fieldset>
           <fieldset>
-            <legend>Node 类型</legend>
+            <legend>{t("search.types")}</legend>
             {kinds.map((kind) => (
               <label className="check-row" key={kind}><input checked={selectedKinds.includes(kind)} onChange={() => toggleKind(kind)} type="checkbox" /><span>{kind}</span></label>
             ))}
           </fieldset>
-          <div className="scope-note"><span>i</span><p>搜索范围是一个 Collection，结果始终读取 active version。</p></div>
+          <div className="scope-note"><span>i</span><p>{t("search.scope")}</p></div>
         </aside>
         <SearchResults
           collection={collection}

@@ -3,10 +3,12 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { getNodeResource } from "../api";
 import type { NodeSummary, ParsedCard } from "../types";
+import { useI18n } from "../i18n";
 
 type Props = { card: ParsedCard; collection: string; node: NodeSummary };
 
 export function ContentPreview({ card, collection, node }: Props) {
+  const { t } = useI18n();
   const [content, setContent] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [status, setStatus] = useState("loading");
@@ -35,8 +37,8 @@ export function ContentPreview({ card, collection, node }: Props) {
     };
   }, [card, collection, node]);
 
-  if (status === "loading") return <p className="content-state">正在读取 content…</p>;
-  if (status === "empty") return <p className="content-state">Group Node 没有独立 content，请从左侧选择它的子节点。</p>;
+  if (status === "loading") return <p className="content-state">{t("content.loading")}</p>;
+  if (status === "empty") return <p className="content-state">{t("content.empty")}</p>;
   if (status !== "ready") return <p className="content-state error">{status}</p>;
   if (imageUrl) return <figure className="image-preview"><img alt={node.title} src={imageUrl} /><figcaption>{node.title}</figcaption></figure>;
   if (node.kind === "table") return <CsvPreview source={content} />;
@@ -47,11 +49,12 @@ export function ContentPreview({ card, collection, node }: Props) {
 }
 
 function CsvPreview({ source }: { source: string }) {
+  const { t } = useI18n();
   const rows = source.trim().split(/\r?\n/).slice(0, 12).map(parseCsvRow);
-  if (!rows.length) return <p className="content-state">表格为空。</p>;
+  if (!rows.length) return <p className="content-state">{t("content.tableEmpty")}</p>;
   return (
     <div className="table-preview">
-      <div className="preview-note">显示前 {Math.max(rows.length - 1, 0)} 行</div>
+      <div className="preview-note">{t("content.rows", { count: Math.max(rows.length - 1, 0) })}</div>
       <div className="table-scroll">
         <table>
           <thead><tr>{rows[0].map((cell, index) => <th key={`${cell}-${index}`}>{cell}</th>)}</tr></thead>

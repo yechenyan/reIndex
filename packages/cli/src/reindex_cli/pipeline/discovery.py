@@ -14,6 +14,12 @@ RESERVED = {"reIndex", ".rei", ".git", "__pycache__"}
 
 def discover(root: Path, manifest: InputManifest) -> dict[str, SourceItem]:
     result: dict[str, SourceItem] = {}
+    nap_runs = {
+        path.parent
+        for path in root.rglob("output.md")
+        if "pdf-to-markdown" in path.parent.name
+    }
+    nap_source_dirs = {path.parent for path in nap_runs}
     explicit = set(manifest.items)
     explicit_hidden_dirs = {
         path
@@ -34,6 +40,10 @@ def discover(root: Path, manifest: InputManifest) -> dict[str, SourceItem]:
     ):
         relative = path.relative_to(root).as_posix()
         if _reserved(path, root) or path.is_symlink() or not path.is_file():
+            continue
+        if any(run in path.parents for run in nap_runs) and path.parent not in nap_runs:
+            continue
+        if path.suffix.lower() == ".pdf" and path.parent in nap_source_dirs:
             continue
         if relative == "reIndex.md" or any(
             relative == item or relative.startswith(item + "/") for item in ignored_dirs

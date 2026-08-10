@@ -64,15 +64,15 @@ reIndex/
 Collection 根级的独立普通 Node 使用不带顺序号的短名称：
 
 ```text
-<短名称>.<扩展名>
-<短名称>.node.md
+<kurzname>.<erweiterung>
+<kurzname>.node.md
 ```
 
 document group 或其他非根 group 内的有序普通 child 使用以下格式：
 
 ```text
-<五位顺序号>--<短名称>.<扩展名>
-<五位顺序号>--<短名称>.node.md
+<fuenfstellige-reihenfolge>--<kurzname>.<erweiterung>
+<fuenfstellige-reihenfolge>--<kurzname>.node.md
 ```
 
 例如：
@@ -108,8 +108,8 @@ document group 或其他非根 group 内的有序普通 child 使用以下格式
 
 ```text
 .node.md
-├── YAML frontmatter   身份、结构、溯源和机器可读卡片
-└── Markdown card      面向 Agent 的概览、关键事实、预览和使用提示
+├── YAML frontmatter   Identität, Struktur, Herkunft und maschinenlesbare Karte
+└── Markdown card      Überblick, Fakten, Vorschau und Nutzungshinweise für Agents
 ```
 
 完整正文或主数据不得放进 `.node.md`；它们由 `content` 显式引用。
@@ -165,8 +165,8 @@ spec: "reindex/node@1.0"
 id: "019f9c2a-0000-7000-8000-000000000001"
 kind: "text"
 order: 1
-title: "第一部分：项目概况"
-description: "说明项目背景、建设目标和实施范围。"
+title: "Teil 1: Projektübersicht"
+description: "Beschreibt den Projektkontext, die Bauziele und den Umsetzungsumfang."
 source:
   uri: "raw://report.pdf"
   sha256: "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
@@ -177,10 +177,10 @@ content:
   media_type: "text/markdown"
   sha256: "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
 ---
-## 关键事实
+## Wesentliche Fakten
 
-- 项目覆盖三个建设阶段。
-- 计划总投资为 1.2 亿元。
+- Das Projekt umfasst drei Bauphasen.
+- Die geplante Gesamtinvestition beträgt 120 Millionen Euro.
 ```
 
 `source.uri` 必须是 Collection 内的 `raw://` 相对路径。`content.uri` 可以是同目录 `./`
@@ -198,7 +198,7 @@ assets:
     media_type: "image/png"
     sha256: "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
     role: "visual_reference"
-    description: "原始表格布局的高清截图。"
+    description: "Hochauflösender Screenshot des ursprünglichen Tabellenlayouts."
 ```
 
 assets 规则：

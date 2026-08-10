@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import type { CollectionSummary, NodeSummary } from "../types";
+import { useI18n } from "../i18n";
 
 type Props = {
   collections: CollectionSummary[];
@@ -20,6 +21,7 @@ const kindMark: Record<string, string> = {
 };
 
 export function CollectionTree(props: Props) {
+  const { t } = useI18n();
   const [filter, setFilter] = useState("");
   const [open, setOpen] = useState<Set<string>>(new Set());
   const { nodes } = props;
@@ -73,7 +75,7 @@ export function CollectionTree(props: Props) {
         <span aria-hidden="true">⌕</span>
         <input
           onChange={(event) => setFilter(event.target.value)}
-          placeholder="筛选 Node 名称"
+          placeholder={t("tree.filter")}
           value={filter}
         />
       </label>
@@ -106,7 +108,7 @@ export function CollectionTree(props: Props) {
                       </button>
                     </div>
                   ))}
-                  {!props.loading && !visibleNodes.length ? <p className="tree-empty">没有匹配的 Node</p> : null}
+                  {!props.loading && !visibleNodes.length ? <p className="tree-empty">{t("tree.empty")}</p> : null}
                 </div>
               ) : null}
             </section>

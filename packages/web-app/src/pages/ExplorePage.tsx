@@ -5,8 +5,10 @@ import { NodeDetail } from "../components/NodeDetail";
 import { StatusPanel } from "../components/StatusPanel";
 import { readHashParams, replaceExploreHash } from "../route";
 import type { CollectionSummary, NodeSummary } from "../types";
+import { useI18n } from "../i18n";
 
 export function ExplorePage() {
+  const { t } = useI18n();
   const initial = readHashParams();
   const [collections, setCollections] = useState<CollectionSummary[]>([]);
   const [collectionName, setCollectionName] = useState(initial.get("collection") || "");
@@ -61,15 +63,15 @@ export function ExplorePage() {
     replaceExploreHash(collectionName, node.id);
   }
 
-  if (status === "loading") return <StatusPanel title="连接 ReIndex" message="正在读取 Collection 目录…" />;
-  if (status === "empty") return <StatusPanel title="还没有 Collection" message="使用 rei push 发布第一个 Collection 后，它会出现在这里。" />;
-  if (status !== "ready") return <StatusPanel title="Explore 暂不可用" message={status} />;
+  if (status === "loading") return <StatusPanel title={t("explore.loading.title")} message={t("explore.loading.message")} />;
+  if (status === "empty") return <StatusPanel title={t("explore.empty.title")} message={t("explore.empty.message")} />;
+  if (status !== "ready") return <StatusPanel title={t("explore.unavailable")} message={status} />;
 
   const current = collections.find((item) => item.name === collectionName);
   return (
     <div className="explore-page">
       <section className="page-intro">
-        <div><p className="eyebrow">LIVE DATA EXPLORER</p><h1>浏览可追溯的知识结构。</h1></div>
+        <div><p className="eyebrow">LIVE DATA EXPLORER</p><h1>{t("explore.title")}</h1></div>
         <div className="collection-stats">
           <span><strong>{current?.progress.nodes || nodes.length}</strong> Nodes</span>
           <span><strong>{current?.progress.resources || 0}</strong> Resources</span>

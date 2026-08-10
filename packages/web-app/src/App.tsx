@@ -5,6 +5,7 @@ import { CliDocPage } from "./pages/CliDocPage";
 import { DocHomePage } from "./pages/DocHomePage";
 import { SearchPage } from "./pages/SearchPage";
 import { normalizeHash, readAppPath } from "./route";
+import { I18nProvider, useI18n } from "./i18n";
 
 const ApiDocPage = lazy(() =>
   import("./pages/ApiDocPage").then((module) => ({ default: module.ApiDocPage })),
@@ -36,7 +37,12 @@ function useRoute() {
 }
 
 export function App() {
+  return <I18nProvider><AppContent /></I18nProvider>;
+}
+
+function AppContent() {
   const path = useRoute();
+  const { t } = useI18n();
   const active = path.startsWith("/doc")
     ? "doc"
     : path === "/search"
@@ -54,7 +60,7 @@ export function App() {
   return (
     <main className="app-shell">
       <SiteHeader active={active} />
-      <Suspense fallback={<section className="doc-state">正在加载文档…</section>}>
+      <Suspense fallback={<section className="doc-state">{t("app.loadingDocs")}</section>}>
         {page()}
       </Suspense>
     </main>

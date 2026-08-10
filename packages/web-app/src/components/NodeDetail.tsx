@@ -7,11 +7,13 @@ import type { NodeSummary, ParsedCard } from "../types";
 import { ContentPreview } from "./ContentPreview";
 import { ResourceList } from "./ResourceList";
 import { StatusPanel } from "./StatusPanel";
+import { useI18n } from "../i18n";
 
 type Tab = "card" | "content" | "resources";
 type Props = { collection: string; node: NodeSummary | null };
 
 export function NodeDetail({ collection, node }: Props) {
+  const { t } = useI18n();
   const [tab, setTab] = useState<Tab>("card");
   const [card, setCard] = useState<ParsedCard | null>(null);
   const [status, setStatus] = useState("loading");
@@ -34,9 +36,9 @@ export function NodeDetail({ collection, node }: Props) {
     return () => { active = false; };
   }, [collection, node]);
 
-  if (!node) return <StatusPanel title="选择一个 Node" message="从左侧 Collection tree 中选择需要查看的数据。" />;
-  if (status === "loading") return <StatusPanel title="读取数据卡" message={`正在加载 ${node.title}…`} />;
-  if (status !== "ready" || !card) return <StatusPanel title="无法读取 Node" message={status} />;
+  if (!node) return <StatusPanel title={t("node.choose.title")} message={t("node.choose.message")} />;
+  if (status === "loading") return <StatusPanel title={t("node.loading.title")} message={t("node.loading.message", { title: node.title })} />;
+  if (status !== "ready" || !card) return <StatusPanel title={t("node.error")} message={status} />;
 
   const command = `rei get ${node.path} --target content --remote ${collection}`;
   async function copyCommand() {
@@ -57,13 +59,13 @@ export function NodeDetail({ collection, node }: Props) {
           <p className="node-description">{node.description}</p>
         </div>
         <button className="copy-command" onClick={copyCommand} type="button">
-          {copied ? "已复制" : "复制 rei get"}
+          {copied ? t("node.copied") : t("node.copy")}
         </button>
       </header>
-      <nav className="detail-tabs" aria-label="Node 详情">
+      <nav className="detail-tabs" aria-label="Node details">
         {(["card", "content", "resources"] as Tab[]).map((value) => (
           <button className={tab === value ? "active" : ""} key={value} onClick={() => setTab(value)} type="button">
-            {{ card: "数据卡", content: "内容预览", resources: "资源" }[value]}
+            {t("node.tabs").split("|")[(["card", "content", "resources"] as Tab[]).indexOf(value)]}
           </button>
         ))}
       </nav>
@@ -71,7 +73,7 @@ export function NodeDetail({ collection, node }: Props) {
         {tab === "card" ? (
           <div className="card-layout">
             <section className="markdown-body">
-              {card.markdown ? <ReactMarkdown remarkPlugins={[remarkGfm]}>{card.markdown}</ReactMarkdown> : <p>这个 Node 暂无数据卡正文。</p>}
+              {card.markdown ? <ReactMarkdown remarkPlugins={[remarkGfm]}>{card.markdown}</ReactMarkdown> : <p>{t("node.noCard")}</p>}
             </section>
             <aside className="metadata-rail">
               <p className="eyebrow">NODE METADATA</p>

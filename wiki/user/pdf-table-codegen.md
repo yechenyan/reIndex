@@ -16,18 +16,18 @@
 
 ```mermaid
 flowchart TD
-  A["1 主 Agent 创建 job.yaml"] --> B["2 代码准备所有页面与缩略图"]
-  B --> C1["3 执行 Agent 独立找表"]
-  B --> C2["3 QA Agent 独立找表"]
-  C1 --> D["4 代码自动 diff"]
+  A["1 Haupt-Agent erstellt job.yaml"] --> B["2 Code bereitet alle Seiten und Vorschaubilder vor"]
+  B --> C1["3 Ausführungs-Agent findet Tabellen unabhängig"]
+  B --> C2["3 QA-Agent findet Tabellen unabhängig"]
+  C1 --> D["4 Code erstellt automatisch einen Diff"]
   C2 --> D
-  D --> E["主 Agent 只复核冲突并冻结 inventory"]
-  E --> F["代码生成表格裁剪和中性几何"]
-  F --> G1["5 执行 Agent 写 extractor.py"]
-  F --> G2["5 QA Agent 写首2行、尾2行、总行数等"]
-  G1 --> H["6 代码运行两次并验证"]
+  D --> E["Haupt-Agent prüft nur Konflikte und friert inventory ein"]
+  E --> F["Code erzeugt Tabellenausschnitte und neutrale Geometrie"]
+  F --> G1["5 Ausführungs-Agent schreibt extractor.py"]
+  F --> G2["5 QA-Agent schreibt erste/letzte Zeilen und Gesamtzahl"]
+  G1 --> H["6 Code wird zweimal ausgeführt und validiert"]
   G2 --> H
-  H --> I["7 主 Agent 最终检查并标记 machine complete"]
+  H --> I["7 Haupt-Agent prüft abschließend und markiert machine complete"]
 ```
 
 原文档里的表格合并、拆分和误检删除放在第 4 阶段、inventory 冻结之前。

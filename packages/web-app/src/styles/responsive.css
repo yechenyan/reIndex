@@ -1,6 +1,7 @@
 @media (max-width: 900px) {
-  .topbar { grid-template-columns: 1fr auto; padding: 0 20px; }
+  .topbar { grid-template-columns: 1fr auto auto; padding: 0 20px; }
   .main-nav { gap: 20px; }
+  .language-picker { margin-left: 0; }
   .protocol-badge { display: none; }
   .page-intro { align-items: start; flex-direction: column; }
   .explore-grid { grid-template-columns: 280px minmax(520px, 1fr); overflow-x: auto; }

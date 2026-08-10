@@ -1,6 +1,9 @@
+import { useI18n, type Language } from "../i18n";
+
 type Props = { active: "explore" | "search" | "doc" };
 
 export function SiteHeader({ active }: Props) {
+  const { language, setLanguage, t } = useI18n();
   return (
     <header className="topbar">
       <a className="brand" href="/#/explore" aria-label="ReIndex Explore">
@@ -11,21 +14,22 @@ export function SiteHeader({ active }: Props) {
         </span>
         <span>reIndex</span>
       </a>
-      <nav className="main-nav" aria-label="主要导航">
+      <nav className="main-nav" aria-label={t("nav.label")}>
         <a className={active === "explore" ? "active" : ""} href="/#/explore">
-          Explore
+          {t("nav.explore")}
         </a>
         <a className={active === "search" ? "active" : ""} href="/#/search">
-          Search
+          {t("nav.search")}
         </a>
         <a className={active === "doc" ? "active" : ""} href="/#/doc">
-          Docs
+          {t("nav.docs")}
         </a>
-        <a href="https://github.com/yechenyan/reIndex/tree/main/wiki" rel="noreferrer" target="_blank">Wiki ↗</a>
+        <a href="https://github.com/yechenyan/reIndex/tree/main/wiki" rel="noreferrer" target="_blank">{t("nav.wiki")}</a>
         <a href="https://github.com/yechenyan/reIndex" rel="noreferrer" target="_blank">
-          GitHub ↗
+          {t("nav.github")}
         </a>
       </nav>
+      <label className="language-picker"><span className="sr-only">{t("language.label")}</span><select aria-label={t("language.label")} onChange={(event) => setLanguage(event.target.value as Language)} value={language}><option value="de">DE</option><option value="en">EN</option><option value="zh">中文</option></select></label>
       <span className="protocol-badge">Protocol 1.0</span>
     </header>
   );

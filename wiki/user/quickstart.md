@@ -9,18 +9,18 @@ Collection。命令行入口统一是 `rei`；用户只需要使用 Collection n
 把下面整段提示词发给 Codex、Claude Code、Cursor 或 Copilot。将 `<REINDEX_REPO>` 替换为本仓库的绝对路径：
 
 ```text
-请在 <REINDEX_REPO> 中运行并验证 ReIndex 项目。
+Führe das ReIndex-Projekt in <REINDEX_REPO> aus und validiere es.
 
-要求：
-1. 先阅读 AGENTS.md，并遵守仓库任务与文档规则。
-2. 使用 uv sync 安装 workspace 依赖，然后运行 uv run pytest -q。
-3. 在 127.0.0.1:8000 启动并保持本地 reindex-server 在后台运行，数据目录使用仓库内的 tmp/quickstart-server；本次不配置 DATABASE_URL，只验证本地 lexical search，不下载 embedding 模型；全部验证结束后停止服务。
-4. 使用 testbase/test2-generage 做完整客户端验证：inspect、scan、check、push、pull、search、get。
-5. pull 写到 tmp/quickstart-test2；确认其中除 .rei/remote.json 外，reIndex tree 只包含 .node.md。
-6. 使用一个新的空 cache 目录，对 technology-costs-2020.node.md 的 content 连续执行两次 get，确认第一次下载、第二次复用 SHA-256 cache。
-7. 如果端口已占用，可以选择其他空闲端口，但所有命令必须使用同一个 API URL。
-8. 不部署服务，不改业务代码；如果运行暴露真实问题，先说明原因，再做最小修复并重新执行失败步骤和全量测试。
-9. 最后报告服务健康状态、push 的 Node/Source/Resource 数量、pull 文件检查、search 结果数量、两次 get 的 source，以及测试结果。
+Anforderungen:
+1. Lies zuerst AGENTS.md und beachte die Aufgaben- und Dokumentationsregeln des Repositorys.
+2. Installiere die Workspace-Abhängigkeiten mit uv sync und führe anschließend uv run pytest -q aus.
+3. Starte und halte den lokalen reindex-server unter 127.0.0.1:8000 im Hintergrund. Verwende tmp/quickstart-server im Repository als Datenverzeichnis; konfiguriere diesmal keine DATABASE_URL, prüfe nur die lokale lexikalische Suche, lade kein Embedding-Modell herunter und stoppe den Dienst nach allen Prüfungen.
+4. Führe mit testbase/test2-generage die vollständige Client-Validierung aus: inspect, scan, check, push, pull, search und get.
+5. Schreibe pull nach tmp/quickstart-test2 und bestätige, dass der reIndex-Baum außer .rei/remote.json nur .node.md enthält.
+6. Führe get für den content von technology-costs-2020.node.md mit einem neuen leeren Cache-Verzeichnis zweimal aus; bestätige beim ersten Lauf download und beim zweiten die Wiederverwendung des SHA-256-Cache.
+7. Wenn der Port belegt ist, wähle einen freien Port, aber verwende für alle Befehle dieselbe API-URL.
+8. Stelle keinen Dienst bereit und ändere keinen Produktcode. Falls ein echter Fehler auftritt, erkläre zuerst die Ursache, nimm dann die kleinste Korrektur vor und wiederhole den fehlgeschlagenen Schritt sowie alle Tests.
+9. Berichte abschließend Dienststatus, Node/Source/Resource-Anzahlen des push, die pull-Dateiprüfung, die Anzahl der search-Ergebnisse, die Quellen beider get-Aufrufe und die Testergebnisse.
 ```
 
 AI Agent 应执行的等价步骤如下，便于人工核对。
@@ -108,12 +108,12 @@ uv run rei get technology-costs-2020.node.md \
 安装发布版 CLI 后，可以把下面提示词中的 `<DATA_DIR>`、`<COLLECTION_NAME>` 和 `<API_URL>` 替换为真实值：
 
 ```text
-请把 <DATA_DIR> 制作并发布为 ReIndex Collection，名称为 <COLLECTION_NAME>，API 是 <API_URL>。
+Erstelle und veröffentliche aus <DATA_DIR> eine ReIndex-Collection namens <COLLECTION_NAME>; die API lautet <API_URL>.
 
-先运行 uv tool install --upgrade reindex，然后执行 rei init <DATA_DIR> --name <COLLECTION_NAME> --agent <CURRENT_AGENT>，安装或安全更新 ReIndex skills。不要创建或下载教程数据。
-接着检查真实文件和 reIndex.md，依次运行 rei inspect、rei scan、rei check。只有 check 返回 valid 后才运行 rei set-api <API_URL> 和 rei push <DATA_DIR>。
-push 成功后选择一个与数据相关的代表性问题，运行 rei search "<代表性问题>" --path <DATA_DIR> --mode lexical；再依据搜索结果运行 rei get <node-path> --target content --path <DATA_DIR>，精确取得一个 content 或 source，并验证本地文件或 SHA-256 cache 可复用。
-不要让我选择或输入 UUID、package 路径或服务端资源 ID。若 push 报 stale base，先 fetch/pull，所有冲突只在本地解决，不要求服务端 merge。最后汇报 Collection name、version ID、Node/Source/Resource 数量、搜索结果和 get 的来源。
+Führe zuerst uv tool install --upgrade reindex aus und danach rei init <DATA_DIR> --name <COLLECTION_NAME> --agent <CURRENT_AGENT>, um die ReIndex-Skills zu installieren oder sicher zu aktualisieren. Erstelle oder lade keine Tutorialdaten herunter.
+Prüfe dann die echten Dateien und reIndex.md und führe nacheinander rei inspect, rei scan und rei check aus. Erst wenn check valid zurückgibt, führe rei set-api <API_URL> und rei push <DATA_DIR> aus.
+Wähle nach einem erfolgreichen push eine repräsentative datenbezogene Frage und führe rei search "<repräsentative Frage>" --path <DATA_DIR> --mode lexical aus. Verwende danach das Suchergebnis für rei get <node-path> --target content --path <DATA_DIR>, um genau einen content oder source abzurufen, und bestätige die Wiederverwendung einer lokalen Datei oder des SHA-256-Cache.
+Bitte lass mich weder UUIDs noch Package-Pfade oder serverseitige Ressourcen-IDs auswählen oder eingeben. Bei stale base zuerst fetch/pull ausführen; alle Konflikte nur lokal lösen und keinen Server-Merge verlangen. Abschließend Collection-Name, Versions-ID, Node/Source/Resource-Anzahlen, Suchergebnisse und die Quelle von get berichten.
 ```
 
 `<CURRENT_AGENT>` 可取 `codex`、`claude`、`cursor` 或 `copilot`。`rei init` 是幂等操作，会创建或复用

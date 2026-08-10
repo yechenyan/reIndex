@@ -3,11 +3,11 @@
 ReIndex 是 Python uv workspace，文件 package 是协议真相，服务器数据库是可重建投影。
 
 ```text
-packages/cli     `rei`/`reindex`；Collection 身份、输入检查、Docling 解析、增量编译和 package 校验
-packages/server  CAS/版本历史、active 投影、索引和 HTTP API
-testbase         Collection 源数据和生成后的 ReIndex packages
-wiki             1.0 协议、用户和开发文档
-tasks            活跃工作说明和历史记录
+packages/cli     `rei`/`reindex`; Collection-Identität, Eingabeprüfung, Docling-Parsing, inkrementelle Kompilierung und Package-Validierung
+packages/server  CAS/Versionshistorie, aktive Projektion, Index und HTTP API
+testbase         Collection-Quelldaten und erzeugte ReIndex-Packages
+wiki             1.0-Protokoll sowie Benutzer- und Entwicklerdokumentation
+tasks            Aktive Arbeitsnotizen und historische Aufzeichnungen
 ```
 
 ## CLI 编译流水线

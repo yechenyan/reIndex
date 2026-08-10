@@ -34,7 +34,7 @@ def create_collection(directory: Path, name: str | None = None) -> dict:
         "id": collection_id,
         "name": normalized_name,
         "created_at": datetime.now(UTC).isoformat(),
-        "output_dir": f"{collection_id}--{slugify(root.name, 'collection')}",
+        "output_dir": f"{collection_id}--{slugify(normalized_name, 'collection')}",
     }
     atomic_json(state_path, state)
     atomic_json(

@@ -1,5 +1,6 @@
 import { RedocStandalone } from "redoc";
 import openApiUrl from "../../../server/src/reindex_server/openapi/reindex-http-v1.yaml?url";
+import { useI18n } from "../i18n";
 
 const options = {
   expandResponses: "200,201",
@@ -18,11 +19,12 @@ const options = {
 };
 
 export function ApiDocPage() {
+  const { t } = useI18n();
   return (
     <section className="api-doc-page">
       <div className="doc-subnav">
         <a href="/#/doc">Docs</a><span>/</span><strong>HTTP API</strong>
-        <a className="doc-switch" href="/#/doc/cli">查看 CLI 文档</a>
+        <a className="doc-switch" href="/#/doc/cli">{t("api.switchCli")}</a>
       </div>
       <div className="api-doc-redoc">
         <RedocStandalone options={options} specUrl={openApiUrl} />

@@ -45,10 +45,12 @@ Read this file before changing the repository.
 - Keep independently publishable Python packages under `packages/`.
 - Keep fixtures, source data, generated ReIndex packages, and fixture builders under `testbase/`.
 - Keep active work notes under `tasks/` and reviewed, completed notes under `tasks/history/`.
-- Keep every new hand-maintained source or documentation file, and every such
-  file materially changed by an agent, at 200 physical lines or fewer. A special
-  case may exceed 200 only with a concrete justification in the active task note,
-  and must never exceed 300 lines.
+- Keep every new hand-maintained source file, and every such file materially
+  changed by an agent, at 200 physical lines or fewer. A special case may exceed
+  200 only with a concrete justification in the active task note, and must never
+  exceed 300 lines.
+- Markdown documentation files are exempt from the line limit and may exceed
+  300 physical lines.
 - When a file would exceed its limit, split it by responsibility into new files
   or modules while preserving all behavior. Do not evade the limit by deleting
   logic, combining statements, minifying, collapsing readable formatting, moving

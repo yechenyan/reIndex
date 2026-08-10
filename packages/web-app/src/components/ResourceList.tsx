@@ -1,9 +1,11 @@
 import { getNodeResource } from "../api";
 import type { NodeSummary, ParsedCard, ResourceMetadata } from "../types";
+import { useI18n } from "../i18n";
 
 type Props = { card: ParsedCard; collection: string; node: NodeSummary };
 
 export function ResourceList({ card, collection, node }: Props) {
+  const { t } = useI18n();
   const resources = [
     card.metadata.source ? { label: "Source", target: "source" as const, value: card.metadata.source } : null,
     card.metadata.content ? { label: "Content", target: "content" as const, value: card.metadata.content } : null,
@@ -20,7 +22,7 @@ export function ResourceList({ card, collection, node }: Props) {
     URL.revokeObjectURL(url);
   }
 
-  if (!resources.length) return <p className="content-state">这个 Group Node 没有独立资源。</p>;
+  if (!resources.length) return <p className="content-state">{t("resources.empty")}</p>;
   return (
     <section className="resource-list">
       <header><p className="eyebrow">LINKED RESOURCES</p><span>{resources.length} items</span></header>
@@ -33,7 +35,7 @@ export function ResourceList({ card, collection, node }: Props) {
             <code>{item.value.sha256 ? `sha256:${item.value.sha256.slice(0, 16)}…` : "No digest"}</code>
           </div>
           <span className="resource-type">{item.value.media_type || item.value.role || "resource"}</span>
-          <button onClick={() => download(item.target, item.ordinal)} type="button">下载</button>
+          <button onClick={() => download(item.target, item.ordinal)} type="button">{t("resources.download")}</button>
         </article>
       ))}
     </section>

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import type { CliCommand, CliContract, CliParameter } from "../docTypes";
+import { useI18n } from "../i18n";
 
 function parameterLabel(parameter: CliParameter) {
   return parameter.flags?.join(", ") || parameter.name;
@@ -61,6 +62,7 @@ function OutputProtocol({ values }: { values: Record<string, string> }) {
 }
 
 export function CliDocPage() {
+  const { t } = useI18n();
   const [contract, setContract] = useState<CliContract | null>(null);
   const [selected, setSelected] = useState("init");
   const [query, setQuery] = useState("");
@@ -84,16 +86,16 @@ export function CliDocPage() {
   }, [contract, query]);
   const command = contract?.commands.find((item) => item.id === selected);
 
-  if (error) return <section className="doc-state">CLI contract 加载失败：{error}</section>;
-  if (!contract) return <section className="doc-state">正在加载 CLI 契约…</section>;
+  if (error) return <section className="doc-state">{t("cli.loadError")}: {error}</section>;
+  if (!contract) return <section className="doc-state">{t("cli.loading")}</section>;
   return (
     <section className="cli-doc-page">
       <aside className="cli-sidebar">
         <div className="doc-subnav"><a href="#/doc">Docs</a><span>/</span><strong>CLI</strong></div>
-        <label><span className="sr-only">搜索命令</span>
-          <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="搜索命令…" />
+        <label><span className="sr-only">{t("cli.search")}</span>
+          <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder={t("cli.search")} />
         </label>
-        <nav aria-label="CLI 命令">
+        <nav aria-label={t("cli.commandNav")}>
           {commands.map((item) => (
             <button className={item.id === selected ? "active" : ""} key={item.id} onClick={() => setSelected(item.id)}>
               <code>rei {item.path.join(" ")}</code><span>{item.summary}</span>
@@ -102,7 +104,7 @@ export function CliDocPage() {
         </nav>
       </aside>
       <div className="cli-content">
-        <div className="cli-contract-badge">{contract.spec} · 自动生成</div>
+        <div className="cli-contract-badge">{contract.spec} · {t("cli.generated")}</div>
         <OutputProtocol values={contract.program.output} />
         {command && <CommandDetail command={command} />}
       </div>

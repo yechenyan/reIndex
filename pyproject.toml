@@ -1,11 +1,16 @@
 [tool.uv.workspace]
-members = ["packages/cli", "packages/server", "packages/pdf-table-codegen", "packages/pdf-extractor-pdf"]
+members = ["packages/cli", "packages/server", "packages/pdf-table-codegen", "packages/pdf-extractor-pdf", "packages/pdf-extractor-table-example", "packages/pdf-exractor-table-example-diff", "packages/pdf-table-5", "packages/pdf-table-region", "packages/pdf-to-markdown"]
 
 [tool.uv.sources]
 reindex = { workspace = true }
 reindex-server = { workspace = true }
 pdf-table-codegen = { workspace = true }
 pdf-extractor-pdf = { workspace = true }
+pdf-extractor-table-example = { workspace = true }
+pdf-exractor-table-example-diff = { workspace = true }
+pdf-table-5 = { workspace = true }
+pdf-table-region = { workspace = true }
+pdf-to-markdown = { workspace = true }
 
 [dependency-groups]
 dev = [
@@ -14,6 +19,11 @@ dev = [
     "pypdfium2>=5,<6",
     "pdf-table-codegen",
     "pdf-extractor-pdf",
+    "pdf-extractor-table-example",
+    "pdf-exractor-table-example-diff",
+    "pdf-table-5",
+    "pdf-table-region",
+    "pdf-to-markdown",
     "pyyaml>=6,<7",
     "pytest>=8,<9",
     "reindex",
