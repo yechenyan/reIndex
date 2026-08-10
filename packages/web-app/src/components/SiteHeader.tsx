@@ -1,6 +1,6 @@
 import { useI18n, type Language } from "../i18n";
 
-type Props = { active: "explore" | "search" | "doc" };
+type Props = { active: "explore" | "search" | "tables" | "doc" };
 
 export function SiteHeader({ active }: Props) {
   const { language, setLanguage, t } = useI18n();
@@ -21,7 +21,7 @@ export function SiteHeader({ active }: Props) {
         <a className={active === "search" ? "active" : ""} href="/#/search">
           {t("nav.search")}
         </a>
-        <a className={active === "search" ? "active" : ""} href="/v1/tables/query">
+        <a className={active === "tables" ? "active" : ""} href="/v1/tables/query">
           {t("nav.tables")}
         </a>
         <a className={active === "doc" ? "active" : ""} href="/#/doc">

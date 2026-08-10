@@ -44,7 +44,9 @@ function AppContent() {
   const { t } = useI18n();
   const active = path.startsWith("/doc")
     ? "doc"
-    : path === "/search" || path === "/tables/query"
+    : path === "/tables/query"
+      ? "tables"
+    : path === "/search"
       ? "search"
       : "explore";
 
