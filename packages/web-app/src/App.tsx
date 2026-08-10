@@ -17,9 +17,7 @@ function useRoute() {
   useEffect(() => {
     const update = () => {
       const normalized = normalizeHash(window.location.hash);
-      if (normalized.startsWith("#/doc/api")) {
-        window.history.replaceState(null, "", "/docs/api");
-      } else if (window.location.pathname === "/" && normalized !== window.location.hash) {
+      if (window.location.pathname === "/" && normalized !== window.location.hash) {
         window.history.replaceState(null, "", normalized);
       }
       setPath(readAppPath());
@@ -52,7 +50,7 @@ function AppContent() {
   const page = () => {
     if (path === "/search") return <SearchPage />;
     if (path === "/doc/cli") return <CliDocPage />;
-    if (path === "/docs/api") return <ApiDocPage />;
+    if (path === "/doc/api") return <ApiDocPage />;
     if (path.startsWith("/doc")) return <DocHomePage />;
     return <ExplorePage />;
   };

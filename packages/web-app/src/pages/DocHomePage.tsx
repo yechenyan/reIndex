@@ -4,7 +4,7 @@ export function DocHomePage() {
   const { t } = useI18n();
   const entries = [
     { href: "#/doc/cli", label: "CLI Reference", title: t("docs.cli.title"), description: t("docs.cli.desc") },
-    { href: "/docs/api", label: "HTTP API Reference", title: t("docs.api.title"), description: t("docs.api.desc") },
+    { href: "#/doc/api", label: "HTTP API Reference", title: t("docs.api.title"), description: t("docs.api.desc") },
   ];
   return (
     <section className="doc-home">

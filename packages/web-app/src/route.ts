@@ -5,8 +5,6 @@ export function normalizeHash(hash: string) {
 }
 
 export function readAppPath() {
-  const pathname = window.location.pathname.replace(/\/+$/, "") || "/";
-  if (pathname === "/docs/api") return pathname;
   return normalizeHash(window.location.hash).slice(1).split("?")[0];
 }
 

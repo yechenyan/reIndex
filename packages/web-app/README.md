@@ -8,9 +8,9 @@ React frontend for browsing and searching active ReIndex Collections.
 - `#/search`: lexical, semantic, or hybrid Evidence search scoped to one Collection.
 - `#/doc`: parent entry for protocol documentation.
 - `#/doc/cli`: CLI reference generated from the `reindex/cli@1.0` contract.
-- `/docs/api`: Redoc reference rendered from the HTTP OpenAPI contract.
+- `#/doc/api`: Redoc reference rendered from the HTTP OpenAPI contract.
 
-The legacy `#/doc/api` URL redirects to `/docs/api`. Redoc derives its navigation,
+Redoc derives its navigation,
 operations, and schemas directly from the authoritative server OpenAPI YAML,
 bundled by Vite; do not maintain a separate API navigation list in the frontend.
 
