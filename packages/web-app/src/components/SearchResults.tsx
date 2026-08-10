@@ -1,4 +1,6 @@
 import { exploreHref } from "../route";
+import { SERVICE_UNAVAILABLE_MESSAGE } from "../api";
+import { ServiceStartRequest } from "./StatusPanel";
 import type { SearchEvidence, SearchResult } from "../types";
 import { useI18n } from "../i18n";
 
@@ -69,7 +71,7 @@ function EvidencePreview({ evidence, query }: { evidence: SearchEvidence; query:
 
 export function SearchResults(props: Props) {
   const { t } = useI18n();
-  if (props.error) return <section className="search-empty error"><h2>{t("search.failed")}</h2><p>{props.error}</p></section>;
+  if (props.error) return <section className="search-empty error"><h2>{t("search.failed")}</h2><p>{props.error}</p>{props.error === SERVICE_UNAVAILABLE_MESSAGE ? <ServiceStartRequest /> : null}</section>;
   if (props.loading && !props.results.length) return <section className="search-empty"><span className="search-pulse" /><h2>{t("search.searching")}</h2><p>{t("search.progress")}</p></section>;
   if (!props.searched) return <section className="search-empty"><span className="search-compass">⌕</span><h2>{t("search.prompt")}</h2><p>{t("search.promptText")}</p></section>;
   if (!props.results.length) return <section className="search-empty"><h2>{t("search.none")}</h2><p>{t("search.noneText")}</p></section>;

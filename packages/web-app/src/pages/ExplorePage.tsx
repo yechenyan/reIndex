@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { browseNodes, listCollections } from "../api";
+import { browseNodes, listCollections, SERVICE_UNAVAILABLE_MESSAGE } from "../api";
 import { CollectionTree } from "../components/CollectionTree";
 import { NodeDetail } from "../components/NodeDetail";
-import { StatusPanel } from "../components/StatusPanel";
+import { ServiceStartRequest, StatusPanel } from "../components/StatusPanel";
 import { readHashParams, replaceExploreHash } from "../route";
 import type { CollectionSummary, NodeSummary } from "../types";
 import { useI18n } from "../i18n";
@@ -65,7 +65,7 @@ export function ExplorePage() {
 
   if (status === "loading") return <StatusPanel title={t("explore.loading.title")} message={t("explore.loading.message")} />;
   if (status === "empty") return <StatusPanel title={t("explore.empty.title")} message={t("explore.empty.message")} />;
-  if (status !== "ready") return <StatusPanel title={t("explore.unavailable")} message={status} />;
+  if (status !== "ready") return <StatusPanel action={status === SERVICE_UNAVAILABLE_MESSAGE ? <ServiceStartRequest /> : undefined} title={t("explore.unavailable")} message={status} />;
 
   const current = collections.find((item) => item.name === collectionName);
   return (

@@ -7,7 +7,7 @@ import type {
 } from "./types";
 
 const API_BASE = (import.meta.env.VITE_API_BASE_URL || "").replace(/\/$/, "");
-const SERVICE_UNAVAILABLE_MESSAGE = "当前为测试阶段，为节省服务端成本，当前服务端暂时关闭";
+export const SERVICE_UNAVAILABLE_MESSAGE = "当前为测试阶段，为节省服务端成本，当前服务端暂时关闭";
 
 async function request(path: string, init?: RequestInit) {
   let response: Response;

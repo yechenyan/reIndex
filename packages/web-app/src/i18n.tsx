@@ -54,6 +54,7 @@ const messages: Dictionary = {
   "explore.empty.title": { de: "Noch keine Collections", en: "No Collections yet", zh: "还没有 Collection" },
   "explore.empty.message": { de: "Veröffentlichen Sie die erste Collection mit rei push – sie erscheint dann hier.", en: "Publish your first Collection with rei push and it will appear here.", zh: "使用 rei push 发布第一个 Collection 后，它会出现在这里。" },
   "explore.unavailable": { de: "Erkunden nicht verfügbar", en: "Explore unavailable", zh: "Explore 暂不可用" },
+  "service.requestStart": { de: "Start anfragen", en: "Request service start", zh: "请求启动服务" },
   "explore.title": { de: "Durchsuchen Sie nachvollziehbare Wissensstrukturen.", en: "Browse traceable knowledge structures.", zh: "浏览可追溯的知识结构。" },
   "tree.filter": { de: "Node-Namen filtern", en: "Filter Node names", zh: "筛选 Node 名称" },
   "tree.empty": { de: "Keine passenden Nodes", en: "No matching Nodes", zh: "没有匹配的 Node" },
