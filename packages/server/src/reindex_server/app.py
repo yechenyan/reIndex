@@ -4,6 +4,7 @@ import asyncio
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from reindex_server import __version__
 from reindex_server.api_docs import API_DESCRIPTION, OPENAPI_TAGS, install_api_docs
@@ -35,6 +36,12 @@ def create_app(service: ReindexService | None = None) -> FastAPI:
         openapi_tags=OPENAPI_TAGS,
         lifespan=lifespan,
         responses=ERROR_RESPONSES,
+    )
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["https://reindex-web.onrender.com"],
+        allow_methods=["*"],
+        allow_headers=["*"],
     )
     app.state.service = service
     install_api_error_handling(app)
