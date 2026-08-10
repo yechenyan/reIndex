@@ -75,7 +75,7 @@ const messages: Dictionary = {
 function defaultLanguage(): Language {
   const saved = localStorage.getItem("reindex-language");
   if (saved === "de" || saved === "en" || saved === "zh") return saved;
-  return navigator.language.toLowerCase().startsWith("zh") ? "zh" : navigator.language.toLowerCase().startsWith("de") ? "de" : "en";
+  return "en";
 }
 
 const I18nContext = createContext<{ language: Language; setLanguage: (value: Language) => void; t: (key: string, values?: Record<string, string | number>) => string } | null>(null);
