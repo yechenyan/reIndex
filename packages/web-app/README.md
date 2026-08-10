@@ -4,6 +4,7 @@ React frontend for browsing and searching active ReIndex Collections.
 
 ## Pages
 
+- `#/`: Multilingual product overview and entry point to the ReIndex workflow.
 - `#/explore`: Collection and Node tree with card, content, and resource views.
 - `#/search`: lexical, semantic, or hybrid Evidence search scoped to one Collection.
 - `/v1/tables/query`: direct URL for running a read-only SQL query against an active table node.

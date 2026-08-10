@@ -4,6 +4,7 @@ export type Language = "de" | "en" | "zh";
 type Dictionary = Record<string, Record<Language, string>>;
 
 const messages: Dictionary = {
+  "nav.home": { de: "Start", en: "Home", zh: "首页" },
   "nav.explore": { de: "Erkunden", en: "Explore", zh: "浏览" },
   "nav.search": { de: "Suche", en: "Search", zh: "搜索" },
   "nav.tables": { de: "Tabellen", en: "Tables", zh: "表格" },
@@ -13,6 +14,41 @@ const messages: Dictionary = {
   "nav.label": { de: "Hauptnavigation", en: "Main navigation", zh: "主要导航" },
   "language.label": { de: "Sprache", en: "Language", zh: "语言" },
   "app.loadingDocs": { de: "Dokumentation wird geladen…", en: "Loading documentation…", zh: "正在加载文档…" },
+  "home.eyebrow": { de: "PORTABLES WISSEN FÜR AGENTEN", en: "PORTABLE KNOWLEDGE FOR AGENTS", zh: "面向智能体的可移植知识" },
+  "home.title": { de: "Aus lokalen Dateien wird verlässliches Wissen.", en: "Turn local files into dependable knowledge.", zh: "将本地文件转化为可信知识。" },
+  "home.description": { de: "ReIndex bringt Dateien, Struktur und Evidenz in ein tragbares Wissenspaket – damit Menschen und Agenten Quellen sicher finden, prüfen und nutzen können.", en: "ReIndex turns files, structure, and evidence into a portable knowledge package, so people and agents can find, verify, and use sources with confidence.", zh: "ReIndex 将文件、结构与证据组织为可移植的知识包，让人和智能体都能可靠地查找、核验和使用来源。" },
+  "home.explore": { de: "Collections erkunden", en: "Explore Collections", zh: "浏览 Collection" },
+  "home.search": { de: "Evidenz suchen", en: "Search evidence", zh: "搜索证据" },
+  "home.boardsLabel": { de: "ReIndex Funktionen", en: "ReIndex features", zh: "ReIndex 功能" },
+  "home.boardsEyebrow": { de: "DER REINDEX-FLUSS", en: "THE REINDEX FLOW", zh: "REINDEX 工作流" },
+  "home.boardsDescription": { de: "Von rohen Dateien zur nachvollziehbaren Antwort – jede Stufe bleibt mit ihren Quellen verbunden.", en: "From raw files to traceable answers: every stage stays connected to its sources.", zh: "从原始文件到可追溯的答案，每个阶段都与来源保持关联。" },
+  "home.ingest.eyebrow": { de: "01 · AUFBEREITEN", en: "01 · PREPARE", zh: "01 · 准备" },
+  "home.ingest.title": { de: "Dateien in Wissen verwandeln", en: "Turn files into knowledge", zh: "把文件变成知识" },
+  "home.ingest.description": { de: "Bauen Sie aus PDFs, Markdown, CSV und weiteren lokalen Quellen eine stabile Collection mit nachvollziehbarer Struktur.", en: "Build a stable Collection from PDFs, Markdown, CSV, and other local sources with a traceable structure.", zh: "从 PDF、Markdown、CSV 和其他本地来源构建结构可追溯、稳定的 Collection。" },
+  "home.ingest.details": { de: "Deterministische Packages|Node-Karten und Herkunft|Versioniert veröffentlichen", en: "Deterministic packages|Node cards and provenance|Versioned publishing", zh: "确定性知识包|Node 卡片与溯源|版本化发布" },
+  "home.ingest.action": { de: "Dokumentation öffnen", en: "Open documentation", zh: "查看文档" },
+  "home.discover.eyebrow": { de: "02 · FINDEN", en: "02 · DISCOVER", zh: "02 · 发现" },
+  "home.discover.title": { de: "Evidenz statt bloßer Treffer", en: "Evidence, not just results", zh: "不仅是结果，更是证据" },
+  "home.discover.description": { de: "Durchsuchen Sie Karten, Texte und Tabellen mit Keyword-, semantischer oder hybrider Suche und springen Sie zur Quelle.", en: "Search cards, text, and tables with keyword, semantic, or hybrid search, then jump straight to the source.", zh: "使用关键词、语义或混合搜索查询卡片、正文和表格，并直接定位到来源。" },
+  "home.discover.details": { de: "BM25, Vektoren und Reranking|Durchsuchbare Tabellen|Aktive Version als Quelle", en: "BM25, vectors, and reranking|Searchable tables|Active version as source", zh: "BM25、向量与重排序|可检索的表格|以当前版本为来源" },
+  "home.discover.action": { de: "Suche öffnen", en: "Open search", zh: "打开搜索" },
+  "home.agent.eyebrow": { de: "03 · NUTZEN", en: "03 · USE", zh: "03 · 使用" },
+  "home.agent.title": { de: "Für Menschen und Agenten", en: "For people and agents", zh: "服务于人和智能体" },
+  "home.agent.description": { de: "Browsen Sie im Web, nutzen Sie die CLI oder verbinden Sie Agent Skills mit einem klaren Protokoll und präzisen Abrufen.", en: "Browse in the web app, use the CLI, or connect Agent skills with a clear protocol and precise retrieval.", zh: "在 Web 应用中浏览、使用 CLI，或通过清晰协议和精确获取连接 Agent Skills。" },
+  "home.agent.details": { de: "CLI und HTTP API|Exaktes rei get|Portable Agent Skills", en: "CLI and HTTP API|Precise rei get|Portable Agent Skills", zh: "CLI 与 HTTP API|精确的 rei get|可移植 Agent Skills" },
+  "home.agent.action": { de: "CLI ansehen", en: "View the CLI", zh: "查看 CLI" },
+  "home.steps.eyebrow": { de: "VOM DATEISYSTEM ZUR ANTWORT", en: "FROM FILESYSTEM TO ANSWER", zh: "从文件系统到答案" },
+  "home.steps.title": { de: "Ein Arbeitsfluss, der Quellen nicht verliert.", en: "A workflow that never loses the source.", zh: "不丢失来源的工作流。" },
+  "home.steps.description": { de: "ReIndex trennt Struktur, Inhalt und Ressourcen, damit jede Antwort zu ihrem Ursprung zurückführt.", en: "ReIndex separates structure, content, and resources so every answer can lead back to its origin.", zh: "ReIndex 分离结构、内容与资源，使每个答案都能回溯到它的原始出处。" },
+  "home.steps.items": { de: "01;Collection anlegen;Lokale Dateien erkennen und eindeutig beschreiben.|02;Package erzeugen;Nodes, Karten und Ressourcen deterministisch zusammenstellen.|03;Veröffentlichen;Inhalte prüfen, indexieren und als neue aktive Version bereitstellen.|04;Evidenz abrufen;Im Web, per CLI oder mit Agent Skills präzise Quellen verwenden.", en: "01;Create a Collection;Discover and describe local files with stable identities.|02;Build a package;Assemble Nodes, cards, and resources deterministically.|03;Publish a version;Validate, index, and make a new active version available.|04;Retrieve evidence;Use precise sources in the web app, CLI, or Agent skills.", zh: "01;创建 Collection;识别本地文件，并用稳定的身份描述它们。|02;构建知识包;确定性地组织 Node、卡片与资源。|03;发布版本;校验、索引并提供新的当前版本。|04;获取证据;在 Web、CLI 或 Agent Skills 中精确使用来源。" },
+  "home.proof.eyebrow": { de: "GEBAUT FÜR VERTRAUEN", en: "BUILT FOR TRUST", zh: "为可信而构建" },
+  "home.proof.title": { de: "Antworten bleiben überprüfbar, weil Wissen seine Herkunft behält.", en: "Answers remain verifiable because knowledge keeps its provenance.", zh: "知识保留其溯源，答案就始终可核验。" },
+  "home.proof.items": { de: "Stabile Node-Identität;UUIDs, Reihenfolge und explizite Beziehungen machen Strukturen langfristig robust.|Präzise Ressourcen;rei get holt genau Karte, Content oder Asset statt einer unklaren Kopie.|Versionierte Collections;Die aktive Version ist durchsuchbar, ältere Stände lassen sich vergleichen oder zurückholen.", en: "Stable Node identity;UUIDs, ordering, and explicit relationships keep structures durable.|Precise resources;rei get retrieves the exact card, content, or asset instead of an ambiguous copy.|Versioned Collections;Search the active version, compare earlier states, or recover a previous release.", zh: "稳定的 Node 身份;UUID、顺序与显式关系使结构长期稳定。|精确的资源;rei get 精确获取卡片、内容或资源，而非模糊的复制品。|版本化 Collection;检索当前版本、比对历史状态，或恢复此前发布。" },
+  "home.cta.eyebrow": { de: "BEREIT ZUM START", en: "READY TO START", zh: "准备开始" },
+  "home.cta.title": { de: "Wissen aufbauen, das Menschen und Agenten wirklich nutzen können.", en: "Build knowledge that people and agents can genuinely use.", zh: "构建人和智能体都能真正使用的知识。" },
+  "home.cta.description": { de: "Beginnen Sie mit dem CLI-Vertrag oder verbinden Sie Ihre Systeme über die dokumentierte HTTP API.", en: "Start with the CLI contract, or connect your systems through the documented HTTP API.", zh: "从 CLI 协议开始，或通过已文档化的 HTTP API 连接你的系统。" },
+  "home.cta.cli": { de: "CLI-Dokumentation", en: "CLI documentation", zh: "CLI 文档" },
+  "home.cta.api": { de: "API-Referenz", en: "API reference", zh: "API 参考" },
   "explore.loading.title": { de: "Verbindung zu ReIndex", en: "Connecting to ReIndex", zh: "连接 ReIndex" },
   "explore.loading.message": { de: "Collection-Verzeichnis wird gelesen…", en: "Reading the Collection directory…", zh: "正在读取 Collection 目录…" },
   "explore.empty.title": { de: "Noch keine Collections", en: "No Collections yet", zh: "还没有 Collection" },
@@ -75,7 +111,7 @@ const messages: Dictionary = {
 function defaultLanguage(): Language {
   const saved = localStorage.getItem("reindex-language");
   if (saved === "de" || saved === "en" || saved === "zh") return saved;
-  return "en";
+  return "de";
 }
 
 const I18nContext = createContext<{ language: Language; setLanguage: (value: Language) => void; t: (key: string, values?: Record<string, string | number>) => string } | null>(null);

@@ -1,5 +1,5 @@
 export function normalizeHash(hash: string) {
-  if (!hash || hash === "#") return "#/explore";
+  if (!hash || hash === "#") return "#/";
   if (hash.startsWith("#/")) return hash;
   return `#/${hash.slice(1).replace(/^\/+/, "")}`;
 }

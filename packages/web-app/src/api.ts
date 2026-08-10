@@ -7,10 +7,17 @@ import type {
 } from "./types";
 
 const API_BASE = (import.meta.env.VITE_API_BASE_URL || "").replace(/\/$/, "");
+const SERVICE_UNAVAILABLE_MESSAGE = "当前为测试阶段，为节省服务端成本，当前服务端暂时关闭";
 
 async function request(path: string, init?: RequestInit) {
-  const response = await fetch(`${API_BASE}${path}`, init);
+  let response: Response;
+  try {
+    response = await fetch(`${API_BASE}${path}`, init);
+  } catch {
+    throw new Error(SERVICE_UNAVAILABLE_MESSAGE);
+  }
   if (!response.ok) {
+    if ([502, 503, 504].includes(response.status)) throw new Error(SERVICE_UNAVAILABLE_MESSAGE);
     const body = await response.json().catch(() => null);
     throw new Error(body?.error?.message || `ReIndex API ${response.status}`);
   }

@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect, useState } from "react";
 import { SiteHeader } from "./components/SiteHeader";
 import { ExplorePage } from "./pages/ExplorePage";
+import { HomePage } from "./pages/HomePage";
 import { CliDocPage } from "./pages/CliDocPage";
 import { DocHomePage } from "./pages/DocHomePage";
 import { SearchPage } from "./pages/SearchPage";
@@ -42,7 +43,9 @@ export function App() {
 function AppContent() {
   const path = useRoute();
   const { t } = useI18n();
-  const active = path.startsWith("/doc")
+  const active = path === "/"
+    ? "home"
+    : path.startsWith("/doc")
     ? "doc"
     : path === "/tables/query"
       ? "tables"
@@ -56,6 +59,7 @@ function AppContent() {
     if (path === "/doc/cli") return <CliDocPage />;
     if (path === "/doc/api") return <ApiDocPage />;
     if (path.startsWith("/doc")) return <DocHomePage />;
+    if (path === "/") return <HomePage />;
     return <ExplorePage />;
   };
 

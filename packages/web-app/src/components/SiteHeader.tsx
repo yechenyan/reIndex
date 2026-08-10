@@ -1,12 +1,12 @@
 import { useI18n, type Language } from "../i18n";
 
-type Props = { active: "explore" | "search" | "tables" | "doc" };
+type Props = { active: "home" | "explore" | "search" | "tables" | "doc" };
 
 export function SiteHeader({ active }: Props) {
   const { language, setLanguage, t } = useI18n();
   return (
     <header className="topbar">
-      <a className="brand" href="/#/explore" aria-label="ReIndex Explore">
+      <a className="brand" href="/#/" aria-label="ReIndex">
         <span className="brand-mark" aria-hidden="true">
           <i />
           <i />
@@ -15,6 +15,7 @@ export function SiteHeader({ active }: Props) {
         <span>reIndex</span>
       </a>
       <nav className="main-nav" aria-label={t("nav.label")}>
+        <a className={active === "home" ? "active" : ""} href="/#/">{t("nav.home")}</a>
         <a className={active === "explore" ? "active" : ""} href="/#/explore">
           {t("nav.explore")}
         </a>
