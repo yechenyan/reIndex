@@ -27,7 +27,9 @@ def service_from_environment() -> tuple[ReindexService, Database | None]:
     if database_url := database_url_from_environment():
         from reindex_server.paradedb_search import ParadeDBSearch
         from reindex_server.postgres_catalog import PostgresCatalog
+        from reindex_server.postgres import initialize_database
 
+        initialize_database(database_url)
         database = Database(database_url, **database_pool_settings_from_environment())
         catalog = PostgresCatalog(database)
         search_backend = ParadeDBSearch(database)
