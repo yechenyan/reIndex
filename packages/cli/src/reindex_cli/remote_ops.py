@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 from pathlib import Path
+import sys
+import time
 
 from reindex_cli.api import ApiClient
 from reindex_cli.checkout import local_manifest
@@ -241,7 +243,17 @@ def _publish(
         vectors = list(embeddings["vectors"].items())
         for start in range(0, len(vectors), 100):
             batch = dict(vectors[start : start + 100])
-            client.json("/v1/push/embeddings", {"upload_id": upload_id, "embeddings": {"profile": embeddings["profile"], "vectors": batch}})
+            payload = {"upload_id": upload_id, "embeddings": {"profile": embeddings["profile"], "vectors": batch}}
+            for attempt in range(3):
+                try:
+                    client.json("/v1/push/embeddings", payload, timeout=60.0)
+                    break
+                except Exception:
+                    if attempt == 2:
+                        raise
+                    time.sleep(2**attempt)
+            done = min(start + len(batch), len(vectors))
+            print(f"embedding upload {done}/{len(vectors)} ({done / len(vectors):.0%})", file=sys.stderr)
     return client.json("/v1/push/commit", commit)
 
 

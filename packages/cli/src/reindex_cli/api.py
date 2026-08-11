@@ -30,8 +30,8 @@ class ApiClient:
                 )
             )
 
-    def json(self, path: str, payload: dict) -> dict:
-        with httpx.Client(base_url=self.base_url, timeout=self.timeout) as client:
+    def json(self, path: str, payload: dict, timeout: float | None = None) -> dict:
+        with httpx.Client(base_url=self.base_url, timeout=timeout or self.timeout) as client:
             return self._json(client.post(path, json=payload))
 
     def bytes(self, path: str, payload: dict) -> tuple[bytes, dict[str, str]]:
