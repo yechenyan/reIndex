@@ -32,7 +32,7 @@
   .search-form { display: flex; flex-direction: column; box-shadow: 6px 6px 0 var(--green); }
   .search-form label:first-child { border-right: 0; border-bottom: 1px solid var(--line); }
   .search-form button { min-height: 52px; }
-  .search-workspace { display: block; margin: 0 18px 30px; }
+  .search-workspace { display: block; width: auto; margin: 0 18px 30px; }
   .search-filters { padding-right: 0; border-right: 0; }
   .search-filters fieldset { display: flex; flex-wrap: wrap; gap: 7px 18px; }
   .search-filters legend { width: 100%; }
