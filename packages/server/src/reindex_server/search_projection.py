@@ -5,6 +5,7 @@ import re
 from collections.abc import Iterable
 
 from reindex_server.domain import Node, SearchUnit
+from reindex_server.qwen_chunking import split_markdown_section
 from reindex_server.storage import ObjectStore
 
 
@@ -41,18 +42,27 @@ def build_search_units(nodes: Iterable[Node], store: ObjectStore) -> list[Search
         elif media_type in {"text/markdown", "text/plain"}:
             with store.open(content.resource.object_key) as stream:
                 text = stream.read().decode("utf-8")
-            units.extend(_text_units(node, "content_text", text, content.resource.id))
+            chunks = (
+                qwen_markdown_chunks(text)
+                if node.kind == "text"
+                else markdown_chunks(text)
+            )
+            units.extend(
+                _text_units(node, "content_text", text, content.resource.id, chunks)
+            )
     return units
 
 
 def _text_units(
-    node: Node, unit_type: str, text: str, resource_id: str | None
+    node: Node, unit_type: str, text: str, resource_id: str | None, chunks=None
 ) -> list[SearchUnit]:
     return [
         _unit(
             node, unit_type, value, ordinal, resource_id, start_line=start, end_line=end
         )
-        for ordinal, (value, start, end) in enumerate(markdown_chunks(text), 1)
+        for ordinal, (value, start, end) in enumerate(
+            chunks or markdown_chunks(text), 1
+        )
     ]
 
 
@@ -82,9 +92,11 @@ def _unit(
     )
 
 
-def markdown_chunks(
-    body: str, target_tokens: int = 600, overlap_tokens: int = 80
-) -> list[tuple[str, int, int]]:
+def qwen_markdown_chunks(body: str) -> list[tuple[str, int, int]]:
+    return [(chunk, 1, len(body.splitlines())) for chunk in split_markdown_section(body)]
+
+
+def markdown_chunks(body: str, target_tokens: int = 600, overlap_tokens: int = 80):
     lines = body.splitlines()
     if not lines:
         return [("", 1, 1)]

@@ -35,6 +35,7 @@ def test_nap_parser_emits_text_and_structured_tables_without_images(
 
     assert [node.kind for node in nodes] == ["group", "text", "table"]
     assert nodes[0].title == "Netzausbauplan 2024"
+    assert text.parent_key == nodes[0].logical_key
     assert "assets/map.png" not in text.content.decode()
     assert table.table["row_count"] == 2
     assert [column["name"] for column in table.table["columns"]] == [

@@ -14,7 +14,7 @@ from reindex_cli.util import slugify
 TABLE_RULE = re.compile(r"^:?-{3,}:?$")
 IMAGE = re.compile(r"^\s*!\[[^]]*]\([^)]*\)\s*$")
 def is_nap_markdown(item: SourceItem) -> bool:
-    return item.path.name in {"output.md", ".nap-markdown.md"} and (
+    return (item.path.name == "output.md" or item.path.name.startswith(".nap-markdown")) and (
         "pdf-to-markdown" in item.path.parent.name or item.config.derived_from is not None
     )
 def parse_nap_markdown(item: SourceItem) -> list[DraftNode]:
@@ -115,6 +115,8 @@ def _headers(raw: list[str]) -> list[str]:
 def _table_title(lines: list[str], start: int, number: int, path: list[str]) -> str:
     for line in reversed(lines[max(0, start - 16) : start]):
         value = line.strip().lstrip("#").strip()
+        if re.fullmatch(r"[-_=]{3,}", value):
+            continue
         if value and "|" not in value and len(value) <= 100 and not value.endswith((".", ":")):
             return value
     return path[-1] if path else f"NAP table {number}"

@@ -4,6 +4,7 @@ from reindex_cli.manifest.models import ItemConfig
 from reindex_cli.parsers.csv_parser import parse_csv
 from reindex_cli.parsers.docling_structure import extract_structure
 from reindex_cli.parsers.markdown import parse_markdown
+from reindex_cli.package.cards import parse_card, render_card
 from reindex_cli.pipeline.models import SourceItem
 
 
@@ -77,6 +78,14 @@ def test_markdown_headings_define_nodes_without_agent_splitting(tmp_path: Path) 
     assert [node.title for node in nodes[1:]] == ["Scope", "Data"]
     assert nodes[1].context["section_path"] == ["Report", "Scope"]
     assert "`Report` > `Scope`" in nodes[1].body
+
+
+def test_card_frontmatter_allows_literal_delimiter_in_a_value(tmp_path: Path) -> None:
+    path = tmp_path / "card.node.md"
+    path.write_bytes(render_card({"title": "A --- B"}, "Body"))
+    metadata, body = parse_card(path)
+    assert metadata == {"title": "A --- B"}
+    assert body == "Body"
 
 
 def test_docling_structure_uses_headings_and_nearby_text() -> None:
