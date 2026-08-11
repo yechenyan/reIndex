@@ -238,7 +238,10 @@ def _publish(
         client.upload_blob(upload_id, item["sha256"], path)
     commit = {"upload_id": upload_id}
     if embeddings:
-        commit["embeddings"] = embeddings
+        vectors = list(embeddings["vectors"].items())
+        for start in range(0, len(vectors), 100):
+            batch = dict(vectors[start : start + 100])
+            client.json("/v1/push/embeddings", {"upload_id": upload_id, "embeddings": {"profile": embeddings["profile"], "vectors": batch}})
     return client.json("/v1/push/commit", commit)
 
 

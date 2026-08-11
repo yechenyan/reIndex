@@ -113,7 +113,7 @@ class PublicationManager(PublicationSupportMixin):
         snapshot = load_snapshot_from_manifest(
             session.manifest, session.collection_id, self.store
         )
-        profile, embedded, reused = self._embed(snapshot.units, supplied_embeddings)
+        profile, embedded, reused = self._embed(snapshot.units, supplied_embeddings or session.embeddings)
         stats = {
             "nodes": len(snapshot.nodes),
             "sources": sum(
@@ -164,6 +164,16 @@ class PublicationManager(PublicationSupportMixin):
         }
         self._maintain(session.collection_id)
         return session.result
+
+    def upload_embeddings(self, upload_id: str, supplied) -> dict:
+        session = self._session(upload_id)
+        if session.embeddings is None:
+            session.embeddings = supplied
+        elif session.embeddings.profile != supplied.profile:
+            raise ValueError("embedding profile differs within upload session")
+        else:
+            session.embeddings.vectors.update(supplied.vectors)
+        return {"status": "ready", "vectors": len(session.embeddings.vectors)}
 
     def _check_name(self, collection_id: str, name: str) -> None:
         try:

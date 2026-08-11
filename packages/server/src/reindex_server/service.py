@@ -73,6 +73,9 @@ class ReindexService(ServiceDownloadMixin):
     def commit_push(self, upload_id: str, embeddings=None) -> dict:
         return self.publications.commit(upload_id, embeddings)
 
+    def upload_embeddings(self, upload_id: str, embeddings) -> dict:
+        return self.publications.upload_embeddings(upload_id, embeddings)
+
     def fetch_version(self, name: str, version_id: str | None = None) -> dict:
         return self.publications.fetch(name, version_id)
 

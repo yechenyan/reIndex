@@ -127,6 +127,11 @@ class CommitRequest(ApiRequest):
     embeddings: EmbeddingBatch | None = None
 
 
+class EmbeddingUploadRequest(ApiRequest):
+    upload_id: UUID
+    embeddings: EmbeddingBatch
+
+
 class FetchRequest(CollectionRequest):
     version_id: UUID | None = None
 

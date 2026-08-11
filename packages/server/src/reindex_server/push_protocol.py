@@ -31,6 +31,7 @@ class UploadSession:
     missing_sha256: set[str]
     expires_at: datetime
     uploaded_sha256: set[str] = field(default_factory=set)
+    embeddings: object | None = None
     result: dict | None = None
 
     @classmethod

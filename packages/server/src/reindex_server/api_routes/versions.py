@@ -20,6 +20,7 @@ from reindex_server.api_models import (
 )
 from reindex_server.contracts import (
     CommitRequest,
+    EmbeddingUploadRequest,
     FetchRequest,
     HistoryRequest,
     PushRequest,
@@ -58,6 +59,16 @@ def install_version_routes(app: FastAPI) -> None:
         try:
             return await asyncio.to_thread(
                 app.state.service.commit_push, str(request.upload_id), request.embeddings
+            )
+        except Exception as error:
+            raise http_error(error) from error
+
+    @app.post("/v1/push/embeddings", tags=["Versions"])
+    async def upload_embeddings(request: EmbeddingUploadRequest) -> dict:
+        try:
+            return await asyncio.to_thread(
+                app.state.service.upload_embeddings,
+                str(request.upload_id), request.embeddings,
             )
         except Exception as error:
             raise http_error(error) from error
