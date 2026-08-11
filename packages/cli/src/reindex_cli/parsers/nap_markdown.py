@@ -20,13 +20,9 @@ def is_nap_markdown(item: SourceItem) -> bool:
 def parse_nap_markdown(item: SourceItem) -> list[DraftNode]:
     text = item.path.read_text(encoding="utf-8").replace("\r\n", "\n")
     lines = text.splitlines(keepends=True)
-    tables = _tables(lines)
     source_path = item.config.derived_from or item.relative
     source_sha256 = item.sha256 if source_path == item.relative else None
-    clean = list(lines)
-    for table in tables:
-        clean[table.start : table.end] = ["\n"] * (table.end - table.start)
-    clean = ["\n" if IMAGE.match(line) else line for line in clean]
+    clean = ["\n" if IMAGE.match(line) else line for line in lines]
     sections = _sections(clean)
     title = item.config.title or _document_title(text, item.path.stem)
     group = DraftNode(
@@ -35,13 +31,11 @@ def parse_nap_markdown(item: SourceItem) -> list[DraftNode]:
         kind="group",
         title=title,
         description=item.config.description
-        or f"NAP Markdown document containing {len(sections)} text sections and {len(tables)} tables.",
+        or f"NAP Markdown document containing {len(sections)} top-level chapters.",
         source_path=source_path, source_sha256=source_sha256,
     )
     group.body = initial_body(group)
-    nodes = [group, *_text_nodes(item, title, sections, source_path, source_sha256)]
-    nodes.extend(_table_nodes(item, tables, source_path, source_sha256))
-    return nodes
+    return [group, *_text_nodes(item, title, sections, source_path, source_sha256)]
 
 class _Table:
     def __init__(self, start: int, end: int, headers: list[str], rows: list[list[str]], title: str, path: tuple[str, ...]):
@@ -129,15 +123,15 @@ def _sections(lines: list[str]) -> list[tuple[int, tuple[str, ...], str]]:
     start, content = 0, []
     for index, line in enumerate(lines):
         match = HEADING.match(line.rstrip("\n"))
-        if match:
-            if _has_body(content):
+        if match and len(match.group(1)) == 1:
+            if current_path and _has_body(content):
                 result.append((start, current_path, "".join(content)))
             level, title = len(match.group(1)), match.group(2).strip()
             path = path[: level - 1] + [title]
             current_path, start, content = tuple(path), index, [line]
         else:
             content.append(line)
-    if _has_body(content):
+    if current_path and _has_body(content):
         result.append((start, current_path, "".join(content)))
     return result
 
@@ -178,10 +172,11 @@ def _text_nodes(item: SourceItem, title: str, sections: list[tuple[int, tuple[st
     return result
 
 
-def _table_nodes(item: SourceItem, tables: list[_Table], source_path: str, source_sha256: str | None) -> list[DraftNode]:
+def _table_nodes(item: SourceItem, tables: list[_Table], source_path: str, source_sha256: str | None, parents: dict[str, str]) -> list[DraftNode]:
     result = []
     titles = Counter(table.title for table in tables)
     for number, source in enumerate(tables, 1):
+        parent_key = parents.get(source.path[0], item.relative) if source.path else item.relative
         output = io.StringIO(newline="")
         csv.writer(output, lineterminator="\n").writerows([source.headers, *source.rows])
         profile = build_table_profile(source.headers, source.rows)
@@ -190,7 +185,7 @@ def _table_nodes(item: SourceItem, tables: list[_Table], source_path: str, sourc
             kind="table", title=(source.title if titles[source.title] == 1 else f"{source.title} — Table {number}"),
             description=f"NAP table with {len(source.rows)} rows and {len(source.headers)} columns.",
             source_path=source_path, source_sha256=source_sha256, content=output.getvalue().encode(),
-            extension="csv", media_type="text/csv", parent_key=item.relative,
+            extension="csv", media_type="text/csv", parent_key=parent_key,
             order_hint=(source.start,), context={"section_path": list(source.path)},
             table={"row_count": len(source.rows), "grain": "One row from the source table.",
                    "columns": table_columns(profile), "profile": profile,

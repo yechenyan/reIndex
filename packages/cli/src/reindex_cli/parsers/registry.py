@@ -39,7 +39,7 @@ def parser_cache_key(item: SourceItem, excluded_table_pages: set[int]) -> str:
         "parse": item.config.parse,
         "pages": sorted(excluded_table_pages),
         "parser": parser_version,
-        "implementation": 11,
+        "implementation": 13,
         "config": {
             "title": item.config.title,
             "description": item.config.description,
