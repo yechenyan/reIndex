@@ -30,13 +30,15 @@ def test_nap_parser_emits_text_and_structured_tables_without_images(
         encoding="utf-8",
     )
     nodes = parse_nap_markdown(_source(path))
+    table = next(node for node in nodes if node.kind == "table")
     text = next(node for node in nodes if node.kind == "text")
 
-    assert [node.kind for node in nodes] == ["group", "text"]
+    assert [node.kind for node in nodes] == ["group", "text", "table"]
     assert nodes[0].title == "Netzausbauplan 2024"
     assert text.parent_key == nodes[0].logical_key
     assert "assets/map.png" not in text.content.decode()
-    assert "| 1 | A\\|B | 10 |" in text.content.decode()
+    assert "| 1 | A\\|B | 10 |" not in text.content.decode()
+    assert "1,A|B,10\n" in table.content.decode()
 
 
 def test_registry_routes_only_pdf_to_markdown_output_files(tmp_path: Path) -> None:
@@ -46,7 +48,7 @@ def test_registry_routes_only_pdf_to_markdown_output_files(tmp_path: Path) -> No
     item = _source(path)
 
     assert is_nap_markdown(item)
-    assert [node.kind for node in parse_item(item, set())] == ["group"]
+    assert [node.kind for node in parse_item(item, set())] == ["group", "table"]
 
 
 def test_derived_nap_nodes_keep_the_pdf_as_their_source(tmp_path: Path) -> None:

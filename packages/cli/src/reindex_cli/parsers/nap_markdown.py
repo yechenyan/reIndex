@@ -20,9 +20,13 @@ def is_nap_markdown(item: SourceItem) -> bool:
 def parse_nap_markdown(item: SourceItem) -> list[DraftNode]:
     text = item.path.read_text(encoding="utf-8").replace("\r\n", "\n")
     lines = text.splitlines(keepends=True)
+    tables = _tables(lines)
     source_path = item.config.derived_from or item.relative
     source_sha256 = item.sha256 if source_path == item.relative else None
-    clean = ["\n" if IMAGE.match(line) else line for line in lines]
+    clean = list(lines)
+    for table in tables:
+        clean[table.start : table.end] = ["\n"] * (table.end - table.start)
+    clean = ["\n" if IMAGE.match(line) else line for line in clean]
     sections = _sections(clean)
     title = item.config.title or _document_title(text, item.path.stem)
     group = DraftNode(
@@ -31,11 +35,13 @@ def parse_nap_markdown(item: SourceItem) -> list[DraftNode]:
         kind="group",
         title=title,
         description=item.config.description
-        or f"NAP Markdown document containing {len(sections)} top-level chapters.",
+        or f"NAP Markdown document containing {len(sections)} top-level chapters and {len(tables)} tables.",
         source_path=source_path, source_sha256=source_sha256,
     )
     group.body = initial_body(group)
-    return [group, *_text_nodes(item, title, sections, source_path, source_sha256)]
+    nodes = [group, *_text_nodes(item, title, sections, source_path, source_sha256)]
+    nodes.extend(_table_nodes(item, tables, source_path, source_sha256, {}))
+    return nodes
 
 class _Table:
     def __init__(self, start: int, end: int, headers: list[str], rows: list[list[str]], title: str, path: tuple[str, ...]):
@@ -176,7 +182,7 @@ def _table_nodes(item: SourceItem, tables: list[_Table], source_path: str, sourc
     result = []
     titles = Counter(table.title for table in tables)
     for number, source in enumerate(tables, 1):
-        parent_key = parents.get(source.path[0], item.relative) if source.path else item.relative
+        parent_key = item.relative
         output = io.StringIO(newline="")
         csv.writer(output, lineterminator="\n").writerows([source.headers, *source.rows])
         profile = build_table_profile(source.headers, source.rows)
