@@ -32,8 +32,17 @@ def _fit(text: str, tokenizer) -> list[str]:
     result, pending = [], []
     for sentence in sentences:
         if _count(sentence, tokenizer) > MAX_TOKENS:
-            for index in range(0, len(sentence.split()), 120):
-                result.extend(_fit(" ".join(sentence.split()[index : index + 120]), tokenizer))
+            words = sentence.split()
+            if len(words) <= 1:
+                result.extend(_token_chunks(sentence, tokenizer))
+                continue
+            for index in range(0, len(words), 120):
+                part = " ".join(words[index : index + 120])
+                result.extend(
+                    _token_chunks(part, tokenizer)
+                    if _count(part, tokenizer) > MAX_TOKENS
+                    else _fit(part, tokenizer)
+                )
             continue
         candidate = " ".join([*pending, sentence])
         if pending and _count(candidate, tokenizer) > MAX_TOKENS:
@@ -48,6 +57,14 @@ def _fit(text: str, tokenizer) -> list[str]:
 
 def _count(text: str, tokenizer) -> int:
     return len(tokenizer.encode(text, add_special_tokens=False))
+
+
+def _token_chunks(text: str, tokenizer) -> list[str]:
+    token_ids = tokenizer.encode(text, add_special_tokens=False)
+    return [
+        tokenizer.decode(token_ids[index : index + MAX_TOKENS])
+        for index in range(0, len(token_ids), MAX_TOKENS)
+    ]
 
 
 @lru_cache(maxsize=1)
