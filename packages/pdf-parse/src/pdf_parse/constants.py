@@ -1,0 +1,16 @@
+from __future__ import annotations
+
+PACKAGE_VERSION = "0.1.0"
+FORMAT_VERSION = "pdf-parse/v3"
+DEFAULT_MODEL = "gpt-5.6-luna"
+DEFAULT_REASONING = "medium"
+DEFAULT_DPI = 300
+MIN_DPI = 72
+MAX_DPI = 600
+MAX_IMAGE_SIDE = 12000
+MAX_IMAGE_PIXELS = 96_000_000
+MAX_REPAIRS = 5
+TABLE_CONTEXT_MARGIN_PT = 48.0
+
+TERMINAL_TABLE_STATES = {"pass", "failed", "wrong", "skip"}
+PAGE_CHROME_BAND = 0.13

@@ -14,12 +14,8 @@ resolution-markers = [
 
 [manifest]
 members = [
-    "pdf-exractor-table-example-diff",
-    "pdf-extractor-pdf",
-    "pdf-extractor-table-example",
+    "pdf-parse",
     "pdf-table-5",
-    "pdf-table-codegen",
-    "pdf-table-region",
     "pdf-to-markdown",
     "reindex",
     "reindex-server",
@@ -28,12 +24,8 @@ members = [
 [manifest.dependency-groups]
 dev = [
     { name = "httpx", specifier = ">=0.27,<1" },
-    { name = "pdf-exractor-table-example-diff", editable = "packages/pdf-exractor-table-example-diff" },
-    { name = "pdf-extractor-pdf", editable = "packages/pdf-extractor-pdf" },
-    { name = "pdf-extractor-table-example", editable = "packages/pdf-extractor-table-example" },
+    { name = "pdf-parse", editable = "packages/pdf-parse" },
     { name = "pdf-table-5", editable = "packages/pdf-table-5" },
-    { name = "pdf-table-codegen", editable = "packages/pdf-table-codegen" },
-    { name = "pdf-table-region", editable = "packages/pdf-table-region" },
     { name = "pdf-to-markdown", editable = "packages/pdf-to-markdown" },
     { name = "pillow", specifier = ">=12,<13" },
     { name = "pypdfium2", specifier = ">=5,<6" },
@@ -753,35 +745,13 @@ wheels = [
 
 [[package]]
 name = "liteparse"
-version = "2.11.1"
+version = "2.13.0"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/d8/58/75de54a4314285d2ff94b1eacfe9e4b282cb600be4f0cc9bb26a0f62b152/liteparse-2.11.1.tar.gz", hash = "sha256:7d5fba0e9070e83461f2d4e5bde8d97376d23773b5d6cd0df48f048eeee42759", size = 451352, upload-time = "2026-08-05T21:37:46.17Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/44/5f/0b1693e532382a82990d8f45151073914fa8bf16e5e6e2741bba5b525a32/liteparse-2.11.1-cp312-cp312-macosx_10_12_x86_64.whl", hash = "sha256:1ef4050403309946109b3a3b392b381a7db98e431eaedd3667cc49feac8b81c5", size = 12469897, upload-time = "2026-08-05T21:36:37.097Z" },
-    { url = "https://files.pythonhosted.org/packages/3c/e2/7c6b4a7132a82323c7db6832eb3697919a75a4d4bb129a35dc126c17d968/liteparse-2.11.1-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:bb8fc5544875128061022f7ec6fd46449c5855ba77ae0a8a4dc31c249861ef64", size = 11857151, upload-time = "2026-08-05T21:36:39.418Z" },
-    { url = "https://files.pythonhosted.org/packages/f0/60/52b6aeddfa9f21c0b6b2fb6d20fec221805692507161fa2de9094e023cd9/liteparse-2.11.1-cp312-cp312-manylinux_2_28_aarch64.whl", hash = "sha256:dd2fe321724416c7283e3c402d16ccdfcdcd1a9dd7362036af7800781ea956ee", size = 13401815, upload-time = "2026-08-05T21:36:41.673Z" },
-    { url = "https://files.pythonhosted.org/packages/6f/9c/82b9c7793f17d43d8bb688a85f69ee823b7980ff854cfffaf130bb692702/liteparse-2.11.1-cp312-cp312-manylinux_2_28_x86_64.whl", hash = "sha256:a637ce1c70dd2487bfc742ffb2c105589c12b7e2bea23e628dacb089c864d972", size = 13659151, upload-time = "2026-08-05T21:36:44.016Z" },
-    { url = "https://files.pythonhosted.org/packages/da/eb/aeaecf9ddc977024ecfe2fc8dbe1d30a86a7ecc43ce73d236d06d01a6c34/liteparse-2.11.1-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:7e35d49cb167a265108b7daaf8cd34d63b5b994a84e786f0b5c2ee8a76b40651", size = 16832524, upload-time = "2026-08-05T21:36:46.378Z" },
-    { url = "https://files.pythonhosted.org/packages/ac/42/0cba47c11ddb7e154135ebd42b5554dbb39f54b394c42ad45d319b0771c6/liteparse-2.11.1-cp312-cp312-win_amd64.whl", hash = "sha256:588e8dc8cdf09284169dabf22be09ebbea47e9c62d0ac849cbff237f5ca297cc", size = 11900004, upload-time = "2026-08-05T21:36:49.157Z" },
-    { url = "https://files.pythonhosted.org/packages/90/49/0200cd8bc900182568a3ebb1df21738f0f917d5f80ec6e96fdc7ea049a0f/liteparse-2.11.1-cp312-cp312-win_arm64.whl", hash = "sha256:735687c7deaf0784563d8cf3a8a74ed45e2415cc26784cb3fd02d56e16e78d5e", size = 11221502, upload-time = "2026-08-05T21:36:51.349Z" },
-    { url = "https://files.pythonhosted.org/packages/cc/59/7960685a434657fba3c3f5566dbc6b43742211600d272cd49500cea5d2fd/liteparse-2.11.1-cp313-cp313-macosx_10_12_x86_64.whl", hash = "sha256:d0c20d7508e007757b4fe0c0f6cef429f13ce9639d2876a0096700ab48178303", size = 12469765, upload-time = "2026-08-05T21:36:53.697Z" },
-    { url = "https://files.pythonhosted.org/packages/3e/6f/259ba938eb21c6008b97370c98f6a7a0a15b1faeb9904ae60bbc64a32ce6/liteparse-2.11.1-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:89ba7c36f878555a4575ed7d08ca9e7fcb24e5589423838895b54b709122b8e8", size = 11857244, upload-time = "2026-08-05T21:37:00.791Z" },
-    { url = "https://files.pythonhosted.org/packages/83/4b/2976686b12dcffa4075bcc5bb349ade1de0a712aa25d7f3f2acc3a88329b/liteparse-2.11.1-cp313-cp313-manylinux_2_28_aarch64.whl", hash = "sha256:e99d5c6e9de9532d09d42afaee96385b5581f591384e2347b496e8354a39805b", size = 13400942, upload-time = "2026-08-05T21:37:03.308Z" },
-    { url = "https://files.pythonhosted.org/packages/ad/03/d81bdb5048a01ad90a1b37497591c4f42c6d378db41504e053f053207c19/liteparse-2.11.1-cp313-cp313-manylinux_2_28_x86_64.whl", hash = "sha256:6ac3c3df584c0db160c5d5b7766afdfa3013d581571bdfbffb04027ee70cdf17", size = 13659554, upload-time = "2026-08-05T21:37:05.563Z" },
-    { url = "https://files.pythonhosted.org/packages/35/eb/ca897f2b3dab867e07ee55ba9c1faff939f116656ecfcb220665e6eb93c7/liteparse-2.11.1-cp313-cp313-win_amd64.whl", hash = "sha256:d797b4b80777175ccad31069f985be0c741c0e717649d26b33fa41f57015baca", size = 11899743, upload-time = "2026-08-05T21:37:07.972Z" },
-    { url = "https://files.pythonhosted.org/packages/44/09/aad56e25e3c891a1a6f9f89d6ac7b385e492f25f627d420c8d414616e6a1/liteparse-2.11.1-cp313-cp313-win_arm64.whl", hash = "sha256:4e970cff634eb8e71ffd7c61e5517a868940ac1c42d553908f3299372174e199", size = 11221355, upload-time = "2026-08-05T21:37:10.201Z" },
-    { url = "https://files.pythonhosted.org/packages/1b/b0/ffcafa2c70279b90c82189a490184e1b821371a72b6134558c3b90596b6b/liteparse-2.11.1-cp314-cp314-macosx_10_12_x86_64.whl", hash = "sha256:c660a1bc116957a05d2f0ecd99838e11f0d2490e812d0fc03ef098a5d70fa352", size = 12470416, upload-time = "2026-08-05T21:37:12.923Z" },
-    { url = "https://files.pythonhosted.org/packages/bf/d8/4d37c0fdefd96a5cf6d521d15bad2cdef25f2811cee80a7d4863851d22bb/liteparse-2.11.1-cp314-cp314-macosx_11_0_arm64.whl", hash = "sha256:07ea76a72a01629043816850d78812fb256fc9a98a637e42346522448c86a53d", size = 11857228, upload-time = "2026-08-05T21:37:15.065Z" },
-    { url = "https://files.pythonhosted.org/packages/d8/34/d3dc714dfbd985923ea43a1d948e57cb5e191a1ad3c6e3991f94e9631712/liteparse-2.11.1-cp314-cp314-manylinux_2_28_aarch64.whl", hash = "sha256:13b47f7fdc881149fe59bad66053a6a8773ef6d436c6644a8ea9f7cc1324b631", size = 13397733, upload-time = "2026-08-05T21:37:17.35Z" },
-    { url = "https://files.pythonhosted.org/packages/ea/01/5d05edf0f451a6e100b0fb138644d8023f25b752a243792a6c7480a23af0/liteparse-2.11.1-cp314-cp314-manylinux_2_28_x86_64.whl", hash = "sha256:d41840a8576d292e0c0ec47bedef17e3310437021088024b09fca94b3402251c", size = 13659304, upload-time = "2026-08-05T21:37:19.664Z" },
-    { url = "https://files.pythonhosted.org/packages/4b/c3/a71099bddc07bf23bc732a9b20b3fdaac364956488fea3b58cc45e537e38/liteparse-2.11.1-cp314-cp314-win_amd64.whl", hash = "sha256:23b647cf90f1d090e022ed657fc7b5100e39af3a36475fb9e4c2575a333d3583", size = 11899750, upload-time = "2026-08-05T21:37:22.231Z" },
-    { url = "https://files.pythonhosted.org/packages/a3/d0/0896ad5537cb21c7866b6579d495ddf82b9a29f11479a359f46fee4fcda5/liteparse-2.11.1-cp314-cp314-win_arm64.whl", hash = "sha256:8ac94dc2637fdf77e9ee4af2ee64c79e1cca353cef5eb13a2b9d5251d30f0cd6", size = 11220761, upload-time = "2026-08-05T21:37:24.545Z" },
-    { url = "https://files.pythonhosted.org/packages/b4/e9/5d30629905c89e1b50c4ab66c3a5cc5604481d078ad115b3909a01ffc37c/liteparse-2.11.1-cp314-cp314t-manylinux_2_28_aarch64.whl", hash = "sha256:d92c2301c096cd2432fbeb51a736233526ea9780a9f55c24d73088122af4014c", size = 13396057, upload-time = "2026-08-05T21:37:26.857Z" },
-    { url = "https://files.pythonhosted.org/packages/75/d5/42e5a848005dfed5669f24999afd91d59a5ca70940a752b240c9fa34b0fc/liteparse-2.11.1-cp314-cp314t-manylinux_2_28_x86_64.whl", hash = "sha256:c1babe90bbb455747abc14e9ac1f84375a9eb3abf09b2f2b5ae0237144ff8737", size = 13658225, upload-time = "2026-08-05T21:37:29.566Z" },
-    { url = "https://files.pythonhosted.org/packages/a4/94/f357b39b23519875bd9e3cf387146e345ad856e339b71d78477d6b9eff19/liteparse-2.11.1-cp315-cp315-manylinux_2_28_aarch64.whl", hash = "sha256:7b3cc4d181ecd00baecace59d57890223a69a2b5b49afffc1af8ce81a5af9f6e", size = 13401484, upload-time = "2026-08-05T21:37:31.904Z" },
-    { url = "https://files.pythonhosted.org/packages/41/d0/c96a4bd70cc3a26d03c0cbdfdfbad46cbfe86742a42a8ee63b153d4aa23f/liteparse-2.11.1-cp315-cp315-manylinux_2_28_x86_64.whl", hash = "sha256:62f9b37c78b14f0ce09ce4b72a4ac33c6e5ab1382908d0faf527d1dd3b928a02", size = 13658746, upload-time = "2026-08-05T21:37:34.376Z" },
-    { url = "https://files.pythonhosted.org/packages/a0/bb/8d13cf2054ff0a5a921a9551a045d15a6c53b685b02359cac0376f80dff9/liteparse-2.11.1-cp315-cp315t-manylinux_2_28_aarch64.whl", hash = "sha256:018f94148520a2f0d598922825934aa308d1da140bdad789d7ef35763c93dcef", size = 13396925, upload-time = "2026-08-05T21:37:36.927Z" },
-    { url = "https://files.pythonhosted.org/packages/09/81/58d04c615d6c1f7339bdfde6a5766827813532651982e494e54b5e395496/liteparse-2.11.1-cp315-cp315t-manylinux_2_28_x86_64.whl", hash = "sha256:bf5850fac17bb579c4e3f0a3645c25ec28e94aaab8f6aadf118fa2fa38b6638d", size = 13661086, upload-time = "2026-08-05T21:37:39.163Z" },
+    { url = "https://files.pythonhosted.org/packages/61/91/86b1f301618406ab3167c4b19a8c4c2681431c7fc224de681559ee673a05/liteparse-2.13.0-cp312-cp312-macosx_10_12_x86_64.whl", hash = "sha256:dc577f637c3f4d1f8369f449979d0ce8ef95d54da1b4f1fb7f0597ca235edc94", size = 12560489, upload-time = "2026-08-15T18:18:05.24Z" },
+    { url = "https://files.pythonhosted.org/packages/71/e0/070aa94c63229508415f04b7d8a6500daa11b9ffa4dcef4ac875dbf67336/liteparse-2.13.0-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:6a7cd7ef5ff11dfa53913bac888653b537ff50892ae647e7b18536902d854e52", size = 11949888, upload-time = "2026-08-15T18:18:07.206Z" },
+    { url = "https://files.pythonhosted.org/packages/3b/04/233e7b6689a93020a15bfc920d4eafdbff4c92608ae283c4bca3badef374/liteparse-2.13.0-cp312-cp312-manylinux_2_28_aarch64.whl", hash = "sha256:eaead122bcde54ba3ea15eb032558fb5ab5ebbd610ead33bcb7e59cae81a1aef", size = 13483058, upload-time = "2026-08-15T18:18:09.137Z" },
+    { url = "https://files.pythonhosted.org/packages/8b/72/3d83fee5c1ecab63bbfad54124cf59bf11b21d36d5fdad9762fd5c55077e/liteparse-2.13.0-cp312-cp312-manylinux_2_28_x86_64.whl", hash = "sha256:19c5e6a7f5ffcf50831e74490af85c0fd09ee1b995e3f36c6db27303bd9bd636", size = 13755107, upload-time = "2026-08-15T18:18:11.387Z" },
 ]
 
 [[package]]
@@ -1332,96 +1302,24 @@ wheels = [
 ]
 
 [[package]]
-name = "pdf-exractor-table-example-diff"
+name = "pdf-parse"
 version = "0.1.0"
-source = { editable = "packages/pdf-exractor-table-example-diff" }
+source = { editable = "packages/pdf-parse" }
 dependencies = [
-    { name = "pdf-extractor-table-example" },
+    { name = "liteparse" },
     { name = "pillow" },
-    { name = "pymupdf" },
-    { name = "pyyaml" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "pdf-extractor-table-example", editable = "packages/pdf-extractor-table-example" },
+    { name = "liteparse", specifier = "==2.13.0" },
     { name = "pillow", specifier = ">=12,<13" },
-    { name = "pymupdf", specifier = ">=1.26,<2" },
-    { name = "pyyaml", specifier = ">=6,<7" },
-]
-
-[[package]]
-name = "pdf-extractor-pdf"
-version = "0.1.0"
-source = { editable = "packages/pdf-extractor-pdf" }
-dependencies = [
-    { name = "pillow" },
-    { name = "pymupdf" },
-    { name = "pyyaml" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "pillow", specifier = ">=12,<13" },
-    { name = "pymupdf", specifier = ">=1.26,<2" },
-    { name = "pyyaml", specifier = ">=6,<7" },
-]
-
-[[package]]
-name = "pdf-extractor-table-example"
-version = "0.1.0"
-source = { editable = "packages/pdf-extractor-table-example" }
-dependencies = [
-    { name = "jsonschema" },
-    { name = "pillow" },
-    { name = "pymupdf" },
-    { name = "pyyaml" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "jsonschema", specifier = ">=4,<5" },
-    { name = "pillow", specifier = ">=12,<13" },
-    { name = "pymupdf", specifier = ">=1.26,<2" },
-    { name = "pyyaml", specifier = ">=6,<7" },
 ]
 
 [[package]]
 name = "pdf-table-5"
 version = "0.1.0"
 source = { editable = "packages/pdf-table-5" }
-dependencies = [
-    { name = "pillow" },
-    { name = "pymupdf" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "pillow", specifier = ">=12,<13" },
-    { name = "pymupdf", specifier = ">=1.26,<2" },
-]
-
-[[package]]
-name = "pdf-table-codegen"
-version = "0.3.0"
-source = { editable = "packages/pdf-table-codegen" }
-dependencies = [
-    { name = "pillow" },
-    { name = "pymupdf" },
-    { name = "pyyaml" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "pillow", specifier = ">=12,<13" },
-    { name = "pymupdf", specifier = ">=1.26,<2" },
-    { name = "pyyaml", specifier = ">=6,<7" },
-]
-
-[[package]]
-name = "pdf-table-region"
-version = "0.1.0"
-source = { editable = "packages/pdf-table-region" }
 dependencies = [
     { name = "pillow" },
     { name = "pymupdf" },
@@ -2128,6 +2026,11 @@ dependencies = [
     { name = "pyyaml" },
 ]
 
+[package.optional-dependencies]
+embeddings = [
+    { name = "sentence-transformers" },
+]
+
 [package.metadata]
 requires-dist = [
     { name = "click", specifier = ">=8.2,<9" },
@@ -2136,7 +2039,9 @@ requires-dist = [
     { name = "jsonschema", specifier = ">=4.25,<5" },
     { name = "pypdfium2", specifier = ">=5,<6" },
     { name = "pyyaml", specifier = ">=6,<7" },
+    { name = "sentence-transformers", marker = "extra == 'embeddings'", specifier = ">=3.0,<6" },
 ]
+provides-extras = ["embeddings"]
 
 [[package]]
 name = "reindex-server"

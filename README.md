@@ -27,6 +27,7 @@ For Agent-assisted setup, say: “Run `uv tool install --upgrade reindex`, then 
 - `packages/pdf-extractor-pdf`: coarse discovery and a one-table Extraction/QA pipeline
 - `packages/pdf-table-5`: resumable Finder/Merge/per-table Agent workflow with structured sample verification
 - `packages/pdf-to-markdown`: LiteParse-first Markdown conversion with sampled and specialist table verification
+- `packages/pdf-parse`: LiteParse 2.13 Python API plus LLM visual block/table workflow
 - `testbase`: raw fixtures and generated ReIndex packages
 - `wiki`: reference, user, and developer documentation
 - `tasks`: active and human-approved historical task notes

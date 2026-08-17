@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pdf-parse"
+version = "0.1.0"
+description = "LiteParse-first PDF to Markdown workflow with visual table agents"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "liteparse==2.13.0",
+    "pillow>=12,<13",
+]
+
+[project.scripts]
+pdf-parse = "pdf_parse.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pdf_parse"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

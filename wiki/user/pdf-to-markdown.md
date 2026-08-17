@@ -14,7 +14,7 @@ The default result is `<pdf-stem>-pdf-to-markdown-run/output.md` next to the sou
 is stored at `<pdf-stem>-pdf-to-markdown-run/work/report.json`.
 Embedded LiteParse images are stored beside `output.md` under `assets/`, and the Markdown uses relative
 `assets/...` references.
-LiteParse normally renders at 150 DPI. For unusually large PDF pages, the converter lowers the document DPI
+LiteParse normally renders table evidence at 300 DPI. For unusually large PDF pages, the converter lowers the document DPI
 just enough to keep every rendered page within 25 million pixels and 6000 pixels per side; the effective value
 is recorded as `renderDpi` in `artifacts/liteparse.json`.
 

@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "action": {"type": "string", "enum": ["ready", "rerender", "skip"]},
+    "mergedClassifyBlockIds": {"type": "array", "items": {"type": "string"}},
+    "isImageTable": {"type": "boolean"},
+    "requestedDpi": {"type": "number", "minimum": 72, "maximum": 600},
+    "geometryRevisionUsed": {"type": "string"},
+    "samplePy": {"type": "string"},
+    "parsePy": {"type": "string"},
+    "summary": {
+      "type": "object",
+      "properties": {
+        "title": {"type": "string"},
+        "strategy": {"type": "string"},
+        "sqlReady": {"type": "boolean"},
+        "notes": {"type": "array", "items": {"type": "string"}}
+      },
+      "required": ["title", "strategy", "sqlReady", "notes"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["action", "mergedClassifyBlockIds", "isImageTable", "requestedDpi", "geometryRevisionUsed", "samplePy", "parsePy", "summary"],
+  "additionalProperties": false
+}

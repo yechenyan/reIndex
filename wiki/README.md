@@ -14,6 +14,7 @@
 - [`user/pdf-table-codegen.md`](user/pdf-table-codegen.md): let an Agent generate reusable PDF table extraction code
 - [`user/pdf-extractor-pdf.md`](user/pdf-extractor-pdf.md): coarse discovery and one-table Extraction/QA workflow
 - [`user/pdf-to-markdown.md`](user/pdf-to-markdown.md): LiteParse-first PDF conversion with verified table fallback
+- [`user/pdf-parse.md`](user/pdf-parse.md): resumable LiteParse 2.13 and visual-Agent PDF workflow
 - [`user/start-local-service.md`](user/start-local-service.md): start ParadeDB and the local API with embeddings enabled
 
 ## Developer guides
