@@ -1,7 +1,10 @@
 from __future__ import annotations
 
 import json
+import io
+import math
 from pathlib import Path
+from typing import Callable
 
 import httpx
 
@@ -29,6 +32,31 @@ class ApiClient:
                     files={"blob": (path.name, stream, "application/octet-stream")},
                 )
             )
+
+    def upload_blob_chunks(
+        self, upload_id: str, sha256: str, path: Path,
+        on_chunk: Callable[[int, int], None] | None = None,
+    ) -> dict:
+        size = 4 * 1024 * 1024
+        count = max(1, math.ceil(path.stat().st_size / size))
+        result = {}
+        with path.open("rb") as stream, httpx.Client(base_url=self.base_url, timeout=60.0) as client:
+            for index in range(count):
+                content = stream.read(size)
+                for attempt in range(3):
+                    try:
+                        result = self._json(client.post(
+                            "/v1/push/blob/chunk",
+                            data={"upload_id": upload_id, "sha256": sha256, "index": str(index), "count": str(count)},
+                            files={"blob": (path.name, io.BytesIO(content), "application/octet-stream")},
+                        ))
+                        break
+                    except ReIndexError:
+                        if attempt == 2:
+                            raise
+                if on_chunk:
+                    on_chunk(index + 1, count)
+        return result
 
     def json(self, path: str, payload: dict, timeout: float | None = None) -> dict:
         with httpx.Client(base_url=self.base_url, timeout=timeout or self.timeout) as client:

@@ -244,6 +244,57 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+  /v1/push/blob/chunk:
+    post:
+      tags:
+      - Versions
+      summary: Push Blob Chunk
+      operationId: push_blob_chunk_v1_push_blob_chunk_post
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_push_blob_chunk_v1_push_blob_chunk_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+                title: Response Push Blob Chunk V1 Push Blob Chunk Post
+        '400':
+          description: Invalid request or cursor.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Collection or resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Collection or model state conflict.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Request schema validation failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
   /v1/push/commit:
     post:
       tags:
@@ -760,6 +811,32 @@ components:
       - sha256
       - blob
       title: Body_push_blob_v1_push_blob_post
+    Body_push_blob_chunk_v1_push_blob_chunk_post:
+      properties:
+        upload_id:
+          type: string
+          title: Upload Id
+        sha256:
+          type: string
+          title: Sha256
+        index:
+          type: integer
+          title: Index
+        count:
+          type: integer
+          title: Count
+        blob:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Blob
+      type: object
+      required:
+      - upload_id
+      - sha256
+      - index
+      - count
+      - blob
+      title: Body_push_blob_chunk_v1_push_blob_chunk_post
     BrowseRequest:
       properties:
         collection:

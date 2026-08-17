@@ -233,11 +233,17 @@ def _publish(
     if planned.get("no_op") or dry_run:
         return planned
     upload_id = planned["upload_id"]
-    for item in planned["missing_blobs"]:
+    missing = planned["missing_blobs"]
+    for number, item in enumerate(missing, 1):
         path = blobs.get(item["sha256"])
         if path is None:
             raise ReIndexError(f"Server is missing retained blob: {item['sha256']}")
-        client.upload_blob(upload_id, item["sha256"], path)
+        def progress(done, total, number=number, path=path):
+            print(
+                f"resource upload {number}/{len(missing)} ({number / len(missing):.0%}) "
+                f"{path.name}: chunk {done}/{total}", file=sys.stderr,
+            )
+        client.upload_blob_chunks(upload_id, item["sha256"], path, progress)
     commit = {"upload_id": upload_id}
     if embeddings:
         vectors = list(embeddings["vectors"].items())

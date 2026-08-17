@@ -6,6 +6,7 @@ from threading import RLock
 from uuid import uuid4
 
 from reindex_server.domain import CollectionVersion
+from reindex_server.blob_chunks import ChunkedBlobUploadMixin
 from reindex_server.errors import ConflictError, StaleBaseError
 from reindex_server.push_protocol import (
     UploadSession,
@@ -16,7 +17,7 @@ from reindex_server.publication_support import PublicationSupportMixin
 from reindex_server.version_serialization import unique_blobs
 
 
-class PublicationManager(PublicationSupportMixin):
+class PublicationManager(ChunkedBlobUploadMixin, PublicationSupportMixin):
     def __init__(self, catalog, store, embeddings) -> None:
         self.catalog = catalog
         self.store = store

@@ -70,6 +70,9 @@ class ReindexService(ServiceDownloadMixin):
     def upload_blob(self, upload_id: str, sha256: str, path: Path) -> dict:
         return self.publications.upload_blob(upload_id, sha256, path)
 
+    def upload_blob_chunk(self, upload_id, sha256, index, count, path) -> dict:
+        return self.publications.upload_blob_chunk(upload_id, sha256, index, count, path)
+
     def commit_push(self, upload_id: str, embeddings=None) -> dict:
         return self.publications.commit(upload_id, embeddings)
 

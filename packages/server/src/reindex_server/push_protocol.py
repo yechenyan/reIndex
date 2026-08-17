@@ -31,6 +31,8 @@ class UploadSession:
     missing_sha256: set[str]
     expires_at: datetime
     uploaded_sha256: set[str] = field(default_factory=set)
+    blob_chunks: dict[str, dict[int, tuple[str, int]]] = field(default_factory=dict)
+    blob_chunk_counts: dict[str, int] = field(default_factory=dict)
     embeddings: object | None = None
     result: dict | None = None
 

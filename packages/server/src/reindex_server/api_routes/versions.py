@@ -52,6 +52,22 @@ def install_version_routes(app: FastAPI) -> None:
         except Exception as error:
             raise http_error(error) from error
 
+    @app.post("/v1/push/blob/chunk", tags=["Versions"])
+    async def push_blob_chunk(
+        upload_id: Annotated[str, Form()], sha256: Annotated[str, Form()],
+        index: Annotated[int, Form()], count: Annotated[int, Form()],
+        blob: Annotated[UploadFile, File()],
+    ) -> dict:
+        try:
+            with tempfile.TemporaryDirectory(prefix="reindex-api-chunk-") as directory:
+                path = Path(directory) / "chunk"
+                await _save_upload(blob, path)
+                return await asyncio.to_thread(
+                    app.state.service.upload_blob_chunk, upload_id, sha256, index, count, path
+                )
+        except Exception as error:
+            raise http_error(error) from error
+
     @app.post(
         "/v1/push/commit", response_model=VersionedPushResponse, tags=["Versions"]
     )
