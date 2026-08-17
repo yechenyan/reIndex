@@ -56,7 +56,6 @@ class ReindexService(ServiceDownloadMixin):
 
     def warmup(self) -> None:
         self.embeddings.warmup()
-        self.reranker.warmup()
 
     def resolve_collection(self, name: str) -> Collection:
         return self.catalog.get_by_name(name)
