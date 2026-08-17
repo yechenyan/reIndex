@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import os
 from collections.abc import Iterable
+from pathlib import Path
 from threading import Lock
 
 
@@ -36,7 +37,9 @@ class QwenEmbeddingProvider(EmbeddingProvider):
                         "install reindex-server[embeddings] to enable Qwen embeddings"
                     ) from error
                 self._model = SentenceTransformer(
-                    "Qwen/Qwen3-Embedding-0.6B", truncate_dim=1024
+                    "Qwen/Qwen3-Embedding-0.6B",
+                    cache_folder=str(_model_cache_dir()),
+                    truncate_dim=1024,
                 )
         return self._model
 
@@ -63,3 +66,9 @@ def provider_from_environment() -> EmbeddingProvider:
     if value == "disabled":
         return EmbeddingProvider()
     raise ValueError("REINDEX_EMBEDDINGS must be qwen or disabled")
+
+
+def _model_cache_dir() -> Path:
+    path = Path(os.getenv("REINDEX_DATA_DIR", ".reindex-data")) / "huggingface"
+    path.mkdir(parents=True, exist_ok=True)
+    return path
