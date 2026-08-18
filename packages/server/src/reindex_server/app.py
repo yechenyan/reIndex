@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import asyncio
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
@@ -23,7 +22,6 @@ def create_app(service: ReindexService | None = None) -> FastAPI:
 
     @asynccontextmanager
     async def lifespan(_app: FastAPI):
-        await asyncio.to_thread(service.warmup)
         yield
         if owned_database:
             owned_database.close()
