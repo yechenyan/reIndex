@@ -34,6 +34,7 @@ class UploadSession:
     blob_chunks: dict[str, dict[int, tuple[str, int]]] = field(default_factory=dict)
     blob_chunk_counts: dict[str, int] = field(default_factory=dict)
     embeddings: object | None = None
+    uploaded_embedding_hashes: set[str] = field(default_factory=set)
     result: dict | None = None
 
     @classmethod

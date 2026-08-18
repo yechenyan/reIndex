@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 from datetime import UTC, datetime
 from pathlib import Path
 from threading import RLock
@@ -114,6 +115,15 @@ class PublicationManager(ChunkedBlobUploadMixin, PublicationSupportMixin):
         snapshot = load_snapshot_from_manifest(
             session.manifest, session.collection_id, self.store
         )
+        supplied_hashes = set(session.uploaded_embedding_hashes)
+        if supplied_embeddings:
+            supplied_hashes.update(supplied_embeddings.vectors)
+        unit_hashes = {
+            hashlib.sha256(item.contextual_text.encode()).hexdigest()
+            for item in snapshot.units
+        }
+        if supplied_hashes - unit_hashes:
+            raise ValueError("embedding vectors do not belong to this Collection")
         profile, embedded, reused = self._embed(snapshot.units, supplied_embeddings or session.embeddings)
         stats = {
             "nodes": len(snapshot.nodes),
@@ -169,12 +179,15 @@ class PublicationManager(ChunkedBlobUploadMixin, PublicationSupportMixin):
     def upload_embeddings(self, upload_id: str, supplied) -> dict:
         session = self._session(upload_id)
         if session.embeddings is None:
-            session.embeddings = supplied
+            # Vectors are persisted batch-by-batch.  Keeping every 1024-dimension
+            # Python list in this in-memory session makes a large local-embedding
+            # push grow the web process until Render restarts it.
+            session.embeddings = supplied.model_copy(update={"vectors": {}})
         elif session.embeddings.profile != supplied.profile:
             raise ValueError("embedding profile differs within upload session")
-        else:
-            session.embeddings.vectors.update(supplied.vectors)
-        return {"status": "ready", "vectors": len(session.embeddings.vectors)}
+        self.catalog.put_cached_embeddings(supplied.profile, supplied.vectors)
+        session.uploaded_embedding_hashes.update(supplied.vectors)
+        return {"status": "ready", "vectors": len(session.uploaded_embedding_hashes)}
 
     def _check_name(self, collection_id: str, name: str) -> None:
         try:
