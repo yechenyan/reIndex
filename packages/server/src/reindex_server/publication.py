@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+import logging
 from datetime import UTC, datetime
 from pathlib import Path
 from threading import RLock
@@ -16,6 +17,8 @@ from reindex_server.push_protocol import (
 )
 from reindex_server.publication_support import PublicationSupportMixin
 from reindex_server.version_serialization import unique_blobs
+
+logger = logging.getLogger("reindex.upload")
 
 
 class PublicationManager(ChunkedBlobUploadMixin, PublicationSupportMixin):
@@ -83,6 +86,13 @@ class PublicationManager(ChunkedBlobUploadMixin, PublicationSupportMixin):
         )
         with self._lock:
             self._sessions[session.id] = session
+        self.embeddings.set_import_active(True)
+        logger.warning(
+            "push session started upload_id=%s collection_id=%s missing_blobs=%s",
+            session.id,
+            collection_id,
+            len(missing),
+        )
         return self._start_response(head, missing, session, False, None)
 
     def upload_blob(self, upload_id: str, expected_sha256: str, path: Path) -> dict:
@@ -179,11 +189,24 @@ class PublicationManager(ChunkedBlobUploadMixin, PublicationSupportMixin):
             "reused_blobs": len(unique) - len(session.uploaded_sha256),
             "no_op": False,
         }
+        self.embeddings.set_import_active(self.has_active_upload())
+        logger.warning(
+            "push committed upload_id=%s version_id=%s units=%s",
+            upload_id,
+            version.id,
+            len(snapshot.units),
+        )
         self._maintain(session.collection_id)
         return session.result
 
     def upload_embeddings(self, upload_id: str, supplied) -> dict:
         session = self._session(upload_id)
+        logger.info(
+            "embedding batch start upload_id=%s count=%s received_total=%s",
+            upload_id,
+            len(supplied.vectors),
+            len(session.uploaded_embedding_hashes),
+        )
         if session.embeddings is None:
             # Vectors are persisted batch-by-batch.  Keeping every 1024-dimension
             # Python list in this in-memory session makes a large local-embedding
@@ -193,6 +216,12 @@ class PublicationManager(ChunkedBlobUploadMixin, PublicationSupportMixin):
             raise ValueError("embedding profile differs within upload session")
         self.catalog.put_cached_embeddings(supplied.profile, supplied.vectors)
         session.uploaded_embedding_hashes.update(supplied.vectors)
+        logger.info(
+            "embedding batch stored upload_id=%s count=%s received_total=%s",
+            upload_id,
+            len(supplied.vectors),
+            len(session.uploaded_embedding_hashes),
+        )
         return {"status": "ready", "vectors": len(session.uploaded_embedding_hashes)}
 
     def _check_name(self, collection_id: str, name: str) -> None:

@@ -105,7 +105,10 @@ class ReindexService(ServiceDownloadMixin):
             raise KeyError("raw resource not found") from error
 
     def search(self, collection_id: str, options: SearchOptions) -> SearchResponse:
-        if self.publications.has_active_upload():
+        if (
+            options.mode in {"semantic", "hybrid"}
+            and self.publications.has_active_upload()
+        ):
             raise RuntimeError("semantic search is temporarily unavailable during import")
         collection = self._ready(collection_id)
         if self.search_backend is None:

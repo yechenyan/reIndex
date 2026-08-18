@@ -247,16 +247,21 @@ def _publish(
     commit = {"upload_id": upload_id}
     if embeddings:
         vectors = list(embeddings["vectors"].items())
-        for start in range(0, len(vectors), 100):
-            batch = dict(vectors[start : start + 100])
+        batch_size = 10
+        for start in range(0, len(vectors), batch_size):
+            batch = dict(vectors[start : start + batch_size])
             payload = {"upload_id": upload_id, "embeddings": {"profile": embeddings["profile"], "vectors": batch}}
             for attempt in range(3):
                 try:
                     client.json("/v1/push/embeddings", payload, timeout=60.0)
                     break
-                except Exception:
+                except Exception as error:
                     if attempt == 2:
                         raise
+                    print(
+                        f"embedding upload retry {attempt + 1}/2 at {start}: {error}",
+                        file=sys.stderr,
+                    )
                     time.sleep(2**attempt)
             done = min(start + len(batch), len(vectors))
             print(f"embedding upload {done}/{len(vectors)} ({done / len(vectors):.0%})", file=sys.stderr)

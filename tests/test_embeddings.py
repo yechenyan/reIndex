@@ -18,6 +18,18 @@ def test_qwen_profile_matches_local_cli_uploads() -> None:
     assert QwenEmbeddingProvider.name == "qwen3-embedding-0.6b@1024"
 
 
+def test_qwen_model_load_is_blocked_during_import() -> None:
+    provider = QwenEmbeddingProvider()
+    provider.set_import_active(True)
+    try:
+        provider.embed_query("query")
+    except RuntimeError as error:
+        assert "suspended during local embedding import" in str(error)
+    else:
+        raise AssertionError("Qwen model loaded during an import")
+    assert provider._model is None
+
+
 def test_embeddings_can_be_explicitly_disabled(monkeypatch) -> None:
     monkeypatch.setenv("REINDEX_EMBEDDINGS", "disabled")
     provider = provider_from_environment()

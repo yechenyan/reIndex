@@ -1,9 +1,13 @@
 from __future__ import annotations
 
 import os
+import logging
+import traceback
 from collections.abc import Iterable
 from pathlib import Path
 from threading import Lock
+
+logger = logging.getLogger("reindex.embeddings")
 
 
 class EmbeddingProvider:
@@ -18,6 +22,9 @@ class EmbeddingProvider:
     def warmup(self) -> None:
         return None
 
+    def set_import_active(self, active: bool) -> None:
+        return None
+
 
 class QwenEmbeddingProvider(EmbeddingProvider):
     name = "qwen3-embedding-0.6b@1024"
@@ -25,11 +32,30 @@ class QwenEmbeddingProvider(EmbeddingProvider):
     def __init__(self) -> None:
         self._model = None
         self._lock = Lock()
+        self._import_active = False
+
+    def set_import_active(self, active: bool) -> None:
+        with self._lock:
+            self._import_active = active
+        logger.warning("qwen import guard active=%s", active)
 
     @property
     def model(self):
         with self._lock:
+            if self._import_active:
+                logger.error(
+                    "blocked Qwen model load during import\n%s",
+                    "".join(traceback.format_stack(limit=12)),
+                )
+                raise RuntimeError(
+                    "server embedding model is suspended during local embedding import"
+                )
             if self._model is None:
+                logger.warning(
+                    "loading Qwen model pid=%s\n%s",
+                    os.getpid(),
+                    "".join(traceback.format_stack(limit=12)),
+                )
                 try:
                     from sentence_transformers import SentenceTransformer
                 except ImportError as error:

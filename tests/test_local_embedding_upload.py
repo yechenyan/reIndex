@@ -44,7 +44,7 @@ def test_push_embeds_before_creating_upload_session(monkeypatch) -> None:
             if path == "/v1/push":
                 return {"upload_id": "upload-1", "missing_blobs": []}
             assert path == "/v1/push/commit"
-            assert payload["embeddings"] == {"profile": "local", "vectors": {}}
+            assert payload == {"upload_id": "upload-1"}
             return {"version_id": "version-1", "uploaded_blobs": 0}
 
     context = SimpleNamespace(
