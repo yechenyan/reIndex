@@ -22,21 +22,6 @@ def local_embeddings(package: Path, raw_root: Path) -> dict | None:
         return None
     if setting not in {"auto", "qwen"}:
         raise ReIndexError("REINDEX_LOCAL_EMBEDDINGS must be auto, qwen, or disabled")
-    try:
-        from sentence_transformers import SentenceTransformer
-    except ImportError as error:
-        if setting == "qwen":
-            raise ReIndexError("Install reindex[embeddings] to use local embeddings") from error
-        return None
-    try:
-        device, batch_size = _embedding_options()
-        model = SentenceTransformer(
-            MODEL, trust_remote_code=True, local_files_only=True, device=device
-        )
-    except Exception as error:
-        if setting == "qwen":
-            raise ReIndexError(f"Local embedding model is unavailable: {error}") from error
-        return None
     texts = _search_texts(package, raw_root)
     unique = {hashlib.sha256(text.encode()).hexdigest(): text for text in texts}
     if not unique:
@@ -44,6 +29,25 @@ def local_embeddings(package: Path, raw_root: Path) -> dict | None:
     cached = _load_cache(raw_root)
     missing = [key for key in unique if key not in cached]
     if missing:
+        try:
+            from sentence_transformers import SentenceTransformer
+        except ImportError as error:
+            if setting == "qwen":
+                raise ReIndexError(
+                    "Install reindex[embeddings] to generate missing local embeddings"
+                ) from error
+            return None
+        try:
+            device, batch_size = _embedding_options()
+            model = SentenceTransformer(
+                MODEL, trust_remote_code=True, local_files_only=True, device=device
+            )
+        except Exception as error:
+            if setting == "qwen":
+                raise ReIndexError(
+                    f"Local embedding model is unavailable: {error}"
+                ) from error
+            return None
         vectors = model.encode(
             [unique[key] for key in missing],
             normalize_embeddings=True,

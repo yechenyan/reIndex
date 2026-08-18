@@ -35,7 +35,14 @@ class PublicationManager(ChunkedBlobUploadMixin, PublicationSupportMixin):
         """Avoid loading the hosted embedding model while an import is in flight."""
         self._expire_sessions()
         with self._lock:
-            return any(session.result is None for session in self._sessions.values())
+            sessions = [
+                session for session in self._sessions.values() if session.result is None
+            ]
+        for session in sessions:
+            head = self.catalog.current_version(session.collection_id)
+            if session.base_version_id == (head.id if head else None):
+                return True
+        return False
 
     def start(self, request) -> dict:
         self._expire_sessions()
