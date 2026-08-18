@@ -28,6 +28,12 @@ class PublicationManager(ChunkedBlobUploadMixin, PublicationSupportMixin):
         self.session_ttl_seconds = 24 * 60 * 60
         self.gc_grace_seconds = 24 * 60 * 60
 
+    def has_active_upload(self) -> bool:
+        """Avoid loading the hosted embedding model while an import is in flight."""
+        self._expire_sessions()
+        with self._lock:
+            return any(session.result is None for session in self._sessions.values())
+
     def start(self, request) -> dict:
         self._expire_sessions()
         collection_id = str(request.collection_id)
